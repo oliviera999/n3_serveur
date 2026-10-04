@@ -13,7 +13,7 @@ namespace App\Config;
  */
 class TableConfig
 {
-    private const ENVIRONMENTS = ['prod', 'test', 'test3', 's3', 's3test', 'n3pp_test', 'msp_test'];
+    private const ENVIRONMENTS = ['prod', 'test', 'test3', 's3', 's3test', 'n3pp_test', 'msp_test', 'energie_test'];
 
     /** Environnement issu du .env (valeur par défaut, non mutée par les routes). */
     private static ?string $defaultEnvironment = null;
@@ -22,13 +22,13 @@ class TableConfig
     private static ?string $requestEnvironment = null;
 
     /**
-     * Détermine si on est en environnement de test (test, test3 ou s3test)
+     * Détermine si on est en environnement de test (test, test3, s3test, n3pp_test, msp_test, energie_test)
      * s3 est du prod, donc isTest() retourne false pour s3
      */
     public static function isTest(): bool
     {
         $env = self::getEnvironment();
-        return in_array($env, ['test', 'test3', 's3test', 'n3pp_test', 'msp_test'], true);
+        return in_array($env, ['test', 'test3', 's3test', 'n3pp_test', 'msp_test', 'energie_test'], true);
     }
 
     /**
@@ -174,6 +174,17 @@ class TableConfig
     public static function getN3ppHeartbeatTable(): string
     {
         return self::getEnvironment() === 'n3pp_test' ? 'n3ppHeartbeatTest' : 'n3ppHeartbeat';
+    }
+
+    // ── Tables ENERGIE (banc INA226 : panneau / batterie / conso) ─────
+    // Famille « mesure seule » : pas de table outputs ni heartbeat.
+
+    /**
+     * @return string 'energieDataTest' en energie_test, 'energieData' sinon
+     */
+    public static function getEnergieDataTable(): string
+    {
+        return self::getEnvironment() === 'energie_test' ? 'energieDataTest' : 'energieData';
     }
 
     /**

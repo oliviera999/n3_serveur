@@ -52,6 +52,9 @@ Le projet supervise **3 familles d'appareils**, chacune avec ses tables :
 - **N3PP** (serre / élevage) : `n3ppData`, `n3ppOutputs`, `n3ppHeartbeat`
 - **MSP1** (station météo) : `msp1Data`, `msp1Outputs`, `msp1Heartbeat`
 
+S'y ajoute **ENERGIE (banc INA226)** : `energieData` / `energieDataTest` — famille « mesure seule »
+(pas d'outputs ni de heartbeat), env `energie_test`, routes `/energie[-test]/…` (`docs/API_ENERGIE.md`).
+
 > 🏷️ **Nomenclature `ffp3` vs `ffp5cs`** : la famille aquaponie s'appelle **`ffp3`** ici (tables,
 > routes `/post-data*`, dossier `Ffp3/`) ; **`ffp5cs`** est le nom du *firmware* qui l'alimente
 > (dépôt n3_firmwires), absent des identifiants de code serveur. Le firmware est identifié par la
@@ -61,7 +64,7 @@ Le projet supervise **3 familles d'appareils**, chacune avec ses tables :
 
 ### Environnements (`ENV`)
 La constante `TableConfig::ENVIRONMENTS` définit les valeurs valides :
-`prod`, `test`, `test3`, `s3`, `s3test`, `n3pp_test`, `msp_test`.
+`prod`, `test`, `test3`, `s3`, `s3test`, `n3pp_test`, `msp_test`, `energie_test`.
 
 Exemple pour FFP3 (suffixes de table selon l'environnement) :
 | ENV       | Table données   | Type      |
@@ -81,6 +84,7 @@ Exemple pour FFP3 (suffixes de table selon l'environnement) :
   - `TableConfig::getDataTable()` / `getOutputsTable()` / `getHeartbeatTable()`
   - N3PP : `getN3ppDataTable()` / `getN3ppOutputsTable()` / `getN3ppHeartbeatTable()`
   - MSP1 : `getMspDataTable()` / `getMspOutputsTable()` / `getMspHeartbeatTable()`
+  - ENERGIE : `getEnergieDataTable()` (`energieData` / `energieDataTest` en `energie_test`)
 - La bascule d'environnement **par requête** se fait via le middleware dédié
   (`TableConfig::setEnvironment()` / `resetRequestEnvironment()`) — ne mute pas `$_ENV`.
 

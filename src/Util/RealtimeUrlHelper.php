@@ -58,15 +58,27 @@ final class RealtimeUrlHelper
     }
 
     /**
+     * Retourne le préfixe de base pour l'API realtime du banc énergie (INA226) selon l'environnement.
+     */
+    public static function getEnergieRealtimeApiBase(string $environment): string
+    {
+        return match ($environment) {
+            'energie_test' => '/energie-test/api/realtime',
+            default => '/energie/api/realtime',
+        };
+    }
+
+    /**
      * Retourne le préfixe de base pour l'API realtime d'un module donné.
      *
-     * @param string $module 'ffp3', 'msp1' ou 'n3pp'
+     * @param string $module 'ffp3', 'msp1', 'n3pp' ou 'energie'
      */
     public static function getModuleRealtimeApiBase(string $module, string $environment): string
     {
         return match ($module) {
             'msp1' => self::getMspRealtimeApiBase($environment),
             'n3pp' => self::getN3ppRealtimeApiBase($environment),
+            'energie' => self::getEnergieRealtimeApiBase($environment),
             default => self::getRealtimeApiBase($environment),
         };
     }

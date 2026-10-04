@@ -338,6 +338,27 @@
     </div>
 
     <div class="section-header" data-aos="fade-up">
+        <i class="fas fa-solar-panel"></i>
+        <h2>Énergie (banc INA226)</h2>
+    </div>
+    <div class="links-grid" data-aos="fade-up">
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/energie" class="link-card"><i class="fas fa-chart-line"></i><span class="label">Données</span><div class="hint">Panneau / batterie / conso (prod)</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="energie" data-page-label="Énergie" data-page-url="{{ base_path|default('') }}/energie">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+        <div class="link-card-wrap">
+            <a href="{{ base_path|default('') }}/energie-test" class="link-card"><i class="fas fa-vial"></i><span class="label">Données (test)</span><div class="hint">Banc de test (energie_test)</div></a>
+            <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
+                <input type="checkbox" class="page-nav-cb" data-page-key="energie-test" data-page-label="Énergie (banc)" data-page-url="{{ base_path|default('') }}/energie-test">
+                <span class="page-nav-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="section-header" data-aos="fade-up">
         <i class="fas fa-images"></i>
         <h2>Galeries photo (ESP32-CAM)</h2>
     </div>

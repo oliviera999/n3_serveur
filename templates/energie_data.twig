@@ -1,0 +1,212 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block meta_description %}Banc de mesure énergie : production d'un panneau solaire, charge et décharge d'une batterie 12 V et consommation des périphériques, mesurées en continu par trois capteurs INA226.{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="{{ base_path }}/assets/js/moment.min.js"></script>
+    <script src="{{ base_path }}/assets/js/moment-timezone-with-data.min.js"></script>
+    <script src="{{ base_path }}/assets/js/highstock.js"></script>
+    <script src="{{ base_path }}/assets/js/exporting.js"></script>
+    <script src="{{ base_path }}/assets/js/export-data.js"></script>
+    <script src="{{ base_path }}/assets/js/accessibility.js"></script>
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-bootstrap.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include 'partials/_hero_data.twig' with {
+        hero_title: data_config.hero_title,
+        hero_icon: data_config.hero_icon,
+        hero_subtitle: data_config.hero_subtitle,
+        hero_more_url: data_config.hero_more_url|default(''),
+        hero_more_label: data_config.hero_more_label|default(''),
+        hero_synthesis: '📊 Synthèse du ' ~ start_date|localdt('d/m/Y H:i') ~ ' au ' ~ end_date|localdt('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+    } %}
+
+    {# Sections : une par graphique (charts_config) + « Système » (cartes seules).
+       Chaque carte est rattachée à sa section par la clé `section` de sensors_config
+       (cf. EnergieDataController::getSensorsConfig()). #}
+    {% set sections = charts_config|merge([{ id: 'systeme', title: 'Système', icon: 'fa-microchip', no_chart: true }]) %}
+    <article class="post featured">
+        {% if not latest and measure_count == 0 %}
+            <div class="no-data"><i class="fas fa-database no-data-icon"></i><br>Aucune donnée enregistrée.</div>
+        {% else %}
+            {% for section in sections %}
+            <div class="section-header alt-section-title-full" data-aos="fade-up">
+                <i class="fas {{ section.icon }}"></i>
+                <h3>{{ section.title }}</h3>
+            </div>
+            <div{% if section.no_chart is not defined %} class="alt-data-chart-row"{% endif %} data-aos="fade-up">
+                <div class="alt-stats-column">
+                    <div class="stats-grid">
+                        {% if latest %}
+                        {% for s in sensors_config|filter(s => s.section == section.id) -%}
+                            {%- set d = s.decimals|default(0) -%}
+                            {%- set v = latest[s.key] ?? null -%}
+                            {%- set lc = s.key[:1]|lower ~ s.key[1:] -%}
+                            {%- set avg = attribute(_context, 'avg_' ~ lc)|default(null) -%}
+                            {%- set min = attribute(_context, 'min_' ~ lc)|default(null) -%}
+                            {%- set max = attribute(_context, 'max_' ~ lc)|default(null) -%}
+                            {%- set suffix = s.unit ? ' ' ~ s.unit : '' -%}
+                            <div class="stat-card" style="border-left-color:{{ s.color }}">
+                                <i class="fas {{ s.icon }} stat-card-icon" style="color:{{ s.color }}"></i>
+                                <div class="stat-card-label">{{ s.label }}</div>
+                                <div class="stat-card-value"><span data-sensor="{{ s.key }}" data-decimals="{{ d }}">{{ v is not null ? v|number_format(d, ',', ' ') : '—' }}</span>{% if s.unit %} <span class="stat-card-unit">{{ s.unit }}</span>{% endif %}</div>
+                                <div class="stat-card-secondary">Moy: {{ avg is not null ? avg|number_format(d, ',', ' ') ~ suffix : '-' }} | Min: {{ min is not null ? min|number_format(d, ',', ' ') ~ suffix : '-' }} | Max: {{ max is not null ? max|number_format(d, ',', ' ') ~ suffix : '-' }}</div>
+                                {% if s.hint is defined %}<div class="stat-card-secondary">{{ s.hint }}</div>{% endif %}
+                            </div>
+                        {%- endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% if section.no_chart is not defined %}
+                <div class="alt-chart-column">
+                    <div id="{{ section.id }}" class="n3-chart-main"></div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% if latest %}
+            {# InaStatus : bit i = INA présent, bit 4+i = saturation shunt, bit 8+i = ré-init (i : 0 panneau, 1 batterie, 2 conso) #}
+            {% set ina = latest.InaStatus ?? null %}
+            <p class="data-sensor-caption">
+                Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}
+                {% if ina is not null %}
+                    {% set ina = ina + 0 %}
+                    | INA226 :
+                    {% for ch in [{ bit: 0, name: 'panneau' }, { bit: 1, name: 'batterie' }, { bit: 2, name: 'conso' }] %}
+                        {{ ch.name }} {{ (ina b-and (2 ** ch.bit)) ? 'OK' : 'absent' }}{% if ina b-and (2 ** (ch.bit + 4)) %} (saturation){% endif %}{% if ina b-and (2 ** (ch.bit + 8)) %} (ré-init){% endif %}{{ not loop.last ? ',' : '' }}
+                    {% endfor %}
+                {% endif %}
+                {% if latest.Uptime is defined and latest.Uptime is not null %}| Uptime : {{ (latest.Uptime / 3600)|number_format(1, ',', ' ') }} h{% endif %}
+                {% if latest.BootCount is defined and latest.BootCount is not null %}| Démarrages : {{ latest.BootCount }}{% endif %}
+                {% if latest.FreeHeap is defined and latest.FreeHeap is not null %}| Heap libre : {{ latest.FreeHeap|number_format(0, ',', ' ') }} o{% endif %}
+            </p>
+            {% endif %}
+        {% endif %}
+
+        {% include 'partials/_filter_health_row.twig' with { form_id: 'energieFilterForm', health_uptime_label: data_config.uptime_label|default('Uptime (30j)') } %}
+    </article>
+{% endblock %}
+
+{% block footer %}
+{% include 'partials/_footer.twig' %}
+{% endblock %}
+
+{% block scripts %}
+    {% include 'partials/_live_badge.twig' %}
+    {% include 'partials/_set_period_js.twig' with { form_id: 'energieFilterForm' } %}
+    <script src="{{ base_path }}/assets/js/period-nav.js" defer></script>
+    {# JSON_HEX_TAG(1)|HEX_AMP(2)|HEX_APOS(4)|HEX_QUOT(8) = 15 — anti-XSS dans bloc <script> #}
+    <script>
+    var reading_time = {{ reading_time|json_encode(15)|raw }};
+    {% for col in chart_columns %}
+    var {{ col }} = {{ attribute(_context, col)|json_encode(15)|raw }};
+    {% endfor %}
+    </script>
+
+    {% if measure_count > 0 %}
+    <script>
+    (function() {
+        var bootstrap = window.n3StockChartBootstrap;
+        if (!bootstrap) {
+            console.warn('[energie] n3StockChartBootstrap indisponible');
+            return;
+        }
+        // Ligne du zéro : le courant/la puissance batterie sont signés (> 0 charge, < 0 décharge).
+        var zeroLine = [{ value: 0, width: 1, color: '#95a5a6', zIndex: 3 }];
+        // ⚠️ L'ordre des séries DOIT suivre sensor_map_json (EnergieDataController::getSensorMapJson()) :
+        // le ChartUpdaterGeneric ajoute les points live par index de série.
+        bootstrap.ensureContainersReady(
+            ['chart-puissances', 'chart-tensions', 'chart-courants', 'chart-batterie'],
+            function () {
+                var chartPuissances = bootstrap.createStockChart('chart-puissances', 'main', {
+                    yAxis: [
+                        { title: { text: 'Puissance (W)' }, opposite: false, plotLines: zeroLine }
+                    ],
+                    tooltip: { valueDecimals: 2, valueSuffix: ' W' },
+                    series: [
+                        { name: 'Panneau', data: zipSeries(reading_time, PanneauP), type: 'areaspline', color: '#f39c12', fillColor: n3AreaGradientFill(243, 156, 18, 0.22, 0.04), lineWidth: 2, yAxis: 0 },
+                        { name: 'Batterie', data: zipSeries(reading_time, BatterieP), type: 'spline', color: '#27ae60', lineWidth: 2, yAxis: 0 },
+                        { name: 'Conso', data: zipSeries(reading_time, ConsoP), type: 'spline', color: '#e74c3c', lineWidth: 2, yAxis: 0 }
+                    ]
+                });
+                var chartTensions = bootstrap.createStockChart('chart-tensions', 'main', {
+                    yAxis: [
+                        { title: { text: 'Tension (V)' }, opposite: false }
+                    ],
+                    tooltip: { valueDecimals: 2, valueSuffix: ' V' },
+                    series: [
+                        { name: 'Panneau', data: zipSeries(reading_time, PanneauV), type: 'spline', color: '#f39c12', lineWidth: 2, yAxis: 0 },
+                        { name: 'Batterie', data: zipSeries(reading_time, BatterieV), type: 'spline', color: '#27ae60', lineWidth: 2, yAxis: 0 },
+                        { name: 'Batterie min.', data: zipSeries(reading_time, BatterieVmin), type: 'spline', color: '#82e0aa', dashStyle: 'Dash', lineWidth: 1, yAxis: 0 },
+                        { name: 'Conso', data: zipSeries(reading_time, ConsoV), type: 'spline', color: '#e74c3c', lineWidth: 2, yAxis: 0 },
+                        { name: 'Batterie (ADC)', data: zipSeries(reading_time, BatterieVadc), type: 'spline', color: '#16a085', dashStyle: 'Dot', lineWidth: 1, yAxis: 0 }
+                    ]
+                });
+                var chartCourants = bootstrap.createStockChart('chart-courants', 'main', {
+                    yAxis: [
+                        { title: { text: 'Courant (A)' }, opposite: false, plotLines: zeroLine }
+                    ],
+                    tooltip: { valueDecimals: 3, valueSuffix: ' A' },
+                    series: [
+                        { name: 'Panneau', data: zipSeries(reading_time, PanneauI), type: 'spline', color: '#f39c12', lineWidth: 2, yAxis: 0 },
+                        { name: 'Panneau max.', data: zipSeries(reading_time, PanneauImax), type: 'spline', color: '#f8c471', dashStyle: 'Dash', lineWidth: 1, yAxis: 0 },
+                        { name: 'Batterie', data: zipSeries(reading_time, BatterieI), type: 'spline', color: '#27ae60', lineWidth: 2, yAxis: 0 },
+                        { name: 'Batterie min.', data: zipSeries(reading_time, BatterieImin), type: 'spline', color: '#82e0aa', dashStyle: 'Dash', lineWidth: 1, yAxis: 0 },
+                        { name: 'Batterie max.', data: zipSeries(reading_time, BatterieImax), type: 'spline', color: '#1e8449', dashStyle: 'Dash', lineWidth: 1, yAxis: 0 },
+                        { name: 'Conso', data: zipSeries(reading_time, ConsoI), type: 'spline', color: '#e74c3c', lineWidth: 2, yAxis: 0 },
+                        { name: 'Conso max.', data: zipSeries(reading_time, ConsoImax), type: 'spline', color: '#f1948a', dashStyle: 'Dash', lineWidth: 1, yAxis: 0 }
+                    ]
+                });
+                var chartBatterie = bootstrap.createStockChart('chart-batterie', 'main', {
+                    yAxis: [
+                        { title: { text: 'État de charge (%)' }, opposite: false, min: 0, max: 100 },
+                        { title: { text: 'Compteur (Ah)' }, opposite: true },
+                        { title: { text: 'Énergie / 10 s (Wh)' }, opposite: true, offset: 60, min: 0 }
+                    ],
+                    series: [
+                        { name: 'État de charge', data: zipSeries(reading_time, BatterieSoc), type: 'areaspline', color: '#16a085', fillColor: n3AreaGradientFill(22, 160, 133, 0.18, 0.03), lineWidth: 2, yAxis: 0, tooltip: { valueDecimals: 0, valueSuffix: ' %' }},
+                        { name: 'Compteur Ah', data: zipSeries(reading_time, BatterieAh), type: 'spline', color: '#8e44ad', lineWidth: 2, yAxis: 1, tooltip: { valueDecimals: 3, valueSuffix: ' Ah' }},
+                        { name: 'Énergie panneau', data: zipSeries(reading_time, EnergiePanneauWh), type: 'spline', color: '#f1c40f', lineWidth: 1, yAxis: 2, tooltip: { valueDecimals: 3, valueSuffix: ' Wh' }},
+                        { name: 'Énergie conso', data: zipSeries(reading_time, EnergieConsoWh), type: 'spline', color: '#c0392b', lineWidth: 1, yAxis: 2, tooltip: { valueDecimals: 3, valueSuffix: ' Wh' }}
+                    ]
+                });
+
+                bootstrap.bindResize([
+                    { chart: chartPuissances, type: 'main' },
+                    { chart: chartTensions, type: 'main' },
+                    { chart: chartCourants, type: 'main' },
+                    { chart: chartBatterie, type: 'main' }
+                ]);
+                bootstrap.bindAosReflow([chartPuissances, chartTensions, chartCourants, chartBatterie]);
+            }
+        );
+    })();
+    </script>
+    {% endif %}
+
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    {% if measure_count > 0 %}
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: chart_ids_json,
+        chart_debug: true,
+        sensor_map_json: sensor_map_json
+    } %}
+    {% endif %}
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base,
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
+{% endblock %}

@@ -24,6 +24,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | GPIO actionneurs N3PP (12 pompe, 13 arrosage) | `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` | **Recommandé** si prod utilise encore gpio=2 pour la pompe |
 | **Bundle audit juillet 2026** | `2026_07_PROD_01` (+ `01a` S3 si `ffp3Data4` existe) → `02` → `03` → **`03b`** → **`03c`** (+ `04` indexes) | **Recommandé** post-backup |
 | **Supervision & notifs (juin–juil. 2026)** — pas de bundle agrégé, exécuter les scripts individuels : `2026_07_nav_pages.sql`, `2026_07_nav_pages_gallery_users.sql`, `2026_07_server_settings.sql`, `2026_07_night_sleep_and_alert_gpio.sql`, `2026_07_veille_infinie_gpio.sql`, `2026_06_notification_policy_gpio.sql`, `2026_07_notification_log.sql`, `2026_07_notification_digest.sql` | **Recommandé** après le bundle PROD_01–04 (v6.9 → v6.22) |
+| Banc énergie INA226 (`energieData` / `energieDataTest` + lien menu `energie`) | `2026_10_energie_tables.sql` | Avant de brancher le firmware `energie` (serveur 6.40.0) |
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 
@@ -80,6 +81,7 @@ Les init scripts `docker/mysql/init/` incluent désormais :
 - `88-gallery-sync.sql` — `gallerySyncSessions`
 - `95-ffp3-ota-trigger.sql` — `ffp3OtaTrigger`
 - `90-poissonglouton.sql` — `pglBoards`, `pglEvents`
+- `92-energie.sql` — `energieData`, `energieDataTest` (banc INA226)
 - `00-schema.sql` — schéma `ffp3Data*` avec `tide*`, config et `post_id`
 
 Après modification des init scripts : `local-docker.ps1 -Action down -v` puis `up` (reset volume).
@@ -147,6 +149,7 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 | `99_validate_prod.sql` | Contrôles post-migration |
 | `CREATE_LEGACY_HEARTBEAT_TABLES.sql` | msp1Heartbeat, n3ppHeartbeat |
 | `CREATE_PGL_TABLES.sql` | Poissonglouton |
+| `2026_10_energie_tables.sql` | Banc énergie INA226 : `energieData`, `energieDataTest` + entrée `navPages` `energie` |
 | `CREATE_FFP3_OTA_TRIGGER_TABLE.sql` | Bouton « Vérifier OTA » |
 | `CREATE_ERROR_ALERTS_TABLE.sql` | Alertes (auto-créée aussi par le code) |
 | `2026_07_notification_log.sql` | Anti-spam notifications / cooldown (auto-créée aussi par `AlertThrottler`) |
@@ -161,6 +164,7 @@ SHOW INDEXES FROM ffp3Outputs WHERE Key_name = 'unique_gpio';
 
 ## Changelog migrations
 
+- **2026-10-03** : `2026_10_energie_tables.sql` — famille « énergie » (banc INA226, mesure seule : pas d'outputs ni de heartbeat) ; serveur **6.40.0** ; init Docker `92-energie.sql`
 - **2026-07-09** : supervision & notifs (v6.9–v6.22) — scripts individuels `2026_07_nav_pages.sql`, `2026_07_nav_pages_gallery_users.sql`, `2026_07_server_settings.sql`, `2026_07_night_sleep_and_alert_gpio.sql`, `2026_07_veille_infinie_gpio.sql`, `2026_06_notification_policy_gpio.sql`, `2026_07_notification_log.sql`, `2026_07_notification_digest.sql` (aucun bundle `APPLY_PROD_2026_07_SUPERVISION.sql` n'a été créé ; sans doublon avec PROD_01–04)
 - **2026-07-05** : bundle `2026_07_PROD_01/02/03/04` — migration S3, GPIO, élagage qualitatif ; serveur **6.8.0** ; firmwares n3pp 4.50 / msp 2.49
 - **2026-07-05** : `FIX_N3PP_GPIO_ACTUATORS_2026_07.sql` — migration GPIO 12/13 N3PP (pompe, arrosage manuel), seed Docker `10-seed.sql` aligné

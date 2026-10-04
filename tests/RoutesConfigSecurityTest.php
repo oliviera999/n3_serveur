@@ -123,6 +123,21 @@ class RoutesConfigSecurityTest extends TestCase
         $this->assertTrue($this->isPublic('/msp1/api/realtime/sensors/latest'));
     }
 
+    public function testEnergieRoutesArePublicAndNotProtected(): void
+    {
+        foreach ([
+            '/energie',
+            '/energie-test',
+            '/energie/post-data',
+            '/energie-test/post-data',
+            '/energie/api/realtime/sensors/latest',
+            '/energie-test/api/realtime/system/health',
+        ] as $path) {
+            $this->assertTrue($this->isPublic($path), "{$path} doit etre public");
+            $this->assertFalse($this->requiresAuth($path), "{$path} ne doit pas exiger d'auth");
+        }
+    }
+
     public function testGalleryPagesArePublic(): void
     {
         $this->assertTrue($this->isPublic('/gallery'));

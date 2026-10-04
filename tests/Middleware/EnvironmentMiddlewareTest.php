@@ -26,12 +26,15 @@ class EnvironmentMiddlewareTest extends TestCase
 
         $middleware = new EnvironmentMiddleware('s3');
         $this->assertInstanceOf(EnvironmentMiddleware::class, $middleware);
+
+        $middleware = new EnvironmentMiddleware('energie_test');
+        $this->assertInstanceOf(EnvironmentMiddleware::class, $middleware);
     }
 
     public function testConstructorWithInvalidEnvironment(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Environment must be one of: prod, test, test3, s3, s3test, n3pp_test, msp_test, got: invalid');
+        $this->expectExceptionMessage('Environment must be one of: prod, test, test3, s3, s3test, n3pp_test, msp_test, energie_test, got: invalid');
 
         new EnvironmentMiddleware('invalid');
     }
