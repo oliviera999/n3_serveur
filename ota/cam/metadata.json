@@ -7,11 +7,11 @@
     "signature": "MIGHAkEBnOfxrj/xwVGr2nCEiO0GqPL3qCCWQQKPpb9JvcocGW0X23TWHuXQQ9QcyTkOSTB3BV4wQLWFVRkvMpSf6X2+EAJCARORh+fz/4gIRvg0Jq04MRqO6IwXd8QTub6DUaUWMa9rRHEKsjanixpu5dsFwl/HS8s1NZJe9e9hI6qiU8ANY4Gm"
   },
   "n3pp": {
-    "version": "2.77",
-    "min_version": "2.77",
+    "version": "2.79",
+    "min_version": "2.79",
     "url": "http://iot.olution.info/ota/cam/n3pp/firmware.bin",
-    "sha256": "56825a45491f0e01217d7b47601c08db1b77c414f938b37b930a74d7f48096d7",
-    "signature": "MIGHAkIBZjDs+XNd09eosZHYZmga8sLRtbXvY0B19Quf7GBOBCZ0gd5eILwwVM+utqDpnc6NCeHyz8G4f+NcrIW0vVH5CpYCQVdJbb8SVTZXcGTuhqne8eAykuoQBupylJQhYWQjeIciVl7iGRtyTee/4fkzB91eRKUOTxLunmVopTYToMsZbUhR"
+    "sha256": "5d07d697ef017bf3ad01fd8e38b41eae0b61b2ceccb0ac3dfd48fdffd60a3190",
+    "signature": "MIGIAkIB7xsQsZOglpgxfT5UlmHy4QchZV8ifwiUfYcHCDyBfK0RaSExKspQS9LZR/udH2ZiORriUxGlvX51WijIiNsopKECQgCluLbGtq4bjEwhuPxMRWFTdwotGfZiO8f3FL4bWR4ZstDHLP0PJ09sh8mG16xwNkzKQLCw2Wy+61gBmqVCiNosIg=="
   },
   "ffp3": {
     "version": "2.64",
