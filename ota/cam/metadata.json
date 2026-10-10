@@ -1,10 +1,10 @@
 {
   "msp1": {
-    "version": "2.78",
-    "min_version": "2.78",
+    "version": "2.79",
+    "min_version": "2.79",
     "url": "http://iot.olution.info/ota/cam/msp1/firmware.bin",
-    "sha256": "d99ff4339b0cdcd043c87b5da76cf6b001dbf19cb419dd73aa5d947836ee263d",
-    "signature": "MIGHAkIBLhQYfCa7bem9eULcC655JUE0vPKJYcyt8CZCq2GLNe3nsiSweyy6WrX9e3lJqYdB9zolO9KQU28lGnIQ/MyCR/0CQXSX4ciHmg2X+00lLo3bEEsN4cSHtsN9HdH8tdBJQJgjojPzuOnLmxTlb9Jcgx6p8FSz8e0V2qfvEeWAVabLhuoU"
+    "sha256": "bee82dbf850c271166d6199cacc9a3f7454086e960e5d91ea96afa2c42a92d61",
+    "signature": "MIGHAkEBnOfxrj/xwVGr2nCEiO0GqPL3qCCWQQKPpb9JvcocGW0X23TWHuXQQ9QcyTkOSTB3BV4wQLWFVRkvMpSf6X2+EAJCARORh+fz/4gIRvg0Jq04MRqO6IwXd8QTub6DUaUWMa9rRHEKsjanixpu5dsFwl/HS8s1NZJe9e9hI6qiU8ANY4Gm"
   },
   "n3pp": {
     "version": "2.77",
