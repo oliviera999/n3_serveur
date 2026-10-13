@@ -1,0 +1,23 @@
+{
+  "msp1": {
+    "version": "2.80",
+    "min_version": "2.80",
+    "url": "http://iot.olution.info/ota/cam/msp1/firmware.bin",
+    "sha256": "7815e61e46ef74040d18123f09636aea791eab617bb690d2215ebfb22ff05733",
+    "signature": "MIGHAkIA7XybUxhhih4OBTYYNICt2bL6Wiaa7f/b5Z1IVx8PFciuIUjKzlmWu9Jqk+qVMRFXDdGKv+Qj26Ev/Dq8nsehU4YCQQoaMjiL1RAuWUbK4eZRxSOKd0uM/9tNbVTwhn83ykINQtOr6SL31MA6CtAeHCnbwvMQl7tmqeYMtC+b1CwVeuo0"
+  },
+  "n3pp": {
+    "version": "2.79",
+    "min_version": "2.79",
+    "url": "http://iot.olution.info/ota/cam/n3pp/firmware.bin",
+    "sha256": "5d07d697ef017bf3ad01fd8e38b41eae0b61b2ceccb0ac3dfd48fdffd60a3190",
+    "signature": "MIGIAkIB7xsQsZOglpgxfT5UlmHy4QchZV8ifwiUfYcHCDyBfK0RaSExKspQS9LZR/udH2ZiORriUxGlvX51WijIiNsopKECQgCluLbGtq4bjEwhuPxMRWFTdwotGfZiO8f3FL4bWR4ZstDHLP0PJ09sh8mG16xwNkzKQLCw2Wy+61gBmqVCiNosIg=="
+  },
+  "ffp3": {
+    "version": "2.64",
+    "min_version": "2.64",
+    "url": "http://iot.olution.info/ota/cam/ffp3/firmware.bin",
+    "sha256": "724e317e23b291f38a4a10b41474f648ab14a6aa610e980833503d61d3f36839",
+    "signature": "MIGHAkIBz0rQmUncz6ga5AwKKJ0T1dvc4pOIEZlVUE562JG4/PUiA7BSW034Z58ck0DcJ19pKntWzQxiCXhJCxrNY6Hge7UCQRUFWogT4e1YFt3OXKejJKXuzGDbcnQScW3mkd9dsTSsZS8PD4W8epI/vNWNu8GI6fPqjHXrtACUZALctQRg4J9G"
+  }
+}
