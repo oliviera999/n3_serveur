@@ -1,0 +1,25 @@
+{#
+    Sélecteur de preset d'affichage d'une page de suivi (Simple, Étendu…).
+    Liens ?preset= fonctionnels sans JavaScript ; preset-selector.js mémorise le
+    choix (localStorage n3.preset.<page>) et conserve les autres paramètres d'URL.
+#}
+{% if presets_menu is defined and presets_menu|length > 1 %}
+<nav class="preset-selector" aria-label="Choix de l'affichage"
+     data-page-key="{{ page_key }}"
+     data-active-preset="{{ preset.slug }}"
+     data-default-preset="{{ default_preset_slug }}"
+     data-requested-preset="{{ requested_preset|default('') }}"
+     data-request-method="{{ request_method|default('GET') }}">
+    <span class="preset-selector-label"><i class="fas fa-eye"></i> Affichage :</span>
+    <div class="preset-selector-pills" role="list">
+        {% for p in presets_menu %}
+            <a href="?preset={{ p.slug|url_encode }}"
+               role="listitem"
+               class="preset-pill{{ p.active ? ' is-active' : '' }}"
+               data-preset="{{ p.slug }}"
+               {% if p.description %}title="{{ p.description }}"{% endif %}
+               {% if p.active %}aria-current="page"{% endif %}>{{ p.label }}</a>
+        {% endfor %}
+    </div>
+</nav>
+{% endif %}

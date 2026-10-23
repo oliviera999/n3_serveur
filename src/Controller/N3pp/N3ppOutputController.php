@@ -13,6 +13,7 @@ use App\Repository\N3ppOutputRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
+use App\Service\DisplayPresetService;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
 use App\Service\NotificationService;
@@ -34,8 +35,14 @@ class N3ppOutputController extends AbstractOutputController
         private NotificationPolicySaveService $notificationSaveService,
         private NotificationService $notificationService,
         ?OperationalSettingsService $operationalSettings = null,
+        ?DisplayPresetService $displayPresets = null,
     ) {
-        parent::__construct($logger, $renderer, $authService, null, $operationalSettings);
+        parent::__construct($logger, $renderer, $authService, null, $operationalSettings, $displayPresets);
+    }
+
+    protected function displayPresetsPageKey(): ?string
+    {
+        return 'n3pp';
     }
 
     protected function defaultBoard(): int
@@ -75,7 +82,7 @@ class N3ppOutputController extends AbstractOutputController
 
         $actuatorOutputs = $this->filterActuatorOutputs($allOutputs);
 
-        return array_merge([
+        return $this->withDisplayPresetsEditor(array_merge([
             'page_title' => 'Contrôle serre / élevage - n3 iot',
             'outputs' => $actuatorOutputs,
             'params' => $params,
@@ -99,7 +106,7 @@ class N3ppOutputController extends AbstractOutputController
                 '/n3pp/api/outputs',
                 'Ces commandes agissent sur du matériel réel (pompe d\'arrosage, relais). Vérifiez toujours sur place avant d\'activer une sortie.'
             ),
-        ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
+        ], $this->notificationPolicyTwigData($this->notificationPolicyRepo)), $env);
     }
 
     protected function notificationFamily(): NotificationFamily

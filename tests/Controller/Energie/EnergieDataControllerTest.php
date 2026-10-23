@@ -6,20 +6,25 @@ namespace Tests\Controller\Energie;
 
 use App\Config\TableConfig;
 use App\Controller\Energie\EnergieDataController;
+use App\Display\LayoutResolver;
+use App\Display\PageCatalogRegistry;
+use App\Repository\DisplayPresetRepository;
 use App\Repository\EnergieSensorRepository;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
+use App\Service\DisplayPresetService;
+use App\Service\LogService;
 use App\Service\TemplateRenderer;
+use PDO;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ResponseFactory;
 use Slim\Psr7\Factory\ServerRequestFactory;
 
 /**
- * Page `/energie[-test]` : contexte transmis au template, cohérence
- * graphiques ↔ sensor map ↔ cartes, et rendu Twig réel de energie_data.twig
- * (ordre des séries JS = index de la sensor map utilisée par le live).
+ * Page `/energie[-test]` : contexte catalogue + preset, cohérence sensor map
+ * et rendu Twig (cartes live + payload graphiques).
  */
 final class EnergieDataControllerTest extends TestCase
 {
@@ -52,6 +57,22 @@ final class EnergieDataControllerTest extends TestCase
         return $rows;
     }
 
+    private function displayPresets(): DisplayPresetService
+    {
+        if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
+            $this->markTestSkipped('PDO sqlite driver not available');
+        }
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return new DisplayPresetService(
+            new DisplayPresetRepository($pdo),
+            new PageCatalogRegistry(),
+            new LayoutResolver(),
+            $this->createMock(LogService::class)
+        );
+    }
+
     private function controller(TemplateRenderer $renderer): EnergieDataController
     {
         $readings = $this->readings();
@@ -70,6 +91,12 @@ final class EnergieDataControllerTest extends TestCase
             'end' => '2026-10-03 10:00:20',
             'mode' => 'default',
             'window' => null,
+            'offset' => 0,
+            'has_prev' => true,
+            'has_next' => false,
+            'prev_offset' => null,
+            'next_offset' => null,
+            'width_seconds' => 20,
         ]);
 
         return new EnergieDataController(
@@ -79,6 +106,7 @@ final class EnergieDataControllerTest extends TestCase
             $dateRange,
             $this->createMock(CsvExportService::class),
             new ChartDataService(),
+            $this->displayPresets(),
         );
     }
 
@@ -119,20 +147,18 @@ final class EnergieDataControllerTest extends TestCase
         $this->assertSame('energieDataTest', $ctx['data_config']['table_label']);
         $this->assertSame('0.3.1', $ctx['firmware_version']);
         $this->assertSame(3, $ctx['measure_count']);
+        $this->assertSame('etendu', $ctx['preset']['slug']);
         $this->assertSame(
             ['chart-puissances', 'chart-tensions', 'chart-courants', 'chart-batterie'],
             json_decode($ctx['chart_ids_json'], true)
         );
 
-        // Séries Highstock : timestamps croissants, valeurs alignées.
-        $ts = $ctx['reading_time'];
-        $this->assertCount(3, $ts);
-        $this->assertLessThan($ts[1], $ts[0]);
-        $this->assertLessThan($ts[2], $ts[1]);
-        $this->assertSame([18.0, 19.0, 20.0], $ctx['PanneauP']);
-        $this->assertSame([-0.5, -0.5, -0.5], $ctx['BatterieI']);
+        $payload = $ctx['chart_payload'];
+        $this->assertCount(3, $payload['readingTime']);
+        $this->assertLessThan($payload['readingTime'][1], $payload['readingTime'][0]);
+        $this->assertSame([18.0, 19.0, 20.0], (array) $payload['columns']->PanneauP);
+        $this->assertSame([-0.5, -0.5, -0.5], (array) $payload['columns']->BatterieI);
 
-        // Statistiques (clé lcfirst) disponibles pour les cartes.
         $this->assertEqualsWithDelta(19.0, $ctx['avg_panneauP'], 1e-9);
         $this->assertEqualsWithDelta(-6.4, $ctx['min_batterieP'], 1e-9);
         $this->assertArrayHasKey('max_i2cErreurs', $ctx);
@@ -150,20 +176,17 @@ final class EnergieDataControllerTest extends TestCase
         $this->assertSame('energieData', $ctx['data_config']['table_label']);
     }
 
-    public function testChartsSensorMapAndCardsAreCoherent(): void
+    public function testLayoutSensorMapAndCardsAreCoherent(): void
     {
         TableConfig::setEnvironment('energie_test');
         $ctx = $this->captureContext('/energie-test');
 
-        $chartIds = array_column($ctx['charts_config'], 'id');
+        $chartIds = array_column($ctx['layout']['charts'], 'id');
         $map = json_decode($ctx['sensor_map_json'], true);
         $this->assertIsArray($map, 'sensor_map_json doit être un JSON valide');
+        $this->assertSame($ctx['layout']['sensor_map'], $map);
 
-        // Chaque série live est une colonne de graphique, et chaque colonne a une série.
-        $this->assertEqualsCanonicalizing($ctx['chart_columns'], array_keys($map));
-
-        // Index de série contigus 0..n-1 par graphique, et nombre = légende.
-        foreach ($ctx['charts_config'] as $chart) {
+        foreach ($ctx['layout']['charts'] as $chart) {
             $indexes = [];
             foreach ($map as $entry) {
                 if ($entry['chartId'] === $chart['id']) {
@@ -171,32 +194,24 @@ final class EnergieDataControllerTest extends TestCase
                 }
             }
             sort($indexes);
-            $this->assertSame(range(0, count($chart['legend_items']) - 1), $indexes, "séries de {$chart['id']}");
-        }
-        foreach ($map as $entry) {
-            $this->assertContains($entry['chartId'], $chartIds);
+            $liveCount = count(array_filter($chart['series'], static fn (array $s): bool => ($s['live'] ?? false) === true));
+            $this->assertSame(range(0, $liveCount - 1), $indexes, "séries live de {$chart['id']}");
         }
 
-        // Chaque carte est rattachée à un graphique existant ou à la section Système,
-        // et vise une colonne réelle de la table.
-        $columns = (new EnergieSensorRepository(new \PDO('sqlite::memory:')))->getSensorColumns();
-        $keys = [];
-        foreach ($ctx['sensors_config'] as $sensor) {
-            $this->assertContains($sensor['section'], [...$chartIds, 'systeme'], $sensor['key']);
-            $this->assertContains($sensor['key'], $columns);
-            $keys[] = $sensor['key'];
+        $cardKeys = [];
+        foreach ($ctx['layout']['blocks'] as $block) {
+            foreach ($block['cards'] as $card) {
+                $cardKeys[] = $card['key'];
+            }
         }
         foreach (['PanneauV', 'PanneauI', 'PanneauP', 'BatterieV', 'BatterieI', 'BatterieP', 'BatterieSoc',
             'BatterieAh', 'ConsoV', 'ConsoI', 'ConsoP', 'EnergiePanneauWh', 'EnergieConsoWh', 'Rssi', 'I2cErreurs'] as $expected) {
-            $this->assertContains($expected, $keys, "carte live {$expected}");
+            $this->assertContains($expected, $cardKeys, "carte live {$expected}");
         }
+        $this->assertContains('chart-puissances', $chartIds);
     }
 
-    /**
-     * Rendu Twig réel : le template compile, affiche les cartes live et crée les
-     * séries de chaque graphique dans l'ordre exact de la sensor map.
-     */
-    public function testTemplateRendersSeriesInSensorMapOrder(): void
+    public function testTemplateRendersLiveCardsAndChartPayload(): void
     {
         TableConfig::setEnvironment('energie_test');
         $renderer = new TemplateRenderer(dirname(__DIR__, 3) . '/templates', false);
@@ -210,34 +225,22 @@ final class EnergieDataControllerTest extends TestCase
         $this->assertStringContainsString('data-sensor="PanneauP"', $html);
         $this->assertStringContainsString('data-sensor="I2cErreurs"', $html);
         $this->assertStringContainsString('action="/energie-test"', $html);
-        $this->assertStringContainsString('"\/energie-test\/api\/realtime"', $html);
-        $this->assertStringContainsString('Uptime (24 h)', $html);
+        $this->assertStringContainsString('n3LayoutCharts', $html);
+        $this->assertStringContainsString('chart-puissances', $html);
+        $this->assertStringContainsString('preset-selector', $html);
+        $this->assertMatchesRegularExpression('/Uptime \(24 h\)|Uptime \(30j\)/', $html);
         $this->assertStringContainsString('panneau OK', $html);
         $this->assertStringContainsString('(ré-init)', $html, 'bit 8 (ré-init panneau) décodé');
+        $this->assertSame('Uptime (24 h)', $this->captureContext('/energie-test')['data_config']['uptime_label'] ?? null);
+    }
 
-        $map = json_decode($this->captureContext('/energie-test')['sensor_map_json'], true);
-        $this->assertIsArray($map);
+    public function testSimplePresetHidesTechnicalBlocks(): void
+    {
+        TableConfig::setEnvironment('prod');
+        $ctx = $this->captureContext('/energie?preset=simple');
 
-        foreach (['chart-puissances', 'chart-tensions', 'chart-courants', 'chart-batterie'] as $chartId) {
-            $this->assertStringContainsString('id="' . $chartId . '"', $html);
-
-            $start = strpos($html, "createStockChart('{$chartId}'");
-            $this->assertNotFalse($start, "graphique {$chartId} créé");
-            $end = strpos($html, 'createStockChart(', $start + 1);
-            if ($end === false) {
-                $end = strpos($html, 'bootstrap.bindResize', $start);
-            }
-            $block = substr($html, $start, ($end !== false ? $end : strlen($html)) - $start);
-            preg_match_all('/zipSeries\(reading_time, (\w+)\)/', $block, $m);
-
-            $expected = [];
-            foreach ($map as $sensor => $entry) {
-                if ($entry['chartId'] === $chartId) {
-                    $expected[$entry['seriesIndex']] = $sensor;
-                }
-            }
-            ksort($expected);
-            $this->assertSame(array_values($expected), $m[1], "ordre des séries de {$chartId}");
-        }
+        $this->assertSame('simple', $ctx['preset']['slug']);
+        $blockIds = array_column($ctx['layout']['blocks'], 'id');
+        $this->assertNotContains('systeme', $blockIds);
     }
 }

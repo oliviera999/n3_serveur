@@ -13,6 +13,7 @@ use App\Repository\MspOutputRepository;
 use App\Repository\MspSensorRepository;
 use App\Repository\NotificationPolicyRepository;
 use App\Security\AuthService;
+use App\Service\DisplayPresetService;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
 use App\Service\NotificationService;
@@ -31,8 +32,14 @@ class MspOutputController extends AbstractOutputController
         private NotificationPolicySaveService $notificationSaveService,
         private NotificationService $notificationService,
         ?OperationalSettingsService $operationalSettings = null,
+        ?DisplayPresetService $displayPresets = null,
     ) {
-        parent::__construct($logger, $renderer, $authService, null, $operationalSettings);
+        parent::__construct($logger, $renderer, $authService, null, $operationalSettings, $displayPresets);
+    }
+
+    protected function displayPresetsPageKey(): ?string
+    {
+        return 'msp1';
     }
 
     protected function defaultBoard(): int
@@ -70,7 +77,7 @@ class MspOutputController extends AbstractOutputController
 
         $actuatorCount = count($this->filterActuatorOutputs($outputs));
 
-        return array_merge([
+        return $this->withDisplayPresetsEditor(array_merge([
             'page_title' => 'Contrôle station météo - Le potager',
             'outputs' => $outputs,
             'params' => $params,
@@ -94,7 +101,7 @@ class MspOutputController extends AbstractOutputController
                 '/msp1/api/outputs',
                 'Ces commandes agissent sur du matériel réel (servos, tracker solaire). Vérifiez toujours sur place avant de modifier les angles.'
             ),
-        ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
+        ], $this->notificationPolicyTwigData($this->notificationPolicyRepo)), $env);
     }
 
     protected function notificationFamily(): NotificationFamily

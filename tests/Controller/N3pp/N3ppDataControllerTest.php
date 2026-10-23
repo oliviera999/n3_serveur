@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace Tests\Controller\N3pp;
 
 use App\Controller\N3pp\N3ppDataController;
+use App\Display\LayoutResolver;
+use App\Display\PageCatalogRegistry;
+use App\Repository\DisplayPresetRepository;
 use App\Repository\N3ppSensorRepository;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
+use App\Service\DisplayPresetService;
+use App\Service\LogService;
 use App\Service\TemplateRenderer;
+use PDO;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ResponseFactory;
 use Slim\Psr7\Factory\ServerRequestFactory;
@@ -23,17 +29,16 @@ use Slim\Psr7\Factory\ServerRequestFactory;
  * ascending X order ») et n'affiche pas correctement les courbes.
  *
  * Le repository renvoie les lectures en ASC (cf. AbstractSensorRepository::fetchBetween)
- * et le contrôleur doit préserver cet ordre jusqu'au template.
+ * et le contrôleur doit préserver cet ordre jusqu'au payload graphiques.
  */
 final class N3ppDataControllerTest extends TestCase
 {
-    /**
-     * Capture le contexte passé au template et vérifie que `reading_time` est
-     * croissant, reproduisant le flux complet du contrôleur de données N3PP.
-     */
     public function testReadingTimeSeriesIsAscendingForHighstock(): void
     {
-        // Lectures en ordre chronologique (ASC), comme fetchBetween() les renvoie.
+        if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
+            $this->markTestSkipped('PDO sqlite driver not available');
+        }
+
         $readings = [
             ['reading_time' => '2025-10-10 08:00:00', 'TempAir' => 18.0, 'Humidite' => 60, 'Luminosite' => 100,
                 'Humid1' => 10, 'Humid2' => 11, 'Humid3' => 12, 'Humid4' => 13, 'HumidMoy' => 11,
@@ -60,6 +65,12 @@ final class N3ppDataControllerTest extends TestCase
             'end' => '2025-10-10 10:00:00',
             'mode' => 'default',
             'window' => null,
+            'offset' => 0,
+            'has_prev' => true,
+            'has_next' => false,
+            'prev_offset' => null,
+            'next_offset' => null,
+            'width_seconds' => 7200,
         ]);
 
         $capturedContext = null;
@@ -71,6 +82,15 @@ final class N3ppDataControllerTest extends TestCase
             }
         );
 
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $displayPresets = new DisplayPresetService(
+            new DisplayPresetRepository($pdo),
+            new PageCatalogRegistry(),
+            new LayoutResolver(),
+            $this->createMock(LogService::class)
+        );
+
         $controller = new N3ppDataController(
             $renderer,
             $sensorRepo,
@@ -78,6 +98,7 @@ final class N3ppDataControllerTest extends TestCase
             $dateRange,
             $this->createMock(CsvExportService::class),
             new ChartDataService(),
+            $displayPresets,
         );
 
         $request = (new ServerRequestFactory())->createServerRequest('GET', '/serre');
@@ -86,12 +107,11 @@ final class N3ppDataControllerTest extends TestCase
         $controller->show($request, $response);
 
         $this->assertIsArray($capturedContext);
-        $this->assertArrayHasKey('reading_time', $capturedContext);
+        $this->assertArrayHasKey('chart_payload', $capturedContext);
 
-        $timestamps = $capturedContext['reading_time'];
+        $timestamps = $capturedContext['chart_payload']['readingTime'];
         $this->assertCount(3, $timestamps);
 
-        // Cœur du garde-fou : ordre temporel strictement croissant (anti Highcharts #15).
         for ($i = 1, $n = count($timestamps); $i < $n; $i++) {
             $this->assertGreaterThan(
                 $timestamps[$i - 1],
@@ -100,7 +120,7 @@ final class N3ppDataControllerTest extends TestCase
             );
         }
 
-        // Les valeurs restent alignées avec les timestamps (ordre ASC préservé).
-        $this->assertSame([18.0, 19.0, 20.0], $capturedContext['TempAir']);
+        $columns = (array) $capturedContext['chart_payload']['columns'];
+        $this->assertSame([18.0, 19.0, 20.0], $columns['TempAir']);
     }
 }

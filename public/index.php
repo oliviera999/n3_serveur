@@ -277,6 +277,17 @@ $app->post('/api/nav-pages/toggle', [\App\Controller\NavPageController::class, '
     ->add($applyAuth);
 
 // ====================================================================
+// Presets d'affichage des pages de suivi (MSP1 / N3PP / ENERGIE).
+// Lecture + écriture réservées aux opérateurs ; CSRF sur POST/DELETE.
+// ====================================================================
+$app->get('/api/display-presets/{page}', [\App\Controller\DisplayPresetController::class, 'list'])
+    ->add($applyAuth);
+$app->post('/api/display-presets/{page}', [\App\Controller\DisplayPresetController::class, 'save'])
+    ->add($applyAuth);
+$app->delete('/api/display-presets/{page}/{slug}', [\App\Controller\DisplayPresetController::class, 'delete'])
+    ->add($applyAuth);
+
+// ====================================================================
 // Routes FFP3 (aquaponie) — config/routes_ffp3.php
 // ====================================================================
 require __DIR__ . '/../config/routes_ffp3.php';

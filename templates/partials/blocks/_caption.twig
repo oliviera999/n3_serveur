@@ -1,0 +1,2 @@
+{# Légende capteur / firmware de la dernière mesure. #}
+{% if latest and latest.sensor is defined %}<p class="data-sensor-caption" data-block="{{ block.id }}">Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}</p>{% endif %}

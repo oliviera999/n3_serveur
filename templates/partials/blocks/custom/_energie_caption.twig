@@ -1,0 +1,18 @@
+{# Banc énergie : légende capteur, décodage InaStatus, uptime, démarrages, heap.
+   InaStatus : bit i = INA présent, bit 4+i = saturation shunt, bit 8+i = ré-init (i : 0 panneau, 1 batterie, 2 conso). #}
+{% if latest %}
+{% set ina = latest.InaStatus ?? null %}
+<p class="data-sensor-caption" data-block="{{ block.id }}">
+    Capteur : {{ latest.sensor|default('-') }} | Firmware : {{ latest.version|default('-') }}
+    {% if ina is not null %}
+        {% set ina = ina + 0 %}
+        | INA226 :
+        {% for ch in [{ bit: 0, name: 'panneau' }, { bit: 1, name: 'batterie' }, { bit: 2, name: 'conso' }] %}
+            {{ ch.name }} {{ (ina b-and (2 ** ch.bit)) ? 'OK' : 'absent' }}{% if ina b-and (2 ** (ch.bit + 4)) %} (saturation){% endif %}{% if ina b-and (2 ** (ch.bit + 8)) %} (ré-init){% endif %}{{ not loop.last ? ',' : '' }}
+        {% endfor %}
+    {% endif %}
+    {% if latest.Uptime is defined and latest.Uptime is not null %}| Uptime : {{ (latest.Uptime / 3600)|number_format(1, ',', ' ') }} h{% endif %}
+    {% if latest.BootCount is defined and latest.BootCount is not null %}| Démarrages : {{ latest.BootCount }}{% endif %}
+    {% if latest.FreeHeap is defined and latest.FreeHeap is not null %}| Heap libre : {{ latest.FreeHeap|number_format(0, ',', ' ') }} o{% endif %}
+</p>
+{% endif %}

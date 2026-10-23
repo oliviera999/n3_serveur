@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Config;
 
+use App\Config\Env;
 use App\Config\TableConfig;
 use DI\ContainerBuilder;
 use PDO;
@@ -21,9 +22,8 @@ use Tests\Support\EnergieSqliteSchema;
  */
 final class EnergieRoutesTest extends TestCase
 {
-    private const API_KEY = 'energie-routes-key';
-
     private PDO $pdo;
+    private string $apiKey = 'energie-routes-key';
     /** @var array<string, string|null> */
     private array $previousEnv = [];
 
@@ -34,10 +34,22 @@ final class EnergieRoutesTest extends TestCase
             $this->markTestSkipped('PDO sqlite driver not available');
         }
         foreach (['API_KEY', 'API_SIG_SECRET', 'HMAC_STRICT_MODE', 'FIRMWARE_RATE_LIMIT_MAX'] as $key) {
-            $this->previousEnv[$key] = isset($_ENV[$key]) ? (string) $_ENV[$key] : null;
-            unset($_ENV[$key]);
+            $this->previousEnv[$key] = isset($_ENV[$key]) ? (string) $_ENV[$key] : (getenv($key) !== false ? (string) getenv($key) : null);
         }
-        $_ENV['API_KEY'] = self::API_KEY;
+        // Aligner la clé POST sur celle que AbstractPostDataController verra dans $_ENV
+        // après Env::load() (Dotenv peut réécrire $_ENV sans synchroniser putenv).
+        $ref = new \ReflectionClass(Env::class);
+        $loaded = $ref->getProperty('loaded');
+        $loaded->setAccessible(true);
+        $loaded->setValue(null, false);
+        Env::load();
+        $existing = trim((string) ($_ENV['API_KEY'] ?? ''));
+        if ($existing !== '') {
+            $this->apiKey = $existing;
+        }
+        $_ENV['HMAC_STRICT_MODE'] = '0';
+        $_SERVER['HMAC_STRICT_MODE'] = '0';
+        putenv('HMAC_STRICT_MODE=0');
 
         $this->pdo = new PDO('sqlite::memory:');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -49,9 +61,12 @@ final class EnergieRoutesTest extends TestCase
         TableConfig::resetRequestEnvironment();
         foreach ($this->previousEnv as $key => $value) {
             if ($value === null) {
-                unset($_ENV[$key]);
+                unset($_ENV[$key], $_SERVER[$key]);
+                putenv($key);
             } else {
                 $_ENV[$key] = $value;
+                $_SERVER[$key] = $value;
+                putenv($key . '=' . $value);
             }
         }
         parent::tearDown();
@@ -81,6 +96,10 @@ final class EnergieRoutesTest extends TestCase
      */
     private function request(App $app, string $method, string $path, ?array $body = null): ResponseInterface
     {
+        // Remplace la clé « bonne » de test, laisse passer les clés volontairement fausses.
+        if ($body !== null && ($body['api_key'] ?? null) === 'energie-routes-key') {
+            $body['api_key'] = $this->apiKey;
+        }
         $request = (new ServerRequestFactory())->createServerRequest($method, $path);
         if ($body !== null) {
             $request = $request
@@ -109,7 +128,7 @@ final class EnergieRoutesTest extends TestCase
         $app = $this->app();
 
         $post = $this->request($app, 'POST', '/energie-test/post-data', [
-            'api_key' => self::API_KEY,
+            'api_key' => $this->apiKey,
             'sensor' => 'energie',
             'version' => '0.3.1',
             'PanneauP' => '21.5',
@@ -153,7 +172,7 @@ final class EnergieRoutesTest extends TestCase
         $this->assertSame(401, $bad->getStatusCode());
 
         $ok = $this->request($app, 'POST', '/energie/post-data', [
-            'api_key' => self::API_KEY, 'sensor' => 'energie', 'version' => '0.3.1', 'ConsoP' => '4.2',
+            'api_key' => $this->apiKey, 'sensor' => 'energie', 'version' => '0.3.1', 'ConsoP' => '4.2',
         ]);
         $this->assertSame(200, $ok->getStatusCode());
         $this->assertSame(1, (int) $this->pdo->query('SELECT COUNT(*) FROM energieData')->fetchColumn());
@@ -164,7 +183,7 @@ final class EnergieRoutesTest extends TestCase
     {
         $app = $this->app();
         $this->request($app, 'POST', '/energie-test/post-data', [
-            'api_key' => self::API_KEY, 'sensor' => 'energie', 'version' => '0.3.1', 'PanneauP' => '12.5',
+            'api_key' => $this->apiKey, 'sensor' => 'energie', 'version' => '0.3.1', 'PanneauP' => '12.5',
         ]);
 
         $test = $this->request($app, 'GET', '/energie-test');

@@ -6,15 +6,26 @@ namespace App\Controller;
 
 use App\Config\TableConfig;
 use App\Config\Version;
+use App\Display\LayoutResolver;
+use App\Display\PageCatalog;
+use App\Display\PageCatalogRegistry;
 use App\Service\TemplateRenderer;
 use DateTimeImmutable;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+/**
+ * Rendu local (php -S / cli-server) des pages de suivi sans MySQL.
+ * MSP1 / N3PP : même contrat Twig que AbstractDataController, avec les presets
+ * intégrés uniquement (pas de DisplayPresetRepository / PDO).
+ * FFP3 : contexte historique dédié (aquaponie_*.twig encore hors catalogue).
+ */
 class LocalDataPagesController
 {
     public function __construct(
-        private TemplateRenderer $renderer
+        private TemplateRenderer $renderer,
+        private PageCatalogRegistry $catalogRegistry,
+        private LayoutResolver $layoutResolver,
     ) {
     }
 
@@ -32,83 +43,159 @@ class LocalDataPagesController
 
     public function showMsp1(Request $request, Response $response): Response
     {
-        $this->logLocalFallback('msp1_data.twig');
-
-        $range = $this->getDefaultRange('-24 hours');
-        $series = [
-            'reading_time' => [],
-            'TempAirInt' => [], 'TempAirExt' => [],
-            'HumidAirInt' => [], 'HumidAirExt' => [], 'Pression' => [],
-            'LuminositeMoy' => [], 'LuminositeA' => [], 'LuminositeB' => [], 'LuminositeC' => [], 'LuminositeD' => [],
-            'HumidSol' => [], 'TempEau' => [], 'Pluie' => [],
-            'PontDiv' => [], 'bootCount' => [],
-            'ServoHB' => [], 'ServoGD' => [], 'resetMode' => [],
-        ];
-
-        $stats = [];
-        foreach ([
-            'tempAirInt', 'tempAirExt', 'humidAirInt', 'humidAirExt', 'pression', 'luminositeMoy',
-            'luminositeA', 'luminositeB', 'luminositeC', 'luminositeD',
-            'humidSol', 'tempEau', 'pluie', 'pontDiv', 'bootCount',
-            'servoHB', 'servoGD', 'resetMode',
-        ] as $suffix) {
-            $stats["avg_$suffix"] = null;
-            $stats["min_$suffix"] = null;
-            $stats["max_$suffix"] = null;
-            $stats["stddev_$suffix"] = null;
-        }
-
-        return $this->render($response, 'msp1_data.twig', array_merge([
-            'page_title' => 'Données station météo - Le potager',
-            'latest' => null,
-            'board' => 2,
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => '-',
-            'environment' => TableConfig::getEnvironment(),
-            'start_date' => $range['start'],
-            'end_date' => $range['end'],
-            'measure_count' => 0,
-            'duration_str' => '0 j, 0 h, 0 min',
-        ], $series, $stats));
+        return $this->renderCatalogPage(
+            $request,
+            $response,
+            $this->catalogRegistry->get('msp1'),
+            'msp1_data.twig',
+            'Données station météo - Le potager (local)',
+            'potager',
+            '/msp1/api/realtime'
+        );
     }
 
     public function showN3pp(Request $request, Response $response): Response
     {
-        $this->logLocalFallback('n3pp_data.twig');
+        return $this->renderCatalogPage(
+            $request,
+            $response,
+            $this->catalogRegistry->get('n3pp'),
+            'n3pp_data.twig',
+            'Données serre / élevage - n3 iot (local)',
+            'elevage',
+            '/n3pp/api/realtime'
+        );
+    }
 
-        $range = $this->getDefaultRange('-24 hours');
-        $series = [
-            'reading_time' => [],
-            'TempAir' => [], 'Humidite' => [], 'Pression' => [], 'Luminosite' => [],
-            'Humid1' => [], 'Humid2' => [], 'Humid3' => [], 'Humid4' => [], 'HumidMoy' => [],
-            'PontDiv' => [], 'bootCount' => [],
-            'etatPompe' => [], 'resetMode' => [],
-        ];
-
-        $stats = [];
-        foreach ([
-            'tempAir', 'humidite', 'pression', 'luminosite',
-            'humid1', 'humid2', 'humid3', 'humid4', 'humidMoy',
-            'pontDiv', 'bootCount', 'etatPompe',
-        ] as $suffix) {
-            $stats["avg_$suffix"] = null;
-            $stats["min_$suffix"] = null;
-            $stats["max_$suffix"] = null;
-            $stats["stddev_$suffix"] = null;
+    private function renderCatalogPage(
+        Request $request,
+        Response $response,
+        ?PageCatalog $catalog,
+        string $template,
+        string $pageTitle,
+        string $navActive,
+        string $realtimeApiBase
+    ): Response {
+        if ($catalog === null) {
+            $response->getBody()->write('Catalogue d\'affichage introuvable.');
+            return $response->withStatus(500)->withHeader('Content-Type', 'text/plain; charset=utf-8');
         }
 
-        return $this->render($response, 'n3pp_data.twig', array_merge([
-            'page_title' => 'Données serre / élevage - n3 iot',
+        $this->logLocalFallback($template);
+        $environment = TableConfig::getEnvironment();
+        $range = $this->getDefaultRange('-24 hours');
+        $start = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $range['start']);
+        $end = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $range['end']);
+
+        $requestedPreset = AbstractDataController::requestedPreset($request);
+        $display = $this->builtInPageContext($catalog, $requestedPreset);
+        $dataConfig = AbstractDataController::withPresetInFormAction(
+            $catalog->pageConfig($environment),
+            $requestedPreset,
+            $display
+        );
+
+        $stats = [];
+        foreach ($catalog->statsColumns() as $col) {
+            $lc = lcfirst($col);
+            $stats["avg_{$lc}"] = null;
+            $stats["min_{$lc}"] = null;
+            $stats["max_{$lc}"] = null;
+        }
+
+        $context = array_merge([
+            'page_title' => $pageTitle,
+            'nav_active' => $navActive,
+            'environment' => $environment,
+            'data_config' => $dataConfig,
+            'realtime_api_base' => $realtimeApiBase,
             'latest' => null,
-            'board' => 3,
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => '-',
-            'environment' => TableConfig::getEnvironment(),
-            'start_date' => $range['start'],
-            'end_date' => $range['end'],
+            'start_date' => $start,
+            'end_date' => $end,
             'measure_count' => 0,
             'duration_str' => '0 j, 0 h, 0 min',
-        ], $series, $stats));
+            'temps_total_module' => null,
+            'firmware_version' => '-',
+            'version' => Version::getWithPrefix(),
+            'period_nav' => [
+                'start' => $range['start'],
+                'end' => $range['end'],
+                'mode' => 'default',
+                'window' => null,
+                'offset' => 0,
+                'has_prev' => true,
+                'has_next' => false,
+                'prev_offset' => null,
+                'next_offset' => null,
+                'width_seconds' => 86400,
+            ],
+            'page_key' => $catalog->pageKey(),
+            'request_method' => strtoupper($request->getMethod()),
+            'requested_preset' => $requestedPreset,
+            'chart_payload' => [
+                'readingTime' => [],
+                'columns' => (object) [],
+                'charts' => [],
+            ],
+        ], $display, $stats);
+
+        return $this->render($response, $template, $context);
+    }
+
+    /**
+     * Contexte d'affichage à partir des presets intégrés seulement (sans BDD).
+     *
+     * @return array{layout: array<string, mixed>, preset: array<string, mixed>, default_preset_slug: string, presets_menu: list<array<string, mixed>>, chart_ids_json: string, sensor_map_json: string}
+     */
+    private function builtInPageContext(PageCatalog $catalog, ?string $requestedSlug): array
+    {
+        $presets = [];
+        foreach ($catalog->builtInPresets() as $slug => $preset) {
+            $presets[] = $preset + [
+                'builtin' => true,
+                'customized' => false,
+                'updated_at' => null,
+                'updated_by' => null,
+            ];
+        }
+        usort($presets, static fn (array $a, array $b): int => [$a['sort_order'], $a['label']] <=> [$b['sort_order'], $b['label']]);
+
+        $default = $presets[0];
+        $selected = $default;
+        foreach ($presets as $preset) {
+            if ($requestedSlug !== null && $preset['slug'] === $requestedSlug) {
+                $selected = $preset;
+            }
+            if ($preset['is_default']) {
+                $default = $preset;
+                if ($requestedSlug === null) {
+                    $selected = $preset;
+                }
+            }
+        }
+
+        $layout = $this->layoutResolver->resolve($catalog, $selected['layout']);
+        $menu = [];
+        foreach ($presets as $p) {
+            if ($p['show_on_page'] || $p['slug'] === $selected['slug']) {
+                $menu[] = [
+                    'slug' => $p['slug'],
+                    'label' => $p['label'],
+                    'description' => $p['description'],
+                    'is_default' => $p['is_default'],
+                    'active' => $p['slug'] === $selected['slug'],
+                ];
+            }
+        }
+
+        return [
+            'layout' => $layout,
+            'preset' => ['slug' => $selected['slug'], 'label' => $selected['label']],
+            'default_preset_slug' => $default['slug'],
+            'presets_menu' => $menu,
+            'chart_ids_json' => (string) json_encode(array_column($layout['charts'], 'id')),
+            'sensor_map_json' => (string) json_encode((object) $layout['sensor_map']),
+        ];
     }
 
     private function buildAquaponieContext(string $template): array
@@ -197,6 +284,9 @@ class LocalDataPagesController
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
     }
 
+    /**
+     * @return array{start: string, end: string}
+     */
     private function getDefaultRange(string $relativeStart): array
     {
         $end = new DateTimeImmutable();

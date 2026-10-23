@@ -9,6 +9,9 @@
 
 {% block head_css %}
     <link rel="stylesheet" href="{{ base_path }}/assets/css/control-styles.css" />
+    {% if display_presets is defined and display_presets %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/display-presets.css" />
+    {% endif %}
 {% endblock %}
 
 {% block head_scripts %}
@@ -86,6 +89,8 @@
 
             {% block outputs_section %}{% endblock %}
 
+            {% include 'partials/_display_presets_editor.twig' %}
+
             <section class="quick-actions panel">
                 <h3><i class="fas fa-bolt"></i> Actions rapides</h3>
                 <div class="quick-actions-grid">
@@ -115,6 +120,9 @@
     <script src="{{ base_path }}/assets/js/notification-policy.js"></script>
     <script src="{{ base_path }}/assets/js/control-auto-save.js"></script>
     <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    {% if display_presets is defined and display_presets %}
+    <script src="{{ base_path }}/assets/js/display-presets-editor.js" defer></script>
+    {% endif %}
 
     {% block control_scripts %}{% endblock %}
 {% endblock %}

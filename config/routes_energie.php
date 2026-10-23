@@ -14,6 +14,7 @@
  * Contrat : docs/API_ENERGIE.md.
  */
 
+use App\Controller\DisplayPresetController;
 use App\Controller\Energie\EnergieDataController;
 use App\Controller\Energie\EnergiePostDataController;
 use App\Controller\Energie\EnergieRealtimeApiController;
@@ -37,4 +38,15 @@ foreach (['prod' => 'energie', 'energie_test' => 'energie-test'] as $energieEnv 
         $group->get("/{$energiePrefix}/api/realtime/system/health", [EnergieRealtimeApiController::class, 'getSystemHealth']);
         $group->get("/{$energiePrefix}/api/realtime/alerts/active", [EnergieRealtimeApiController::class, 'getActiveAlerts']);
     })->add(new EnvironmentMiddleware($energieEnv));
+}
+
+// Page de contrôle affichage (presets) — opérateur+, auth session/token.
+// Pas de GPIO pour cette famille « mesure seule » : uniquement l'éditeur de presets.
+$applyAuthEnergie = $applyAuth ?? null;
+foreach (['prod' => 'energie-control', 'energie_test' => 'energie-control-test'] as $energieEnv => $controlPath) {
+    $route = $app->get("/{$controlPath}", [DisplayPresetController::class, 'showEnergieControl'])
+        ->add(new EnvironmentMiddleware($energieEnv));
+    if ($applyAuthEnergie !== null) {
+        $route->add($applyAuthEnergie);
+    }
 }

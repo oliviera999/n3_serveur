@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.41.0] - 2026-10-23
+
+### Ajoute
+- **Presets d'affichage des pages de suivi (MSP1, N3PP, ENERGIE)** — catalogues
+  déclaratifs (`src/Display/`), presets intégrés *Simple* / *Étendu*, table
+  `displayPresets`, sélecteur `?preset=` + `localStorage` sur les pages de suivi,
+  éditeur sur les pages de contrôle (MSP1/N3PP) et `/energie-control`, API
+  `/api/display-presets/{page}` (opérateur+, CSRF). Doc : `docs/DISPLAY_PRESETS.md`.
+  Rendu générique via `monitoring_page.twig` + `n3-layout-charts.js` (plus de
+  séries Highcharts en dur dans les templates).
+
 ## [6.40.1] - 2026-10-04
 
 ### Correctif

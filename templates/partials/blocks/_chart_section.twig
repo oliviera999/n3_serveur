@@ -1,0 +1,24 @@
+{# Cadre « cartes + graphique » d'une page de suivi. `block` : bloc résolu (LayoutResolver::resolve).
+   Sans graphique (preset ou catalogue), les cartes occupent toute la largeur. #}
+<div class="section-header alt-section-title-full" data-aos="fade-up" data-block="{{ block.id }}">
+    <i class="fas {{ block.icon }}"></i>
+    <h3>{{ block.title }}</h3>
+</div>
+<div{% if block.chart %} class="alt-data-chart-row"{% endif %} data-aos="fade-up">
+    {% if block.cards|length > 0 %}
+    <div class="alt-stats-column">
+        <div class="stats-grid">
+            {% if latest %}
+                {% for card in block.cards %}
+                    {% include 'partials/blocks/_card.twig' with { card: card } %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    {% if block.chart %}
+    <div class="alt-chart-column{{ block.cards|length == 0 ? ' alt-chart-column-full' : '' }}">
+        <div id="{{ block.chart.id }}" class="{{ block.chart.kind == 'cycles' ? 'n3-chart-cycles' : 'n3-chart-main' }}"></div>
+    </div>
+    {% endif %}
+</div>

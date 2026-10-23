@@ -1,0 +1,68 @@
+{#
+    Éditeur de presets d'affichage (ordre / visibilité des cadres, cartes, séries).
+    Contexte : display_presets (editorData), display_presets_api, base_path.
+    JS : display-presets-editor.js — opérateur+, CSRF via meta csrf-token.
+#}
+{% if display_presets is defined and display_presets %}
+<section class="controls-group dp-editor-section" data-aos="fade-up"
+         id="display-presets-editor"
+         data-api="{{ base_path|default('') }}{{ display_presets_api }}"
+         data-monitoring-url="{{ base_path|default('') }}{{ display_presets.monitoring_url }}">
+    <header>
+        <h2><i class="fas fa-eye"></i> Affichage de la page de suivi</h2>
+        <p class="parameter-item-hint">
+            Créez des vues (Simple, Étendu…) : affichez ou masquez les cadres, cartes et séries,
+            puis réordonnez-les. Les visiteurs choisissent un preset proposé sur
+            <a href="{{ base_path|default('') }}{{ display_presets.monitoring_url }}">{{ display_presets.label }}</a>.
+        </p>
+    </header>
+
+    <div class="dp-editor">
+        <div class="dp-toolbar">
+            <label>
+                <span class="sr-only">Preset</span>
+                <select id="dp-preset-select" aria-label="Preset à modifier"></select>
+            </label>
+            <button type="button" class="dp-btn" id="dp-btn-new" title="Nouveau preset">Nouveau</button>
+            <button type="button" class="dp-btn" id="dp-btn-duplicate" title="Dupliquer le preset courant">Dupliquer</button>
+            <button type="button" class="dp-btn dp-btn-danger" id="dp-btn-delete" title="Supprimer ou réinitialiser">Supprimer</button>
+            <button type="button" class="dp-btn dp-btn-primary" id="dp-btn-save">Enregistrer</button>
+            <a class="dp-btn" id="dp-btn-preview" href="#" target="_blank" rel="noopener">Prévisualiser</a>
+        </div>
+
+        <div class="dp-meta">
+            <label>
+                Identifiant
+                <input type="text" id="dp-slug" maxlength="40" pattern="[a-z0-9][a-z0-9-]{0,39}"
+                       placeholder="ex. eleves" autocomplete="off">
+            </label>
+            <label>
+                Nom
+                <input type="text" id="dp-label" maxlength="64" placeholder="ex. Élèves">
+            </label>
+            <label>
+                Description
+                <input type="text" id="dp-description" maxlength="255" placeholder="Courte aide au choix">
+            </label>
+            <label class="dp-check">
+                <input type="checkbox" id="dp-is-default">
+                Preset par défaut
+            </label>
+            <label class="dp-check">
+                <input type="checkbox" id="dp-show-on-page" checked>
+                Proposé aux visiteurs
+            </label>
+            <label>
+                Ordre
+                <input type="number" id="dp-sort-order" min="0" max="9999" step="1" value="100">
+            </label>
+        </div>
+
+        <p class="dp-status" id="dp-status" role="status" aria-live="polite"></p>
+
+        <ul class="dp-blocks" id="dp-blocks" aria-label="Cadres de la page"></ul>
+    </div>
+
+    <script type="application/json" id="dp-bootstrap">{{ display_presets|json_encode(15)|raw }}</script>
+</section>
+{% endif %}

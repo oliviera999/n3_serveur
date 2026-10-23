@@ -1,0 +1,89 @@
+{#
+    Page de suivi générique pilotée par catalogue + preset d'affichage (MSP1, N3PP, ENERGIE).
+    Contexte : AbstractDataController::show() — `layout` (blocs résolus par LayoutResolver),
+    `presets_menu`, `chart_payload`, `chart_ids_json`, `sensor_map_json`, stats avg_/min_/max_.
+    Les templates de page (msp1_data.twig…) n'ajoutent que méta-description et CSS propres.
+    Un bloc s'affiche via partials/blocks/_<type>.twig.
+#}
+{% extends 'layout.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/common-data.css" />
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/display-presets.css" />
+    {% block page_css %}{% endblock %}
+{% endblock %}
+
+{% block head_scripts %}
+    <script src="{{ base_path }}/assets/js/moment.min.js"></script>
+    <script src="{{ base_path }}/assets/js/moment-timezone-with-data.min.js"></script>
+    <script src="{{ base_path }}/assets/js/highstock.js"></script>
+    <script src="{{ base_path }}/assets/js/exporting.js"></script>
+    <script src="{{ base_path }}/assets/js/export-data.js"></script>
+    <script src="{{ base_path }}/assets/js/accessibility.js"></script>
+    <script src="{{ base_path }}/assets/js/highcharts-defaults.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-helpers.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-layout.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-stock-chart-bootstrap.js"></script>
+    <script src="{{ base_path }}/assets/js/n3-layout-charts.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include 'partials/_hero_data.twig' with {
+        hero_title: data_config.hero_title,
+        hero_icon: data_config.hero_icon,
+        hero_subtitle: data_config.hero_subtitle,
+        hero_more_url: data_config.hero_more_url|default(''),
+        hero_more_label: data_config.hero_more_label|default(''),
+        hero_synthesis: '📊 Synthèse du ' ~ start_date|localdt('d/m/Y H:i') ~ ' au ' ~ end_date|localdt('d/m/Y H:i') ~ ' — ' ~ measure_count ~ ' mesures — ' ~ duration_str
+    } %}
+
+    {% include 'partials/_preset_selector.twig' %}
+
+    {% set has_data = latest or measure_count > 0 %}
+    <article class="post featured" data-preset="{{ preset.slug }}">
+        {% if not has_data %}
+            <div class="no-data"><i class="fas fa-database no-data-icon"></i><br>Aucune donnée enregistrée.</div>
+        {% endif %}
+        {% for block in layout.blocks %}
+            {% if has_data or not block.requires_data %}
+                {% include 'partials/blocks/_' ~ block.type ~ '.twig' with { block: block } %}
+            {% endif %}
+        {% endfor %}
+    </article>
+{% endblock %}
+
+{% block footer %}
+{% include 'partials/_footer.twig' %}
+{% endblock %}
+
+{% block scripts %}
+    {% include 'partials/_live_badge.twig' %}
+    {% include 'partials/_set_period_js.twig' with { form_id: data_config.form_id } %}
+    <script src="{{ base_path }}/assets/js/period-nav.js" defer></script>
+    <script src="{{ base_path }}/assets/js/preset-selector.js" defer></script>
+
+    {% if measure_count > 0 and layout.charts|length > 0 %}
+    {# JSON_HEX_TAG(1)|HEX_AMP(2)|HEX_APOS(4)|HEX_QUOT(8) = 15 — anti-XSS dans bloc <script> #}
+    <script>
+    window.n3LayoutCharts && window.n3LayoutCharts.render({{ chart_payload|json_encode(15)|raw }});
+    </script>
+    {% endif %}
+
+    <script src="{{ base_path }}/assets/js/toast-notifications.js"></script>
+    <script src="{{ base_path }}/assets/js/chart-updater-generic.js"></script>
+    <script src="{{ base_path }}/assets/js/realtime-updater.js"></script>
+    {% if measure_count > 0 and layout.charts|length > 0 %}
+    {% include 'partials/_chart_init_js.twig' with {
+        chart_ids_json: chart_ids_json,
+        chart_debug: true,
+        sensor_map_json: sensor_map_json
+    } %}
+    {% endif %}
+    {% include 'partials/_realtime_init_js.twig' with {
+        realtime_api_base: realtime_api_base,
+        poll_interval: 15000,
+        base_path: base_path|default('')
+    } %}
+{% endblock %}

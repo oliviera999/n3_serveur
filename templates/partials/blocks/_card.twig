@@ -1,0 +1,20 @@
+{# Carte de mesure (valeur live + statistiques de la période). `card` : carte du catalogue.
+   Statistiques lues dans le contexte : avg_/min_/max_ + clé en lcfirst. #}
+{%- set d = card.decimals -%}
+{%- set v = latest[card.key] ?? null -%}
+{%- if not card.if_present or v is not null -%}
+{%- set lc = card.key[:1]|lower ~ card.key[1:] -%}
+{%- set suffix = card.unit ? ' ' ~ card.unit : '' -%}
+<div class="stat-card{{ card.css_class ? ' ' ~ card.css_class : '' }}" style="border-left-color:{{ card.color }}" data-card="{{ card.key }}">
+    <i class="fas {{ card.icon }} stat-card-icon" style="color:{{ card.color }}"></i>
+    <div class="stat-card-label">{{ card.label }}</div>
+    <div class="stat-card-value"><span data-sensor="{{ card.key }}" data-decimals="{{ d }}">{{ v is not null and v is not same as('') ? v|number_format(d, ',', ' ') : '—' }}</span>{% if card.unit %} <span class="stat-card-unit">{{ card.unit }}</span>{% endif %}</div>
+    {% if card.stats %}
+        {%- set avg = attribute(_context, 'avg_' ~ lc)|default(null) -%}
+        {%- set min = attribute(_context, 'min_' ~ lc)|default(null) -%}
+        {%- set max = attribute(_context, 'max_' ~ lc)|default(null) -%}
+        <div class="stat-card-secondary">Moy: {{ avg is not null ? avg|number_format(d, ',', ' ') ~ suffix : '-' }} | Min: {{ min is not null ? min|number_format(d, ',', ' ') ~ suffix : '-' }} | Max: {{ max is not null ? max|number_format(d, ',', ' ') ~ suffix : '-' }}</div>
+    {% endif %}
+    {% if card.hint %}<div class="stat-card-secondary">{{ card.hint }}</div>{% endif %}
+</div>
+{%- endif -%}

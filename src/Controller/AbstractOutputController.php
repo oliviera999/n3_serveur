@@ -9,6 +9,7 @@ use App\Controller\Traits\HandlesNotificationPolicy;
 use App\Repository\AbstractOutputRepository;
 use App\Security\AuthService;
 use App\Service\ControlAuditLogger;
+use App\Service\DisplayPresetService;
 use App\Service\FirmwareStateCompat;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
@@ -30,17 +31,53 @@ abstract class AbstractOutputController
 
     protected ?OperationalSettingsService $operationalSettings = null;
 
+    protected ?DisplayPresetService $displayPresets = null;
+
     public function __construct(
         protected LogService $logger,
         protected TemplateRenderer $renderer,
         protected AuthService $authService,
         ?ControlAuditLogger $auditLogger = null,
         ?OperationalSettingsService $operationalSettings = null,
+        ?DisplayPresetService $displayPresets = null,
     ) {
         // Les sous-classes (MSP/N3pp) appellent parent::__construct() avec 3 arguments :
         // on construit alors l'audit logger à partir des dépendances déjà fournies.
         $this->auditLogger = $auditLogger ?? new ControlAuditLogger($logger, $authService);
         $this->operationalSettings = $operationalSettings;
+        $this->displayPresets = $displayPresets;
+    }
+
+    /**
+     * Clé de catalogue d'affichage (msp1, n3pp) pour l'éditeur de presets sur
+     * la page de contrôle. Null = pas d'éditeur (galeries, etc.).
+     */
+    protected function displayPresetsPageKey(): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Ajoute le contexte Twig de l'éditeur de presets (catalogue + presets).
+     *
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    protected function withDisplayPresetsEditor(array $data, string $environment): array
+    {
+        $pageKey = $this->displayPresetsPageKey();
+        if ($pageKey === null || $this->displayPresets === null) {
+            return $data;
+        }
+        $catalog = $this->displayPresets->catalog($pageKey);
+        if ($catalog === null) {
+            return $data;
+        }
+
+        $data['display_presets'] = $this->displayPresets->editorData($catalog, $environment);
+        $data['display_presets_api'] = '/api/display-presets/' . rawurlencode($pageKey);
+
+        return $data;
     }
 
     /**

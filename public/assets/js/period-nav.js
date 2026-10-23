@@ -11,13 +11,22 @@
  *
  * Aucune dépendance externe. Sans le conteneur #period-nav, ne fait rien.
  *
- * @version 1.0.0
+ * @version 1.1.0 — conserve ?preset= (preset d'affichage)
  */
 (function () {
     'use strict';
 
+    /** Paramètres d'URL conservés d'une période à l'autre (preset d'affichage). */
+    var KEPT_PARAMS = ['preset'];
+
     function buildUrl(params) {
         var qs = new URLSearchParams();
+        var current = new URLSearchParams(window.location.search);
+        KEPT_PARAMS.forEach(function (key) {
+            if (current.get(key)) {
+                qs.set(key, current.get(key));
+            }
+        });
         Object.keys(params).forEach(function (key) {
             var value = params[key];
             if (value !== null && value !== undefined && value !== '') {
@@ -68,7 +77,7 @@
 
                 if (action === 'reset') {
                     event.preventDefault();
-                    navigate(window.location.pathname);
+                    navigate(buildUrl({}));
                     return;
                 }
 

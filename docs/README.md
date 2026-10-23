@@ -18,6 +18,7 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 | [API_MSP1_N3PP.md](API_MSP1_N3PP.md) | API des modules MSP1 (météo) et N3PP (serre). |
 | [API_REALTIME_MSP_N3PP.md](API_REALTIME_MSP_N3PP.md) | API temps réel (LIVE) MSP1 / N3PP. |
 | [API_ENERGIE.md](API_ENERGIE.md) | Banc énergie INA226 (panneau / batterie / conso) : POST `/energie[-test]/post-data`, API temps réel, page. |
+| [DISPLAY_PRESETS.md](DISPLAY_PRESETS.md) | Presets d'affichage des pages de suivi (catalogue, API, éditeur MSP1/N3PP/ENERGIE). |
 | [API_REALTIME_OUTPUTS_CONTRAT.md](API_REALTIME_OUTPUTS_CONTRAT.md) | Contrat de l’API d’état des sorties (`/api/outputs/state`). |
 | [COMPAT_FLOTTE_DEPLOYEE.md](COMPAT_FLOTTE_DEPLOYEE.md) | Rollbacks serveur pour la flotte non reflashable (clés plates n3pp/msp, seuil « silencieux »). |
 | [OTA_N3PP_MSP.md](OTA_N3PP_MSP.md) | Mises à jour OTA des firmwares N3PP / MSP. |

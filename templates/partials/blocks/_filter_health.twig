@@ -1,0 +1,5 @@
+{# Ligne « filtrage des données + état du système + contrôles live ». #}
+{% include 'partials/_filter_health_row.twig' with {
+    form_id: data_config.form_id,
+    health_uptime_label: data_config.uptime_label|default('Uptime (30j)')
+} %}

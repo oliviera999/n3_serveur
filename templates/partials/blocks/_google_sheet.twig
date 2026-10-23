@@ -1,0 +1,20 @@
+{# Graphique Google Sheets publié (mesures manuelles). Options : card_title, src, sheet_title. #}
+<div class="section-header" data-block="{{ block.id }}">
+    <i class="fas {{ block.icon }}"></i>
+    <h3>{{ block.title }}</h3>
+</div>
+<div class="msp-sheets-section">
+    <div class="msp-sheets-grid">
+        <div class="msp-sheet-card">
+            <div class="msp-sheet-card-header">
+                <i class="fas fa-chart-line"></i>
+                <h3 class="msp-sheet-card-title">{{ block.options.card_title|default(block.title) }}</h3>
+            </div>
+            {% include 'partials/_google_sheet_chart.twig' with {
+                container_class: 'msp-sheet-card-container',
+                src: block.options.src,
+                title: block.options.sheet_title|default(block.title)
+            } %}
+        </div>
+    </div>
+</div>

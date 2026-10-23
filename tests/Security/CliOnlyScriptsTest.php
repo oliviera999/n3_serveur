@@ -187,16 +187,17 @@ final class CliOnlyScriptsTest extends TestCase
     {
         $htaccess = (string) file_get_contents(self::projectRoot() . '/.htaccess');
 
+        // `\r?$` : tolère les fins de ligne CRLF (checkout Windows monté dans Docker).
         foreach (['tools', 'bin', 'tests', 'migrations', 'docker', 'docs'] as $dir) {
             $this->assertMatchesRegularExpression(
-                '#^RewriteRule \^' . preg_quote($dir, '#') . '/ - \[F,L\]$#m',
+                '#^RewriteRule \^' . preg_quote($dir, '#') . '/ - \[F,L\]\r?$#m',
                 $htaccess,
                 "Le .htaccess racine ne bloque pas {$dir}/."
             );
         }
 
         $this->assertMatchesRegularExpression(
-            '#^RewriteRule \^run-cron\\\\\.php\$ - \[F,L\]$#m',
+            '#^RewriteRule \^run-cron\\\\\.php\$ - \[F,L\]\r?$#m',
             $htaccess,
             'Le .htaccess racine ne bloque pas run-cron.php.'
         );

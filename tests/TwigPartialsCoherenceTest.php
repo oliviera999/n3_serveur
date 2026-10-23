@@ -24,14 +24,17 @@ class TwigPartialsCoherenceTest extends TestCase
     {
         $allTemplates = array_merge(
             glob($this->templatesDir . '/*.twig') ?: [],
-            glob($this->templatesDir . '/partials/*.twig') ?: []
+            glob($this->templatesDir . '/partials/*.twig') ?: [],
+            glob($this->templatesDir . '/partials/blocks/*.twig') ?: [],
+            glob($this->templatesDir . '/partials/blocks/custom/*.twig') ?: []
         );
 
         $missing = [];
         foreach ($allTemplates as $tpl) {
             $content = file_get_contents($tpl);
-            // {% include 'partials/xxx.twig' ... %} et {% embed 'partials/xxx.twig' ... %}
-            if (preg_match_all('#\{%\s*(?:include|embed)\s+[\'"]([^\'"]+)[\'"]#', $content, $matches)) {
+            // Includes/embeds à chemin statique se terminant par .twig.
+            // Ignore les concaténations dynamiques (ex. 'partials/blocks/_' ~ block.type ~ '.twig').
+            if (preg_match_all('#\{%\s*(?:include|embed)\s+[\'"]([^\'"]+\.twig)[\'"]#', $content, $matches)) {
                 foreach ($matches[1] as $ref) {
                     $fullPath = $this->templatesDir . '/' . $ref;
                     if (!is_file($fullPath)) {

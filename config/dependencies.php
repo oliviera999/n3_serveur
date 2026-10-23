@@ -225,10 +225,12 @@ return [
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
     \App\Controller\Msp\MspOutputController::class => \DI\autowire()
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('displayPresets', \DI\get(\App\Service\DisplayPresetService::class)),
 
     \App\Controller\N3pp\N3ppOutputController::class => \DI\autowire()
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('displayPresets', \DI\get(\App\Service\DisplayPresetService::class)),
 
     // Les contrôleurs construisent FirmwareStateCompat eux-mêmes (`new`), mais on câble
     // aussi l'entrée du container : un futur autowiring hériterait sinon d'un service muet.
