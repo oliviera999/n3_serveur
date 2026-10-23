@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.42.0] - 2026-10-23
+
+### Ajoute
+- **Phase 1 A+D — contrats & catalogue d'appareils** — fichiers
+  `contracts/{ffp3,msp1,n3pp,energie,pgl}.json` ; service
+  `ContractAlignmentService` + API `GET /admin/api/contract-alignment` ;
+  badges de cohérence sur `/supervision`. Table `iotDevices` (migration
+  `2026_10_iot_devices.sql`, init Docker `93-iot-devices.sql`) + wizard
+  « Ajouter un appareil » et cartes Live dynamiques. Doc :
+  `docs/CONTRACTS_AND_DEVICES.md`.
+
 ## [6.41.0] - 2026-10-23
 
 ### Ajoute

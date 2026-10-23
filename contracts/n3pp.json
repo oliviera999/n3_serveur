@@ -1,0 +1,66 @@
+{
+  "id": "n3pp",
+  "label": "Élevage (N3PP)",
+  "firmwareId": "n3pp",
+  "sensor": "n3pp",
+  "auth": "both",
+  "endpoints": {
+    "postData": "/n3pp/post-data",
+    "heartbeat": "/n3pp/heartbeat",
+    "outputsState": "/n3pp/api/firmware/outputs/state"
+  },
+  "pages": {
+    "suivi": "/serre",
+    "controle": "/serre-control",
+    "description": "/serre-description"
+  },
+  "tables": {
+    "data": "n3ppData",
+    "outputs": "n3ppOutputs",
+    "heartbeat": "n3ppHeartbeat"
+  },
+  "fields": [
+    {"name": "sensor", "type": "string", "direction": "tx"},
+    {"name": "version", "type": "string", "direction": "tx"},
+    {"name": "TempAir", "type": "float", "direction": "tx"},
+    {"name": "Humidite", "type": "float", "direction": "tx"},
+    {"name": "Pression", "type": "float", "direction": "tx"},
+    {"name": "Luminosite", "type": "float", "direction": "tx"},
+    {"name": "Humid1", "type": "float", "direction": "tx"},
+    {"name": "Humid2", "type": "float", "direction": "tx"},
+    {"name": "Humid3", "type": "float", "direction": "tx"},
+    {"name": "Humid4", "type": "float", "direction": "tx"},
+    {"name": "HumidMoy", "type": "float", "direction": "tx"},
+    {"name": "PontDiv", "type": "int", "direction": "tx"},
+    {"name": "WakeUp", "type": "int", "direction": "both"},
+    {"name": "ArrosageManu", "type": "int", "direction": "tx"},
+    {"name": "SeuilSec", "type": "int", "direction": "both"},
+    {"name": "FreqWakeUp", "type": "int", "direction": "both"},
+    {"name": "SeuilPontDiv", "type": "int", "direction": "both"},
+    {"name": "mail", "type": "string", "direction": "both"},
+    {"name": "mailNotif", "type": "string", "direction": "both"},
+    {"name": "HeureArrosage", "type": "int", "direction": "both"},
+    {"name": "resetMode", "type": "int", "direction": "both"},
+    {"name": "etatPompe", "type": "int", "direction": "tx"},
+    {"name": "tempsArrosage", "type": "int", "direction": "both"},
+    {"name": "bootCount", "type": "int", "direction": "tx"}
+  ],
+  "gpio": {
+    "100": "mail",
+    "101": "mailNotif",
+    "102": "SeuilSec",
+    "103": "SeuilPontDiv",
+    "104": "HeureArrosage",
+    "105": "tempsArrosage",
+    "106": "WakeUp",
+    "107": "FreqWakeUp",
+    "108": "notifMode",
+    "109": "notifCategories",
+    "110": "resetMode",
+    "112": "veilleInfinie"
+  },
+  "serverSource": {
+    "postDataController": "src/Controller/N3pp/N3ppPostDataController.php",
+    "gpioMapClass": "App\\Config\\N3ppGpioMap"
+  }
+}

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Config\Version;
+use App\Repository\IotDeviceRepository;
 use App\Repository\NavPageRepository;
+use App\Service\Contract\ContractAlignmentService;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\TemplateRenderer;
@@ -19,6 +21,8 @@ class SupervisionController
         private NavPageRepository $navPageRepository,
         private HmacAuditLogger $hmacAuditLogger,
         private HmacPolicyService $hmacPolicyService,
+        private ContractAlignmentService $contractAlignment,
+        private IotDeviceRepository $deviceRepository,
     ) {
     }
 
@@ -35,6 +39,30 @@ class SupervisionController
             $navStates = [];
         }
 
+        $alignment = [];
+        $alignmentSummary = ['ok' => 0, 'warn' => 0, 'error' => 0];
+        try {
+            $alignment = $this->contractAlignment->checkAll();
+            foreach ($alignment as $row) {
+                $status = (string) ($row['status'] ?? 'ok');
+                if (isset($alignmentSummary[$status])) {
+                    $alignmentSummary[$status]++;
+                }
+            }
+        } catch (\Throwable) {
+            $alignment = [];
+        }
+
+        $devices = [];
+        $liveDevices = [];
+        try {
+            $devices = $this->deviceRepository->findAll(false);
+            $liveDevices = $this->deviceRepository->findLiveDevices();
+        } catch (\Throwable) {
+            $devices = [];
+            $liveDevices = [];
+        }
+
         $html = $this->renderer->render('supervision.twig', [
             'page_title' => 'Supervision - n3 iot datas',
             'nav_active' => 'supervision',
@@ -43,9 +71,15 @@ class SupervisionController
             'hmac_audit_enabled' => $this->hmacAuditLogger->isEnabled(),
             'hmac_audit_entry_count' => $this->hmacAuditLogger->countEntries(),
             'hmac_policy' => $this->hmacPolicyService->getStatus(),
+            'contract_alignment' => $alignment,
+            'contract_alignment_summary' => $alignmentSummary,
+            'iot_devices' => $devices,
+            'iot_live_devices' => $liveDevices,
+            'iot_families' => IotDeviceRepository::FAMILIES,
         ]);
 
         $response->getBody()->write($html);
+
         return $response;
     }
 }

@@ -1,0 +1,32 @@
+{
+  "id": "pgl",
+  "label": "Poissonglouton",
+  "firmwareId": "poissonglouton",
+  "sensor": "poissonglouton",
+  "auth": "both",
+  "endpoints": {
+    "postData": "/pgl/post-data",
+    "heartbeat": "/pgl/heartbeat"
+  },
+  "pages": {
+    "suivi": "/pgl",
+    "controle": null,
+    "description": null
+  },
+  "tables": {
+    "data": "pglEvents",
+    "heartbeat": "pglHeartbeat"
+  },
+  "fields": [
+    {"name": "sensor", "type": "string", "direction": "tx"},
+    {"name": "version", "type": "string", "direction": "tx"},
+    {"name": "events", "type": "string", "direction": "tx"},
+    {"name": "api_key", "type": "string", "direction": "tx"}
+  ],
+  "gpio": {},
+  "serverSource": {
+    "postDataController": "src/Controller/Pgl/PglPostDataController.php",
+    "gpioMapClass": null,
+    "fieldExtraction": "params"
+  }
+}

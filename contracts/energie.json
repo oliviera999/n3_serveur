@@ -1,0 +1,52 @@
+{
+  "id": "energie",
+  "label": "Énergie (INA226)",
+  "firmwareId": "energie",
+  "sensor": "energie",
+  "auth": "both",
+  "endpoints": {
+    "postData": "/energie/post-data"
+  },
+  "pages": {
+    "suivi": "/energie",
+    "controle": null,
+    "description": null
+  },
+  "tables": {
+    "data": "energieData"
+  },
+  "fields": [
+    {"name": "sensor", "type": "string", "direction": "tx"},
+    {"name": "version", "type": "string", "direction": "tx"},
+    {"name": "PanneauV", "type": "float", "direction": "tx"},
+    {"name": "PanneauI", "type": "float", "direction": "tx"},
+    {"name": "PanneauP", "type": "float", "direction": "tx"},
+    {"name": "PanneauImax", "type": "float", "direction": "tx"},
+    {"name": "BatterieV", "type": "float", "direction": "tx"},
+    {"name": "BatterieVmin", "type": "float", "direction": "tx"},
+    {"name": "BatterieI", "type": "float", "direction": "tx"},
+    {"name": "BatterieImin", "type": "float", "direction": "tx"},
+    {"name": "BatterieImax", "type": "float", "direction": "tx"},
+    {"name": "BatterieP", "type": "float", "direction": "tx"},
+    {"name": "BatterieVadc", "type": "float", "direction": "tx"},
+    {"name": "ConsoV", "type": "float", "direction": "tx"},
+    {"name": "ConsoI", "type": "float", "direction": "tx"},
+    {"name": "ConsoP", "type": "float", "direction": "tx"},
+    {"name": "ConsoImax", "type": "float", "direction": "tx"},
+    {"name": "EnergiePanneauWh", "type": "float", "direction": "tx"},
+    {"name": "EnergieConsoWh", "type": "float", "direction": "tx"},
+    {"name": "BatterieAh", "type": "float", "direction": "tx"},
+    {"name": "BatterieSoc", "type": "float", "direction": "tx"},
+    {"name": "InaStatus", "type": "int", "direction": "tx"},
+    {"name": "I2cErreurs", "type": "int", "direction": "tx"},
+    {"name": "Rssi", "type": "int", "direction": "tx"},
+    {"name": "FreeHeap", "type": "int", "direction": "tx"},
+    {"name": "BootCount", "type": "int", "direction": "tx"},
+    {"name": "Uptime", "type": "int", "direction": "tx"}
+  ],
+  "gpio": {},
+  "serverSource": {
+    "postDataController": "src/Controller/Energie/EnergiePostDataController.php",
+    "gpioMapClass": null
+  }
+}

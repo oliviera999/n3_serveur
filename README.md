@@ -136,6 +136,7 @@ php -c "C:\php\php.ini" -S 127.0.0.1:8082 -t "c:\IOT_n3\serveur\public" "c:\IOT_
 Vérifications utiles :
 
 - Navigation : barre horizontale au-dessus de 980px de largeur ; en dessous, bouton menu (sandwich) et panneau latéral — styles et accessibilité (ARIA, focus) sont centralisés dans `public/assets/css/main.css`, `theme-variables.css` et `public/assets/js/main.js` ; les entrées optionnelles depuis la supervision utilisent `page-nav-toggles.js`.
+- Supervision (admin) : cohérence firmware↔serveur via `contracts/*.json` (`/admin/api/contract-alignment`) ; catalogue d'appareils `iotDevices` et wizard « Ajouter un appareil » — voir `docs/CONTRACTS_AND_DEVICES.md`.
 - Accueil : `http://127.0.0.1:8082/`
 - CSS principal : `http://127.0.0.1:8082/assets/css/main.css`
 - Description aquaponie : `http://127.0.0.1:8082/aquaponie-description`

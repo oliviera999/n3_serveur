@@ -5,6 +5,8 @@
  * Inclus depuis public/index.php — variables $app et $applyAuth en scope.
  */
 
+use App\Controller\Admin\ContractAlignmentController;
+use App\Controller\Admin\DeviceAdminController;
 use App\Controller\Admin\HmacAuditController;
 use App\Controller\Admin\OperationalSettingsController;
 use App\Controller\Admin\UserAdminController;
@@ -28,4 +30,14 @@ $app->group('', function ($group) {
     $group->get('/admin/api/operational-settings', [OperationalSettingsController::class, 'list']);
     $group->post('/admin/api/operational-settings', [OperationalSettingsController::class, 'update']);
     $group->post('/admin/api/operational-settings/reset', [OperationalSettingsController::class, 'reset']);
+
+    // Cohérence contrats firmware ↔ serveur (Phase 1 D)
+    $group->get('/admin/api/contract-alignment', [ContractAlignmentController::class, 'list']);
+    $group->get('/admin/api/contract-alignment/{id}', [ContractAlignmentController::class, 'show']);
+
+    // Catalogue d'appareils / instances (Phase 1 A)
+    $group->get('/admin/api/devices', [DeviceAdminController::class, 'list']);
+    $group->post('/admin/api/devices', [DeviceAdminController::class, 'create']);
+    $group->post('/admin/api/devices/{id}', [DeviceAdminController::class, 'update']);
+    $group->post('/admin/api/devices/{id}/delete', [DeviceAdminController::class, 'delete']);
 })->add($applyAuth);

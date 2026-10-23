@@ -23,64 +23,132 @@
         <h2>Live</h2>
     </div>
     <div class="live-section" data-aos="fade-up">
-        <p class="live-section-intro">Témoins de connexion et dernière réception de données par module — mise à jour en temps réel</p>
-        <p class="live-section-legend"><strong>Légende :</strong> WROOM et S3 = types de cartes électroniques (ESP32) ; MSP1 = potager (station météo) ; N3PP = serre (élevage d'insectes)</p>
+        <p class="live-section-intro">Témoins de connexion et dernière réception de données — catalogue <code>iotDevices</code>, mise à jour en temps réel</p>
+        <p class="live-section-legend"><strong>Légende :</strong> WROOM et S3 = cartes ESP32 ; MSP1 = potager ; N3PP = serre ; familles alignées via <code>contracts/*.json</code></p>
         <div class="live-grid" id="live-status-grid" aria-live="polite">
+            {% for device in iot_live_devices|default([]) %}
             <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/aquaponie" class="live-card live-loading" data-module="ffp3-wroom-prod"><div class="live-card-name">Aquaponie (WROOM prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
+                <a href="{{ base_path|default('') }}{{ device.page_url|default('#') }}" class="live-card live-loading" data-module="{{ device.live_module_id }}">
+                    <div class="live-card-name">{{ device.label }}</div>
+                    <span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span>
+                    <div class="live-card-datetime">—</div>
+                </a>
+                {% if device.page_key %}
                 <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="aquaponie" data-page-label="Aquaponie" data-page-url="{{ base_path|default('') }}/aquaponie">
+                    <input type="checkbox" class="page-nav-cb" data-page-key="{{ device.page_key }}" data-page-label="{{ device.label }}" data-page-url="{{ base_path|default('') }}{{ device.page_url }}">
                     <span class="page-nav-slider"></span>
                 </label>
+                {% endif %}
             </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/aquaponie-test" class="live-card live-loading" data-module="ffp3-wroom-test"><div class="live-card-name">Aquaponie (WROOM test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="aquaponie-test" data-page-label="Aquaponie test" data-page-url="{{ base_path|default('') }}/aquaponie-test">
-                    <span class="page-nav-slider"></span>
-                </label>
+            {% else %}
+            <p class="live-section-intro">Aucun appareil Live enregistré dans le catalogue.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="section-header" data-aos="fade-up">
+        <i class="fas fa-balance-scale"></i>
+        <h2>Cohérence firmware ↔ serveur</h2>
+    </div>
+    <div class="links-grid" data-aos="fade-up" id="contract-alignment-section">
+        <div class="link-card cache-card" style="grid-column:1/-1;">
+            <div class="hint">
+                Comparaison des contrats <code>contracts/*.json</code> avec les PostDataController et GpioMap.
+                Résumé :
+                <strong style="color:#2e7d32;">{{ contract_alignment_summary.ok|default(0) }} ok</strong> ·
+                <strong style="color:#ef6c00;">{{ contract_alignment_summary.warn|default(0) }} warn</strong> ·
+                <strong style="color:#c62828;">{{ contract_alignment_summary.error|default(0) }} error</strong>
+                — API <code>/admin/api/contract-alignment</code>
             </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/aquamobile" class="live-card live-loading" data-module="ffp3-s3-prod"><div class="live-card-name">Aquamobile (S3 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile" data-page-label="Aquamobile" data-page-url="{{ base_path|default('') }}/aquamobile">
-                    <span class="page-nav-slider"></span>
-                </label>
+            <div class="live-grid" style="margin-top:12px;">
+                {% for family in contract_alignment|default([]) %}
+                <div class="live-card-wrap">
+                    <div class="live-card live-{{ family.status == 'ok' ? 'online' : (family.status == 'warn' ? 'loading' : 'error') }}" style="cursor:default;">
+                        <div class="live-card-name">{{ family.label }} <code style="font-size:11px;">{{ family.id }}</code></div>
+                        <span class="live-card-badge {{ family.status == 'ok' ? 'online' : (family.status == 'warn' ? 'loading' : 'error') }}">
+                            {% if family.status == 'ok' %}<i class="fas fa-check-circle"></i> Aligné
+                            {% elseif family.status == 'warn' %}<i class="fas fa-exclamation-circle"></i> Écart mineur
+                            {% else %}<i class="fas fa-times-circle"></i> Désaligné{% endif %}
+                        </span>
+                        <div class="live-card-datetime" style="font-size:11px;line-height:1.35;max-height:4.2em;overflow:hidden;">
+                            {% if family.issues|default([])|length == 0 %}Aucun écart détecté
+                            {% else %}{{ family.issues|join(' · ') }}{% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <p>Aucun contrat chargé (dossier <code>contracts/</code>).</p>
+                {% endfor %}
             </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/aquamobile-test" class="live-card live-loading" data-module="ffp3-s3-test"><div class="live-card-name">Aquamobile (S3 test3)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="aquamobile-test" data-page-label="Aquamobile test" data-page-url="{{ base_path|default('') }}/aquamobile-test">
-                    <span class="page-nav-slider"></span>
+        </div>
+    </div>
+
+    <div class="section-header" data-aos="fade-up">
+        <i class="fas fa-microchip"></i>
+        <h2>Catalogue d'appareils</h2>
+    </div>
+    <div class="links-grid" data-aos="fade-up" id="iot-devices-section">
+        <div class="link-card cache-card" style="grid-column:1/-1;">
+            <div><i class="fas fa-plus-circle"></i><span class="label">Ajouter un appareil</span></div>
+            <div class="hint">Enregistre une instance d'une famille déjà connue (pas de nouvelle famille). Met à jour <code>iotDevices</code>, optionnellement le menu et la table <code>Boards</code>.</div>
+            {% if can_manage_users|default(false) %}
+            <form id="iotDeviceCreateForm" style="margin-top:12px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));align-items:end;">
+                <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;">Famille
+                    <select name="family" id="iotDeviceFamily" required>
+                        {% for fam in iot_families|default([]) %}
+                        <option value="{{ fam }}">{{ fam }}</option>
+                        {% endfor %}
+                    </select>
                 </label>
-            </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/meteo" class="live-card live-loading" data-module="msp1-prod"><div class="live-card-name">Potager (MSP1 prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="potager" data-page-label="Potager" data-page-url="{{ base_path|default('') }}/meteo">
-                    <span class="page-nav-slider"></span>
+                <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;">Identifiant <code>n3-…</code>
+                    <input type="text" name="device_id" id="iotDeviceId" required pattern="n3-[a-z0-9-]{2,48}" placeholder="n3-msp-02" maxlength="64">
                 </label>
-            </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php" class="live-card live-loading" data-module="msp1-test"><div class="live-card-name">Potager (MSP1 test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="potager-test" data-page-label="Potager test" data-page-url="{{ base_path|default('') }}/msp1-test/msp1datas/msp1-data.php">
-                    <span class="page-nav-slider"></span>
+                <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;">Libellé
+                    <input type="text" name="label" id="iotDeviceLabel" required maxlength="128" placeholder="Potager nord">
                 </label>
-            </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/serre" class="live-card live-loading" data-module="n3pp-prod"><div class="live-card-name">Élevage (N3PP prod)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="elevage" data-page-label="Élevage" data-page-url="{{ base_path|default('') }}/serre">
-                    <span class="page-nav-slider"></span>
+                <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;">Board (optionnel)
+                    <input type="text" name="board" id="iotDeviceBoard" maxlength="64" placeholder="2">
                 </label>
-            </div>
-            <div class="live-card-wrap">
-                <a href="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php" class="live-card live-loading" data-module="n3pp-test"><div class="live-card-name">Élevage (N3PP test)</div><span class="live-card-badge loading"><i class="fas fa-spinner fa-spin"></i> Chargement...</span><div class="live-card-datetime">—</div></a>
-                <label class="page-nav-toggle" title="Afficher dans le menu de navigation">
-                    <input type="checkbox" class="page-nav-cb" data-page-key="elevage-test" data-page-label="Élevage test" data-page-url="{{ base_path|default('') }}/n3pp-test/n3ppdatas/n3pp-data.php">
-                    <span class="page-nav-slider"></span>
+                <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;">Environnement
+                    <input type="text" name="env" id="iotDeviceEnv" maxlength="32" placeholder="prod">
                 </label>
+                <label style="display:flex;align-items:center;gap:8px;font-size:13px;padding-bottom:6px;">
+                    <input type="checkbox" name="show_in_nav" id="iotDeviceNav" checked> Afficher dans le menu
+                </label>
+                <button type="submit" class="btn-cache" id="iotDeviceSubmitBtn">Enregistrer</button>
+            </form>
+            <div id="iotDeviceCreateResult" class="cache-result" aria-live="polite" style="display:none;margin-top:10px;"></div>
+            {% else %}
+            <div class="hint" style="margin-top:8px;">Réservé aux administrateurs.</div>
+            {% endif %}
+
+            <div style="margin-top:16px;overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:13px;">
+                    <thead>
+                        <tr style="text-align:left;border-bottom:1px solid #ddd;">
+                            <th style="padding:6px;">ID</th>
+                            <th style="padding:6px;">Famille</th>
+                            <th style="padding:6px;">Libellé</th>
+                            <th style="padding:6px;">Env</th>
+                            <th style="padding:6px;">Board</th>
+                            <th style="padding:6px;">Actif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for device in iot_devices|default([]) %}
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:6px;"><code>{{ device.device_id }}</code></td>
+                            <td style="padding:6px;">{{ device.family }}</td>
+                            <td style="padding:6px;">{{ device.label }}</td>
+                            <td style="padding:6px;">{{ device.env }}</td>
+                            <td style="padding:6px;">{{ device.board|default('—') }}</td>
+                            <td style="padding:6px;">{{ device.active ? 'oui' : 'non' }}</td>
+                        </tr>
+                        {% else %}
+                        <tr><td colspan="6" style="padding:8px;">Aucun appareil.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -564,14 +632,9 @@ window.NAV_PAGES_STATE = {{ nav_states|default({})|json_encode|raw }};
 (function() {
     var BASE = '{{ base_path }}' || '';
     var LIVE_MODULES = [
-        { id: 'ffp3-wroom-prod', url: BASE + '/api/realtime/system/health' },
-        { id: 'ffp3-wroom-test', url: BASE + '/api/realtime-test/system/health' },
-        { id: 'ffp3-s3-prod', url: BASE + '/api/realtime3/system/health' },
-        { id: 'ffp3-s3-test', url: BASE + '/api/realtime3-test/system/health' },
-        { id: 'msp1-prod', url: BASE + '/msp1/api/realtime/system/health' },
-        { id: 'msp1-test', url: BASE + '/msp1-test/api/realtime/system/health' },
-        { id: 'n3pp-prod', url: BASE + '/n3pp/api/realtime/system/health' },
-        { id: 'n3pp-test', url: BASE + '/n3pp-test/api/realtime/system/health' }
+        {% for device in iot_live_devices|default([]) %}
+        { id: {{ device.live_module_id|json_encode|raw }}, url: BASE + {{ device.live_health_url|json_encode|raw }} }{% if not loop.last %},{% endif %}
+        {% endfor %}
     ];
     var POLL_INTERVAL_MS = 15000;
 
@@ -1036,6 +1099,58 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
     }
 
     load();
+})();
+
+(function () {
+    var form = document.getElementById('iotDeviceCreateForm');
+    if (!form) return;
+    var resultEl = document.getElementById('iotDeviceCreateResult');
+    var BASE = '{{ base_path|default('') }}';
+    form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var btn = document.getElementById('iotDeviceSubmitBtn');
+        var payload = {
+            family: (document.getElementById('iotDeviceFamily') || {}).value || '',
+            device_id: (document.getElementById('iotDeviceId') || {}).value || '',
+            label: (document.getElementById('iotDeviceLabel') || {}).value || '',
+            board: (document.getElementById('iotDeviceBoard') || {}).value || '',
+            env: (document.getElementById('iotDeviceEnv') || {}).value || '',
+            show_in_nav: !!(document.getElementById('iotDeviceNav') || {}).checked
+        };
+        if (btn) btn.disabled = true;
+        if (resultEl) {
+            resultEl.style.display = 'block';
+            resultEl.className = 'cache-result';
+            resultEl.textContent = 'Enregistrement…';
+        }
+        fetch(BASE + '/admin/api/devices', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken()
+            },
+            body: JSON.stringify(payload)
+        }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+          .then(function (res) {
+            if (resultEl) {
+                resultEl.className = 'cache-result ' + (res.data && res.data.success ? 'success' : 'error');
+                resultEl.textContent = (res.data && res.data.success)
+                    ? 'Appareil enregistré. Rechargement…'
+                    : ((res.data && res.data.error) || 'Échec');
+            }
+            if (res.data && res.data.success) {
+                setTimeout(function () { window.location.reload(); }, 700);
+            }
+        }).catch(function (e) {
+            if (resultEl) {
+                resultEl.className = 'cache-result error';
+                resultEl.textContent = 'Erreur : ' + (e.message || 'réseau');
+            }
+        }).finally(function () {
+            if (btn) btn.disabled = false;
+        });
+    });
 })();
 </script>
 {% endblock %}

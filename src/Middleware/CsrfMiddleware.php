@@ -61,6 +61,10 @@ class CsrfMiddleware implements MiddlewareInterface
         '#/admin/api/hmac-audit/reset-policy$#',
         '#/admin/api/operational-settings$#',
         '#/admin/api/operational-settings/reset$#',
+        // Catalogue d'appareils (wizard Supervision)
+        '#/admin/api/devices$#',
+        '#/admin/api/devices/[a-z0-9-]+$#',
+        '#/admin/api/devices/[a-z0-9-]+/delete$#',
     ];
 
     private const SAFE_METHODS = ['GET', 'HEAD', 'OPTIONS'];

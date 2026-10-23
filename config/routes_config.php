@@ -184,6 +184,8 @@ return [
             '/admin/deploy-script',
             '/admin/hmac-audit',
             '/admin/api/hmac-audit/toggle',
+            '/admin/api/contract-alignment',
+            '/admin/api/devices',
         ],
         'reader' => [
             '/dashboard',

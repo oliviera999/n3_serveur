@@ -1,0 +1,69 @@
+{
+  "id": "msp1",
+  "label": "Potager (MSP1)",
+  "firmwareId": "msp",
+  "sensor": "msp1",
+  "auth": "both",
+  "endpoints": {
+    "postData": "/msp1/post-data",
+    "heartbeat": "/msp1/heartbeat",
+    "outputsState": "/msp1/api/firmware/outputs/state"
+  },
+  "pages": {
+    "suivi": "/meteo",
+    "controle": "/meteo-control",
+    "description": "/meteo-description"
+  },
+  "tables": {
+    "data": "msp1Data",
+    "outputs": "msp1Outputs",
+    "heartbeat": "msp1Heartbeat"
+  },
+  "fields": [
+    {"name": "sensor", "type": "string", "direction": "tx"},
+    {"name": "version", "type": "string", "direction": "tx"},
+    {"name": "TempAirInt", "type": "float", "direction": "tx"},
+    {"name": "TempAirExt", "type": "float", "direction": "tx"},
+    {"name": "HumidAirInt", "type": "float", "direction": "tx"},
+    {"name": "HumidAirExt", "type": "float", "direction": "tx"},
+    {"name": "Pression", "type": "float", "direction": "tx"},
+    {"name": "LuminositeA", "type": "float", "direction": "tx"},
+    {"name": "LuminositeB", "type": "float", "direction": "tx"},
+    {"name": "LuminositeC", "type": "float", "direction": "tx"},
+    {"name": "LuminositeD", "type": "float", "direction": "tx"},
+    {"name": "LuminositeMoy", "type": "float", "direction": "tx"},
+    {"name": "ServoHB", "type": "int", "direction": "both"},
+    {"name": "ServoGD", "type": "int", "direction": "both"},
+    {"name": "HumidSol", "type": "float", "direction": "tx"},
+    {"name": "Pluie", "type": "float", "direction": "tx"},
+    {"name": "TempEau", "type": "float", "direction": "tx"},
+    {"name": "PontDiv", "type": "int", "direction": "tx"},
+    {"name": "WakeUp", "type": "int", "direction": "both"},
+    {"name": "SeuilSec", "type": "int", "direction": "both"},
+    {"name": "FreqWakeUp", "type": "int", "direction": "both"},
+    {"name": "SeuilPontDiv", "type": "int", "direction": "both"},
+    {"name": "mail", "type": "string", "direction": "both"},
+    {"name": "mailNotif", "type": "string", "direction": "both"},
+    {"name": "resetMode", "type": "int", "direction": "both"},
+    {"name": "bootCount", "type": "int", "direction": "tx"}
+  ],
+  "gpio": {
+    "100": "mail",
+    "101": "mailNotif",
+    "102": "SeuilSec",
+    "103": "SeuilPontDiv",
+    "104": "ServoHB",
+    "105": "ServoGD",
+    "106": "WakeUp",
+    "107": "FreqWakeUp",
+    "108": "notifMode",
+    "109": "notifCategories",
+    "110": "resetMode",
+    "111": "ServoModeAuto",
+    "112": "veilleInfinie"
+  },
+  "serverSource": {
+    "postDataController": "src/Controller/Msp/MspPostDataController.php",
+    "gpioMapClass": "App\\Config\\MspGpioMap"
+  }
+}
