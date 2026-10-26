@@ -658,9 +658,44 @@
           <div class="timelapse-stat-row"><span class="timelapse-stat-key">Intervalle moy.</span><span class="timelapse-stat-val" id="statInterval">--</span></div>
         </div>
         <div class="timelapse-section">
-          <div class="timelapse-section-label"><i class="fas fa-file-video"></i> Export vidéo (MP4 H.264/AAC)</div>
-          <p class="timelapse-export-hint">Plage temporelle chargée ci-dessus</p>
-          <button class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo MP4</button>
+          <div class="timelapse-section-label" id="exportSectionLabel"><i class="fas fa-file-video"></i> Export vidéo</div>
+          <p class="timelapse-export-hint" id="exportFormatHint">Format détecté au chargement</p>
+          <div class="timelapse-export-options">
+            <div class="timelapse-date-row">
+              <label for="exportLimit">Max images</label>
+              <select id="exportLimit" class="timelapse-config-input">
+                <option value="400">400</option>
+                <option value="800" selected>800</option>
+                <option value="1500">1500</option>
+                <option value="3000">3000</option>
+              </select>
+            </div>
+            <div class="timelapse-date-row">
+              <label for="exportStep">1 image sur</label>
+              <select id="exportStep" class="timelapse-config-input">
+                <option value="1" selected>1 (toutes)</option>
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="timelapse-date-row">
+              <label for="exportResolution">Résolution</label>
+              <select id="exportResolution" class="timelapse-config-input">
+                <option value="640">640 px</option>
+                <option value="800" selected>800 px</option>
+                <option value="1280">1280 px</option>
+                <option value="native">Native (max 1600)</option>
+              </select>
+            </div>
+            <label class="timelapse-demo-label">
+              <input type="checkbox" id="demoMode"> Mode démo (sans photos)
+            </label>
+          </div>
+          <div class="timelapse-export-actions">
+            <button type="button" class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo</button>
+            <button type="button" class="timelapse-btn timelapse-btn-cancel" id="btnExportCancel" hidden>Annuler</button>
+          </div>
           <div class="timelapse-progress" id="exportProgress">
             <div class="timelapse-progress-bar"><div class="timelapse-progress-fill" id="exportFill"></div></div>
             <div class="timelapse-progress-text" id="exportText">Encodage...</div>
@@ -675,477 +710,11 @@
 
 {% block scripts %}
 <script>
-const CONFIG = { defaultFps: 24, bufferSize: 40, preloadAhead: 15, preloadConcurrency: 4 };
-let state = { frames: [], currentIndex: 0, fps: CONFIG.defaultFps, isPlaying: false, playInterval: null, isLive: false, liveTimer: null, totalLoaded: 0, recording: false, mediaRecorder: null, recordedChunks: [], latestPhotoAt: null, oldestPhotoAt: null, photoCount: 0, feedbackTimer: null };
-// File de préchargement avec deux niveaux de priorité
-const preloadQ = { hi: [], lo: [] };
-let preloadWorkers = 0;
-function queuePreload(frame, hi = false) {
-  if (frame.img || !frame.url) return;
-  const q = hi ? preloadQ.hi : preloadQ.lo;
-  if (q.includes(frame)) return;
-  q.push(frame);
-  runPreloadWorkers();
-}
-function runPreloadWorkers() {
-  while (preloadWorkers < CONFIG.preloadConcurrency) {
-    const frame = preloadQ.hi.shift() || preloadQ.lo.shift();
-    if (!frame) break;
-    if (frame.img || !frame.url) continue;
-    preloadWorkers++;
-    preloadImage(frame).finally(() => { preloadWorkers--; updateLoadProgress(); runPreloadWorkers(); });
-  }
-}
-function updateLoadProgress() {
-  if (!state.frames.length) return;
-  const loaded = state.frames.reduce((n, f) => n + (f.img ? 1 : 0), 0);
-  document.getElementById('statCount').textContent = loaded + ' / ' + state.frames.length;
-}
-function startBulkPreload() {
-  preloadQ.lo.length = 0;
-  for (let i = 0; i < state.frames.length; i++) {
-    if (!state.frames[i].img && state.frames[i].url) preloadQ.lo.push(state.frames[i]);
-  }
-  runPreloadWorkers();
-}
-const BASE = '{{ base_path|default('') }}';
-function ensureAbsoluteUrl(url) {
-  if (!url || url.startsWith('http') || url.startsWith('//')) return url;
-  const base = (BASE && !BASE.startsWith('/') ? '/' : '') + (BASE ? BASE.replace(/\/$/, '') + '/' : '');
-  return (base || '/') + url.replace(/^\//, '');
-}
-function generateDemoFrames(fromDate, toDate) {
-  const frames = [];
-  let t = fromDate.getTime();
-  let i = 0;
-  const interval = 5 * 60 * 1000;
-  while (t <= toDate.getTime()) {
-    frames.push({ url: null, timestamp: new Date(t), demoIndex: i++ });
-    t += interval + Math.random() * 30000;
-  }
-  return frames;
-}
-function drawDemoFrame(frame, c) {
-  const ctx = c.getContext('2d');
-  const W = c.width, H = c.height;
-  const t = frame.timestamp;
-  const dayProgress = (t.getHours() * 60 + t.getMinutes()) / (24 * 60);
-  const lum = Math.sin(dayProgress * Math.PI);
-  const r = Math.round(20 + lum * 40), g = Math.round(30 + lum * 60), b = Math.round(20 + lum * 30);
-  ctx.fillStyle = `rgb(${r},${g},${b})`;
-  ctx.fillRect(0, 0, W, H);
-  ctx.strokeStyle = `rgba(${60+lum*80},${80+lum*100},${40+lum*60},0.4)`;
-  ctx.lineWidth = 1;
-  for (let y = 0; y < H; y += 30) { ctx.beginPath(); ctx.moveTo(0, y + Math.sin(y*0.1)*5); ctx.lineTo(W, y + Math.cos(y*0.07)*8); ctx.stroke(); }
-  const seed = frame.demoIndex % 7;
-  for (let p = 0; p < 8; p++) {
-    const px = ((p * 137 + seed * 91) % W);
-    const py = H - 20 - ((p * 73 + seed * 53) % (H/2));
-    ctx.strokeStyle = `rgba(${50+lum*100},${120+lum*100},${40+lum*60},0.7)`;
-    ctx.lineWidth = 1.5;
-    ctx.beginPath(); ctx.moveTo(px, H-10); ctx.lineTo(px, py); ctx.stroke();
-    ctx.beginPath(); ctx.ellipse(px, py, 8, 4, -0.3, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(${40+lum*80},${100+lum*120},${30+lum*50},0.6)`;
-    ctx.fill();
-  }
-  ctx.fillStyle = 'rgba(0,0,0,0.35)';
-  ctx.fillRect(0, H-40, W, 40);
-  ctx.font = '13px Raleway';
-  ctx.fillStyle = '#00B794';
-  ctx.fillText(`n³ · FRAME ${String(frame.demoIndex).padStart(4,'0')} · DEMO`, 12, H-14);
-}
-async function fetchFrames(from, to) {
-  if (document.getElementById('demoMode')?.checked) return generateDemoFrames(from, to);
-  const apiUrl = document.getElementById('apiUrl').value;
-  const url = apiUrl + '?from=' + encodeURIComponent(from.toISOString()) + '&to=' + encodeURIComponent(to.toISOString());
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error('HTTP ' + resp.status);
-  const data = await resp.json();
-  return data.map(d => ({ url: ensureAbsoluteUrl(d.url), timestamp: new Date(d.timestamp) }));
-}
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-function renderFrame(frame) {
-  if (!frame) return;
-  const demoMode = document.getElementById('demoMode')?.checked ?? false;
-  if (demoMode || !frame.img) { drawDemoFrame(frame, canvas); } else { try { ctx.drawImage(frame.img, 0, 0, canvas.width, canvas.height); } catch(e) {} }
-  document.getElementById('noImage').style.display = 'none';
-  document.getElementById('tsOverlay').textContent = frame.timestamp.toLocaleDateString('fr-FR') + ' · ' + frame.timestamp.toLocaleTimeString('fr-FR');
-  updateScrubber();
-  updateStats();
-}
-async function preloadImage(frame) {
-  if (frame.img) return true;
-  if (!frame.url) return false;
-  return new Promise(resolve => {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => { frame.img = img; frame.loadFailed = false; resolve(true); };
-    img.onerror = () => { frame.loadFailed = true; resolve(false); };
-    img.src = frame.url;
-  });
-}
-function preloadAround(idx) {
-  const start = Math.max(0, idx - 3);
-  const end = Math.min(state.frames.length - 1, idx + CONFIG.preloadAhead);
-  for (let i = start; i <= end; i++) queuePreload(state.frames[i], true);
-}
-// Compteur de génération : empêche les renders obsolètes (navigation rapide)
-let renderGen = 0;
-async function playLoop() {
-  if (!state.isPlaying) return;
-  const t0 = performance.now();
-  const nextIndex = state.currentIndex >= state.frames.length - 1 ? 0 : state.currentIndex + 1;
-  const rendered = await renderAtIndexSkippingMissing(nextIndex, true);
-  if (!rendered || !state.isPlaying) return;
-  const delay = Math.max(0, (1000 / state.fps) - (performance.now() - t0));
-  state.playInterval = setTimeout(playLoop, delay);
-}
-function startPlay() {
-  if (state.frames.length === 0) return;
-  state.isPlaying = true;
-  document.getElementById('btnPlay').textContent = '⏸';
-  state.playInterval = setTimeout(playLoop, 0);
-}
-function stopPlay() { state.isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; clearTimeout(state.playInterval); }
-async function goTo(idx) {
-  const gen = ++renderGen;
-  await renderAtIndexSkippingMissing(idx, false, gen);
-}
-
-function handleNoFrames() {
-  stopPlay();
-  state.currentIndex = 0;
-  state.frames = [];
-  document.getElementById('btnExport').disabled = true;
-  document.getElementById('noImage').style.display = 'flex';
-  document.getElementById('tsOverlay').textContent = '--';
-  document.getElementById('statCount').textContent = '0';
-  document.getElementById('timeStart').textContent = '--';
-  document.getElementById('timeCurrent').textContent = '--';
-  document.getElementById('timeEnd').textContent = '--';
-  document.getElementById('scrubberFill').style.width = '0%';
-  document.getElementById('scrubber').value = 0;
-}
-
-async function renderAtIndexSkippingMissing(targetIndex, silent, expectedGen) {
-  if (state.frames.length === 0) {
-    handleNoFrames();
-    return false;
-  }
-
-  let idx = Math.max(0, Math.min(state.frames.length - 1, targetIndex));
-  let removed = 0;
-
-  while (state.frames.length > 0) {
-    if (expectedGen && expectedGen !== renderGen) return false;
-
-    idx = Math.max(0, Math.min(state.frames.length - 1, idx));
-    state.currentIndex = idx;
-    const frame = state.frames[idx];
-    const demoMode = document.getElementById('demoMode')?.checked ?? false;
-
-    if (demoMode || frame.img) {
-      renderFrame(frame);
-      preloadAround(state.currentIndex);
-      if (removed > 0 && !silent) {
-        showToast(removed + ' image(s) supprimée(s) du timelapse (introuvables)', 'success');
-      }
-      return true;
-    }
-
-    const ok = await preloadImage(frame);
-    if (expectedGen && expectedGen !== renderGen) return false;
-    if (ok) {
-      renderFrame(frame);
-      preloadAround(state.currentIndex);
-      if (removed > 0 && !silent) {
-        showToast(removed + ' image(s) supprimée(s) du timelapse (introuvables)', 'success');
-      }
-      return true;
-    }
-
-    state.frames.splice(idx, 1);
-    removed++;
-  }
-
-  handleNoFrames();
-  if (removed > 0 && !silent) {
-    showToast('Toutes les images de cette plage ont été retirées (introuvables)', 'error');
-  }
-  return false;
-}
-/**
- * Charge les images pour la plage indiquée.
- * Si from/to sont fournis (Date), ils sont utilisés ; sinon lecture depuis les champs Début/Fin.
- * Utilisé au chargement de la page avec les dernières 24h par défaut.
- */
-function getRangeEnd() {
-  return state.latestPhotoAt instanceof Date ? new Date(state.latestPhotoAt.getTime()) : new Date();
-}
-function computeRangeForHours(hours) {
-  const end = getRangeEnd();
-  let from = new Date(end.getTime() - hours * 3600000);
-  if (state.oldestPhotoAt instanceof Date && from < state.oldestPhotoAt) {
-    from = new Date(state.oldestPhotoAt.getTime());
-  }
-  if (from >= end) {
-    from = new Date(end.getTime() - 60000);
-  }
-  return { from, end };
-}
-async function loadRange(fromOrNull, toOrNull, options = {}) {
-  let from = fromOrNull != null ? fromOrNull : new Date(document.getElementById('dateFrom').value);
-  let to = toOrNull != null ? toOrNull : new Date(document.getElementById('dateTo').value);
-  if (isNaN(from) || isNaN(to) || from >= to) { showToast('Plage invalide', 'error'); return; }
-  stopPlay();
-  preloadQ.hi.length = 0; preloadQ.lo.length = 0; // annuler les préchargements précédents
-  showLoading('Récupération des métadonnées...');
-  try {
-    let rawFrames = await fetchFrames(from, to);
-    if (rawFrames.length === 0 && options.fallbackToFullRange
-        && state.oldestPhotoAt instanceof Date && state.latestPhotoAt instanceof Date) {
-      from = new Date(state.oldestPhotoAt.getTime());
-      to = new Date(state.latestPhotoAt.getTime());
-      if (from >= to) {
-        from = new Date(to.getTime() - 60000);
-      }
-      setDateRangeFromBounds(from, to);
-      rawFrames = await fetchFrames(from, to);
-      if (rawFrames.length > 0) {
-        showToast('Plage étendue à toutes les photos disponibles', 'success');
-      }
-    }
-    if (rawFrames.length === 0) { showToast('Aucune image dans cette plage', 'error'); hideLoading(); return; }
-    state.frames = rawFrames;
-    state.currentIndex = 0;
-    document.getElementById('btnExport').disabled = false;
-    updateTimeLabels();
-    updateStats();
-    showLoading('Préchargement...');
-    preloadAround(0);
-    const firstOk = await preloadImage(state.frames[0]);
-    if (!firstOk) {
-      await renderAtIndexSkippingMissing(0, false);
-      hideLoading();
-      startBulkPreload();
-      return;
-    }
-    hideLoading();
-    renderFrame(state.frames[0]);
-    showToast(rawFrames.length + ' images — chargement en cours…', 'success');
-    startBulkPreload();
-    if (document.getElementById('demoMode')?.checked) startPlay();
-  } catch(e) { hideLoading(); showToast('Erreur: ' + e.message, 'error'); }
-}
-function setDateRange(hours) {
-  const { from, end } = computeRangeForHours(hours);
-  setDateRangeFromBounds(from, end);
-}
-function updateScrubber() {
-  const pct = state.frames.length > 1 ? (state.currentIndex / (state.frames.length - 1)) * 100 : 0;
-  document.getElementById('scrubberFill').style.width = pct + '%';
-  document.getElementById('scrubber').value = pct;
-  const f = state.frames[state.currentIndex];
-  if (f) document.getElementById('timeCurrent').textContent = f.timestamp.toLocaleTimeString('fr-FR');
-}
-function updateTimeLabels() {
-  if (state.frames.length === 0) return;
-  const first = state.frames[0].timestamp, last = state.frames[state.frames.length-1].timestamp;
-  document.getElementById('timeStart').textContent = first.toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit'}) + ' ' + first.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-  document.getElementById('timeEnd').textContent = last.toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit'}) + ' ' + last.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-}
-function updateStats() {
-  const n = state.frames.length;
-  document.getElementById('statCount').textContent = n;
-  if (n < 2) return;
-  const first = state.frames[0].timestamp, last = state.frames[n-1].timestamp;
-  const durMs = last - first;
-  document.getElementById('statDuration').textContent = (Math.floor(durMs/3600000) > 0 ? Math.floor(durMs/3600000) + 'h ' : '') + Math.floor((durMs%3600000)/60000) + ' min';
-  const videoDurS = n / state.fps;
-  document.getElementById('statVideoDur').textContent = videoDurS > 60 ? Math.floor(videoDurS/60) + 'm ' + Math.round(videoDurS%60) + 's' : videoDurS.toFixed(1) + 's';
-  const avgMs = durMs / (n - 1);
-  document.getElementById('statInterval').textContent = (Math.floor(avgMs/60000) > 0 ? Math.floor(avgMs/60000) + 'm ' : '') + Math.round((avgMs%60000)/1000) + 's';
-  const f = state.frames[state.currentIndex];
-  if (f) document.getElementById('statCurrent').textContent = f.timestamp.toLocaleTimeString('fr-FR');
-}
-function toggleLive() {
-  state.isLive = !state.isLive;
-  document.getElementById('btnLive').classList.toggle('active', state.isLive);
-  if (state.isLive) {
-    if (state.frames.length > 0) { stopPlay(); goTo(state.frames.length - 1); }
-    state.liveTimer = setInterval(async () => {
-      try {
-        const lastTs = state.frames.length > 0 ? state.frames[state.frames.length-1].timestamp : new Date(getRangeEnd().getTime() - 3600000);
-        const newFrames = await fetchFrames(lastTs, getRangeEnd());
-        if (newFrames.length > 1) { state.frames.push(...newFrames.slice(1)); updateTimeLabels(); updateStats(); }
-        goTo(state.frames.length - 1);
-      } catch(e) {}
-    }, 60000);
-  } else clearInterval(state.liveTimer);
-}
-async function exportVideo() {
-  if (state.frames.length === 0) return;
-  const exportFrames = state.frames;
-  const demoMode = document.getElementById('demoMode')?.checked ?? false;
-  if (!demoMode) { showExportProgress(0, 'Préchargement...'); for (let i = 0; i < exportFrames.length; i++) { await preloadImage(exportFrames[i]); if (i % 10 === 0) showExportProgress((i/exportFrames.length)*40, 'Chargement...'); } }
-  const exportCanvas = document.createElement('canvas');
-  exportCanvas.width = canvas.width;
-  exportCanvas.height = canvas.height;
-  const exportCtx = exportCanvas.getContext('2d');
-  let videoStream;
-  try { videoStream = exportCanvas.captureStream(state.fps); } catch(e) { showToast('Capture non supportée: ' + e.message, 'error'); return; }
-  const mimeTypes = [
-    'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
-    'video/mp4;codecs=avc1,mp4a.40.2',
-    'video/mp4',
-    'video/webm;codecs=vp9',
-    'video/webm;codecs=vp8',
-    'video/webm'
-  ];
-  const mimeType = mimeTypes.find(m => MediaRecorder.isTypeSupported(m)) || 'video/webm';
-  const isMp4 = mimeType.startsWith('video/mp4');
-  let stream = videoStream;
-  let audioCleanup = null;
-  if (isMp4) {
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const oscillator = ctx.createOscillator();
-      const gain = ctx.createGain();
-      gain.gain.value = 0;
-      oscillator.connect(gain);
-      const dest = ctx.createMediaStreamDestination();
-      gain.connect(dest);
-      oscillator.start(0);
-      stream = new MediaStream([...videoStream.getVideoTracks(), ...dest.stream.getAudioTracks()]);
-      audioCleanup = () => { try { oscillator.stop(); ctx.close(); } catch(e) {} };
-    } catch (e) { /* pas d'audio, MP4 vidéo seule */ }
-  }
-  try {
-    state.recordedChunks = [];
-    state.mediaRecorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 4000000, audioBitsPerSecond: 128000 });
-    state.mediaRecorder.ondataavailable = e => { if (e.data.size > 0) state.recordedChunks.push(e.data); };
-    const ext = isMp4 ? 'mp4' : 'webm';
-    state.mediaRecorder.onstop = () => { if (audioCleanup) audioCleanup(); const blob = new Blob(state.recordedChunks, { type: mimeType }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'n3-timelapse-' + new Date().toISOString().slice(0,10) + '.' + ext; a.click(); URL.revokeObjectURL(url); state.recording = false; document.getElementById('btnExport').disabled = false; hideExportProgress(); showToast('Vidéo générée (' + (blob.size/1024/1024).toFixed(1) + ' Mo) - ' + (isMp4 ? 'MP4 H.264/AAC' : 'WebM'), 'success'); };
-  } catch (e) { showToast('MediaRecorder non supporté: ' + e.message, 'error'); return; }
-  state.mediaRecorder.start();
-  document.getElementById('btnExport').disabled = true;
-  state.recording = true;
-  const frameInterval = 1000 / state.fps;
-  for (let i = 0; i < exportFrames.length; i++) {
-    const frame = exportFrames[i];
-    if (demoMode) drawDemoFrame(frame, exportCanvas);
-    else if (frame.img) exportCtx.drawImage(frame.img, 0, 0, exportCanvas.width, exportCanvas.height);
-    else { exportCtx.fillStyle = '#1e252d'; exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height); }
-    exportCtx.fillStyle = 'rgba(0,0,0,0.5)';
-    exportCtx.fillRect(0, exportCanvas.height - 30, exportCanvas.width, 30);
-    exportCtx.font = '12px Raleway';
-    exportCtx.fillStyle = '#00B794';
-    exportCtx.fillText('n³ · ' + frame.timestamp.toLocaleDateString('fr-FR') + ' ' + frame.timestamp.toLocaleTimeString('fr-FR'), 10, exportCanvas.height - 10);
-    showExportProgress(40 + (i / exportFrames.length) * 55, 'Encodage ' + (i+1) + '/' + exportFrames.length);
-    await new Promise(r => setTimeout(r, frameInterval));
-  }
-  state.mediaRecorder.stop();
-  showExportProgress(100, 'Finalisation...');
-}
-function showExportProgress(pct, text) { document.getElementById('exportProgress').classList.add('visible'); document.getElementById('exportFill').style.width = pct + '%'; document.getElementById('exportText').textContent = text; }
-function hideExportProgress() { setTimeout(() => document.getElementById('exportProgress').classList.remove('visible'), 2000); }
-function showLoading(text) { document.getElementById('loadingText').textContent = text; document.getElementById('loadingOverlay').classList.add('visible'); }
-function hideLoading() { document.getElementById('loadingOverlay').classList.remove('visible'); }
-function showToast(msg, type) {
-  const feedback = document.getElementById('timelapseFeedback');
-  if (!feedback) return;
-  feedback.textContent = msg;
-  feedback.className = 'timelapse-feedback ' + type + ' show';
-  if (state.feedbackTimer) clearTimeout(state.feedbackTimer);
-  state.feedbackTimer = setTimeout(() => feedback.classList.remove('show'), 3500);
-}
-function updateClock() { document.getElementById('clock').textContent = new Date().toLocaleTimeString('fr-FR'); }
-async function fetchPhotoBounds() {
-  const url = document.getElementById('apiLatestUrl').value;
-  if (!url) return { latest: null, oldest: null, count: 0 };
-  try {
-    const resp = await fetch(url);
-    if (!resp.ok) return { latest: null, oldest: null, count: 0 };
-    const data = await resp.json();
-    return {
-      latest: data.timestamp ? new Date(data.timestamp) : null,
-      oldest: data.oldest_timestamp ? new Date(data.oldest_timestamp) : null,
-      count: Number(data.count) || 0,
-    };
-  } catch(e) {}
-  return { latest: null, oldest: null, count: 0 };
-}
-function setDateRangeFromBounds(from, to) {
-  const toLocal = d => { const off = d.getTimezoneOffset(); const local = new Date(d.getTime() - off * 60000); return local.toISOString().slice(0, 16); };
-  document.getElementById('dateFrom').value = toLocal(from);
-  document.getElementById('dateTo').value = toLocal(to);
-}
-setInterval(updateClock, 1000); updateClock();
-document.addEventListener('DOMContentLoaded', () => {
-  const paramsPanel = document.getElementById('timelapseParamsPanel');
-  const paramsBtn = document.getElementById('btnTimelapseParams');
-  const paramsLabel = document.getElementById('timelapseParamsLabel');
-  if (paramsPanel && paramsBtn && paramsLabel) {
-    paramsBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isHidden = paramsPanel.classList.contains('timelapse-params-panel--hidden');
-      if (isHidden) {
-        paramsPanel.classList.remove('timelapse-params-panel--hidden');
-        paramsBtn.setAttribute('aria-expanded', 'true');
-        paramsLabel.textContent = 'Masquer les paramètres';
-        paramsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        paramsPanel.classList.add('timelapse-params-panel--hidden');
-        paramsBtn.setAttribute('aria-expanded', 'false');
-        paramsLabel.textContent = 'Paramètres du timelapse';
-      }
-    });
-  }
-
-  // Plage par défaut : 24 h se terminant à la dernière photo ; repli sur toute la plage si vide
-  const DEFAULT_HOURS = 24;
-  (async function bootstrapTimelapse() {
-    const bounds = await fetchPhotoBounds();
-    state.latestPhotoAt = bounds.latest;
-    state.oldestPhotoAt = bounds.oldest;
-    state.photoCount = bounds.count;
-    if (!(bounds.latest instanceof Date)) return;
-    const { from, end } = computeRangeForHours(DEFAULT_HOURS);
-    setDateRangeFromBounds(from, end);
-    await loadRange(from, end, { fallbackToFullRange: true });
-  })();
-
-  document.querySelectorAll('.timelapse-range-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setDateRange(parseInt(btn.dataset.hours, 10)); }); });
-  document.querySelectorAll('.timelapse-speed-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.timelapse-speed-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); state.fps = parseInt(btn.dataset.fps); document.getElementById('fpsLabel').textContent = state.fps + ' fps'; if (state.isPlaying) { stopPlay(); startPlay(); } updateStats(); }); });
-  document.getElementById('btnLoad').addEventListener('click', () => loadRange(null, null));
-  document.getElementById('btnPlay').addEventListener('click', () => { if (state.isPlaying) stopPlay(); else startPlay(); });
-  document.getElementById('btnFirst').addEventListener('click', () => { stopPlay(); goTo(0); });
-  document.getElementById('btnLast').addEventListener('click', () => { stopPlay(); goTo(state.frames.length - 1); });
-  document.getElementById('btnPrev').addEventListener('click', () => { stopPlay(); goTo(state.currentIndex - 1); });
-  document.getElementById('btnNext').addEventListener('click', () => { stopPlay(); goTo(state.currentIndex + 1); });
-  document.getElementById('scrubber').addEventListener('input', e => { stopPlay(); const pct = parseFloat(e.target.value) / 100; goTo(Math.round(pct * (state.frames.length - 1))); });
-  document.getElementById('btnLive').addEventListener('click', toggleLive);
-  document.getElementById('btnExport').addEventListener('click', exportVideo);
-  document.addEventListener('keydown', e => {
-    if (e.target.tagName === 'INPUT') return;
-    if (e.code === 'Space') { e.preventDefault(); if (state.isPlaying) stopPlay(); else startPlay(); }
-    if (e.code === 'ArrowLeft') { stopPlay(); goTo(state.currentIndex - 1); }
-    if (e.code === 'ArrowRight') { stopPlay(); goTo(state.currentIndex + 1); }
-    if (e.code === 'Home') { stopPlay(); goTo(0); }
-    if (e.code === 'End') { stopPlay(); goTo(state.frames.length - 1); }
-  });
-  function resizeCanvas() {
-    const viewer = document.getElementById('viewer');
-    const ratio = 4/3;
-    const vw = viewer.clientWidth, vh = viewer.clientHeight;
-    let w = vw, h = vw / ratio;
-    if (h > vh) { h = vh; w = h * ratio; }
-    canvas.style.width = w + 'px';
-    canvas.style.height = h + 'px';
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-});
+window.TIMELAPSE_BOOT = {
+  basePath: {{ (base_path|default(''))|json_encode|raw }},
+  apiUrl: {{ (api_photos_url|default(''))|json_encode|raw }},
+  apiLatestUrl: {{ (api_latest_url|default(''))|json_encode|raw }}
+};
 </script>
+<script src="{{ base_path|default('') }}/assets/js/timelapse.js"></script>
 {% endblock %}

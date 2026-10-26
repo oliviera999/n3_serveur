@@ -20,6 +20,11 @@ class GalleryViewController
     private const PER_PAGE = 12;
     private const ALLOWED_EXTENSIONS = ['jpg', 'jpeg'];
 
+    /** Plafond API photos timelapse (évite payloads / OOM navigateur). */
+    private const PHOTOS_DEFAULT_LIMIT = 800;
+    private const PHOTOS_MAX_LIMIT = 3000;
+    private const PHOTOS_MAX_STEP = 60;
+
     /** Racine du projet serveur (parent de src/) */
     private string $baseDir;
 
@@ -406,8 +411,8 @@ class GalleryViewController
 
     /**
      * API JSON : liste des photos dans une plage temporelle.
-     * GET /api/gallery/{slug}/photos?from=ISO&to=ISO
-     * Retourne [{url, timestamp}].
+     * GET /api/gallery/{slug}/photos?from=ISO&to=ISO[&limit=800][&step=1]
+     * Retourne { photos: [{url, timestamp}], meta: { matched, returned, truncated, limit, step } }.
      */
     public function listPhotos(Request $request, Response $response, array $args): Response
     {
@@ -437,28 +442,72 @@ class GalleryViewController
             return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
         }
 
+        $limit = (int) ($params['limit'] ?? self::PHOTOS_DEFAULT_LIMIT);
+        if ($limit < 1) {
+            $limit = self::PHOTOS_DEFAULT_LIMIT;
+        }
+        $limit = min($limit, self::PHOTOS_MAX_LIMIT);
+
+        $step = (int) ($params['step'] ?? 1);
+        if ($step < 1) {
+            $step = 1;
+        }
+        $step = min($step, self::PHOTOS_MAX_STEP);
+
+        $emptyMeta = [
+            'matched' => 0,
+            'returned' => 0,
+            'truncated' => false,
+            'limit' => $limit,
+            'step' => $step,
+        ];
+
         $uploadDir = $this->getUploadDir($slug);
         if (!is_dir($uploadDir) || !is_readable($uploadDir)) {
-            $response->getBody()->write(json_encode([]));
+            $response->getBody()->write(json_encode(['photos' => [], 'meta' => $emptyMeta]));
             return $response->withHeader('Content-Type', 'application/json');
         }
         $allFiles = $this->listImageFiles($uploadDir);
         $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
         $pathPrefix = ($basePath !== '' ? '/' . $basePath . '/' : '/') . 'gallery/' . $slug . '/files/';
 
-        $photos = [];
+        $matched = [];
         foreach ($allFiles as $filename) {
             $ts = $this->extractTimestampFromFilename($uploadDir . '/' . $filename, $filename);
             if ($ts >= $from && $ts <= $to) {
-                $photos[] = [
+                $matched[] = [
                     'url' => $pathPrefix . $filename,
                     'timestamp' => $ts->format('c'),
                 ];
             }
         }
-        usort($photos, fn ($a, $b) => strcmp($a['timestamp'], $b['timestamp']));
+        usort($matched, fn ($a, $b) => strcmp($a['timestamp'], $b['timestamp']));
 
-        $response->getBody()->write(json_encode($photos));
+        $matchedCount = count($matched);
+        $sampled = [];
+        if ($step === 1) {
+            $sampled = $matched;
+        } else {
+            for ($i = 0; $i < $matchedCount; $i += $step) {
+                $sampled[] = $matched[$i];
+            }
+        }
+
+        $truncated = count($sampled) > $limit;
+        $photos = array_slice($sampled, 0, $limit);
+
+        $payload = [
+            'photos' => $photos,
+            'meta' => [
+                'matched' => $matchedCount,
+                'returned' => count($photos),
+                'truncated' => $truncated,
+                'limit' => $limit,
+                'step' => $step,
+            ],
+        ];
+
+        $response->getBody()->write(json_encode($payload));
         return $response->withHeader('Content-Type', 'application/json');
     }
 
@@ -505,6 +554,17 @@ class GalleryViewController
             return $response->withStatus(404);
         }
 
+        $mtime = @filemtime($path) ?: time();
+        $size = @filesize($path);
+        $etag = '"' . dechex($mtime) . '-' . dechex($size !== false ? (int) $size : 0) . '"';
+        $inm = trim((string) ($request->getHeaderLine('If-None-Match') ?: ''));
+        if ($inm !== '' && $inm === $etag) {
+            return $response
+                ->withStatus(304)
+                ->withHeader('ETag', $etag)
+                ->withHeader('Cache-Control', 'public, max-age=86400');
+        }
+
         $stream = fopen($path, 'r');
         if ($stream === false) {
             return $response->withStatus(500);
@@ -512,11 +572,12 @@ class GalleryViewController
 
         $body = $response->getBody();
         $body->rewind();
-        $body->write(stream_get_contents($stream));
+        $body->write((string) stream_get_contents($stream));
         fclose($stream);
 
         return $response
             ->withHeader('Content-Type', 'image/jpeg')
+            ->withHeader('ETag', $etag)
             ->withHeader('Cache-Control', 'public, max-age=86400');
     }
 }

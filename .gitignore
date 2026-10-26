@@ -28,6 +28,9 @@ desktop.ini
 # Cache
 /var/cache/
 
+# Répertoires temporaires des tests galerie
+/var/test-galleries/
+
 # Fichier de test / outil local (ne pas versionner)
 /var/last_device_ip_test.txt
 

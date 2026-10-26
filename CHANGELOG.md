@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.43.0] - 2026-10-26
+
+### Amélioré
+- **Timelapse — export vidéo navigateur** — JS extrait dans
+  `public/assets/js/timelapse.js` : format réel (MP4/WebM) affiché avant
+  export, plafond d’images + sous-échantillonnage + résolution, annulation,
+  skip des images manquantes, horloge `performance.now()`, chunks
+  MediaRecorder. API `GET /api/gallery/{slug}/photos` renvoie
+  `{ photos, meta }` avec `limit`/`step` ; ETag sur
+  `/gallery/{slug}/files/{filename}`. Mode démo exposé. Doc :
+  `docs/TIMELAPSE.md`.
+
 ## [6.42.0] - 2026-10-23
 
 ### Ajoute

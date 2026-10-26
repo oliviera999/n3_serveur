@@ -210,7 +210,7 @@ return [
     'asset_js' => [
         'back-to-top.js', 'balance-reveal.js', 'breakpoints.min.js', 'browser.min.js',
         'chart-helpers.js', 'chart-updater-generic.js', 'chart-updater.js', 'chartjs-theme.js',
-        'control-actions.js', 'control-auto-save.js', 'control-sync.js', 'control-values-updater.js', 'gallery-lightbox.js', 'notification-policy.js',
+        'control-actions.js', 'control-auto-save.js', 'control-sync.js', 'control-values-updater.js', 'gallery-lightbox.js', 'timelapse.js', 'notification-policy.js',
         'confirm-modal.js', 'admin-users.js', 'display-presets-editor.js', 'n3-layout-charts.js', 'preset-selector.js',
         'highstock.js', 'exporting.js', 'export-data.js', 'accessibility.js',
         'highcharts-defaults.js', 'highcharts-theme.js', 'n3-stock-chart-layout.js', 'n3-stock-chart-bootstrap.js', 'aquaponie-chart-layout.js', 'aquaponie-tide-markers.js', 'jquery.min.js', 'jquery.scrollex.min.js',
