@@ -7,6 +7,7 @@ namespace App\Controller\Gallery;
 use App\Config\Paths;
 use App\Repository\GalleryControlRepository;
 use App\Repository\NavPageRepository;
+use App\Service\GalleryNormalizeService;
 use App\Service\TemplateRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -32,6 +33,7 @@ class GalleryViewController
         private TemplateRenderer $renderer,
         private GalleryControlRepository $galleryControlRepository,
         private NavPageRepository $navPageRepository,
+        private GalleryNormalizeService $normalizeService,
     ) {
         $this->baseDir = Paths::getProjectRoot();
     }
@@ -547,10 +549,9 @@ class GalleryViewController
             return $response->withStatus(400);
         }
 
-        $uploadDir = $this->getUploadDir($slug);
-        $path = $uploadDir . '/' . $filename;
-
-        if (!is_file($path) || !is_readable($path)) {
+        // Préfère la copie normalisée (.normalized/) si le cron l'a produite.
+        $path = $this->normalizeService->resolveDisplayPath($slug, $filename);
+        if ($path === null) {
             return $response->withStatus(404);
         }
 

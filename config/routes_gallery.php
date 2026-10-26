@@ -8,6 +8,7 @@
 
 use App\Controller\Gallery\GalleryControlController;
 use App\Controller\Gallery\GallerySyncController;
+use App\Controller\Gallery\GalleryNormalizeController;
 use App\Controller\Gallery\GalleryTrashController;
 use App\Controller\Gallery\GalleryUploadController;
 use App\Controller\Gallery\GalleryViewController;
@@ -93,6 +94,9 @@ $app->get('/admin/gallery-trash', [GalleryTrashController::class, 'showTrashInde
 $app->get('/admin/gallery/{slug}/trash', [GalleryTrashController::class, 'showTrash']);
 $app->get('/admin/gallery/{slug}/trash/files/{filename}', [GalleryTrashController::class, 'serveTrashImage']);
 $app->post('/admin/api/gallery/auto-sort-all', [GalleryTrashController::class, 'apiAutoSortAll']);
+$app->get('/admin/api/gallery/normalize-status', [GalleryNormalizeController::class, 'apiNormalizeStatus']);
+$app->post('/admin/api/gallery/normalize-batch', [GalleryNormalizeController::class, 'apiNormalizeBatch']);
+$app->post('/admin/api/gallery/purge-normalized-originals', [GalleryNormalizeController::class, 'apiPurgeNormalizedOriginals']);
 $app->post('/admin/api/gallery/{slug}/move-to-trash', [GalleryTrashController::class, 'apiMoveToTrash']);
 $app->post('/admin/api/gallery/{slug}/restore', [GalleryTrashController::class, 'apiRestore']);
 $app->post('/admin/api/gallery/{slug}/purge', [GalleryTrashController::class, 'apiPurge']);

@@ -24,6 +24,8 @@ final class OperationalSettingsCatalog
 
     public const GROUP_FLOOD = 'flood';
 
+    public const GROUP_GALLERY = 'gallery';
+
     public const TYPE_BOOL = 'bool';
 
     public const TYPE_INT = 'int';
@@ -432,6 +434,55 @@ final class OperationalSettingsCatalog
                 'max' => 3000,
                 'unit' => 'mm',
             ],
+            'GALLERY_NORMALIZE_ENABLED' => [
+                'env' => 'GALLERY_NORMALIZE_ENABLED',
+                'type' => self::TYPE_BOOL,
+                'group' => self::GROUP_GALLERY,
+                'label' => 'Normalisation photos (cron)',
+                'hint' => 'Active le batch CRON de normalisation douce (luminosité, balance des blancs, contraste) pour le timelapse.',
+                'default' => true,
+            ],
+            'GALLERY_NORMALIZE_INTERVAL_SECONDS' => [
+                'env' => 'GALLERY_NORMALIZE_INTERVAL_SECONDS',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_GALLERY,
+                'label' => 'Intervalle normalisation photos',
+                'hint' => 'Délai minimum entre deux batches de normalisation galerie.',
+                'default' => 3600,
+                'min' => 300,
+                'max' => 86400,
+                'unit' => 's',
+            ],
+            'GALLERY_NORMALIZE_MAX_PER_RUN' => [
+                'env' => 'GALLERY_NORMALIZE_MAX_PER_RUN',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_GALLERY,
+                'label' => 'Max photos par batch',
+                'hint' => 'Plafond d’images normalisées par passage CRON (limite la charge CPU).',
+                'default' => 20,
+                'min' => 1,
+                'max' => 200,
+            ],
+            'GALLERY_NORMALIZE_STRENGTH' => [
+                'env' => 'GALLERY_NORMALIZE_STRENGTH',
+                'type' => self::TYPE_FLOAT,
+                'group' => self::GROUP_GALLERY,
+                'label' => 'Force de normalisation',
+                'hint' => 'Mélange original/corrigé (0 = inchangé, 1 = correction pleine). Défaut doux 0,35.',
+                'default' => 0.35,
+                'min' => 0,
+                'max' => 1,
+            ],
+            'GALLERY_NORMALIZE_JPEG_QUALITY' => [
+                'env' => 'GALLERY_NORMALIZE_JPEG_QUALITY',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_GALLERY,
+                'label' => 'Qualité JPEG normalisé',
+                'hint' => 'Qualité JPEG des copies dans .normalized/ (60–95).',
+                'default' => 90,
+                'min' => 60,
+                'max' => 95,
+            ],
         ];
     }
 
@@ -447,6 +498,7 @@ final class OperationalSettingsCatalog
             self::GROUP_MAINTENANCE => 'Maintenance & logs',
             self::GROUP_DATA_QUALITY => 'Qualité des données',
             self::GROUP_FLOOD => 'Alerte inondation (FFP3)',
+            self::GROUP_GALLERY => 'Galeries photo',
         ];
     }
 

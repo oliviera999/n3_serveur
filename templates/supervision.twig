@@ -558,6 +558,15 @@
             <button type="button" id="runGallerySortBtn" class="btn-cache" data-sort-url="{{ base_path }}/admin/api/gallery/auto-sort-all">Lancer le tri global</button>
             <div id="runGallerySortResult" class="cache-result" aria-live="polite"></div>
         </div>
+        <div class="link-card cache-card">
+            <div><i class="fas fa-adjust"></i><span class="label">Normalisation photos (timelapse)</span></div>
+            <div class="hint">Copies douces (luminosité / balance des blancs / contraste) dans <code>.normalized/</code>. Réglages : groupe « Galeries photo » ci-dessous. En attente : <strong id="galleryNormalizePending">…</strong></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
+                <button type="button" id="runGalleryNormalizeBtn" class="btn-cache" data-url="{{ base_path }}/admin/api/gallery/normalize-batch">Normaliser maintenant</button>
+                <button type="button" id="purgeGalleryNormalizedBtn" class="btn-cache" style="background:#c0392b;" data-url="{{ base_path }}/admin/api/gallery/purge-normalized-originals">Purger les originaux</button>
+            </div>
+            <div id="runGalleryNormalizeResult" class="cache-result" aria-live="polite"></div>
+        </div>
         {% if can_manage_users|default(false) %}
         <div class="link-card-wrap">
             <a href="{{ base_path }}/admin/users" class="link-card">
@@ -783,6 +792,111 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
         btn.disabled = false;
     }
 });
+
+(function () {
+    var pendingEl = document.getElementById('galleryNormalizePending');
+    var normalizeBtn = document.getElementById('runGalleryNormalizeBtn');
+    var purgeBtn = document.getElementById('purgeGalleryNormalizedBtn');
+    var resultEl = document.getElementById('runGalleryNormalizeResult');
+    var statusUrl = '{{ base_path }}/admin/api/gallery/normalize-status';
+
+    async function refreshNormalizePending() {
+        if (!pendingEl) return;
+        try {
+            var response = await fetch(statusUrl, { headers: { 'X-CSRF-Token': csrfToken() } });
+            var data = await response.json();
+            if (data.success && data.data) {
+                pendingEl.textContent = String(data.data.pending ?? 0);
+            } else {
+                pendingEl.textContent = '?';
+            }
+        } catch (e) {
+            pendingEl.textContent = '?';
+        }
+    }
+    refreshNormalizePending();
+
+    if (normalizeBtn) normalizeBtn.addEventListener('click', async function () {
+        if (!confirm('Lancer un batch de normalisation (max paramétré) sur les photos en attente ?')) {
+            return;
+        }
+        normalizeBtn.disabled = true;
+        if (purgeBtn) purgeBtn.disabled = true;
+        resultEl.className = 'cache-result';
+        resultEl.textContent = 'Normalisation en cours…';
+        resultEl.style.display = 'block';
+        try {
+            var response = await fetch(normalizeBtn.getAttribute('data-url'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfToken()
+                },
+                body: '{}'
+            });
+            var data = await response.json();
+            if (data.success) {
+                var r = data.data || {};
+                resultEl.className = 'cache-result success';
+                resultEl.textContent = 'Normalisées : ' + (r.processed || 0)
+                    + ' (pending avant : ' + (r.pending || 0)
+                    + ', encore : ' + (r.still_pending || 0)
+                    + ', échecs : ' + (r.failed || 0) + ').';
+                refreshNormalizePending();
+            } else {
+                resultEl.className = 'cache-result error';
+                resultEl.textContent = data.message || 'Erreur normalisation';
+            }
+        } catch (e) {
+            resultEl.className = 'cache-result error';
+            resultEl.textContent = 'Erreur : ' + (e.message || 'réseau');
+        } finally {
+            normalizeBtn.disabled = false;
+            if (purgeBtn) purgeBtn.disabled = false;
+        }
+    });
+
+    if (purgeBtn) purgeBtn.addEventListener('click', async function () {
+        if (!confirm('IRREVERSIBLE : supprimer les JPEG originaux qui ont une copie .normalized/ et promouvoir la copie ?')) {
+            return;
+        }
+        if (!confirm('Confirmer une seconde fois la purge des originaux ?')) {
+            return;
+        }
+        purgeBtn.disabled = true;
+        if (normalizeBtn) normalizeBtn.disabled = true;
+        resultEl.className = 'cache-result';
+        resultEl.textContent = 'Purge des originaux…';
+        resultEl.style.display = 'block';
+        try {
+            var response = await fetch(purgeBtn.getAttribute('data-url'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfToken()
+                },
+                body: '{}'
+            });
+            var data = await response.json();
+            if (data.success) {
+                var r = data.data || {};
+                resultEl.className = 'cache-result success';
+                resultEl.textContent = 'Originaux purgés : ' + (r.purged || 0)
+                    + ' (échecs : ' + (r.failed || 0) + ').';
+                refreshNormalizePending();
+            } else {
+                resultEl.className = 'cache-result error';
+                resultEl.textContent = data.message || 'Erreur purge';
+            }
+        } catch (e) {
+            resultEl.className = 'cache-result error';
+            resultEl.textContent = 'Erreur : ' + (e.message || 'réseau');
+        } finally {
+            purgeBtn.disabled = false;
+            if (normalizeBtn) normalizeBtn.disabled = false;
+        }
+    });
+})();
 
 (function () {
     var BASE = '{{ base_path|default('') }}';

@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.44.0] - 2026-10-26
+
+### Ajouté
+- **Normalisation photos galerie (timelapse)** — `GalleryNormalizeService` :
+  copies douces (luminosité, balance des blancs, contraste) dans
+  `uploads/{slug}/.normalized/` sans écraser l’original ; serving transparent ;
+  batch CRON (`GALLERY_NORMALIZE_*`, plafond par run, anti-retraitement) ;
+  actions Supervision (batch manuel + purge originaux). Doc :
+  `docs/TIMELAPSE.md`, `docs/deployment/CRON.md`.
+
 ## [6.43.0] - 2026-10-26
 
 ### Amélioré

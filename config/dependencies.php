@@ -186,8 +186,12 @@ return [
             // et surtout AUCUNE alerte dérivée émise (trop-plein, chauffage, remplissage,
             // sol sec, batterie, redémarrage, météo).
             pdo: $c->get(\PDO::class),
+            galleryNormalizeService: $c->get(\App\Service\GalleryNormalizeService::class),
         );
     },
+
+    \App\Service\GalleryNormalizeService::class => \DI\autowire()
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
     // ====================================================================
     // Dépendances OPTIONNELLES (`?Type $x = null`) — jamais autowirées.

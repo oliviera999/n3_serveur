@@ -51,7 +51,8 @@ run-cron.php (CLI uniquement)
             ├── verrou global (flock cron_orchestrator.lock, non bloquant : run chevauché = skip)
             ├── RestartPumpCommand (flag pompe aqua, délai 5 min HORODATÉ — indépendant de la cadence)
             ├── tâches fréquentes (chaque run, soit chaque minute)
-            └── tâches horaires (si intervalle écoulé)
+            ├── tâches horaires (si intervalle écoulé)
+            └── normalisation galerie (si intervalle + activée)
 ```
 
 ### Tâches fréquentes (chaque exécution, ~1 min)
@@ -95,11 +96,25 @@ Fichier d'état : `var/cache/cron_last_hourly.timestamp`
 
 > Le niveau de réserve (`checkTankLevel`) est passé dans les tâches fréquentes (Phase 1).
 
+### Normalisation photos galerie (timelapse)
+
+Fichier d’état : `var/cache/cron_last_gallery_normalize.timestamp`
+
+- Service : `GalleryNormalizeService` — copies douces dans `uploads/{slug}/.normalized/`
+  (luminosité, balance des blancs, contraste ; mélange avec l’original pour ne pas dénaturer).
+- Anti-retraitement : présence de la copie ou marqueur `.done` (après purge des originaux).
+- Plafond par run + intervalle + force pilotables en Supervision (groupe « Galeries photo »)
+  ou via `.env` (`GALLERY_NORMALIZE_*`).
+- Actions manuelles : `/supervision` (batch immédiat, purge originaux).
+
 ## Variables `.env`
 
 | Variable | Défaut | Description |
 |----------|--------|-------------|
 | `CRON_HOURLY_INTERVAL_SECONDS` | `3600` | Délai minimum entre deux passes horaires |
+| `GALLERY_NORMALIZE_ENABLED` | `true` | Active le batch de normalisation photos |
+| `GALLERY_NORMALIZE_INTERVAL_SECONDS` | `3600` | Intervalle entre deux batches normalisation |
+| `GALLERY_NORMALIZE_MAX_PER_RUN` | `20` | Max d’images traitées par passage |
 | `AQUA_LOW_LEVEL_THRESHOLD` | `180` | Distance capteur→surface aquarium (mm) au-delà de laquelle l'eau est basse — arrêt pompe réserve (aligné `aqThreshold` firmware, 18 cm) |
 | `RESERVE_LOW_LEVEL_THRESHOLD` | *(vide = désactivé)* | Distance capteur→surface réserve (mm) au-delà de laquelle la réserve est basse — alerte email uniquement (aucune action pompe) |
 | `TIDE_STDDEV_THRESHOLD` | `1` | Seuil écart-type marée |
@@ -132,7 +147,9 @@ tail -n 30 cronlog.txt
 
 ## Legacy (hors orchestrateur)
 
-- **`triphotos.php`** (galeries) : absent du dépôt unifié ; protéger par token si réintroduit (`TRIPHOTOS_SECRET`, voir `RECOMMANDATIONS_IOT.md`)
+- **`triphotos.php`** (galeries) : absent du dépôt unifié — remplacé par la tâche
+  normalisation dans `CronOrchestrator` + tri corbeille à l’upload / Supervision.
+  Ne pas réintroduire un script HTTP sans token (`TRIPHOTOS_SECRET`).
 - **`cronpompe.php`** : supprimé ; ne plus référencer
 
 ## Tests

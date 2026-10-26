@@ -90,8 +90,9 @@ class GalleryListPhotosTest extends TestCase
         $renderer = $this->createMock(TemplateRenderer::class);
         $galleryRepo = $this->createMock(GalleryControlRepository::class);
         $navRepo = $this->createMock(NavPageRepository::class);
+        $normalize = $this->createMock(\App\Service\GalleryNormalizeService::class);
 
-        return new GalleryViewController($renderer, $galleryRepo, $navRepo);
+        return new GalleryViewController($renderer, $galleryRepo, $navRepo, $normalize);
     }
 
     /** @param array<string, string> $query */

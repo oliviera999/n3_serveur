@@ -22,7 +22,7 @@ Il n’y a **pas** d’encodage serveur (ffmpeg) : l’hébergement mutualisé n
 |---------|-------|------|
 | GET | `/api/gallery/{slug}/latest` | Bornes (plus récente / plus ancienne) + `count` |
 | GET | `/api/gallery/{slug}/photos?from&to[&limit][&step]` | Liste pour le timelapse |
-| GET | `/gallery/{slug}/files/{filename}` | JPEG (ETag + Cache-Control) |
+| GET | `/gallery/{slug}/files/{filename}` | JPEG (ETag + Cache-Control) — sert la copie `.normalized/` si présente |
 
 ### Réponse `photos`
 
@@ -54,9 +54,24 @@ Il n’y a **pas** d’encodage serveur (ffmpeg) : l’hébergement mutualisé n
 | Résolution | 640 / 800 / 1280 px de large, ou native plafonnée à 1600. |
 | Mode démo | Checkbox « Mode démo » : frames synthétiques sans appeler l’API. |
 
+## Normalisation serveur (qualité timelapse)
+
+Les photos conservées (hors corbeille) peuvent être normalisées en douceur
+(luminosité, balance des blancs, contraste) par le CRON / Supervision :
+
+- Original intact : `uploads/{slug}/foo.jpg`
+- Copie : `uploads/{slug}/.normalized/foo.jpg`
+- Serving transparent via `/gallery/{slug}/files/…` (préfère la copie)
+- Réglages : Supervision → groupe « Galeries photo » (`GALLERY_NORMALIZE_*`)
+- Purge optionnelle des originaux (promotion de la copie + marqueur `.done`)
+
+Voir aussi `docs/deployment/CRON.md` et `src/Service/GalleryNormalizeService.php`.
+
 ## Fichiers clés
 
 - `src/Controller/Gallery/GalleryViewController.php` — `listPhotos`, `latestPhoto`, `serveImage`
+- `src/Service/GalleryNormalizeService.php` — normalisation douce + batch
 - `public/assets/js/timelapse.js` — lecture + export
 - `public/assets/css/timelapse-styles.css` — thème / options export
 - `tests/Controller/Gallery/GalleryListPhotosTest.php` — limit / step / meta
+- `tests/Service/GalleryNormalizeServiceTest.php` — sidecar / anti-retraitement / purge

@@ -86,6 +86,7 @@ final class ContainerWiringTest extends TestCase
             \App\Controller\Gallery\GalleryControlController::class,
             \App\Controller\Gallery\GalleryViewController::class,
             \App\Controller\Gallery\GalleryTrashController::class,
+            \App\Controller\Gallery\GalleryNormalizeController::class,
         ];
     }
 
@@ -133,6 +134,7 @@ final class ContainerWiringTest extends TestCase
             \App\Service\UserService::class,
             \App\Service\ControlAuditLogger::class,
             \App\Service\GalleryTrashService::class,
+            \App\Service\GalleryNormalizeService::class,
             \App\Service\TemplateRenderer::class,
             \App\Service\Realtime\Ffp3RealtimeDataProvider::class,
             \App\Service\Realtime\MspRealtimeDataProvider::class,
@@ -215,6 +217,8 @@ final class ContainerWiringTest extends TestCase
             [\App\Command\CronOrchestrator::class, 'ffp3DerivedAlerts'],
             [\App\Command\CronOrchestrator::class, 'n3ppDerivedAlerts'],
             [\App\Command\CronOrchestrator::class, 'mspDerivedAlerts'],
+            [\App\Command\CronOrchestrator::class, 'galleryNormalizeService'],
+            [\App\Service\GalleryNormalizeService::class, 'operationalSettings'],
             [\App\Command\CronOrchestrator::class, 'healthService.outputRepo'],
             [\App\Command\CronOrchestrator::class, 'healthService.operationalSettings'],
             [\App\Service\SystemHealthService::class, 'outputRepo'],

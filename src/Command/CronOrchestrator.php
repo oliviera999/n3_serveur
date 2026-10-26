@@ -21,6 +21,7 @@ use App\Service\DerivedAlert\Ffp3DerivedAlertService;
 use App\Service\DerivedAlert\MspDerivedAlertService;
 use App\Service\DerivedAlert\N3ppDerivedAlertService;
 use App\Service\DeviceHealthService;
+use App\Service\GalleryNormalizeService;
 use App\Service\LogService;
 use App\Service\NotificationService;
 use App\Service\OfflineThresholdResolver;
@@ -65,7 +66,9 @@ class CronOrchestrator
 
     private const LOCK_FILENAME = 'cron_orchestrator.lock';
     private const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
+    private const GALLERY_NORMALIZE_STATE_FILENAME = 'cron_last_gallery_normalize.timestamp';
     private const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
+    private const DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS = 3600;
 
     private LogService $logger;
     private SensorDataService $sensorDataService;
@@ -81,10 +84,13 @@ class CronOrchestrator
     private ?Ffp3DerivedAlertService $ffp3DerivedAlerts;
     private ?N3ppDerivedAlertService $n3ppDerivedAlerts;
     private ?MspDerivedAlertService $mspDerivedAlerts;
+    private ?GalleryNormalizeService $galleryNormalizeService;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
     private int $hourlyIntervalSeconds;
+    private int $galleryNormalizeIntervalSeconds;
+    private bool $galleryNormalizeEnabled;
 
     private string $lockDir;
     private string $stateDir;
@@ -110,6 +116,7 @@ class CronOrchestrator
         ?string $pumpRestartFlagFile = null,
         ?OperationalSettingsService $operationalSettings = null,
         ?PDO $pdo = null,
+        ?GalleryNormalizeService $galleryNormalizeService = null,
     ) {
         $needsDatabase = $logger === null
             || $sensorDataService === null
@@ -193,6 +200,16 @@ class CronOrchestrator
         $this->hourlyIntervalSeconds = $operationalSettings?->int('CRON_HOURLY_INTERVAL_SECONDS', 3600)
             ?? (int) ($_ENV['CRON_HOURLY_INTERVAL_SECONDS'] ?? 3600);
 
+        $this->galleryNormalizeService = $galleryNormalizeService;
+        $this->galleryNormalizeEnabled = $operationalSettings?->bool('GALLERY_NORMALIZE_ENABLED', true)
+            ?? filter_var($_ENV['GALLERY_NORMALIZE_ENABLED'] ?? 'true', FILTER_VALIDATE_BOOLEAN);
+        $this->galleryNormalizeIntervalSeconds = $operationalSettings?->int(
+            'GALLERY_NORMALIZE_INTERVAL_SECONDS',
+            self::DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS
+        ) ?? (int) (
+            $_ENV['GALLERY_NORMALIZE_INTERVAL_SECONDS'] ?? self::DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS
+        );
+
         $this->pumpRestartFlagFile = $pumpRestartFlagFile
             ?? sys_get_temp_dir() . '/' . self::PUMP_RESTART_FLAG_FILENAME;
 
@@ -253,6 +270,11 @@ class CronOrchestrator
             if ($this->isHourlyDue()) {
                 $this->runHourlyTasks();
                 $this->markHourlyRun();
+            }
+
+            if ($this->isGalleryNormalizeDue()) {
+                $this->runGalleryNormalize();
+                $this->markGalleryNormalizeRun();
             }
 
             $this->logger->info('--- Fin orchestrateur CRON ---');
@@ -318,6 +340,56 @@ class CronOrchestrator
         }
 
         file_put_contents($this->getHourlyStatePath(), (string) time());
+    }
+
+    private function getGalleryNormalizeStatePath(): string
+    {
+        return $this->stateDir . '/' . self::GALLERY_NORMALIZE_STATE_FILENAME;
+    }
+
+    protected function isGalleryNormalizeDue(): bool
+    {
+        if (!$this->galleryNormalizeEnabled || $this->galleryNormalizeService === null) {
+            return false;
+        }
+
+        $statePath = $this->getGalleryNormalizeStatePath();
+        if (!is_file($statePath)) {
+            return true;
+        }
+
+        $lastRun = (int) file_get_contents($statePath);
+
+        return (time() - $lastRun) >= $this->galleryNormalizeIntervalSeconds;
+    }
+
+    protected function markGalleryNormalizeRun(): void
+    {
+        if (!is_dir($this->stateDir)) {
+            mkdir($this->stateDir, 0755, true);
+        }
+
+        file_put_contents($this->getGalleryNormalizeStatePath(), (string) time());
+    }
+
+    protected function runGalleryNormalize(): void
+    {
+        if ($this->galleryNormalizeService === null) {
+            return;
+        }
+
+        try {
+            $this->logger->info('Normalisation galerie : démarrage du batch…');
+            $result = $this->galleryNormalizeService->processBatch();
+            $this->logger->info(sprintf(
+                'Normalisation galerie : processed=%d pending=%d failed=%d',
+                $result['processed'],
+                $result['pending'],
+                $result['failed']
+            ));
+        } catch (\Throwable $e) {
+            $this->logger->warning('Normalisation galerie en erreur : ' . $e->getMessage());
+        }
     }
 
     protected function runFrequentTasks(bool $skipTideCheck = false): void
