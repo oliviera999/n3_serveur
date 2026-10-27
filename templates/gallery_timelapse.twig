@@ -660,14 +660,21 @@
         <div class="timelapse-section">
           <div class="timelapse-section-label" id="exportSectionLabel"><i class="fas fa-file-video"></i> Export vidéo</div>
           <p class="timelapse-export-hint" id="exportFormatHint">Format détecté au chargement</p>
+          <div class="timelapse-preset-row" role="group" aria-label="Presets d'export">
+            <button type="button" class="timelapse-preset-btn active" data-preset="fiable" title="24 fps, 800 px, max 800">Export fiable</button>
+            <button type="button" class="timelapse-preset-btn" data-preset="longue" title="Sous-échantillon, 640 px">Longue période</button>
+            <button type="button" class="timelapse-preset-btn" data-preset="qualite" title="1280 px, max 800">Qualité</button>
+          </div>
           <div class="timelapse-export-options">
             <div class="timelapse-date-row">
               <label for="exportLimit">Max images</label>
               <select id="exportLimit" class="timelapse-config-input">
                 <option value="400">400</option>
                 <option value="800" selected>800</option>
+                <option value="1200">1200</option>
                 <option value="1500">1500</option>
-                <option value="3000">3000</option>
+                <option value="2000">2000</option>
+                <option value="3000">3000 (risqué)</option>
               </select>
             </div>
             <div class="timelapse-date-row">
@@ -677,6 +684,8 @@
                 <option value="2">2</option>
                 <option value="5">5</option>
                 <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="60">60</option>
               </select>
             </div>
             <div class="timelapse-date-row">
@@ -688,9 +697,21 @@
                 <option value="native">Native (max 1600)</option>
               </select>
             </div>
+            <div class="timelapse-date-row">
+              <label for="exportMaxFps">Plafond encode</label>
+              <select id="exportMaxFps" class="timelapse-config-input">
+                <option value="15">15 fps (économe)</option>
+                <option value="24" selected>24 fps (recommandé)</option>
+                <option value="30">30 fps (max fiable)</option>
+              </select>
+            </div>
             <label class="timelapse-demo-label">
               <input type="checkbox" id="demoMode"> Mode démo (sans photos)
             </label>
+          </div>
+          <div class="timelapse-export-advice" id="exportAdvice" aria-live="polite">
+            <p class="timelapse-advice-title"><i class="fas fa-lightbulb"></i> Conseils export</p>
+            <ul id="exportAdviceList" class="timelapse-advice-list"></ul>
           </div>
           <div class="timelapse-export-actions">
             <button type="button" class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo</button>

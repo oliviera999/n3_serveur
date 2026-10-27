@@ -11,6 +11,14 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.45.0] - 2026-10-27
+
+### Amélioré
+- **Timelapse export option A** — presets *Export fiable* / *Longue période* /
+  *Qualité* ; plafond d’encode paramétrable (15/24/30 fps) ; panneau de
+  conseils et avertissements (ok/warn/danger) ; confirmation avant export
+  lourd. Doc : `docs/TIMELAPSE.md`.
+
 ## [6.44.0] - 2026-10-26
 
 ### Ajouté

@@ -15,9 +15,17 @@
     preloadAhead: 15,
     preloadConcurrency: 4,
     defaultLimit: 800,
-    maxExportFps: 30,
+    hardMaxExportFps: 30,
+    softWarnFrames: 1000,
+    hardWarnFrames: 2000,
     viewerWidth: 800,
     viewerHeight: 600,
+  };
+
+  var PRESETS = {
+    fiable: { limit: '800', step: '1', resolution: '800', maxFps: '24', playFps: 24 },
+    longue: { limit: '1500', step: '5', resolution: '640', maxFps: '24', playFps: 24 },
+    qualite: { limit: '800', step: '1', resolution: '1280', maxFps: '30', playFps: 24 },
   };
 
   var MIME_CANDIDATES = [
@@ -120,9 +128,10 @@
 
   function updateLoadProgress() {
     if (!state.frames.length) return;
-    var loaded = state.frames.reduce(function (n, f) { return n + (f.img ? 1 : 0); }, 0);
+    var loaded = countLoadedFrames();
     var el = $('statCount');
     if (el) el.textContent = loaded + ' / ' + state.frames.length;
+    updateExportAdvice();
   }
 
   function startBulkPreload() {
@@ -211,6 +220,168 @@
     if (v === 'native') return 'native';
     var n = parseInt(v, 10);
     return isNaN(n) ? 800 : n;
+  }
+
+  function getMaxExportFps() {
+    var el = $('exportMaxFps');
+    var v = el ? parseInt(el.value, 10) : 24;
+    if (isNaN(v) || v < 1) v = 24;
+    return Math.min(v, CONFIG.hardMaxExportFps);
+  }
+
+  function countLoadedFrames() {
+    return state.frames.reduce(function (n, f) { return n + (f.img ? 1 : 0); }, 0);
+  }
+
+  function estimateExportSeconds(frameCount) {
+    var fps = Math.min(state.fps, getMaxExportFps());
+    if (fps < 1) fps = 24;
+    return frameCount / fps;
+  }
+
+  function formatDurationSec(sec) {
+    if (sec < 60) return sec.toFixed(0) + ' s';
+    return Math.floor(sec / 60) + ' min ' + Math.round(sec % 60) + ' s';
+  }
+
+  /**
+   * Conseils + avertissements selon plafonds et état courant.
+   * @returns {{ level: string, items: string[], confirmNeeded: boolean }}
+   */
+  function buildExportAdvice() {
+    var items = [];
+    var level = 'ok';
+    var n = state.frames.length;
+    var loaded = countLoadedFrames();
+    var limit = getLimit();
+    var step = getStep();
+    var res = getExportWidth();
+    var maxFps = getMaxExportFps();
+    var encodeFps = Math.min(state.fps, maxFps);
+    var confirmNeeded = false;
+
+    items.push('Chrome / Edge desktop recommandé ; laissez l’onglet au premier plan.');
+    items.push('Encode réel : ' + encodeFps + ' fps (plafond ' + maxFps +
+      ' — la lecture peut aller plus vite).');
+
+    if (!state.exportIsMp4) {
+      items.push('Ce navigateur exporte en WebM, pas en MP4 H.264.');
+      level = 'warn';
+    }
+
+    if (n === 0) {
+      items.push('Chargez une plage pour estimer la durée et les risques.');
+      return { level: level, items: items, confirmNeeded: false };
+    }
+
+    var est = estimateExportSeconds(n);
+    items.push('Environ ' + n + ' images → ~' + formatDurationSec(est) +
+      ' d’encodage (temps réel navigateur).');
+
+    if (loaded < n) {
+      items.push('Préchargement : ' + loaded + ' / ' + n +
+        ' — attendez le chargement complet avant d’exporter.');
+      if (loaded / n < 0.7) {
+        level = 'warn';
+      }
+    }
+
+    if (state.lastMeta && state.lastMeta.truncated) {
+      items.push('Plafond API atteint : ' + state.lastMeta.returned + ' / ' +
+        state.lastMeta.matched + ' photos (augmentez « 1 image sur » ou Max images).');
+      level = level === 'danger' ? 'danger' : 'warn';
+    }
+
+    if (n >= CONFIG.hardWarnFrames || limit >= 3000) {
+      items.push('Risque élevé de plantage mémoire (≥ ' + CONFIG.hardWarnFrames +
+        ' images ou max 3000). Préférez « Longue période » ou exportez par mois.');
+      level = 'danger';
+      confirmNeeded = true;
+    } else if (n >= CONFIG.softWarnFrames || limit >= 1500) {
+      items.push('Charge importante (≥ ' + CONFIG.softWarnFrames +
+        ' images). Résolution 640–800 px conseillée.');
+      if (level === 'ok') level = 'warn';
+      confirmNeeded = true;
+    }
+
+    if (res === 'native' || res >= 1280) {
+      items.push('Haute résolution : l’encodeur peut sauter des frames. 800 px est plus fluide.');
+      if (level === 'ok') level = 'warn';
+    }
+
+    if (state.fps > maxFps) {
+      items.push('Vitesse lecture ' + state.fps + ' fps → export plafonné à ' + maxFps +
+        ' fps (pas de vrai 60 fps côté export).');
+    }
+
+    if (step === 1 && n > 600) {
+      items.push('Astuce fluidité : « 1 image sur 2 » ou 5 réduit la RAM sans trop perdre le rythme.');
+    }
+
+    if (level === 'ok') {
+      items.push('Réglages dans la zone confortable — preset « Export fiable » recommandé.');
+    }
+
+    return { level: level, items: items, confirmNeeded: confirmNeeded };
+  }
+
+  function updateExportAdvice() {
+    var box = $('exportAdvice');
+    var list = $('exportAdviceList');
+    if (!box || !list) return;
+    var advice = buildExportAdvice();
+    box.className = 'timelapse-export-advice level-' + advice.level;
+    list.innerHTML = '';
+    for (var i = 0; i < advice.items.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = advice.items[i];
+      list.appendChild(li);
+    }
+    return advice;
+  }
+
+  function setPlayFps(fps) {
+    state.fps = fps;
+    var label = $('fpsLabel');
+    if (label) label.textContent = fps + ' fps';
+    document.querySelectorAll('.timelapse-speed-btn').forEach(function (b) {
+      b.classList.toggle('active', parseInt(b.getAttribute('data-fps'), 10) === fps);
+    });
+    if (state.isPlaying) {
+      stopPlay();
+      startPlay();
+    }
+    updateStats();
+  }
+
+  function applyPreset(name) {
+    var p = PRESETS[name];
+    if (!p) return;
+    var prevLimit = getLimit();
+    var prevStep = getStep();
+    if ($('exportLimit')) $('exportLimit').value = p.limit;
+    if ($('exportStep')) $('exportStep').value = p.step;
+    if ($('exportResolution')) $('exportResolution').value = p.resolution;
+    if ($('exportMaxFps')) $('exportMaxFps').value = p.maxFps;
+    setPlayFps(p.playFps);
+    document.querySelectorAll('.timelapse-preset-btn').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-preset') === name);
+    });
+    updateExportAdvice();
+    var needReload = state.frames.length > 0 &&
+      (prevLimit !== getLimit() || prevStep !== getStep());
+    if (needReload) {
+      showToast('Preset « ' + name + ' » — rechargement de la plage…', 'success');
+      loadRange(null, null);
+    } else {
+      showToast('Preset « ' + name + ' » appliqué', 'success');
+    }
+  }
+
+  function markPresetCustom() {
+    document.querySelectorAll('.timelapse-preset-btn').forEach(function (b) {
+      b.classList.remove('active');
+    });
   }
 
   async function fetchFrames(from, to) {
@@ -476,24 +647,27 @@
 
   function updateStats() {
     var n = state.frames.length;
-    $('statCount').textContent = n;
-    if (n < 2) return;
-    var first = state.frames[0].timestamp;
-    var last = state.frames[n - 1].timestamp;
-    var durMs = last - first;
-    $('statDuration').textContent =
-      (Math.floor(durMs / 3600000) > 0 ? Math.floor(durMs / 3600000) + 'h ' : '') +
-      Math.floor((durMs % 3600000) / 60000) + ' min';
-    var videoDurS = n / state.fps;
-    $('statVideoDur').textContent = videoDurS > 60
-      ? Math.floor(videoDurS / 60) + 'm ' + Math.round(videoDurS % 60) + 's'
-      : videoDurS.toFixed(1) + 's';
-    var avgMs = durMs / (n - 1);
-    $('statInterval').textContent =
-      (Math.floor(avgMs / 60000) > 0 ? Math.floor(avgMs / 60000) + 'm ' : '') +
-      Math.round((avgMs % 60000) / 1000) + 's';
-    var f = state.frames[state.currentIndex];
-    if (f) $('statCurrent').textContent = f.timestamp.toLocaleTimeString('fr-FR');
+    var loaded = countLoadedFrames();
+    $('statCount').textContent = loaded > 0 && loaded < n ? (loaded + ' / ' + n) : String(n);
+    if (n >= 2) {
+      var first = state.frames[0].timestamp;
+      var last = state.frames[n - 1].timestamp;
+      var durMs = last - first;
+      $('statDuration').textContent =
+        (Math.floor(durMs / 3600000) > 0 ? Math.floor(durMs / 3600000) + 'h ' : '') +
+        Math.floor((durMs % 3600000) / 60000) + ' min';
+      var videoDurS = n / Math.min(state.fps, getMaxExportFps());
+      $('statVideoDur').textContent = videoDurS > 60
+        ? Math.floor(videoDurS / 60) + 'm ' + Math.round(videoDurS % 60) + 's'
+        : videoDurS.toFixed(1) + 's';
+      var avgMs = durMs / (n - 1);
+      $('statInterval').textContent =
+        (Math.floor(avgMs / 60000) > 0 ? Math.floor(avgMs / 60000) + 'm ' : '') +
+        Math.round((avgMs % 60000) / 1000) + 's';
+      var f = state.frames[state.currentIndex];
+      if (f) $('statCurrent').textContent = f.timestamp.toLocaleTimeString('fr-FR');
+    }
+    updateExportAdvice();
   }
 
   function toggleLive() {
@@ -583,6 +757,21 @@
 
   async function exportVideo() {
     if (state.frames.length === 0 || state.recording) return;
+    var advice = updateExportAdvice() || buildExportAdvice();
+    if (advice.confirmNeeded) {
+      var highlights = advice.items.filter(function (t) {
+        return /^(Risque|Charge|Préchargement|Haute|Plafond)/.test(t);
+      }).slice(0, 4);
+      if (highlights.length === 0) {
+        highlights = advice.items.slice(0, 3);
+      }
+      var ok = window.confirm(
+        'Export potentiellement lourd (' + state.frames.length + ' images) :\n\n• ' +
+        highlights.join('\n• ') +
+        '\n\nContinuer quand même ?'
+      );
+      if (!ok) return;
+    }
     var demoMode = $('demoMode') && $('demoMode').checked;
     state.abortExport = false;
     setExportButtons(true);
@@ -617,7 +806,7 @@
     exportCanvas.height = size.height;
     var exportCtx = exportCanvas.getContext('2d');
 
-    var recordFps = Math.min(state.fps, CONFIG.maxExportFps);
+    var recordFps = Math.min(state.fps, getMaxExportFps());
     var videoStream;
     try {
       videoStream = exportCanvas.captureStream(recordFps);
@@ -845,9 +1034,25 @@
 
     detectExportFormat();
     updateExportUiLabels();
+    updateExportAdvice();
 
     setInterval(updateClock, 1000);
     updateClock();
+
+    document.querySelectorAll('.timelapse-preset-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyPreset(btn.getAttribute('data-preset'));
+      });
+    });
+    ['exportLimit', 'exportStep', 'exportResolution', 'exportMaxFps'].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.addEventListener('change', function () {
+        markPresetCustom();
+        updateExportAdvice();
+        updateStats();
+      });
+    });
 
     var paramsPanel = $('timelapseParamsPanel');
     var paramsBtn = $('btnTimelapseParams');
@@ -893,17 +1098,8 @@
 
     document.querySelectorAll('.timelapse-speed-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        document.querySelectorAll('.timelapse-speed-btn').forEach(function (b) {
-          b.classList.remove('active');
-        });
-        btn.classList.add('active');
-        state.fps = parseInt(btn.getAttribute('data-fps'), 10);
-        $('fpsLabel').textContent = state.fps + ' fps';
-        if (state.isPlaying) {
-          stopPlay();
-          startPlay();
-        }
-        updateStats();
+        setPlayFps(parseInt(btn.getAttribute('data-fps'), 10));
+        updateExportAdvice();
       });
     });
 

@@ -1,6 +1,6 @@
 # Timelapse galeries — lecture & export vidéo
 
-**Version** : voir `VERSION` · Dernière mise à jour : 2026-10-26
+**Version** : voir `VERSION` · Dernière mise à jour : 2026-10-27
 
 Page : `/gallery/{slug}/timelapse` (`msp1`, `n3pp`, `ffp3`).  
 Code UI : `templates/gallery_timelapse.twig` + `public/assets/js/timelapse.js`.
@@ -47,12 +47,23 @@ Il n’y a **pas** d’encodage serveur (ffmpeg) : l’hébergement mutualisé n
 | Sujet | Comportement |
 |--------|----------------|
 | Format | MP4 H.264 si `MediaRecorder` le propose, sinon WebM (souvent Firefox). Le libellé UI reflète le format réel. |
-| Cadence | Encodage plafonné à **30 fps** côté capture (la vitesse de lecture peut être plus haute). Horloge `performance.now()` pour espacer les frames. |
+| Cadence | Plafond d’encode **paramétrable** (15 / 24 / 30 fps, dur max 30). La vitesse de lecture peut être plus haute ; pas de vrai 60 fps à l’export. |
 | Mémoire | Préchargement de toutes les images de la plage chargée ; utiliser **Max images** / **1 image sur N** pour les longues périodes. |
 | Annulation | Bouton **Annuler** pendant l’export. |
 | Images manquantes | Ignorées à l’export (comme en lecture). |
 | Résolution | 640 / 800 / 1280 px de large, ou native plafonnée à 1600. |
 | Mode démo | Checkbox « Mode démo » : frames synthétiques sans appeler l’API. |
+| Conseils UI | Panneau dynamique (ok / warn / danger) + confirmation si charge ≥ ~1000 images ou max ≥ 1500. |
+
+### Presets
+
+| Preset | Max | Step | Résolution | Encode |
+|--------|-----|------|------------|--------|
+| **Export fiable** | 800 | 1 | 800 px | 24 fps |
+| **Longue période** | 1500 | 5 | 640 px | 24 fps |
+| **Qualité** | 800 | 1 | 1280 px | 30 fps |
+
+Après un changement de Max / step, **recharger la plage** pour que l’API applique les nouveaux plafonds.
 
 ## Normalisation serveur (qualité timelapse)
 
