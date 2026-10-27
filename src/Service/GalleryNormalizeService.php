@@ -12,7 +12,10 @@ use App\Config\Paths;
  * pour le timelapse — sans dénaturer l'image.
  *
  * Stockage : original intact dans uploads/{slug}/ ; copie dans uploads/{slug}/.normalized/.
- * Après purge des originaux : la copie est promue et un marqueur .done empêche le retraitement.
+ * La copie n'est servie que tant que l'original est encore dans la galerie.
+ * Une photo absente (corbeille ou suppression) ne doit jamais être republiée
+ * depuis sa copie. Après purge des originaux : la copie remplace l'original
+ * en place et un marqueur .done empêche le retraitement.
  *
  * Inspiration : balance gray-world classique + auto-levels doux (mélange avec l'original).
  */
@@ -48,17 +51,19 @@ class GalleryNormalizeService
         $this->validateSlug($slug);
         $this->validateFilename($filename);
 
+        $original = $this->getGalleryDir($slug) . '/' . $filename;
+        if (!is_file($original) || !is_readable($original)) {
+            // Photo retirée (corbeille, suppression) : ne pas servir la copie,
+            // sinon l'URL publique continue d'afficher une image « supprimée ».
+            return null;
+        }
+
         $normPath = $this->getNormalizedPath($slug, $filename);
         if (is_file($normPath) && is_readable($normPath)) {
             return $normPath;
         }
 
-        $original = $this->getGalleryDir($slug) . '/' . $filename;
-        if (is_file($original) && is_readable($original)) {
-            return $original;
-        }
-
-        return null;
+        return $original;
     }
 
     public function isAlreadyProcessed(string $slug, string $filename): bool
@@ -74,7 +79,7 @@ class GalleryNormalizeService
     /**
      * Traite jusqu'à $max images en attente sur toutes les galeries (plus anciennes d'abord).
      *
-     * @return array{pending:int, processed:int, skipped:int, failed:int, by_slug: array<string,int>}
+     * @return array{pending:int, processed:int, skipped:int, failed:int, orphans_removed:int, by_slug: array<string,int>}
      */
     public function processBatch(?int $max = null): array
     {
@@ -82,6 +87,7 @@ class GalleryNormalizeService
         $max = max(1, min(200, $max));
         $strength = $this->resolveStrength();
         $quality = $this->resolveJpegQuality();
+        $orphansRemoved = $this->removeTrashSidecars();
 
         $candidates = $this->listPendingCandidates();
         $pending = count($candidates);
@@ -91,6 +97,7 @@ class GalleryNormalizeService
             'processed' => 0,
             'skipped' => 0,
             'failed' => 0,
+            'orphans_removed' => $orphansRemoved,
             'by_slug' => [],
         ];
 
@@ -118,20 +125,23 @@ class GalleryNormalizeService
         }
 
         $this->logger->info(sprintf(
-            'GalleryNormalize: batch terminé — pending=%d processed=%d skipped=%d failed=%d',
+            'GalleryNormalize: batch terminé — pending=%d processed=%d skipped=%d failed=%d orphans_removed=%d',
             $pending,
             $result['processed'],
             $result['skipped'],
-            $result['failed']
+            $result['failed'],
+            $orphansRemoved
         ));
 
         return $result;
     }
 
     /**
-     * Purge les originaux qui ont une copie normalisée : promeut la copie, pose .done.
+     * Remplace les originaux encore présents par leur copie normalisée.
+     * Une copie dont l'original n'est plus dans la galerie n'est jamais
+     * republée (sinon la purge ressort les photos mises à la corbeille).
      *
-     * @return array{purged:int, skipped:int, failed:int, by_slug: array<string,int>}
+     * @return array{purged:int, skipped:int, failed:int, orphans_removed:int, by_slug: array<string,int>}
      */
     public function purgeNormalizedOriginals(?string $onlySlug = null): array
     {
@@ -139,6 +149,7 @@ class GalleryNormalizeService
             'purged' => 0,
             'skipped' => 0,
             'failed' => 0,
+            'orphans_removed' => 0,
             'by_slug' => [],
         ];
 
@@ -170,25 +181,21 @@ class GalleryNormalizeService
                     continue;
                 }
                 if (!is_file($originalPath)) {
-                    // Copie orpheline : poser .done et laisser la copie (ou la promouvoir si besoin)
-                    if (@rename($normPath, $originalPath)) {
-                        $this->touchDoneMarker($slug, $name);
-                        $result['purged']++;
-                        $result['by_slug'][$slug] = ($result['by_slug'][$slug] ?? 0) + 1;
+                    // Ne jamais republier une photo qui n'est plus dans la galerie
+                    // (corbeille, suppression, original déjà retiré). La copie d'une
+                    // photo encore en corbeille est retirée : l'original y est sauf.
+                    if ($this->isInTrash($slug, $name) && @unlink($normPath)) {
+                        $result['orphans_removed']++;
+                        $this->logger->info("GalleryNormalize: sidecar orphelin retiré {$name} [{$slug}]");
                     } else {
                         $result['skipped']++;
+                        $this->logger->info("GalleryNormalize: copie orpheline non republiée {$name} [{$slug}]");
                     }
                     continue;
                 }
 
-                if (!@unlink($originalPath)) {
+                if (!$this->replaceOriginalWithNormalized($originalPath, $normPath, $name, $slug)) {
                     $result['failed']++;
-                    $this->logger->error("GalleryNormalize: impossible de supprimer l'original {$name} [{$slug}]");
-                    continue;
-                }
-                if (!@rename($normPath, $originalPath)) {
-                    $result['failed']++;
-                    $this->logger->error("GalleryNormalize: impossible de promouvoir {$name} [{$slug}]");
                     continue;
                 }
                 $this->touchDoneMarker($slug, $name);
@@ -197,11 +204,14 @@ class GalleryNormalizeService
             }
         }
 
+        $result['orphans_removed'] += $this->removeTrashSidecars($onlySlug);
+
         $this->logger->info(sprintf(
-            'GalleryNormalize: purge originaux — purged=%d skipped=%d failed=%d',
+            'GalleryNormalize: purge originaux — purged=%d skipped=%d failed=%d orphans_removed=%d',
             $result['purged'],
             $result['skipped'],
-            $result['failed']
+            $result['failed'],
+            $result['orphans_removed']
         ));
 
         return $result;
@@ -213,6 +223,30 @@ class GalleryNormalizeService
     public function countPending(): int
     {
         return count($this->listPendingCandidates());
+    }
+
+    /**
+     * Retire la copie .normalized/ (et, si demandé, le marqueur .done).
+     * Appelé quand la photo quitte la galerie : la copie ne doit plus être servie.
+     */
+    public function discardSidecar(string $slug, string $filename, bool $removeDoneMarker = false): void
+    {
+        $this->validateSlug($slug);
+        $this->validateFilename($filename);
+
+        $normPath = $this->getNormalizedPath($slug, $filename);
+        if (is_file($normPath) && !@unlink($normPath)) {
+            $this->logger->warning("GalleryNormalize: impossible de retirer le sidecar {$filename} [{$slug}]");
+        }
+
+        if (!$removeDoneMarker) {
+            return;
+        }
+
+        $done = $this->getDoneMarkerPath($slug, $filename);
+        if (is_file($done)) {
+            @unlink($done);
+        }
     }
 
     public function normalizeFile(
@@ -525,6 +559,81 @@ class GalleryNormalizeService
             @mkdir($dir, 0755, true);
         }
         @file_put_contents($this->getDoneMarkerPath($slug, $filename), date('c'));
+    }
+
+    /**
+     * Remplace l'original par la copie sans le supprimer d'abord.
+     * rename() sur le même système de fichiers est atomique : en cas d'échec,
+     * l'original reste en place.
+     */
+    private function replaceOriginalWithNormalized(
+        string $originalPath,
+        string $normPath,
+        string $filename,
+        string $slug,
+    ): bool {
+        $tmp = $originalPath . '.promoting.' . getmypid();
+        if (!@copy($normPath, $tmp)) {
+            $this->logger->error("GalleryNormalize: copie de promotion impossible {$filename} [{$slug}]");
+            return false;
+        }
+
+        if (!@rename($tmp, $originalPath)) {
+            @unlink($tmp);
+            $this->logger->error("GalleryNormalize: impossible de promouvoir {$filename} [{$slug}]");
+            return false;
+        }
+
+        if (!@unlink($normPath)) {
+            $this->logger->warning("GalleryNormalize: original remplacé mais sidecar encore présent {$filename} [{$slug}]");
+        }
+
+        return true;
+    }
+
+    /**
+     * Retire les copies dont l'original est en corbeille.
+     * L'original y est conservé ; seule la copie publique superflue disparaît.
+     * Une copie sans original et hors corbeille est laissée (dernier exemplaire
+     * possible après un échec) mais n'est ni servie ni republée.
+     */
+    private function removeTrashSidecars(?string $onlySlug = null): int
+    {
+        $removed = 0;
+        $slugs = $onlySlug !== null ? [$onlySlug] : GalleryConfig::getAllowedSlugs();
+
+        foreach ($slugs as $slug) {
+            if (!GalleryConfig::isValidSlug($slug)) {
+                continue;
+            }
+            $normDir = $this->getNormalizedDir($slug);
+            if (!is_dir($normDir)) {
+                continue;
+            }
+
+            foreach (scandir($normDir) ?: [] as $name) {
+                if ($name === '.' || $name === '..' || str_ends_with($name, '.done')) {
+                    continue;
+                }
+                if (!preg_match(self::FILENAME_PATTERN, $name) || !is_file($normDir . '/' . $name)) {
+                    continue;
+                }
+                if (is_file($this->getGalleryDir($slug) . '/' . $name) || !$this->isInTrash($slug, $name)) {
+                    continue;
+                }
+                if (@unlink($normDir . '/' . $name)) {
+                    $removed++;
+                    $this->logger->info("GalleryNormalize: sidecar orphelin retiré {$name} [{$slug}]");
+                }
+            }
+        }
+
+        return $removed;
+    }
+
+    private function isInTrash(string $slug, string $filename): bool
+    {
+        return is_file($this->baseDir . '/uploads/trash/' . $slug . '/' . $filename);
     }
 
     private function validateSlug(string $slug): void

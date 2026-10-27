@@ -31,6 +31,12 @@ RewriteRule ^\.claude/ - [F,L]
 RewriteRule ^\.cursor - [F,L]
 RewriteRule ^run-cron\.php$ - [F,L]
 
+# Copies de normalisation (.normalized/) : hors web. Sans cette règle, Apache
+# sert le fichier existant (RewriteCond !-f plus bas) et une photo mise à la
+# corbeille resterait téléchargeable. Le PHP ne les expose que si l'original
+# est encore dans la galerie.
+RewriteRule (^|/)\.normalized(/|$) - [F,L]
+
 # Fichiers de configuration / documentation a la racine (pas de contenu servi).
 RewriteRule ^(phpunit\.xml(\.dist)?|phpstan.*\.neon|\.php-cs-fixer\.php)$ - [F,L]
 RewriteRule ^docker-compose.*\.yml$ - [F,L]

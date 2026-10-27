@@ -881,8 +881,10 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
             if (data.success) {
                 var r = data.data || {};
                 resultEl.className = 'cache-result success';
-                resultEl.textContent = 'Originaux purgés : ' + (r.purged || 0)
-                    + ' (échecs : ' + (r.failed || 0) + ').';
+                resultEl.textContent = 'Originaux remplacés : ' + (r.purged || 0)
+                    + ', copies orphelines retirées : ' + (r.orphans_removed || 0)
+                    + ' (ignorées : ' + (r.skipped || 0)
+                    + ', échecs : ' + (r.failed || 0) + ').';
                 refreshNormalizePending();
             } else {
                 resultEl.className = 'cache-result error';

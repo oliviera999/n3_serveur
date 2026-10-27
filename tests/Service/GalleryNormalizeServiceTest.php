@@ -126,6 +126,78 @@ final class GalleryNormalizeServiceTest extends TestCase
         self::assertSame(0, $this->service->countPending());
     }
 
+    public function testResolveDisplayPathIgnoresSidecarWhenOriginalIsGone(): void
+    {
+        $name = '2026-06-01_12-00-00_gone.jpg';
+        $this->writeSolidJpeg($name, 80, 90, 160);
+        self::assertTrue($this->service->normalizeFile(self::SLUG, $name, 0.4, 90));
+
+        unlink($this->galleryDir() . '/' . $name);
+
+        self::assertNull($this->service->resolveDisplayPath(self::SLUG, $name));
+        self::assertFileExists($this->normDir() . '/' . $name);
+    }
+
+    public function testPurgeDoesNotRepublishMissingOriginal(): void
+    {
+        $name = '2026-06-01_12-00-00_orphan.jpg';
+        $this->writeSolidJpeg($name, 30, 40, 140);
+        self::assertTrue($this->service->normalizeFile(self::SLUG, $name, 0.5, 90));
+        unlink($this->galleryDir() . '/' . $name);
+
+        $result = $this->service->purgeNormalizedOriginals(self::SLUG);
+
+        self::assertSame(0, $result['purged']);
+        self::assertFileDoesNotExist($this->galleryDir() . '/' . $name);
+        self::assertFileExists($this->normDir() . '/' . $name);
+    }
+
+    public function testPurgeDropsSidecarWhenOriginalIsInTrash(): void
+    {
+        $name = '2026-06-01_12-00-00_trashed.jpg';
+        $original = $this->writeSolidJpeg($name, 30, 40, 140);
+        self::assertTrue($this->service->normalizeFile(self::SLUG, $name, 0.5, 90));
+
+        $trashDir = $this->root . '/uploads/trash/' . self::SLUG;
+        mkdir($trashDir, 0755, true);
+        rename($original, $trashDir . '/' . $name);
+
+        $result = $this->service->purgeNormalizedOriginals(self::SLUG);
+
+        self::assertSame(0, $result['purged']);
+        self::assertGreaterThanOrEqual(1, $result['orphans_removed']);
+        self::assertFileDoesNotExist($this->galleryDir() . '/' . $name);
+        self::assertFileDoesNotExist($this->normDir() . '/' . $name);
+        self::assertFileExists($trashDir . '/' . $name);
+    }
+
+    public function testProcessBatchDropsTrashSidecarWithoutTouchingGallery(): void
+    {
+        $name = '2026-06-01_12-00-00_batch.jpg';
+        $original = $this->writeSolidJpeg($name, 40, 40, 40);
+        self::assertTrue($this->service->normalizeFile(self::SLUG, $name, 0.4, 90));
+
+        $trashDir = $this->root . '/uploads/trash/' . self::SLUG;
+        mkdir($trashDir, 0755, true);
+        rename($original, $trashDir . '/' . $name);
+
+        $result = $this->service->processBatch(5);
+
+        self::assertSame(0, $result['processed']);
+        self::assertGreaterThanOrEqual(1, $result['orphans_removed']);
+        self::assertFileDoesNotExist($this->galleryDir() . '/' . $name);
+        self::assertFileDoesNotExist($this->normDir() . '/' . $name);
+        self::assertFileExists($trashDir . '/' . $name);
+    }
+
+    public function testHtaccessForbidsNormalizedDirectory(): void
+    {
+        $htaccess = dirname(__DIR__, 2) . '/.htaccess';
+        $body = file_get_contents($htaccess);
+        self::assertIsString($body);
+        self::assertMatchesRegularExpression('/RewriteRule.*\\\\\.normalized.*\[F/', $body);
+    }
+
     private function removeDir(string $dir): void
     {
         if (!is_dir($dir)) {

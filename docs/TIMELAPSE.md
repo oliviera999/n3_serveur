@@ -22,7 +22,7 @@ Il n’y a **pas** d’encodage serveur (ffmpeg) : l’hébergement mutualisé n
 |---------|-------|------|
 | GET | `/api/gallery/{slug}/latest` | Bornes (plus récente / plus ancienne) + `count` |
 | GET | `/api/gallery/{slug}/photos?from&to[&limit][&step]` | Liste pour le timelapse |
-| GET | `/gallery/{slug}/files/{filename}` | JPEG (ETag + Cache-Control) — sert la copie `.normalized/` si présente |
+| GET | `/gallery/{slug}/files/{filename}` | JPEG (ETag + Cache-Control) — copie `.normalized/` seulement si l'original est encore dans la galerie |
 
 ### Réponse `photos`
 
@@ -71,10 +71,10 @@ Les photos conservées (hors corbeille) peuvent être normalisées en douceur
 (luminosité, balance des blancs, contraste) par le CRON / Supervision :
 
 - Original intact : `uploads/{slug}/foo.jpg`
-- Copie : `uploads/{slug}/.normalized/foo.jpg`
-- Serving transparent via `/gallery/{slug}/files/…` (préfère la copie)
+- Copie : `uploads/{slug}/.normalized/foo.jpg` (non servie en statique)
+- Serving via `/gallery/{slug}/files/…` : préfère la copie **seulement si l'original est encore dans la galerie**. Une photo en corbeille ou supprimée répond 404 ; sa copie est retirée.
 - Réglages : Supervision → groupe « Galeries photo » (`GALLERY_NORMALIZE_*`)
-- Purge optionnelle des originaux (promotion de la copie + marqueur `.done`)
+- Purge optionnelle des originaux encore présents (remplacement en place + marqueur `.done`). Une copie sans original n'est pas republée.
 
 Voir aussi `docs/deployment/CRON.md` et `src/Service/GalleryNormalizeService.php`.
 

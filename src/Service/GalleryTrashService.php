@@ -24,6 +24,7 @@ class GalleryTrashService
 
     public function __construct(
         private LogService $logger,
+        private GalleryNormalizeService $normalizeService,
     ) {
         $this->baseDir = Paths::getProjectRoot();
     }
@@ -112,6 +113,10 @@ class GalleryTrashService
             'reason' => $reason,
         ]);
 
+        // L'original est sauf en corbeille : la copie .normalized/ ne doit plus
+        // rester téléchargeable à l'URL publique.
+        $this->normalizeService->discardSidecar($slug, $filename);
+
         $this->logger->info("GalleryTrash: {$filename} déplacé en corbeille [{$slug}] (motif: {$reason})");
         return true;
     }
@@ -171,6 +176,7 @@ class GalleryTrashService
             return false;
         }
 
+        $this->normalizeService->discardSidecar($slug, $filename, true);
         $this->removeMetadata($slug, $filename);
         $this->logger->info("GalleryTrash: {$filename} supprimé définitivement [{$slug}]");
         return true;

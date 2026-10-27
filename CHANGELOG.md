@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.45.1] - 2026-10-27
+
+### Corrigé
+- **Galeries — copies normalisées** — une photo mise à la corbeille ou
+  supprimée restait servie (URL `/gallery/…/files/` et fichier statique
+  `uploads/{slug}/.normalized/`). La purge des originaux republiait ces
+  copies dans la galerie. La copie n'est servie que si l'original est
+  encore là ; elle est retirée avec la photo ; la purge remplace l'original
+  en place et ne republie pas une photo absente. Les POST de normalisation
+  et de purge exigent le jeton CSRF, comme le tri automatique.
+
 ## [6.45.0] - 2026-10-27
 
 ### Amélioré

@@ -6,6 +6,7 @@ namespace Tests\Service;
 
 use App\Config\GalleryConfig;
 use App\Config\Paths;
+use App\Service\GalleryNormalizeService;
 use App\Service\GalleryTrashService;
 use App\Service\LogService;
 use PHPUnit\Framework\TestCase;
@@ -56,7 +57,10 @@ final class GalleryTrashServiceTest extends TestCase
         putenv('LOG_FILE_PATH=php://memory');
 
         $this->logger = $this->createMock(LogService::class);
-        $this->service = new GalleryTrashService($this->logger);
+        $this->service = new GalleryTrashService(
+            $this->logger,
+            new GalleryNormalizeService($this->logger)
+        );
     }
 
     protected function tearDown(): void
@@ -177,6 +181,39 @@ final class GalleryTrashServiceTest extends TestCase
         self::assertSame('too_bright', $listed[0]['reason']);
         self::assertSame(self::SLUG, $listed[0]['original_slug']);
         self::assertNotNull($listed[0]['trashed_at']);
+    }
+
+    public function testMoveToTrashRemovesNormalizedSidecar(): void
+    {
+        $name = 'photo.jpg';
+        $this->makeJpeg($this->galleryDir() . '/' . $name, 200);
+        $normDir = $this->galleryDir() . '/.normalized';
+        mkdir($normDir);
+        copy($this->galleryDir() . '/' . $name, $normDir . '/' . $name);
+
+        self::assertTrue($this->service->moveToTrash(self::SLUG, $name, 'manual'));
+
+        self::assertFileDoesNotExist($normDir . '/' . $name);
+        self::assertFileExists($this->trashDir() . '/' . $name);
+        self::assertFileDoesNotExist($this->galleryDir() . '/' . $name);
+    }
+
+    public function testPurgeRemovesLeftoverSidecarAndDoneMarker(): void
+    {
+        $name = 'photo.jpg';
+        $this->makeJpeg($this->galleryDir() . '/' . $name, 200);
+        $this->service->moveToTrash(self::SLUG, $name, 'manual');
+
+        $normDir = $this->galleryDir() . '/.normalized';
+        mkdir($normDir);
+        $this->makeJpeg($normDir . '/' . $name, 180);
+        file_put_contents($normDir . '/' . $name . '.done', 'marker');
+
+        self::assertTrue($this->service->purge(self::SLUG, $name));
+
+        self::assertFileDoesNotExist($normDir . '/' . $name);
+        self::assertFileDoesNotExist($normDir . '/' . $name . '.done');
+        self::assertFileDoesNotExist($this->trashDir() . '/' . $name);
     }
 
     public function testMoveToTrashReturnsFalseWhenSourceMissing(): void

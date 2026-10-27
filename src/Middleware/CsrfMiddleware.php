@@ -52,6 +52,9 @@ class CsrfMiddleware implements MiddlewareInterface
         // Action de maintenance déclenchée depuis la page supervision (session admin) :
         // écriture d'état (déplacement de photos en corbeille) -> jeton CSRF exigé.
         '#/admin/api/gallery/auto-sort-all$#',
+        // Normalisation / purge des originaux : écritures irréversibles (Supervision).
+        '#/admin/api/gallery/normalize-batch$#',
+        '#/admin/api/gallery/purge-normalized-originals$#',
         // Vidage des caches (POST) : action d'écriture. Exclut clear-cache-page
         // (page d'affichage en GET) via le negative lookahead. Couvre les variantes
         // d'environnement (clear-cache, -test, 3, 3-test, -s3-test).

@@ -102,7 +102,8 @@ Fichier d’état : `var/cache/cron_last_gallery_normalize.timestamp`
 
 - Service : `GalleryNormalizeService` — copies douces dans `uploads/{slug}/.normalized/`
   (luminosité, balance des blancs, contraste ; mélange avec l’original pour ne pas dénaturer).
-- Anti-retraitement : présence de la copie ou marqueur `.done` (après purge des originaux).
+- Anti-retraitement : présence de la copie ou marqueur `.done` (après remplacement de l'original).
+- Une copie dont l'original est en corbeille est retirée par le batch (l'original reste en corbeille). La purge ne republie pas une photo absente de la galerie.
 - Plafond par run + intervalle + force pilotables en Supervision (groupe « Galeries photo »)
   ou via `.env` (`GALLERY_NORMALIZE_*`).
 - Actions manuelles : `/supervision` (batch immédiat, purge originaux).
