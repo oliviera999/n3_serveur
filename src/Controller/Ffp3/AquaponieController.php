@@ -6,10 +6,15 @@ namespace App\Controller\Ffp3;
 
 use App\Config\TableConfig;
 use App\Config\Version;
+use App\Controller\AbstractDataController;
+use App\Display\Catalog\Ffp3Catalog;
+use App\Display\PageCatalog;
 use App\Repository\SensorReadRepository;
+use App\Security\AuthService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
+use App\Service\DisplayPresetService;
 use App\Service\LogService;
 use App\Service\StatisticsAggregatorService;
 use App\Service\TemplateRenderer;
@@ -21,8 +26,14 @@ use App\Util\RealtimeUrlHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+/**
+ * Page de suivi aquaponie FFP3 — pilotée par Ffp3Catalog + presets d'affichage
+ * (même contrat que AbstractDataController pour MSP/N3PP/ENERGIE).
+ */
 class AquaponieController
 {
+    private PageCatalog $catalog;
+
     public function __construct(
         private SensorReadRepository $sensorReadRepo,
         private StatisticsAggregatorService $statsAggregator,
@@ -33,87 +44,77 @@ class AquaponieController
         private LogService $logger,
         private DateRangeExtractor $dateRangeExtractor,
         private CsvExportService $csvExportService,
+        private DisplayPresetService $displayPresets,
+        private AuthService $authService,
     ) {
+        $this->catalog = new Ffp3Catalog();
     }
 
     /**
-     * Affiche la page suivi « vue classique » (servie à /aquaponie-alt).
-     */
-    public function show(Request $request, Response $response): Response
-    {
-        try {
-            $data = $this->getAquaponieData($request, $response);
-            if ($data instanceof Response) {
-                return $data;
-            }
-            $html = $this->renderer->render('aquaponie.twig', $data);
-            $response->getBody()->write($html);
-            return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
-        } catch (\RuntimeException $e) {
-            if (strpos($e->getMessage(), 'CSRF') !== false) {
-                $response->getBody()->write('Token CSRF invalide. Veuillez recharger la page et réessayer.');
-                return $response->withStatus(403)->withHeader('Content-Type', 'text/plain; charset=utf-8');
-            }
-            throw $e;
-        } catch (\Throwable $e) {
-            $this->logger->error('AquaponieController::show failure', [
-                'message' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-            ]);
-            $response->getBody()->write('ERREUR AquaponieController: ' . $e->getMessage());
-            return $response->withStatus(500)->withHeader('Content-Type', 'text/plain; charset=utf-8');
-        }
-    }
-
-    /**
-     * Affiche la page suivi principale « vue paysage » (servie à /aquaponie).
+     * Page principale `/aquaponie` (preset demandé ou défaut selon rôle).
      */
     public function showAlt(Request $request, Response $response): Response
     {
+        return $this->renderMonitoring($request, $response, null);
+    }
+
+    /**
+     * Ancienne URL `/aquaponie-alt` : force le preset « simple » si aucun ?preset=.
+     */
+    public function show(Request $request, Response $response): Response
+    {
+        $requested = AbstractDataController::requestedPreset($request);
+        return $this->renderMonitoring($request, $response, $requested ?? PageCatalog::PRESET_SIMPLE);
+    }
+
+    private function renderMonitoring(Request $request, Response $response, ?string $forcedPreset): Response
+    {
         try {
-            $data = $this->getAquaponieData($request, $response);
+            $data = $this->buildPageContext($request, $response, $forcedPreset);
             if ($data instanceof Response) {
                 return $data;
             }
-            $html = $this->renderer->render('aquaponie_alt.twig', $data);
+            $html = $this->renderer->render('aquaponie_data.twig', $data);
             $response->getBody()->write($html);
+
             return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
         } catch (\RuntimeException $e) {
             if (strpos($e->getMessage(), 'CSRF') !== false) {
                 $response->getBody()->write('Token CSRF invalide. Veuillez recharger la page et réessayer.');
+
                 return $response->withStatus(403)->withHeader('Content-Type', 'text/plain; charset=utf-8');
             }
             throw $e;
         } catch (\Throwable $e) {
-            $this->logger->error('AquaponieController::showAlt failure', [
+            $this->logger->error('AquaponieController failure', [
                 'message' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
             ]);
             $response->getBody()->write('ERREUR AquaponieController: ' . $e->getMessage());
+
             return $response->withStatus(500)->withHeader('Content-Type', 'text/plain; charset=utf-8');
         }
     }
 
     /**
-     * Construit les données communes pour les pages suivi (vue classique et vue paysage).
+     * @return array<string, mixed>|Response
      */
-    private function getAquaponieData(Request $request, Response $response): array|Response
+    private function buildPageContext(Request $request, Response $response, ?string $forcedPreset): array|Response
     {
+        $catalog = $this->catalog;
+        $environment = TableConfig::getEnvironment();
+        $testSuffix = in_array($environment, ['test', 'test3', 's3test'], true) ? ' (TEST)' : '';
+
         $lastDate = $this->sensorReadRepo->getLastReadingDate();
         $defaultEndDate = $lastDate ?: date('Y-m-d H:i:s');
         $defaultStartDate = date('Y-m-d H:i:s', strtotime($defaultEndDate . ' -6 hours'));
 
         [$startDate, $endDate] = $this->dateRangeExtractor->extract($request, $defaultStartDate, $defaultEndDate);
-
-        // Navigation par fenêtre temporelle (GET ?from/to ou ?window=&offset=).
-        // Rétro-compatible : sans param GET reconnu, la plage reste inchangée.
         $periodNav = $this->dateRangeExtractor->resolveDataWindow($request, $startDate, $endDate);
         $startDate = $periodNav['start'];
         $endDate = $periodNav['end'];
 
-        // Sorties anticipées (export CSV, redirection legacy) AVANT tout chargement/calcul lourd.
         $body = $request->getParsedBody() ?? [];
         if (isset($body['export_csv'])) {
             return $this->csvExportService->export(
@@ -130,77 +131,111 @@ class AquaponieController
             return $response->withStatus(302)->withHeader('Location', '/aquaponie');
         }
 
-        // Chargement direct en ordre chronologique ASC (plus d'array_reverse analytique).
         $rowsAsc = Ffp3WaterLevelUnit::scaleSensorRowsFromMmToCm(
             $this->sensorReadRepo->fetchBetween($startDate, $endDate, 'ASC')
         );
-        $measure_count = count($rowsAsc);
+        $measureCount = count($rowsAsc);
 
-        // ChartDataService attend des lectures DESC (il les ré-inverse en interne pour
-        // produire des séries chronologiques) : on lui fournit une vue DESC dérivée.
-        $readingsDesc = array_reverse($rowsAsc);
-        $chartSeries = $this->chartDataService->prepareSeriesData($readingsDesc);
-        $reading_time = $this->chartDataService->prepareTimestamps($readingsDesc);
-        $extrema = $this->tideCycleDetector->detectExtremaSeries(
-            array_column($rowsAsc, 'EauAquarium'),
-            array_column($rowsAsc, 'reading_time')
+        $requestedPreset = $forcedPreset ?? AbstractDataController::requestedPreset($request);
+        $display = $this->displayPresets->pageContext(
+            $catalog,
+            $requestedPreset,
+            $this->authService->getCurrentRole()
         );
 
-        // Dernière lecture : si la plage couvre la dernière mesure connue, on réutilise la
-        // dernière ligne déjà chargée (ASC) au lieu d'une requête getLastReadings() supplémentaire.
+        $chartColumns = AbstractDataController::columnsForLayout($catalog, $display['layout']);
+        $series = $this->chartDataService->prepareGenericSeries($rowsAsc, $chartColumns);
+
+        $latestRow = [];
         if ($rowsAsc !== [] && $lastDate !== null && $endDate === $lastDate) {
-            $lastReadingExtracted = $this->chartDataService->extractLastReadings(
-                $rowsAsc[count($rowsAsc) - 1]
-            );
+            $latestRow = $rowsAsc[count($rowsAsc) - 1];
         } else {
-            $lastReading = $this->sensorReadRepo->getLastReadings();
-            $lastReadingExtracted = $this->chartDataService->extractLastReadings(
-                Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm($lastReading)
-            );
+            $latestRow = Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm(
+                $this->sensorReadRepo->getLastReadings()
+            ) ?? [];
         }
+        $latest = $latestRow !== [] ? $latestRow : null;
 
         $allStats = $this->statsAggregator->aggregateAllStats($startDate, $endDate);
         $statsFlattened = Ffp3WaterLevelUnit::scaleAquaponieFlattenedStatsFromMmToCm(
             $this->statsAggregator->flattenForLegacy($allStats)
         );
+        $catalogStats = $this->statsFromFlattened($statsFlattened, AbstractDataController::statsColumnsForLayout($catalog, $display['layout']));
 
-        $firmwareVersion = $this->sensorReadRepo->getFirmwareVersion();
-        // Réutilise les lignes déjà chargées (ASC, cm) pour éviter un second fetch.
         $waterBalance = $this->waterBalanceService->computeBalance($startDate, $endDate, $rowsAsc);
-        $environment = TableConfig::getEnvironment();
-        $dataTable = TableConfig::getDataTable();
-        $realtime_api_base = RealtimeUrlHelper::getRealtimeApiBase($environment);
 
-        return array_merge([
-            'start_date' => $startDate,
-            'end_date' => $endDate,
-            'reading_time' => $reading_time,
-            'tide_peaks' => json_encode(
-                $extrema['peaks'],
-                JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-            ),
-            'tide_troughs' => json_encode(
-                $extrema['troughs'],
-                JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-            ),
-            'measure_count' => $measure_count,
-            'duration_str' => DurationFormatter::short($startDate, $endDate),
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => $firmwareVersion,
-            'environment' => $environment,
-            'data_table' => $dataTable,
-            'realtime_api_base' => $realtime_api_base,
+        $extrema = $this->tideCycleDetector->detectExtremaSeries(
+            array_column($rowsAsc, 'EauAquarium'),
+            array_column($rowsAsc, 'reading_time')
+        );
+
+        $firstReadingDate = $this->sensorReadRepo->getFirstReadingDate();
+        $tempsTotalModule = $firstReadingDate !== null
+            ? DurationFormatter::short($firstReadingDate, date('Y-m-d H:i:s'))
+            : null;
+
+        $chartPayload = AbstractDataController::chartPayload($display['layout']['charts'], $series);
+        $chartPayload['tidePeaks'] = $extrema['peaks'];
+        $chartPayload['tideTroughs'] = $extrema['troughs'];
+
+        $context = [
+            'page_title' => 'Aquaponie FFP3 — Données en direct | n³ IoT' . $testSuffix,
             'nav_active' => 'aquaponie',
+            'environment' => $environment,
+            'data_config' => AbstractDataController::withPresetInFormAction(
+                $catalog->pageConfig($environment),
+                $requestedPreset,
+                $display
+            ),
+            'realtime_api_base' => RealtimeUrlHelper::getRealtimeApiBase($environment),
+            'latest' => $latest,
+            'start_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $startDate),
+            'end_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $endDate),
+            'measure_count' => $measureCount,
+            'duration_str' => DurationFormatter::short($startDate, $endDate),
+            'temps_total_module' => $tempsTotalModule,
+            'firmware_version' => $this->sensorReadRepo->getFirmwareVersion(),
+            'version' => Version::getWithPrefix(),
             'period_nav' => $periodNav,
-        ], $chartSeries, [
-            'last_reading_tempair' => $lastReadingExtracted['tempair'],
-            'last_reading_tempeau' => $lastReadingExtracted['tempeau'],
-            'last_reading_humi' => $lastReadingExtracted['humi'],
-            'last_reading_lumi' => $lastReadingExtracted['lumi'],
-            'last_reading_eauaqua' => $lastReadingExtracted['eauaqua'],
-            'last_reading_eaureserve' => $lastReadingExtracted['eaureserve'],
-            'last_reading_eaupota' => $lastReadingExtracted['eaupota'],
-        ], $statsFlattened, $waterBalance);
+            'page_key' => $catalog->pageKey(),
+            'request_method' => strtoupper($request->getMethod()),
+            'requested_preset' => $requestedPreset,
+            'chart_payload' => $chartPayload,
+            'data_table' => TableConfig::getDataTable(),
+        ];
+
+        return array_merge($context, $display, $catalogStats, $waterBalance);
+    }
+
+    /**
+     * Mappe les stats aplaties legacy (avg_eauaqua…) vers avg_EauAquarium (lcfirst colonne).
+     *
+     * @param array<string, mixed> $flattened
+     * @param list<string> $columns
+     * @return array<string, float|null>
+     */
+    private function statsFromFlattened(array $flattened, array $columns): array
+    {
+        $legacyMap = [
+            'EauAquarium' => 'eauaqua',
+            'EauReserve' => 'eaureserve',
+            'EauPotager' => 'eaupota',
+            'TempEau' => 'tempeau',
+            'TempAir' => 'tempair',
+            'Humidite' => 'humi',
+            'Luminosite' => 'lumi',
+        ];
+
+        $stats = [];
+        foreach ($columns as $col) {
+            $lc = lcfirst($col);
+            $legacy = $legacyMap[$col] ?? $lc;
+            $stats["avg_{$lc}"] = isset($flattened["avg_{$legacy}"]) ? (float) $flattened["avg_{$legacy}"] : null;
+            $stats["min_{$lc}"] = isset($flattened["min_{$legacy}"]) ? (float) $flattened["min_{$legacy}"] : null;
+            $stats["max_{$lc}"] = isset($flattened["max_{$legacy}"]) ? (float) $flattened["max_{$legacy}"] : null;
+        }
+
+        return $stats;
     }
 
     /**
@@ -214,6 +249,7 @@ class AquaponieController
             'nav_active' => 'aquaponie',
         ]);
         $response->getBody()->write($html);
+
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
     }
 }

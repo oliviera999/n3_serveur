@@ -1,0 +1,62 @@
+{# Bilan hydrique réserve / aquarium (contexte WaterBalanceService). #}
+<div class="section-header" data-aos="fade-up" data-block="{{ block.id }}">
+    <i class="fas {{ block.icon }}"></i>
+    <h3>{{ block.title }}</h3>
+</div>
+<div class="water-balance-grid" data-aos="fade-up">
+    <div class="balance-card reserve">
+        <div class="balance-card-header">
+            <i class="fas fa-droplet balance-card-icon"></i>
+            <h4 class="balance-card-title">Réserve</h4>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label">Consommation</span>
+            <span class="balance-stat-value negative">
+                {{ reserve_consumption|default(0)|number_format(2, ',', ' ') }}
+                <span class="balance-stat-unit">cm</span>
+            </span>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label">Remplissage</span>
+            <span class="balance-stat-value positive">
+                {{ reserve_refill|default(0)|number_format(2, ',', ' ') }}
+                <span class="balance-stat-unit">cm</span>
+            </span>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label">Bilan</span>
+            <span class="balance-stat-value {{ (reserve_balance|default(0)) >= 0 ? 'positive' : 'negative' }}">
+                {{ reserve_balance|default(0)|number_format(2, ',', ' ') }}
+                <span class="balance-stat-unit">cm</span>
+            </span>
+        </div>
+        <div class="balance-note">
+            <i class="fas fa-info-circle"></i>
+            Variations ≤ 1 cm = incertitude de mesure (non comptées).
+        </div>
+    </div>
+    <div class="balance-card aquarium">
+        <div class="balance-card-header">
+            <i class="fas fa-chart-line balance-card-icon"></i>
+            <h4 class="balance-card-title">Consommation aquarium</h4>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label">Consommation moyenne</span>
+            <span class="balance-stat-value neutral">
+                {{ aquarium_consumption|default(0)|number_format(2, ',', ' ') }}
+                <span class="balance-stat-unit">cm</span>
+            </span>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label">Tendance</span>
+            <span class="balance-stat-value {{ (aquarium_consumption_per_day|default(0)) > 0 ? 'negative' : 'neutral' }}">
+                {% if aquarium_consumption_per_day is not null %}
+                    {{ aquarium_consumption_per_day|number_format(2, ',', ' ') }}
+                    <span class="balance-stat-unit">cm/jour</span>
+                {% else %}
+                    n/a
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>

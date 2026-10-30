@@ -13,6 +13,7 @@ use App\Repository\NotificationPolicyRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\ControlAuditLogger;
+use App\Service\DisplayPresetService;
 use App\Service\LogService;
 use App\Service\NotificationPolicySaveService;
 use App\Service\NotificationService;
@@ -47,6 +48,7 @@ class OutputController
         private NotificationPolicyRepository $notificationPolicyRepo,
         private NotificationPolicySaveService $notificationSaveService,
         private NotificationService $notificationService,
+        private DisplayPresetService $displayPresets,
     ) {
     }
 
@@ -81,6 +83,7 @@ class OutputController
             $this->outputService->ensureAquariumPumpForceOutputRow();
             $this->notificationPolicyRepo->ensurePolicyRows(NotificationFamily::Ffp3);
 
+            $catalog = $this->displayPresets->catalog('ffp3');
             $data = array_merge([
                 'outputs' => $outputs,
                 'boards' => $boards,
@@ -96,6 +99,11 @@ class OutputController
                 'lastDataStates' => $lastData['states'],
                 'lastDataReadingTime' => $lastData['readingTime'],
             ], $this->notificationPolicyTwigData($this->notificationPolicyRepo));
+
+            if ($catalog !== null) {
+                $data['display_presets'] = $this->displayPresets->editorData($catalog, $environment);
+                $data['display_presets_api'] = '/api/display-presets/ffp3';
+            }
 
             $html = $this->renderer->render('control.twig', $data);
             $response->getBody()->write($html);

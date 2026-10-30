@@ -16,11 +16,12 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
- * Presets d'affichage des pages de suivi (MSP1, N3PP, ENERGIE).
+ * Presets d'affichage des pages de suivi (MSP1, N3PP, ENERGIE, FFP3).
  *
  * API JSON (opérateur+, CSRF) : GET/POST /api/display-presets/{page},
  * DELETE /api/display-presets/{page}/{slug}.
  * Page dédiée ENERGIE (pas de page de contrôle GPIO) : GET /energie-control[/…].
+ * FFP3 : éditeur aussi sur `/aquaponie-control`.
  */
 class DisplayPresetController
 {

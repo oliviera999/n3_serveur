@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Display\LayoutResolver;
 use App\Display\PageCatalog;
 use App\Display\PageCatalogRegistry;
+use App\Domain\User;
 use App\Repository\DisplayPresetRepository;
 
 /**
@@ -87,19 +88,37 @@ class DisplayPresetService
     /**
      * Preset à appliquer : celui demandé (`?preset=`), même s'il n'est pas
      * proposé aux visiteurs (prévisualisation), sinon le preset par défaut.
+     * Sans `?preset=`, un rôle « reader » (ou anonyme) préfère « simple » tant
+     * que le défaut n'a pas été personnalisé en base (reste le builtin étendu).
      *
      * @param list<array<string, mixed>> $presets
      * @return array<string, mixed>
      */
-    public function select(array $presets, ?string $requestedSlug): array
+    public function select(array $presets, ?string $requestedSlug, ?string $viewerRole = null): array
     {
         $default = $presets[0];
+        $hasCustomizedDefault = false;
         foreach ($presets as $preset) {
             if ($requestedSlug !== null && $preset['slug'] === $requestedSlug) {
                 return $preset;
             }
             if ($preset['is_default']) {
                 $default = $preset;
+                $hasCustomizedDefault = (bool) ($preset['customized'] ?? false)
+                    || !(bool) ($preset['builtin'] ?? false);
+            }
+        }
+
+        if (
+            $requestedSlug === null
+            && !$hasCustomizedDefault
+            && $default['slug'] === PageCatalog::PRESET_EXTENDED
+            && $this->prefersSimplePreset($viewerRole)
+        ) {
+            foreach ($presets as $preset) {
+                if ($preset['slug'] === PageCatalog::PRESET_SIMPLE) {
+                    return $preset;
+                }
             }
         }
 
@@ -107,15 +126,27 @@ class DisplayPresetService
     }
 
     /**
+     * Lecteurs / anonymes : vue simple par défaut (sauf défaut opérateur en BDD).
+     */
+    private function prefersSimplePreset(?string $viewerRole): bool
+    {
+        if ($viewerRole === null || $viewerRole === '') {
+            return true;
+        }
+
+        return $viewerRole === User::ROLE_READER;
+    }
+
+    /**
      * Contexte Twig/JS d'une page de suivi pour le preset retenu.
      *
      * @return array{layout: array<string, mixed>, preset: array<string, mixed>, default_preset_slug: string, presets_menu: list<array<string, mixed>>, chart_ids_json: string, sensor_map_json: string}
      */
-    public function pageContext(PageCatalog $catalog, ?string $requestedSlug): array
+    public function pageContext(PageCatalog $catalog, ?string $requestedSlug, ?string $viewerRole = null): array
     {
         $presets = $this->presets($catalog);
-        $preset = $this->select($presets, $requestedSlug);
-        $default = $this->select($presets, null);
+        $preset = $this->select($presets, $requestedSlug, $viewerRole);
+        $default = $this->select($presets, null, $viewerRole);
         $layout = $this->resolver->resolve($catalog, $preset['layout']);
 
         $menu = [];

@@ -11,6 +11,24 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.46.0] - 2026-10-30
+
+### Ajouté
+- **Presets d'affichage FFP3** — catalogue `Ffp3Catalog`, page
+  `aquaponie_data.twig` (shell `monitoring_page`), blocs `tide_panel` /
+  `water_balance`, éditeur sur `/aquaponie-control`, API
+  `/api/display-presets/ffp3`. `/aquaponie-alt` force le preset `simple`.
+- **Presets publics intégrés** — `visite`, `eleves`, `technique` (en plus de
+  `simple` / `etendu`) sur toutes les pages catalogue.
+- **Éditeur** — glisser-déposer des cartes et séries *dans* chaque cadre
+  (ordre persisté dans le layout JSON).
+
+### Amélioré
+- **Défaut selon rôle** — lecteurs / anonymes → `simple` ; opérateurs →
+  `etendu` (sauf défaut personnalisé en BDD).
+- **Payload graphiques** — colonnes LTTB / stats limitées au preset actif.
+- Doc : `docs/DISPLAY_PRESETS.md`.
+
 ## [6.45.0] - 2026-10-27
 
 ### Amélioré

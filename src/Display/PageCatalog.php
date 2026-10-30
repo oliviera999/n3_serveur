@@ -31,6 +31,8 @@ abstract class PageCatalog
     public const BLOCK_FILTER_HEALTH = 'filter_health';
     public const BLOCK_GOOGLE_SHEET = 'google_sheet';
     public const BLOCK_CUSTOM = 'custom';
+    public const BLOCK_TIDE_PANEL = 'tide_panel';
+    public const BLOCK_WATER_BALANCE = 'water_balance';
 
     public const BLOCK_TYPES = [
         self::BLOCK_CHART_SECTION,
@@ -38,6 +40,8 @@ abstract class PageCatalog
         self::BLOCK_FILTER_HEALTH,
         self::BLOCK_GOOGLE_SHEET,
         self::BLOCK_CUSTOM,
+        self::BLOCK_TIDE_PANEL,
+        self::BLOCK_WATER_BALANCE,
     ];
 
     public const SERIES_SHOWN = 'shown';
@@ -51,6 +55,9 @@ abstract class PageCatalog
 
     public const PRESET_SIMPLE = 'simple';
     public const PRESET_EXTENDED = 'etendu';
+    public const PRESET_ELEVES = 'eleves';
+    public const PRESET_VISITE = 'visite';
+    public const PRESET_TECHNIQUE = 'technique';
 
     /** @var list<array<string, mixed>>|null */
     private ?array $normalizedBlocks = null;
@@ -117,11 +124,71 @@ abstract class PageCatalog
     /**
      * Presets intégrés (repli quand la BDD est vide ou indisponible) :
      *  - « étendu » : tout le catalogue avec ses visibilités par défaut (affichage historique) ;
-     *  - « simple » : dérivé des drapeaux `simple` des blocs, cartes et séries.
+     *  - « simple » : dérivé des drapeaux `simple` des blocs, cartes et séries ;
+     *  - publics pédagogiques : « visite », « élèves », « technique » (mêmes bases, libellés audience).
      *
      * @return array<string, array<string, mixed>>
      */
     public function builtInPresets(): array
+    {
+        $simpleLayout = ['blocks' => $this->simpleLayoutBlocks()];
+        $extendedLayout = ['blocks' => []];
+
+        return [
+            self::PRESET_SIMPLE => [
+                'slug' => self::PRESET_SIMPLE,
+                'label' => 'Simple',
+                'description' => 'L\'essentiel : les mesures principales, sans le détail technique.',
+                'layout' => $simpleLayout,
+                'is_default' => false,
+                'show_on_page' => true,
+                'sort_order' => 10,
+            ],
+            self::PRESET_VISITE => [
+                'slug' => self::PRESET_VISITE,
+                'label' => 'Visite',
+                'description' => 'Vue courte pour parents et visiteurs : l\'essentiel en un coup d\'œil.',
+                'layout' => $simpleLayout,
+                'is_default' => false,
+                'show_on_page' => true,
+                'sort_order' => 12,
+            ],
+            self::PRESET_ELEVES => [
+                'slug' => self::PRESET_ELEVES,
+                'label' => 'Élèves',
+                'description' => 'Vue pédagogique collège / lycée : mesures principales, jargon minimal.',
+                'layout' => $simpleLayout,
+                'is_default' => false,
+                'show_on_page' => true,
+                'sort_order' => 14,
+            ],
+            self::PRESET_EXTENDED => [
+                'slug' => self::PRESET_EXTENDED,
+                'label' => 'Étendu',
+                'description' => 'Toutes les mesures, tous les graphiques et le suivi système.',
+                'layout' => $extendedLayout,
+                'is_default' => true,
+                'show_on_page' => true,
+                'sort_order' => 20,
+            ],
+            self::PRESET_TECHNIQUE => [
+                'slug' => self::PRESET_TECHNIQUE,
+                'label' => 'Technique',
+                'description' => 'Vue complète pour opérateurs et maintenance (équivalent étendu).',
+                'layout' => $extendedLayout,
+                'is_default' => false,
+                'show_on_page' => true,
+                'sort_order' => 30,
+            ],
+        ];
+    }
+
+    /**
+     * Blocs du preset « simple » (drapeaux `simple` du catalogue).
+     *
+     * @return list<array<string, mixed>>
+     */
+    protected function simpleLayoutBlocks(): array
     {
         $simpleBlocks = [];
         foreach ($this->blocks() as $block) {
@@ -142,26 +209,7 @@ abstract class PageCatalog
             ];
         }
 
-        return [
-            self::PRESET_SIMPLE => [
-                'slug' => self::PRESET_SIMPLE,
-                'label' => 'Simple',
-                'description' => 'L\'essentiel : les mesures principales, sans le détail technique.',
-                'layout' => ['blocks' => $simpleBlocks],
-                'is_default' => false,
-                'show_on_page' => true,
-                'sort_order' => 10,
-            ],
-            self::PRESET_EXTENDED => [
-                'slug' => self::PRESET_EXTENDED,
-                'label' => 'Étendu',
-                'description' => 'Toutes les mesures, tous les graphiques et le suivi système.',
-                'layout' => ['blocks' => []],
-                'is_default' => true,
-                'show_on_page' => true,
-                'sort_order' => 20,
-            ],
-        ];
+        return $simpleBlocks;
     }
 
     /**
@@ -172,7 +220,13 @@ abstract class PageCatalog
     {
         $type = (string) ($block['type'] ?? self::BLOCK_CHART_SECTION);
         $default = (bool) ($block['default'] ?? true);
-        $dataTypes = [self::BLOCK_CHART_SECTION, self::BLOCK_CAPTION, self::BLOCK_CUSTOM];
+        $dataTypes = [
+            self::BLOCK_CHART_SECTION,
+            self::BLOCK_CAPTION,
+            self::BLOCK_CUSTOM,
+            self::BLOCK_TIDE_PANEL,
+            self::BLOCK_WATER_BALANCE,
+        ];
 
         $cards = [];
         foreach ($block['cards'] ?? [] as $card) {

@@ -18,7 +18,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * Rendu local (php -S / cli-server) des pages de suivi sans MySQL.
  * MSP1 / N3PP : même contrat Twig que AbstractDataController, avec les presets
  * intégrés uniquement (pas de DisplayPresetRepository / PDO).
- * FFP3 : contexte historique dédié (aquaponie_*.twig encore hors catalogue).
+ * FFP3 : même contrat catalogue + presets intégrés que MSP1 / N3PP.
  */
 class LocalDataPagesController
 {
@@ -31,14 +31,26 @@ class LocalDataPagesController
 
     public function showAquaponie(Request $request, Response $response): Response
     {
-        $context = $this->buildAquaponieContext('aquaponie_alt.twig');
-        return $this->render($response, 'aquaponie_alt.twig', $context);
+        return $this->renderCatalogPage(
+            $request,
+            $response,
+            $this->catalogRegistry->get('ffp3'),
+            'aquaponie_data.twig',
+            'Aquaponie FFP3 (local)',
+            'aquaponie',
+            '/api/realtime'
+        );
     }
 
     public function showAquaponieClassic(Request $request, Response $response): Response
     {
-        $context = $this->buildAquaponieContext('aquaponie.twig');
-        return $this->render($response, 'aquaponie.twig', $context);
+        // Même page catalogue ; le preset « simple » est forcé comme /aquaponie-alt.
+        $query = $request->getQueryParams();
+        if (!isset($query['preset'])) {
+            $request = $request->withQueryParams(array_merge($query, ['preset' => 'simple']));
+        }
+
+        return $this->showAquaponie($request, $response);
     }
 
     public function showMsp1(Request $request, Response $response): Response
@@ -139,6 +151,25 @@ class LocalDataPagesController
             ],
         ], $display, $stats);
 
+        if ($catalog->pageKey() === 'ffp3') {
+            $context = array_merge($context, [
+                'reserve_consumption' => null,
+                'reserve_refill' => null,
+                'reserve_balance' => null,
+                'tide_frequency' => null,
+                'tide_frequency_stddev' => null,
+                'tide_marnage' => null,
+                'tide_marnage_stddev' => null,
+                'tide_cycles' => 0,
+                'tide_trend' => null,
+                'tide_trend_label' => null,
+                'tide_threshold_cm' => 2,
+                'aquarium_consumption' => null,
+                'aquarium_consumption_per_day' => null,
+                'aquarium_trend_slope_per_day' => null,
+            ]);
+        }
+
         return $this->render($response, $template, $context);
     }
 
@@ -195,85 +226,6 @@ class LocalDataPagesController
             'presets_menu' => $menu,
             'chart_ids_json' => (string) json_encode(array_column($layout['charts'], 'id')),
             'sensor_map_json' => (string) json_encode((object) $layout['sensor_map']),
-        ];
-    }
-
-    private function buildAquaponieContext(string $template): array
-    {
-        $this->logLocalFallback($template);
-
-        $range = $this->getDefaultRange('-6 hours');
-
-        return [
-            'page_title' => 'Aquaponie - mode local sans base',
-            'start_date' => $range['start'],
-            'end_date' => $range['end'],
-            'reading_time' => '[]',
-            'measure_count' => 0,
-            'duration_str' => '0 jours, 0 heures, 0 minutes, 0 secondes',
-            'version' => Version::getWithPrefix(),
-            'firmware_version' => '-',
-            'environment' => TableConfig::getEnvironment(),
-            'data_table' => TableConfig::getDataTable(),
-            'last_reading_tempair' => 0,
-            'last_reading_tempeau' => 0,
-            'last_reading_humi' => 0,
-            'last_reading_lumi' => 0,
-            'last_reading_eauaqua' => 0,
-            'last_reading_eaureserve' => 0,
-            'last_reading_eaupota' => 0,
-            'min_tempair' => null,
-            'max_tempair' => null,
-            'avg_tempair' => null,
-            'stddev_tempair' => null,
-            'min_tempeau' => null,
-            'max_tempeau' => null,
-            'avg_tempeau' => null,
-            'stddev_tempeau' => null,
-            'min_humi' => null,
-            'max_humi' => null,
-            'avg_humi' => null,
-            'stddev_humi' => null,
-            'min_lumi' => null,
-            'max_lumi' => null,
-            'avg_lumi' => null,
-            'stddev_lumi' => null,
-            'min_eauaqua' => null,
-            'max_eauaqua' => null,
-            'avg_eauaqua' => null,
-            'stddev_eauaqua' => null,
-            'min_eaureserve' => null,
-            'max_eaureserve' => null,
-            'avg_eaureserve' => null,
-            'stddev_eaureserve' => null,
-            'min_eaupota' => null,
-            'max_eaupota' => null,
-            'avg_eaupota' => null,
-            'stddev_eaupota' => null,
-            'reserve_consumption' => null,
-            'reserve_refill' => null,
-            'reserve_balance' => null,
-            'tide_frequency' => null,
-            'tide_frequency_stddev' => null,
-            'tide_marnage' => null,
-            'tide_marnage_stddev' => null,
-            'tide_cycles' => 0,
-            'aquarium_consumption' => null,
-            'aquarium_consumption_per_day' => null,
-            'aquarium_trend_slope_per_day' => null,
-            'EauAquarium' => '[]',
-            'EauReserve' => '[]',
-            'EauPotager' => '[]',
-            'TempAir' => '[]',
-            'TempEau' => '[]',
-            'Humidite' => '[]',
-            'Luminosite' => '[]',
-            'etatPompeAqua' => '[]',
-            'etatPompeTank' => '[]',
-            'etatHeat' => '[]',
-            'etatUV' => '[]',
-            'bouffePetits' => '[]',
-            'bouffeGros' => '[]',
         ];
     }
 

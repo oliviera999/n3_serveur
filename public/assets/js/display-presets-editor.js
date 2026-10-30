@@ -2,14 +2,20 @@
  * display-presets-editor.js — Éditeur des presets d'affichage (pages de contrôle).
  *
  * Charge le bootstrap JSON (#dp-bootstrap), permet de créer / dupliquer / supprimer
- * des presets, de réordonner les cadres (glisser-déposer + boutons) et d'ajuster
- * la visibilité des cartes (shown/hidden) et séries (shown/legend/hidden).
+ * des presets, de réordonner les cadres (glisser-déposer + boutons) et les cartes /
+ * séries à l'intérieur de chaque cadre, et d'ajuster la visibilité
+ * (cartes shown/hidden, séries shown/legend/hidden).
  * Écritures via /api/display-presets/{page} (CSRF X-CSRF-Token).
  */
 (function () {
     'use strict';
 
     var SERIES_LABELS = { shown: 'Affichée', legend: 'Légende seule', hidden: 'Masquée' };
+    var SERIES_HINTS = {
+        shown: 'Courbe tracée par défaut',
+        legend: 'Dans la légende, masquée au chargement (cliquable)',
+        hidden: 'Absente du graphique et du payload'
+    };
 
     function csrfToken() {
         var meta = document.querySelector('meta[name="csrf-token"]');
@@ -21,7 +27,6 @@
             window.showToast(msg, type || 'info');
             return;
         }
-        // Repli si toast-notifications.js n'est pas chargé.
         window.alert(msg);
     }
 
@@ -36,6 +41,7 @@
         this.data = null;
         this.currentSlug = null;
         this.dirty = false;
+        this._dragItem = null;
 
         this.els = {
             select: root.querySelector('#dp-preset-select'),
@@ -134,6 +140,22 @@
         });
     };
 
+    Editor.prototype.orderedKeys = function (defItems, stateMap, idKey) {
+        var known = {};
+        (defItems || []).forEach(function (item) {
+            known[item[idKey]] = item;
+        });
+        var order = [];
+        Object.keys(stateMap || {}).forEach(function (k) {
+            if (known[k]) order.push(k);
+        });
+        (defItems || []).forEach(function (item) {
+            var id = item[idKey];
+            if (order.indexOf(id) < 0) order.push(id);
+        });
+        return order.map(function (id) { return known[id]; }).filter(Boolean);
+    };
+
     Editor.prototype.buildBlockEl = function (def, state, index, total) {
         var self = this;
         var li = document.createElement('li');
@@ -192,80 +214,214 @@
         body.className = 'dp-block-body';
 
         if (def.cards && def.cards.length) {
-            var cardsCol = document.createElement('div');
-            cardsCol.innerHTML = '<h4>Cartes</h4>';
-            def.cards.forEach(function (c) {
-                var row = document.createElement('label');
-                row.className = 'dp-item';
-                var checked = (state.cards[c.key] || 'shown') === 'shown';
-                row.innerHTML = '<input type="checkbox"' + (checked ? ' checked' : '') + '> ' + escapeHtml(c.label);
-                row.querySelector('input').addEventListener('change', function (e) {
-                    state.cards[c.key] = e.target.checked ? 'shown' : 'hidden';
-                    self.markDirty();
-                });
-                cardsCol.appendChild(row);
-            });
-            body.appendChild(cardsCol);
+            body.appendChild(this.buildSortableGroup(
+                'Cartes',
+                'cards',
+                this.orderedKeys(def.cards, state.cards, 'key'),
+                function (item) {
+                    return {
+                        id: item.key,
+                        label: item.label,
+                        kind: 'card',
+                        state: (state.cards && state.cards[item.key]) || 'shown'
+                    };
+                },
+                state
+            ));
         }
 
         if (def.series && def.series.length) {
-            var seriesCol = document.createElement('div');
-            seriesCol.innerHTML = '<h4>Séries</h4>';
-            def.series.forEach(function (s) {
-                var row = document.createElement('div');
-                row.className = 'dp-item';
-                var swatch = document.createElement('span');
-                swatch.className = 'dp-swatch';
-                swatch.style.background = s.color || '#999';
-                row.appendChild(swatch);
-                var label = document.createElement('span');
-                label.textContent = s.name;
-                label.style.flex = '1 1 auto';
-                row.appendChild(label);
-                var sel = document.createElement('select');
-                sel.setAttribute('aria-label', 'Visibilité de ' + s.name);
-                ['shown', 'legend', 'hidden'].forEach(function (v) {
-                    var opt = document.createElement('option');
-                    opt.value = v;
-                    opt.textContent = SERIES_LABELS[v];
-                    if ((state.series[s.id] || 'shown') === v) opt.selected = true;
-                    sel.appendChild(opt);
-                });
-                sel.addEventListener('change', function () {
-                    state.series[s.id] = sel.value;
-                    self.markDirty();
-                });
-                row.appendChild(sel);
-                seriesCol.appendChild(row);
-            });
-            body.appendChild(seriesCol);
+            body.appendChild(this.buildSortableGroup(
+                'Séries',
+                'series',
+                this.orderedKeys(def.series, state.series, 'id'),
+                function (item) {
+                    return {
+                        id: item.id,
+                        label: item.name,
+                        color: item.color,
+                        kind: 'series',
+                        state: (state.series && state.series[item.id]) || 'shown'
+                    };
+                },
+                state
+            ));
         }
 
         if (body.children.length) li.appendChild(body);
 
         li.addEventListener('dragstart', function (e) {
+            if (e.target.closest && e.target.closest('.dp-sortable-item')) {
+                return;
+            }
             li.classList.add('is-dragging');
-            e.dataTransfer.setData('text/plain', def.id);
+            e.dataTransfer.setData('text/plain', 'block:' + def.id);
             e.dataTransfer.effectAllowed = 'move';
         });
         li.addEventListener('dragend', function () { li.classList.remove('is-dragging'); });
         li.addEventListener('dragover', function (e) {
+            if (self._dragItem) return;
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
         });
         li.addEventListener('drop', function (e) {
+            if (self._dragItem) return;
             e.preventDefault();
-            var fromId = e.dataTransfer.getData('text/plain');
-            var toId = def.id;
-            if (fromId && fromId !== toId) self.reorderBlocks(fromId, toId);
+            var raw = e.dataTransfer.getData('text/plain') || '';
+            if (raw.indexOf('block:') !== 0) return;
+            var fromId = raw.slice(6);
+            if (fromId && fromId !== def.id) self.reorderBlocks(fromId, def.id);
         });
 
-        // Garde l'état mutable attaché à l'élément pour collectLayout().
         li._state = state;
         return li;
     };
 
+    Editor.prototype.buildSortableGroup = function (title, groupKind, items, mapItem, blockState) {
+        var self = this;
+        var col = document.createElement('div');
+        col.className = 'dp-sortable-group';
+        col.innerHTML = '<h4>' + escapeHtml(title) + ' <span class="dp-reorder-hint">(glisser pour réordonner)</span></h4>';
+        var list = document.createElement('ul');
+        list.className = 'dp-sortable-list';
+        list.dataset.group = groupKind;
+
+        items.forEach(function (raw) {
+            var meta = mapItem(raw);
+            list.appendChild(self.buildSortableItem(meta, blockState, groupKind));
+        });
+
+        col.appendChild(list);
+        return col;
+    };
+
+    Editor.prototype.buildSortableItem = function (meta, blockState, groupKind) {
+        var self = this;
+        var row = document.createElement('li');
+        row.className = 'dp-sortable-item dp-item';
+        row.draggable = true;
+        row.dataset.itemId = meta.id;
+        row.dataset.group = groupKind;
+
+        var handle = document.createElement('span');
+        handle.className = 'dp-handle dp-handle-sm';
+        handle.title = 'Glisser pour réordonner';
+        handle.innerHTML = '<i class="fas fa-grip-vertical" aria-hidden="true"></i>';
+        row.appendChild(handle);
+
+        if (meta.color) {
+            var swatch = document.createElement('span');
+            swatch.className = 'dp-swatch';
+            swatch.style.background = meta.color;
+            row.appendChild(swatch);
+        }
+
+        var label = document.createElement('span');
+        label.className = 'dp-item-label';
+        label.textContent = meta.label;
+        row.appendChild(label);
+
+        if (groupKind === 'cards') {
+            var check = document.createElement('input');
+            check.type = 'checkbox';
+            check.checked = meta.state === 'shown';
+            check.setAttribute('aria-label', 'Afficher ' + meta.label);
+            check.addEventListener('change', function () {
+                blockState.cards[meta.id] = check.checked ? 'shown' : 'hidden';
+                self.syncStateMapsFromDom();
+                self.markDirty();
+            });
+            row.appendChild(check);
+        } else {
+            var sel = document.createElement('select');
+            sel.className = 'dp-series-state';
+            sel.setAttribute('aria-label', 'Visibilité de ' + meta.label);
+            sel.title = SERIES_HINTS[meta.state] || '';
+            ['shown', 'legend', 'hidden'].forEach(function (v) {
+                var opt = document.createElement('option');
+                opt.value = v;
+                opt.textContent = SERIES_LABELS[v];
+                opt.title = SERIES_HINTS[v];
+                if (meta.state === v) opt.selected = true;
+                sel.appendChild(opt);
+            });
+            sel.addEventListener('change', function () {
+                blockState.series[meta.id] = sel.value;
+                sel.title = SERIES_HINTS[sel.value] || '';
+                self.syncStateMapsFromDom();
+                self.markDirty();
+            });
+            row.appendChild(sel);
+        }
+
+        row.addEventListener('dragstart', function (e) {
+            e.stopPropagation();
+            self._dragItem = { el: row, list: row.parentElement, group: groupKind };
+            row.classList.add('is-dragging');
+            e.dataTransfer.setData('text/plain', 'item:' + meta.id);
+            e.dataTransfer.effectAllowed = 'move';
+        });
+        row.addEventListener('dragend', function () {
+            row.classList.remove('is-dragging');
+            self._dragItem = null;
+            self.syncStateMapsFromDom();
+        });
+        row.addEventListener('dragover', function (e) {
+            if (!self._dragItem || self._dragItem.list !== row.parentElement) return;
+            e.preventDefault();
+            e.stopPropagation();
+            e.dataTransfer.dropEffect = 'move';
+            var listEl = row.parentElement;
+            var dragging = self._dragItem.el;
+            if (dragging === row) return;
+            var rect = row.getBoundingClientRect();
+            var before = (e.clientY - rect.top) < rect.height / 2;
+            listEl.insertBefore(dragging, before ? row : row.nextSibling);
+        });
+        row.addEventListener('drop', function (e) {
+            if (!self._dragItem) return;
+            e.preventDefault();
+            e.stopPropagation();
+            self.syncStateMapsFromDom();
+            self.markDirty();
+        });
+
+        return row;
+    };
+
+    /**
+     * Reconstruit cards/series des états attachés aux blocs depuis l'ordre DOM
+     * (ordre des clés = ordre d'affichage côté LayoutResolver).
+     */
+    Editor.prototype.syncStateMapsFromDom = function () {
+        Array.prototype.forEach.call(this.els.blocks.children, function (li) {
+            var state = li._state;
+            if (!state) return;
+            var cardList = li.querySelector('.dp-sortable-list[data-group="cards"]');
+            if (cardList) {
+                var cards = {};
+                Array.prototype.forEach.call(cardList.children, function (item) {
+                    var id = item.dataset.itemId;
+                    var check = item.querySelector('input[type="checkbox"]');
+                    cards[id] = check && check.checked ? 'shown' : 'hidden';
+                });
+                state.cards = cards;
+            }
+            var seriesList = li.querySelector('.dp-sortable-list[data-group="series"]');
+            if (seriesList) {
+                var series = {};
+                Array.prototype.forEach.call(seriesList.children, function (item) {
+                    var id = item.dataset.itemId;
+                    var sel = item.querySelector('select');
+                    series[id] = sel ? sel.value : 'shown';
+                });
+                state.series = series;
+            }
+        });
+    };
+
     Editor.prototype.collectLayout = function () {
+        this.syncStateMapsFromDom();
         var blocks = [];
         Array.prototype.forEach.call(this.els.blocks.children, function (li) {
             if (li._state) blocks.push(li._state);

@@ -78,6 +78,7 @@ class OutputControllerParametersStateTest extends TestCase
             $this->createMock(NotificationPolicyRepository::class),
             $this->createMock(\App\Service\NotificationPolicySaveService::class),
             $this->createMock(\App\Service\NotificationService::class),
+            $this->createMock(\App\Service\DisplayPresetService::class),
         );
     }
 
@@ -227,6 +228,7 @@ class OutputControllerParametersStateTest extends TestCase
             $this->createMock(NotificationPolicyRepository::class),
             $this->createMock(\App\Service\NotificationPolicySaveService::class),
             $this->createMock(\App\Service\NotificationService::class),
+            $this->createMock(\App\Service\DisplayPresetService::class),
         );
 
         $request = (new ServerRequestFactory())

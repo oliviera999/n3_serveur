@@ -8,6 +8,7 @@ use App\Config\TableConfig;
 use App\Config\Version;
 use App\Display\PageCatalog;
 use App\Repository\AbstractSensorRepository;
+use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
@@ -33,6 +34,7 @@ abstract class AbstractDataController
         protected CsvExportService $csvExportService,
         protected ChartDataService $chartDataService,
         protected DisplayPresetService $displayPresets,
+        protected AuthService $authService,
     ) {
     }
 
@@ -95,26 +97,34 @@ abstract class AbstractDataController
             );
         }
 
+        $requestedPreset = self::requestedPreset($request);
+        $display = $this->displayPresets->pageContext(
+            $catalog,
+            $requestedPreset,
+            $this->authService->getCurrentRole()
+        );
+
         // fetchBetween() renvoie déjà les lectures en ordre chronologique (ASC) et
         // prepareGenericSeries() conserve cet ordre. Highstock exige un axe X
         // croissant : inverser ici produirait des timestamps décroissants et
         // déclencherait l'avertissement Highcharts #15 (« data not sorted in
         // ascending X order »).
+        // Colonnes limitées au preset actif (séries non hidden) pour alléger LTTB/JSON.
         $series = $this->chartDataService->prepareGenericSeries(
             $readings,
-            $catalog->chartColumns()
+            self::columnsForLayout($catalog, $display['layout'])
         );
 
-        $stats = $this->computeStats($readings, $catalog->statsColumns());
+        $stats = $this->computeStats(
+            $readings,
+            self::statsColumnsForLayout($catalog, $display['layout'])
+        );
 
         $firstReadingDate = $this->sensorRepo->getFirstReadingDate();
         $now = date('Y-m-d H:i:s');
         $tempsTotalModule = $firstReadingDate !== null
             ? DurationFormatter::short($firstReadingDate, $now)
             : null;
-
-        $requestedPreset = self::requestedPreset($request);
-        $display = $this->displayPresets->pageContext($catalog, $requestedPreset);
 
         $context = [
             'page_title' => $this->getPageTitle($testSuffix),
@@ -172,6 +182,70 @@ abstract class AbstractDataController
         }
 
         return $config;
+    }
+
+    /**
+     * Colonnes graphiques du catalogue réellement utilisées par le layout résolu
+     * (ordre catalogue conservé pour la colonne de référence LTTB).
+     *
+     * @param array<string, mixed> $layout sortie de LayoutResolver::resolve()
+     * @return list<string>
+     */
+    public static function columnsForLayout(PageCatalog $catalog, array $layout): array
+    {
+        $needed = [];
+        foreach ($layout['charts'] ?? [] as $chart) {
+            foreach ($chart['series'] ?? [] as $series) {
+                if (!empty($series['column'])) {
+                    $needed[(string) $series['column']] = true;
+                }
+                if (!empty($series['trend_of'])) {
+                    $needed[(string) $series['trend_of']] = true;
+                }
+            }
+        }
+        if ($needed === []) {
+            return $catalog->chartColumns();
+        }
+
+        $ordered = [];
+        foreach ($catalog->chartColumns() as $column) {
+            if (isset($needed[$column])) {
+                $ordered[] = $column;
+            }
+        }
+
+        return $ordered !== [] ? $ordered : array_keys($needed);
+    }
+
+    /**
+     * Colonnes de stats limitées aux cartes visibles du layout (sinon catalogue).
+     *
+     * @param array<string, mixed> $layout
+     * @return list<string>
+     */
+    public static function statsColumnsForLayout(PageCatalog $catalog, array $layout): array
+    {
+        $keys = [];
+        foreach ($layout['blocks'] ?? [] as $block) {
+            foreach ($block['cards'] ?? [] as $card) {
+                if (!empty($card['stats']) && !empty($card['key'])) {
+                    $keys[(string) $card['key']] = true;
+                }
+            }
+        }
+        if ($keys === []) {
+            return $catalog->statsColumns();
+        }
+
+        $ordered = [];
+        foreach ($catalog->statsColumns() as $column) {
+            if (isset($keys[$column])) {
+                $ordered[] = $column;
+            }
+        }
+
+        return $ordered !== [] ? $ordered : array_keys($keys);
     }
 
     /**

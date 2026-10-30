@@ -9,8 +9,7 @@
 
 | Page | Template | Contrôleur | Graphiques | Données |
 |------|----------|------------|------------|--------|
-| **FFP3 classique** | `aquaponie.twig` | AquaponieController | 2 Stock (eau, temp) | ChartDataService::prepareSeriesData + prepareTimestamps |
-| **FFP3 paysage** | `aquaponie_alt.twig` | AquaponieController | 2 Stock (eau, temp) | Idem |
+| **FFP3 aquaponie** | `aquaponie_data.twig` (catalogue + presets) | AquaponieController | Stock via `n3-layout-charts.js` | ChartDataService::prepareGenericSeries + Ffp3Catalog |
 | **MSP1 météo** | `msp1_data.twig` | MspDataController | 4 (temperatures, lights, niveauxeaux, cycles) | prepareGenericSeries + getChartColumns() |
 | **N3PP serre** | `n3pp_data.twig` | N3ppDataController | 3 (niveauxeaux, temperatures, cycles) | Idem |
 

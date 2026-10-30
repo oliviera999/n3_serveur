@@ -43,10 +43,15 @@ final class DisplayPresetServiceTest extends TestCase
         $this->assertNotNull($catalog);
         $presets = $this->service->presets($catalog);
 
-        $this->assertSame(['simple', 'etendu'], array_column($presets, 'slug'));
-        $this->assertSame('etendu', $this->service->select($presets, null)['slug']);
+        $this->assertSame(
+            ['simple', 'visite', 'eleves', 'etendu', 'technique'],
+            array_column($presets, 'slug')
+        );
+        // Lecteur / anonyme : défaut « simple » tant que le défaut BDD n'est pas personnalisé.
+        $this->assertSame('simple', $this->service->select($presets, null, 'reader')['slug']);
+        $this->assertSame('etendu', $this->service->select($presets, null, 'operator')['slug']);
         $this->assertSame('simple', $this->service->select($presets, 'simple')['slug']);
-        $this->assertSame('etendu', $this->service->select($presets, 'inconnu')['slug']);
+        $this->assertSame('etendu', $this->service->select($presets, 'inconnu', 'operator')['slug']);
     }
 
     public function testStoredPresetBecomesUniqueDefaultAndAppearsInMenu(): void
@@ -64,17 +69,20 @@ final class DisplayPresetServiceTest extends TestCase
         ], 'prof');
 
         $presets = $this->service->presets($catalog);
-        $this->assertSame(['eleves', 'simple', 'etendu'], array_column($presets, 'slug'));
-        $this->assertSame([true, false, false], array_column($presets, 'is_default'));
+        $this->assertSame('eleves', $presets[0]['slug']);
+        $this->assertTrue($presets[0]['is_default']);
+        $this->assertContains('simple', array_column($presets, 'slug'));
+        $this->assertContains('etendu', array_column($presets, 'slug'));
         $this->assertSame('prof', $presets[0]['updated_by']);
 
-        $ctx = $this->service->pageContext($catalog, null);
+        $ctx = $this->service->pageContext($catalog, null, 'operator');
         $this->assertSame('eleves', $ctx['preset']['slug']);
         $this->assertSame('eleves', $ctx['default_preset_slug']);
         $this->assertSame('physique', $ctx['layout']['blocks'][0]['id']);
         $this->assertNotContains('systeme', array_column($ctx['layout']['blocks'], 'id'));
         $this->assertNotContains('chart-cycles', json_decode($ctx['chart_ids_json'], true));
-        $this->assertSame(['eleves', 'simple', 'etendu'], array_column($ctx['presets_menu'], 'slug'));
+        $this->assertContains('eleves', array_column($ctx['presets_menu'], 'slug'));
+        $this->assertContains('simple', array_column($ctx['presets_menu'], 'slug'));
     }
 
     public function testCustomizingABuiltInPresetAndResettingIt(): void
@@ -96,8 +104,9 @@ final class DisplayPresetServiceTest extends TestCase
         // Masqué du menu, mais toujours accessible en prévisualisation (?preset=simple).
         $ctx = $this->service->pageContext($catalog, 'simple');
         $this->assertSame('simple', $ctx['preset']['slug']);
-        $this->assertSame(['simple', 'etendu'], array_column($ctx['presets_menu'], 'slug'));
-        $this->assertNotContains('simple', array_column($this->service->pageContext($catalog, null)['presets_menu'], 'slug'));
+        $this->assertContains('simple', array_column($ctx['presets_menu'], 'slug'));
+        $this->assertContains('etendu', array_column($ctx['presets_menu'], 'slug'));
+        $this->assertNotContains('simple', array_column($this->service->pageContext($catalog, null, 'operator')['presets_menu'], 'slug'));
 
         $this->assertTrue($this->service->delete($catalog, 'simple'));
         $this->assertSame('Simple', $this->service->presets($catalog)[0]['label']);
@@ -136,9 +145,10 @@ final class DisplayPresetServiceTest extends TestCase
 
         $catalog = $this->registry->get('msp1');
         $this->assertNotNull($catalog);
-        $ctx = $service->pageContext($catalog, null);
+        $ctx = $service->pageContext($catalog, null, 'operator');
         $this->assertSame('etendu', $ctx['preset']['slug']);
         $this->assertNotEmpty($ctx['layout']['blocks']);
+        $this->assertSame('simple', $service->pageContext($catalog, null, 'reader')['preset']['slug']);
     }
 
     public function testEditorDataExposesCatalogAndExpandedPresets(): void

@@ -95,7 +95,21 @@ final class DisplayPresetControllerTest extends TestCase
         $this->assertSame(200, $delete->getStatusCode());
         $deleteJson = json_decode((string) $delete->getBody(), true);
         $this->assertTrue($deleteJson['success']);
-        $this->assertSame(['simple', 'etendu'], array_column($deleteJson['data']['presets'], 'slug'));
+        $slugs = array_column($deleteJson['data']['presets'], 'slug');
+        $this->assertContains('simple', $slugs);
+        $this->assertContains('etendu', $slugs);
+        // « eleves » est un preset intégré : DELETE le réinitialise, il reste présent.
+        $this->assertContains('eleves', $slugs);
+        $eleves = null;
+        foreach ($deleteJson['data']['presets'] as $preset) {
+            if ($preset['slug'] === 'eleves') {
+                $eleves = $preset;
+                break;
+            }
+        }
+        $this->assertNotNull($eleves);
+        $this->assertTrue($eleves['builtin']);
+        $this->assertFalse($eleves['customized']);
     }
 
     public function testSaveRejectsInvalidLayoutStrictly(): void

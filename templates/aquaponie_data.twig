@@ -1,0 +1,33 @@
+{#
+    Page de suivi aquaponie FFP3 — shell générique monitoring_page + CSS aquaponie.
+    Pilotée par Ffp3Catalog / presets (voir docs/DISPLAY_PRESETS.md).
+#}
+{% extends 'monitoring_page.twig' %}
+
+{% block meta_description %}Niveaux d'eau, températures, marées et bilan hydrique d'une ferme aquaponique pédagogique, mesurés en temps réel.{% endblock %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/aquaponie.css" />
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    {% if measure_count > 0 and chart_payload.tidePeaks is defined %}
+    <script src="{{ base_path }}/assets/js/aquaponie-tide-markers.js"></script>
+    <script>
+    (function () {
+        if (!window.n3TideMarkers || !window.Highcharts) return;
+        var peaks = {{ chart_payload.tidePeaks|json_encode(15)|raw }};
+        var troughs = {{ chart_payload.tideTroughs|default([])|json_encode(15)|raw }};
+        var series = window.n3TideMarkers.buildSeries ? window.n3TideMarkers.buildSeries(peaks, troughs) : [];
+        if (!series.length) return;
+        var chart = Highcharts.charts.find(function (c) {
+            return c && c.renderTo && c.renderTo.id === 'chart-ffp3-eau';
+        });
+        if (!chart) return;
+        series.forEach(function (s) { chart.addSeries(s, false); });
+        chart.redraw();
+    })();
+    </script>
+    {% endif %}
+{% endblock %}

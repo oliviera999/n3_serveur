@@ -91,6 +91,9 @@ final class N3ppDataControllerTest extends TestCase
             $this->createMock(LogService::class)
         );
 
+        $auth = $this->createMock(\App\Security\AuthService::class);
+        $auth->method('getCurrentRole')->willReturn('operator');
+
         $controller = new N3ppDataController(
             $renderer,
             $sensorRepo,
@@ -99,6 +102,7 @@ final class N3ppDataControllerTest extends TestCase
             $this->createMock(CsvExportService::class),
             new ChartDataService(),
             $displayPresets,
+            $auth,
         );
 
         $request = (new ServerRequestFactory())->createServerRequest('GET', '/serre');

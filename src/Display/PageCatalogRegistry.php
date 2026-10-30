@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Display;
 
 use App\Display\Catalog\EnergieCatalog;
+use App\Display\Catalog\Ffp3Catalog;
 use App\Display\Catalog\MspCatalog;
 use App\Display\Catalog\N3ppCatalog;
 
@@ -18,7 +19,7 @@ class PageCatalogRegistry
 
     public function __construct()
     {
-        foreach ([new MspCatalog(), new N3ppCatalog(), new EnergieCatalog()] as $catalog) {
+        foreach ([new MspCatalog(), new N3ppCatalog(), new EnergieCatalog(), new Ffp3Catalog()] as $catalog) {
             $this->catalogs[$catalog->pageKey()] = $catalog;
         }
     }

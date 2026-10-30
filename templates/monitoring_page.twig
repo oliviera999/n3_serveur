@@ -32,7 +32,9 @@
 {% block content %}
     {% include 'partials/_hero_data.twig' with {
         hero_title: data_config.hero_title,
-        hero_icon: data_config.hero_icon,
+        hero_icon: data_config.hero_icon|default(''),
+        hero_icon_left: data_config.hero_icon_left|default(''),
+        hero_icon_right: data_config.hero_icon_right|default(''),
         hero_subtitle: data_config.hero_subtitle,
         hero_more_url: data_config.hero_more_url|default(''),
         hero_more_label: data_config.hero_more_label|default(''),

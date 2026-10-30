@@ -1,0 +1,60 @@
+{# Panneau cycles de marée (contexte WaterBalanceService / TideCycleDetector). #}
+<div class="section-header" data-aos="fade-up" data-block="{{ block.id }}">
+    <i class="fas {{ block.icon }}"></i>
+    <h3>{{ block.title }}</h3>
+</div>
+<div class="water-balance-grid" data-aos="fade-up">
+    <div class="balance-card aquarium">
+        <div class="balance-card-header">
+            <i class="fas fa-water balance-card-icon"></i>
+            <h4 class="balance-card-title">Cycles de marée</h4>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label"><i class="fas fa-arrows-alt-v"></i> Tendance actuelle</span>
+            <span class="balance-stat-value neutral">
+                {% if tide_trend == 'rising' %}
+                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                {% elseif tide_trend == 'falling' %}
+                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                {% elseif tide_trend == 'stable' %}
+                    <i class="fas fa-arrows-alt-h" aria-hidden="true"></i>
+                {% endif %}
+                {{ tide_trend_label|default('n/a') }}
+            </span>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label"><i class="fas fa-arrows-alt-v"></i> Marnage moyen</span>
+            <span class="balance-stat-value neutral">
+                {% if tide_marnage is not null %}
+                    {{ tide_marnage|number_format(2, ',', ' ') }}
+                    <span class="balance-stat-unit">cm</span>
+                    {% if tide_marnage_stddev is not null %}
+                        <span class="balance-stat-stddev">± {{ tide_marnage_stddev|number_format(2, ',', ' ') }}</span>
+                    {% endif %}
+                {% else %}
+                    n/a
+                {% endif %}
+            </span>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label"><i class="fas fa-clock"></i> Fréquence</span>
+            <span class="balance-stat-value neutral">
+                {% if tide_frequency is not null %}
+                    {{ tide_frequency|number_format(2, ',', ' ') }}
+                    <span class="balance-stat-unit">/heure</span>
+                {% else %}
+                    n/a
+                {% endif %}
+            </span>
+        </div>
+        <div class="balance-stat">
+            <span class="balance-stat-label"><i class="fas fa-repeat"></i> Cycles</span>
+            <span class="balance-stat-value neutral">
+                {% if tide_cycles > 0 %}{{ tide_cycles }}{% else %}n/a{% endif %}
+            </span>
+        </div>
+        <p class="balance-note" style="font-size:0.85em;opacity:0.85;margin-top:0.5em;">
+            Seuil de détection : {{ tide_threshold_cm|default(2) }} cm.
+        </p>
+    </div>
+</div>
