@@ -10,6 +10,10 @@ use App\Config\Paths;
 /**
  * Gestion de la corbeille photo pour les galeries ESP32-CAM.
  * Stockage : uploads/trash/{slug}/ avec métadonnées JSON.
+ *
+ * Les fichiers dérivés de la normalisation (`uploads/{slug}/.normalized/`) suivent la photo :
+ * mise en corbeille → copie + méta supprimées (une photo retirée n'est plus servie, et la purge
+ * des originaux ne peut plus la « ressusciter ») ; suppression définitive → marqueur `.done` retiré.
  */
 class GalleryTrashService
 {
@@ -22,10 +26,13 @@ class GalleryTrashService
 
     private string $baseDir;
 
+    private GalleryNormalizedStore $normalizedStore;
+
     public function __construct(
         private LogService $logger,
     ) {
         $this->baseDir = Paths::getProjectRoot();
+        $this->normalizedStore = new GalleryNormalizedStore($this->baseDir);
     }
 
     // ------------------------------------------------------------------
@@ -106,6 +113,10 @@ class GalleryTrashService
             return false;
         }
 
+        // La copie normalisée ne doit plus être servie ni promue : elle sera recalculée si restauration.
+        // Le marqueur `.done` est conservé (original déjà remplacé par sa copie → ne pas renormaliser).
+        $this->normalizedStore->removeDerived($slug, $filename);
+
         $this->setMetadata($slug, $filename, [
             'original_slug' => $slug,
             'trashed_at' => date('c'),
@@ -169,6 +180,11 @@ class GalleryTrashService
         if (!unlink($path)) {
             $this->logger->error("GalleryTrash: impossible de supprimer {$filename} [{$slug}]");
             return false;
+        }
+
+        $originalSlug = (string) ($this->getMetadata($slug, $filename)['original_slug'] ?? $slug);
+        if (GalleryConfig::isValidSlug($originalSlug)) {
+            $this->normalizedStore->removeAll($originalSlug, $filename);
         }
 
         $this->removeMetadata($slug, $filename);

@@ -7,8 +7,8 @@
  */
 
 use App\Controller\Gallery\GalleryControlController;
-use App\Controller\Gallery\GallerySyncController;
 use App\Controller\Gallery\GalleryNormalizeController;
+use App\Controller\Gallery\GallerySyncController;
 use App\Controller\Gallery\GalleryTrashController;
 use App\Controller\Gallery\GalleryUploadController;
 use App\Controller\Gallery\GalleryViewController;

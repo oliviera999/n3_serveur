@@ -9,7 +9,7 @@
 
 {% block head_css %}
 <link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/common-data.css" />
-<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/timelapse-styles.css" />
+<link rel="stylesheet" href="{{ base_path|default('') }}/assets/css/timelapse-styles.css?v={{ version|default('')|url_encode }}" />
 {% endblock %}
 
 {% block styles %}
@@ -578,6 +578,7 @@
       </div>
     </div>
     <div class="timelapse-feedback" id="timelapseFeedback" aria-live="polite"></div>
+    <div class="timelapse-range-notice" id="timelapseRangeNotice" role="status" hidden></div>
 
     <div class="timelapse-controls">
       <div>
@@ -599,7 +600,7 @@
         <button class="timelapse-ctrl-btn play-pause" id="btnPlay" title="Lecture/Pause">▶</button>
         <button class="timelapse-ctrl-btn" id="btnNext" title="Image suivante">▶</button>
         <button class="timelapse-ctrl-btn" id="btnLast" title="Dernière image">⏭</button>
-        <button class="timelapse-live-btn" id="btnLive"><span class="timelapse-live-dot"></span>Dernière image</button>
+        <button class="timelapse-live-btn" id="btnLive" aria-pressed="false" title="Suivre les nouvelles photos (vérification chaque minute)"><span class="timelapse-live-dot"></span>Dernière image</button>
       </div>
     </div>
 
@@ -614,23 +615,23 @@
     <div class="timelapse-params-panel timelapse-params-panel--hidden" id="timelapseParamsPanel">
     <div class="timelapse-config-row">
       <div class="timelapse-config-col timelapse-config-left">
-        <input type="hidden" id="apiUrl" value="{{ api_photos_url }}">
-        <input type="hidden" id="apiLatestUrl" value="{{ api_latest_url }}">
         <div class="timelapse-section">
           <div class="timelapse-section-label"><i class="fas fa-calendar-alt"></i> Plage temporelle</div>
-          <div class="quick-filters">
-            <button type="button" class="quick-filter-btn timelapse-range-btn" data-hours="6">6 h</button>
-            <button type="button" class="quick-filter-btn timelapse-range-btn active" data-hours="24">24 h</button>
-            <button type="button" class="quick-filter-btn timelapse-range-btn" data-hours="48">48 h</button>
-            <button type="button" class="quick-filter-btn timelapse-range-btn" data-hours="168">7 j</button>
+          <div class="quick-filters" role="group" aria-label="Plages rapides (chargement immédiat)">
+            <button type="button" class="quick-filter-btn timelapse-range-btn active" data-range="1d" title="Dernières 24 h">1 j</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-range="7d" title="7 derniers jours">1 sem</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-range="14d" title="14 derniers jours">2 sem</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-range="1m" title="Dernier mois">1 mois</button>
+            <button type="button" class="quick-filter-btn timelapse-range-btn" data-range="6m" title="6 derniers mois">6 mois</button>
           </div>
+          <p class="timelapse-export-hint">Les longues plages sont sous-échantillonnées automatiquement (photos réparties sur toute la période, plafond « Max images »).</p>
           <div class="timelapse-date-grid">
             <div class="timelapse-date-row">
-              <label>debut</label>
+              <label for="dateFrom">Début</label>
               <input type="datetime-local" id="dateFrom">
             </div>
             <div class="timelapse-date-row">
-              <label>fin</label>
+              <label for="dateTo">Fin</label>
               <input type="datetime-local" id="dateTo">
             </div>
           </div>
@@ -638,12 +639,13 @@
         </div>
         <div class="timelapse-section">
           <div class="timelapse-section-label"><i class="fas fa-tachometer-alt"></i> Vitesse</div>
-          <div class="quick-filters quick-filters--center">
-            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="2">½×</button>
-            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="12">1×</button>
-            <button type="button" class="quick-filter-btn timelapse-speed-btn active" data-fps="24">2×</button>
-            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="60">4×</button>
-            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="120">8×</button>
+          <div class="quick-filters quick-filters--center" role="group" aria-label="Images par seconde">
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="2" title="2 images par seconde">2</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="12" title="12 images par seconde">12</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn active" data-fps="24" title="24 images par seconde">24</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="30" title="30 images par seconde">30</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="60" title="60 images par seconde (lecture ; export plafonné)">60</button>
+            <button type="button" class="quick-filter-btn timelapse-speed-btn" data-fps="120" title="120 images par seconde (lecture ; export plafonné)">120</button>
           </div>
           <div class="timelapse-fps-label" id="fpsLabel">24 fps</div>
         </div>
@@ -661,15 +663,16 @@
           <div class="timelapse-section-label" id="exportSectionLabel"><i class="fas fa-file-video"></i> Export vidéo</div>
           <p class="timelapse-export-hint" id="exportFormatHint">Format détecté au chargement</p>
           <div class="timelapse-preset-row" role="group" aria-label="Presets d'export">
-            <button type="button" class="timelapse-preset-btn active" data-preset="fiable" title="24 fps, 800 px, max 800">Export fiable</button>
-            <button type="button" class="timelapse-preset-btn" data-preset="longue" title="Sous-échantillon, 640 px">Longue période</button>
-            <button type="button" class="timelapse-preset-btn" data-preset="qualite" title="1280 px, max 800">Qualité</button>
+            <button type="button" class="timelapse-preset-btn active" data-preset="fiable" title="Max 800 images, 800 px, 24 fps">Export fiable</button>
+            <button type="button" class="timelapse-preset-btn" data-preset="longue" title="Max 1200 images, 1 sur 5, 640 px, 24 fps">Longue période</button>
+            <button type="button" class="timelapse-preset-btn" data-preset="qualite" title="Max 600 images, 1280 px, 30 fps">Qualité</button>
           </div>
           <div class="timelapse-export-options">
             <div class="timelapse-date-row">
               <label for="exportLimit">Max images</label>
-              <select id="exportLimit" class="timelapse-config-input">
+              <select id="exportLimit" class="timelapse-config-input" autocomplete="off">
                 <option value="400">400</option>
+                <option value="600">600</option>
                 <option value="800" selected>800</option>
                 <option value="1200">1200</option>
                 <option value="1500">1500</option>
@@ -679,7 +682,7 @@
             </div>
             <div class="timelapse-date-row">
               <label for="exportStep">1 image sur</label>
-              <select id="exportStep" class="timelapse-config-input">
+              <select id="exportStep" class="timelapse-config-input" autocomplete="off">
                 <option value="1" selected>1 (toutes)</option>
                 <option value="2">2</option>
                 <option value="5">5</option>
@@ -690,7 +693,7 @@
             </div>
             <div class="timelapse-date-row">
               <label for="exportResolution">Résolution</label>
-              <select id="exportResolution" class="timelapse-config-input">
+              <select id="exportResolution" class="timelapse-config-input" autocomplete="off" title="Jamais au-delà de la largeur réelle des photos (pas d’agrandissement)">
                 <option value="640">640 px</option>
                 <option value="800" selected>800 px</option>
                 <option value="1280">1280 px</option>
@@ -699,14 +702,14 @@
             </div>
             <div class="timelapse-date-row">
               <label for="exportMaxFps">Plafond encode</label>
-              <select id="exportMaxFps" class="timelapse-config-input">
+              <select id="exportMaxFps" class="timelapse-config-input" autocomplete="off">
                 <option value="15">15 fps (économe)</option>
                 <option value="24" selected>24 fps (recommandé)</option>
                 <option value="30">30 fps (max fiable)</option>
               </select>
             </div>
             <label class="timelapse-demo-label">
-              <input type="checkbox" id="demoMode"> Mode démo (sans photos)
+              <input type="checkbox" id="demoMode" autocomplete="off"> Mode démo (sans photos)
             </label>
           </div>
           <div class="timelapse-export-advice" id="exportAdvice" aria-live="polite">
@@ -715,7 +718,7 @@
           </div>
           <div class="timelapse-export-actions">
             <button type="button" class="timelapse-btn timelapse-btn-amber" id="btnExport" disabled>Générer vidéo</button>
-            <button type="button" class="timelapse-btn timelapse-btn-cancel" id="btnExportCancel" hidden>Annuler</button>
+            <button type="button" class="timelapse-btn timelapse-btn-cancel" id="btnExportCancel" hidden disabled>Annuler</button>
           </div>
           <div class="timelapse-progress" id="exportProgress">
             <div class="timelapse-progress-bar"><div class="timelapse-progress-fill" id="exportFill"></div></div>
@@ -737,5 +740,5 @@ window.TIMELAPSE_BOOT = {
   apiLatestUrl: {{ (api_latest_url|default(''))|json_encode|raw }}
 };
 </script>
-<script src="{{ base_path|default('') }}/assets/js/timelapse.js"></script>
+<script src="{{ base_path|default('') }}/assets/js/timelapse.js?v={{ version|default('')|url_encode }}"></script>
 {% endblock %}

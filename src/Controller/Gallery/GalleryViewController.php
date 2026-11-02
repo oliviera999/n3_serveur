@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller\Gallery;
 
+use App\Config\GalleryConfig;
 use App\Config\Paths;
 use App\Repository\GalleryControlRepository;
 use App\Repository\NavPageRepository;
 use App\Service\GalleryNormalizeService;
 use App\Service\TemplateRenderer;
+use App\Util\GalleryTimestamp;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -25,6 +27,11 @@ class GalleryViewController
     private const PHOTOS_DEFAULT_LIMIT = 800;
     private const PHOTOS_MAX_LIMIT = 3000;
     private const PHOTOS_MAX_STEP = 60;
+
+    /** Cache navigateur d'une URL versionnée (`?v=`) : le contenu ne change jamais sous cette URL. */
+    private const CACHE_IMMUTABLE = 'public, max-age=31536000, immutable';
+    /** URL non versionnée (grille, landing) : courte, revalidée par ETag (copie normalisée visible vite). */
+    private const CACHE_REVALIDATE = 'public, max-age=3600';
 
     /** Racine du projet serveur (parent de src/) */
     private string $baseDir;
@@ -50,23 +57,19 @@ class GalleryViewController
         }
     }
 
+    /**
+     * Répertoire d'une galerie — même résolution que la normalisation et la corbeille
+     * (`GalleryConfig::resolveUploadDir`), pour servir et lister exactement les mêmes fichiers.
+     */
     private function getUploadDir(string $slug): string
     {
-        $envKey = $slug === 'msp1' ? 'GALLERY_MSP1_DIR'
-            : ($slug === 'n3pp' ? 'GALLERY_N3PP_DIR'
-            : ($slug === 'ffp3' ? 'GALLERY_FFP3_DIR'
-            : null));
-        if ($envKey === null) {
+        if (!GalleryConfig::isValidSlug($slug)) {
             throw new \InvalidArgumentException('Galerie inconnue');
         }
-        $dir = $_ENV[$envKey] ?? 'uploads/' . $slug;
-        return $this->baseDir . '/' . rtrim($dir, '/');
+
+        return $this->baseDir . '/' . rtrim(GalleryConfig::resolveUploadDir($slug), '/');
     }
 
-    /**
-     * Liste les fichiers image d'un dossier (ordre antéchronologique).
-     * @return list<string> noms de fichiers uniquement
-     */
     /**
      * Pagination compacte : 1 … pages voisines … dernière (évite des dizaines de liens).
      *
@@ -104,51 +107,64 @@ class GalleryViewController
         return $items;
     }
 
+    /**
+     * Liste les fichiers image d'un dossier (ordre antéchronologique).
+     *
+     * @return list<string> noms de fichiers uniquement
+     */
     private function listImageFiles(string $uploadDir): array
     {
-        if (!is_dir($uploadDir)) {
-            return [];
-        }
-        $files = [];
-        foreach (scandir($uploadDir) as $name) {
-            if ($name === '.' || $name === '..') {
-                continue;
-            }
-            $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-            if (in_array($ext, self::ALLOWED_EXTENSIONS, true) && is_file($uploadDir . '/' . $name)) {
-                $files[] = $name;
-            }
-        }
-        $this->sortNewestFirst($files, $uploadDir);
-        return $files;
+        return array_map(static fn (array $e): string => $e['name'], $this->listImageEntries($uploadDir));
     }
 
     /**
-     * Trie du plus récent au plus ancien selon la date de capture dans le nom de fichier
-     * (segment `Y-m-d_H-i-s`, ou mtime si absent).
+     * Fichiers image + date de capture, du plus récent au plus ancien.
      *
+     * Tri sur la date de capture du nom de fichier (segment `Y-m-d_H-i-s`, ou mtime si absent),
+     * calculée UNE fois par fichier (auparavant recalculée à chaque comparaison du tri).
      * Ne plus trier principalement sur le compteur seq : un reset NVS / compteur bas
      * (ex. seq 37 après des fichiers seq 460) enterrait les dernières photos en page N.
      * À timestamps égaux : seq décroissant (N-first), sinon nom décroissant.
      *
-     * @param array<int, string> $files
+     * @return list<array{name: string, ts: int}>
      */
-    private function sortNewestFirst(array &$files, string $uploadDir): void
+    private function listImageEntries(string $uploadDir): array
     {
-        usort($files, function (string $a, string $b) use ($uploadDir): int {
-            $tsA = $this->extractTimestampFromFilename($uploadDir . '/' . $a, $a)->getTimestamp();
-            $tsB = $this->extractTimestampFromFilename($uploadDir . '/' . $b, $b)->getTimestamp();
-            if ($tsA !== $tsB) {
-                return $tsB <=> $tsA;
+        if (!is_dir($uploadDir)) {
+            return [];
+        }
+
+        $entries = [];
+        foreach (scandir($uploadDir) ?: [] as $name) {
+            if ($name === '.' || $name === '..') {
+                continue;
             }
-            [$groupA, $seqA] = $this->filenameSortKey($a);
-            [$groupB, $seqB] = $this->filenameSortKey($b);
-            if ($groupA === 1 && $groupB === 1 && $seqA !== $seqB) {
-                return $seqB <=> $seqA;
+            $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+            $path = $uploadDir . '/' . $name;
+            if (!in_array($ext, self::ALLOWED_EXTENSIONS, true) || !is_file($path)) {
+                continue;
+            }
+            [$group, $seq] = $this->filenameSortKey($name);
+            $entries[] = [
+                'name' => $name,
+                'ts' => GalleryTimestamp::fromFile($path, $name)->getTimestamp(),
+                'group' => $group,
+                'seq' => $seq,
+            ];
+        }
+
+        usort($entries, static function (array $a, array $b): int {
+            if ($a['ts'] !== $b['ts']) {
+                return $b['ts'] <=> $a['ts'];
+            }
+            if ($a['group'] === 1 && $b['group'] === 1 && $a['seq'] !== $b['seq']) {
+                return $b['seq'] <=> $a['seq'];
             }
 
-            return strcmp($b, $a);
+            return strcmp($b['name'], $a['name']);
         });
+
+        return array_map(static fn (array $e): array => ['name' => $e['name'], 'ts' => $e['ts']], $entries);
     }
 
     /**
@@ -390,22 +406,20 @@ class GalleryViewController
             return $response->withHeader('Content-Type', 'application/json');
         }
 
-        $allFiles = $this->listImageFiles($uploadDir);
-        if ($allFiles === []) {
+        $entries = $this->listImageEntries($uploadDir);
+        if ($entries === []) {
             $response->getBody()->write(json_encode($emptyPayload));
             return $response->withHeader('Content-Type', 'application/json');
         }
 
-        $filename = $allFiles[0];
-        $oldestFilename = $allFiles[count($allFiles) - 1];
-        $ts = $this->extractTimestampFromFilename($uploadDir . '/' . $filename, $filename);
-        $oldestTs = $this->extractTimestampFromFilename($uploadDir . '/' . $oldestFilename, $oldestFilename);
+        $latest = $entries[0];
+        $oldest = $entries[count($entries) - 1];
         $response->getBody()->write(json_encode([
-            'timestamp' => $ts->format('c'),
-            'filename' => $filename,
-            'oldest_timestamp' => $oldestTs->format('c'),
-            'oldest_filename' => $oldestFilename,
-            'count' => count($allFiles),
+            'timestamp' => $this->formatTimestamp($latest['ts']),
+            'filename' => $latest['name'],
+            'oldest_timestamp' => $this->formatTimestamp($oldest['ts']),
+            'oldest_filename' => $oldest['name'],
+            'count' => count($entries),
         ]));
 
         return $response->withHeader('Content-Type', 'application/json');
@@ -414,7 +428,13 @@ class GalleryViewController
     /**
      * API JSON : liste des photos dans une plage temporelle.
      * GET /api/gallery/{slug}/photos?from=ISO&to=ISO[&limit=800][&step=1]
-     * Retourne { photos: [{url, timestamp}], meta: { matched, returned, truncated, limit, step } }.
+     * Retourne { photos: [{url, timestamp}], meta: { matched, returned, truncated, limit, step, effective_step } }.
+     *
+     * Échantillonnage UNIFORME sur toute la plage (première et dernière photo incluses) :
+     * `step` garde ~1 photo sur N ; si cela dépasse `limit`, le pas est augmenté automatiquement
+     * (`truncated` = true, `effective_step` = pas réel) au lieu de couper la fin de la plage.
+     * Les URL portent `?v=` (jeton du fichier réellement servi : original ou copie normalisée),
+     * ce qui permet un cache navigateur `immutable` sans jamais mélanger d'anciennes versions.
      */
     public function listPhotos(Request $request, Response $response, array $args): Response
     {
@@ -469,34 +489,33 @@ class GalleryViewController
             $response->getBody()->write(json_encode(['photos' => [], 'meta' => $emptyMeta]));
             return $response->withHeader('Content-Type', 'application/json');
         }
-        $allFiles = $this->listImageFiles($uploadDir);
         $basePath = trim((string) ($GLOBALS['base_path'] ?? ''), '/');
         $pathPrefix = ($basePath !== '' ? '/' . $basePath . '/' : '/') . 'gallery/' . $slug . '/files/';
 
+        $fromTs = $from->getTimestamp();
+        $toTs = $to->getTimestamp();
         $matched = [];
-        foreach ($allFiles as $filename) {
-            $ts = $this->extractTimestampFromFilename($uploadDir . '/' . $filename, $filename);
-            if ($ts >= $from && $ts <= $to) {
-                $matched[] = [
-                    'url' => $pathPrefix . $filename,
-                    'timestamp' => $ts->format('c'),
-                ];
+        foreach ($this->listImageEntries($uploadDir) as $entry) {
+            if ($entry['ts'] >= $fromTs && $entry['ts'] <= $toTs) {
+                $matched[] = $entry;
             }
         }
-        usort($matched, fn ($a, $b) => strcmp($a['timestamp'], $b['timestamp']));
+        // Tri chronologique NUMÉRIQUE (une comparaison de chaînes ISO se trompe au passage à l'heure d'hiver).
+        usort($matched, static fn (array $a, array $b): int => [$a['ts'], $a['name']] <=> [$b['ts'], $b['name']]);
 
         $matchedCount = count($matched);
-        $sampled = [];
-        if ($step === 1) {
-            $sampled = $matched;
-        } else {
-            for ($i = 0; $i < $matchedCount; $i += $step) {
-                $sampled[] = $matched[$i];
-            }
-        }
+        $wanted = (int) ceil($matchedCount / $step);
+        $target = min($limit, $wanted);
+        $truncated = $target < $wanted;
 
-        $truncated = count($sampled) > $limit;
-        $photos = array_slice($sampled, 0, $limit);
+        $photos = [];
+        foreach (self::uniformSampleIndices($matchedCount, $target) as $i) {
+            $name = $matched[$i]['name'];
+            $photos[] = [
+                'url' => $pathPrefix . $name . $this->versionQuery($slug, $name),
+                'timestamp' => $this->formatTimestamp($matched[$i]['ts']),
+            ];
+        }
 
         $payload = [
             'photos' => $photos,
@@ -506,6 +525,7 @@ class GalleryViewController
                 'truncated' => $truncated,
                 'limit' => $limit,
                 'step' => $step,
+                'effective_step' => $photos !== [] ? round($matchedCount / count($photos), 1) : (float) $step,
             ],
         ];
 
@@ -514,21 +534,77 @@ class GalleryViewController
     }
 
     /**
-     * Extrait la date d'un fichier : format Y-m-d_H-i-s_*.jpg ou filemtime().
+     * Indices de $k éléments répartis uniformément parmi $n (premier et dernier inclus).
+     *
+     * @return list<int>
      */
-    private function extractTimestampFromFilename(string $fullPath, string $filename): \DateTimeImmutable
+    public static function uniformSampleIndices(int $n, int $k): array
     {
-        $match = [];
-        // Tolère un préfixe compteur optionnel `<N>_` (format N-first), puis la date de capture.
-        if (preg_match('/^(?:\d+_)?(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})_/', $filename, $match)) {
-            try {
-                return new \DateTimeImmutable($match[1] . ' ' . $match[2] . ':' . $match[3] . ':' . $match[4]);
-            } catch (\Throwable) {
-                // fallback
+        if ($n <= 0 || $k <= 0) {
+            return [];
+        }
+        if ($k >= $n) {
+            return range(0, $n - 1);
+        }
+        if ($k === 1) {
+            return [$n - 1]; // la plus récente
+        }
+
+        $indices = [];
+        $ratio = ($n - 1) / ($k - 1); // >= 1 → indices strictement croissants
+        for ($i = 0; $i < $k; $i++) {
+            $indices[] = (int) round($i * $ratio);
+        }
+
+        return $indices;
+    }
+
+    private function formatTimestamp(int $ts): string
+    {
+        return (new \DateTimeImmutable())->setTimestamp($ts)->format('c');
+    }
+
+    /**
+     * `?v=<jeton>` du fichier réellement servi (copie normalisée ou original), '' si introuvable.
+     */
+    private function versionQuery(string $slug, string $filename): string
+    {
+        try {
+            $path = $this->normalizeService->resolveDisplayPath($slug, $filename);
+        } catch (\InvalidArgumentException) {
+            return '';
+        }
+
+        return $path !== null ? '?v=' . $this->fileToken($path) : '';
+    }
+
+    private function fileToken(string $path): string
+    {
+        $mtime = @filemtime($path) ?: 0;
+        $size = @filesize($path) ?: 0;
+
+        return dechex((int) $mtime) . '-' . dechex((int) $size);
+    }
+
+    /**
+     * If-None-Match : liste séparée par des virgules, préfixe faible `W/` toléré, `*` accepté.
+     */
+    private static function etagMatches(string $ifNoneMatch, string $etag): bool
+    {
+        if (trim($ifNoneMatch) === '*') {
+            return true;
+        }
+        foreach (explode(',', $ifNoneMatch) as $candidate) {
+            $candidate = trim($candidate);
+            if (str_starts_with($candidate, 'W/')) {
+                $candidate = substr($candidate, 2);
+            }
+            if ($candidate === $etag) {
+                return true;
             }
         }
-        $mtime = @filemtime($fullPath) ?: time();
-        return (new \DateTimeImmutable())->setTimestamp($mtime);
+
+        return false;
     }
 
     /**
@@ -544,26 +620,33 @@ class GalleryViewController
             return $response->withStatus(404);
         }
 
-        // Uniquement noms de fichiers sûrs (alphanum, tiret, underscore, point)
-        if (!preg_match('/^[a-zA-Z0-9_.-]+\\.(jpg|jpeg)$/', $filename)) {
+        // Uniquement noms de fichiers sûrs (alphanum, tiret, underscore, point) — extension
+        // insensible à la casse, comme le listing (`listImageEntries`).
+        if (!preg_match('/^[a-zA-Z0-9_.-]+\\.(jpg|jpeg)$/i', $filename)) {
             return $response->withStatus(400);
         }
 
-        // Préfère la copie normalisée (.normalized/) si le cron l'a produite.
+        // Copie normalisée courante si le cron l'a produite ; jamais pour une photo
+        // dont l'original a disparu (corbeille) — cf. resolveDisplayPath().
         $path = $this->normalizeService->resolveDisplayPath($slug, $filename);
         if ($path === null) {
             return $response->withStatus(404);
         }
 
-        $mtime = @filemtime($path) ?: time();
-        $size = @filesize($path);
-        $etag = '"' . dechex($mtime) . '-' . dechex($size !== false ? (int) $size : 0) . '"';
-        $inm = trim((string) ($request->getHeaderLine('If-None-Match') ?: ''));
-        if ($inm !== '' && $inm === $etag) {
+        $token = $this->fileToken($path);
+        $etag = '"' . $token . '"';
+        $requested = (string) ($request->getQueryParams()['v'] ?? '');
+        // URL versionnée à jour → cache long ; sinon cache court revalidé par ETag.
+        $cacheControl = $requested !== '' && hash_equals($token, $requested)
+            ? self::CACHE_IMMUTABLE
+            : self::CACHE_REVALIDATE;
+
+        $inm = $request->getHeaderLine('If-None-Match');
+        if ($inm !== '' && self::etagMatches($inm, $etag)) {
             return $response
                 ->withStatus(304)
                 ->withHeader('ETag', $etag)
-                ->withHeader('Cache-Control', 'public, max-age=86400');
+                ->withHeader('Cache-Control', $cacheControl);
         }
 
         $stream = fopen($path, 'r');
@@ -579,6 +662,6 @@ class GalleryViewController
         return $response
             ->withHeader('Content-Type', 'image/jpeg')
             ->withHeader('ETag', $etag)
-            ->withHeader('Cache-Control', 'public, max-age=86400');
+            ->withHeader('Cache-Control', $cacheControl);
     }
 }

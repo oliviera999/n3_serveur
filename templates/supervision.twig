@@ -560,7 +560,7 @@
         </div>
         <div class="link-card cache-card">
             <div><i class="fas fa-adjust"></i><span class="label">Normalisation photos (timelapse)</span></div>
-            <div class="hint">Copies douces (luminosité / balance des blancs / contraste) dans <code>.normalized/</code>. Réglages : groupe « Galeries photo » ci-dessous. En attente : <strong id="galleryNormalizePending">…</strong></div>
+            <div class="hint">Copies douces (luminosité / balance des blancs / contraste, lissées dans le temps) dans <code>.normalized/</code>, plus récentes d’abord ; photos de nuit laissées intactes. Réglages : groupe « Galeries photo » ci-dessous. En attente : <strong id="galleryNormalizePending">…</strong></div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
                 <button type="button" id="runGalleryNormalizeBtn" class="btn-cache" data-url="{{ base_path }}/admin/api/gallery/normalize-batch">Normaliser maintenant</button>
                 <button type="button" id="purgeGalleryNormalizedBtn" class="btn-cache" style="background:#c0392b;" data-url="{{ base_path }}/admin/api/gallery/purge-normalized-originals">Purger les originaux</button>
@@ -839,9 +839,11 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
                 var r = data.data || {};
                 resultEl.className = 'cache-result success';
                 resultEl.textContent = 'Normalisées : ' + (r.processed || 0)
-                    + ' (pending avant : ' + (r.pending || 0)
+                    + ' · nuit laissées intactes : ' + (r.skipped_dark || 0)
+                    + ' (en attente avant : ' + (r.pending || 0)
                     + ', encore : ' + (r.still_pending || 0)
-                    + ', échecs : ' + (r.failed || 0) + ').';
+                    + ', échecs : ' + (r.failed || 0) + ')'
+                    + (r.timed_out ? ' — budget de temps atteint, relancez pour continuer.' : '.');
                 refreshNormalizePending();
             } else {
                 resultEl.className = 'cache-result error';
@@ -857,7 +859,7 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
     });
 
     if (purgeBtn) purgeBtn.addEventListener('click', async function () {
-        if (!confirm('IRREVERSIBLE : supprimer les JPEG originaux qui ont une copie .normalized/ et promouvoir la copie ?')) {
+        if (!confirm('IRREVERSIBLE : remplacer les JPEG originaux par leur copie normalisée (algorithme courant uniquement ; EXIF conservé) ? Les copies orphelines (photos en corbeille) seront supprimées.')) {
             return;
         }
         if (!confirm('Confirmer une seconde fois la purge des originaux ?')) {
@@ -881,7 +883,9 @@ if (runGallerySortBtn) runGallerySortBtn.addEventListener('click', async functio
             if (data.success) {
                 var r = data.data || {};
                 resultEl.className = 'cache-result success';
-                resultEl.textContent = 'Originaux purgés : ' + (r.purged || 0)
+                resultEl.textContent = 'Originaux remplacés : ' + (r.purged || 0)
+                    + ' · copies orphelines supprimées : ' + (r.orphans_removed || 0)
+                    + ' · copies périmées ignorées : ' + (r.stale || 0)
                     + ' (échecs : ' + (r.failed || 0) + ').';
                 refreshNormalizePending();
             } else {

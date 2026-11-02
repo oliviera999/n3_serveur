@@ -334,6 +334,43 @@ final class GalleryTrashServiceTest extends TestCase
         $this->service->listTrashed('not-a-slug');
     }
 
+    // ------------------------------------------------------------------
+    // Fichiers dérivés de la normalisation (.normalized/)
+    // ------------------------------------------------------------------
+
+    public function testMoveToTrashRemovesNormalizedCopyButKeepsDoneMarker(): void
+    {
+        $name = '2026-06-01_12-00-00_norm.jpg';
+        $this->makeJpeg($this->galleryDir() . '/' . $name, 128);
+        $normDir = $this->galleryDir() . '/.normalized';
+        mkdir($normDir, 0755, true);
+        file_put_contents($normDir . '/' . $name, 'copie');
+        file_put_contents($normDir . '/' . $name . '.v2.json', '{}');
+        file_put_contents($normDir . '/' . $name . '.v1.json', '{}');
+        file_put_contents($normDir . '/' . $name . '.done', 'x');
+
+        self::assertTrue($this->service->moveToTrash(self::SLUG, $name));
+
+        self::assertFileDoesNotExist($normDir . '/' . $name, 'Une photo en corbeille ne doit plus être servie');
+        self::assertFileDoesNotExist($normDir . '/' . $name . '.v2.json');
+        self::assertFileDoesNotExist($normDir . '/' . $name . '.v1.json');
+        self::assertFileExists($normDir . '/' . $name . '.done', 'Restaurée, elle ne doit pas être renormalisée');
+    }
+
+    public function testPurgeFromTrashRemovesDoneMarker(): void
+    {
+        $name = '2026-06-01_12-00-00_norm.jpg';
+        $this->makeJpeg($this->galleryDir() . '/' . $name, 128);
+        $normDir = $this->galleryDir() . '/.normalized';
+        mkdir($normDir, 0755, true);
+        file_put_contents($normDir . '/' . $name . '.done', 'x');
+
+        self::assertTrue($this->service->moveToTrash(self::SLUG, $name));
+        self::assertTrue($this->service->purge(self::SLUG, $name));
+
+        self::assertFileDoesNotExist($normDir . '/' . $name . '.done');
+    }
+
     public function testGetAllowedSlugsMirrorsGalleryConfig(): void
     {
         self::assertSame(GalleryConfig::getAllowedSlugs(), GalleryTrashService::getAllowedSlugs());

@@ -129,16 +129,14 @@ final class DeviceAdminController
         if ($env === '') {
             $env = $defaults['env'];
         }
-        $pageKey = trim((string) ($params['page_key'] ?? '')) ?: ($defaults['page_key'] ?? null);
-        $pageUrl = trim((string) ($params['page_url'] ?? '')) ?: ($defaults['page_url'] ?? null);
-        $liveUrl = trim((string) ($params['live_health_url'] ?? '')) ?: ($defaults['live_health_url'] ?? null);
+        // FAMILY_DEFAULTS fournit toujours page_key / page_url (non vides) ; live_health_url
+        // peut être null (familles sans API live) : `?:` ne laisse donc jamais de chaîne vide.
+        $pageKey = trim((string) ($params['page_key'] ?? '')) ?: $defaults['page_key'];
+        $pageUrl = trim((string) ($params['page_url'] ?? '')) ?: $defaults['page_url'];
+        $liveUrl = trim((string) ($params['live_health_url'] ?? '')) ?: $defaults['live_health_url'];
         $liveId = trim((string) ($params['live_module_id'] ?? ''));
-        if ($liveId === '' && $liveUrl !== null && $liveUrl !== '') {
+        if ($liveId === '' && $liveUrl !== null) {
             $liveId = $deviceId;
-        }
-        if ($liveUrl === '') {
-            $liveUrl = null;
-            $liveId = null;
         }
 
         $user = $this->authService->getCurrentUser();
@@ -160,7 +158,7 @@ final class DeviceAdminController
                 'updated_by' => $user,
             ]);
 
-            if ($showInNav && $pageKey !== null && $pageUrl !== null) {
+            if ($showInNav) {
                 $this->navPageRepository->setActive($pageKey, $label, $pageUrl, true, $user);
             }
 

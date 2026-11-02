@@ -50,7 +50,7 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 
 | Fichier | Description |
 |---------|-------------|
-| [TIMELAPSE.md](TIMELAPSE.md) | Timelapse galeries : API photos, export vidéo, normalisation douce serveur. |
+| [TIMELAPSE.md](TIMELAPSE.md) | Timelapse galeries : plages rapides, API photos (échantillonnage uniforme, cache versionné), export vidéo, normalisation v2 (deflicker) serveur. |
 | [DARK_MODE.md](DARK_MODE.md) | Implémentation du mode sombre. |
 | [CHECKLIST_QA_UI_ENTREES.md](CHECKLIST_QA_UI_ENTREES.md) | Checklist QA réutilisable pour les pages d’entrée. |
 | [AUDIT_UI_ACCUEIL_LOGIN_NAV.md](AUDIT_UI_ACCUEIL_LOGIN_NAV.md) | Audit UI accueil / login / navigation. |
