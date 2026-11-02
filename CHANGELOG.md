@@ -11,6 +11,47 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.48.0] - 2026-11-02
+
+### Corrigé
+- **Normalisation galerie v2** (`GalleryNormalizeService`) — la v1 corrompait les photos :
+  valeurs non bornées après l'étirement de contraste (hautes lumières et couleurs saturées
+  noircies / décalées), nuits éclaircies jusqu'au gris (histogramme calculé avant le décalage
+  de luminosité, étirement non plafonné ×15). Désormais : tables de correspondance 3×256
+  bornées, auto-levels partiel plafonné (×1,35) calculé après gains, photos de nuit laissées
+  intactes, grille d'échantillonnage déterministe. Méta versionnée `foo.jpg.v2.json` : les
+  copies v1 ne sont plus servies ni promues et sont recalculées automatiquement.
+- **Purge des originaux** — ne « ressuscite » plus les photos mises en corbeille (copies
+  orphelines supprimées), ignore les copies périmées, remplacement atomique, EXIF conservé.
+- **Corbeille** — mise en corbeille / suppression nettoient `.normalized/` ; une photo dont
+  l'original a disparu n'est plus jamais servie (404).
+- **Timelapse — export** : conseils calculés sur les images réellement chargées (charge ∝
+  images × largeur), preset *Qualité* réellement à 30 fps, panneau de conseils non reconstruit
+  à chaque image (zone `aria-live`), rechargement auto quand *Max images* / *1 image sur*
+  changent, bouton *Annuler* caché au repos, erreur d'encodeur sans fichier tronqué, capture
+  image par image (`requestFrame`), pause en arrière-plan, révocation de l'URL différée, pas
+  d'agrandissement au-delà de la source, libellé « MP4 H.264 » seulement si `avc1`.
+- **Timelapse — mode « Dernière image »** : bornes relues à chaque minute (ne restait figé sur
+  la dernière photo connue au chargement → API 400 silencieuse).
+- **API photos** — tri chronologique numérique (changement d'heure), timestamps calculés une
+  fois par fichier, répertoires via `GalleryConfig` (même résolution que normalisation/corbeille).
+
+### Ajouté
+- **Timelapse — plages rapides 1 j / 1 sem / 2 sem / 1 mois / 6 mois** (chargement immédiat,
+  mois calendaires) et bandeau de couverture réelle de la plage ; vitesses affichées en fps
+  (2 · 12 · 24 · 30 · 60 · 120).
+- **API `/api/gallery/{slug}/photos`** — échantillonnage **uniforme** sur toute la plage
+  (première et dernière photo incluses) au lieu de couper la fin ; `meta.effective_step` ;
+  URLs versionnées `?v=` (cache `immutable`, jamais de mélange original / copie normalisée).
+- **Lissage temporel (deflicker)** de la normalisation sur 5 photos voisines (principe du filtre
+  `deflicker` de FFmpeg) ; balance des blancs sur pixels quasi neutres (Huo et al., IEEE TCE 2006).
+
+### Amélioré
+- Normalisation : plus récentes d'abord, budget de temps 25 s par batch (CRON et Supervision),
+  intervalle par défaut 10 min (au lieu de 1 h), ~6× plus rapide.
+- Cache-busting `?v=<version>` de `timelapse.js` / `timelapse-styles.css`.
+- Doc : `docs/TIMELAPSE.md`, `docs/deployment/CRON.md`.
+
 ## [6.46.0] - 2026-10-30
 
 ### Ajouté

@@ -68,7 +68,8 @@ class CronOrchestrator
     private const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
     private const GALLERY_NORMALIZE_STATE_FILENAME = 'cron_last_gallery_normalize.timestamp';
     private const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
-    private const DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS = 3600;
+    /** 10 min : ≥ 2 800 photos/jour traitables (20/passage) — largement au-dessus du débit des 3 caméras. */
+    private const DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS = 600;
 
     private LogService $logger;
     private SensorDataService $sensorDataService;
@@ -380,12 +381,19 @@ class CronOrchestrator
 
         try {
             $this->logger->info('Normalisation galerie : démarrage du batch…');
-            $result = $this->galleryNormalizeService->processBatch();
+            // Budget de temps borné : le batch tourne DANS le verrou de l'orchestrateur, il ne
+            // doit pas faire sauter le passage d'alertes de la minute suivante.
+            $result = $this->galleryNormalizeService->processBatch(
+                null,
+                GalleryNormalizeService::DEFAULT_TIME_BUDGET_SECONDS
+            );
             $this->logger->info(sprintf(
-                'Normalisation galerie : processed=%d pending=%d failed=%d',
+                'Normalisation galerie : processed=%d dark=%d pending=%d failed=%d%s',
                 $result['processed'],
+                $result['skipped_dark'],
                 $result['pending'],
-                $result['failed']
+                $result['failed'],
+                $result['timed_out'] ? ' (budget temps atteint)' : ''
             ));
         } catch (\Throwable $e) {
             $this->logger->warning('Normalisation galerie en erreur : ' . $e->getMessage());

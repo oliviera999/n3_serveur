@@ -100,12 +100,19 @@ Fichier d'état : `var/cache/cron_last_hourly.timestamp`
 
 Fichier d’état : `var/cache/cron_last_gallery_normalize.timestamp`
 
-- Service : `GalleryNormalizeService` — copies douces dans `uploads/{slug}/.normalized/`
-  (luminosité, balance des blancs, contraste ; mélange avec l’original pour ne pas dénaturer).
-- Anti-retraitement : présence de la copie ou marqueur `.done` (après purge des originaux).
+- Service : `GalleryNormalizeService` (algorithme v2) — copies douces dans
+  `uploads/{slug}/.normalized/` (balance des blancs sur pixels neutres, luminosité, contraste
+  plafonné, lissage temporel anti-scintillement ; mélange avec l’original pour ne pas dénaturer).
+  Photos de nuit laissées intactes. Détails : `docs/TIMELAPSE.md`.
+- Ordre : **plus récentes d’abord** (la vue par défaut du timelapse est traitée en priorité,
+  l’historique est rattrapé à rebours).
+- Charge bornée : 20 photos max **et** budget de **25 s** par passage — le batch tourne dans le
+  verrou de l’orchestrateur et ne doit pas faire sauter le passage d’alertes suivant.
+- Anti-retraitement : méta `foo.jpg.v2.json` (version d’algorithme courante) ou marqueur `.done`
+  (après purge des originaux). Les copies d’une version antérieure sont recalculées.
 - Plafond par run + intervalle + force pilotables en Supervision (groupe « Galeries photo »)
   ou via `.env` (`GALLERY_NORMALIZE_*`).
-- Actions manuelles : `/supervision` (batch immédiat, purge originaux).
+- Actions manuelles : `/supervision` (batch immédiat borné par `max_execution_time`, purge originaux).
 
 ## Variables `.env`
 
@@ -113,8 +120,8 @@ Fichier d’état : `var/cache/cron_last_gallery_normalize.timestamp`
 |----------|--------|-------------|
 | `CRON_HOURLY_INTERVAL_SECONDS` | `3600` | Délai minimum entre deux passes horaires |
 | `GALLERY_NORMALIZE_ENABLED` | `true` | Active le batch de normalisation photos |
-| `GALLERY_NORMALIZE_INTERVAL_SECONDS` | `3600` | Intervalle entre deux batches normalisation |
-| `GALLERY_NORMALIZE_MAX_PER_RUN` | `20` | Max d’images traitées par passage |
+| `GALLERY_NORMALIZE_INTERVAL_SECONDS` | `600` | Intervalle entre deux batches normalisation (≥ 2 800 photos/jour traitables) |
+| `GALLERY_NORMALIZE_MAX_PER_RUN` | `20` | Max d’images traitées par passage (budget 25 s en plus) |
 | `AQUA_LOW_LEVEL_THRESHOLD` | `180` | Distance capteur→surface aquarium (mm) au-delà de laquelle l'eau est basse — arrêt pompe réserve (aligné `aqThreshold` firmware, 18 cm) |
 | `RESERVE_LOW_LEVEL_THRESHOLD` | *(vide = désactivé)* | Distance capteur→surface réserve (mm) au-delà de laquelle la réserve est basse — alerte email uniquement (aucune action pompe) |
 | `TIDE_STDDEV_THRESHOLD` | `1` | Seuil écart-type marée |

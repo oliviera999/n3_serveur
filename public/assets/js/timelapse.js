@@ -3,6 +3,12 @@
  * (Canvas + captureStream + MediaRecorder). Pas d'encodage serveur.
  *
  * Config via window.TIMELAPSE_BOOT : { basePath, apiUrl, apiLatestUrl }.
+ *
+ * Export : une image n'est capturée qu'après avoir été dessinée (`captureStream(0)` +
+ * `CanvasCaptureMediaStreamTrack.requestFrame()`, cf. MDN :
+ * https://developer.mozilla.org/docs/Web/API/CanvasCaptureMediaStreamTrack/requestFrame) ;
+ * repli sur `captureStream(fps)` si le navigateur ne le propose pas. L'encodage est mis en
+ * pause quand l'onglet passe en arrière-plan (minuteries bridées par le navigateur).
  */
 (function () {
   'use strict';
@@ -16,16 +22,34 @@
     preloadConcurrency: 4,
     defaultLimit: 800,
     hardMaxExportFps: 30,
+    /** Seuils de charge, en « images équivalent 800 px » (images × largeur / 800). */
     softWarnFrames: 1000,
     hardWarnFrames: 2000,
+    referenceWidth: 800,
     viewerWidth: 800,
     viewerHeight: 600,
+    nativeMaxWidth: 1600,
+    imageTimeoutMs: 20000,
+    liveIntervalMs: 60000,
+    liveFetchLimit: 500,
+    progressThrottleMs: 300,
+    reloadDebounceMs: 350,
+    revokeDelayMs: 60000,
+  };
+
+  /** Plages rapides : jours (d) ou mois calendaires (m). */
+  var RANGES = {
+    '1d': { days: 1, label: '1 j' },
+    '7d': { days: 7, label: '1 sem' },
+    '14d': { days: 14, label: '2 sem' },
+    '1m': { months: 1, label: '1 mois' },
+    '6m': { months: 6, label: '6 mois' },
   };
 
   var PRESETS = {
     fiable: { limit: '800', step: '1', resolution: '800', maxFps: '24', playFps: 24 },
-    longue: { limit: '1500', step: '5', resolution: '640', maxFps: '24', playFps: 24 },
-    qualite: { limit: '800', step: '1', resolution: '1280', maxFps: '30', playFps: 24 },
+    longue: { limit: '1200', step: '5', resolution: '640', maxFps: '24', playFps: 24 },
+    qualite: { limit: '600', step: '1', resolution: '1280', maxFps: '30', playFps: 30 },
   };
 
   var MIME_CANDIDATES = [
@@ -45,18 +69,31 @@
     playInterval: null,
     isLive: false,
     liveTimer: null,
+    liveBusy: false,
     recording: false,
     abortExport: false,
+    exportError: null,
     mediaRecorder: null,
     recordedChunks: [],
     latestPhotoAt: null,
     oldestPhotoAt: null,
     photoCount: 0,
     feedbackTimer: null,
+    progressHideTimer: null,
     lastMeta: null,
+    loadedQuery: null,
+    rangeClamped: false,
+    activeRange: '1d',
+    nativeWidth: 0,
+    nativeHeight: 0,
     exportMime: null,
     exportIsMp4: false,
+    exportIsH264: false,
     exportLabel: 'WebM',
+    adviceSignature: '',
+    progressTimer: null,
+    reloadTimer: null,
+    loadSeq: 0,
   };
 
   var preloadQ = { hi: [], lo: [] };
@@ -68,6 +105,26 @@
   function $(id) {
     return document.getElementById(id);
   }
+
+  function apiPhotosUrl() {
+    if (typeof boot.apiUrl === 'string' && boot.apiUrl !== '') return boot.apiUrl;
+    var el = $('apiUrl');
+    return el ? el.value : '';
+  }
+
+  function apiLatestUrl() {
+    if (typeof boot.apiLatestUrl === 'string' && boot.apiLatestUrl !== '') return boot.apiLatestUrl;
+    var el = $('apiLatestUrl');
+    return el ? el.value : '';
+  }
+
+  function formatInt(n) {
+    return Number(n).toLocaleString('fr-FR');
+  }
+
+  // ------------------------------------------------------------------
+  // Format d'export
+  // ------------------------------------------------------------------
 
   function detectExportFormat() {
     if (typeof MediaRecorder === 'undefined' || !MediaRecorder.isTypeSupported) {
@@ -85,7 +142,10 @@
     }
     state.exportMime = found || 'video/webm';
     state.exportIsMp4 = state.exportMime.indexOf('video/mp4') === 0;
-    state.exportLabel = state.exportIsMp4 ? 'MP4 H.264' : 'WebM';
+    // « video/mp4 » sans codec explicite : le navigateur choisit (Chromium sans codecs
+    // propriétaires y met du VP9) → ne pas promettre H.264.
+    state.exportIsH264 = state.exportIsMp4 && /avc1|h264/i.test(state.exportMime);
+    state.exportLabel = state.exportIsMp4 ? (state.exportIsH264 ? 'MP4 H.264' : 'MP4') : 'WebM';
   }
 
   function updateExportUiLabels() {
@@ -100,12 +160,16 @@
     }
     if (hint) {
       hint.textContent = 'Format navigateur : ' + state.exportLabel +
-        (state.exportIsMp4 ? '' : ' (MP4 non supporté ici)');
+        (state.exportIsMp4 ? (state.exportIsH264 ? '' : ' (codec au choix du navigateur)') : ' (MP4 non supporté ici)');
     }
   }
 
+  // ------------------------------------------------------------------
+  // Préchargement
+  // ------------------------------------------------------------------
+
   function queuePreload(frame, hi) {
-    if (frame.img || !frame.url) return;
+    if (!frame || frame.img || !frame.url || frame.loadFailed) return;
     var q = hi ? preloadQ.hi : preloadQ.lo;
     if (q.indexOf(frame) !== -1) return;
     q.push(frame);
@@ -116,30 +180,95 @@
     while (preloadWorkers < CONFIG.preloadConcurrency) {
       var frame = preloadQ.hi.shift() || preloadQ.lo.shift();
       if (!frame) break;
-      if (frame.img || !frame.url) continue;
+      if (frame.img || !frame.url || frame.loadFailed) continue;
       preloadWorkers++;
       preloadImage(frame).finally(function () {
         preloadWorkers--;
-        updateLoadProgress();
+        scheduleProgressUpdate();
         runPreloadWorkers();
       });
     }
   }
 
-  function updateLoadProgress() {
-    if (!state.frames.length) return;
-    var loaded = countLoadedFrames();
-    var el = $('statCount');
-    if (el) el.textContent = loaded + ' / ' + state.frames.length;
-    updateExportAdvice();
-  }
-
   function startBulkPreload() {
     preloadQ.lo.length = 0;
     for (var i = 0; i < state.frames.length; i++) {
-      if (!state.frames[i].img && state.frames[i].url) preloadQ.lo.push(state.frames[i]);
+      var f = state.frames[i];
+      if (!f.img && f.url && !f.loadFailed) preloadQ.lo.push(f);
     }
     runPreloadWorkers();
+  }
+
+  /**
+   * Charge l'image d'une frame (promesse partagée si déjà en cours, délai maximal).
+   */
+  function preloadImage(frame) {
+    if (frame.img) return Promise.resolve(true);
+    if (!frame.url || frame.loadFailed) return Promise.resolve(false);
+    if (frame.loading) return frame.loading;
+    frame.loading = new Promise(function (resolve) {
+      var img = new Image();
+      var settled = false;
+      var timer = setTimeout(function () {
+        finish(false);
+        img.src = '';
+      }, CONFIG.imageTimeoutMs);
+      function finish(ok) {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        frame.loading = null;
+        if (ok) {
+          frame.img = img;
+          frame.loadFailed = false;
+          if (!state.nativeWidth && img.naturalWidth) {
+            state.nativeWidth = img.naturalWidth;
+            state.nativeHeight = img.naturalHeight;
+          }
+        } else {
+          frame.loadFailed = true;
+        }
+        resolve(ok);
+      }
+      img.crossOrigin = 'anonymous';
+      img.onload = function () { finish(true); };
+      img.onerror = function () { finish(false); };
+      img.src = frame.url;
+    });
+    return frame.loading;
+  }
+
+  function preloadAround(idx) {
+    var start = Math.max(0, idx - 3);
+    var end = Math.min(state.frames.length - 1, idx + CONFIG.preloadAhead);
+    for (var i = start; i <= end; i++) queuePreload(state.frames[i], true);
+  }
+
+  function countLoadedFrames() {
+    var n = 0;
+    for (var i = 0; i < state.frames.length; i++) {
+      if (state.frames[i].img) n++;
+    }
+    return n;
+  }
+
+  /** Compteur « chargées / total » + conseils, au plus quelques fois par seconde. */
+  function scheduleProgressUpdate() {
+    if (state.progressTimer) return;
+    state.progressTimer = setTimeout(function () {
+      state.progressTimer = null;
+      updateLoadProgress();
+    }, CONFIG.progressThrottleMs);
+  }
+
+  function updateLoadProgress() {
+    var el = $('statCount');
+    var n = state.frames.length;
+    if (el) {
+      var loaded = n ? countLoadedFrames() : 0;
+      el.textContent = loaded > 0 && loaded < n ? (formatInt(loaded) + ' / ' + formatInt(n)) : formatInt(n);
+    }
+    updateExportAdvice();
   }
 
   function ensureAbsoluteUrl(url) {
@@ -148,14 +277,24 @@
     return (base || '/') + url.replace(/^\//, '');
   }
 
-  function generateDemoFrames(fromDate, toDate) {
+  // ------------------------------------------------------------------
+  // Mode démo
+  // ------------------------------------------------------------------
+
+  function isDemo() {
+    var el = $('demoMode');
+    return !!(el && el.checked);
+  }
+
+  function generateDemoFrames(fromDate, toDate, limit) {
     var frames = [];
+    var span = toDate.getTime() - fromDate.getTime();
+    var interval = Math.max(5 * 60 * 1000, span / Math.max(1, limit));
     var t = fromDate.getTime();
     var i = 0;
-    var interval = 5 * 60 * 1000;
-    while (t <= toDate.getTime()) {
+    while (t <= toDate.getTime() && frames.length < limit) {
       frames.push({ url: null, timestamp: new Date(t), demoIndex: i++ });
-      t += interval + Math.random() * 30000;
+      t += interval + Math.random() * Math.min(30000, interval / 10);
     }
     return frames;
   }
@@ -202,6 +341,10 @@
     cctx.fillText('n³ · FRAME ' + String(frame.demoIndex).padStart(4, '0') + ' · DEMO', 12, H - 14);
   }
 
+  // ------------------------------------------------------------------
+  // Réglages
+  // ------------------------------------------------------------------
+
   function getLimit() {
     var el = $('exportLimit');
     var v = el ? parseInt(el.value, 10) : CONFIG.defaultLimit;
@@ -229,14 +372,8 @@
     return Math.min(v, CONFIG.hardMaxExportFps);
   }
 
-  function countLoadedFrames() {
-    return state.frames.reduce(function (n, f) { return n + (f.img ? 1 : 0); }, 0);
-  }
-
-  function estimateExportSeconds(frameCount) {
-    var fps = Math.min(state.fps, getMaxExportFps());
-    if (fps < 1) fps = 24;
-    return frameCount / fps;
+  function getEncodeFps() {
+    return Math.max(1, Math.min(state.fps, getMaxExportFps()));
   }
 
   function formatDurationSec(sec) {
@@ -244,8 +381,18 @@
     return Math.floor(sec / 60) + ' min ' + Math.round(sec % 60) + ' s';
   }
 
+  /** Largeur réellement exportée (jamais d'agrandissement au-delà de la source). */
+  function effectiveExportWidth() {
+    var choice = getExportWidth();
+    if (choice === 'native') {
+      return state.nativeWidth ? Math.min(state.nativeWidth, CONFIG.nativeMaxWidth) : CONFIG.viewerWidth;
+    }
+    return state.nativeWidth ? Math.min(choice, state.nativeWidth) : choice;
+  }
+
   /**
-   * Conseils + avertissements selon plafonds et état courant.
+   * Conseils + avertissements, calculés sur les images RÉELLEMENT chargées (pas sur le réglage
+   * « Max images »).
    * @returns {{ level: string, items: string[], confirmNeeded: boolean }}
    */
   function buildExportAdvice() {
@@ -253,20 +400,22 @@
     var level = 'ok';
     var n = state.frames.length;
     var loaded = countLoadedFrames();
-    var limit = getLimit();
     var step = getStep();
     var res = getExportWidth();
     var maxFps = getMaxExportFps();
-    var encodeFps = Math.min(state.fps, maxFps);
+    var encodeFps = getEncodeFps();
     var confirmNeeded = false;
+    var demo = isDemo();
 
-    items.push('Chrome / Edge desktop recommandé ; laissez l’onglet au premier plan.');
+    items.push('Chrome / Edge desktop recommandé ; l’export se met en pause si l’onglet passe en arrière-plan.');
     items.push('Encode réel : ' + encodeFps + ' fps (plafond ' + maxFps +
       ' — la lecture peut aller plus vite).');
 
     if (!state.exportIsMp4) {
       items.push('Ce navigateur exporte en WebM, pas en MP4 H.264.');
       level = 'warn';
+    } else if (!state.exportIsH264) {
+      items.push('Conteneur MP4, codec choisi par le navigateur (H.264 non garanti).');
     }
 
     if (n === 0) {
@@ -274,39 +423,43 @@
       return { level: level, items: items, confirmNeeded: false };
     }
 
-    var est = estimateExportSeconds(n);
-    items.push('Environ ' + n + ' images → ~' + formatDurationSec(est) +
+    items.push('Environ ' + formatInt(n) + ' images → ~' + formatDurationSec(n / encodeFps) +
       ' d’encodage (temps réel navigateur).');
 
-    if (loaded < n) {
-      items.push('Préchargement : ' + loaded + ' / ' + n +
+    if (!demo && loaded < n) {
+      items.push('Préchargement : ' + formatInt(loaded) + ' / ' + formatInt(n) +
         ' — attendez le chargement complet avant d’exporter.');
-      if (loaded / n < 0.7) {
-        level = 'warn';
-      }
+      if (loaded / n < 0.7) level = 'warn';
     }
 
     if (state.lastMeta && state.lastMeta.truncated) {
-      items.push('Plafond API atteint : ' + state.lastMeta.returned + ' / ' +
-        state.lastMeta.matched + ' photos (augmentez « 1 image sur » ou Max images).');
-      level = level === 'danger' ? 'danger' : 'warn';
+      items.push('Plage longue : ' + formatInt(state.lastMeta.returned) + ' / ' +
+        formatInt(state.lastMeta.matched) + ' photos, 1 sur ~' +
+        String(state.lastMeta.effective_step || '?').replace('.', ',') +
+        ' (réparties sur toute la plage). Augmentez « Max images » pour plus de détail.');
     }
 
-    if (n >= CONFIG.hardWarnFrames || limit >= 3000) {
-      items.push('Risque élevé de plantage mémoire (≥ ' + CONFIG.hardWarnFrames +
-        ' images ou max 3000). Préférez « Longue période » ou exportez par mois.');
+    // Charge ∝ nombre d'images × largeur exportée (référence 800 px) : un preset « léger »
+    // (640 px) ou « qualité » (moins d'images) ne déclenche pas d'alerte à lui seul.
+    var width = effectiveExportWidth();
+    var load = demo ? n : Math.round(n * width / CONFIG.referenceWidth);
+    if (load >= CONFIG.hardWarnFrames) {
+      items.push('Risque élevé de plantage mémoire (' + formatInt(n) + ' images en ' + width +
+        ' px). Réduisez « Max images », la résolution, ou exportez une plage plus courte.');
       level = 'danger';
       confirmNeeded = true;
-    } else if (n >= CONFIG.softWarnFrames || limit >= 1500) {
-      items.push('Charge importante (≥ ' + CONFIG.softWarnFrames +
-        ' images). Résolution 640–800 px conseillée.');
+    } else if (load >= CONFIG.softWarnFrames) {
+      items.push('Charge importante (' + formatInt(n) + ' images en ' + width +
+        ' px). Résolution 640–800 px ou moins d’images conseillées.');
       if (level === 'ok') level = 'warn';
       confirmNeeded = true;
     }
 
-    if (res === 'native' || res >= 1280) {
-      items.push('Haute résolution : l’encodeur peut sauter des frames. 800 px est plus fluide.');
-      if (level === 'ok') level = 'warn';
+    if (res !== 'native' && state.nativeWidth && res > state.nativeWidth) {
+      items.push('Source ' + state.nativeWidth + ' px : export en ' + width + ' px (pas d’agrandissement).');
+    }
+    if (width >= 1280) {
+      items.push('Haute résolution (' + width + ' px) : encodage plus lourd, 800 px est plus fluide.');
     }
 
     if (state.fps > maxFps) {
@@ -319,17 +472,24 @@
     }
 
     if (level === 'ok') {
-      items.push('Réglages dans la zone confortable — preset « Export fiable » recommandé.');
+      items.push('Réglages dans la zone confortable.');
     }
 
     return { level: level, items: items, confirmNeeded: confirmNeeded };
   }
 
+  /**
+   * Met à jour le panneau de conseils SEULEMENT si son contenu change (zone aria-live :
+   * pas d'annonce répétée pour les lecteurs d'écran, pas de reconstruction du DOM inutile).
+   */
   function updateExportAdvice() {
+    var advice = buildExportAdvice();
     var box = $('exportAdvice');
     var list = $('exportAdviceList');
-    if (!box || !list) return;
-    var advice = buildExportAdvice();
+    if (!box || !list) return advice;
+    var signature = advice.level + '|' + advice.items.join('|');
+    if (signature === state.adviceSignature) return advice;
+    state.adviceSignature = signature;
     box.className = 'timelapse-export-advice level-' + advice.level;
     list.innerHTML = '';
     for (var i = 0; i < advice.items.length; i++) {
@@ -352,13 +512,29 @@
       startPlay();
     }
     updateStats();
+    updateExportAdvice();
+  }
+
+  function queryChanged() {
+    if (!state.loadedQuery) return false;
+    return state.loadedQuery.limit !== getLimit() || state.loadedQuery.step !== getStep();
+  }
+
+  /** Recharge la plage (différé) quand « Max images » ou « 1 image sur N » changent. */
+  function scheduleReload(reason) {
+    if (state.reloadTimer) clearTimeout(state.reloadTimer);
+    if (!state.frames.length || !queryChanged()) return;
+    state.reloadTimer = setTimeout(function () {
+      state.reloadTimer = null;
+      if (state.recording || !queryChanged()) return;
+      showToast((reason ? reason + ' — ' : '') + 'rechargement de la plage…', 'success');
+      loadRange(null, null);
+    }, CONFIG.reloadDebounceMs);
   }
 
   function applyPreset(name) {
     var p = PRESETS[name];
     if (!p) return;
-    var prevLimit = getLimit();
-    var prevStep = getStep();
     if ($('exportLimit')) $('exportLimit').value = p.limit;
     if ($('exportStep')) $('exportStep').value = p.step;
     if ($('exportResolution')) $('exportResolution').value = p.resolution;
@@ -368,11 +544,8 @@
       b.classList.toggle('active', b.getAttribute('data-preset') === name);
     });
     updateExportAdvice();
-    var needReload = state.frames.length > 0 &&
-      (prevLimit !== getLimit() || prevStep !== getStep());
-    if (needReload) {
-      showToast('Preset « ' + name + ' » — rechargement de la plage…', 'success');
-      loadRange(null, null);
+    if (state.frames.length > 0 && queryChanged()) {
+      scheduleReload('Preset « ' + name + ' »');
     } else {
       showToast('Preset « ' + name + ' » appliqué', 'success');
     }
@@ -384,16 +557,40 @@
     });
   }
 
-  async function fetchFrames(from, to) {
-    if ($('demoMode') && $('demoMode').checked) {
-      return { frames: generateDemoFrames(from, to), meta: null };
+  /** Active le bouton de preset correspondant aux réglages affichés (ou aucun). */
+  function syncPresetButtons() {
+    var match = null;
+    Object.keys(PRESETS).forEach(function (name) {
+      var p = PRESETS[name];
+      if ($('exportLimit') && $('exportLimit').value === p.limit &&
+          $('exportStep') && $('exportStep').value === p.step &&
+          $('exportResolution') && $('exportResolution').value === p.resolution &&
+          $('exportMaxFps') && $('exportMaxFps').value === p.maxFps &&
+          state.fps === p.playFps) {
+        match = match || name;
+      }
+    });
+    document.querySelectorAll('.timelapse-preset-btn').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-preset') === match);
+    });
+  }
+
+  // ------------------------------------------------------------------
+  // Données
+  // ------------------------------------------------------------------
+
+  async function fetchFrames(from, to, overrides) {
+    overrides = overrides || {};
+    var limit = overrides.limit || getLimit();
+    var step = overrides.step || getStep();
+    if (isDemo()) {
+      return { frames: generateDemoFrames(from, to, limit), meta: null, limit: limit, step: step };
     }
-    var apiUrl = $('apiUrl').value;
-    var url = apiUrl +
+    var url = apiPhotosUrl() +
       '?from=' + encodeURIComponent(from.toISOString()) +
       '&to=' + encodeURIComponent(to.toISOString()) +
-      '&limit=' + getLimit() +
-      '&step=' + getStep();
+      '&limit=' + limit +
+      '&step=' + step;
     var resp = await fetch(url);
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     var data = await resp.json();
@@ -404,13 +601,36 @@
         return { url: ensureAbsoluteUrl(d.url), timestamp: new Date(d.timestamp) };
       }),
       meta: meta,
+      limit: limit,
+      step: step,
     };
   }
 
+  async function fetchPhotoBounds() {
+    var url = apiLatestUrl();
+    if (!url) return { latest: null, oldest: null, count: 0 };
+    try {
+      var resp = await fetch(url, { cache: 'no-store' });
+      if (!resp.ok) return { latest: null, oldest: null, count: 0 };
+      var data = await resp.json();
+      return {
+        latest: data.timestamp ? new Date(data.timestamp) : null,
+        oldest: data.oldest_timestamp ? new Date(data.oldest_timestamp) : null,
+        count: Number(data.count) || 0,
+      };
+    } catch (e) {
+      return { latest: null, oldest: null, count: 0 };
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Rendu
+  // ------------------------------------------------------------------
+
+  /** Rendu d'une frame : uniquement l'image et les indicateurs O(1) (appelé à chaque image en lecture). */
   function renderFrame(frame) {
     if (!frame) return;
-    var demoMode = $('demoMode') && $('demoMode').checked;
-    if (demoMode || !frame.img) {
+    if (isDemo() || !frame.img) {
       drawDemoFrame(frame, canvas);
     } else {
       try {
@@ -421,32 +641,8 @@
     $('tsOverlay').textContent = frame.timestamp.toLocaleDateString('fr-FR') + ' · ' +
       frame.timestamp.toLocaleTimeString('fr-FR');
     updateScrubber();
-    updateStats();
-  }
-
-  function preloadImage(frame) {
-    if (frame.img) return Promise.resolve(true);
-    if (!frame.url) return Promise.resolve(false);
-    return new Promise(function (resolve) {
-      var img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = function () {
-        frame.img = img;
-        frame.loadFailed = false;
-        resolve(true);
-      };
-      img.onerror = function () {
-        frame.loadFailed = true;
-        resolve(false);
-      };
-      img.src = frame.url;
-    });
-  }
-
-  function preloadAround(idx) {
-    var start = Math.max(0, idx - 3);
-    var end = Math.min(state.frames.length - 1, idx + CONFIG.preloadAhead);
-    for (var i = start; i <= end; i++) queuePreload(state.frames[i], true);
+    var cur = $('statCurrent');
+    if (cur) cur.textContent = frame.timestamp.toLocaleString('fr-FR');
   }
 
   async function playLoop() {
@@ -460,7 +656,7 @@
   }
 
   function startPlay() {
-    if (state.frames.length === 0) return;
+    if (state.frames.length === 0 || state.isPlaying) return;
     state.isPlaying = true;
     $('btnPlay').textContent = '⏸';
     state.playInterval = setTimeout(playLoop, 0);
@@ -481,6 +677,7 @@
     stopPlay();
     state.currentIndex = 0;
     state.frames = [];
+    state.lastMeta = null;
     $('btnExport').disabled = true;
     $('noImage').style.display = 'flex';
     $('tsOverlay').textContent = '--';
@@ -490,6 +687,8 @@
     $('timeEnd').textContent = '--';
     $('scrubberFill').style.width = '0%';
     $('scrubber').value = 0;
+    setRangeNotice('');
+    updateExportAdvice();
   }
 
   async function renderAtIndexSkippingMissing(targetIndex, silent, expectedGen) {
@@ -507,14 +706,11 @@
       idx = Math.max(0, Math.min(state.frames.length - 1, idx));
       state.currentIndex = idx;
       var frame = state.frames[idx];
-      var demoMode = $('demoMode') && $('demoMode').checked;
 
-      if (demoMode || frame.img) {
+      if (isDemo() || frame.img) {
         renderFrame(frame);
         preloadAround(state.currentIndex);
-        if (removed > 0 && !silent) {
-          showToast(removed + ' image(s) supprimée(s) du timelapse (introuvables)', 'success');
-        }
+        if (removed > 0) afterFramesRemoved(removed, silent);
         return true;
       }
 
@@ -523,9 +719,7 @@
       if (ok) {
         renderFrame(frame);
         preloadAround(state.currentIndex);
-        if (removed > 0 && !silent) {
-          showToast(removed + ' image(s) supprimée(s) du timelapse (introuvables)', 'success');
-        }
+        if (removed > 0) afterFramesRemoved(removed, silent);
         return true;
       }
 
@@ -540,91 +734,179 @@
     return false;
   }
 
+  function afterFramesRemoved(removed, silent) {
+    updateTimeLabels();
+    updateStats();
+    scheduleProgressUpdate();
+    if (!silent) {
+      showToast(removed + ' image(s) retirée(s) du timelapse (introuvables)', 'success');
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Plages
+  // ------------------------------------------------------------------
+
   function getRangeEnd() {
     return state.latestPhotoAt instanceof Date ? new Date(state.latestPhotoAt.getTime()) : new Date();
   }
 
-  function computeRangeForHours(hours) {
+  /**
+   * Plage se terminant à la dernière photo : `days` jours ou `months` mois calendaires.
+   * Bornée à la plus ancienne photo disponible (state.rangeClamped indique la troncature).
+   */
+  function computeRange(key) {
+    var spec = RANGES[key] || RANGES['1d'];
     var end = getRangeEnd();
-    var from = new Date(end.getTime() - hours * 3600000);
+    var from = new Date(end.getTime());
+    if (spec.months) {
+      from.setMonth(from.getMonth() - spec.months);
+    } else {
+      from = new Date(end.getTime() - spec.days * 86400000);
+    }
+    var clamped = false;
     if (state.oldestPhotoAt instanceof Date && from < state.oldestPhotoAt) {
       from = new Date(state.oldestPhotoAt.getTime());
+      clamped = true;
     }
     if (from >= end) {
       from = new Date(end.getTime() - 60000);
     }
-    return { from: from, end: end };
+    return { from: from, end: end, clamped: clamped };
+  }
+
+  /** Date → valeur d'un champ `datetime-local` (heure locale du navigateur). */
+  function toLocalInputValue(d) {
+    var local = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+    return local.toISOString().slice(0, 16);
+  }
+
+  function setDateRangeFromBounds(from, to) {
+    $('dateFrom').value = toLocalInputValue(from);
+    $('dateTo').value = toLocalInputValue(to);
+  }
+
+  function setActiveRangeButton(key) {
+    state.activeRange = key;
+    document.querySelectorAll('.timelapse-range-btn').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-range') === key);
+    });
+  }
+
+  function selectRange(key) {
+    setActiveRangeButton(key);
+    var range = computeRange(key);
+    state.rangeClamped = range.clamped;
+    setDateRangeFromBounds(range.from, range.end);
+    return loadRange(range.from, range.end, { rangeKey: key, clamped: range.clamped });
+  }
+
+  /** Bandeau persistant (hors panneau replié) : couverture réelle de la plage chargée. */
+  function setRangeNotice(text) {
+    var el = $('timelapseRangeNotice');
+    if (!el) return;
+    el.textContent = text;
+    el.hidden = text === '';
+  }
+
+  function describeLoadedRange(options) {
+    var n = state.frames.length;
+    if (!n) return '';
+    var parts = [];
+    var label = options && options.rangeKey && RANGES[options.rangeKey] ? RANGES[options.rangeKey].label + ' · ' : '';
+    var meta = state.lastMeta;
+    if (meta && meta.matched > n) {
+      parts.push(label + formatInt(n) + ' images affichées sur ' + formatInt(meta.matched) +
+        ' photos (1 sur ~' + String(meta.effective_step || meta.step || 1).replace('.', ',') +
+        ', réparties sur toute la plage)');
+    } else {
+      parts.push(label + formatInt(n) + ' images');
+    }
+    if (options && options.clamped) {
+      parts.push('début ramené à la plus ancienne photo disponible');
+    }
+    return parts.join(' — ');
   }
 
   async function loadRange(fromOrNull, toOrNull, options) {
     options = options || {};
+    if (fromOrNull == null && (!$('dateFrom').value || !$('dateTo').value)) {
+      // Champs vides (aucune photo au chargement, mode démo) : plage rapide active.
+      var fallback = computeRange(state.activeRange || '1d');
+      setDateRangeFromBounds(fallback.from, fallback.end);
+    }
     var from = fromOrNull != null ? fromOrNull : new Date($('dateFrom').value);
     var to = toOrNull != null ? toOrNull : new Date($('dateTo').value);
     if (isNaN(from) || isNaN(to) || from >= to) {
       showToast('Plage invalide', 'error');
       return;
     }
+    if (fromOrNull == null) {
+      // Saisie manuelle des dates : plus de plage rapide active.
+      setActiveRangeButton(null);
+    }
+    var seq = ++state.loadSeq;
     stopPlay();
     preloadQ.hi.length = 0;
     preloadQ.lo.length = 0;
     showLoading('Récupération des métadonnées...');
     try {
       var result = await fetchFrames(from, to);
+      if (seq !== state.loadSeq) return; // un chargement plus récent a pris la main
       var rawFrames = result.frames;
-      state.lastMeta = result.meta;
+      var meta = result.meta;
       if (rawFrames.length === 0 && options.fallbackToFullRange &&
           state.oldestPhotoAt instanceof Date && state.latestPhotoAt instanceof Date) {
         from = new Date(state.oldestPhotoAt.getTime());
         to = new Date(state.latestPhotoAt.getTime());
         if (from >= to) from = new Date(to.getTime() - 60000);
         setDateRangeFromBounds(from, to);
+        setActiveRangeButton(null);
         result = await fetchFrames(from, to);
+        if (seq !== state.loadSeq) return;
         rawFrames = result.frames;
-        state.lastMeta = result.meta;
-        if (rawFrames.length > 0) {
-          showToast('Plage étendue à toutes les photos disponibles', 'success');
-        }
+        meta = result.meta;
+        options.rangeKey = null;
+        options.extended = rawFrames.length > 0;
       }
       if (rawFrames.length === 0) {
-        showToast('Aucune image dans cette plage', 'error');
         hideLoading();
+        handleNoFrames();
+        showToast('Aucune image dans cette plage', 'error');
         return;
       }
       state.frames = rawFrames;
+      state.lastMeta = meta;
+      state.loadedQuery = { limit: result.limit, step: result.step };
       state.currentIndex = 0;
-      $('btnExport').disabled = false;
+      state.adviceSignature = '';
+      $('btnExport').disabled = state.recording;
       updateTimeLabels();
       updateStats();
-      if (state.lastMeta && state.lastMeta.truncated) {
-        showToast(
-          'Plafond atteint : ' + state.lastMeta.returned + ' / ' + state.lastMeta.matched +
-          ' images (augmentez le sous-échantillon ou la limite)',
-          'success'
-        );
-      }
+      var notice = describeLoadedRange(options);
+      setRangeNotice(notice);
+      updateExportAdvice();
       showLoading('Préchargement...');
       preloadAround(0);
-      var firstOk = await preloadImage(state.frames[0]);
+      var firstOk = isDemo() ? true : await preloadImage(state.frames[0]);
+      if (seq !== state.loadSeq) return;
+      hideLoading();
       if (!firstOk) {
         await renderAtIndexSkippingMissing(0, false);
-        hideLoading();
-        startBulkPreload();
-        return;
+      } else {
+        renderFrame(state.frames[0]);
       }
-      hideLoading();
-      renderFrame(state.frames[0]);
-      showToast(rawFrames.length + ' images — chargement en cours…', 'success');
+      // Un seul message, qui reprend la couverture de la plage (l'avertissement de
+      // sous-échantillonnage n'est plus écrasé par le message suivant).
+      showToast((options.extended ? 'Plage étendue à toutes les photos — ' : '') +
+        (notice || (formatInt(state.frames.length) + ' images')) + ' — chargement en cours…', 'success');
       startBulkPreload();
-      if ($('demoMode') && $('demoMode').checked) startPlay();
+      if (isDemo()) startPlay();
     } catch (e) {
+      if (seq !== state.loadSeq) return;
       hideLoading();
       showToast('Erreur: ' + e.message, 'error');
     }
-  }
-
-  function setDateRange(hours) {
-    var range = computeRangeForHours(hours);
-    setDateRangeFromBounds(range.from, range.end);
   }
 
   function updateScrubber() {
@@ -639,73 +921,132 @@
     if (state.frames.length === 0) return;
     var first = state.frames[0].timestamp;
     var last = state.frames[state.frames.length - 1].timestamp;
-    $('timeStart').textContent = first.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' }) +
+    var opts = { day: '2-digit', month: '2-digit' };
+    var long = (last - first) > 180 * 86400000;
+    if (long) opts.year = '2-digit';
+    $('timeStart').textContent = first.toLocaleDateString('fr-FR', opts) +
       ' ' + first.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-    $('timeEnd').textContent = last.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' }) +
+    $('timeEnd').textContent = last.toLocaleDateString('fr-FR', opts) +
       ' ' + last.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
   }
 
+  function formatSpan(ms) {
+    var days = Math.floor(ms / 86400000);
+    var hours = Math.floor((ms % 86400000) / 3600000);
+    var minutes = Math.floor((ms % 3600000) / 60000);
+    if (days > 0) return days + ' j ' + hours + ' h';
+    return (hours > 0 ? hours + ' h ' : '') + minutes + ' min';
+  }
+
+  /** Statistiques de la plage (appelé au chargement / changement de vitesse, pas à chaque image). */
   function updateStats() {
     var n = state.frames.length;
-    var loaded = countLoadedFrames();
-    $('statCount').textContent = loaded > 0 && loaded < n ? (loaded + ' / ' + n) : String(n);
     if (n >= 2) {
       var first = state.frames[0].timestamp;
       var last = state.frames[n - 1].timestamp;
       var durMs = last - first;
-      $('statDuration').textContent =
-        (Math.floor(durMs / 3600000) > 0 ? Math.floor(durMs / 3600000) + 'h ' : '') +
-        Math.floor((durMs % 3600000) / 60000) + ' min';
-      var videoDurS = n / Math.min(state.fps, getMaxExportFps());
+      $('statDuration').textContent = formatSpan(durMs);
+      var videoDurS = n / getEncodeFps();
       $('statVideoDur').textContent = videoDurS > 60
         ? Math.floor(videoDurS / 60) + 'm ' + Math.round(videoDurS % 60) + 's'
         : videoDurS.toFixed(1) + 's';
       var avgMs = durMs / (n - 1);
-      $('statInterval').textContent =
-        (Math.floor(avgMs / 60000) > 0 ? Math.floor(avgMs / 60000) + 'm ' : '') +
-        Math.round((avgMs % 60000) / 1000) + 's';
-      var f = state.frames[state.currentIndex];
-      if (f) $('statCurrent').textContent = f.timestamp.toLocaleTimeString('fr-FR');
+      $('statInterval').textContent = avgMs >= 3600000
+        ? formatSpan(avgMs)
+        : (Math.floor(avgMs / 60000) > 0 ? Math.floor(avgMs / 60000) + 'm ' : '') +
+          Math.round((avgMs % 60000) / 1000) + 's';
     }
-    updateExportAdvice();
+    updateLoadProgress();
+  }
+
+  // ------------------------------------------------------------------
+  // Mode « Dernière image » (live)
+  // ------------------------------------------------------------------
+
+  /**
+   * Rafraîchit les bornes (la dernière photo connue au chargement de la page n'est plus
+   * figée) puis ajoute les photos arrivées depuis la dernière frame.
+   */
+  async function liveTick() {
+    if (state.liveBusy || isDemo()) return;
+    state.liveBusy = true;
+    var btn = $('btnLive');
+    try {
+      var bounds = await fetchPhotoBounds();
+      if (bounds.latest instanceof Date) state.latestPhotoAt = bounds.latest;
+      if (bounds.oldest instanceof Date) state.oldestPhotoAt = bounds.oldest;
+      var lastTs = state.frames.length > 0
+        ? state.frames[state.frames.length - 1].timestamp
+        : new Date(getRangeEnd().getTime() - 3600000);
+      var to = new Date(Math.max(Date.now(), state.latestPhotoAt ? state.latestPhotoAt.getTime() : 0) + 1000);
+      if (to > lastTs) {
+        var result = await fetchFrames(lastTs, to, { limit: CONFIG.liveFetchLimit, step: 1 });
+        var fresh = result.frames.filter(function (f) { return f.timestamp > lastTs; });
+        if (fresh.length) {
+          Array.prototype.push.apply(state.frames, fresh);
+          $('btnExport').disabled = state.recording;
+          // Le champ « fin » suit les nouvelles photos ; le début choisi est conservé.
+          $('dateTo').value = toLocalInputValue(fresh[fresh.length - 1].timestamp);
+          updateTimeLabels();
+          updateStats();
+          fresh.forEach(function (f) { queuePreload(f, true); });
+        }
+      }
+      if (btn) btn.title = 'Suivi des nouvelles photos — dernière vérification ' + new Date().toLocaleTimeString('fr-FR');
+      if (state.isLive && state.frames.length) {
+        stopPlay();
+        goTo(state.frames.length - 1);
+      }
+    } catch (e) {
+      if (btn) btn.title = 'Suivi des nouvelles photos — erreur : ' + e.message;
+    } finally {
+      state.liveBusy = false;
+    }
   }
 
   function toggleLive() {
     state.isLive = !state.isLive;
     $('btnLive').classList.toggle('active', state.isLive);
+    $('btnLive').setAttribute('aria-pressed', state.isLive ? 'true' : 'false');
     if (state.isLive) {
       if (state.frames.length > 0) {
         stopPlay();
         goTo(state.frames.length - 1);
       }
-      state.liveTimer = setInterval(async function () {
-        try {
-          var lastTs = state.frames.length > 0
-            ? state.frames[state.frames.length - 1].timestamp
-            : new Date(getRangeEnd().getTime() - 3600000);
-          var result = await fetchFrames(lastTs, getRangeEnd());
-          var newFrames = result.frames;
-          if (newFrames.length > 1) {
-            state.frames.push.apply(state.frames, newFrames.slice(1));
-            updateTimeLabels();
-            updateStats();
-          }
-          goTo(state.frames.length - 1);
-        } catch (e) { /* ignore */ }
-      }, 60000);
+      liveTick();
+      state.liveTimer = setInterval(liveTick, CONFIG.liveIntervalMs);
     } else {
       clearInterval(state.liveTimer);
+      state.liveTimer = null;
     }
   }
+
+  // ------------------------------------------------------------------
+  // Export vidéo
+  // ------------------------------------------------------------------
 
   function sleep(ms) {
     return new Promise(function (resolve) { setTimeout(resolve, ms); });
   }
 
+  /** Attend que l'onglet redevienne visible (ou une annulation). */
+  function waitForVisible() {
+    return new Promise(function (resolve) {
+      function check() {
+        if (!document.hidden || state.abortExport) {
+          document.removeEventListener('visibilitychange', check);
+          clearInterval(poll);
+          resolve();
+        }
+      }
+      var poll = setInterval(check, 500);
+      document.addEventListener('visibilitychange', check);
+      check();
+    });
+  }
+
   function resolveExportSize(exportFrames) {
     var choice = getExportWidth();
-    var w = CONFIG.viewerWidth;
-    var h = CONFIG.viewerHeight;
     var nw = 0;
     var nh = 0;
     for (var i = 0; i < exportFrames.length; i++) {
@@ -715,14 +1056,15 @@
         break;
       }
     }
-    if (choice === 'native' && nw > 0) {
-      w = Math.min(nw, 1600);
+    var w;
+    var h;
+    if (nw > 0) {
+      // Jamais d'agrandissement : la largeur est plafonnée à celle de la source.
+      w = choice === 'native' ? Math.min(nw, CONFIG.nativeMaxWidth) : Math.min(choice, nw);
       h = Math.round(w * (nh / nw));
-    } else if (choice !== 'native') {
-      w = choice;
-      h = nw > 0
-        ? Math.round(w * (nh / nw))
-        : Math.round(w * (CONFIG.viewerHeight / CONFIG.viewerWidth));
+    } else {
+      w = choice === 'native' ? CONFIG.viewerWidth : choice;
+      h = Math.round(w * (CONFIG.viewerHeight / CONFIG.viewerWidth));
     }
     // Dimensions paires (souvent exigées par H.264)
     w = w - (w % 2);
@@ -747,6 +1089,7 @@
   }
 
   function cancelExport() {
+    if (!state.recording) return;
     state.abortExport = true;
     try {
       if (state.mediaRecorder && state.mediaRecorder.state !== 'inactive') {
@@ -755,12 +1098,63 @@
     } catch (e) { /* ignore */ }
   }
 
+  async function preloadForExport(frames) {
+    var next = 0;
+    var done = 0;
+    async function worker() {
+      while (next < frames.length && !state.abortExport) {
+        var frame = frames[next++];
+        await preloadImage(frame);
+        done++;
+        if (done % 10 === 0 || done === frames.length) {
+          showExportProgress((done / frames.length) * 35, 'Chargement ' + done + '/' + frames.length);
+        }
+      }
+    }
+    var workers = [];
+    for (var i = 0; i < CONFIG.preloadConcurrency; i++) workers.push(worker());
+    await Promise.all(workers);
+  }
+
+  function drawExportFrame(frame, exportCanvas, exportCtx, demoMode) {
+    if (demoMode) {
+      drawDemoFrame(frame, exportCanvas);
+    } else {
+      exportCtx.drawImage(frame.img, 0, 0, exportCanvas.width, exportCanvas.height);
+    }
+    var band = Math.max(30, Math.round(exportCanvas.height / 20));
+    exportCtx.fillStyle = 'rgba(0,0,0,0.5)';
+    exportCtx.fillRect(0, exportCanvas.height - band, exportCanvas.width, band);
+    exportCtx.font = Math.max(11, Math.round(band * 0.45)) + 'px Raleway';
+    exportCtx.fillStyle = '#00B794';
+    exportCtx.fillText(
+      'n³ · ' + frame.timestamp.toLocaleDateString('fr-FR') + ' ' +
+        frame.timestamp.toLocaleTimeString('fr-FR'),
+      10,
+      exportCanvas.height - Math.round(band * 0.33)
+    );
+  }
+
+  function downloadBlob(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    // Révocation différée : une révocation immédiate peut annuler le téléchargement
+    // (Firefox / Safari).
+    setTimeout(function () { URL.revokeObjectURL(url); }, CONFIG.revokeDelayMs);
+  }
+
   async function exportVideo() {
     if (state.frames.length === 0 || state.recording) return;
-    var advice = updateExportAdvice() || buildExportAdvice();
+    var advice = updateExportAdvice();
     if (advice.confirmNeeded) {
       var highlights = advice.items.filter(function (t) {
-        return /^(Risque|Charge|Préchargement|Haute|Plafond)/.test(t);
+        return /^(Risque|Charge|Préchargement|Haute|Plage longue)/.test(t);
       }).slice(0, 4);
       if (highlights.length === 0) {
         highlights = advice.items.slice(0, 3);
@@ -772,24 +1166,21 @@
       );
       if (!ok) return;
     }
-    var demoMode = $('demoMode') && $('demoMode').checked;
+    var demoMode = isDemo();
     state.abortExport = false;
+    state.exportError = null;
     setExportButtons(true);
+    stopPlay();
 
     var exportFrames = state.frames.slice();
     if (!demoMode) {
       showExportProgress(0, 'Préchargement...');
-      for (var i = 0; i < exportFrames.length; i++) {
-        if (state.abortExport) {
-          hideExportProgress();
-          setExportButtons(false);
-          showToast('Export annulé', 'error');
-          return;
-        }
-        await preloadImage(exportFrames[i]);
-        if (i % 10 === 0) {
-          showExportProgress((i / exportFrames.length) * 35, 'Chargement ' + (i + 1) + '/' + exportFrames.length);
-        }
+      await preloadForExport(exportFrames);
+      if (state.abortExport) {
+        hideExportProgress();
+        setExportButtons(false);
+        showToast('Export annulé', 'error');
+        return;
       }
       exportFrames = exportFrames.filter(function (f) { return !!f.img; });
       if (exportFrames.length === 0) {
@@ -806,10 +1197,19 @@
     exportCanvas.height = size.height;
     var exportCtx = exportCanvas.getContext('2d');
 
-    var recordFps = Math.min(state.fps, getMaxExportFps());
+    var recordFps = getEncodeFps();
     var videoStream;
+    var videoTrack = null;
+    var manualFrames = false;
     try {
-      videoStream = exportCanvas.captureStream(recordFps);
+      videoStream = exportCanvas.captureStream(0);
+      videoTrack = videoStream.getVideoTracks()[0] || null;
+      manualFrames = !!(videoTrack && typeof videoTrack.requestFrame === 'function');
+      if (!manualFrames) {
+        videoStream.getTracks().forEach(function (t) { t.stop(); });
+        videoStream = exportCanvas.captureStream(recordFps);
+        videoTrack = videoStream.getVideoTracks()[0] || null;
+      }
     } catch (e) {
       showToast('Capture non supportée: ' + e.message, 'error');
       setExportButtons(false);
@@ -840,82 +1240,98 @@
       } catch (e) { /* pas d'audio */ }
     }
 
+    function releaseStreams() {
+      if (audioCleanup) audioCleanup();
+      audioCleanup = null;
+      stream.getTracks().forEach(function (t) { try { t.stop(); } catch (e3) { /* ignore */ } });
+    }
+
     state.recordedChunks = [];
+    var recorder;
     try {
-      state.mediaRecorder = new MediaRecorder(stream, {
+      recorder = new MediaRecorder(stream, {
         mimeType: mimeType,
         videoBitsPerSecond: 4000000,
         audioBitsPerSecond: 128000,
       });
     } catch (e) {
       showToast('MediaRecorder non supporté: ' + e.message, 'error');
-      if (audioCleanup) audioCleanup();
+      releaseStreams();
       setExportButtons(false);
       return;
     }
+    state.mediaRecorder = recorder;
 
-    state.mediaRecorder.ondataavailable = function (e) {
+    recorder.ondataavailable = function (e) {
       if (e.data && e.data.size > 0) state.recordedChunks.push(e.data);
     };
 
     var finished = new Promise(function (resolve) {
-      state.mediaRecorder.onstop = function () {
-        if (audioCleanup) audioCleanup();
-        resolve();
-      };
-      state.mediaRecorder.onerror = function () {
-        if (audioCleanup) audioCleanup();
+      recorder.onstop = function () { resolve(); };
+      recorder.onerror = function (ev) {
+        // Erreur d'encodeur : on arrête la boucle et on n'écrit pas de fichier tronqué.
+        state.exportError = (ev && ev.error && ev.error.message) || 'erreur de l’encodeur';
         resolve();
       };
     });
 
     try {
-      state.mediaRecorder.start(250);
+      recorder.start(250);
     } catch (e) {
       showToast('Démarrage encodeur impossible: ' + e.message, 'error');
-      if (audioCleanup) audioCleanup();
+      releaseStreams();
       setExportButtons(false);
       return;
     }
 
     var frameInterval = 1000 / recordFps;
-    var t0 = performance.now();
+    var next = performance.now();
     var drawn = 0;
+    var stalls = 0;
+    var pauses = 0;
     for (var fi = 0; fi < exportFrames.length; fi++) {
-      if (state.abortExport) break;
-      var frame = exportFrames[fi];
-      if (demoMode) {
-        drawDemoFrame(frame, exportCanvas);
-      } else {
-        exportCtx.drawImage(frame.img, 0, 0, exportCanvas.width, exportCanvas.height);
+      if (state.abortExport || state.exportError || recorder.state === 'inactive') break;
+
+      if (document.hidden) {
+        // Minuteries bridées en arrière-plan : mettre l'encodeur en pause plutôt que
+        // produire une vidéo au ralenti.
+        pauses++;
+        var canPause = typeof recorder.pause === 'function' && recorder.state === 'recording';
+        if (canPause) recorder.pause();
+        showExportProgress(35 + (fi / exportFrames.length) * 60, 'En pause — revenez sur l’onglet pour continuer');
+        await waitForVisible();
+        if (state.abortExport) break;
+        if (canPause && recorder.state === 'paused') recorder.resume();
+        next = performance.now();
       }
-      exportCtx.fillStyle = 'rgba(0,0,0,0.5)';
-      exportCtx.fillRect(0, exportCanvas.height - 30, exportCanvas.width, 30);
-      exportCtx.font = Math.max(11, Math.round(exportCanvas.width / 70)) + 'px Raleway';
-      exportCtx.fillStyle = '#00B794';
-      exportCtx.fillText(
-        'n³ · ' + frame.timestamp.toLocaleDateString('fr-FR') + ' ' +
-          frame.timestamp.toLocaleTimeString('fr-FR'),
-        10,
-        exportCanvas.height - 10
-      );
+
+      drawExportFrame(exportFrames[fi], exportCanvas, exportCtx, demoMode);
+      if (manualFrames) videoTrack.requestFrame();
       drawn++;
       showExportProgress(35 + (fi / exportFrames.length) * 60, 'Encodage ' + (fi + 1) + '/' + exportFrames.length);
-      var target = t0 + drawn * frameInterval;
-      var wait = target - performance.now();
+
+      next += frameInterval;
+      var wait = next - performance.now();
       if (wait > 0) {
         await sleep(wait);
       } else {
+        if (-wait > frameInterval) {
+          // Retard (onglet chargé) : on décale l'horloge au lieu d'envoyer une rafale
+          // d'images que l'encodeur abandonnerait.
+          stalls++;
+          next = performance.now();
+        }
         await sleep(0);
       }
     }
 
     try {
-      if (state.mediaRecorder.state !== 'inactive') state.mediaRecorder.stop();
+      if (recorder.state !== 'inactive') recorder.stop();
     } catch (e) { /* ignore */ }
 
     showExportProgress(98, 'Finalisation...');
     await finished;
+    releaseStreams();
 
     if (state.abortExport) {
       hideExportProgress();
@@ -923,38 +1339,49 @@
       showToast('Export annulé', 'error');
       return;
     }
+    if (state.exportError) {
+      hideExportProgress();
+      setExportButtons(false);
+      showToast('Export interrompu : ' + state.exportError + ' — aucun fichier écrit', 'error');
+      return;
+    }
 
     var blob = new Blob(state.recordedChunks, { type: mimeType });
+    state.recordedChunks = [];
     if (blob.size === 0) {
       hideExportProgress();
       setExportButtons(false);
       showToast('Vidéo vide — réessayez ou changez de navigateur', 'error');
       return;
     }
-    var ext = isMp4 ? 'mp4' : 'webm';
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'n3-timelapse-' + new Date().toISOString().slice(0, 10) + '.' + ext;
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadBlob(blob, 'n3-timelapse-' + new Date().toISOString().slice(0, 10) + '.' + (isMp4 ? 'mp4' : 'webm'));
     hideExportProgress();
     setExportButtons(false);
+    var extra = [];
+    if (stalls > 0) extra.push(stalls + ' ralentissement(s)');
+    if (pauses > 0) extra.push(pauses + ' pause(s) onglet');
     showToast(
       'Vidéo générée (' + (blob.size / 1024 / 1024).toFixed(1) + ' Mo) — ' +
-        (isMp4 ? 'MP4' : 'WebM') + ', ' + drawn + ' images',
+        (isMp4 ? 'MP4' : 'WebM') + ', ' + drawn + ' images, ' + size.width + ' px' +
+        (extra.length ? ' (' + extra.join(', ') + ')' : ''),
       'success'
     );
   }
 
   function showExportProgress(pct, text) {
+    if (state.progressHideTimer) {
+      clearTimeout(state.progressHideTimer);
+      state.progressHideTimer = null;
+    }
     $('exportProgress').classList.add('visible');
     $('exportFill').style.width = pct + '%';
     $('exportText').textContent = text;
   }
 
   function hideExportProgress() {
-    setTimeout(function () {
+    if (state.progressHideTimer) clearTimeout(state.progressHideTimer);
+    state.progressHideTimer = setTimeout(function () {
+      state.progressHideTimer = null;
       $('exportProgress').classList.remove('visible');
     }, 2000);
   }
@@ -976,39 +1403,12 @@
     if (state.feedbackTimer) clearTimeout(state.feedbackTimer);
     state.feedbackTimer = setTimeout(function () {
       feedback.classList.remove('show');
-    }, 3500);
+    }, 4500);
   }
 
   function updateClock() {
     var el = $('clock');
     if (el) el.textContent = new Date().toLocaleTimeString('fr-FR');
-  }
-
-  async function fetchPhotoBounds() {
-    var urlEl = $('apiLatestUrl');
-    if (!urlEl || !urlEl.value) return { latest: null, oldest: null, count: 0 };
-    try {
-      var resp = await fetch(urlEl.value);
-      if (!resp.ok) return { latest: null, oldest: null, count: 0 };
-      var data = await resp.json();
-      return {
-        latest: data.timestamp ? new Date(data.timestamp) : null,
-        oldest: data.oldest_timestamp ? new Date(data.oldest_timestamp) : null,
-        count: Number(data.count) || 0,
-      };
-    } catch (e) {
-      return { latest: null, oldest: null, count: 0 };
-    }
-  }
-
-  function setDateRangeFromBounds(from, to) {
-    var toLocal = function (d) {
-      var off = d.getTimezoneOffset();
-      var local = new Date(d.getTime() - off * 60000);
-      return local.toISOString().slice(0, 16);
-    };
-    $('dateFrom').value = toLocal(from);
-    $('dateTo').value = toLocal(to);
   }
 
   function resizeCanvas() {
@@ -1034,6 +1434,7 @@
 
     detectExportFormat();
     updateExportUiLabels();
+    syncPresetButtons();
     updateExportAdvice();
 
     setInterval(updateClock, 1000);
@@ -1044,15 +1445,32 @@
         applyPreset(btn.getAttribute('data-preset'));
       });
     });
-    ['exportLimit', 'exportStep', 'exportResolution', 'exportMaxFps'].forEach(function (id) {
+    ['exportLimit', 'exportStep'].forEach(function (id) {
       var el = $(id);
       if (!el) return;
       el.addEventListener('change', function () {
         markPresetCustom();
         updateExportAdvice();
+        // Max images / 1 image sur N changent les images chargées : recharger la plage.
+        scheduleReload('Réglage modifié');
+      });
+    });
+    ['exportResolution', 'exportMaxFps'].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.addEventListener('change', function () {
+        markPresetCustom();
         updateStats();
       });
     });
+    var demo = $('demoMode');
+    if (demo) {
+      demo.addEventListener('change', function () {
+        if (!state.frames.length && !demo.checked) return;
+        if (state.activeRange) selectRange(state.activeRange);
+        else loadRange(null, null);
+      });
+    }
 
     var paramsPanel = $('timelapseParamsPanel');
     var paramsBtn = $('btnTimelapseParams');
@@ -1074,32 +1492,29 @@
       });
     }
 
-    var DEFAULT_HOURS = 24;
+    // Plage par défaut : 1 jour se terminant à la dernière photo ; repli sur toute la plage si vide.
     (async function bootstrapTimelapse() {
       var bounds = await fetchPhotoBounds();
       state.latestPhotoAt = bounds.latest;
       state.oldestPhotoAt = bounds.oldest;
       state.photoCount = bounds.count;
       if (!(bounds.latest instanceof Date)) return;
-      var range = computeRangeForHours(DEFAULT_HOURS);
+      setActiveRangeButton('1d');
+      var range = computeRange('1d');
       setDateRangeFromBounds(range.from, range.end);
-      await loadRange(range.from, range.end, { fallbackToFullRange: true });
+      await loadRange(range.from, range.end, { fallbackToFullRange: true, rangeKey: '1d', clamped: range.clamped });
     })();
 
     document.querySelectorAll('.timelapse-range-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        document.querySelectorAll('.timelapse-range-btn').forEach(function (b) {
-          b.classList.remove('active');
-        });
-        btn.classList.add('active');
-        setDateRange(parseInt(btn.getAttribute('data-hours'), 10));
+        selectRange(btn.getAttribute('data-range'));
       });
     });
 
     document.querySelectorAll('.timelapse-speed-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         setPlayFps(parseInt(btn.getAttribute('data-fps'), 10));
-        updateExportAdvice();
+        syncPresetButtons();
       });
     });
 
@@ -1123,7 +1538,10 @@
     if (cancelBtn) cancelBtn.addEventListener('click', cancelExport);
 
     document.addEventListener('keydown', function (e) {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+      var tag = e.target && e.target.tagName;
+      if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+      // Espace sur un bouton focalisé : laisser le navigateur « cliquer » le bouton.
+      if (tag === 'BUTTON' && e.code === 'Space') return;
       if (e.code === 'Space') {
         e.preventDefault();
         if (state.isPlaying) stopPlay();
