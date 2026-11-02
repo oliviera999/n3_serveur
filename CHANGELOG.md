@@ -25,6 +25,8 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   (GPIO 15 = Lumière) → « Lumière ».
 - **Cadre sans carte** : le graphique occupe toute la largeur (`alt-chart-column-full`).
 - Test `DisplayPresetServiceTest::testEditorData…` cassé depuis 6.46.0 (index des presets).
+- `EnergieRoutesTest` en échec sans `.env` (CI rouge sur `master` depuis 6.41.0) :
+  la clé API de test est de nouveau posée quand aucune clé n'est chargée.
 
 ### Amélioré
 - **Défaut « Étendu » pour tous les visiteurs** (affichage historique) : la

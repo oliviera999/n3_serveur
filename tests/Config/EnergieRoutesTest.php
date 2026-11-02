@@ -46,6 +46,12 @@ final class EnergieRoutesTest extends TestCase
         $existing = trim((string) ($_ENV['API_KEY'] ?? ''));
         if ($existing !== '') {
             $this->apiKey = $existing;
+        } else {
+            // Sans .env (CI) : poser la clé de test, sinon le POST répond 500 « Configuration
+            // serveur manquante » (régression 6.41.0 qui avait retiré cette affectation).
+            $_ENV['API_KEY'] = $this->apiKey;
+            $_SERVER['API_KEY'] = $this->apiKey;
+            putenv('API_KEY=' . $this->apiKey);
         }
         $_ENV['HMAC_STRICT_MODE'] = '0';
         $_SERVER['HMAC_STRICT_MODE'] = '0';
