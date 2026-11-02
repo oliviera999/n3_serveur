@@ -132,6 +132,28 @@ Authentification par `api_key` (legacy) ET/OU signature **HMAC-SHA256**
 (`API_KEY`, `API_SIG_SECRET`, `SIG_VALID_WINDOW` dans `.env`). Le `.env` n'est **pas** versionné
 (seuls les `.env.example` le sont). Voir `docs/AUTHENTICATION.md`.
 
+## Connecteur MCP (Claude) — `/mcp` + OAuth embarqué
+
+Serveur MCP **sans état** (`POST /mcp`, JSON-RPC 2.0, réponses JSON, pas de SSE) et serveur
+d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Inactif tant que
+`MCP_ENABLED=false`. Doc : **`docs/MCP.md`**, pilotage : **`docs/MCP_PILOTAGE.md`**.
+
+- Code : `src/Mcp/` (noyau, outils `Tools/`, garde-fous `Support/`, pilotage `Control/`),
+  `src/OAuth/`, `src/Controller/McpController.php`, `src/Controller/OAuth/`, `config/routes_mcp.php`.
+- ❌ **Jamais** un outil de lecture qui écrit : ils tournent sous `ReadOnlyTransaction`
+  (`SET SESSION TRANSACTION READ ONLY` + rollback). Un outil qui écrit déclare `isReadOnly(): false`.
+- ❌ **Jamais** de colonne / GPIO hors `Mcp\Support\FieldCatalog` ; `mail`/`mailNotif` (GPIO 100/101),
+  destinataires, jetons, hachés et secrets ne sortent jamais (`Redactor` sur les textes libres).
+- ✅ Bascule d'environnement uniquement via `EnvironmentScope` (→ `TableConfig::setEnvironment()`, reset en `finally`) ;
+  toute réponse porte `env` + `is_production` (`s3` = production).
+- ✅ Nouvel outil : nom `iot_*` stable, description FR précise, `inputSchema` strict
+  (`additionalProperties: false`), annotations, enregistrement dans `ToolRegistry` (`config/dependencies.php`)
+  et dans `ContainerWiringTest::testMcpRegistryExposesAllToolsWithStableNames`.
+- ⚠️ Pilotage : désactivé par défaut (`MCP_CONTROL_ENABLED=false`), operator+, environnements de TEST seulement
+  par défaut, liste blanche `ControlPolicy` ; OTA / reset / e-mails / suppression de photos / utilisateurs exclus ;
+  arrêt de la pompe aquarium interdit.
+- Jetons MCP ≠ session web : la session et `ADMIN_TOKEN` ne donnent aucun accès à `/mcp`.
+
 ## Versionnage — OBLIGATOIRE après chaque modification significative
 
 À chaque feature / bugfix / amélioration (voir le skill [`bump-version`](.claude/skills/bump-version/SKILL.md)) :
@@ -184,4 +206,5 @@ POST chaque minute (`src/Service/DerivedAlert/`). Voir `docs/deployment/CRON.md`
 ## Documentation de référence
 
 `docs/README.md` (index), `docs/TIMEZONE_MANAGEMENT.md`, `docs/AUTHENTICATION.md`,
-`docs/ENDPOINTS_ESP32_SERVEUR.md`, `docs/deployment/` (déploiement, CRON, hooks).
+`docs/ENDPOINTS_ESP32_SERVEUR.md`, `docs/deployment/` (déploiement, CRON, hooks),
+`docs/MCP.md` + `docs/MCP_PILOTAGE.md` (connecteur Claude).

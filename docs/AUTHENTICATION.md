@@ -268,3 +268,11 @@ Pour toute question ou problème, consultez :
 - Le code source : `src/Security/AuthService.php`
 - Les middlewares : `src/Middleware/AuthMiddleware.php` et `src/Middleware/TokenAuthMiddleware.php`
 - Le contrôleur : `src/Controller/AuthController.php`
+
+## Connecteur MCP (Claude) — jetons OAuth
+
+Depuis la 6.51.0, `/mcp` est protégé par un **serveur OAuth 2.1 embarqué** (comptes `n3_users`,
+PKCE S256, jetons opaques hachés, rotation des refresh tokens). Ces jetons ne valent **que**
+pour `/mcp`, et la session web / `ADMIN_TOKEN` ne donnent **aucun** accès à `/mcp`.
+Détails : [`MCP.md`](MCP.md) § 3.
+
