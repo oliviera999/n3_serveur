@@ -242,9 +242,9 @@ final class McpToolsTest extends TestCase
 
     public function testAlertsNeverExposeRecipientsAndRedactSecrets(): void
     {
-        $this->pdo->exec("INSERT INTO notification_log (alert_key, severity, category, recipient, subject, sent_at) VALUES"
+        $this->pdo->exec('INSERT INTO notification_log (alert_key, severity, category, recipient, subject, sent_at) VALUES'
             . " ('ffp3:flood', 'critical', 'hydraulic', 'parent@example.org', 'Trop-plein — prévenir prof@example.org', '" . date('Y-m-d H:i:s') . "')");
-        $this->pdo->exec("INSERT INTO error_alerts (message, normalized_message, created_at) VALUES"
+        $this->pdo->exec('INSERT INTO error_alerts (message, normalized_message, created_at) VALUES'
             . " ('x', 'PDO échec password=hunter2 token abcdefabcdefabcdefabcdefabcdefabcdef12', '" . date('Y-m-d H:i:s') . "')");
         $result = $this->call($this->server(), 'iot_alerts', ['family' => 'ffp3']);
         $text = $result['content'][0]['text'];

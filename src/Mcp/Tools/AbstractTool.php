@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Mcp\Tools;
 
 use App\Mcp\McpConfig;
-use App\Mcp\McpContext;
 use App\Mcp\Support\EnvironmentScope;
 use App\Mcp\Support\FieldCatalog;
 use App\Mcp\Tool;

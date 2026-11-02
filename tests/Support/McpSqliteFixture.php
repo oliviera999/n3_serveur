@@ -98,7 +98,7 @@ final class McpSqliteFixture
             $sensorOutputs('n3ppOutputs'), $sensorOutputs('n3ppOutputsTest'), $sensorOutputs('msp1Outputs'), $sensorOutputs('msp1OutputsTest'),
             'CREATE TABLE Boards (board TEXT PRIMARY KEY, last_request TEXT)',
             'CREATE TABLE n3_users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, email TEXT, display_name TEXT, password_hash TEXT,'
-                . " role TEXT, is_active INTEGER, created_at TEXT DEFAULT CURRENT_TIMESTAMP, updated_at TEXT, last_login_at TEXT)",
+                . ' role TEXT, is_active INTEGER, created_at TEXT DEFAULT CURRENT_TIMESTAMP, updated_at TEXT, last_login_at TEXT)',
             'CREATE TABLE notification_log (id INTEGER PRIMARY KEY AUTOINCREMENT, alert_key TEXT, severity TEXT, category TEXT,'
                 . ' recipient TEXT, subject TEXT, sent_at TEXT)',
             'CREATE TABLE error_alerts (id INTEGER PRIMARY KEY AUTOINCREMENT, message TEXT, normalized_message TEXT, context TEXT,'

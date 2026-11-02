@@ -81,7 +81,7 @@ class McpReadRepository extends AbstractRepository
         $bucket = $this->bucketExpression($bucketSeconds);
         $sql = "SELECT {$bucket} AS bucket_ts, COUNT(*) AS n, " . implode(', ', $selects)
             . " FROM `{$table}` WHERE reading_time BETWEEN :from AND :to"
-            . " GROUP BY bucket_ts ORDER BY bucket_ts ASC LIMIT 1000";
+            . ' GROUP BY bucket_ts ORDER BY bucket_ts ASC LIMIT 1000';
 
         return $this->fetchAll($sql, [':from' => $from, ':to' => $to]);
     }

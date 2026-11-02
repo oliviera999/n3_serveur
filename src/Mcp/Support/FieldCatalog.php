@@ -67,7 +67,7 @@ final class FieldCatalog
                 'bouffeSoir' => ['unit' => 'h', 'kind' => 'réglage', 'range' => '0–23', 'meaning' => 'Heure du nourrissage automatique du soir (GPIO 107).'],
                 'bouffePetits' => ['unit' => 'compteur', 'kind' => 'commande', 'meaning' => 'Compteur monotone de nourrissages manuels « petits poissons » (GPIO 108) : chaque +1 = un repas ; le firmware rattrape l\'écart.'],
                 'bouffeGros' => ['unit' => 'compteur', 'kind' => 'commande', 'meaning' => 'Compteur monotone de nourrissages manuels « gros poissons » (GPIO 109).'],
-                'aqThreshold' => ['unit' => 'cm', 'kind' => 'réglage', 'meaning' => "Seuil aquarium bas (GPIO 102) : EauAquarium au-dessus = niveau bas → remplissage."],
+                'aqThreshold' => ['unit' => 'cm', 'kind' => 'réglage', 'meaning' => 'Seuil aquarium bas (GPIO 102) : EauAquarium au-dessus = niveau bas → remplissage.'],
                 'tankThreshold' => ['unit' => 'cm', 'kind' => 'réglage', 'meaning' => 'Seuil réserve basse (GPIO 103) : EauReserve au-dessus = réserve basse.'],
                 'chauffageThreshold' => ['unit' => '°C', 'kind' => 'réglage', 'range' => '18–28', 'meaning' => 'Consigne chauffage (GPIO 104) : chauffage si TempEau en dessous.'],
                 'tempsGros' => ['unit' => 's', 'kind' => 'réglage', 'meaning' => 'Durée de distribution gros poissons (GPIO 111).'],

@@ -218,8 +218,8 @@ class RoutesConfigSecurityTest extends TestCase
             }
         }
         $routes = (string) file_get_contents(__DIR__ . '/../config/routes_mcp.php');
-        $this->assertStringContainsString("if (!\$mcpConfig->isEnabled())", $routes, 'routes MCP désactivées par défaut');
-        $this->assertStringContainsString("->add(\$mcpRateLimit)", $routes, '/mcp a son limiteur de débit');
+        $this->assertStringContainsString('if (!$mcpConfig->isEnabled())', $routes, 'routes MCP désactivées par défaut');
+        $this->assertStringContainsString('->add($mcpRateLimit)', $routes, '/mcp a son limiteur de débit');
         $this->assertStringNotContainsString('applyAuth', $routes, 'aucune auth de session sur /mcp');
     }
 
