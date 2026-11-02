@@ -145,6 +145,7 @@ final class McpMariaDbIntegrationTest extends IntegrationDbTestCase
 
     public function testSeriesBucketsAndStddevOnMariaDb(): void
     {
+        $envBefore = TableConfig::getEnvironment();
         $data = $this->call('iot_series', [
             'family' => 'ffp3', 'fields' => ['TempEau', 'EauAquarium'],
             'from' => '2026-01-15T00:00:00', 'to' => '2026-01-15T12:00:00', 'interval' => '1h',
@@ -162,7 +163,7 @@ final class McpMariaDbIntegrationTest extends IntegrationDbTestCase
 
         $tides = $this->call('iot_tides', ['from' => '2026-01-15', 'to' => '2026-01-16']);
         self::assertSame(48, $tides['readings']);
-        self::assertSame(TableConfig::getDefaultEnvironment(), TableConfig::getEnvironment());
+        self::assertSame($envBefore, TableConfig::getEnvironment(), 'environnement de la requête restauré');
     }
 
     public function testOAuthFlowOnRealSchema(): void
