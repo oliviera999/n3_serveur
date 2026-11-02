@@ -18,10 +18,11 @@ namespace App\Display;
  *   - default (bool, visible par défaut), simple (bool, visible dans le preset « simple ») ;
  *   - requires_data (bool) : masqué si la page n'a aucune donnée ;
  *   - cards : liste de cartes { key, label, icon, color, unit, decimals, stats, hint,
- *     css_class, if_present, format (number|onoff), default, simple } ;
+ *     css_class, if_present, format (number|onoff), stuck_check, default, simple } ;
  *   - chart : { id, kind (main|cycles), yAxis, tooltip, series: [ { id, column, name,
  *     type, color, fill [r,g,b,top?,bottom?], lineWidth, dashStyle, yAxis, tooltip,
  *     opacity, step, on_markers { lane, symbol, radius }, trend_of, trend_round,
+ *     trend_kind (linear|moving_avg), trend_window (min),
  *     default (shown|legend), simple } ] } ;
  *   - options : paramètres propres au type (template, src, form_id…).
  */
@@ -244,6 +245,8 @@ abstract class PageCatalog
                 'css_class' => (string) ($card['css_class'] ?? ''),
                 'if_present' => (bool) ($card['if_present'] ?? false),
                 'format' => ($card['format'] ?? 'number') === 'onoff' ? 'onoff' : 'number',
+                // Signale « capteur figé » si toutes les mesures de la période sont identiques.
+                'stuck_check' => (bool) ($card['stuck_check'] ?? false),
                 'default' => $cardDefault,
                 'simple' => (bool) ($card['simple'] ?? $cardDefault),
             ];
@@ -283,6 +286,10 @@ abstract class PageCatalog
                     'on_markers' => $onMarkers,
                     'trend_of' => $trendOf,
                     'trend_round' => (bool) ($s['trend_round'] ?? false),
+                    // linear = droite de régression (recalculée au zoom) ; moving_avg = moyenne
+                    // mobile centrée sur une fenêtre de `trend_window` minutes (courbe lissée).
+                    'trend_kind' => ($s['trend_kind'] ?? 'linear') === 'moving_avg' ? 'moving_avg' : 'linear',
+                    'trend_window' => max(1, (int) ($s['trend_window'] ?? 30)),
                     'live' => $column !== null && $trendOf === null,
                     'default' => $seriesDefault,
                     'simple' => (string) ($s['simple'] ?? $seriesDefault),

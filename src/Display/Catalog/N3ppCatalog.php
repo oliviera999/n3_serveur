@@ -81,7 +81,7 @@ final class N3ppCatalog extends PageCatalog
                 'title' => 'Humidité du sol',
                 'icon' => 'fa-seedling',
                 'cards' => [
-                    ['key' => 'HumidMoy', 'label' => 'Humid. sol moy.', 'icon' => 'fa-seedling', 'color' => '#27ae60', 'unit' => 'UA'],
+                    ['key' => 'HumidMoy', 'label' => 'Humid. sol moy.', 'icon' => 'fa-seedling', 'color' => '#27ae60', 'unit' => 'UA', 'stuck_check' => true],
                     ...$soilProbes,
                     ['key' => 'etatPompe', 'label' => 'État pompe', 'icon' => 'fa-water', 'color' => '#008B74', 'stats' => false, 'format' => 'onoff', 'css_class' => 'pump'],
                 ],
@@ -102,8 +102,8 @@ final class N3ppCatalog extends PageCatalog
                 'title' => 'Paramètres physiques',
                 'icon' => 'fa-thermometer-half',
                 'cards' => [
-                    ['key' => 'TempAir', 'label' => 'Température air', 'icon' => 'fa-thermometer-half', 'color' => '#e74c3c', 'unit' => '°C', 'decimals' => 1],
-                    ['key' => 'Humidite', 'label' => 'Humidité air', 'icon' => 'fa-tint', 'color' => '#3498db', 'unit' => '%'],
+                    ['key' => 'TempAir', 'label' => 'Température air', 'icon' => 'fa-thermometer-half', 'color' => '#e74c3c', 'unit' => '°C', 'decimals' => 1, 'stuck_check' => true],
+                    ['key' => 'Humidite', 'label' => 'Humidité air', 'icon' => 'fa-tint', 'color' => '#3498db', 'unit' => '%', 'stuck_check' => true],
                     // BME280 (firmware n3pp >= 4.70) : carte affichée seulement si le capteur remonte une valeur.
                     ['key' => 'Pression', 'label' => 'Pression atm.', 'icon' => 'fa-tachometer-alt', 'color' => '#8e44ad', 'unit' => 'hPa', 'if_present' => true],
                     ['key' => 'Luminosite', 'label' => 'Luminosité', 'icon' => 'fa-sun', 'color' => '#f39c12'],

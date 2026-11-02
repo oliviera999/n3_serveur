@@ -118,6 +118,30 @@ abstract class AbstractSensorRepository extends AbstractRepository
     }
 
     /**
+     * Dernière valeur non nulle d'une colonne capteur et son horodatage, cherchée à
+     * partir de `$notBefore` (borne : une colonne jamais renseignée ne doit pas faire
+     * parcourir toute la table). Colonne inconnue → null.
+     *
+     * @return array{value: float, reading_time: string}|null
+     */
+    public function getLastNonNull(string $column, string $notBefore): ?array
+    {
+        if (!in_array($column, $this->getSensorColumns(), true)) {
+            return null;
+        }
+        $table = $this->getTableName();
+        $sql = "SELECT `{$column}` AS v, reading_time FROM `{$table}`"
+            . " WHERE `{$column}` IS NOT NULL AND reading_time >= :since"
+            . ' ORDER BY reading_time DESC LIMIT 1';
+        $row = $this->fetchOne($sql, [':since' => $notBefore]);
+        if ($row === null || !is_numeric($row['v'] ?? null)) {
+            return null;
+        }
+
+        return ['value' => (float) $row['v'], 'reading_time' => (string) $row['reading_time']];
+    }
+
+    /**
      * Retourne la date/heure de la première mesure (début du fonctionnement du module), ou null si aucune donnée.
      */
     public function getFirstReadingDate(): ?string

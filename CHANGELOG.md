@@ -11,6 +11,30 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.50.0] - 2026-11-02
+
+### Corrigé
+- **Mise à jour en direct des graphiques** (toutes les pages de suivi) — avec Highcharts 12,
+  `series.xData` n'existe plus : `ChartUpdaterGeneric` n'ajoutait plus aucun relevé live aux
+  courbes, et la relecture du dernier point (`point.update()` sur la série du navigator)
+  déclenchait l'avertissement Highcharts #15. Lecture via `dataTable`, point identique ignoré.
+- **Courbes en escalier** — les modules sur batterie (FFP3) renvoient au réveil la valeur
+  d'avant la veille (≈ 30 min) : plateau puis saut vertical. Ces points « réchauffés » sont
+  omis du tracé, colonne par colonne (`ChartDataService::staleWakeIndexes`, `payload.stale`) ;
+  axe des températures (≥ 6 °C) et de l'humidité (≥ 30 %) avec une amplitude minimale.
+- **Tendances** — régression sur le temps (et non l'index : relevés en rafales), recalculée
+  sur la plage zoomée ; LTTB prend pour référence la 1re colonne qui a des données (le niveau
+  aquarium, muet, réduisait le sous-échantillonnage à un tirage quasi uniforme).
+
+### Ajouté
+- **Aquaponie — tendances réserve / potager et moyennes mobiles** (aquarium, réserve,
+  potager ; fenêtre 30 min), dans la légende comme sur l'ancienne page (≤ 6.45.0) ;
+  option catalogue `trend_kind: moving_avg`.
+- **Cartes : dernière valeur valide** quand la mesure courante est vide (« Pas de mesure
+  récente. Dernière valeur valide : 8,1 cm le 31/10… ») et **« capteur figé ? »** quand
+  toutes les mesures de la période sont identiques (option `stuck_check` : aquarium,
+  températures, humidités FFP3 / N3PP / MSP1).
+
 ## [6.49.0] - 2026-11-02
 
 ### Corrigé

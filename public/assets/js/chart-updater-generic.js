@@ -112,25 +112,14 @@
         Object.keys(byChart).forEach(function (chartId) {
             var chart = self.chartsById.get(chartId);
             if (!chart || !chart.series) return;
+            var changed = false;
             byChart[chartId].forEach(function (u) {
                 var series = chart.series[u.seriesIndex];
-                if (!series || !series.data) return;
-                var existingPoint = null;
-                if (Array.isArray(series.data)) {
-                    for (var i = 0; i < series.data.length; i++) {
-                        var p = series.data[i];
-                        if (p && p.x === u.timestamp) {
-                            existingPoint = p;
-                            break;
-                        }
-                    }
-                }
-                if (existingPoint) {
-                    existingPoint.update(u.value, false);
-                } else {
-                    self.insertPointSorted(series, u.timestamp, u.value);
+                if (series && self.insertPointSorted(series, u.timestamp, u.value)) {
+                    changed = true;
                 }
             });
+            if (!changed) return;
             chart.redraw(false);
             if (self.autoScroll) {
                 self.scrollToLatest(chart);
@@ -138,53 +127,70 @@
         });
     };
 
+    /**
+     * Colonne x / y d'une série. Highcharts 12 n'expose plus `series.xData` / `yData`
+     * (données dans `series.dataTable`) : sans ce repli, aucun point live n'était ajouté.
+     */
+    function column(series, key) {
+        if (series.dataTable && typeof series.dataTable.getColumn === 'function') {
+            return series.dataTable.getColumn(key) || [];
+        }
+        return (key === 'x' ? series.xData : series.yData) || [];
+    }
+
+    /**
+     * Ajoute (ou remplace) le point [timestamp, value] en gardant l'axe x croissant.
+     * Retourne true si la série a changé. Un point identique déjà présent (cas de la
+     * lecture « latest » relue au chargement) est ignoré : `point.update()` sur la série
+     * de base du navigator déclenchait l'avertissement Highcharts #15.
+     */
     ChartUpdaterGeneric.prototype.insertPointSorted = function (series, timestamp, value) {
-        if (!series || !Array.isArray(series.xData)) return;
+        if (!series) return false;
+        var xs = column(series, 'x');
+        var ys = column(series, 'y');
+        var n = xs.length;
+        var lastX = n > 0 ? xs[n - 1] : null;
 
-        var xData = series.xData;
-        var lastX = xData.length > 0 ? xData[xData.length - 1] : null;
         if (lastX === null || timestamp > lastX) {
-            var shift = series.data.length >= this.maxPoints;
-            series.addPoint([timestamp, value], false, shift, false);
-            return;
-        }
-        if (timestamp === lastX && series.data.length > 0) {
-            series.data[series.data.length - 1].update(value, false);
-            return;
+            series.addPoint([timestamp, value], false, n >= this.maxPoints, false);
+            return true;
         }
 
-        var mergedData = [];
+        var merged = [];
+        var replaced = false;
         var inserted = false;
-        for (var i = 0; i < xData.length; i++) {
-            var x = xData[i];
-            var y = series.yData[i];
-            if (!inserted && timestamp < x) {
-                mergedData.push([timestamp, value]);
+        for (var i = 0; i < n; i++) {
+            var x = xs[i];
+            if (!inserted && x === timestamp) {
+                if (ys[i] === value) return false;
+                merged.push([timestamp, value]);
                 inserted = true;
-            } else if (!inserted && timestamp === x) {
-                mergedData.push([timestamp, value]);
-                inserted = true;
+                replaced = true;
                 continue;
             }
-            mergedData.push([x, y]);
+            if (!inserted && timestamp < x) {
+                merged.push([timestamp, value]);
+                inserted = true;
+            }
+            merged.push([x, ys[i]]);
         }
         if (!inserted) {
-            mergedData.push([timestamp, value]);
+            merged.push([timestamp, value]);
         }
-        if (mergedData.length > this.maxPoints) {
-            mergedData.splice(0, mergedData.length - this.maxPoints);
+        if (!replaced && merged.length > this.maxPoints) {
+            merged.splice(0, merged.length - this.maxPoints);
         }
-        series.setData(mergedData, false, false, false);
+        series.setData(merged, false, false, false);
+        return true;
     };
 
     ChartUpdaterGeneric.prototype.scrollToLatest = function (chart) {
         if (!chart || !chart.xAxis || !chart.xAxis[0]) return;
         var maxTs = 0;
         chart.series.forEach(function (s) {
-            if (s.data && s.data.length > 0) {
-                var last = s.data[s.data.length - 1];
-                if (last && last.x != null) maxTs = Math.max(maxTs, last.x);
-            }
+            if (s.options && s.options.isInternal) return;
+            var xs = column(s, 'x');
+            if (xs.length > 0 && xs[xs.length - 1] != null) maxTs = Math.max(maxTs, xs[xs.length - 1]);
         });
         if (maxTs === 0) return;
         var xAxis = chart.xAxis[0];

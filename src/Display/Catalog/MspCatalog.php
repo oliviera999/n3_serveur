@@ -96,7 +96,7 @@ final class MspCatalog extends PageCatalog
                 'cards' => [
                     ['key' => 'HumidSol', 'label' => 'Humidité sol', 'icon' => 'fa-seedling', 'color' => '#27ae60', 'unit' => '%'],
                     ['key' => 'Pluie', 'label' => 'Pluie', 'icon' => 'fa-cloud-rain', 'color' => '#9b59b6'],
-                    ['key' => 'TempEau', 'label' => 'Température eau', 'icon' => 'fa-water', 'color' => '#008B74', 'unit' => '°C', 'decimals' => 1],
+                    ['key' => 'TempEau', 'label' => 'Température eau', 'icon' => 'fa-water', 'color' => '#008B74', 'unit' => '°C', 'decimals' => 1, 'stuck_check' => true],
                 ],
                 'chart' => [
                     'id' => 'chart-niveauxeaux',
@@ -117,10 +117,10 @@ final class MspCatalog extends PageCatalog
                 'title' => 'Paramètres physiques',
                 'icon' => 'fa-thermometer-half',
                 'cards' => [
-                    ['key' => 'TempAirInt', 'label' => 'Temp. air int.', 'icon' => 'fa-thermometer-half', 'color' => '#e74c3c', 'unit' => '°C', 'decimals' => 1],
-                    ['key' => 'TempAirExt', 'label' => 'Temp. air ext.', 'icon' => 'fa-temperature-low', 'color' => '#c0392b', 'unit' => '°C', 'decimals' => 1],
-                    ['key' => 'HumidAirInt', 'label' => 'Humid. air int.', 'icon' => 'fa-tint', 'color' => '#3498db', 'unit' => '%'],
-                    ['key' => 'HumidAirExt', 'label' => 'Humid. air ext.', 'icon' => 'fa-cloud', 'color' => '#2980b9', 'unit' => '%'],
+                    ['key' => 'TempAirInt', 'label' => 'Temp. air int.', 'icon' => 'fa-thermometer-half', 'color' => '#e74c3c', 'unit' => '°C', 'decimals' => 1, 'stuck_check' => true],
+                    ['key' => 'TempAirExt', 'label' => 'Temp. air ext.', 'icon' => 'fa-temperature-low', 'color' => '#c0392b', 'unit' => '°C', 'decimals' => 1, 'stuck_check' => true],
+                    ['key' => 'HumidAirInt', 'label' => 'Humid. air int.', 'icon' => 'fa-tint', 'color' => '#3498db', 'unit' => '%', 'stuck_check' => true],
+                    ['key' => 'HumidAirExt', 'label' => 'Humid. air ext.', 'icon' => 'fa-cloud', 'color' => '#2980b9', 'unit' => '%', 'stuck_check' => true],
                     // BME280 (firmware msp >= 2.74) : carte affichée seulement si le capteur remonte une valeur.
                     ['key' => 'Pression', 'label' => 'Pression atm.', 'icon' => 'fa-tachometer-alt', 'color' => '#8e44ad', 'unit' => 'hPa', 'if_present' => true],
                 ],

@@ -128,8 +128,10 @@ class ChartDataService
         int $maxPoints = self::DEFAULT_MAX_POINTS
     ): array {
         // Décimation au niveau des lectures : toutes les colonnes restent
-        // alignées avec reading_time (mêmes index retenus).
-        $referenceColumn = $columns[0] ?? 'reading_time';
+        // alignées avec reading_time (mêmes index retenus). Référence LTTB : la 1re
+        // colonne qui a des valeurs (un capteur muet, ex. niveau aquarium en panne,
+        // réduirait LTTB à un tirage quasi uniforme qui efface les pics des autres).
+        $referenceColumn = self::firstColumnWithData($readings, $columns) ?? ($columns[0] ?? 'reading_time');
         $readings = $this->downsampleReadingsMemoized($readings, $referenceColumn, $maxPoints);
 
         $series = ['reading_time' => []];
@@ -148,6 +150,73 @@ class ChartDataService
         }
 
         return $series;
+    }
+
+    /**
+     * Première colonne (dans l'ordre donné) ayant au moins une valeur numérique.
+     *
+     * @param array<int|string, array<string, mixed>> $readings
+     * @param list<string> $columns
+     */
+    public static function firstColumnWithData(array $readings, array $columns): ?string
+    {
+        foreach ($columns as $col) {
+            foreach ($readings as $r) {
+                if (isset($r[$col]) && is_numeric($r[$col])) {
+                    return $col;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Index des relevés « réchauffés » envoyés au réveil, par colonne.
+     *
+     * Les modules sur batterie (ex. FFP3 / ffp5cs) dorment ~30 min entre deux rafales
+     * de mesures ; le 1er POST après le réveil reprend souvent la valeur d'avant la
+     * veille (capteur pas encore relu). Tracé tel quel, ce point prolonge l'ancienne
+     * valeur jusqu'au réveil puis crée un saut quasi vertical : la courbe prend une
+     * allure d'escalier. Pour chaque colonne, un point est signalé si l'écart avec le
+     * point précédent atteint `$minGapMs` et si sa valeur est identique à la
+     * précédente : le graphique l'omet (la courbe relie alors directement l'avant et
+     * l'après veille). Omettre un point égal à son prédécesseur ne retire aucune
+     * information. Le dernier point (raccord du direct) est toujours conservé ;
+     * cartes et statistiques utilisent les lectures complètes.
+     *
+     * @param array<string, mixed> $series sortie de prepareGenericSeries()
+     * @param list<string> $columns colonnes tracées
+     * @return array<string, list<int>> colonne => index à omettre (colonnes concernées seulement)
+     */
+    public static function staleWakeIndexes(array $series, array $columns, int $minGapMs = 300000): array
+    {
+        $times = $series['reading_time'] ?? [];
+        $count = count($times);
+        $out = [];
+        if ($count < 3) {
+            return $out;
+        }
+        foreach ($columns as $col) {
+            $values = $series[$col] ?? [];
+            $skip = [];
+            for ($i = 1; $i < $count - 1; $i++) {
+                $current = $values[$i] ?? null;
+                $previous = $values[$i - 1] ?? null;
+                if (
+                    $current !== null && $previous !== null
+                    && ($times[$i] - $times[$i - 1]) >= $minGapMs
+                    && (float) $current === (float) $previous
+                ) {
+                    $skip[] = $i;
+                }
+            }
+            if ($skip !== []) {
+                $out[$col] = $skip;
+            }
+        }
+
+        return $out;
     }
 
     /**

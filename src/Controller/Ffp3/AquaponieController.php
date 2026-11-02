@@ -191,6 +191,12 @@ class AquaponieController
             ),
             'realtime_api_base' => RealtimeUrlHelper::getRealtimeApiBase($environment),
             'latest' => $latest,
+            'last_valid' => AbstractDataController::lastValidValues(
+                $display['layout'],
+                $latest,
+                fn (string $column): ?array => $this->lastValidInDisplayUnits($column, $lastDate)
+            ),
+            'stuck' => AbstractDataController::stuckSensors($display['layout'], $rowsAsc),
             'start_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $startDate),
             'end_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $endDate),
             'measure_count' => $measureCount,
@@ -207,6 +213,22 @@ class AquaponieController
         ];
 
         return array_merge($context, $display, $catalogStats, $waterBalance);
+    }
+
+    /**
+     * Dernière valeur valide d'une colonne, niveaux d'eau convertis mm → cm.
+     *
+     * @return array{value: float, reading_time: string}|null
+     */
+    private function lastValidInDisplayUnits(string $column, ?string $lastDate): ?array
+    {
+        $found = $this->sensorReadRepo->getLastNonNull($column, AbstractDataController::lastValidSince($lastDate));
+        if ($found === null) {
+            return null;
+        }
+        $scaled = Ffp3WaterLevelUnit::scaleSensorRowFromMmToCm([$column => $found['value']]);
+
+        return ['value' => (float) ($scaled[$column] ?? $found['value']), 'reading_time' => $found['reading_time']];
     }
 
     /**

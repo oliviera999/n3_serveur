@@ -22,5 +22,20 @@
         <div class="stat-card-secondary">Moy: {{ avg is not null ? avg|number_format(d, ',', ' ') ~ suffix : '-' }} | Min: {{ min is not null ? min|number_format(d, ',', ' ') ~ suffix : '-' }} | Max: {{ max is not null ? max|number_format(d, ',', ' ') ~ suffix : '-' }}</div>
     {% endif %}
     {% if card.hint %}<div class="stat-card-secondary">{{ card.hint }}</div>{% endif %}
+    {%- set lv = (last_valid|default({}))[card.key] ?? null -%}
+    {% if not has_value and lv %}
+        <div class="stat-card-secondary stat-card-alert" data-last-valid="{{ card.key }}">
+            <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+            Pas de mesure récente. Dernière valeur valide :
+            {{ card.format|default('number') == 'onoff' ? (lv.value > 0 ? 'Marche' : 'Arrêt') : lv.value|number_format(d, ',', ' ') ~ suffix }}
+            le {{ lv.reading_time|localdt('d/m/Y à H:i') }}
+        </div>
+    {% endif %}
+    {% if (stuck|default({}))[card.key] is defined %}
+        <div class="stat-card-secondary stat-card-alert" data-stuck="{{ card.key }}">
+            <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+            Valeur identique sur toute la période : capteur figé ?
+        </div>
+    {% endif %}
 </div>
 {%- endif -%}

@@ -116,13 +116,24 @@ L'ordre des clés de `cards` et `series` est l'ordre d'affichage.
 |-----|-------|
 | `step` | Ligne en escalier (`true` = `'left'`) |
 | `on_markers` `{ lane, symbol, radius }` | Série d'**événements** : un marqueur par mesure > 0, posé à la hauteur fixe `lane`. À placer sur un axe masqué `min 0 / max 1` (bande en bas du graphique) ou sur un axe à `categories` (chronogramme, `lane` = index de ligne). En live, une valeur ≤ 0 n'ajoute rien. |
-| `trend_of` / `trend_round` | Droite de tendance (moindres carrés) d'une autre colonne, non live |
+| `trend_of` / `trend_round` | Tendance d'une autre colonne, non live : droite des moindres carrés **sur le temps**, recalculée sur la plage zoomée |
+| `trend_kind: moving_avg` / `trend_window` | Moyenne mobile centrée sur `trend_window` minutes (défaut 30) au lieu de la droite |
 
 Cartes : `format: 'onoff'` affiche **Marche / Arrêt** (rendu serveur et mise à jour live via `data-format`).
+`stuck_check: true` signale « capteur figé ? » si toutes les mesures de la période sont identiques
+(≥ 20 mesures sur ≥ 2 h). Une carte dont la mesure courante est vide affiche la **dernière valeur
+valide** et sa date (recherche bornée à 30 jours, `getLastNonNull()`).
+
+Points « réchauffés » au réveil : `payload.stale` liste, par colonne, les points identiques au précédent
+juste après une veille (≥ 5 min) ; ils sont omis du tracé pour éviter l'effet d'escalier
+(`ChartDataService::staleWakeIndexes`). Cartes et statistiques utilisent toutes les lectures.
 
 Ne jamais tracer un état 0/1 sur l'axe d'une mesure : il force l'axe à 0 et écrase la courbe.
 
 ## Mise à jour live
+
+`ChartUpdaterGeneric` lit les colonnes `x` / `y` via `series.dataTable` (Highcharts 12 n'expose plus
+`xData`) ; un point identique déjà présent est ignoré, un relevé plus récent est ajouté en fin de série.
 
 `sensor_map_json` associe chaque colonne à sa 1re série (`chartId`, `seriesIndex`, format
 historique) et liste **toutes** ses séries dans `targets` (une colonne peut alimenter plusieurs
