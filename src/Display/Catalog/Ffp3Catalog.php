@@ -84,6 +84,23 @@ final class Ffp3Catalog extends PageCatalog
 
     protected function defineBlocks(): array
     {
+        // Couleurs historiques de la page aquaponie (≤ 6.45.0) : aquarium orange, réserve et potager verts.
+        $aquarium = '#FF6300';
+        $reserve = '#008B74';
+        $potager = '#27BDA0';
+        // Actionneurs (marqueurs « ON » et chronogramme) : une couleur et un symbole chacun.
+        $pompeAqua = '#8e44ad';
+        $pompeTank = '#2c3e50';
+        $chauffage = '#c0392b';
+        $lumiere = '#f1c40f';
+        $nourPetits = '#9b59b6';
+        $nourGros = '#d35400';
+        // Axe d'événements masqué (0–1) : les marqueurs « ON » s'y posent en bas du graphique,
+        // sans déformer l'axe des mesures (cf. bande 5 % de l'ancienne page).
+        $eventsAxis = ['title' => ['text' => ''], 'visible' => false, 'min' => 0, 'max' => 1, 'opposite' => true];
+        $actuatorLanes = ['Pompe aquarium', 'Pompe réserve', 'Chauffage', 'Lumière', 'Nourriture petits', 'Nourriture gros'];
+        $sheetBase = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrF6mLbo5-qLN-uhd7J2LeeV7LvE9LEr9nkyXgh7KUUh7lL-Houdx3XpIQ_-3vJk50e7dTuUAvQ-dR/pubchart?oid=';
+
         return [
             [
                 'id' => 'intro',
@@ -98,24 +115,25 @@ final class Ffp3Catalog extends PageCatalog
                 'title' => 'Niveaux d\'eau',
                 'icon' => 'fa-tint',
                 'cards' => [
-                    ['key' => 'EauAquarium', 'label' => 'Aquarium', 'icon' => 'fa-fish', 'color' => '#3498db', 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'aquarium'],
-                    ['key' => 'EauReserve', 'label' => 'Réserve', 'icon' => 'fa-droplet', 'color' => '#2980b9', 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'reserve'],
-                    ['key' => 'EauPotager', 'label' => 'Potager', 'icon' => 'fa-seedling', 'color' => '#27ae60', 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'potager'],
+                    ['key' => 'EauAquarium', 'label' => 'Aquarium', 'icon' => 'fa-fish', 'color' => $aquarium, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'aquarium'],
+                    ['key' => 'EauReserve', 'label' => 'Réserve', 'icon' => 'fa-droplet', 'color' => $reserve, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'reserve'],
+                    ['key' => 'EauPotager', 'label' => 'Potager', 'icon' => 'fa-seedling', 'color' => $potager, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'potager'],
                 ],
                 'chart' => [
                     'id' => 'chart-ffp3-eau',
                     'yAxis' => [
-                        ['title' => ['text' => 'Niveau (cm)'], 'opposite' => false],
-                        ['title' => ['text' => 'État'], 'opposite' => true, 'min' => 0, 'max' => 1, 'visible' => false],
+                        ['title' => ['text' => 'Niveaux eau (cm)'], 'opposite' => false],
+                        $eventsAxis,
                     ],
                     'tooltip' => ['valueDecimals' => 1, 'valueSuffix' => ' cm'],
                     'series' => [
-                        ['column' => 'EauAquarium', 'name' => 'Aquarium', 'type' => 'areaspline', 'color' => '#3498db', 'fill' => [52, 152, 219, 0.25, 0.05], 'lineWidth' => 3],
-                        ['column' => 'EauReserve', 'name' => 'Réserve', 'type' => 'areaspline', 'color' => '#2980b9', 'fill' => [41, 128, 185, 0.18, 0.04]],
-                        ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'color' => '#27ae60', 'fill' => [39, 174, 96, 0.18, 0.04]],
-                        ['column' => 'etatPompeAqua', 'name' => 'Pompe aqua', 'type' => 'line', 'color' => '#8e44ad', 'yAxis' => 1, 'simple' => 'legend', 'tooltip' => ['valueDecimals' => 0]],
-                        ['column' => 'etatPompeTank', 'name' => 'Pompe réserve', 'type' => 'line', 'color' => '#9b59b6', 'yAxis' => 1, 'simple' => 'hidden', 'tooltip' => ['valueDecimals' => 0]],
-                        ['id' => 'trend-EauAquarium', 'trend_of' => 'EauAquarium', 'name' => 'Tendance aquarium', 'type' => 'line', 'color' => '#1a5276', 'dashStyle' => 'ShortDash', 'lineWidth' => 1, 'simple' => 'legend'],
+                        ['column' => 'EauAquarium', 'name' => 'Aquarium', 'type' => 'areaspline', 'color' => $aquarium, 'fill' => [255, 99, 0, 0.3, 0.05], 'lineWidth' => 2.5],
+                        // Réserve en légende (décochée) par défaut, comme avant : son niveau élevé écrasait l'amplitude des marées.
+                        ['column' => 'EauReserve', 'name' => 'Réserve', 'type' => 'areaspline', 'color' => $reserve, 'fill' => [0, 126, 97, 0.3, 0.05], 'dashStyle' => 'ShortDot', 'default' => self::SERIES_LEGEND],
+                        ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'color' => $potager, 'fill' => [39, 189, 160, 0.3, 0.05], 'lineWidth' => 1.5],
+                        ['id' => 'trend-EauAquarium', 'trend_of' => 'EauAquarium', 'name' => 'Tendance aquarium', 'type' => 'line', 'color' => '#b34700', 'dashStyle' => 'ShortDash', 'lineWidth' => 1, 'default' => self::SERIES_LEGEND],
+                        ['column' => 'etatPompeAqua', 'name' => 'Pompe aquarium ON', 'color' => $pompeAqua, 'yAxis' => 1, 'on_markers' => ['lane' => 0.03, 'symbol' => 'circle', 'radius' => 3], 'simple' => self::SERIES_LEGEND],
+                        ['column' => 'etatPompeTank', 'name' => 'Pompe réserve ON', 'color' => $pompeTank, 'yAxis' => 1, 'on_markers' => ['lane' => 0.07, 'symbol' => 'square', 'radius' => 3], 'simple' => self::SERIES_HIDDEN],
                     ],
                 ],
             ],
@@ -127,22 +145,27 @@ final class Ffp3Catalog extends PageCatalog
                     ['key' => 'TempEau', 'label' => 'Temp. eau', 'icon' => 'fa-water', 'color' => '#008B74', 'unit' => '°C', 'decimals' => 1, 'css_class' => 'tempeau'],
                     ['key' => 'TempAir', 'label' => 'Temp. air', 'icon' => 'fa-temperature-high', 'color' => '#e67e22', 'unit' => '°C', 'decimals' => 1],
                     ['key' => 'Humidite', 'label' => 'Humidité', 'icon' => 'fa-cloud', 'color' => '#3498db', 'unit' => '%', 'decimals' => 0, 'css_class' => 'humidity'],
-                    ['key' => 'Luminosite', 'label' => 'Luminosité', 'icon' => 'fa-sun', 'color' => '#f39c12', 'simple' => false],
+                    ['key' => 'Luminosite', 'label' => 'Luminosité', 'icon' => 'fa-sun', 'color' => '#f39c12', 'unit' => 'UA', 'simple' => false],
                 ],
                 'chart' => [
                     'id' => 'chart-ffp3-temp',
+                    // Un axe par grandeur (comme ≤ 6.45.0) : °C, %, UA, + axe d'événements masqué.
                     'yAxis' => [
                         ['title' => ['text' => 'Température (°C)'], 'opposite' => false],
-                        ['title' => ['text' => 'Humidité / lum.'], 'opposite' => true],
+                        ['title' => ['text' => 'Humidité (%)'], 'opposite' => true],
+                        ['title' => ['text' => 'Luminosité (UA)'], 'opposite' => true, 'offset' => 60],
+                        $eventsAxis,
                     ],
                     'tooltip' => ['shared' => true],
                     'series' => [
-                        ['column' => 'TempEau', 'name' => 'Temp. eau', 'type' => 'spline', 'color' => '#008B74', 'lineWidth' => 3],
-                        ['column' => 'TempAir', 'name' => 'Temp. air', 'type' => 'spline', 'color' => '#e67e22'],
-                        ['column' => 'Humidite', 'name' => 'Humidité', 'type' => 'areaspline', 'color' => '#3498db', 'yAxis' => 1, 'fill' => [52, 152, 219, 0.15, 0.03], 'tooltip' => ['valueSuffix' => ' %']],
-                        ['column' => 'Luminosite', 'name' => 'Luminosité', 'type' => 'spline', 'color' => '#f39c12', 'yAxis' => 1, 'simple' => 'legend', 'dashStyle' => 'Dash'],
-                        ['column' => 'etatHeat', 'name' => 'Chauffage', 'type' => 'line', 'color' => '#c0392b', 'simple' => 'hidden', 'tooltip' => ['valueDecimals' => 0]],
-                        ['column' => 'etatUV', 'name' => 'UV', 'type' => 'line', 'color' => '#8e44ad', 'simple' => 'hidden', 'tooltip' => ['valueDecimals' => 0]],
+                        ['column' => 'TempEau', 'name' => 'Temp. eau', 'type' => 'spline', 'color' => '#008B74', 'lineWidth' => 3, 'tooltip' => ['valueDecimals' => 1, 'valueSuffix' => ' °C']],
+                        ['column' => 'TempAir', 'name' => 'Temp. air', 'type' => 'spline', 'color' => '#e67e22', 'tooltip' => ['valueDecimals' => 1, 'valueSuffix' => ' °C']],
+                        ['column' => 'Humidite', 'name' => 'Humidité', 'type' => 'areaspline', 'color' => '#3498db', 'yAxis' => 1, 'fill' => [52, 152, 219, 0.15, 0.03], 'tooltip' => ['valueDecimals' => 0, 'valueSuffix' => ' %']],
+                        ['column' => 'Luminosite', 'name' => 'Luminosité', 'type' => 'spline', 'color' => '#f39c12', 'yAxis' => 2, 'dashStyle' => 'Dash', 'simple' => self::SERIES_LEGEND, 'tooltip' => ['valueDecimals' => 0, 'valueSuffix' => ' UA']],
+                        ['column' => 'etatHeat', 'name' => 'Chauffage ON', 'color' => $chauffage, 'yAxis' => 3, 'on_markers' => ['lane' => 0.03, 'symbol' => 'triangle', 'radius' => 4], 'simple' => self::SERIES_HIDDEN],
+                        ['column' => 'etatUV', 'name' => 'Lumière ON', 'color' => $lumiere, 'yAxis' => 3, 'on_markers' => ['lane' => 0.07, 'symbol' => 'circle', 'radius' => 3], 'simple' => self::SERIES_HIDDEN],
+                        ['column' => 'bouffePetits', 'name' => 'Nourriture petits', 'color' => $nourPetits, 'yAxis' => 3, 'on_markers' => ['lane' => 0.11, 'symbol' => 'diamond', 'radius' => 4], 'simple' => self::SERIES_HIDDEN],
+                        ['column' => 'bouffeGros', 'name' => 'Nourriture gros', 'color' => $nourGros, 'yAxis' => 3, 'on_markers' => ['lane' => 0.15, 'symbol' => 'square', 'radius' => 3], 'simple' => self::SERIES_HIDDEN],
                     ],
                 ],
             ],
@@ -166,24 +189,34 @@ final class Ffp3Catalog extends PageCatalog
                 'icon' => 'fa-toggle-on',
                 'simple' => false,
                 'cards' => [
-                    ['key' => 'etatPompeAqua', 'label' => 'Pompe aqua', 'icon' => 'fa-water', 'color' => '#8e44ad', 'stats' => false, 'decimals' => 0, 'css_class' => 'pump'],
-                    ['key' => 'etatPompeTank', 'label' => 'Pompe réserve', 'icon' => 'fa-droplet', 'color' => '#9b59b6', 'stats' => false, 'decimals' => 0, 'css_class' => 'pump'],
-                    ['key' => 'etatHeat', 'label' => 'Chauffage', 'icon' => 'fa-fire', 'color' => '#c0392b', 'stats' => false, 'decimals' => 0],
-                    ['key' => 'etatUV', 'label' => 'UV', 'icon' => 'fa-lightbulb', 'color' => '#8e44ad', 'stats' => false, 'decimals' => 0],
-                    ['key' => 'bouffePetits', 'label' => 'Bouffe petits', 'icon' => 'fa-fish', 'color' => '#16a085', 'stats' => false, 'decimals' => 0, 'simple' => false],
-                    ['key' => 'bouffeGros', 'label' => 'Bouffe gros', 'icon' => 'fa-fish', 'color' => '#1abc9c', 'stats' => false, 'decimals' => 0, 'simple' => false],
+                    ['key' => 'etatPompeAqua', 'label' => 'Pompe aquarium', 'icon' => 'fa-water', 'color' => $pompeAqua, 'stats' => false, 'format' => 'onoff', 'css_class' => 'pump'],
+                    ['key' => 'etatPompeTank', 'label' => 'Pompe réserve', 'icon' => 'fa-droplet', 'color' => $pompeTank, 'stats' => false, 'format' => 'onoff', 'css_class' => 'pump'],
+                    ['key' => 'etatHeat', 'label' => 'Chauffage', 'icon' => 'fa-fire', 'color' => $chauffage, 'stats' => false, 'format' => 'onoff'],
+                    ['key' => 'etatUV', 'label' => 'Lumière', 'icon' => 'fa-lightbulb', 'color' => $lumiere, 'stats' => false, 'format' => 'onoff'],
+                    ['key' => 'bouffePetits', 'label' => 'Nourriture petits', 'icon' => 'fa-fish', 'color' => $nourPetits, 'stats' => false, 'format' => 'onoff', 'simple' => false],
+                    ['key' => 'bouffeGros', 'label' => 'Nourriture gros', 'icon' => 'fa-fish', 'color' => $nourGros, 'stats' => false, 'format' => 'onoff', 'simple' => false],
                 ],
                 'chart' => [
                     'id' => 'chart-ffp3-actuators',
                     'kind' => 'cycles',
-                    'yAxis' => [['title' => ['text' => 'État (0/1)'], 'min' => 0, 'max' => 1, 'opposite' => false]],
+                    // Chronogramme : une ligne par actionneur, un marqueur par mesure « ON »
+                    // (les lignes 0/1 superposées étaient illisibles).
+                    'yAxis' => [[
+                        'title' => ['text' => ''],
+                        'categories' => $actuatorLanes,
+                        'min' => 0,
+                        'max' => count($actuatorLanes) - 1,
+                        'tickInterval' => 1,
+                        'reversed' => true,
+                        'opposite' => false,
+                    ]],
                     'series' => [
-                        ['column' => 'etatPompeAqua', 'name' => 'Pompe aqua', 'type' => 'line', 'color' => '#8e44ad', 'step' => true],
-                        ['column' => 'etatPompeTank', 'name' => 'Pompe réserve', 'type' => 'line', 'color' => '#9b59b6'],
-                        ['column' => 'etatHeat', 'name' => 'Chauffage', 'type' => 'line', 'color' => '#c0392b'],
-                        ['column' => 'etatUV', 'name' => 'UV', 'type' => 'line', 'color' => '#8e44ad', 'simple' => 'legend'],
-                        ['column' => 'bouffePetits', 'name' => 'Bouffe petits', 'type' => 'line', 'color' => '#16a085', 'simple' => 'hidden'],
-                        ['column' => 'bouffeGros', 'name' => 'Bouffe gros', 'type' => 'line', 'color' => '#1abc9c', 'simple' => 'hidden'],
+                        ['column' => 'etatPompeAqua', 'name' => 'Pompe aquarium', 'color' => $pompeAqua, 'on_markers' => ['lane' => 0, 'symbol' => 'square', 'radius' => 3]],
+                        ['column' => 'etatPompeTank', 'name' => 'Pompe réserve', 'color' => $pompeTank, 'on_markers' => ['lane' => 1, 'symbol' => 'square', 'radius' => 3]],
+                        ['column' => 'etatHeat', 'name' => 'Chauffage', 'color' => $chauffage, 'on_markers' => ['lane' => 2, 'symbol' => 'square', 'radius' => 3]],
+                        ['column' => 'etatUV', 'name' => 'Lumière', 'color' => $lumiere, 'on_markers' => ['lane' => 3, 'symbol' => 'square', 'radius' => 3]],
+                        ['column' => 'bouffePetits', 'name' => 'Nourriture petits', 'color' => $nourPetits, 'on_markers' => ['lane' => 4, 'symbol' => 'diamond', 'radius' => 5]],
+                        ['column' => 'bouffeGros', 'name' => 'Nourriture gros', 'color' => $nourGros, 'on_markers' => ['lane' => 5, 'symbol' => 'diamond', 'radius' => 5]],
                     ],
                 ],
             ],
@@ -193,6 +226,23 @@ final class Ffp3Catalog extends PageCatalog
                 'title' => 'Filtrage & période',
                 'icon' => 'fa-filter',
                 'simple' => true,
+            ],
+            [
+                'id' => 'chimie',
+                'type' => self::BLOCK_CUSTOM,
+                'title' => 'Suivi des paramètres chimiques de l\'eau',
+                'icon' => 'fa-flask',
+                // Travail des élèves : visible dans tous les presets, même sans mesure capteur.
+                'simple' => true,
+                'requires_data' => false,
+                'options' => [
+                    'template' => 'partials/blocks/custom/_ffp3_chemistry.twig',
+                    'sheets' => [
+                        ['title' => 'Paramètres principaux', 'icon' => 'fa-chart-line', 'src' => $sheetBase . '209032696&format=interactive', 'sheet_title' => 'Paramètres principaux — analyses chimiques manuelles'],
+                        ['title' => 'Nutriments et minéraux', 'icon' => 'fa-chart-area', 'src' => $sheetBase . '699943208&format=interactive', 'sheet_title' => 'Nutriments et minéraux — analyses chimiques manuelles'],
+                        ['title' => 'Équilibre chimique', 'icon' => 'fa-chart-bar', 'src' => $sheetBase . '1338338691&format=interactive', 'sheet_title' => 'Équilibre chimique — analyses chimiques manuelles'],
+                    ],
+                ],
             ],
         ];
     }

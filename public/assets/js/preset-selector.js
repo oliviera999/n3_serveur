@@ -1,41 +1,54 @@
 /**
  * preset-selector.js — Choix du preset d'affichage d'une page de suivi.
  *
- * - Un clic sur une pastille mémorise le choix (localStorage `n3.preset.<page>`)
- *   et recharge la page avec ?preset=…, en conservant les autres paramètres
- *   (fenêtre de période ?window=&offset=).
- * - Au chargement (GET sans ?preset), un choix mémorisé différent du preset
- *   affiché est réappliqué. Jamais après un POST (le formulaire de période
- *   serait perdu) ; un choix mémorisé qui n'existe plus est oublié.
+ * - Un clic sur une pastille mémorise le choix dans le cookie `n3_preset_<page>`
+ *   (lu côté serveur : la page suivante est directement rendue avec ce preset,
+ *   sans rechargement) puis ouvre la page avec ?preset=…, en conservant les autres
+ *   paramètres (fenêtre de période ?window=&offset=).
+ * - Migration : un choix mémorisé par l'ancienne version (localStorage
+ *   `n3.preset.<page>`) est recopié une fois dans le cookie puis oublié — sans
+ *   recharger la page (l'ancienne version rechargeait à chaque visite).
  */
 (function () {
     'use strict';
 
-    function storageKey(page) {
-        return 'n3.preset.' + page;
+    var SLUG = /^[a-z0-9][a-z0-9-]{0,39}$/;
+    var MAX_AGE = 365 * 24 * 3600;
+
+    function cookieName(page) {
+        return 'n3_preset_' + page;
     }
 
-    function readStored(page) {
-        try {
-            return window.localStorage.getItem(storageKey(page));
-        } catch (e) {
-            return null;
+    function readCookie(name) {
+        var parts = document.cookie ? document.cookie.split('; ') : [];
+        for (var i = 0; i < parts.length; i++) {
+            var eq = parts[i].indexOf('=');
+            if (eq > 0 && parts[i].slice(0, eq) === name) {
+                return decodeURIComponent(parts[i].slice(eq + 1));
+            }
         }
+        return null;
     }
 
-    function writeStored(page, slug) {
-        try {
-            window.localStorage.setItem(storageKey(page), slug);
-        } catch (e) {
-            // Stockage indisponible (navigation privée) : le choix vaut pour cette page seulement.
-        }
+    function writeCookie(page, slug) {
+        if (!SLUG.test(slug)) return;
+        document.cookie = cookieName(page) + '=' + encodeURIComponent(slug)
+            + '; Max-Age=' + MAX_AGE + '; Path=/; SameSite=Lax'
+            + (window.location.protocol === 'https:' ? '; Secure' : '');
     }
 
-    function forgetStored(page) {
+    function migrateLegacyStorage(page) {
+        var key = 'n3.preset.' + page;
         try {
-            window.localStorage.removeItem(storageKey(page));
+            var legacy = window.localStorage.getItem(key);
+            if (legacy !== null) {
+                if (!readCookie(cookieName(page))) {
+                    writeCookie(page, legacy);
+                }
+                window.localStorage.removeItem(key);
+            }
         } catch (e) {
-            // Rien à faire.
+            // Stockage indisponible (navigation privée) : rien à migrer.
         }
     }
 
@@ -48,31 +61,18 @@
     function init() {
         var nav = document.querySelector('.preset-selector');
         if (!nav) return;
-
         var page = nav.dataset.pageKey;
-        var active = nav.dataset.activePreset;
-        var available = Array.prototype.map.call(nav.querySelectorAll('[data-preset]'), function (el) {
-            return el.dataset.preset;
-        });
+        if (!page) return;
+
+        migrateLegacyStorage(page);
 
         nav.querySelectorAll('[data-preset]').forEach(function (link) {
             link.addEventListener('click', function (event) {
                 event.preventDefault();
-                writeStored(page, link.dataset.preset);
+                writeCookie(page, link.dataset.preset);
                 window.location.assign(urlWithPreset(link.dataset.preset));
             });
         });
-
-        var stored = readStored(page);
-        if (!stored) return;
-        if (available.indexOf(stored) === -1) {
-            forgetStored(page);
-            return;
-        }
-        var isGet = (nav.dataset.requestMethod || 'GET').toUpperCase() === 'GET';
-        if (isGet && !nav.dataset.requestedPreset && stored !== active) {
-            window.location.replace(urlWithPreset(stored));
-        }
     }
 
     if (document.readyState === 'loading') {

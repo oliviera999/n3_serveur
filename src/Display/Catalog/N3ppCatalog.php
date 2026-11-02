@@ -83,7 +83,7 @@ final class N3ppCatalog extends PageCatalog
                 'cards' => [
                     ['key' => 'HumidMoy', 'label' => 'Humid. sol moy.', 'icon' => 'fa-seedling', 'color' => '#27ae60', 'unit' => 'UA'],
                     ...$soilProbes,
-                    ['key' => 'etatPompe', 'label' => 'État pompe', 'icon' => 'fa-water', 'color' => '#008B74', 'stats' => false, 'css_class' => 'pump'],
+                    ['key' => 'etatPompe', 'label' => 'État pompe', 'icon' => 'fa-water', 'color' => '#008B74', 'stats' => false, 'format' => 'onoff', 'css_class' => 'pump'],
                 ],
                 'chart' => [
                     'id' => 'chart-niveauxeaux',

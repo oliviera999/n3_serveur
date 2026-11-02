@@ -139,11 +139,13 @@ final class LayoutResolver
 
     /**
      * Layout prêt pour le rendu : blocs visibles (cartes et séries filtrées,
-     * dans l'ordre du preset), graphiques à créer et carte capteur → série
-     * générée (index réel des séries, utilisée par le live).
+     * dans l'ordre du preset), graphiques à créer et carte capteur → série(s)
+     * générée (index réel des séries, utilisée par le live). Une colonne tracée
+     * dans plusieurs graphiques a toutes ses cibles dans `targets` ; une série
+     * « marqueurs ON » porte `onLane` (hauteur du marqueur, valeur ≤ 0 ignorée).
      *
      * @param array{blocks?: list<array<string, mixed>>} $layout layout normalisé
-     * @return array{blocks: list<array<string, mixed>>, charts: list<array<string, mixed>>, sensor_map: array<string, array{chartId: string, seriesIndex: int}>}
+     * @return array{blocks: list<array<string, mixed>>, charts: list<array<string, mixed>>, sensor_map: array<string, array<string, mixed>>}
      */
     public function resolve(PageCatalog $catalog, array $layout): array
     {
@@ -183,8 +185,19 @@ final class LayoutResolver
                     $chart['series'] = $series;
                     $charts[] = $chart;
                     foreach ($series as $index => $s) {
-                        if ($s['live'] && !isset($sensorMap[$s['column']])) {
-                            $sensorMap[$s['column']] = ['chartId' => $chart['id'], 'seriesIndex' => $index];
+                        if (!$s['live']) {
+                            continue;
+                        }
+                        $target = ['chartId' => (string) $chart['id'], 'seriesIndex' => $index];
+                        if (($s['on_markers'] ?? null) !== null) {
+                            $target['onLane'] = (float) $s['on_markers']['lane'];
+                        }
+                        $column = (string) $s['column'];
+                        if (!isset($sensorMap[$column])) {
+                            // 1re cible à plat (format historique) + liste complète des cibles.
+                            $sensorMap[$column] = $target + ['targets' => [$target]];
+                        } else {
+                            $sensorMap[$column]['targets'][] = $target;
                         }
                     }
                 }

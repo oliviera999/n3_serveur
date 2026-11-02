@@ -192,3 +192,21 @@
 .dp-status { min-height: 1.2em; font-size: 0.9rem; }
 .dp-status.is-error { color: #c62828; }
 .dp-status.is-ok { color: #2e7d32; }
+
+/* ---- Rendu des blocs (page de suivi) ---- */
+/* Cadre dont toutes les cartes sont masquées par le preset : le graphique prend toute la largeur. */
+.alt-data-chart-row > .alt-chart-column-full {
+    grid-column: 1 / -1;
+}
+
+/* Encart d'introduction (bloc custom FFP3). */
+.aquaponie-glance {
+    margin: 0.75rem 0 1.25rem;
+    padding: 0.85rem 1.1rem;
+    border-left: 4px solid var(--accent-primary, #008B74);
+    border-radius: 6px;
+    background: rgba(0, 139, 116, 0.07);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.aquaponie-glance p { margin: 0; }

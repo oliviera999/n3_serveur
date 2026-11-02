@@ -18,10 +18,11 @@ namespace App\Display;
  *   - default (bool, visible par défaut), simple (bool, visible dans le preset « simple ») ;
  *   - requires_data (bool) : masqué si la page n'a aucune donnée ;
  *   - cards : liste de cartes { key, label, icon, color, unit, decimals, stats, hint,
- *     css_class, if_present, default, simple } ;
+ *     css_class, if_present, format (number|onoff), default, simple } ;
  *   - chart : { id, kind (main|cycles), yAxis, tooltip, series: [ { id, column, name,
  *     type, color, fill [r,g,b,top?,bottom?], lineWidth, dashStyle, yAxis, tooltip,
- *     opacity, trend_of, trend_round, default (shown|legend), simple } ] } ;
+ *     opacity, step, on_markers { lane, symbol, radius }, trend_of, trend_round,
+ *     default (shown|legend), simple } ] } ;
  *   - options : paramètres propres au type (template, src, form_id…).
  */
 abstract class PageCatalog
@@ -242,6 +243,7 @@ abstract class PageCatalog
                 'hint' => isset($card['hint']) ? (string) $card['hint'] : null,
                 'css_class' => (string) ($card['css_class'] ?? ''),
                 'if_present' => (bool) ($card['if_present'] ?? false),
+                'format' => ($card['format'] ?? 'number') === 'onoff' ? 'onoff' : 'number',
                 'default' => $cardDefault,
                 'simple' => (bool) ($card['simple'] ?? $cardDefault),
             ];
@@ -254,11 +256,20 @@ abstract class PageCatalog
                 $seriesDefault = (string) ($s['default'] ?? self::SERIES_SHOWN);
                 $column = isset($s['column']) ? (string) $s['column'] : null;
                 $trendOf = isset($s['trend_of']) ? (string) $s['trend_of'] : null;
+                $onMarkers = null;
+                if (isset($s['on_markers']) && is_array($s['on_markers'])) {
+                    $onMarkers = [
+                        'lane' => (float) ($s['on_markers']['lane'] ?? 0),
+                        'symbol' => (string) ($s['on_markers']['symbol'] ?? 'circle'),
+                        'radius' => (int) ($s['on_markers']['radius'] ?? 4),
+                    ];
+                }
+                $step = $s['step'] ?? null;
                 $series[] = [
                     'id' => (string) ($s['id'] ?? $column ?? $trendOf),
                     'column' => $column,
                     'name' => (string) $s['name'],
-                    'type' => (string) ($s['type'] ?? 'spline'),
+                    'type' => $onMarkers !== null ? 'scatter' : (string) ($s['type'] ?? 'spline'),
                     'color' => (string) ($s['color'] ?? '#7f8c8d'),
                     'fill' => isset($s['fill']) ? array_values($s['fill']) : null,
                     'lineWidth' => $s['lineWidth'] ?? 2,
@@ -266,6 +277,10 @@ abstract class PageCatalog
                     'yAxis' => (int) ($s['yAxis'] ?? 0),
                     'tooltip' => $s['tooltip'] ?? null,
                     'opacity' => $s['opacity'] ?? null,
+                    // Ligne en escalier (états 0/1) : true = 'left' côté Highcharts.
+                    'step' => $step === true ? 'left' : (is_string($step) && $step !== '' ? $step : null),
+                    // Marqueurs « ON » : un point (à hauteur fixe `lane`) par mesure dont la valeur est > 0.
+                    'on_markers' => $onMarkers,
                     'trend_of' => $trendOf,
                     'trend_round' => (bool) ($s['trend_round'] ?? false),
                     'live' => $column !== null && $trendOf === null,

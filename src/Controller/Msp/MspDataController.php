@@ -8,7 +8,6 @@ use App\Controller\AbstractDataController;
 use App\Display\Catalog\MspCatalog;
 use App\Display\PageCatalog;
 use App\Repository\MspSensorRepository;
-use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
@@ -31,9 +30,8 @@ class MspDataController extends AbstractDataController
         CsvExportService $csvExportService,
         ChartDataService $chartDataService,
         DisplayPresetService $displayPresets,
-        AuthService $authService,
     ) {
-        parent::__construct($renderer, $sensorRepo, $csrfService, $dateRangeExtractor, $csvExportService, $chartDataService, $displayPresets, $authService);
+        parent::__construct($renderer, $sensorRepo, $csrfService, $dateRangeExtractor, $csvExportService, $chartDataService, $displayPresets);
     }
 
     protected function catalog(): PageCatalog

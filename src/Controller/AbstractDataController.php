@@ -8,7 +8,6 @@ use App\Config\TableConfig;
 use App\Config\Version;
 use App\Display\PageCatalog;
 use App\Repository\AbstractSensorRepository;
-use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
@@ -34,7 +33,6 @@ abstract class AbstractDataController
         protected CsvExportService $csvExportService,
         protected ChartDataService $chartDataService,
         protected DisplayPresetService $displayPresets,
-        protected AuthService $authService,
     ) {
     }
 
@@ -98,10 +96,10 @@ abstract class AbstractDataController
         }
 
         $requestedPreset = self::requestedPreset($request);
+        // Sans ?preset= explicite : dernier choix du visiteur (cookie posé par preset-selector.js).
         $display = $this->displayPresets->pageContext(
             $catalog,
-            $requestedPreset,
-            $this->authService->getCurrentRole()
+            $requestedPreset ?? self::rememberedPreset($request, $catalog->pageKey())
         );
 
         // fetchBetween() renvoie déjà les lectures en ordre chronologique (ASC) et
@@ -109,7 +107,8 @@ abstract class AbstractDataController
         // croissant : inverser ici produirait des timestamps décroissants et
         // déclencherait l'avertissement Highcharts #15 (« data not sorted in
         // ascending X order »).
-        // Colonnes limitées au preset actif (séries non hidden) pour alléger LTTB/JSON.
+        // Colonnes limitées au preset actif (séries non hidden) : allège le JSON envoyé
+        // (la décimation LTTB, elle, ne dépend que de la 1re colonne).
         $series = $this->chartDataService->prepareGenericSeries(
             $readings,
             self::columnsForLayout($catalog, $display['layout'])
@@ -161,6 +160,24 @@ abstract class AbstractDataController
     {
         $body = $request->getParsedBody();
         $raw = $request->getQueryParams()['preset'] ?? (is_array($body) ? ($body['preset'] ?? null) : null);
+        if (!is_string($raw) || !preg_match(DisplayPresetService::SLUG_PATTERN, $raw)) {
+            return null;
+        }
+
+        return $raw;
+    }
+
+    /** Préfixe du cookie mémorisant le dernier preset choisi sur une page (`n3_preset_<page>`). */
+    public const PRESET_COOKIE_PREFIX = 'n3_preset_';
+
+    /**
+     * Dernier preset choisi par le visiteur sur cette page (cookie `n3_preset_<page>`
+     * posé par preset-selector.js), ou null. Un slug inconnu retombe sur le défaut
+     * dans DisplayPresetService::select().
+     */
+    public static function rememberedPreset(Request $request, string $pageKey): ?string
+    {
+        $raw = $request->getCookieParams()[self::PRESET_COOKIE_PREFIX . $pageKey] ?? null;
         if (!is_string($raw) || !preg_match(DisplayPresetService::SLUG_PATTERN, $raw)) {
             return null;
         }
@@ -266,6 +283,7 @@ abstract class AbstractDataController
                 $source = $s['column'] ?? $s['trend_of'];
                 $columns[$source] = $series[$source] ?? [];
                 $jsSeries[] = [
+                    'id' => $s['id'],
                     'name' => $s['name'],
                     'column' => $s['column'],
                     'trendOf' => $s['trend_of'],
@@ -278,6 +296,8 @@ abstract class AbstractDataController
                     'yAxis' => $s['yAxis'],
                     'tooltip' => $s['tooltip'],
                     'opacity' => $s['opacity'],
+                    'step' => $s['step'] ?? null,
+                    'onMarkers' => $s['on_markers'] ?? null,
                     'visible' => $s['visible'],
                 ];
             }
