@@ -1,6 +1,7 @@
 # Presets d'affichage des pages de suivi
 
-**Depuis** : serveur **6.41.0** (enrichi **6.46.0** : FFP3, presets publics, reorder cartes/séries)  
+**Depuis** : serveur **6.41.0** (enrichi **6.46.0** : FFP3, presets publics, reorder cartes/séries ;
+**6.49.0** : défaut « Étendu » pour tous, pastilles dédoublonnées, cookie, marqueurs ON, chimie FFP3)  
 **Périmètre** : MSP1 (`/meteo`), N3PP (`/serre`), ENERGIE (`/energie`), FFP3 (`/aquaponie`).
 
 Les pages de suivi sont pilotées par un **catalogue déclaratif** (`src/Display/`) qui décrit
@@ -26,18 +27,28 @@ tous les cadres, cartes et séries possibles. Un **preset** n'est qu'une surcouc
 | `simple` | Vue essentielle | Drapeaux `simple` du catalogue |
 | `visite` | Parents / visiteurs | Idem `simple` |
 | `eleves` | Collège / lycée | Idem `simple` |
-| `etendu` | Complet (défaut opérateur) | Visibilités par défaut du catalogue |
+| `etendu` | Complet (**défaut**) | Visibilités par défaut du catalogue |
 | `technique` | Maintenance | Idem `etendu` |
 
-Sans `?preset=`, un **lecteur** (ou session anonyme) reçoit `simple` tant qu'aucun défaut
-personnalisé n'est enregistré en base. Les **opérateurs / admins** gardent `etendu`.
+Sans `?preset=` ni choix mémorisé, **tous les visiteurs** reçoivent `etendu` (affichage
+historique complet), sauf si un autre preset est marqué « par défaut » dans l'éditeur.
+(La préférence « simple » pour lecteurs / anonymes de 6.46.0 a été retirée en 6.49.0.)
+
+**Pastilles dédoublonnées** : un preset intégré non personnalisé dont le rendu est
+identique à un preset déjà proposé n'apparaît pas (tant qu'ils ne sont pas modifiés,
+Visite / Élèves = Simple et Technique = Étendu → seules « Simple » et « Étendu » sont
+proposées). Le preset actif et le défaut sont toujours affichés. Personnaliser « Élèves »
+dans l'éditeur le fait apparaître.
 
 ## Choix visiteur (page de suivi)
 
-1. Pastilles « Affichage : Simple | Visite | Élèves | … » (`partials/_preset_selector.twig`).
-2. Un clic recharge avec `?preset=slug` et mémorise dans `localStorage` (`n3.preset.<page>`).
+1. Pastilles « Affichage : Simple | Étendu | … » (`partials/_preset_selector.twig`).
+2. Un clic ouvre `?preset=slug` et mémorise le choix dans le cookie `n3_preset_<page>`
+   (1 an, `SameSite=Lax`), lu **côté serveur** : la visite suivante est directement rendue
+   avec ce preset (pas de rechargement). L'ancien `localStorage` (`n3.preset.<page>`) est
+   migré une fois vers le cookie.
 3. `period-nav.js` conserve le paramètre `preset` d'une fenêtre temporelle à l'autre.
-4. Sans `?preset`, un choix mémorisé différent du défaut est réappliqué (GET uniquement).
+4. Priorité : `?preset=` (ou preset forcé, ex. `/aquaponie-alt`) > cookie > défaut.
 
 ## Édition (opérateur+)
 
@@ -99,11 +110,36 @@ L'ordre des clés de `cards` et `series` est l'ordre d'affichage.
 - Partagée prod/test d'une même famille (mêmes colonnes capteurs).
 - Sans ligne en base : presets intégrés uniquement ; la page de suivi reste utilisable.
 
+## Options de séries (catalogue)
+
+| Clé | Effet |
+|-----|-------|
+| `step` | Ligne en escalier (`true` = `'left'`) |
+| `on_markers` `{ lane, symbol, radius }` | Série d'**événements** : un marqueur par mesure > 0, posé à la hauteur fixe `lane`. À placer sur un axe masqué `min 0 / max 1` (bande en bas du graphique) ou sur un axe à `categories` (chronogramme, `lane` = index de ligne). En live, une valeur ≤ 0 n'ajoute rien. |
+| `trend_of` / `trend_round` | Droite de tendance (moindres carrés) d'une autre colonne, non live |
+
+Cartes : `format: 'onoff'` affiche **Marche / Arrêt** (rendu serveur et mise à jour live via `data-format`).
+
+Ne jamais tracer un état 0/1 sur l'axe d'une mesure : il force l'axe à 0 et écrase la courbe.
+
+## Mise à jour live
+
+`sensor_map_json` associe chaque colonne à sa 1re série (`chartId`, `seriesIndex`, format
+historique) et liste **toutes** ses séries dans `targets` (une colonne peut alimenter plusieurs
+graphiques, ex. `etatHeat` : marqueurs du graphique physique + chronogramme). `onLane` marque
+une série d'événements. `n3LayoutCharts.onReady(fn)` permet d'ajouter des séries (ex. marées)
+après la création différée des graphiques, **en fin de liste** pour ne pas décaler les index.
+
 ## FFP3 — particularités
 
 - Catalogue : `src/Display/Catalog/Ffp3Catalog.php`
 - Template : `templates/aquaponie_data.twig` (étend `monitoring_page.twig`)
-- Blocs dédiés : `tide_panel`, `water_balance`
+- Blocs dédiés : `tide_panel`, `water_balance`, custom `_ffp3_intro`, `_ffp3_chemistry`
+  (analyses chimiques des élèves, Google Sheets ; `requires_data: false`, visible partout)
+- Marqueurs pleine mer / basse mer ajoutés au graphique qui trace `EauAquarium`
+  (`AquaponieController::tideChartId`), via `onReady`
+- Pompes / chauffage / lumière / nourrissage : marqueurs « ON » sur axe d'événements masqué
+  + chronogramme « Actionneurs » (Étendu)
 - `/aquaponie-alt` force le preset `simple` si aucun `?preset=`
 - Niveaux d'eau convertis mm→cm dans `AquaponieController` avant les séries
 

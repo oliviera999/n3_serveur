@@ -39,9 +39,10 @@ final class LayoutResolverTest extends TestCase
         $this->assertFalse($soil[2]['visible'], 'Humid1 : présente dans la légende mais décochée par défaut');
 
         // Index réels des séries rendues (la tendance occupe l'index 1, sans mapping live).
-        $this->assertSame(['chartId' => 'chart-niveauxeaux', 'seriesIndex' => 0], $resolved['sensor_map']['HumidMoy']);
-        $this->assertSame(['chartId' => 'chart-niveauxeaux', 'seriesIndex' => 2], $resolved['sensor_map']['Humid1']);
-        $this->assertSame(['chartId' => 'chart-niveauxeaux', 'seriesIndex' => 7], $resolved['sensor_map']['resetMode']);
+        $humidMoy = ['chartId' => 'chart-niveauxeaux', 'seriesIndex' => 0];
+        $this->assertSame($humidMoy + ['targets' => [$humidMoy]], $resolved['sensor_map']['HumidMoy']);
+        $this->assertSame(2, $resolved['sensor_map']['Humid1']['seriesIndex']);
+        $this->assertSame(7, $resolved['sensor_map']['resetMode']['seriesIndex']);
         $this->assertArrayNotHasKey('HumidMoyTendance', $resolved['sensor_map']);
     }
 

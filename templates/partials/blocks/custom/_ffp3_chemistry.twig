@@ -1,0 +1,67 @@
+{# Suivi des paramètres chimiques de l'eau (analyses manuelles des élèves, graphiques Google Sheets publiés).
+   Repris de l'ancienne page aquaponie (aquaponie_alt.twig, ≤ 6.45.0). Options du catalogue :
+   `sheets` : liste { title, icon, src, sheet_title }. Indépendant des mesures capteurs (requires_data: false). #}
+{% set legend = [
+    { icon: 'fa-tint', css: 'legend-ph', label: 'pH (Potentiel Hydrogène)', value: 'Acidité / alcalinité. Idéal : 6,8–7,2' },
+    { icon: 'fa-wind', css: 'legend-nh3', label: 'Ammoniaque (NH₃)', value: 'Toxique pour les poissons. < 0,02 mg/L' },
+    { icon: 'fa-leaf', css: 'legend-no2', label: 'Nitrites (NO₂)', value: 'Cycle de l\'azote. Doit être indétectable' },
+    { icon: 'fa-seedling', css: 'legend-no3', label: 'Nitrates (NO₃)', value: 'Nutriment plantes. Optimal : 5–150 mg/L' },
+    { icon: 'fa-water', css: 'legend-o2', label: 'Oxygène dissous (O₂)', value: 'Vital pour poissons et bactéries. Optimal : 5–8 mg/L' },
+    { icon: 'fa-atom', css: 'legend-po4', label: 'Phosphates (PO₄³⁻)', value: 'Macronutriment pour les plantes. Optimal : 1–10 mg/L' },
+    { icon: 'fa-flask', css: 'legend-k', label: 'Potassium (K⁺)', value: 'Souvent déficient en aquaponie. Optimal : 50–150 mg/L' },
+    { icon: 'fa-magnet', css: 'legend-fe', label: 'Fer (Fe²⁺/Fe³⁺)', value: 'Oligo-élément essentiel aux plantes. Optimal : 0,5–2 mg/L' }
+] %}
+<div class="alt-data-chart-row alt-chemistry-row" data-aos="fade-up" data-block="{{ block.id }}">
+    <div class="alt-chemistry-section alt-chart-column">
+        <div class="section-header alt-section-title-full">
+            <i class="fas {{ block.icon }}"></i>
+            <h3>{{ block.title }}</h3>
+        </div>
+        <div class="chemistry-info-banner">
+            <div class="chemistry-info-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="chemistry-info-content">
+                <div class="chemistry-info-title">Analyses manuelles réalisées par les élèves</div>
+                <div class="chemistry-info-text">
+                    Ces mesures sont effectuées régulièrement par les élèves à l'aide d'un kit d'analyse dédié à l'aquariophilie.
+                    Le suivi de ces paramètres chimiques est essentiel pour maintenir un écosystème aquaponique équilibré et assurer
+                    le bien-être des poissons et la croissance optimale des plantes.
+                </div>
+            </div>
+        </div>
+        <div class="chemistry-blocks-grid">
+            {% for sheet in block.options.sheets|default([]) %}
+            <div class="chemistry-chart-card">
+                <div class="chemistry-chart-header">
+                    <i class="fas {{ sheet.icon|default('fa-chart-line') }} chemistry-chart-icon"></i>
+                    <h3 class="chemistry-chart-title">{{ sheet.title }}</h3>
+                </div>
+                {% include 'partials/_google_sheet_chart.twig' with {
+                    src: sheet.src,
+                    title: sheet.sheet_title|default(sheet.title)
+                } %}
+            </div>
+            {% endfor %}
+            <div class="chemistry-chart-card chemistry-legend-card">
+                <div class="chemistry-legend">
+                    <div class="chemistry-legend-title">
+                        <i class="fas fa-info-circle"></i>
+                        Paramètres surveillés
+                    </div>
+                    <div class="chemistry-legend-grid">
+                        {% for item in legend %}
+                        <div class="chemistry-legend-item">
+                            <i class="fas {{ item.icon }} chemistry-legend-icon {{ item.css }}"></i>
+                            <div class="chemistry-legend-content">
+                                <div class="chemistry-legend-label">{{ item.label }}</div>
+                                <div class="chemistry-legend-value">{{ item.value }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

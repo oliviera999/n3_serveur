@@ -11,6 +11,40 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.49.0] - 2026-11-02
+
+### Corrigé
+- **Aquaponie — marqueurs de marée** — les triangles pleine mer / basse mer ne
+  s'affichaient plus (script exécuté avant la création différée des graphiques) ;
+  ajoutés désormais via `n3LayoutCharts.onReady()`.
+- **Aquaponie — graphique « Paramètres physiques »** — Chauffage / Lumière (0/1)
+  tracés sur l'axe des °C (axe forcé à 0) et Humidité / Luminosité sur un axe
+  commun (humidité écrasée) : retour à un axe par grandeur + axe d'événements masqué.
+- **Option `step` des séries** ignorée par le catalogue : désormais transmise à Highcharts.
+- **Couleurs en double** (Pompe aqua = UV) et **libellé « UV »** pour `etatUV`
+  (GPIO 15 = Lumière) → « Lumière ».
+- **Cadre sans carte** : le graphique occupe toute la largeur (`alt-chart-column-full`).
+- Test `DisplayPresetServiceTest::testEditorData…` cassé depuis 6.46.0 (index des presets).
+
+### Amélioré
+- **Défaut « Étendu » pour tous les visiteurs** (affichage historique) : la
+  préférence « Simple » pour lecteurs / anonymes (6.46.0) est retirée. Un autre
+  défaut se choisit dans l'éditeur (« par défaut »).
+- **Pastilles** : un preset intégré non personnalisé identique à un autre
+  (Visite / Élèves = Simple, Technique = Étendu) n'est plus proposé → 2 pastilles
+  tant que rien n'est personnalisé.
+- **Choix mémorisé par cookie** `n3_preset_<page>` lu côté serveur (fin du double
+  chargement `localStorage` + `location.replace`) ; migration automatique.
+- **Aquaponie** — section **« Suivi des paramètres chimiques »** (analyses des
+  élèves, 3 graphiques + légende) réintégrée, visible dans tous les presets ;
+  couleurs historiques (aquarium orange) ; Réserve décochée par défaut ; pompes,
+  chauffage, lumière, nourrissage en **marqueurs « ON »** ; graphique Actionneurs
+  en **chronogramme** ; cartes d'état **Marche / Arrêt** ; note « distance capteur
+  → surface » restaurée ; intro sans affirmation figée.
+- **MSP1** — « Mesures manuelles » gardées dans la vue Simple.
+- **Live** — un capteur tracé dans plusieurs graphiques les met tous à jour
+  (`sensor_map[].targets`, `onLane` pour les marqueurs).
+
 ## [6.48.0] - 2026-11-02
 
 ### Corrigé

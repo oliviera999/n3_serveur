@@ -184,7 +184,8 @@ final class MspCatalog extends PageCatalog
                 'type' => self::BLOCK_GOOGLE_SHEET,
                 'title' => 'Mesures manuelles',
                 'icon' => 'fa-flask',
-                'simple' => false,
+                // Mesures faites par les élèves : gardées dans la vue Simple (publics Visite / Élèves).
+                'simple' => true,
                 'options' => [
                     'card_title' => 'Graphique des mesures',
                     'src' => 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5i0I15n-Nef5J1LlY-MGYkPNQtmyzJJ08yObEc4dI_YCQrHFyEwxBx6vmwX-6MnqHwHVzDvupD_Qv/pubchart?oid=583144182&format=interactive',

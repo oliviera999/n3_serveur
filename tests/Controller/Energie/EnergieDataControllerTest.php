@@ -99,9 +99,6 @@ final class EnergieDataControllerTest extends TestCase
             'width_seconds' => 20,
         ]);
 
-        $auth = $this->createMock(\App\Security\AuthService::class);
-        $auth->method('getCurrentRole')->willReturn('operator');
-
         return new EnergieDataController(
             $renderer,
             $sensorRepo,
@@ -110,7 +107,6 @@ final class EnergieDataControllerTest extends TestCase
             $this->createMock(CsvExportService::class),
             new ChartDataService(),
             $this->displayPresets(),
-            $auth,
         );
     }
 

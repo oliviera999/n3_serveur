@@ -10,7 +10,6 @@ use App\Controller\AbstractDataController;
 use App\Display\Catalog\Ffp3Catalog;
 use App\Display\PageCatalog;
 use App\Repository\SensorReadRepository;
-use App\Security\AuthService;
 use App\Service\ChartDataService;
 use App\Service\CsvExportService;
 use App\Service\DateRangeExtractor;
@@ -45,13 +44,12 @@ class AquaponieController
         private DateRangeExtractor $dateRangeExtractor,
         private CsvExportService $csvExportService,
         private DisplayPresetService $displayPresets,
-        private AuthService $authService,
     ) {
         $this->catalog = new Ffp3Catalog();
     }
 
     /**
-     * Page principale `/aquaponie` (preset demandé ou défaut selon rôle).
+     * Page principale `/aquaponie` (preset demandé, sinon preset par défaut).
      */
     public function showAlt(Request $request, Response $response): Response
     {
@@ -137,10 +135,10 @@ class AquaponieController
         $measureCount = count($rowsAsc);
 
         $requestedPreset = $forcedPreset ?? AbstractDataController::requestedPreset($request);
+        // Sans ?preset= explicite ni preset forcé : dernier choix du visiteur (cookie).
         $display = $this->displayPresets->pageContext(
             $catalog,
-            $requestedPreset,
-            $this->authService->getCurrentRole()
+            $requestedPreset ?? AbstractDataController::rememberedPreset($request, $catalog->pageKey())
         );
 
         $chartColumns = AbstractDataController::columnsForLayout($catalog, $display['layout']);
@@ -175,8 +173,12 @@ class AquaponieController
             : null;
 
         $chartPayload = AbstractDataController::chartPayload($display['layout']['charts'], $series);
-        $chartPayload['tidePeaks'] = $extrema['peaks'];
-        $chartPayload['tideTroughs'] = $extrema['troughs'];
+        $tideChartId = self::tideChartId($display['layout']['charts']);
+        if ($tideChartId !== null) {
+            $chartPayload['tideChartId'] = $tideChartId;
+            $chartPayload['tidePeaks'] = $extrema['peaks'];
+            $chartPayload['tideTroughs'] = $extrema['troughs'];
+        }
 
         $context = [
             'page_title' => 'Aquaponie FFP3 — Données en direct | n³ IoT' . $testSuffix,
@@ -205,6 +207,25 @@ class AquaponieController
         ];
 
         return array_merge($context, $display, $catalogStats, $waterBalance);
+    }
+
+    /**
+     * Graphique qui reçoit les marqueurs pleine mer / basse mer : le premier qui trace
+     * le niveau de l'aquarium (série EauAquarium), sinon aucun (preset sans ce niveau).
+     *
+     * @param list<array<string, mixed>> $charts graphiques résolus (LayoutResolver::resolve)
+     */
+    public static function tideChartId(array $charts): ?string
+    {
+        foreach ($charts as $chart) {
+            foreach ($chart['series'] ?? [] as $series) {
+                if (($series['column'] ?? null) === 'EauAquarium' && ($series['on_markers'] ?? null) === null) {
+                    return (string) $chart['id'];
+                }
+            }
+        }
+
+        return null;
     }
 
     /**

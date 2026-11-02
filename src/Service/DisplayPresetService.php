@@ -7,7 +7,6 @@ namespace App\Service;
 use App\Display\LayoutResolver;
 use App\Display\PageCatalog;
 use App\Display\PageCatalogRegistry;
-use App\Domain\User;
 use App\Repository\DisplayPresetRepository;
 
 /**
@@ -87,38 +86,23 @@ class DisplayPresetService
 
     /**
      * Preset à appliquer : celui demandé (`?preset=`), même s'il n'est pas
-     * proposé aux visiteurs (prévisualisation), sinon le preset par défaut.
-     * Sans `?preset=`, un rôle « reader » (ou anonyme) préfère « simple » tant
-     * que le défaut n'a pas été personnalisé en base (reste le builtin étendu).
+     * proposé aux visiteurs (prévisualisation), sinon le preset par défaut
+     * (« étendu », ou celui marqué « par défaut » dans l'éditeur). Le même défaut
+     * vaut pour tous les visiteurs : l'affichage historique complet tant que
+     * l'éditeur n'en désigne pas un autre.
      *
      * @param list<array<string, mixed>> $presets
      * @return array<string, mixed>
      */
-    public function select(array $presets, ?string $requestedSlug, ?string $viewerRole = null): array
+    public function select(array $presets, ?string $requestedSlug): array
     {
         $default = $presets[0];
-        $hasCustomizedDefault = false;
         foreach ($presets as $preset) {
             if ($requestedSlug !== null && $preset['slug'] === $requestedSlug) {
                 return $preset;
             }
             if ($preset['is_default']) {
                 $default = $preset;
-                $hasCustomizedDefault = (bool) ($preset['customized'] ?? false)
-                    || !(bool) ($preset['builtin'] ?? false);
-            }
-        }
-
-        if (
-            $requestedSlug === null
-            && !$hasCustomizedDefault
-            && $default['slug'] === PageCatalog::PRESET_EXTENDED
-            && $this->prefersSimplePreset($viewerRole)
-        ) {
-            foreach ($presets as $preset) {
-                if ($preset['slug'] === PageCatalog::PRESET_SIMPLE) {
-                    return $preset;
-                }
             }
         }
 
@@ -126,40 +110,26 @@ class DisplayPresetService
     }
 
     /**
-     * Lecteurs / anonymes : vue simple par défaut (sauf défaut opérateur en BDD).
-     */
-    private function prefersSimplePreset(?string $viewerRole): bool
-    {
-        if ($viewerRole === null || $viewerRole === '') {
-            return true;
-        }
-
-        return $viewerRole === User::ROLE_READER;
-    }
-
-    /**
      * Contexte Twig/JS d'une page de suivi pour le preset retenu.
      *
      * @return array{layout: array<string, mixed>, preset: array<string, mixed>, default_preset_slug: string, presets_menu: list<array<string, mixed>>, chart_ids_json: string, sensor_map_json: string}
      */
-    public function pageContext(PageCatalog $catalog, ?string $requestedSlug, ?string $viewerRole = null): array
+    public function pageContext(PageCatalog $catalog, ?string $requestedSlug): array
     {
         $presets = $this->presets($catalog);
-        $preset = $this->select($presets, $requestedSlug, $viewerRole);
-        $default = $this->select($presets, null, $viewerRole);
+        $preset = $this->select($presets, $requestedSlug);
+        $default = $this->select($presets, null);
         $layout = $this->resolver->resolve($catalog, $preset['layout']);
 
         $menu = [];
-        foreach ($presets as $p) {
-            if ($p['show_on_page'] || $p['slug'] === $preset['slug']) {
-                $menu[] = [
-                    'slug' => $p['slug'],
-                    'label' => $p['label'],
-                    'description' => $p['description'],
-                    'is_default' => $p['is_default'],
-                    'active' => $p['slug'] === $preset['slug'],
-                ];
-            }
+        foreach ($this->menuPresets($catalog, $presets, $preset['slug'], $default['slug']) as $p) {
+            $menu[] = [
+                'slug' => $p['slug'],
+                'label' => $p['label'],
+                'description' => $p['description'],
+                'is_default' => $p['is_default'],
+                'active' => $p['slug'] === $preset['slug'],
+            ];
         }
 
         return [
@@ -262,6 +232,57 @@ class DisplayPresetService
     public function delete(PageCatalog $catalog, string $slug): bool
     {
         return $this->repository->delete($catalog->pageKey(), $slug);
+    }
+
+    /**
+     * Presets proposés en pastilles : ceux « affichés sur la page » (+ l'actif).
+     * Un preset intégré non personnalisé dont l'affichage est identique à un preset
+     * déjà proposé (ex. « Visite » et « Élèves » = « Simple », « Technique » =
+     * « Étendu » tant qu'ils ne sont pas modifiés dans l'éditeur) est omis : deux
+     * pastilles ne mènent jamais au même rendu. L'actif et le défaut restent toujours.
+     *
+     * @param list<array<string, mixed>> $presets triés
+     * @return list<array<string, mixed>>
+     */
+    private function menuPresets(PageCatalog $catalog, array $presets, string $activeSlug, string $defaultSlug): array
+    {
+        $candidates = array_values(array_filter(
+            $presets,
+            static fn (array $p): bool => (bool) $p['show_on_page'] || $p['slug'] === $activeSlug
+        ));
+        $pinned = [$activeSlug => true, $defaultSlug => true];
+
+        $signatures = [];
+        foreach ($candidates as $p) {
+            if (isset($pinned[$p['slug']])) {
+                $signatures[] = $this->layoutSignature($catalog, $p);
+            }
+        }
+
+        $menu = [];
+        foreach ($candidates as $p) {
+            if (!isset($pinned[$p['slug']])) {
+                $signature = $this->layoutSignature($catalog, $p);
+                $plainBuiltin = (bool) ($p['builtin'] ?? false) && !(bool) ($p['customized'] ?? false);
+                if ($plainBuiltin && in_array($signature, $signatures, true)) {
+                    continue;
+                }
+                $signatures[] = $signature;
+            }
+            $menu[] = $p;
+        }
+
+        return $menu;
+    }
+
+    /**
+     * Empreinte de l'affichage complet d'un preset (état de tous les éléments du catalogue).
+     *
+     * @param array<string, mixed> $preset
+     */
+    private function layoutSignature(PageCatalog $catalog, array $preset): string
+    {
+        return (string) json_encode($this->resolver->expand($catalog, $preset['layout']));
     }
 
     /**

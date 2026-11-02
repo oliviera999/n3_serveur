@@ -1,6 +1,7 @@
 /**
  * ChartUpdaterGeneric - Mise à jour temps réel des graphiques Highcharts pour MSP1 et N3PP.
- * Utilise les IDs de conteneurs (chart-temperatures, chart-lights, etc.) et une map capteur -> chartId + seriesIndex.
+ * Utilise les IDs de conteneurs (chart-temperatures, chart-lights, etc.) et une map capteur -> chartId + seriesIndex
+ * (ou `targets: [{ chartId, seriesIndex, onLane? }]` quand le capteur alimente plusieurs séries).
  * Compatible avec realtime-updater.js : window.chartUpdater.addNewReadings(readings).
  */
 (function () {
@@ -43,16 +44,28 @@
         var self = this;
         Object.keys(sensors).forEach(function (sensorName) {
             var mapping = self.sensorMap[sensorName];
-            if (!mapping || mapping.chartId == null || mapping.seriesIndex == null) return;
+            if (!mapping) return;
             var val = sensors[sensorName];
             if (val === null || val === undefined) return;
             var num = parseFloat(val);
             if (isNaN(num)) return;
-            self.updateQueue.push({
-                chartId: mapping.chartId,
-                seriesIndex: mapping.seriesIndex,
-                timestamp: timestampMs,
-                value: num
+            // `targets` : toutes les séries alimentées par ce capteur (format catalogue) ;
+            // sinon cible unique { chartId, seriesIndex } (format historique).
+            var targets = Array.isArray(mapping.targets) ? mapping.targets : [mapping];
+            targets.forEach(function (t) {
+                if (!t || t.chartId == null || t.seriesIndex == null) return;
+                var value = num;
+                if (t.onLane != null) {
+                    // Série « marqueurs ON » : un point à hauteur fixe seulement si l'état est actif.
+                    if (num <= 0) return;
+                    value = t.onLane;
+                }
+                self.updateQueue.push({
+                    chartId: t.chartId,
+                    seriesIndex: t.seriesIndex,
+                    timestamp: timestampMs,
+                    value: value
+                });
             });
         });
         this.scheduleBatchUpdate();

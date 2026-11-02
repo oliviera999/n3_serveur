@@ -12,21 +12,24 @@
 
 {% block scripts %}
     {{ parent() }}
-    {% if measure_count > 0 and chart_payload.tidePeaks is defined %}
+    {% if measure_count > 0 and chart_payload.tideChartId is defined %}
     <script src="{{ base_path }}/assets/js/aquaponie-tide-markers.js"></script>
     <script>
     (function () {
-        if (!window.n3TideMarkers || !window.Highcharts) return;
-        var peaks = {{ chart_payload.tidePeaks|json_encode(15)|raw }};
+        // Marqueurs pleine mer / basse mer : ajoutés APRÈS la création (différée) des graphiques,
+        // en fin de liste pour ne pas décaler les index de séries utilisés par le live.
+        if (!window.n3LayoutCharts || !window.n3TideMarkers || !window.n3TideMarkers.buildSeries) return;
+        var chartId = {{ chart_payload.tideChartId|json_encode(15)|raw }};
+        var peaks = {{ chart_payload.tidePeaks|default([])|json_encode(15)|raw }};
         var troughs = {{ chart_payload.tideTroughs|default([])|json_encode(15)|raw }};
-        var series = window.n3TideMarkers.buildSeries ? window.n3TideMarkers.buildSeries(peaks, troughs) : [];
-        if (!series.length) return;
-        var chart = Highcharts.charts.find(function (c) {
-            return c && c.renderTo && c.renderTo.id === 'chart-ffp3-eau';
+        window.n3LayoutCharts.onReady(function (charts) {
+            var chart = charts[chartId];
+            if (!chart) return;
+            var series = window.n3TideMarkers.buildSeries(peaks, troughs);
+            if (!series.length) return;
+            series.forEach(function (s) { chart.addSeries(s, false); });
+            chart.redraw();
         });
-        if (!chart) return;
-        series.forEach(function (s) { chart.addSeries(s, false); });
-        chart.redraw();
     })();
     </script>
     {% endif %}
