@@ -2,6 +2,27 @@ RewriteEngine On
 Options -Indexes
 
 # ====================================================================
+# Transmission de l'en-tete Authorization a PHP (connecteur MCP / OAuth)
+# Sous PHP-FPM / CGI (o2switch), Apache retire `Authorization` par defaut :
+# sans cette regle, `Authorization: Bearer <jeton>` n'arrive jamais a /mcp et
+# Claude obtient un 401 en boucle. La regle E= le recopie dans
+# HTTP_AUTHORIZATION (vu REDIRECT_HTTP_AUTHORIZATION apres la reecriture vers
+# public/index.php ; les deux sont lus par Slim et par AuthService).
+# Alternative si l'hebergeur l'autorise (AllowOverride AuthConfig, sinon
+# erreur 500 sur TOUT le site) : `CGIPassAuth On` — voir docs/MCP.md.
+# ====================================================================
+RewriteCond %{HTTP:Authorization} .+
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# ====================================================================
+# Decouverte OAuth du connecteur MCP : toujours routee vers Slim, meme si un
+# dossier `.well-known/` existe (cPanel AutoSSL y cree `acme-challenge/`) et
+# meme pour les chemins suffixes (`/.well-known/oauth-protected-resource/mcp`).
+# Les autres URL `.well-known/*` (acme-challenge) restent servies par Apache.
+# ====================================================================
+RewriteRule ^\.well-known/oauth-(protected-resource|authorization-server)(/mcp)?/?$ public/index.php [L]
+
+# ====================================================================
 # Bloquer l'acces aux repertoires et fichiers sensibles
 # (AVANT les regles de routage pour ne pas servir les fichiers existants)
 # ====================================================================

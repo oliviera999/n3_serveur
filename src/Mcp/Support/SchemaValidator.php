@@ -27,8 +27,8 @@ final class SchemaValidator
      */
     public static function validateArguments(array $schema, mixed $value): array
     {
-        if ($value === null) {
-            $value = [];
+        if ($value === null || $value instanceof \stdClass) {
+            $value = $value === null ? [] : (array) json_decode((string) json_encode($value), true);
         }
         if (!is_array($value) || ($value !== [] && array_is_list($value))) {
             throw new \InvalidArgumentException('Les arguments doivent être un objet JSON.');

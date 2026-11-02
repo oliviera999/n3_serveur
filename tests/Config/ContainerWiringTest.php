@@ -87,6 +87,8 @@ final class ContainerWiringTest extends TestCase
             \App\Controller\Gallery\GalleryViewController::class,
             \App\Controller\Gallery\GalleryTrashController::class,
             \App\Controller\Gallery\GalleryNormalizeController::class,
+            \App\Controller\McpController::class,
+            \App\Controller\OAuth\OAuthController::class,
         ];
     }
 
@@ -156,6 +158,15 @@ final class ContainerWiringTest extends TestCase
             // Commandes CRON
             \App\Command\RestartPumpCommand::class,
             \App\Command\CronOrchestrator::class,
+            \App\Command\McpOAuthPurgeCommand::class,
+            // Connecteur MCP
+            \App\Mcp\McpConfig::class,
+            \App\Mcp\McpServer::class,
+            \App\Mcp\ToolRegistry::class,
+            \App\Repository\McpReadRepository::class,
+            \App\Repository\McpOAuthRepository::class,
+            \App\OAuth\AuthorizationServer::class,
+            \App\OAuth\ClientResolver::class,
         ];
     }
 
@@ -181,6 +192,24 @@ final class ContainerWiringTest extends TestCase
         $instance = $container->get($class);
 
         self::assertInstanceOf($class, $instance);
+    }
+
+    public function testMcpRegistryExposesAllToolsWithStableNames(): void
+    {
+        $registry = self::buildContainer()->get(\App\Mcp\ToolRegistry::class);
+        $names = array_map(static fn (\App\Mcp\Tool $t): string => $t->name(), $registry->all());
+
+        self::assertSame([
+            'iot_overview', 'iot_server_health', 'iot_describe', 'iot_latest', 'iot_series', 'iot_stats',
+            'iot_tides', 'iot_energy', 'iot_pgl_stats', 'iot_outputs_state', 'iot_alerts', 'iot_contract_check',
+            'iot_gallery_list', 'iot_gallery_latest', 'iot_plan_output_change', 'iot_apply_plan',
+        ], $names);
+        foreach ($registry->all() as $tool) {
+            self::assertSame('object', $tool->inputSchema()['type'], $tool->name());
+            self::assertFalse($tool->inputSchema()['additionalProperties'], $tool->name());
+            self::assertNotSame('', $tool->description());
+            self::assertSame($tool->isReadOnly(), $tool->annotations()['readOnlyHint'], $tool->name());
+        }
     }
 
     public function testPdoIsResolvable(): void
@@ -262,6 +291,8 @@ final class ContainerWiringTest extends TestCase
             [\App\Middleware\AuthGuardMiddleware::class, 'templateRenderer'],
             [\App\Middleware\ErrorHandlerMiddleware::class, 'renderer'],
             [\App\Controller\Ffp3\CacheController::class, 'renderer'],
+            // CRON : purge des jetons / codes / plans MCP expirés.
+            [\App\Command\CronOrchestrator::class, 'mcpOAuthPurge'],
         ];
 
         foreach ($cases as [$class, $path]) {

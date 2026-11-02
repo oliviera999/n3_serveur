@@ -40,6 +40,8 @@ class ControlAuditLogger
      * @param array<string, mixed> $target  Cible : ex. ['gpio' => 16], ['param' => 'aqThr'], ['id' => 12]
      * @param bool                 $success Succès (true) ou échec (false) de l'action
      * @param string|null          $reason  Détail optionnel (raison du rejet, message d'erreur)
+     * @param string|null          $who     Identité explicite (ex. « mcp:alice » pour le connecteur MCP,
+     *                                      authentifié par jeton OAuth et non par session web)
      */
     public function logAction(
         Request $request,
@@ -47,10 +49,11 @@ class ControlAuditLogger
         string $action,
         array $target,
         bool $success,
-        ?string $reason = null
+        ?string $reason = null,
+        ?string $who = null,
     ): void {
         $context = [
-            'who' => $this->resolveIdentity($request),
+            'who' => $who ?? $this->resolveIdentity($request),
             'ip' => $this->resolveClientIp($request),
             'module' => $module,
             'action' => $action,

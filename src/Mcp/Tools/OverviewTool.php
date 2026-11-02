@@ -84,6 +84,13 @@ final class OverviewTool extends AbstractTool
             'label' => FieldCatalog::label($family),
             'is_production' => FieldCatalog::isProductionTarget($family, $env),
         ];
+        $prefix = $family === 'msp1' ? 'msp1:' : $family . ':';
+        $alertCount = count(array_filter(
+            $activeAlerts,
+            static fn (array $a): bool => str_starts_with((string) ($a['key'] ?? ''), $prefix)
+                || strtolower((string) ($a['family'] ?? '')) === $family
+        ));
+        $out['active_alerts'] = $alertCount;
         try {
             $latest = $this->repo->latest($family);
         } catch (\Throwable) {
@@ -125,13 +132,6 @@ final class OverviewTool extends AbstractTool
             $value = FieldCatalog::present($family, $field, $latest[$field] ?? null);
             $summary[$field] = $value === null ? null : ['value' => $value, 'unit' => FieldCatalog::unit($family, $field)];
         }
-        $prefix = $family === 'msp1' ? 'msp1:' : $family . ':';
-        $alertCount = count(array_filter(
-            $activeAlerts,
-            static fn (array $a): bool => str_starts_with((string) ($a['key'] ?? ''), $prefix)
-                || strtolower((string) ($a['family'] ?? '')) === $family
-        ));
-
         return $out + [
             'status' => $online ? 'en_ligne' : 'hors_ligne',
             'online' => $online,
@@ -141,7 +141,6 @@ final class OverviewTool extends AbstractTool
             'heartbeat' => $heartbeat,
             'firmware_version' => isset($latest['version']) && $latest['version'] !== '' ? (string) $latest['version'] : null,
             'latest' => $summary,
-            'active_alerts' => $alertCount,
         ];
     }
 

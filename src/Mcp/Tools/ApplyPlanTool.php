@@ -156,14 +156,14 @@ final class ApplyPlanTool extends AbstractTool
             });
         } catch (\Throwable $e) {
             // Le plan reste consommé (usage unique) : tout nouvel essai repasse par un nouveau plan.
-            $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget, false, $e->getMessage());
+            $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget, false, $e->getMessage(), 'mcp:' . $context->username);
             throw $e;
         }
 
         $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget + [
             'before' => $outcome['before'],
             'after' => $outcome['after'],
-        ], true);
+        ], true, null, 'mcp:' . $context->username);
 
         return ToolResult::json([
             'applied' => true,
