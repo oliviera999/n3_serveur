@@ -40,14 +40,14 @@ final class AquaponieControllerRenderTest extends TestCase
     /**
      * @return list<array<string, mixed>>
      */
-    private function rows(): array
+    private function rows(bool $aquariumSilent = false): array
     {
         $rows = [];
         foreach (['2026-10-30 10:00:00', '2026-10-30 10:02:00', '2026-10-30 10:04:00'] as $i => $time) {
             $rows[] = [
                 'reading_time' => $time,
                 // Niveaux stockés en mm (convertis en cm par le contrôleur).
-                'EauAquarium' => 170 + 10 * $i, 'EauReserve' => 420, 'EauPotager' => 150,
+                'EauAquarium' => $aquariumSilent ? null : 170 + 10 * $i, 'EauReserve' => 420, 'EauPotager' => 150,
                 'TempEau' => 23.4, 'TempAir' => 25.1, 'Humidite' => 71, 'Luminosite' => 1800,
                 'etatPompeAqua' => 1, 'etatPompeTank' => 0, 'etatHeat' => $i % 2, 'etatUV' => 1,
                 'bouffePetits' => 0, 'bouffeGros' => 0, 'sensor' => 'ffp3', 'version' => '15.31',
@@ -57,13 +57,16 @@ final class AquaponieControllerRenderTest extends TestCase
         return $rows;
     }
 
-    private function render(string $uri, array $cookies = []): ResponseInterface
+    /**
+     * @param array<string, string> $cookies
+     */
+    private function render(string $uri, array $cookies = [], bool $aquariumSilent = false): ResponseInterface
     {
         if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
             $this->markTestSkipped('PDO sqlite driver not available');
         }
         TableConfig::setEnvironment('test');
-        $rows = $this->rows();
+        $rows = $this->rows($aquariumSilent);
         $last = '2026-10-30 10:04:00';
 
         $repo = $this->createMock(SensorReadRepository::class);
@@ -72,6 +75,10 @@ final class AquaponieControllerRenderTest extends TestCase
         $repo->method('getLastReadings')->willReturn($rows[2]);
         $repo->method('getFirstReadingDate')->willReturn('2026-01-01 00:00:00');
         $repo->method('getFirmwareVersion')->willReturn('15.31');
+        // Dernière valeur valide (brute, en mm) : 81 mm = 8,1 cm le 31/10 (cas réel de production).
+        $repo->method('getLastNonNull')->willReturnCallback(
+            static fn (string $column): ?array => $column === 'EauAquarium' ? ['value' => 81.0, 'reading_time' => '2026-10-29 21:07:41'] : null
+        );
 
         $stats = $this->createMock(StatisticsAggregatorService::class);
         $stats->method('aggregateAllStats')->willReturn([]);
@@ -159,5 +166,19 @@ final class AquaponieControllerRenderTest extends TestCase
         $this->assertStringContainsString('aria-current="page">Simple<', $html);
         $this->assertStringNotContainsString('chart-ffp3-actuators', $html, 'actionneurs masqués en Simple');
         $this->assertStringContainsString('Suivi des paramètres chimiques', $html, 'chimie gardée en Simple');
+    }
+
+    public function testSilentAquariumSensorShowsItsLastValidValue(): void
+    {
+        $html = (string) $this->render('/aquaponie-test', [], true)->getBody();
+
+        $this->assertStringContainsString('data-last-valid="EauAquarium"', $html);
+        $this->assertStringContainsString('Dernière valeur valide :', $html);
+        $this->assertMatchesRegularExpression('/8,1 cm\s+le 29\/10\/2026 à \d\d:07/', $html, 'mm convertis en cm');
+        $this->assertStringNotContainsString('data-last-valid="EauReserve"', $html);
+        // Payload : points « réchauffés » au réveil et tendances (linéaires, moyennes mobiles).
+        $this->assertStringContainsString('"stale":', $html);
+        $this->assertStringContainsString('"trendKind":"moving_avg"', $html);
+        $this->assertStringContainsString('"id":"trend-EauReserve"', $html);
     }
 }

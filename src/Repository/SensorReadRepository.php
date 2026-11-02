@@ -112,6 +112,35 @@ class SensorReadRepository extends AbstractRepository
         return $result['first_date'] ?? null;
     }
 
+    /** Colonnes capteur dont on peut demander la dernière valeur valide. */
+    private const LAST_VALID_COLUMNS = [
+        'TempAir', 'Humidite', 'TempEau', 'EauPotager', 'EauAquarium', 'EauReserve', 'Luminosite',
+        'etatPompeAqua', 'etatPompeTank', 'etatHeat', 'etatUV', 'bouffePetits', 'bouffeGros',
+    ];
+
+    /**
+     * Dernière valeur non nulle d'une colonne et son horodatage (valeur brute, niveaux
+     * d'eau en mm), cherchée à partir de `$notBefore`. Colonne inconnue → null.
+     *
+     * @return array{value: float, reading_time: string}|null
+     */
+    public function getLastNonNull(string $column, string $notBefore): ?array
+    {
+        if (!in_array($column, self::LAST_VALID_COLUMNS, true)) {
+            return null;
+        }
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $sql = "SELECT `{$column}` AS v, reading_time FROM `{$table}`"
+            . " WHERE `{$column}` IS NOT NULL AND reading_time >= :since"
+            . ' ORDER BY reading_time DESC LIMIT 1';
+        $row = $this->fetchOne($sql, [':since' => $notBefore]);
+        if ($row === null || !is_numeric($row['v'] ?? null)) {
+            return null;
+        }
+
+        return ['value' => (float) $row['v'], 'reading_time' => (string) $row['reading_time']];
+    }
+
     /**
      * Retourne la date/heure de la dernière mesure enregistrée, ou null si aucune donnée.
      *

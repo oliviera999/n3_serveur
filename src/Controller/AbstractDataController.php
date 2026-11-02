@@ -15,6 +15,7 @@ use App\Service\DateRangeExtractor;
 use App\Service\DisplayPresetService;
 use App\Service\TemplateRenderer;
 use App\Util\DurationFormatter;
+use App\Util\ReadingTimeParser;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -119,6 +120,7 @@ abstract class AbstractDataController
             self::statsColumnsForLayout($catalog, $display['layout'])
         );
 
+        $latest = $this->sensorRepo->getLatest();
         $firstReadingDate = $this->sensorRepo->getFirstReadingDate();
         $now = date('Y-m-d H:i:s');
         $tempsTotalModule = $firstReadingDate !== null
@@ -131,7 +133,13 @@ abstract class AbstractDataController
             'environment' => $environment,
             'data_config' => self::withPresetInFormAction($catalog->pageConfig($environment), $requestedPreset, $display),
             'realtime_api_base' => $this->getRealtimeApiBase($environment),
-            'latest' => $this->sensorRepo->getLatest(),
+            'latest' => $latest,
+            'last_valid' => self::lastValidValues(
+                $display['layout'],
+                $latest,
+                fn (string $column): ?array => $this->sensorRepo->getLastNonNull($column, self::lastValidSince($lastDate))
+            ),
+            'stuck' => self::stuckSensors($display['layout'], $readings),
             'start_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $startDate),
             'end_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $endDate),
             'measure_count' => $measureCount,
@@ -151,6 +159,113 @@ abstract class AbstractDataController
         $html = $this->renderer->render($this->getTemplateName(), $context);
         $response->getBody()->write($html);
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    }
+
+    /** Profondeur de recherche de la dernière valeur valide d'une carte vide (jours). */
+    public const LAST_VALID_LOOKBACK_DAYS = 30;
+
+    /** Seuils « capteur figé » : mesures non nulles et durée minimales sur la période. */
+    public const STUCK_MIN_READINGS = 20;
+    public const STUCK_MIN_SECONDS = 7200;
+
+    /** Borne basse (SQL) de la recherche de dernière valeur valide. */
+    public static function lastValidSince(?string $lastReadingDate): string
+    {
+        try {
+            $ref = new \DateTimeImmutable($lastReadingDate ?? 'now');
+        } catch (\Exception) {
+            $ref = new \DateTimeImmutable();
+        }
+
+        // modify() (et non -N×86400 s) : borne en heure murale, indépendante du changement d'heure.
+        return $ref->modify('-' . self::LAST_VALID_LOOKBACK_DAYS . ' days')->format('Y-m-d H:i:s');
+    }
+
+    /**
+     * Cartes visibles dont la dernière mesure est vide : dernière valeur valide connue
+     * et sa date, affichées sous « — » (ex. capteur sans mesure depuis…).
+     *
+     * @param array<string, mixed> $layout sortie de LayoutResolver::resolve()
+     * @param array<string, mixed>|null $latest
+     * @param callable(string): (array{value: float, reading_time: string}|null) $lookup
+     * @return array<string, array{value: float, reading_time: string}>
+     */
+    public static function lastValidValues(array $layout, ?array $latest, callable $lookup): array
+    {
+        if ($latest === null) {
+            return [];
+        }
+        $out = [];
+        foreach ($layout['blocks'] ?? [] as $block) {
+            foreach ($block['cards'] ?? [] as $card) {
+                $key = (string) $card['key'];
+                if (!empty($card['if_present']) || isset($out[$key])) {
+                    continue;
+                }
+                $value = $latest[$key] ?? null;
+                if ($value !== null && $value !== '') {
+                    continue;
+                }
+                $found = $lookup($key);
+                if ($found !== null) {
+                    $out[$key] = $found;
+                }
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * Cartes surveillées (option catalogue `stuck_check`) dont toutes les mesures de la
+     * période sont identiques : capteur probablement figé (ex. niveau aquarium bloqué à
+     * la même valeur pendant des heures alors que les marées le font varier).
+     *
+     * @param array<string, mixed> $layout sortie de LayoutResolver::resolve()
+     * @param array<int, array<string, mixed>> $readings lectures de la période
+     * @return array<string, float> clé de carte => valeur répétée
+     */
+    public static function stuckSensors(array $layout, array $readings): array
+    {
+        $out = [];
+        foreach ($layout['blocks'] ?? [] as $block) {
+            foreach ($block['cards'] ?? [] as $card) {
+                if (empty($card['stuck_check'])) {
+                    continue;
+                }
+                $key = (string) $card['key'];
+                $count = 0;
+                $first = null;
+                $same = true;
+                $tMin = null;
+                $tMax = null;
+                foreach ($readings as $row) {
+                    $value = $row[$key] ?? null;
+                    if ($value === null || $value === '' || !is_numeric($value)) {
+                        continue;
+                    }
+                    $count++;
+                    $first ??= (float) $value;
+                    if ((float) $value !== $first) {
+                        $same = false;
+                        break;
+                    }
+                    $t = ReadingTimeParser::toUnixSeconds((string) ($row['reading_time'] ?? ''));
+                    if ($t !== null) {
+                        $tMin = $tMin === null ? $t : min($tMin, $t);
+                        $tMax = $tMax === null ? $t : max($tMax, $t);
+                    }
+                }
+                if (
+                    $same && $first !== null && $count >= self::STUCK_MIN_READINGS
+                    && $tMin !== null && $tMax !== null && ($tMax - $tMin) >= self::STUCK_MIN_SECONDS
+                ) {
+                    $out[$key] = $first;
+                }
+            }
+        }
+
+        return $out;
     }
 
     /**
@@ -288,6 +403,8 @@ abstract class AbstractDataController
                     'column' => $s['column'],
                     'trendOf' => $s['trend_of'],
                     'trendRound' => $s['trend_round'],
+                    'trendKind' => $s['trend_kind'] ?? 'linear',
+                    'trendWindow' => $s['trend_window'] ?? 30,
                     'type' => $s['type'],
                     'color' => $s['color'],
                     'fill' => $s['fill'],
@@ -313,6 +430,8 @@ abstract class AbstractDataController
         return [
             'readingTime' => $series['reading_time'] ?? [],
             'columns' => (object) $columns,
+            // Points « réchauffés » au réveil, omis par colonne côté graphique (escaliers).
+            'stale' => (object) ChartDataService::staleWakeIndexes($series, array_keys($columns)),
             'charts' => $jsCharts,
         ];
     }

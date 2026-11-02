@@ -115,7 +115,7 @@ final class Ffp3Catalog extends PageCatalog
                 'title' => 'Niveaux d\'eau',
                 'icon' => 'fa-tint',
                 'cards' => [
-                    ['key' => 'EauAquarium', 'label' => 'Aquarium', 'icon' => 'fa-fish', 'color' => $aquarium, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'aquarium'],
+                    ['key' => 'EauAquarium', 'label' => 'Aquarium', 'icon' => 'fa-fish', 'color' => $aquarium, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'aquarium', 'stuck_check' => true],
                     ['key' => 'EauReserve', 'label' => 'Réserve', 'icon' => 'fa-droplet', 'color' => $reserve, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'reserve'],
                     ['key' => 'EauPotager', 'label' => 'Potager', 'icon' => 'fa-seedling', 'color' => $potager, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'potager'],
                 ],
@@ -131,7 +131,14 @@ final class Ffp3Catalog extends PageCatalog
                         // Réserve en légende (décochée) par défaut, comme avant : son niveau élevé écrasait l'amplitude des marées.
                         ['column' => 'EauReserve', 'name' => 'Réserve', 'type' => 'areaspline', 'color' => $reserve, 'fill' => [0, 126, 97, 0.3, 0.05], 'dashStyle' => 'ShortDot', 'default' => self::SERIES_LEGEND],
                         ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'color' => $potager, 'fill' => [39, 189, 160, 0.3, 0.05], 'lineWidth' => 1.5],
-                        ['id' => 'trend-EauAquarium', 'trend_of' => 'EauAquarium', 'name' => 'Tendance aquarium', 'type' => 'line', 'color' => '#b34700', 'dashStyle' => 'ShortDash', 'lineWidth' => 1, 'default' => self::SERIES_LEGEND],
+                        // Tendances (régression sur le temps, recalculée au zoom) : dans la légende, décochées — comme ≤ 6.45.0.
+                        ['id' => 'trend-EauAquarium', 'trend_of' => 'EauAquarium', 'name' => 'Tendance aquarium', 'type' => 'line', 'color' => '#b34700', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],
+                        ['id' => 'trend-EauReserve', 'trend_of' => 'EauReserve', 'name' => 'Tendance réserve', 'type' => 'line', 'color' => '#00594a', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],
+                        ['id' => 'trend-EauPotager', 'trend_of' => 'EauPotager', 'name' => 'Tendance potager', 'type' => 'line', 'color' => '#178a73', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],
+                        // Moyennes mobiles (fenêtre 30 min, courbes lissées) : comme la vue classique ≤ 6.45.0.
+                        ['id' => 'ma-EauAquarium', 'trend_of' => 'EauAquarium', 'trend_kind' => 'moving_avg', 'name' => 'Aquarium (moy. mobile)', 'type' => 'spline', 'color' => '#ff9a4d', 'lineWidth' => 2, 'default' => self::SERIES_LEGEND],
+                        ['id' => 'ma-EauReserve', 'trend_of' => 'EauReserve', 'trend_kind' => 'moving_avg', 'name' => 'Réserve (moy. mobile)', 'type' => 'spline', 'color' => '#3fae99', 'lineWidth' => 2, 'default' => self::SERIES_LEGEND],
+                        ['id' => 'ma-EauPotager', 'trend_of' => 'EauPotager', 'trend_kind' => 'moving_avg', 'name' => 'Potager (moy. mobile)', 'type' => 'spline', 'color' => '#7fd6c4', 'lineWidth' => 2, 'default' => self::SERIES_LEGEND],
                         ['column' => 'etatPompeAqua', 'name' => 'Pompe aquarium ON', 'color' => $pompeAqua, 'yAxis' => 1, 'on_markers' => ['lane' => 0.03, 'symbol' => 'circle', 'radius' => 3], 'simple' => self::SERIES_LEGEND],
                         ['column' => 'etatPompeTank', 'name' => 'Pompe réserve ON', 'color' => $pompeTank, 'yAxis' => 1, 'on_markers' => ['lane' => 0.07, 'symbol' => 'square', 'radius' => 3], 'simple' => self::SERIES_HIDDEN],
                     ],
@@ -142,17 +149,19 @@ final class Ffp3Catalog extends PageCatalog
                 'title' => 'Paramètres physiques',
                 'icon' => 'fa-thermometer-half',
                 'cards' => [
-                    ['key' => 'TempEau', 'label' => 'Temp. eau', 'icon' => 'fa-water', 'color' => '#008B74', 'unit' => '°C', 'decimals' => 1, 'css_class' => 'tempeau'],
-                    ['key' => 'TempAir', 'label' => 'Temp. air', 'icon' => 'fa-temperature-high', 'color' => '#e67e22', 'unit' => '°C', 'decimals' => 1],
-                    ['key' => 'Humidite', 'label' => 'Humidité', 'icon' => 'fa-cloud', 'color' => '#3498db', 'unit' => '%', 'decimals' => 0, 'css_class' => 'humidity'],
+                    ['key' => 'TempEau', 'label' => 'Temp. eau', 'icon' => 'fa-water', 'color' => '#008B74', 'unit' => '°C', 'decimals' => 1, 'css_class' => 'tempeau', 'stuck_check' => true],
+                    ['key' => 'TempAir', 'label' => 'Temp. air', 'icon' => 'fa-temperature-high', 'color' => '#e67e22', 'unit' => '°C', 'decimals' => 1, 'stuck_check' => true],
+                    ['key' => 'Humidite', 'label' => 'Humidité', 'icon' => 'fa-cloud', 'color' => '#3498db', 'unit' => '%', 'decimals' => 0, 'css_class' => 'humidity', 'stuck_check' => true],
                     ['key' => 'Luminosite', 'label' => 'Luminosité', 'icon' => 'fa-sun', 'color' => '#f39c12', 'unit' => 'UA', 'simple' => false],
                 ],
                 'chart' => [
                     'id' => 'chart-ffp3-temp',
                     // Un axe par grandeur (comme ≤ 6.45.0) : °C, %, UA, + axe d'événements masqué.
                     'yAxis' => [
-                        ['title' => ['text' => 'Température (°C)'], 'opposite' => false],
-                        ['title' => ['text' => 'Humidité (%)'], 'opposite' => true],
+                        // minRange : une résolution capteur de 0,1 °C (ou 1 %) ne doit pas remplir toute la
+                        // hauteur (effet d'escalier) ; l'ancienne page partait de 0, ce qui écrasait tout.
+                        ['title' => ['text' => 'Température (°C)'], 'opposite' => false, 'minRange' => 6],
+                        ['title' => ['text' => 'Humidité (%)'], 'opposite' => true, 'minRange' => 30],
                         ['title' => ['text' => 'Luminosité (UA)'], 'opposite' => true, 'offset' => 60],
                         $eventsAxis,
                     ],
