@@ -86,6 +86,7 @@ class CronOrchestrator
     private ?N3ppDerivedAlertService $n3ppDerivedAlerts;
     private ?MspDerivedAlertService $mspDerivedAlerts;
     private ?GalleryNormalizeService $galleryNormalizeService;
+    private ?McpOAuthPurgeCommand $mcpOAuthPurge;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -118,7 +119,9 @@ class CronOrchestrator
         ?OperationalSettingsService $operationalSettings = null,
         ?PDO $pdo = null,
         ?GalleryNormalizeService $galleryNormalizeService = null,
+        ?McpOAuthPurgeCommand $mcpOAuthPurge = null,
     ) {
+        $this->mcpOAuthPurge = $mcpOAuthPurge;
         $needsDatabase = $logger === null
             || $sensorDataService === null
             || $pumpService === null
@@ -467,6 +470,8 @@ class CronOrchestrator
         $this->healthService->checkOnlineStatus($this->resolveFfp3OfflineThresholdSeconds());
         // Envoie un unique e-mail regroupant les alertes de faible sévérité accumulées.
         $this->notifier->flushDigest();
+        // Connecteur MCP : purge des jetons / codes / plans expirés (no-op sans les tables).
+        $this->mcpOAuthPurge?->execute();
         $this->logger->info('Tâches horaires CRON terminées.');
     }
 

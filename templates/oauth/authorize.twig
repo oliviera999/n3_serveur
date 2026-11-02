@@ -1,0 +1,79 @@
+{% extends 'layout.twig' %}
+{# Page de connexion + consentement OAuth du connecteur MCP (autonome, sans session web). #}
+{% set page_family = 'entry' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{{ base_path }}/assets/css/login-styles.css" />
+{% endblock %}
+
+{% block body_tag %}<body class="login-page">{% endblock %}
+
+{% block content %}
+<div class="login-center">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-plug" aria-hidden="true"></i>
+                <h1>Autoriser l'accès</h1>
+                <p><strong>{{ client_label }}</strong>{% if client_name and client_type == 'cimd' %} ({{ client_name }}){% endif %} demande l'accès au serveur IoT n³.</p>
+            </div>
+
+            {% if error %}
+            <div class="alert alert-error" role="alert">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <div class="alert {{ is_loopback ? 'alert-error' : 'alert-success' }}">
+                <i class="fas fa-share" aria-hidden="true"></i>
+                Après autorisation, vous serez renvoyé vers <strong>{{ redirect_host }}</strong>.
+                {% if is_loopback %}
+                <br><strong>Attention :</strong> il s'agit d'une adresse locale (application sur votre propre ordinateur,
+                par exemple Claude Code). N'acceptez que si VOUS venez de lancer cette connexion.
+                {% endif %}
+            </div>
+
+            <p>Droits demandés :</p>
+            <ul>
+                {% for s in requested_scopes %}
+                <li>
+                    <code>{{ s.scope }}</code> — {{ s.label }}
+                    {% if s.note %}<br><small>{{ s.note }}</small>{% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            <p><small>Les droits réellement accordés dépendent du rôle de votre compte. {{ roles_note }}</small></p>
+
+            <form method="POST" action="{{ base_path|default('') }}/oauth/authorize" class="login-form" autocomplete="on">
+                <input type="hidden" name="_mcp_csrf" value="{{ mcp_csrf }}" />
+                {% for name, value in hidden %}
+                <input type="hidden" name="{{ name }}" value="{{ value }}" />
+                {% endfor %}
+
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user" aria-hidden="true"></i> Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" value="{{ username }}" required autofocus autocomplete="username" />
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-key" aria-hidden="true"></i> Mot de passe</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password" />
+                </div>
+
+                <button type="submit" name="decision" value="allow" class="btn-login">
+                    <i class="fas fa-check" aria-hidden="true"></i> Se connecter et autoriser
+                </button>
+                <button type="submit" name="decision" value="deny" class="btn-login" formnovalidate>
+                    <i class="fas fa-times" aria-hidden="true"></i> Refuser
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p><i class="fas fa-shield-alt" aria-hidden="true"></i> Accès révocable à tout moment. Aucun mot de passe n'est transmis à l'application.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

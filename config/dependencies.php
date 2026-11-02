@@ -187,6 +187,7 @@ return [
             // sol sec, batterie, redémarrage, météo).
             pdo: $c->get(\PDO::class),
             galleryNormalizeService: $c->get(\App\Service\GalleryNormalizeService::class),
+            mcpOAuthPurge: $c->get(\App\Command\McpOAuthPurgeCommand::class),
         );
     },
 
@@ -297,4 +298,66 @@ return [
 
     \App\Controller\Ffp3\CacheController::class => \DI\autowire()
         ->constructorParameter('renderer', \DI\get(\App\Service\TemplateRenderer::class)),
+
+    // ====================================================================
+    // CONNECTEUR MCP (Claude) + serveur OAuth embarqué — docs/MCP.md
+    // ====================================================================
+    \App\Mcp\McpConfig::class => static fn (): \App\Mcp\McpConfig => \App\Mcp\McpConfig::fromEnv(),
+
+    // Connexion des OUTILS DE LECTURE : utilisateur SQL en lecture seule si DB_MCP_USER /
+    // DB_MCP_PASS sont fournis (défense en profondeur), sinon la connexion principale.
+    // Dans les deux cas les outils de lecture tournent en transaction READ ONLY annulée.
+    'mcp.read_pdo' => static fn (ContainerInterface $c): PDO => Database::getReadOnlyConnection() ?? $c->get(PDO::class),
+
+    \App\Repository\McpReadRepository::class => static fn (ContainerInterface $c): \App\Repository\McpReadRepository
+        => new \App\Repository\McpReadRepository($c->get('mcp.read_pdo')),
+
+    \App\Mcp\Support\ReadOnlyTransaction::class => static fn (ContainerInterface $c): \App\Mcp\Support\ReadOnlyTransaction
+        => new \App\Mcp\Support\ReadOnlyTransaction($c->get('mcp.read_pdo'), $c->get(PDO::class)),
+
+    \App\OAuth\HttpFetcher::class => \DI\autowire(\App\OAuth\CurlHttpFetcher::class),
+
+    // Outils exposés par le serveur MCP (ordre = ordre de tools/list ; noms stables).
+    \App\Mcp\ToolRegistry::class => static fn (ContainerInterface $c): \App\Mcp\ToolRegistry => new \App\Mcp\ToolRegistry(
+        array_map(static fn (string $class): \App\Mcp\Tool => $c->get($class), [
+            \App\Mcp\Tools\OverviewTool::class,
+            \App\Mcp\Tools\ServerHealthTool::class,
+            \App\Mcp\Tools\DescribeTool::class,
+            \App\Mcp\Tools\LatestTool::class,
+            \App\Mcp\Tools\SeriesTool::class,
+            \App\Mcp\Tools\StatsTool::class,
+            \App\Mcp\Tools\TidesTool::class,
+            \App\Mcp\Tools\EnergyTool::class,
+            \App\Mcp\Tools\PglStatsTool::class,
+            \App\Mcp\Tools\OutputsStateTool::class,
+            \App\Mcp\Tools\AlertsTool::class,
+            \App\Mcp\Tools\ContractCheckTool::class,
+            \App\Mcp\Tools\GalleryListTool::class,
+            \App\Mcp\Tools\GalleryLatestTool::class,
+            \App\Mcp\Tools\PlanOutputChangeTool::class,
+            \App\Mcp\Tools\ApplyPlanTool::class,
+        ]),
+        $c->get(\App\Mcp\McpConfig::class)
+    ),
+
+    // Limiteurs dédiés (portées distinctes du login web).
+    'mcp.rate_limit' => static function (ContainerInterface $c): \App\Middleware\RateLimitMiddleware {
+        $config = $c->get(\App\Mcp\McpConfig::class);
+
+        return new \App\Middleware\RateLimitMiddleware(
+            $c->get(\App\Security\RateLimiter::class),
+            'mcp',
+            $config->rateLimitMax(),
+            $config->rateLimitWindow()
+        );
+    },
+    'mcp.oauth_rate_limit' => static fn (ContainerInterface $c): \App\Middleware\RateLimitMiddleware => new \App\Middleware\RateLimitMiddleware(
+        $c->get(\App\Security\RateLimiter::class),
+        'mcp_oauth',
+        60,
+        600
+    ),
+
+    // Purge CRON des jetons/codes/plans expirés (sous-commande de CronOrchestrator).
+    \App\Command\McpOAuthPurgeCommand::class => \DI\autowire(),
 ];

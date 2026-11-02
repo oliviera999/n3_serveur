@@ -73,8 +73,8 @@ final class McpConfig
         $values = [];
         foreach ($keys as $key) {
             $raw = $_ENV[$key] ?? getenv($key);
-            if ($raw !== false && $raw !== null) {
-                $values[$key] = is_scalar($raw) ? (string) $raw : '';
+            if (is_scalar($raw) && $raw !== false) {
+                $values[$key] = (string) $raw;
             }
         }
 

@@ -445,6 +445,12 @@ require __DIR__ . '/../config/routes_gallery.php';
 require __DIR__ . '/../config/routes_admin.php';
 
 // ====================================================================
+// Connecteur MCP (Claude) + serveur OAuth embarqué — config/routes_mcp.php
+// Inactif tant que MCP_ENABLED n'est pas true (docs/MCP.md).
+// ====================================================================
+require __DIR__ . '/../config/routes_mcp.php';
+
+// ====================================================================
 // Middleware Slim (routing et erreurs)
 // ====================================================================
 $app->addRoutingMiddleware();
