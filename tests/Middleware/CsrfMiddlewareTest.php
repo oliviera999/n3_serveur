@@ -268,6 +268,33 @@ final class CsrfMiddlewareTest extends TestCase
         $this->assertStringContainsString('CSRF', (string) $result->getBody());
     }
 
+    public function testGalleryNormalizeWritesRequireCsrf(): void
+    {
+        foreach ([
+            '/admin/api/gallery/normalize-batch',
+            '/admin/api/gallery/purge-normalized-originals',
+        ] as $path) {
+            $middleware = new CsrfMiddleware($this->csrf, $this->auth());
+            $result = $middleware->process(
+                $this->makeRequest('POST', $path),
+                $this->expectBlocked()
+            );
+            $this->assertSame(403, $result->getStatusCode(), $path);
+        }
+    }
+
+    public function testGalleryNormalizeWritePassesWithCsrfToken(): void
+    {
+        $middleware = new CsrfMiddleware($this->csrf, $this->auth());
+        $passed = $this->createMock(ResponseInterface::class);
+
+        $result = $middleware->process(
+            $this->makeRequest('POST', '/admin/api/gallery/purge-normalized-originals', ['X-CSRF-Token' => $this->validToken]),
+            $this->expectPass($passed)
+        );
+        $this->assertSame($passed, $result);
+    }
+
     public function testNotificationPolicyWithValidTokenPasses(): void
     {
         $middleware = new CsrfMiddleware($this->csrf, $this->auth());
