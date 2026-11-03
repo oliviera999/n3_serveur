@@ -34,8 +34,9 @@ use App\Config\Env;
  *  - MCP_CONFIRM_UNLOCK_MINUTES  : fenêtre de déverrouillage après code (0 = désactivé)
  *  - MCP_EXTRA_REDIRECT_URIS     : redirections OAuth supplémentaires acceptées (CSV, exactes)
  *  - MCP_ALLOWED_ORIGINS         : origines navigateur supplémentaires acceptées sur /mcp (CSV)
- *  - MCP_CIMD_ALLOWED_HOSTS      : hôtes autorisés pour les Client ID Metadata Documents (CSV, `*` = tout hôte public)
+ *  - MCP_CIMD_ALLOWED_HOSTS      : hôtes CIMD (défaut Claude + ChatGPT + Cursor ; `*` = tout hôte public)
  *  - MCP_DCR_ENABLED             : active l'enregistrement dynamique /oauth/register (défaut true)
+ *  - MCP_OAUTH_CONFIDENTIAL_CLIENT_ID / _SECRET : client confidentiel statique (Gemini Enterprise)
  *  - MCP_RATE_LIMIT_MAX / _WINDOW: limitation de débit de /mcp par IP (défaut 300 / 60 s)
  *  - MCP_FEED_DAILY_MAX          : nombre maximal de nourrissages MCP par 24 h et par environnement (défaut 2)
  *  - MCP_MEMORY_STALE_DAYS       : âge (jours) au-delà duquel une note non revérifiée est « à revérifier » (défaut 90)
@@ -62,8 +63,36 @@ final class McpConfig
     /** Redirection unique des applications hébergées Claude (claude.ai, Desktop, mobile, Cowork). */
     public const CLAUDE_CALLBACK = 'https://claude.ai/api/mcp/auth_callback';
 
+    /** Cursor web / Cloud Agents. */
+    public const CURSOR_WEB_CALLBACK = 'https://www.cursor.com/agents/mcp/oauth/callback';
+
+    /** Cursor desktop (anciennes versions ; le loopback :8787 est couvert séparément). */
+    public const CURSOR_LEGACY_CALLBACK = 'cursor://anysphere.cursor-mcp/oauth/callback';
+
+    /** ChatGPT (URI stable si authorization_response_iss_parameter_supported). */
+    public const CHATGPT_CALLBACK = 'https://chatgpt.com/connector_platform_oauth_redirect';
+
+    /** Gemini Enterprise (Custom MCP Server). */
+    public const GEMINI_ENTERPRISE_CALLBACK = 'https://vertexaisearch.cloud.google.com/oauth-redirect';
+
+    /**
+     * Redirections HTTPS (et cursor:// legacy) intégrées — hors loopback HTTP.
+     *
+     * @var list<string>
+     */
+    public const BUILTIN_REDIRECT_URIS = [
+        self::CLAUDE_CALLBACK,
+        self::CURSOR_WEB_CALLBACK,
+        self::CURSOR_LEGACY_CALLBACK,
+        self::CHATGPT_CALLBACK,
+        self::GEMINI_ENTERPRISE_CALLBACK,
+    ];
+
     /** Redirections loopback de Claude Code (port ignoré à la comparaison, RFC 8252 §7.3). */
     public const LOOPBACK_CALLBACKS = ['http://localhost/callback', 'http://127.0.0.1/callback'];
+
+    /** @var list<string> */
+    public const DEFAULT_CIMD_HOSTS = ['claude.ai', 'claude.com', 'chatgpt.com', 'cursor.com', 'www.cursor.com'];
 
     public const SCOPE_READ = 'iot.read';
     public const SCOPE_CONTROL = 'iot.control';
@@ -95,6 +124,7 @@ final class McpConfig
             'MCP_SQL_ENABLED', 'MCP_SQL_DDL_ENABLED', 'MCP_SQL_MAX_AFFECTED_ROWS', 'MCP_SQL_MAX_STATEMENT_SECONDS', 'MCP_SQL_MAX_ROWS',
             'MCP_PRIVACY_BYPASS', 'MCP_CONFIRM_SKIP', 'MCP_CONFIRM_UNLOCK_MINUTES',
             'MCP_EXTRA_REDIRECT_URIS', 'MCP_ALLOWED_ORIGINS', 'MCP_CIMD_ALLOWED_HOSTS', 'MCP_DCR_ENABLED',
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_ID', 'MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET',
             'MCP_RATE_LIMIT_MAX', 'MCP_RATE_LIMIT_WINDOW', 'MCP_FEED_DAILY_MAX',
             'MCP_MEMORY_STALE_DAYS', 'MCP_MEMORY_MAX_CHARS', 'MCP_MEMORY_MAX_NOTES',
             'MCP_HEALTH_TOKEN', 'MCP_HEALTH_REPORT_ENABLED', 'MCP_HEALTH_REPORT_INTERVAL_SECONDS',
@@ -331,20 +361,26 @@ final class McpConfig
     public function allowedRedirectUris(): array
     {
         return array_values(array_unique(array_merge(
-            [self::CLAUDE_CALLBACK],
+            self::BUILTIN_REDIRECT_URIS,
             $this->csv('MCP_EXTRA_REDIRECT_URIS', [])
         )));
     }
 
     /**
      * Origines navigateur acceptées sur /mcp (anti DNS-rebinding). Une requête SANS
-     * en-tête Origin (serveur à serveur, Claude) n'est pas concernée.
+     * en-tête Origin (serveur à serveur) n'est pas concernée.
      *
      * @return list<string>
      */
     public function allowedOrigins(string $baseUrl): array
     {
-        $origins = ['https://claude.ai', 'https://claude.com'];
+        $origins = [
+            'https://claude.ai',
+            'https://claude.com',
+            'https://chatgpt.com',
+            'https://cursor.com',
+            'https://www.cursor.com',
+        ];
         $baseOrigin = self::originOf($baseUrl);
         if ($baseOrigin !== null) {
             $origins[] = $baseOrigin;
@@ -364,7 +400,61 @@ final class McpConfig
      */
     public function cimdAllowedHosts(): array
     {
-        return array_map('strtolower', $this->csv('MCP_CIMD_ALLOWED_HOSTS', ['claude.ai', 'claude.com']));
+        return array_map('strtolower', $this->csv('MCP_CIMD_ALLOWED_HOSTS', self::DEFAULT_CIMD_HOSTS));
+    }
+
+    /**
+     * Identifiant du client OAuth confidentiel statique (Gemini Enterprise), ou chaîne vide.
+     */
+    public function confidentialClientId(): string
+    {
+        return $this->values['MCP_OAUTH_CONFIDENTIAL_CLIENT_ID'] ?? '';
+    }
+
+    /**
+     * Secret du client confidentiel statique (jamais journalisé). Vide = client désactivé.
+     */
+    public function confidentialClientSecret(): string
+    {
+        return $this->values['MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET'] ?? '';
+    }
+
+    public function hasConfidentialClient(): bool
+    {
+        return $this->confidentialClientId() !== '' && $this->confidentialClientSecret() !== '';
+    }
+
+    /**
+     * Client OAuth confidentiel résolu depuis le .env (Gemini Enterprise), ou null.
+     *
+     * @return array{client_id: string, client_name: string, redirect_uris: list<string>, type: string, display_host: null, token_endpoint_auth_method: string}|null
+     */
+    public function confidentialClient(): ?array
+    {
+        if (!$this->hasConfidentialClient()) {
+            return null;
+        }
+
+        return [
+            'client_id' => $this->confidentialClientId(),
+            'client_name' => 'Gemini Enterprise (statique)',
+            'redirect_uris' => [self::GEMINI_ENTERPRISE_CALLBACK],
+            'type' => 'confidential',
+            'display_host' => null,
+            'token_endpoint_auth_method' => 'client_secret_post',
+        ];
+    }
+
+    public function verifyConfidentialClientSecret(string $clientId, string $secret): bool
+    {
+        if (!$this->hasConfidentialClient() || $clientId === '' || $secret === '') {
+            return false;
+        }
+        if (!hash_equals($this->confidentialClientId(), $clientId)) {
+            return false;
+        }
+
+        return hash_equals($this->confidentialClientSecret(), $secret);
     }
 
     public function isDcrEnabled(): bool

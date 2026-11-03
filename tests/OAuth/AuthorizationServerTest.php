@@ -105,6 +105,63 @@ final class AuthorizationServerTest extends TestCase
         self::assertTrue($v->isAllowedByPolicy('https://inspector.example/cb'));
     }
 
+    public function testBuiltinRedirectsForCursorChatgptGeminiAndCursorLegacy(): void
+    {
+        $v = new RedirectUriValidator(McpSqliteFixture::config());
+        self::assertTrue($v->isAllowedByPolicy(McpConfig::CURSOR_WEB_CALLBACK));
+        self::assertTrue($v->isAllowedByPolicy(McpConfig::CHATGPT_CALLBACK));
+        self::assertTrue($v->isAllowedByPolicy(McpConfig::GEMINI_ENTERPRISE_CALLBACK));
+        self::assertTrue($v->isAllowedByPolicy(McpConfig::CURSOR_LEGACY_CALLBACK));
+        self::assertTrue($v->isAllowedByPolicy('http://localhost:8787/callback'), 'Cursor desktop loopback');
+        self::assertFalse($v->isAllowedByPolicy('cursor://evil.app/oauth/callback'));
+        self::assertFalse($v->isAllowedByPolicy('cursor://anysphere.cursor-mcp/oauth/callback/extra'));
+    }
+
+    public function testDefaultCimdHostsAndOriginsIncludeMultiClients(): void
+    {
+        $config = McpSqliteFixture::config();
+        foreach (['claude.ai', 'claude.com', 'chatgpt.com', 'cursor.com', 'www.cursor.com'] as $host) {
+            self::assertContains($host, $config->cimdAllowedHosts());
+        }
+        $origins = $config->allowedOrigins('https://iot.example.test');
+        foreach (['https://claude.ai', 'https://chatgpt.com', 'https://cursor.com', 'https://www.cursor.com', 'https://iot.example.test'] as $origin) {
+            self::assertContains($origin, $origins);
+        }
+    }
+
+    public function testConfidentialClientResolutionAndSecretVerification(): void
+    {
+        $config = McpSqliteFixture::config([
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_ID' => 'gemini-static-id',
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET' => 'super-secret-value',
+        ]);
+        self::assertTrue($config->hasConfidentialClient());
+        $client = $config->confidentialClient();
+        self::assertNotNull($client);
+        self::assertSame('confidential', $client['type']);
+        self::assertSame([McpConfig::GEMINI_ENTERPRISE_CALLBACK], $client['redirect_uris']);
+
+        $resolver = new ClientResolver($this->repo, self::fetcher([]), $config);
+        $resolved = $resolver->resolve('gemini-static-id');
+        self::assertSame('confidential', $resolved['type']);
+        self::assertTrue($config->verifyConfidentialClientSecret('gemini-static-id', 'super-secret-value'));
+        self::assertFalse($config->verifyConfidentialClientSecret('gemini-static-id', 'wrong'));
+        self::assertFalse($config->verifyConfidentialClientSecret('other-id', 'super-secret-value'));
+
+        $this->expectException(OAuthException::class);
+        $resolver->resolve('unknown-dcr-client');
+    }
+
+    public function testConfidentialClientDisabledWhenSecretMissing(): void
+    {
+        $config = McpSqliteFixture::config([
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_ID' => 'gemini-static-id',
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET' => '',
+        ]);
+        self::assertFalse($config->hasConfidentialClient());
+        self::assertNull($config->confidentialClient());
+    }
+
     // ── CIMD ──────────────────────────────────────────────────────────
 
     private static function fetcher(array $document, int $status = 200, ?\Throwable $error = null): HttpFetcher

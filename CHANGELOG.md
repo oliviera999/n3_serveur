@@ -11,6 +11,18 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.54.0] - 2026-11-03
+
+### Ajouté — Connecteur MCP multi-clients (Cursor, ChatGPT, Gemini Enterprise)
+- Redirections OAuth **intégrées** : Cursor web, Cursor legacy `cursor://…`, ChatGPT
+  (`connector_platform_oauth_redirect`), Gemini Enterprise (`vertexaisearch…/oauth-redirect`) ;
+  loopback Cursor `:8787` déjà couvert.
+- Défauts CIMD / Origin élargis (ChatGPT, Cursor) ; métadonnées AS : `client_secret_post` /
+  `client_secret_basic` en plus de `none`.
+- Client **confidentiel statique** `.env` (`MCP_OAUTH_CONFIDENTIAL_CLIENT_ID` / `_SECRET`) pour
+  Gemini Enterprise ; secret exigé au `/oauth/token` (form ou Basic).
+- Doc `docs/MCP.md` § 5.1 (Cursor `mcp.json`, ChatGPT, Gemini) ; Gemini grand public hors portée.
+
 ## [6.53.0] - 2026-11-03
 
 ### Ajouté — Connecteur MCP : mode productivité (admin, `.env`)
