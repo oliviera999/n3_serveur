@@ -11,6 +11,7 @@ use App\Notification\MailTransport;
 use App\Notification\MailTransportFactory;
 use App\Notification\NotificationCategory;
 use App\Notification\NotificationDigest;
+use App\Notification\NotificationMode;
 use App\Notification\NotificationPolicy;
 use App\Notification\NotificationPolicyResolver;
 use App\Notification\Severity;
@@ -249,6 +250,43 @@ class NotificationService
             null,
             false
         );
+    }
+
+    /**
+     * Rapport PÉRIODIQUE explicitement demandé par l'exploitant (rapport de santé quotidien,
+     * `MCP_HEALTH_REPORT_EMAIL=daily`) : envoi immédiat, jamais mis en synthèse.
+     *
+     * Contrairement à {@see self::sendAlert()}, le plancher de sévérité du mode n'est PAS
+     * appliqué — un rapport « vert » (P3) doit partir même en mode `important`, puisque
+     * l'exploitant l'a demandé. Restent appliqués : le mode `none` (aucun envoi, maintenance),
+     * la désactivation de la catégorie Système, et l'anti-spam par clé.
+     */
+    public function sendScheduledReport(Severity $severity, string $subject, string $message, string $throttleKey): bool
+    {
+        $policy = $this->policyResolver->resolve(null);
+        if ($policy->mode === NotificationMode::None || $policy->isCategoryDisabled(NotificationCategory::System)) {
+            $this->logger->info('Rapport périodique filtré par la politique de notification', [
+                'mode' => $policy->mode->value,
+                'subject' => $subject,
+            ]);
+
+            return false;
+        }
+        if (!$this->throttler->allow($throttleKey, $severity->defaultCooldownSeconds())) {
+            $this->logger->info('Rapport périodique en cooldown anti-spam', ['key' => $throttleKey, 'subject' => $subject]);
+
+            return false;
+        }
+
+        $formattedSubject = $this->formatSubject($severity, $subject, 'SERVEUR');
+        $html = $this->renderer->renderAlertHtml($severity, NotificationCategory::System, 'SERVEUR', $subject, $message);
+        $text = $this->renderer->renderAlertText($severity, NotificationCategory::System, 'SERVEUR', $subject, $message);
+        $isSuccess = $this->sendMail($this->recipient, $formattedSubject, $html, $text);
+        if ($isSuccess) {
+            $this->throttler->record($throttleKey, $severity, NotificationCategory::System, $this->recipient, $formattedSubject);
+        }
+
+        return $isSuccess;
     }
 
     /**

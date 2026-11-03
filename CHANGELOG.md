@@ -11,6 +11,46 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.52.0] - 2026-11-03
+
+### Ajouté — Connecteur MCP : exploitation (mémoire, santé, fichiers)
+- **Mémoire persistante** (inspirée des outils `remember` / `recall` / `forget` du connecteur
+  Moodle « olution », réimplémentée) : `iot_recall` (recherche par sujet, texte et étiquettes,
+  notes « à revérifier » au-delà de `MCP_MEMORY_STALE_DAYS`), `iot_remember` (création, ou mise
+  à jour du même sujet avec rafraîchissement de `verified_at`), `iot_forget` (auteur ou
+  administrateur). Portées `site` / `user`, taille et nombre bornés, **refus de tout contenu qui
+  ressemble à un secret** (`Mcp\Support\SecretScanner` : clés API, Bearer, JWT, jetons GitHub /
+  Anthropic, mots de passe, URL avec identifiants, hachés, clés privées). Six notes semées, tirées
+  de la documentation (nomenclature ffp3/ffp5cs, `s3` = production, suffixes de tables, GPIO clés,
+  journaux et CRON, interprétation d'`EauAquarium` / `diffMaree` / `PontDiv`). Les `instructions`
+  d'`initialize` demandent de consulter `iot_recall` en début de tâche et d'enregistrer le stable.
+- **Rapport de santé** : `iot_health_report` (version, PHP, latence BDD, taille des tables, CRON et
+  retards, appareils de production en ligne / hors ligne avec firmware, erreurs et notifications
+  24 h / 7 j, dernière photo par galerie, disque libre, jours avant expiration TLS, connexions MCP
+  actives) avec statut `vert` / `orange` / `rouge` selon des règles explicites
+  (`Mcp\Health\HealthRules`, documentées) ; `iot_health_history` (N derniers rapports, évolution).
+- **Rapport régulier** : `HealthReportCommand` dans `CronOrchestrator` (sous son verrou), quotidien
+  à 7 h par défaut (`MCP_HEALTH_REPORT_*`), stockage dans `mcp_health_reports` + purge, e-mail via
+  `NotificationService` si orange/rouge (`NotificationService::sendScheduledReport()` pour le mode
+  `daily`, qui respecte le mode `none`). L'orchestrateur trace chaque passage dans
+  `var/cache/cron_last_run.json`.
+- **`GET /health/report.json`** : jeton dédié `MCP_HEALTH_TOKEN` dans l'en-tête `X-Health-Token`
+  (comparaison en temps constant), 404 si non configuré, 401 sinon, limiteur 30 / 10 min / IP ;
+  indépendant de `MCP_ENABLED`. Workflow `.github/workflows/health-check.yml` (quotidien +
+  `workflow_dispatch`) : échoue si `rouge`, succès expliqué sans secrets.
+- **Journaux et fichiers en lecture seule** (rôle admin) : `iot_list_files`, `iot_read_file`
+  (`offset`/`limit` ou `tail`, plafond `MCP_FILE_MAX_BYTES`), `iot_grep_files` (littéral ou regex
+  bornée), `iot_cron_status` (dernier passage de l'orchestrateur et de chaque sous-tâche, retards).
+  Racines `MCP_FILE_ROOTS` (défaut : journaux, `var/`, journal d'erreurs PHP, `config/`, `docs/`,
+  `migrations/`, `.htaccess`, `run-cron.php`) ; `realpath` avec liens symboliques maintenus dans
+  leur racine ; binaires refusés ; `.env` réduit aux noms de variables ; secrets des journaux masqués.
+- Migration `migrations/2026_11_mcp_exploitation.sql` (+ `docker/mysql/init/97-mcp-exploitation.sql`).
+- `tools/mcp-smoke.php` appelle aussi `iot_health_report`. Doc : `docs/MCP.md` §§ 8-11, dont
+  **« Activer en production »** (liste ordonnée et exhaustive).
+- Tests : `tests/Mcp/Exploitation/` (mémoire, santé, fichiers, masquage) et
+  `tests/Integration/McpExploitationMariaDbIntegrationTest.php` ; `ContainerWiringTest`,
+  `RoutesConfigSecurityTest` à jour.
+
 ## [6.51.0] - 2026-11-02
 
 ### Ajouté

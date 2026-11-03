@@ -223,11 +223,33 @@ class RoutesConfigSecurityTest extends TestCase
         $this->assertStringNotContainsString('applyAuth', $routes, 'aucune auth de session sur /mcp');
     }
 
+    /**
+     * Rapport de santé externe : ni session web, ni préfixe public hérité (accès par jeton
+     * dédié en en-tête uniquement), déclaré seulement si MCP_HEALTH_TOKEN est défini, avec
+     * son propre limiteur de débit.
+     */
+    public function testHealthReportEndpointIsTokenOnlyAndRateLimited(): void
+    {
+        $this->assertFalse($this->isProtected('/health/report.json'), 'pas de session web exigée (jeton dédié)');
+        $this->assertFalse($this->isPublic('/health/report.json'), 'aucun préfixe public ne couvre /health');
+        $routes = (string) file_get_contents(__DIR__ . '/../config/routes_mcp.php');
+        $this->assertStringContainsString("if (\$mcpConfig->healthToken() !== '')", $routes, 'route absente (404) sans MCP_HEALTH_TOKEN');
+        $this->assertStringContainsString("->add(\$container->get('mcp.health_rate_limit'))", $routes);
+        $this->assertLessThan(
+            strpos($routes, 'if (!$mcpConfig->isEnabled())'),
+            strpos($routes, '/health/report.json'),
+            'le rapport de santé ne dépend pas de MCP_ENABLED'
+        );
+        $htaccess = (string) file_get_contents(__DIR__ . '/../.htaccess');
+        $this->assertStringNotContainsString('RewriteRule ^health/', $htaccess, 'le .htaccess ne bloque pas /health/report.json');
+        $this->assertDirectoryDoesNotExist(__DIR__ . '/../health', 'aucun dossier réel ne masque la route Slim');
+    }
+
     public function testMcpPathsOutsideCsrfPatterns(): void
     {
         $reflection = new \ReflectionClassConstant(\App\Middleware\CsrfMiddleware::class, 'DEFAULT_PROTECTED_PATTERNS');
         foreach ((array) $reflection->getValue() as $pattern) {
-            foreach (['/mcp', '/oauth/token', '/oauth/authorize', '/oauth/register', '/oauth/revoke'] as $path) {
+            foreach (['/mcp', '/oauth/token', '/oauth/authorize', '/oauth/register', '/oauth/revoke', '/health/report.json'] as $path) {
                 $this->assertSame(0, preg_match((string) $pattern, $path), "{$path} ne doit pas exiger le jeton CSRF de session");
             }
         }

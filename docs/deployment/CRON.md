@@ -52,8 +52,13 @@ run-cron.php (CLI uniquement)
             ├── RestartPumpCommand (flag pompe aqua, délai 5 min HORODATÉ — indépendant de la cadence)
             ├── tâches fréquentes (chaque run, soit chaque minute)
             ├── tâches horaires (si intervalle écoulé)
-            └── normalisation galerie (si intervalle + activée)
+            ├── normalisation galerie (si intervalle + activée)
+            └── HealthReportCommand (rapport de santé MCP, si MCP_HEALTH_REPORT_ENABLED, quotidien)
 ```
+
+Chaque passage écrit `var/cache/cron_last_run.json` (début, fin, durée, statut `ok` / `erreur` /
+`en_cours` si interrompu) : lu par l'outil `iot_cron_status` et le rapport de santé
+(`docs/MCP.md` § 9).
 
 ### Tâches fréquentes (chaque exécution, ~1 min)
 
@@ -93,6 +98,15 @@ Fichier d'état : `var/cache/cron_last_hourly.timestamp`
 1. Vérification système en ligne (`SystemHealthService::checkOnlineStatus`, seuil dérivé du temps de veille)
 2. Supervision « appareil silencieux » toutes familles (`DeviceHealthService::checkAllFamilies`)
 3. Envoi du digest des alertes P3/P4 accumulées (`NotificationService::flushDigest`)
+4. Purge des jetons / codes / plans MCP expirés (`McpOAuthPurgeCommand`)
+
+### Rapport de santé (connecteur MCP)
+
+Fichier d'état : `var/cache/cron_last_health_report.timestamp`. `HealthReportCommand` tourne
+sous le verrou de l'orchestrateur, quotidiennement à partir de `MCP_HEALTH_REPORT_HOUR` (7 h),
+si `MCP_HEALTH_REPORT_ENABLED=true` : stocke le rapport (`mcp_health_reports`), purge les
+anciens, e-mail via `NotificationService` si orange/rouge (ou chaque jour avec
+`MCP_HEALTH_REPORT_EMAIL=daily`). Aucune entrée crontab supplémentaire. Détail : `docs/MCP.md` § 9.
 
 > Le niveau de réserve (`checkTankLevel`) est passé dans les tâches fréquentes (Phase 1).
 

@@ -178,6 +178,13 @@ final class McpSqliteFixture
                 . ' scope TEXT, resource TEXT, credential_epoch TEXT, expires_at TEXT, revoked_at TEXT, created_at TEXT, last_used_at TEXT)',
             'CREATE TABLE mcp_control_plans (plan_id TEXT PRIMARY KEY, user_id INTEGER, client_id TEXT, env TEXT, family TEXT, gpio INTEGER, target_key TEXT,'
                 . ' action TEXT, before_state TEXT, target_state TEXT, payload TEXT, expires_at TEXT, applied_at TEXT, created_at TEXT)',
+            // Équivalents SQLite de migrations/2026_11_mcp_exploitation.sql.
+            'CREATE TABLE mcp_memory (id INTEGER PRIMARY KEY AUTOINCREMENT, scope TEXT NOT NULL, user_id INTEGER, owner_key INTEGER NOT NULL DEFAULT 0,'
+                . ' subject TEXT NOT NULL, content TEXT NOT NULL, tags TEXT NOT NULL DEFAULT \'\', created_by INTEGER, created_at TEXT, updated_at TEXT,'
+                . ' verified_at TEXT, UNIQUE (scope, owner_key, subject))',
+            'CREATE TABLE mcp_health_reports (id INTEGER PRIMARY KEY AUTOINCREMENT, generated_at TEXT NOT NULL, status TEXT NOT NULL,'
+                . ' summary TEXT NOT NULL, reasons TEXT NOT NULL, report TEXT NOT NULL, trigger_source TEXT NOT NULL DEFAULT \'cron\','
+                . ' emailed INTEGER NOT NULL DEFAULT 0)',
         ];
         $sql[] = EnergieSqliteSchema::createTableSql('energieData');
 

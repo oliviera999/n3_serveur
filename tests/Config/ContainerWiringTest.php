@@ -89,6 +89,7 @@ final class ContainerWiringTest extends TestCase
             \App\Controller\Gallery\GalleryNormalizeController::class,
             \App\Controller\McpController::class,
             \App\Controller\OAuth\OAuthController::class,
+            \App\Controller\HealthReportController::class,
         ];
     }
 
@@ -159,6 +160,7 @@ final class ContainerWiringTest extends TestCase
             \App\Command\RestartPumpCommand::class,
             \App\Command\CronOrchestrator::class,
             \App\Command\McpOAuthPurgeCommand::class,
+            \App\Command\HealthReportCommand::class,
             // Connecteur MCP
             \App\Mcp\McpConfig::class,
             \App\Mcp\McpServer::class,
@@ -167,6 +169,15 @@ final class ContainerWiringTest extends TestCase
             \App\Repository\McpOAuthRepository::class,
             \App\OAuth\AuthorizationServer::class,
             \App\OAuth\ClientResolver::class,
+            // Exploitation du connecteur : mémoire, santé, CRON, fichiers
+            \App\Repository\McpMemoryRepository::class,
+            \App\Repository\McpHealthRepository::class,
+            \App\Mcp\Memory\MemoryService::class,
+            \App\Mcp\Health\LogLocator::class,
+            \App\Mcp\Health\CronStatusReader::class,
+            \App\Mcp\Health\HealthReportBuilder::class,
+            \App\Mcp\Files\FileRoots::class,
+            \App\Mcp\Files\SafeFileReader::class,
         ];
     }
 
@@ -203,6 +214,8 @@ final class ContainerWiringTest extends TestCase
             'iot_overview', 'iot_server_health', 'iot_describe', 'iot_latest', 'iot_series', 'iot_stats',
             'iot_tides', 'iot_energy', 'iot_pgl_stats', 'iot_outputs_state', 'iot_alerts', 'iot_contract_check',
             'iot_gallery_list', 'iot_gallery_latest', 'iot_plan_output_change', 'iot_apply_plan',
+            'iot_recall', 'iot_remember', 'iot_forget', 'iot_health_report', 'iot_health_history',
+            'iot_cron_status', 'iot_list_files', 'iot_read_file', 'iot_grep_files',
         ], $names);
         foreach ($registry->all() as $tool) {
             self::assertSame('object', $tool->inputSchema()['type'], $tool->name());
@@ -293,6 +306,10 @@ final class ContainerWiringTest extends TestCase
             [\App\Controller\Ffp3\CacheController::class, 'renderer'],
             // CRON : purge des jetons / codes / plans MCP expirés.
             [\App\Command\CronOrchestrator::class, 'mcpOAuthPurge'],
+            // CRON : rapport de santé régulier (sans lui, MCP_HEALTH_REPORT_ENABLED serait sans effet).
+            [\App\Command\CronOrchestrator::class, 'healthReport'],
+            // Rapport de santé : racine des galeries (UPLOADS_BASE_DIR, comme les pages galerie).
+            [\App\Mcp\Health\HealthReportBuilder::class, 'projectRoot'],
         ];
 
         foreach ($cases as [$class, $path]) {

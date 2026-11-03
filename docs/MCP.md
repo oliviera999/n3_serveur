@@ -1,6 +1,6 @@
 # Connecteur MCP (Claude) — iot.olution.info
 
-> Version serveur : **6.51.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.52.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
 Ce serveur expose un **serveur MCP distant** (Model Context Protocol) que l'on ajoute à
 Claude (claude.ai, Desktop, mobile, Cowork, Claude Code) comme **connecteur personnalisé**.
@@ -36,6 +36,11 @@ Claude ──HTTPS──▶ Apache (.htaccess) ──▶ public/index.php (Slim 
 | Accès BDD | `src/Repository/McpReadRepository.php` (lectures), `McpOAuthRepository.php` (jetons, plans) |
 | Schéma | `migrations/2026_11_mcp_oauth.sql` (+ `docker/mysql/init/96-mcp-oauth.sql`) |
 | Purge CRON | `src/Command/McpOAuthPurgeCommand.php` (tâches horaires de `CronOrchestrator`) |
+| Mémoire (§ 8) | `src/Mcp/Memory/MemoryService.php`, `src/Repository/McpMemoryRepository.php`, outils `Recall/Remember/ForgetTool` |
+| Santé (§ 9) | `src/Mcp/Health/` (`HealthReportBuilder`, `HealthRules`, `CronStatusReader`, `LogLocator`, `StreamCertificateProbe`), `src/Command/HealthReportCommand.php`, `src/Controller/HealthReportController.php`, `src/Repository/McpHealthRepository.php` |
+| Fichiers (§ 10) | `src/Mcp/Files/` (`FileRoots`, `SafeFileReader`), `src/Mcp/Support/SecretScanner.php` |
+| Schéma exploitation | `migrations/2026_11_mcp_exploitation.sql` (+ `docker/mysql/init/97-mcp-exploitation.sql`) |
+| Supervision externe | `.github/workflows/health-check.yml` |
 | Smoke de bout en bout | `tools/mcp-smoke.php` |
 
 ### Transport
@@ -91,6 +96,15 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_gallery_latest` | Renvoie une photo en **image** JPEG ≤ 800 px, < 1 Mo (GD), éventuellement avec la précédente. |
 | `iot_plan_output_change` | Pilotage étape 1 (désactivé par défaut) — voir `MCP_PILOTAGE.md`. |
 | `iot_apply_plan` | Pilotage étape 2 (désactivé par défaut). |
+| `iot_recall` | **Mémoire** : notes du site et notes privées (recherche sujet / texte / étiquettes, « à revérifier »). À appeler en début de tâche. § 8 |
+| `iot_remember` | **Mémoire** : crée ou met à jour (même sujet) une note, rafraîchit `verified_at`. Refuse les secrets. § 8 |
+| `iot_forget` | **Mémoire** : supprime une note (auteur ou administrateur). § 8 |
+| `iot_health_report` | **Santé** : rapport complet construit à la demande, statut vert / orange / rouge + raisons. § 9 |
+| `iot_health_history` | **Santé** : N derniers rapports stockés par le CRON + évolution du statut. § 9 |
+| `iot_cron_status` | **Admin** — dernier passage de `CronOrchestrator` et de chaque sous-tâche, retards. § 9 |
+| `iot_list_files` | **Admin** — racines autorisées, contenu d'un dossier (lecture seule). § 10 |
+| `iot_read_file` | **Admin** — lecture par `offset`/`limit` ou `tail`, secrets masqués, `.env` réduit aux noms. § 10 |
+| `iot_grep_files` | **Admin** — recherche littérale ou regex bornée, résultats plafonnés. § 10 |
 
 Les niveaux d'eau FFP3 (`EauAquarium`, `EauReserve`, `EauPotager`) sont des **distances
 capteur → surface**, stockées en mm et exposées en **cm** : plus la valeur est grande,
@@ -153,7 +167,8 @@ d'identifiant stable à lier au jeton) : il faut un compte `n3_users`.
 
 - **Environnement** : énumération validée, restreinte à `MCP_ALLOWED_ENVS` ; bascule par
   `TableConfig::setEnvironment()` et remise à zéro **garantie** dans un `finally`.
-- **Lecture seule** : chaque outil de lecture s'exécute dans une transaction
+- **Lecture seule** : `iot_remember` et `iot_forget` sont les seuls outils non-pilotage qui écrivent,
+  et uniquement dans `mcp_memory` (déclarés `isReadOnly(): false`). Chaque autre outil de lecture s'exécute dans une transaction
   `SET SESSION TRANSACTION READ ONLY` toujours **annulée** (MariaDB refuse toute écriture,
   testé). Avec `DB_MCP_USER` / `DB_MCP_PASS`, les lectures passent en plus par un
   utilisateur SQL n'ayant que `SELECT`.
@@ -207,6 +222,18 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 | `MCP_RATE_LIMIT_MAX` / `MCP_RATE_LIMIT_WINDOW` | `300` / `60` | Débit `/mcp` par IP |
 | `MCP_CREDENTIAL_SECRET` | *(vide → `API_SIG_SECRET`)* | Clé HMAC de l'empreinte de mot de passe des jetons ; **la changer révoque toutes les connexions MCP** |
 | `DB_MCP_USER` / `DB_MCP_PASS` | — | Utilisateur SQL **SELECT seul** (recommandé) |
+| `MCP_MEMORY_STALE_DAYS` | `90` | Au-delà, une note non revérifiée est signalée « à revérifier » (`stale: true`) |
+| `MCP_MEMORY_MAX_CHARS` | `2000` | Taille maximale du contenu d'une note |
+| `MCP_MEMORY_MAX_NOTES` | `500` | Notes maximum par propriétaire (le site, ou chaque compte) |
+| `MCP_HEALTH_TOKEN` | *(vide → 404)* | Jeton de `GET /health/report.json` (en-tête `X-Health-Token`) ; indépendant de `MCP_ENABLED` |
+| `MCP_HEALTH_REPORT_ENABLED` | `false` | Rapport régulier par le CRON (`HealthReportCommand`) |
+| `MCP_HEALTH_REPORT_INTERVAL_SECONDS` | `86400` | Intervalle du rapport régulier (3 600 à 604 800 s) |
+| `MCP_HEALTH_REPORT_HOUR` | `7` | Heure locale du rapport quotidien (vide : dès que l'intervalle est écoulé) |
+| `MCP_HEALTH_REPORT_EMAIL` | `alert` | `alert` = e-mail si orange/rouge ; `daily` = chaque rapport ; `never` |
+| `MCP_HEALTH_REPORT_RETENTION_DAYS` | `90` | Conservation des rapports stockés |
+| `MCP_HEALTH_TLS_HOST` | *(hôte de `MCP_PUBLIC_BASE_URL`)* | Hôte dont le certificat est surveillé |
+| `MCP_FILE_ROOTS` | *(liste par défaut, § 10)* | Racines consultables (CSV, `nom=chemin` possible, `defaults` = liste par défaut) |
+| `MCP_FILE_MAX_BYTES` | `65536` | Octets maximum renvoyés par appel de lecture (4 096 à 262 144) |
 
 ---
 
@@ -266,7 +293,7 @@ connecteur : `MCP_ENABLED=false`.
 ## 6. Tests
 
 ```bash
-composer test:unit        # tests/Mcp, tests/OAuth, tests/Controller/McpControllerTest, câblage, routes
+composer test:unit        # tests/Mcp (dont Exploitation/ : mémoire, santé, fichiers), tests/OAuth, McpControllerTest, câblage, routes
 # Intégration MariaDB (schéma docker/mysql/init/*.sql chargé dans la base cible) :
 DB_HOST=127.0.0.1 DB_NAME=… DB_USER=… DB_PASS=… composer test:integration
 ```
@@ -302,6 +329,227 @@ est loopback : acceptée), ajoutez-la sinon à `MCP_EXTRA_REDIRECT_URIS`.
 | `iot.control` jamais accordé | `MCP_CONTROL_ENABLED=false` ou compte lecteur | Voir `MCP_PILOTAGE.md` |
 | Erreurs 500 après déploiement | Cache DI compilé obsolète | `php bin/clear-cache.php` |
 
-Journaux : `cronlog.txt` (ou `LOG_FILE_PATH`), lignes `[mcp]`, `[mcp-oauth]`, `[control-audit]`.
+Journaux : `cronlog.txt` (ou `LOG_FILE_PATH`), lignes `[mcp]`, `[mcp-oauth]`, `[control-audit]`, `[mcp-health]`.
 
 Référence Claude : <https://claude.com/docs/connectors/building/authentication>.
+
+---
+
+## 8. Mémoire persistante
+
+Comme le connecteur Moodle « olution », le connecteur garde une **mémoire** que Claude consulte
+en début de tâche et enrichit des faits stables. Les instructions renvoyées par `initialize`
+le lui demandent explicitement (« consulte `iot_recall` en début de tâche ; enregistre avec
+`iot_remember` ce qui est stable »).
+
+| Point | Comportement |
+|---|---|
+| Table | `mcp_memory` : `id`, `scope` (`site` / `user`), `user_id` (NULL pour `site`), `owner_key`, `subject`, `content`, `tags`, `created_by`, `created_at`, `updated_at`, `verified_at` |
+| Portée | `site` = visible par tous les comptes (défaut) ; `user` = privée au compte |
+| Unicité | un sujet par propriétaire (`scope`, `owner_key`, `subject`) : `iot_remember` sur un sujet existant **met à jour** la note et rafraîchit `verified_at` (c'est aussi la façon de « revérifier ») |
+| Recherche | `iot_recall` : mots (tous présents dans le sujet, le contenu ou les étiquettes) et/ou étiquettes (toutes portées) ; sujet exact en tête |
+| Périmé | `stale: true` si `verified_at` a plus de `MCP_MEMORY_STALE_DAYS` jours (90 par défaut) ; filtre `stale_only` |
+| Droits | scope `iot.read` suffit ; `iot_forget` et la réécriture d'une note de site : **auteur ou administrateur** ; les notes semées (sans auteur) sont rafraîchissables par tous, supprimables par un admin seulement |
+| Taille | `MCP_MEMORY_MAX_CHARS` (2 000), sujet ≤ 191, ≤ 10 étiquettes, `MCP_MEMORY_MAX_NOTES` par propriétaire |
+| Secrets | **refus** si le texte ressemble à une clé API, un jeton (Bearer, JWT, GitHub, Anthropic…), un mot de passe (`cle=valeur`, URL `user:mdp@`), un haché ou une clé privée (`Mcp\Support\SecretScanner`). Décrire **où** est la valeur (« `API_SIG_SECRET` dans `.env` »), jamais la valeur |
+| Écriture | seuls `iot_remember` / `iot_forget` écrivent, dans `mcp_memory` uniquement (hors transaction READ ONLY) ; `iot_recall` est en lecture seule |
+
+**Notes semées** par la migration (faits tirés uniquement de la documentation du dépôt) :
+nomenclature ffp3 / ffp5cs ; `s3` = production ; correspondance environnement → suffixe de
+table ; GPIO clés par famille ; emplacement des journaux et du CRON ; interprétation
+d'`EauAquarium`, `diffMaree` et `PontDiv`. Le texte d'une note est une **donnée**, jamais une
+instruction (rappelé dans chaque réponse de `iot_recall`).
+
+---
+
+## 9. Rapport de santé
+
+`iot_health_report` construit à la demande un rapport structuré + un résumé d'une ligne :
+version applicative et PHP, latence et version BDD, taille des tables principales
+(information_schema), CRON (dernier passage, retard de chaque sous-tâche), chaque appareil de
+production (`prod`, et `s3` si autorisé ; en ligne / hors ligne d'après le dernier heartbeat ou
+la dernière mesure comparés au seuil dérivé de la veille, firmware), erreurs serveur
+(`error_alerts`) et notifications (`notification_log`, par gravité, sans destinataire) sur 24 h
+et 7 j, dernière photo par galerie, espace disque libre (`disk_free_space`), jours avant
+expiration du certificat TLS (`stream_socket_client` + `openssl_x509_parse`, délai 3 s, erreur
+rendue dans le rapport), connexions MCP actives (familles de jetons valides).
+
+### Règles du statut (`Mcp\Health\HealthRules`)
+
+Statut = **pire niveau déclenché** ; aucune règle = `vert`. Les raisons sont listées, rouge d'abord.
+
+| Domaine | Orange | Rouge |
+|---|---|---|
+| BDD | latence > 500 ms | injoignable |
+| CRON | orchestrateur sans passage depuis > 5 min ; tâches horaires en retard | orchestrateur > 15 min, ou jamais vu |
+| Appareils | un appareil de production hors ligne | aquaponie FFP3 (`prod` ou `s3`) hors ligne depuis > 6 h |
+| Erreurs | ≥ 20 erreurs serveur / 24 h ; ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
+| Galeries | galerie active sans photo depuis > 48 h | — |
+| Disque | < 10 % ou < 1 Gio libres | < 2 % ou < 200 Mio libres |
+| TLS | expire dans < 21 j, ou certificat illisible | expiré ou < 7 j |
+
+Un appareil **inactif** (jamais vu, ou silencieux depuis > 30 jours) et une galerie sans photo
+depuis > 30 jours sont listés mais **n'influent pas** sur le statut (module retiré).
+
+### Rapport régulier (CRON)
+
+`HealthReportCommand`, appelée par `CronOrchestrator` à chaque passage **sous son verrou flock**,
+tient sa propre échéance (`var/cache/cron_last_health_report.timestamp`) : active si
+`MCP_HEALTH_REPORT_ENABLED=true`, quotidienne par défaut à partir de 7 h
+(`MCP_HEALTH_REPORT_HOUR`). Elle stocke le rapport dans `mcp_health_reports`, purge ceux de plus
+de `MCP_HEALTH_REPORT_RETENTION_DAYS` jours, puis envoie un e-mail **via `NotificationService`** :
+
+- `MCP_HEALTH_REPORT_EMAIL=alert` (défaut) : orange (P2) ou rouge (P1) seulement, politique de
+  notification appliquée ;
+- `daily` : chaque rapport, vert compris (le plancher du mode `important` est franchi puisque
+  l'envoi est demandé ; le mode `none` et la catégorie Système désactivée restent respectés) ;
+- `never` : jamais.
+
+Anti-spam : clé `mcp:health-report:<jour>:<statut>`. L'orchestrateur écrit aussi
+`var/cache/cron_last_run.json` (début, fin, durée, statut) à chaque passage.
+
+`iot_health_history` renvoie les N derniers rapports et l'évolution (statut courant et depuis
+quand, changements, nombre de rapports par statut, tendance). `iot_cron_status` (admin) détaille
+le dernier passage de l'orchestrateur (ou, à défaut, le dernier marqueur « Fin orchestrateur
+CRON » du journal), le run en cours (verrou tenu), chaque sous-tâche (horaires, normalisation
+galerie, rapport de santé) avec son retard, et le redémarrage de pompe programmé.
+
+### `GET /health/report.json`
+
+Pour une supervision externe. Jeton dédié `MCP_HEALTH_TOKEN` dans l'en-tête
+**`X-Health-Token`** (jamais dans l'URL), comparé en temps constant (`hash_equals`).
+Jeton non configuré → **404** ; absent ou faux → **401** ; bon → **200** + `{status, summary,
+reasons, report}`, `Cache-Control: no-store`, quel que soit le statut. Limité à 30 requêtes /
+10 min / IP. `?tls=0` saute le contrôle du certificat. Indépendant de `MCP_ENABLED`.
+
+```bash
+curl -s -H "X-Health-Token: $MCP_HEALTH_TOKEN" https://iot.olution.info/health/report.json | jq '.status, .summary'
+```
+
+Le workflow `.github/workflows/health-check.yml` (quotidien à 06:23 UTC + `workflow_dispatch`)
+appelle cet endpoint avec les secrets de dépôt `IOT_HEALTH_URL` et `IOT_HEALTH_TOKEN` : échec si
+le statut est `rouge` ou si l'endpoint ne répond pas 200, avertissement si `orange`, et
+**succès expliqué** si les secrets manquent.
+
+---
+
+## 10. Consultation des journaux et fichiers (lecture seule)
+
+`iot_list_files`, `iot_read_file`, `iot_grep_files` et `iot_cron_status` : scope `iot.read`
+**et rôle administrateur** (relu en base à chaque requête). Aucune écriture, exécution ni suppression.
+
+**Racines par défaut** (`MCP_FILE_ROOTS` vide) — un fichier se désigne par `<racine>/<chemin>` :
+
+| Racine | Contenu |
+|---|---|
+| `logs` | dossier de `LOG_FILE_PATH` (racine du dépôt pour `cronlog.txt`) : **fichiers de journaux seulement** — `cronlog*.txt` (rotations datées), `hmac-audit*.log`, `error_log` — ni sous-dossier ni autre fichier du dépôt |
+| `logs-public` | même filtre, résolu depuis `public/` (contexte web de Monolog), s'il existe |
+| `var` | `var/` (journaux locaux, états du CRON) ; `var/cache/` exclu |
+| `php-errors` | journal d'erreurs PHP (`ini_get('error_log')`), s'il est localisable |
+| `config`, `docs`, `migrations` | dossiers du dépôt |
+| `.htaccess`, `run-cron.php` | fichiers uniques |
+
+La sortie du CRON n'a pas de fichier propre (crontab `>> /dev/null`, `docs/deployment/CRON.md`) :
+elle passe par le journal applicatif. Personnaliser : `MCP_FILE_ROOTS=defaults,erreurs=/home4/oliviera/logs`
+(nom `=` chemin absolu ou relatif au dépôt).
+
+**Garde-fous** (`Mcp\Files\SafeFileReader`) :
+
+- chemin absolu et octet nul refusés ; `realpath()` résout `..` et les **liens symboliques** : la
+  cible réelle doit rester dans **sa** racine (un lien vers `.env` ou hors racine est refusé et
+  n'apparaît pas dans les listes) ;
+- `.git`, `vendor`, `node_modules`, `var/cache`, clés et magasins de secrets (`*.pem`, `*.key`,
+  `.htpasswd`, `id_rsa`…) jamais servis ; fichiers **binaires** refusés ;
+- `.env*` : **seuls les noms** de variables (`CLE=****`, `CLE=` si vide) ; partout ailleurs, les
+  secrets reconnaissables sont masqués (clés API, `Authorization`/`Bearer`, `X-Health-Token`,
+  mots de passe dans les URL, `password=`/`token=`/`secret=`…, JWT, jetons GitHub/Anthropic,
+  hachés, valeurs aléatoires longues, e-mails) ;
+- `iot_grep_files` cherche sur le texte **déjà masqué** (un motif ne permet pas de deviner un
+  secret) : littéral par défaut ; regex bornée (ni récursion, ni référence arrière, ni
+  conditionnelle, ni verbe de contrôle, quantificateur ≤ 999, `pcre.backtrack_limit` réduit) ;
+- plafonds : `MCP_FILE_MAX_BYTES` par lecture (64 Kio), 2 000 lignes, 500 entrées listées,
+  200 fichiers et 200 résultats par recherche, fichiers > 20 Mio ignorés par la recherche.
+
+---
+
+## 11. Activer en production
+
+Liste ordonnée et exhaustive (connecteur + exploitation). Les étapes 1 à 4 reprennent § 5.
+
+1. **Sauvegarder** la base (phpMyAdmin → Exporter).
+2. **Déployer** le code : `git pull` (cron de déploiement) puis
+   `composer install --no-dev --optimize-autoloader` ; le hook `post-merge` vide `var/cache/di`
+   (sinon `php bin/clear-cache.php`).
+3. **Jouer les deux migrations**, dans cet ordre (idempotentes, rejouables) :
+   1. `migrations/2026_11_mcp_oauth.sql` (jetons, codes, clients, plans) ;
+   2. `migrations/2026_11_mcp_exploitation.sql` (`mcp_memory` + 6 notes semées, `mcp_health_reports`).
+   phpMyAdmin → SQL, ou `mysql --default-character-set=utf8mb4 -u … oliviera_iot < fichier`.
+   Vérifier : `SELECT COUNT(*) FROM mcp_memory;` → 6.
+4. **(Recommandé) Utilisateur SQL lecture seule** `oliviera_mcpro` (privilège `SELECT` seul).
+5. **`.env`** (valeurs longues et aléatoires : `php -r 'echo bin2hex(random_bytes(32)), PHP_EOL;'`) :
+   ```ini
+   MCP_ENABLED=true
+   MCP_PUBLIC_BASE_URL=https://iot.olution.info
+   MCP_ALLOWED_ENVS=prod,s3
+   MCP_CONTROL_ENABLED=false
+   MCP_CREDENTIAL_SECRET=<64 caractères hexadécimaux>
+   DB_MCP_USER=oliviera_mcpro
+   DB_MCP_PASS=…
+   # Exploitation
+   MCP_HEALTH_TOKEN=<64 caractères hexadécimaux, distinct des autres secrets>
+   MCP_HEALTH_REPORT_ENABLED=true
+   MCP_HEALTH_REPORT_HOUR=7
+   MCP_HEALTH_REPORT_EMAIL=alert
+   # Facultatif : MCP_MEMORY_STALE_DAYS=90, MCP_HEALTH_REPORT_RETENTION_DAYS=90,
+   # MCP_FILE_ROOTS=defaults[,nom=/chemin/absolu], MCP_FILE_MAX_BYTES=65536
+   ```
+   `NOTIF_EMAIL_RECIPIENT` / SMTP doivent déjà fonctionner (bouton « Tester l'envoi » de `/supervision`).
+6. **Cron cPanel** (cPanel → Tâches Cron), chaque minute — le rapport de santé n'a **pas** de cron
+   propre, il tourne dans l'orchestrateur :
+   ```cron
+   * * * * * cd /home4/oliviera/iot.olution.info && /usr/bin/php run-cron.php >> /dev/null 2>&1
+   ```
+   Vérifier une minute plus tard : `var/cache/cron_last_run.json` existe et `status` vaut `ok`
+   (ou `iot_cron_status` depuis Claude).
+7. **Vérifier l'en-tête `Authorization` et `/.well-known`** :
+   ```bash
+   curl -s https://iot.olution.info/.well-known/oauth-protected-resource/mcp     # JSON, resource = …/mcp
+   curl -s https://iot.olution.info/.well-known/oauth-authorization-server       # JSON, PKCE S256
+   curl -si -X POST https://iot.olution.info/mcp -H 'Content-Type: application/json' \
+        -d '{"jsonrpc":"2.0","id":1,"method":"ping"}' | grep -i www-authenticate   # 401 + resource_metadata
+   curl -s -o /dev/null -w '%{http_code}\n' https://iot.olution.info/health/report.json            # 401 (jeton configuré)
+   curl -s -H "X-Health-Token: …" https://iot.olution.info/health/report.json | jq .status        # vert / orange / rouge
+   ```
+   Un 404 ou une page Apache sur `.well-known` : § 7. La transmission de `Authorization` sous
+   PHP-FPM/CGI se confirme à l'étape 9 (`initialize` → 200).
+8. **Pare-feu o2switch** : autoriser la plage de sortie Anthropic **`160.79.104.0/21`**
+   (découverte, `/oauth/token` et `/mcp` viennent de là) ; si ModSecurity bloque `/mcp` ou
+   `/oauth/*` (403 HTML), demander une exception ciblée au support (§ 7). Le workflow GitHub
+   vient d'IP GitHub variables : ne pas restreindre `/health/report.json` à la plage Anthropic.
+9. **Smoke en production** (compte de test **lecteur** `n3_users` conseillé) :
+   ```bash
+   MCP_SMOKE_PASSWORD='…' php tools/mcp-smoke.php --base=https://iot.olution.info --user=<compte>
+   ```
+   Attendu : `SMOKE OK`, dont `initialize → 200` et `tools/call iot_health_report → statut …`.
+10. **Ajouter le connecteur dans claude.ai** (et Desktop / mobile / Cowork) : Réglages →
+    **Connecteurs** → **Ajouter un connecteur personnalisé** → URL `https://iot.olution.info/mcp`
+    → **Se connecter** → page « Autoriser l'accès » d'iot.olution.info → compte `n3_users`
+    (administrateur pour les outils de fichiers et de CRON). Plan Team / Enterprise : c'est un
+    propriétaire de l'organisation qui ajoute le connecteur.
+11. **Ajouter le connecteur dans Claude Code** :
+    ```bash
+    claude mcp add --transport http iot https://iot.olution.info/mcp
+    ```
+    puis `/mcp` dans une session → **Authenticate** (navigateur, redirection loopback).
+12. **Secrets du workflow** (GitHub → dépôt → Settings → Secrets and variables → Actions →
+    New repository secret) : `IOT_HEALTH_URL` = `https://iot.olution.info/health/report.json`,
+    `IOT_HEALTH_TOKEN` = la valeur de `MCP_HEALTH_TOKEN`. Lancer une fois
+    **Actions → Santé du site → Run workflow** : vert / orange = succès, rouge = échec.
+13. **Tester dans une conversation** : « Consulte ta mémoire puis donne-moi l'état de
+    l'aquaponie » (→ `iot_recall`, `iot_overview`) ; « Fais un bilan de santé du serveur »
+    (→ `iot_health_report`) ; « Montre les 50 dernières lignes du journal » (admin →
+    `iot_read_file` `tail`).
+
+**Couper** : `MCP_ENABLED=false` coupe le connecteur (le rapport régulier et
+`/health/report.json` continuent tant que `MCP_HEALTH_REPORT_ENABLED` / `MCP_HEALTH_TOKEN` sont
+définis) ; vider `MCP_HEALTH_TOKEN` rend l'endpoint 404.
