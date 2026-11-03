@@ -57,7 +57,9 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   révoqués sur changement de mot de passe, de rôle, désactivation ou suppression du compte.
 - **M1** pages OAuth non encadrables (`frame-ancestors 'none'`, `.htaccess` en `setifempty`) ;
   **M2** documentation : `Authorization: Bearer <ADMIN_TOKEN>` devient opérant sous CGI ;
-  **M3** lots JSON-RPC ≤ 20 ; **M4** CIMD `*` : IP publique épinglée, IPv6 privées refusées ;
+  **M3** lots JSON-RPC ≤ 20 ; **M4** CIMD `*` : IP publique épinglée, IPv6 privées refusées (classement
+  déterministe sans `filter_var` : plages IPv4 explicites, IPv4 mappée `::ffff:` pointée ou
+  hexadécimale et NAT64 jugées sur l'IPv4 extraite, seul `2000::/3` admis en IPv6) ;
   **M5** ressource obligatoire sur les jetons ; **M6** 5 échecs / 15 min par compte sur la page
   OAuth ; **M7** `SELECT … FOR UPDATE` entre relecture et écriture du pilotage.
 - Tests : matrice 3 familles × 8 environnements (aucune table de production modifiée), plafond

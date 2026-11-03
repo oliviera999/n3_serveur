@@ -183,26 +183,81 @@ class ClientResolver
         return (string) $ips[0];
     }
 
+    /**
+     * Plages IPv4 non publiques (RFC 6890 / registre IANA « special-purpose ») : adresse réseau
+     * et longueur de préfixe. Liste explicite pour un résultat identique quelle que soit la
+     * version de PHP ou de la libc (le comportement de `filter_var(FILTER_FLAG_NO_RES_RANGE)`
+     * a varié d'une version à l'autre, notamment sur les IPv4 mappées en IPv6).
+     */
+    private const NON_PUBLIC_IPV4 = [
+        ['0.0.0.0', 8],          // « ce réseau »
+        ['10.0.0.0', 8],         // privé
+        ['100.64.0.0', 10],      // CGNAT
+        ['127.0.0.0', 8],        // boucle locale
+        ['169.254.0.0', 16],     // lien local
+        ['172.16.0.0', 12],      // privé
+        ['192.0.0.0', 24],       // IETF
+        ['192.0.2.0', 24],       // documentation
+        ['192.88.99.0', 24],     // relais 6to4 (obsolète)
+        ['192.168.0.0', 16],     // privé
+        ['198.18.0.0', 15],      // bancs d'essai
+        ['198.51.100.0', 24],    // documentation
+        ['203.0.113.0', 24],     // documentation
+        ['224.0.0.0', 4],        // multicast
+        ['240.0.0.0', 4],        // réservé + diffusion
+    ];
+
+    /**
+     * Vrai si l'adresse est routable publiquement. Les IPv6 qui embarquent une IPv4
+     * (`::ffff:a.b.c.d` mappée, sous forme pointée ou hexadécimale `::ffff:808:808`, et
+     * `64:ff9b::/96` NAT64) sont jugées sur l'IPv4 extraite, sans passer par `filter_var`.
+     */
     public static function isPublicIp(string $ip): bool
     {
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
-            return false;
-        }
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
-            return true;
-        }
-        $bin = inet_pton($ip);
+        $bin = @inet_pton($ip);
         if ($bin === false) {
             return false;
         }
-        $first = ord($bin[0]);
-        // fc00::/7 (ULA), fe80::/10 (link-local), ff00::/8 (multicast)
-        if (($first & 0xFE) === 0xFC || ($first === 0xFE && (ord($bin[1]) & 0xC0) === 0x80) || $first === 0xFF) {
+        if (strlen($bin) === 4) {
+            return self::isPublicIpv4($bin);
+        }
+        if (strlen($bin) !== 16) {
             return false;
         }
-        // ::ffff:a.b.c.d (IPv4 mappée) et 64:ff9b::/96 (NAT64) : on juge l'IPv4 embarquée.
-        if (substr($bin, 0, 12) === str_repeat("\0", 10) . "\xff\xff" || substr($bin, 0, 12) === "\x00\x64\xff\x9b" . str_repeat("\0", 8)) {
-            return self::isPublicIp((string) inet_ntop(substr($bin, 12)));
+        $prefix = substr($bin, 0, 12);
+        // ::ffff:0:0/96 (IPv4 mappée) et 64:ff9b::/96 (NAT64) : on juge l'IPv4 embarquée.
+        if ($prefix === str_repeat("\0", 10) . "\xff\xff" || $prefix === "\x00\x64\xff\x9b" . str_repeat("\0", 8)) {
+            return self::isPublicIpv4(substr($bin, 12));
+        }
+        // ::/96 (dont :: et ::1, et les IPv4 « compatibles » obsolètes) : jamais publique.
+        if ($prefix === str_repeat("\0", 12)) {
+            return false;
+        }
+        $first = ord($bin[0]);
+        // fc00::/7 (ULA), fe80::/10 (lien local), fec0::/10 (site local obsolète), ff00::/8 (multicast)
+        if (($first & 0xFE) === 0xFC || ($first === 0xFE && (ord($bin[1]) & 0x80) === 0x80) || $first === 0xFF) {
+            return false;
+        }
+        // 2001:db8::/32 (documentation), 2002::/16 (6to4, IPv4 embarquée arbitraire), 100::/64 (discard)
+        if (substr($bin, 0, 4) === "\x20\x01\x0d\xb8" || substr($bin, 0, 2) === "\x20\x02" || substr($bin, 0, 8) === "\x01\x00" . str_repeat("\0", 6)) {
+            return false;
+        }
+        // Seul l'espace unicast global 2000::/3 est attribué au public.
+        return ($first & 0xE0) === 0x20;
+    }
+
+    private static function isPublicIpv4(string $bin): bool
+    {
+        $addr = unpack('N', $bin);
+        if ($addr === false) {
+            return false;
+        }
+        $value = (int) $addr[1];
+        foreach (self::NON_PUBLIC_IPV4 as [$network, $bits]) {
+            $mask = (0xFFFFFFFF << (32 - $bits)) & 0xFFFFFFFF;
+            if (($value & $mask) === ((int) ip2long($network) & $mask)) {
+                return false;
+            }
         }
 
         return true;

@@ -368,10 +368,18 @@ final class AuthorizationServerTest extends TestCase
 
     public function testCimdPublicIpChecks(): void
     {
-        foreach (['10.0.0.1', '127.0.0.1', '169.254.1.1', 'fd12::1', 'fe80::1', '::1', '::ffff:10.0.0.1', '64:ff9b::a00:1'] as $ip) {
+        $refused = [
+            '10.0.0.1', '127.0.0.1', '169.254.1.1', '172.16.5.4', '192.168.1.1', '100.64.0.1', '0.0.0.0', '255.255.255.255', '224.0.0.1',
+            'fd12::1', 'fe80::1', '::1', '::', 'ff02::1', '2001:db8::1', '2002:a00:1::1',
+            // IPv4 mappée : forme pointée et forme hexadécimale, jugées sur l'IPv4 extraite.
+            '::ffff:10.0.0.1', '::ffff:127.0.0.1', '::ffff:169.254.169.254', '::ffff:a00:1', '::ffff:7f00:1',
+            '64:ff9b::a00:1', '64:ff9b::127.0.0.1',
+            'pas-une-ip', '',
+        ];
+        foreach ($refused as $ip) {
             self::assertFalse(ClientResolver::isPublicIp($ip), $ip);
         }
-        foreach (['8.8.8.8', '2606:4700::1111', '::ffff:8.8.8.8'] as $ip) {
+        foreach (['8.8.8.8', '1.1.1.1', '2606:4700::1111', '::ffff:8.8.8.8', '::ffff:808:808', '::FFFF:8.8.4.4', '64:ff9b::808:808'] as $ip) {
             self::assertTrue(ClientResolver::isPublicIp($ip), $ip);
         }
         // Un hôte dont UNE adresse est privée est refusé (rebinding multi-enregistrements).
