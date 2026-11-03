@@ -28,6 +28,18 @@ use App\Config\Env;
  *  - MCP_DCR_ENABLED             : active l'enregistrement dynamique /oauth/register (défaut true)
  *  - MCP_RATE_LIMIT_MAX / _WINDOW: limitation de débit de /mcp par IP (défaut 300 / 60 s)
  *  - MCP_FEED_DAILY_MAX          : nombre maximal de nourrissages MCP par 24 h et par environnement (défaut 2)
+ *  - MCP_MEMORY_STALE_DAYS       : âge (jours) au-delà duquel une note non revérifiée est « à revérifier » (défaut 90)
+ *  - MCP_MEMORY_MAX_CHARS        : taille maximale du contenu d'une note (défaut 2000 caractères)
+ *  - MCP_MEMORY_MAX_NOTES        : nombre maximal de notes par propriétaire (site, ou chaque utilisateur) (défaut 500)
+ *  - MCP_HEALTH_TOKEN            : jeton de GET /health/report.json (en-tête X-Health-Token) ; vide = 404
+ *  - MCP_HEALTH_REPORT_ENABLED   : rapport de santé régulier par le CRON (défaut false)
+ *  - MCP_HEALTH_REPORT_INTERVAL_SECONDS : intervalle du rapport régulier (défaut 86400 = quotidien)
+ *  - MCP_HEALTH_REPORT_HOUR      : heure locale (0-23) du rapport quotidien (défaut 7 ; vide = dès que l'intervalle est écoulé)
+ *  - MCP_HEALTH_REPORT_EMAIL     : alert (orange/rouge, défaut) | daily (chaque rapport) | never
+ *  - MCP_HEALTH_REPORT_RETENTION_DAYS : conservation des rapports stockés (défaut 90 j)
+ *  - MCP_HEALTH_TLS_HOST         : hôte dont on surveille le certificat (défaut : hôte de MCP_PUBLIC_BASE_URL)
+ *  - MCP_FILE_ROOTS              : racines lisibles par iot_list_files / iot_read_file / iot_grep_files (CSV ; `defaults` = liste par défaut)
+ *  - MCP_FILE_MAX_BYTES          : octets maximum renvoyés par appel de lecture de fichier (défaut 65536)
  */
 final class McpConfig
 {
@@ -70,6 +82,10 @@ final class McpConfig
             'MCP_AUTH_CODE_TTL', 'MCP_ALLOWED_ENVS', 'MCP_CONTROL_ENABLED', 'MCP_CONTROL_ALLOWED_TARGETS', 'MCP_CONTROL_ALLOW_PRODUCTION',
             'MCP_EXTRA_REDIRECT_URIS', 'MCP_ALLOWED_ORIGINS', 'MCP_CIMD_ALLOWED_HOSTS', 'MCP_DCR_ENABLED',
             'MCP_RATE_LIMIT_MAX', 'MCP_RATE_LIMIT_WINDOW', 'MCP_FEED_DAILY_MAX',
+            'MCP_MEMORY_STALE_DAYS', 'MCP_MEMORY_MAX_CHARS', 'MCP_MEMORY_MAX_NOTES',
+            'MCP_HEALTH_TOKEN', 'MCP_HEALTH_REPORT_ENABLED', 'MCP_HEALTH_REPORT_INTERVAL_SECONDS',
+            'MCP_HEALTH_REPORT_HOUR', 'MCP_HEALTH_REPORT_EMAIL', 'MCP_HEALTH_REPORT_RETENTION_DAYS',
+            'MCP_HEALTH_TLS_HOST', 'MCP_FILE_ROOTS', 'MCP_FILE_MAX_BYTES',
         ];
         $values = [];
         foreach ($keys as $key) {
@@ -253,6 +269,116 @@ final class McpConfig
     public function feedDailyMax(): int
     {
         return $this->boundedInt('MCP_FEED_DAILY_MAX', 2, 0, 6);
+    }
+
+    // ── Mémoire persistante (iot_remember / iot_recall / iot_forget) ──────
+
+    public function memoryStaleDays(): int
+    {
+        return $this->boundedInt('MCP_MEMORY_STALE_DAYS', 90, 1, 3650);
+    }
+
+    public function memoryMaxChars(): int
+    {
+        return $this->boundedInt('MCP_MEMORY_MAX_CHARS', 2000, 200, 20000);
+    }
+
+    public function memoryMaxNotes(): int
+    {
+        return $this->boundedInt('MCP_MEMORY_MAX_NOTES', 500, 10, 10000);
+    }
+
+    // ── Rapport de santé ──────────────────────────────────────────────
+
+    /** Jeton de `GET /health/report.json` ('' = endpoint désactivé, 404). */
+    public function healthToken(): string
+    {
+        return $this->string('MCP_HEALTH_TOKEN', '');
+    }
+
+    public function isHealthReportEnabled(): bool
+    {
+        return $this->bool('MCP_HEALTH_REPORT_ENABLED', false);
+    }
+
+    public function healthReportIntervalSeconds(): int
+    {
+        return $this->boundedInt('MCP_HEALTH_REPORT_INTERVAL_SECONDS', 86400, 3600, 7 * 86400);
+    }
+
+    /**
+     * Heure locale (0-23) du rapport quotidien, ou null (dès que l'intervalle est écoulé).
+     * Ignorée si l'intervalle est inférieur à 24 h.
+     */
+    public function healthReportHour(): ?int
+    {
+        if (!array_key_exists('MCP_HEALTH_REPORT_HOUR', $this->values)) {
+            return 7;
+        }
+        $raw = $this->values['MCP_HEALTH_REPORT_HOUR'];
+        if ($raw === '' || !ctype_digit($raw) || (int) $raw > 23) {
+            return null;
+        }
+
+        return (int) $raw;
+    }
+
+    public const HEALTH_EMAIL_ALERT = 'alert';
+    public const HEALTH_EMAIL_DAILY = 'daily';
+    public const HEALTH_EMAIL_NEVER = 'never';
+
+    /** Politique d'e-mail du rapport régulier : alert (défaut), daily ou never. */
+    public function healthReportEmail(): string
+    {
+        $value = strtolower($this->string('MCP_HEALTH_REPORT_EMAIL', self::HEALTH_EMAIL_ALERT));
+
+        return match ($value) {
+            self::HEALTH_EMAIL_DAILY, 'always', 'quotidien' => self::HEALTH_EMAIL_DAILY,
+            self::HEALTH_EMAIL_NEVER, 'off', 'none', 'false', '0' => self::HEALTH_EMAIL_NEVER,
+            default => self::HEALTH_EMAIL_ALERT,
+        };
+    }
+
+    public function healthReportRetentionDays(): int
+    {
+        return $this->boundedInt('MCP_HEALTH_REPORT_RETENTION_DAYS', 90, 7, 730);
+    }
+
+    /**
+     * Hôte dont le certificat TLS est surveillé : MCP_HEALTH_TLS_HOST, sinon l'hôte de
+     * MCP_PUBLIC_BASE_URL s'il est en https ; null si aucun.
+     */
+    public function healthTlsHost(): ?string
+    {
+        $explicit = strtolower($this->string('MCP_HEALTH_TLS_HOST', ''));
+        if ($explicit !== '') {
+            return preg_match('/^[a-z0-9.-]+$/', $explicit) === 1 ? $explicit : null;
+        }
+        $parts = parse_url($this->publicBaseUrl());
+        if (!is_array($parts) || strtolower((string) ($parts['scheme'] ?? '')) !== 'https' || !isset($parts['host'])) {
+            return null;
+        }
+
+        return strtolower($parts['host']);
+    }
+
+    // ── Fichiers (iot_list_files / iot_read_file / iot_grep_files) ─────
+
+    /**
+     * Racines configurées (brutes) ou null si MCP_FILE_ROOTS est vide (liste par défaut).
+     *
+     * @return list<string>|null
+     */
+    public function fileRoots(): ?array
+    {
+        $roots = $this->csv('MCP_FILE_ROOTS', []);
+
+        return $roots === [] ? null : $roots;
+    }
+
+    public function fileMaxBytes(): int
+    {
+        return $this->boundedInt('MCP_FILE_MAX_BYTES', 65536, 4096, 262144);
     }
 
     /**

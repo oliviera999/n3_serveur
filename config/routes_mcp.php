@@ -14,12 +14,16 @@
  *  GET|POST /oauth/authorize                            connexion + consentement
  *  POST   /oauth/token                                  jetons (PKCE, rotation)
  *  POST   /oauth/revoke                                 RFC 7009
+ *  GET    /health/report.json                           rapport de santé (en-tête X-Health-Token,
+ *                                                       actif dès que MCP_HEALTH_TOKEN est défini,
+ *                                                       indépendamment de MCP_ENABLED ; sinon 404)
  *
  * Ces chemins ne sont ni dans `protected_paths` (pas de session web exigée : l'accès est
  * contrôlé par le jeton OAuth) ni dans le périmètre de CsrfMiddleware (liste positive) :
  * le formulaire /oauth/authorize porte son propre jeton CSRF. Doc : docs/MCP.md.
  */
 
+use App\Controller\HealthReportController;
 use App\Controller\McpController;
 use App\Controller\OAuth\OAuthController;
 use App\Mcp\McpConfig;
@@ -27,6 +31,13 @@ use App\Mcp\McpConfig;
 /** @var \Slim\App $app */
 /** @var \Psr\Container\ContainerInterface $container */
 $mcpConfig = $container->get(McpConfig::class);
+
+// Rapport de santé pour la supervision externe : jeton dédié (404 tant qu'il est vide),
+// limiteur de débit propre. Hors du bloc MCP_ENABLED : surveille le site même connecteur coupé.
+if ($mcpConfig->healthToken() !== '') {
+    $app->get('/health/report.json', [HealthReportController::class, 'report'])->add($container->get('mcp.health_rate_limit'));
+}
+
 if (!$mcpConfig->isEnabled()) {
     return;
 }

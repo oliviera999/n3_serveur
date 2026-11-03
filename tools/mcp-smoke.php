@@ -9,7 +9,7 @@ declare(strict_types=1);
  *   401 + WWW-Authenticate → métadonnées RFC 9728 → métadonnées RFC 8414 → DCR (/oauth/register)
  *   → GET /oauth/authorize (page + CSRF) → POST /oauth/authorize (identifiants) → code
  *   → /oauth/token (PKCE) → initialize → notifications/initialized (202) → tools/list
- *   → tools/call iot_overview → rotation du refresh → réutilisation refusée (invalid_grant)
+ *   → tools/call iot_overview → tools/call iot_health_report → rotation du refresh → réutilisation refusée (invalid_grant)
  *   → /oauth/revoke → jeton refusé.
  *
  * Usage (CLI uniquement) :
@@ -179,6 +179,24 @@ $isError = $call['result']['isError'] ?? true;
 $text = (string) ($call['result']['content'][0]['text'] ?? '');
 $check($isError === false && $text !== '', "tools/call {$tool}", sprintf('%d ms, %d octets', (int) ((microtime(true) - $t0) * 1000), strlen($text)));
 echo '         ' . mb_substr($text, 0, 300) . (mb_strlen($text) > 300 ? '…' : '') . "\n";
+
+// 6 bis. Rapport de santé (exploitation, v6.52.0) : statut + résumé, sans le détail.
+if (in_array('iot_health_report', $names, true)) {
+    $t0 = microtime(true);
+    $health = $json($mcp(['jsonrpc' => '2.0', 'id' => 4, 'method' => 'tools/call', 'params' => [
+        'name' => 'iot_health_report', 'arguments' => ['summary_only' => true],
+    ]], $access)['body']);
+    $healthData = json_decode((string) ($health['result']['content'][0]['text'] ?? ''), true);
+    $healthStatus = is_array($healthData) ? (string) ($healthData['status'] ?? '') : '';
+    $check(
+        ($health['result']['isError'] ?? true) === false && in_array($healthStatus, ['vert', 'orange', 'rouge'], true),
+        'tools/call iot_health_report → statut ' . ($healthStatus !== '' ? $healthStatus : '?'),
+        sprintf('%d ms', (int) ((microtime(true) - $t0) * 1000))
+    );
+    echo '         ' . mb_substr(is_array($healthData) ? (string) ($healthData['summary'] ?? '') : '', 0, 300) . "\n";
+} else {
+    $check(false, 'tools/call iot_health_report', 'outil absent de tools/list (serveur < 6.52.0 ?)');
+}
 
 // 7. Rotation du refresh + réutilisation
 $rot = $json($http('POST', (string) $asm['token_endpoint'], http_build_query([

@@ -188,6 +188,8 @@ return [
             pdo: $c->get(\PDO::class),
             galleryNormalizeService: $c->get(\App\Service\GalleryNormalizeService::class),
             mcpOAuthPurge: $c->get(\App\Command\McpOAuthPurgeCommand::class),
+            // Rapport de santé régulier (no-op tant que MCP_HEALTH_REPORT_ENABLED=false).
+            healthReport: $c->get(\App\Command\HealthReportCommand::class),
         );
     },
 
@@ -336,6 +338,16 @@ return [
             \App\Mcp\Tools\GalleryLatestTool::class,
             \App\Mcp\Tools\PlanOutputChangeTool::class,
             \App\Mcp\Tools\ApplyPlanTool::class,
+            // Exploitation : mémoire persistante, santé du site, fichiers (docs/MCP.md §§ 8-10).
+            \App\Mcp\Tools\RecallTool::class,
+            \App\Mcp\Tools\RememberTool::class,
+            \App\Mcp\Tools\ForgetTool::class,
+            \App\Mcp\Tools\HealthReportTool::class,
+            \App\Mcp\Tools\HealthHistoryTool::class,
+            \App\Mcp\Tools\CronStatusTool::class,
+            \App\Mcp\Tools\ListFilesTool::class,
+            \App\Mcp\Tools\ReadFileTool::class,
+            \App\Mcp\Tools\GrepFilesTool::class,
         ]),
         $c->get(\App\Mcp\McpConfig::class)
     ),
@@ -360,4 +372,50 @@ return [
 
     // Purge CRON des jetons/codes/plans expirés (sous-commande de CronOrchestrator).
     \App\Command\McpOAuthPurgeCommand::class => \DI\autowire(),
+
+    // --------------------------------------------------------------------
+    // Exploitation du connecteur : santé du site, état du CRON, fichiers.
+    // --------------------------------------------------------------------
+    // Journaux : LOG_FILE_PATH (relatif = racine du dépôt pour le CRON, public/ pour le web).
+    \App\Mcp\Health\LogLocator::class => static fn (): \App\Mcp\Health\LogLocator
+        => new \App\Mcp\Health\LogLocator(dirname(__DIR__)),
+
+    // Cadences attendues des sous-tâches, lues comme le CRON (réglage BDD > .env > défaut).
+    \App\Mcp\Health\CronStatusReader::class => static function (ContainerInterface $c): \App\Mcp\Health\CronStatusReader {
+        $settings = $c->get(\App\Service\OperationalSettingsService::class);
+        $config = $c->get(\App\Mcp\McpConfig::class);
+
+        return new \App\Mcp\Health\CronStatusReader(
+            dirname(__DIR__),
+            $c->get(\App\Mcp\Health\LogLocator::class),
+            $settings->int('CRON_HOURLY_INTERVAL_SECONDS', 3600),
+            $settings->int('GALLERY_NORMALIZE_INTERVAL_SECONDS', 600),
+            $config->isHealthReportEnabled() ? $config->healthReportIntervalSeconds() : null,
+        );
+    },
+
+    \App\Mcp\Health\CertificateProbe::class => \DI\autowire(\App\Mcp\Health\StreamCertificateProbe::class),
+
+    // Galeries : même racine que les pages galerie et iot_server_health (UPLOADS_BASE_DIR).
+    \App\Mcp\Health\HealthReportBuilder::class => \DI\autowire()
+        ->constructorParameter('projectRoot', \DI\factory(static fn (): string => \App\Config\Paths::getProjectRoot())),
+
+    \App\Mcp\Files\FileRoots::class => static fn (ContainerInterface $c): \App\Mcp\Files\FileRoots => new \App\Mcp\Files\FileRoots(
+        dirname(__DIR__),
+        $c->get(\App\Mcp\Health\LogLocator::class),
+        $c->get(\App\Mcp\McpConfig::class)->fileRoots()
+    ),
+
+    \App\Mcp\Files\SafeFileReader::class => static fn (ContainerInterface $c): \App\Mcp\Files\SafeFileReader => new \App\Mcp\Files\SafeFileReader(
+        $c->get(\App\Mcp\Files\FileRoots::class),
+        $c->get(\App\Mcp\McpConfig::class)->fileMaxBytes()
+    ),
+
+    // GET /health/report.json : 30 requêtes / 10 min / IP (jeton deviné = 401, débit borné).
+    'mcp.health_rate_limit' => static fn (ContainerInterface $c): \App\Middleware\RateLimitMiddleware => new \App\Middleware\RateLimitMiddleware(
+        $c->get(\App\Security\RateLimiter::class),
+        'mcp_health',
+        30,
+        600
+    ),
 ];
