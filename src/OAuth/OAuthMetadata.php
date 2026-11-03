@@ -67,8 +67,10 @@ final class OAuthMetadata
             'response_modes_supported' => ['query'],
             'grant_types_supported' => ['authorization_code', 'refresh_token'],
             'code_challenge_methods_supported' => ['S256'],
-            'token_endpoint_auth_methods_supported' => ['none'],
-            'revocation_endpoint_auth_methods_supported' => ['none'],
+            // `none` = clients publics (Claude, Cursor, ChatGPT via DCR/CIMD) ;
+            // `client_secret_post` / `client_secret_basic` = client confidentiel statique (.env, Gemini Enterprise).
+            'token_endpoint_auth_methods_supported' => ['none', 'client_secret_post', 'client_secret_basic'],
+            'revocation_endpoint_auth_methods_supported' => ['none', 'client_secret_post', 'client_secret_basic'],
             'scopes_supported' => array_merge($config->resourceScopes(), [McpConfig::SCOPE_OFFLINE]),
             'client_id_metadata_document_supported' => true,
             'authorization_response_iss_parameter_supported' => true,

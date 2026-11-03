@@ -60,16 +60,17 @@ final class McpControllerTest extends TestCase
 
     private ?RateLimiter $limiter = null;
 
-    private function oauthController(?TemplateRenderer $renderer = null): OAuthController
+    private function oauthController(?TemplateRenderer $renderer = null, ?McpConfig $config = null): OAuthController
     {
+        $config ??= $this->config;
         $repo = new McpOAuthRepository($this->pdo);
         $fetcher = $this->createMock(HttpFetcher::class);
 
         return new OAuthController(
-            $this->config,
-            $this->authServer(),
-            new ClientResolver($repo, $fetcher, $this->config),
-            new RedirectUriValidator($this->config),
+            $config,
+            $this->authServer($config),
+            new ClientResolver($repo, $fetcher, $config),
+            new RedirectUriValidator($config),
             $repo,
             new UserRepository($this->pdo),
             $this->limiter ??= new RateLimiter(sys_get_temp_dir() . '/mcp-rl-' . bin2hex(random_bytes(4))),
@@ -224,6 +225,102 @@ final class McpControllerTest extends TestCase
             'Content-Type' => 'application/x-www-form-urlencoded',
         ]), new Response());
         self::assertSame('unsupported_grant_type', json_decode((string) $grant->getBody(), true)['error']);
+    }
+
+    public function testConfidentialClientRequiresSecretOnTokenEndpoint(): void
+    {
+        $config = McpSqliteFixture::config([
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_ID' => 'gemini-it',
+            'MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET' => 'gemini-secret',
+        ]);
+        $oauth = $this->oauthController(null, $config);
+        $server = $this->authServer($config);
+        $verifier = rtrim(strtr(base64_encode(random_bytes(40)), '+/', '-_'), '=');
+        $challenge = \App\OAuth\Pkce::challengeFor($verifier);
+        $code = $server->issueCode(
+            'gemini-it',
+            1,
+            McpConfig::GEMINI_ENTERPRISE_CALLBACK,
+            ['iot.read'],
+            self::BASE . '/mcp',
+            $challenge
+        );
+
+        $noSecret = $oauth->token(self::request(
+            'POST',
+            '/oauth/token',
+            http_build_query([
+                'grant_type' => 'authorization_code',
+                'code' => $code,
+                'redirect_uri' => McpConfig::GEMINI_ENTERPRISE_CALLBACK,
+                'client_id' => 'gemini-it',
+                'code_verifier' => $verifier,
+            ]),
+            ['Content-Type' => 'application/x-www-form-urlencoded']
+        ), new Response());
+        self::assertSame(401, $noSecret->getStatusCode());
+        self::assertSame('invalid_client', json_decode((string) $noSecret->getBody(), true)['error']);
+
+        // Nouveau code : le précédent a été consommé même en cas d'échec? exchangeCode n'est pas appelé si secret échoue avant.
+        // Relancer avec secret (client_secret_post).
+        $code2 = $server->issueCode(
+            'gemini-it',
+            1,
+            McpConfig::GEMINI_ENTERPRISE_CALLBACK,
+            ['iot.read'],
+            self::BASE . '/mcp',
+            $challenge
+        );
+        $ok = $oauth->token(self::request(
+            'POST',
+            '/oauth/token',
+            http_build_query([
+                'grant_type' => 'authorization_code',
+                'code' => $code2,
+                'redirect_uri' => McpConfig::GEMINI_ENTERPRISE_CALLBACK,
+                'client_id' => 'gemini-it',
+                'client_secret' => 'gemini-secret',
+                'code_verifier' => $verifier,
+            ]),
+            ['Content-Type' => 'application/x-www-form-urlencoded']
+        ), new Response());
+        self::assertSame(200, $ok->getStatusCode(), (string) $ok->getBody());
+        $body = json_decode((string) $ok->getBody(), true);
+        self::assertIsString($body['access_token'] ?? null);
+
+        // Basic auth
+        $code3 = $server->issueCode(
+            'gemini-it',
+            1,
+            McpConfig::GEMINI_ENTERPRISE_CALLBACK,
+            ['iot.read'],
+            self::BASE . '/mcp',
+            $challenge
+        );
+        $basic = $oauth->token(self::request(
+            'POST',
+            '/oauth/token',
+            http_build_query([
+                'grant_type' => 'authorization_code',
+                'code' => $code3,
+                'redirect_uri' => McpConfig::GEMINI_ENTERPRISE_CALLBACK,
+                'code_verifier' => $verifier,
+            ]),
+            [
+                'Content-Type' => 'application/x-www-form-urlencoded',
+                'Authorization' => 'Basic ' . base64_encode('gemini-it:gemini-secret'),
+            ]
+        ), new Response());
+        self::assertSame(200, $basic->getStatusCode(), (string) $basic->getBody());
+    }
+
+    public function testAuthorizationServerMetadataAdvertisesConfidentialAuthMethods(): void
+    {
+        $meta = OAuthMetadata::authorizationServer($this->config, self::BASE);
+        self::assertContains('none', $meta['token_endpoint_auth_methods_supported']);
+        self::assertContains('client_secret_post', $meta['token_endpoint_auth_methods_supported']);
+        self::assertContains('client_secret_basic', $meta['token_endpoint_auth_methods_supported']);
+        self::assertTrue($meta['authorization_response_iss_parameter_supported']);
     }
 
     public function testBearerOnlyFromHeader(): void

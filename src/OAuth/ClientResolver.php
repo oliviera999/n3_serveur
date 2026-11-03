@@ -12,10 +12,11 @@ use App\Repository\McpOAuthRepository;
  *  - URL HTTPS → Client ID Metadata Document (draft-ietf-oauth-client-id-metadata-document,
  *    MCP 2025-11-25) récupéré à la volée (délai ≤ 3 s, ≤ 64 Kio, sans redirection), validé
  *    (`client_id` du document = URL, `redirect_uris`, client public) et mis en cache 1 h ;
+ *  - sinon client confidentiel statique `.env` (Gemini Enterprise) ;
  *  - sinon identifiant émis par l'enregistrement dynamique (RFC 7591, table mcp_oauth_clients).
  *
- * Défense SSRF : hôtes CIMD limités à `MCP_CIMD_ALLOWED_HOSTS` (défaut claude.ai,
- * claude.com) ; avec `*`, les adresses privées / loopback / link-local sont refusées.
+ * Défense SSRF : hôtes CIMD limités à `MCP_CIMD_ALLOWED_HOSTS` ; avec `*`, les adresses
+ * privées / loopback / link-local sont refusées.
  */
 class ClientResolver
 {
@@ -36,7 +37,7 @@ class ClientResolver
     }
 
     /**
-     * @return array{client_id: string, client_name: ?string, redirect_uris: list<string>, type: string, display_host: ?string}
+     * @return array{client_id: string, client_name: ?string, redirect_uris: list<string>, type: string, display_host: ?string, token_endpoint_auth_method?: string}
      *
      * @throws OAuthException invalid_client
      */
@@ -47,6 +48,10 @@ class ClientResolver
         }
         if (self::isUrlClientId($clientId)) {
             return $this->resolveCimd($clientId);
+        }
+        $confidential = $this->config->confidentialClient();
+        if ($confidential !== null && hash_equals($confidential['client_id'], $clientId)) {
+            return $confidential;
         }
         $client = $this->repo->findClient($clientId);
         if ($client === null) {

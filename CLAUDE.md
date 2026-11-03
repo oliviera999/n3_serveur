@@ -132,11 +132,12 @@ Authentification par `api_key` (legacy) ET/OU signature **HMAC-SHA256**
 (`API_KEY`, `API_SIG_SECRET`, `SIG_VALID_WINDOW` dans `.env`). Le `.env` n'est **pas** versionné
 (seuls les `.env.example` le sont). Voir `docs/AUTHENTICATION.md`.
 
-## Connecteur MCP (Claude) — `/mcp` + OAuth embarqué
+## Connecteur MCP — `/mcp` + OAuth embarqué (Claude, Cursor, ChatGPT, Gemini Enterprise)
 
 Serveur MCP **sans état** (`POST /mcp`, JSON-RPC 2.0, réponses JSON, pas de SSE) et serveur
-d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Inactif tant que
-`MCP_ENABLED=false`. Doc : **`docs/MCP.md`**, pilotage : **`docs/MCP_PILOTAGE.md`**.
+d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Clients publics
+(Claude / Cursor / ChatGPT) + client confidentiel statique `.env` (Gemini Enterprise).
+Inactif tant que `MCP_ENABLED=false`. Doc : **`docs/MCP.md`**, pilotage : **`docs/MCP_PILOTAGE.md`**.
 
 - Code : `src/Mcp/` (noyau, outils `Tools/`, garde-fous `Support/`, pilotage `Control/`),
   `src/OAuth/`, `src/Controller/McpController.php`, `src/Controller/OAuth/`, `config/routes_mcp.php`.

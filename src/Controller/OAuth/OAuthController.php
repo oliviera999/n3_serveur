@@ -144,8 +144,8 @@ final class OAuthController
             if (!is_string($uri) || !$this->redirects->isAllowedByPolicy($uri)) {
                 return $this->oauthError($response, new OAuthException(
                     'invalid_redirect_uri',
-                    'redirect_uri non autorisée : seules https://claude.ai/api/mcp/auth_callback, les URI loopback '
-                    . 'http://localhost|127.0.0.1/… (port libre) et celles de MCP_EXTRA_REDIRECT_URIS sont acceptées.'
+                    'redirect_uri non autorisée : callbacks intégrés (Claude, Cursor, ChatGPT, Gemini Enterprise), '
+                    . 'URI loopback http://localhost|127.0.0.1/… (port libre), ou MCP_EXTRA_REDIRECT_URIS.'
                 ));
             }
         }
@@ -335,10 +335,15 @@ final class OAuthController
 
         try {
             $grant = $get('grant_type');
-            $clientId = $get('client_id');
-            if ($clientId !== '' && !ClientResolver::isUrlClientId($clientId) && $this->repo->findClient($clientId) === null) {
-                throw new OAuthException('invalid_client', 'Client inconnu.', 401);
+            if ($grant === '') {
+                throw new OAuthException('invalid_request', 'grant_type requis.');
             }
+            if (!in_array($grant, ['authorization_code', 'refresh_token'], true)) {
+                throw new OAuthException('unsupported_grant_type', 'grant_type non supporté : ' . $grant);
+            }
+            [$clientId, $clientSecret] = self::extractClientCredentials($request, $params);
+            $this->assertKnownClient($clientId);
+            $this->assertConfidentialSecretIfRequired($clientId, $clientSecret);
             $result = match ($grant) {
                 'authorization_code' => $this->server->exchangeCode(
                     $get('code'),
@@ -354,8 +359,6 @@ final class OAuthController
                     $get('scope') !== '' ? $get('scope') : null,
                     $resourceUrl
                 ),
-                '' => throw new OAuthException('invalid_request', 'grant_type requis.'),
-                default => throw new OAuthException('unsupported_grant_type', 'grant_type non supporté : ' . $grant),
             };
         } catch (OAuthException $e) {
             $this->logger->info('[mcp-oauth] /token refusé : {err}', ['err' => $e->error]);
@@ -503,6 +506,64 @@ final class OAuthController
         }
 
         return $response;
+    }
+
+    /**
+     * Client connu : DCR, CIMD (URL), ou client confidentiel statique (.env).
+     */
+    private function assertKnownClient(string $clientId): void
+    {
+        if ($clientId === '') {
+            throw new OAuthException('invalid_client', 'client_id requis.', 401);
+        }
+        if (ClientResolver::isUrlClientId($clientId)) {
+            return;
+        }
+        if ($this->config->hasConfidentialClient()
+            && hash_equals($this->config->confidentialClientId(), $clientId)) {
+            return;
+        }
+        if ($this->repo->findClient($clientId) === null) {
+            throw new OAuthException('invalid_client', 'Client inconnu.', 401);
+        }
+    }
+
+    private function assertConfidentialSecretIfRequired(string $clientId, string $clientSecret): void
+    {
+        if (!$this->config->hasConfidentialClient()
+            || !hash_equals($this->config->confidentialClientId(), $clientId)) {
+            return;
+        }
+        if (!$this->config->verifyConfidentialClientSecret($clientId, $clientSecret)) {
+            throw new OAuthException('invalid_client', 'Secret client invalide ou manquant.', 401);
+        }
+    }
+
+    /**
+     * client_id / client_secret : corps form OU Authorization Basic (RFC 6749 §2.3.1).
+     *
+     * @param array<mixed> $params
+     * @return array{0: string, 1: string}
+     */
+    private static function extractClientCredentials(Request $request, array $params): array
+    {
+        $clientId = is_string($params['client_id'] ?? null) ? trim($params['client_id']) : '';
+        $clientSecret = is_string($params['client_secret'] ?? null) ? trim($params['client_secret']) : '';
+        $auth = $request->getHeaderLine('Authorization');
+        if (preg_match('/^Basic\s+(\S+)$/i', $auth, $m) === 1) {
+            $decoded = base64_decode($m[1], true);
+            if (is_string($decoded) && str_contains($decoded, ':')) {
+                [$basicId, $basicSecret] = explode(':', $decoded, 2);
+                if ($clientId === '') {
+                    $clientId = $basicId;
+                }
+                if ($clientSecret === '') {
+                    $clientSecret = $basicSecret;
+                }
+            }
+        }
+
+        return [$clientId, $clientSecret];
     }
 
     private function redirectError(Response $response, string $redirectUri, OAuthException $e, string $state, string $issuer): Response
