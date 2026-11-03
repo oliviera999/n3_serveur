@@ -203,4 +203,44 @@ class RoutesConfigSecurityTest extends TestCase
     {
         return $this->isProtected($path);
     }
+
+    /**
+     * Connecteur MCP : ni chemin public de session, ni chemin protégé par session
+     * (l'accès est contrôlé par le jeton OAuth dans McpController ; une session web ne
+     * doit donner AUCUN accès à /mcp), et hors du périmètre CSRF de session.
+     */
+    public function testMcpAndOAuthPathsAreNotSessionRoutes(): void
+    {
+        foreach (['/mcp', '/oauth/token', '/oauth/authorize', '/oauth/register', '/.well-known/oauth-protected-resource'] as $path) {
+            $this->assertFalse($this->isProtected($path), "{$path} ne doit pas exiger de session web");
+            foreach ($this->config['public_paths'] as $prefix) {
+                $this->assertFalse(str_starts_with($path, $prefix) && $prefix !== '', "{$path} ne doit pas hériter d'un préfixe public ({$prefix})");
+            }
+        }
+        $routes = (string) file_get_contents(__DIR__ . '/../config/routes_mcp.php');
+        $this->assertStringContainsString('if (!$mcpConfig->isEnabled())', $routes, 'routes MCP désactivées par défaut');
+        $this->assertStringContainsString('->add($mcpRateLimit)', $routes, '/mcp a son limiteur de débit');
+        $this->assertStringNotContainsString('applyAuth', $routes, 'aucune auth de session sur /mcp');
+    }
+
+    public function testMcpPathsOutsideCsrfPatterns(): void
+    {
+        $reflection = new \ReflectionClassConstant(\App\Middleware\CsrfMiddleware::class, 'DEFAULT_PROTECTED_PATTERNS');
+        foreach ((array) $reflection->getValue() as $pattern) {
+            foreach (['/mcp', '/oauth/token', '/oauth/authorize', '/oauth/register', '/oauth/revoke'] as $path) {
+                $this->assertSame(0, preg_match((string) $pattern, $path), "{$path} ne doit pas exiger le jeton CSRF de session");
+            }
+        }
+    }
+
+    public function testHtaccessForwardsAuthorizationAndRoutesWellKnown(): void
+    {
+        $htaccess = (string) file_get_contents(__DIR__ . '/../.htaccess');
+        $this->assertStringContainsString('RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]', $htaccess);
+        $this->assertMatchesRegularExpression('#RewriteRule \^\\\.well-known/oauth-#', $htaccess);
+        $this->assertStringContainsString('RewriteRule ^tools/ - [F,L]', $htaccess, 'blocage tools/ conservé');
+        $this->assertStringContainsString('RewriteRule ^vendor/ - [F,L]', $htaccess, 'blocage vendor/ conservé');
+        $this->assertStringContainsString('Header always setifempty X-Frame-Options "SAMEORIGIN"', $htaccess, 'n\'écrase pas le DENY des pages OAuth');
+        $this->assertStringNotContainsString('Header always set X-Frame-Options', $htaccess);
+    }
 }

@@ -204,6 +204,7 @@ php -S localhost:8080 -t public
 - `docs/AUTHENTICATION.md`: Authentification & sécurité
 - `docs/ENDPOINTS_ESP32_SERVEUR.md`: Contrats d'API des ESP32
 - `docs/deployment/DEPLOYMENT_GUIDE.md` & `docs/deployment/CRON.md`: Déploiement & CRON
+- `docs/MCP.md` & `docs/MCP_PILOTAGE.md`: Connecteur MCP (Claude), OAuth embarqué, pilotage
 
 ## 🎯 Workflow recommandé
 
@@ -285,6 +286,22 @@ deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garant
 
 > 💡 Garder le bump de version **le plus tard possible** dans la vie d'une PR (juste avant merge)
 > pour minimiser la fenêtre de conflit.
+
+### 🤖 Connecteur MCP (Claude) — `/mcp` + OAuth embarqué
+- Serveur MCP **sans état** (`POST /mcp`, JSON-RPC 2.0, JSON uniquement) + serveur OAuth 2.1 embarqué
+  (`/oauth/*`, `/.well-known/oauth-*`), inactifs tant que `MCP_ENABLED=false`. Doc : `docs/MCP.md`, `docs/MCP_PILOTAGE.md`
+- Code : `src/Mcp/`, `src/OAuth/`, `src/Controller/McpController.php`, `src/Controller/OAuth/`, `config/routes_mcp.php`
+- ❌ Un outil de lecture n'écrit JAMAIS (exécution sous `ReadOnlyTransaction` : `READ ONLY` + rollback)
+- ❌ Aucune colonne / GPIO hors `Mcp\Support\FieldCatalog` ; `mail`/`mailNotif` (GPIO 100/101), destinataires,
+  jetons, hachés et secrets ne sortent jamais
+- ✅ Bascule d'environnement via `EnvironmentScope` (→ `TableConfig::setEnvironment()`, reset en `finally`) ;
+  réponses avec `env` + `is_production` (`s3` = production)
+- ✅ Nouvel outil : nom `iot_*` stable, description FR, `inputSchema` strict (`additionalProperties: false`),
+  annotations, ajout au `ToolRegistry` (`config/dependencies.php`) et à `ContainerWiringTest`
+- ⚠️ Pilotage désactivé par défaut (`MCP_CONTROL_ENABLED=false`), operator+, cibles `famille:env`
+  (`MCP_CONTROL_ALLOWED_TARGETS`) jugées sur la TABLE réellement écrite (`Control\ControlTarget` : `ffp3:n3pp_test`
+  vise `ffp3Outputs` = prod → refusé ; prod seulement avec `MCP_CONTROL_ALLOW_PRODUCTION=true`), liste blanche `ControlPolicy` ; OTA / reset / e-mails / photos / utilisateurs exclus ; arrêt pompe aquarium interdit
+- Jetons MCP ≠ session web : la session et `ADMIN_TOKEN` ne donnent aucun accès à `/mcp`
 
 ### 💡 Inspiration - bonnes pratiques externes (encouragé, avec citation)
 

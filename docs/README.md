@@ -23,6 +23,8 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 | [API_REALTIME_OUTPUTS_CONTRAT.md](API_REALTIME_OUTPUTS_CONTRAT.md) | Contrat de l’API d’état des sorties (`/api/outputs/state`). |
 | [COMPAT_FLOTTE_DEPLOYEE.md](COMPAT_FLOTTE_DEPLOYEE.md) | Rollbacks serveur pour la flotte non reflashable (clés plates n3pp/msp, seuil « silencieux »). |
 | [OTA_N3PP_MSP.md](OTA_N3PP_MSP.md) | Mises à jour OTA des firmwares N3PP / MSP. |
+| [MCP.md](MCP.md) | **Connecteur MCP pour Claude** : endpoint `/mcp`, outils, serveur OAuth embarqué, mise en prod o2switch, dépannage. |
+| [MCP_PILOTAGE.md](MCP_PILOTAGE.md) | Pilotage via MCP (désactivé par défaut) : liste blanche, plages, plan → apply, garde-fous biologiques. |
 
 ## 🔐 Sécurité & authentification
 
@@ -30,6 +32,7 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 |---------|-------------|
 | [AUTHENTICATION.md](AUTHENTICATION.md) | Modes d’authentification (session, jeton, HMAC, API key). |
 | [SECURITE_ROTATION_API_KEY.md](SECURITE_ROTATION_API_KEY.md) | Procédure de rotation de la clé API. |
+| [MCP.md § Sécurité](MCP.md#3-sécurité) | OAuth 2.1 du connecteur MCP (PKCE, CIMD/DCR, rotation des refresh tokens, jetons hachés). |
 
 ## ⚙️ Fonctionnement & services
 

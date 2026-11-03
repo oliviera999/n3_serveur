@@ -72,3 +72,6 @@ desktop.ini
 # Agent config Claude Code : tout ignorer SAUF les skills partagés du dépôt
 /.claude/*
 !/.claude/skills/
+
+# Journaux applicatifs locaux (LOG_FILE_PATH=var/…)
+/var/log-*.txt

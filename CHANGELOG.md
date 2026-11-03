@@ -11,6 +11,77 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.51.0] - 2026-11-02
+
+### Ajouté
+- **Connecteur MCP pour Claude** (`POST /mcp`, désactivé tant que `MCP_ENABLED=false`) —
+  serveur MCP Streamable HTTP **sans état**, réponses JSON (pas de SSE), JSON-RPC 2.0
+  (requête unique ou lot), protocoles 2025-11-25 / 2025-06-18 / 2025-03-26 / 2024-11-05,
+  `GET`/`DELETE /mcp` → 405, notifications → 202, validation `Origin` et `MCP-Protocol-Version`.
+  Noyau maison `src/Mcp/` (le SDK `mcp/sdk` 0.9 a été évalué : trop de dépendances pour le
+  mutualisé, API encore 0.x). Doc : `docs/MCP.md`.
+- **16 outils** : `iot_overview`, `iot_server_health`, `iot_describe`, `iot_latest`, `iot_series`
+  (agrégation SQL par bucket, ≤ 500 points, ≤ 180 j), `iot_stats`, `iot_tides`
+  (`TideAnalysisService`), `iot_energy`, `iot_pgl_stats`, `iot_outputs_state`, `iot_alerts`,
+  `iot_contract_check`, `iot_gallery_list`, `iot_gallery_latest` (photo renvoyée en image JPEG
+  ≤ 800 px via GD), et le pilotage `iot_plan_output_change` / `iot_apply_plan`.
+- **Serveur d'autorisation OAuth 2.1 embarqué** (`src/OAuth/`) conforme aux exigences des
+  connecteurs Claude : métadonnées RFC 9728 (`resource` = `<base>/mcp`) et RFC 8414, 401 +
+  `WWW-Authenticate: Bearer resource_metadata=…`, CIMD (client_id URL, fetch ≤ 3 s, cache) et
+  DCR RFC 7591, PKCE S256 obligatoire, redirection claude.ai exacte et loopback Claude Code
+  port ignoré, code à usage unique (60 s), **rotation des refresh tokens avec révocation de la
+  famille en cas de réutilisation**, révocation RFC 7009, jetons opaques **hachés sha256**,
+  page de connexion + consentement (`templates/oauth/`), scopes `iot.read` / `iot.control` /
+  `offline_access` dérivés du rôle `n3_users` relu à chaque requête.
+- **Garde-fous** : `env` validé (défaut `prod`, `MCP_ALLOWED_ENVS`), bascule `TableConfig`
+  remise à zéro en `finally`, outils de lecture en transaction `READ ONLY` annulée, connexion
+  SQL lecture seule optionnelle (`DB_MCP_USER`/`DB_MCP_PASS`, `Database::getReadOnlyConnection()`),
+  aucune donnée personnelle ni secret renvoyé, limitation de débit dédiée, journal `[mcp]`.
+- **Pilotage MCP** (désactivé par défaut, operator+, **tables de test uniquement** par défaut) :
+  plan → apply avec liste blanche et plages (`ControlPolicy`), arrêt de la pompe aquarium et
+  « forcer OFF » interdits, nourrissage plafonné (`MCP_FEED_DAILY_MAX`, compté **par table
+  cible**), chauffage 18–28 °C, revérification de l'état sous verrou de ligne à l'application,
+  audit `ControlAuditLogger` (identité `mcp:<user>`, succès et échecs). Cibles autorisées par
+  couples `famille:env` (`MCP_CONTROL_ALLOWED_TARGETS`) jugés sur la **table réellement écrite**
+  (`Mcp\Control\ControlTarget`) ; la production n'est pilotable qu'avec
+  `MCP_CONTROL_ALLOW_PRODUCTION=true` (défaut false, garde-fous biologiques maintenus).
+  Doc : `docs/MCP_PILOTAGE.md`.
+
+### Sécurité (relecture indépendante de la PR #100, avant fusion)
+- **B1 (bloquant)** — un environnement n'est « de test » que pour sa famille : `ffp3` en
+  `n3pp_test` / `msp_test` / `energie_test` écrivait dans `ffp3Outputs` (production), `n3pp` /
+  `msp1` en `test` / `test3` / `s3test` dans leurs tables de production. Le pilotage refuse
+  désormais au plan ET à l'application toute cible dont la table résolue par `TableConfig` est
+  de production ; `MCP_CONTROL_ALLOWED_ENVS` est remplacé par `MCP_CONTROL_ALLOWED_TARGETS`.
+- **I1** — les jetons MCP sont liés à une empreinte du mot de passe (`credential_epoch`) et
+  révoqués sur changement de mot de passe, de rôle, désactivation ou suppression du compte.
+- **M1** pages OAuth non encadrables (`frame-ancestors 'none'`, `.htaccess` en `setifempty`) ;
+  **M2** documentation : `Authorization: Bearer <ADMIN_TOKEN>` devient opérant sous CGI ;
+  **M3** lots JSON-RPC ≤ 20 ; **M4** CIMD `*` : IP publique épinglée, IPv6 privées refusées (classement
+  déterministe sans `filter_var` : plages IPv4 explicites, IPv4 mappée `::ffff:` pointée ou
+  hexadécimale et NAT64 jugées sur l'IPv4 extraite, seul `2000::/3` admis en IPv6) ;
+  **M5** ressource obligatoire sur les jetons ; **M6** 5 échecs / 15 min par compte sur la page
+  OAuth ; **M7** `SELECT … FOR UPDATE` entre relecture et écriture du pilotage.
+- Contre-vérification : le compteur d'échecs par compte ne se contourne plus par des variantes
+  que la collation `utf8mb4_unicode_ci` ramène au même compte (« ádmin », « ADMIN », espace final,
+  accent combinant, espace sans chasse, pleine chasse) : clé `id:<id>` du compte résolu + clé du
+  nom normalisé (NFKC, sans diacritiques ni caractères de format, minuscules), même message que
+  le compte existe ou non. La clé HMAC de `credential_epoch` est dérivée d'un secret serveur
+  (`MCP_CREDENTIAL_SECRET`, sinon `API_SIG_SECRET`, sinon repli fixe journalisé) ; tourner ce
+  secret révoque les connexions MCP.
+- Tests : matrice 3 familles × 8 environnements (aucune table de production modifiée), plafond
+  par table, audit succès/échec, intégration MariaDB (refus `ffp3:n3pp_test`, verrou, mot de passe).
+- Migration `migrations/2026_11_mcp_oauth.sql` (+ `docker/mysql/init/96-mcp-oauth.sql`) ;
+  purge horaire des jetons / codes / plans expirés (`McpOAuthPurgeCommand` dans `CronOrchestrator`).
+- `tools/mcp-smoke.php` : smoke OAuth + MCP de bout en bout ; `tests/Support/dev-router.php` :
+  routeur `php -S` qui sert `/.well-known/*` par Slim comme le `.htaccess`.
+
+### Modifié
+- `.htaccess` : transmission de l'en-tête `Authorization` à PHP-FPM/CGI
+  (`E=HTTP_AUTHORIZATION`) et routage de `/.well-known/oauth-*` vers Slim même si un dossier
+  `.well-known/` (AutoSSL) existe.
+- `ControlAuditLogger::logAction()` accepte une identité explicite (optionnelle).
+
 ## [6.50.0] - 2026-11-02
 
 ### Corrigé
