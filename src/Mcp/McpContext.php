@@ -35,6 +35,11 @@ final class McpContext
         return in_array($scope, $this->scopes, true);
     }
 
+    public function isAdmin(): bool
+    {
+        return $this->role === User::ROLE_ADMIN;
+    }
+
     public function isOperator(): bool
     {
         return in_array($this->role, [User::ROLE_OPERATOR, User::ROLE_ADMIN], true);
