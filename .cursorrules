@@ -291,7 +291,11 @@ deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garant
 - Serveur MCP **sans état** (`POST /mcp`, JSON-RPC 2.0, JSON uniquement) + serveur OAuth 2.1 embarqué
   (`/oauth/*`, `/.well-known/oauth-*`), inactifs tant que `MCP_ENABLED=false`. Doc : `docs/MCP.md`, `docs/MCP_PILOTAGE.md`
 - Code : `src/Mcp/`, `src/OAuth/`, `src/Controller/McpController.php`, `src/Controller/OAuth/`, `config/routes_mcp.php`
-- ❌ Un outil de lecture n'écrit JAMAIS (exécution sous `ReadOnlyTransaction` : `READ ONLY` + rollback)
+- ❌ Un outil de lecture n'écrit JAMAIS (exécution sous `ReadOnlyTransaction` : `READ ONLY` + rollback) ;
+  hors pilotage, seuls `iot_remember` / `iot_forget` écrivent (table `mcp_memory`, `isReadOnly(): false`)
+- ❌ Aucun secret en mémoire (`SecretScanner` refuse) ni en clair via `iot_read_file` / `iot_grep_files`
+  (`.env` → noms seuls, secrets de journaux masqués, `realpath` dans une racine `MCP_FILE_ROOTS`, rôle admin).
+  Exploitation (mémoire, rapport de santé, fichiers) : `docs/MCP.md` §§ 8-11
 - ❌ Aucune colonne / GPIO hors `Mcp\Support\FieldCatalog` ; `mail`/`mailNotif` (GPIO 100/101), destinataires,
   jetons, hachés et secrets ne sortent jamais
 - ✅ Bascule d'environnement via `EnvironmentScope` (→ `TableConfig::setEnvironment()`, reset en `finally`) ;

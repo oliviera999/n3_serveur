@@ -141,7 +141,11 @@ d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Inactif
 - Code : `src/Mcp/` (noyau, outils `Tools/`, garde-fous `Support/`, pilotage `Control/`),
   `src/OAuth/`, `src/Controller/McpController.php`, `src/Controller/OAuth/`, `config/routes_mcp.php`.
 - ❌ **Jamais** un outil de lecture qui écrit : ils tournent sous `ReadOnlyTransaction`
-  (`SET SESSION TRANSACTION READ ONLY` + rollback). Un outil qui écrit déclare `isReadOnly(): false`.
+  (`SET SESSION TRANSACTION READ ONLY` + rollback). Un outil qui écrit déclare `isReadOnly(): false`
+  (hors pilotage, seuls `iot_remember` / `iot_forget` écrivent, dans `mcp_memory` uniquement).
+- ❌ **Jamais** de secret dans la mémoire (`SecretScanner` refuse) ni en clair dans un fichier lu par
+  `iot_read_file` / `iot_grep_files` (`.env` → noms seuls, secrets de journaux masqués, `realpath`
+  maintenu dans une racine de `MCP_FILE_ROOTS`, rôle admin). Exploitation : `docs/MCP.md` §§ 8-11.
 - ❌ **Jamais** de colonne / GPIO hors `Mcp\Support\FieldCatalog` ; `mail`/`mailNotif` (GPIO 100/101),
   destinataires, jetons, hachés et secrets ne sortent jamais (`Redactor` sur les textes libres).
 - ✅ Bascule d'environnement uniquement via `EnvironmentScope` (→ `TableConfig::setEnvironment()`, reset en `finally`) ;

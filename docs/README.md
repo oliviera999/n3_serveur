@@ -1,7 +1,7 @@
 # 📚 Index de la documentation — Serveur unifié n³ IoT
 
-**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.7.4**)
-**Dernière mise à jour de l’index** : 5 juillet 2026
+**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.52.0**)
+**Dernière mise à jour de l’index** : 3 novembre 2026
 
 Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des
 données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sorties, galeries photo.
@@ -24,6 +24,10 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 | [COMPAT_FLOTTE_DEPLOYEE.md](COMPAT_FLOTTE_DEPLOYEE.md) | Rollbacks serveur pour la flotte non reflashable (clés plates n3pp/msp, seuil « silencieux »). |
 | [OTA_N3PP_MSP.md](OTA_N3PP_MSP.md) | Mises à jour OTA des firmwares N3PP / MSP. |
 | [MCP.md](MCP.md) | **Connecteur MCP pour Claude** : endpoint `/mcp`, outils, serveur OAuth embarqué, mise en prod o2switch, dépannage. |
+| [MCP.md § 8](MCP.md#8-mémoire-persistante) | Mémoire persistante du connecteur (`iot_recall` / `iot_remember` / `iot_forget`, notes semées, refus des secrets). |
+| [MCP.md § 9](MCP.md#9-rapport-de-santé) | Rapport de santé du site : règles vert / orange / rouge, rapport quotidien par le CRON, `GET /health/report.json`, workflow `health-check.yml`. |
+| [MCP.md § 10](MCP.md#10-consultation-des-journaux-et-fichiers-lecture-seule) | Consultation des journaux et fichiers en lecture seule (admin) : racines, anti-traversée, masquage des secrets. |
+| [MCP.md § 11](MCP.md#11-activer-en-production) | **Activer en production** : migrations, `.env`, cron cPanel, vérifications, pare-feu, smoke, ajout du connecteur, secrets du workflow. |
 | [MCP_PILOTAGE.md](MCP_PILOTAGE.md) | Pilotage via MCP (désactivé par défaut) : liste blanche, plages, plan → apply, garde-fous biologiques. |
 
 ## 🔐 Sécurité & authentification
@@ -75,7 +79,7 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 | Fichier | Description |
 |---------|-------------|
 | [deployment/DEPLOYMENT_GUIDE.md](deployment/DEPLOYMENT_GUIDE.md) | Guide complet de déploiement serveur. |
-| [deployment/CRON.md](deployment/CRON.md) | Tâches CRON (déploiement git + applicatif FFP3). |
+| [deployment/CRON.md](deployment/CRON.md) | Tâches CRON (déploiement git + applicatif FFP3, rapport de santé MCP, `cron_last_run.json`). |
 | [deployment/CACHE_MANAGEMENT.md](deployment/CACHE_MANAGEMENT.md) | Gestion du cache au déploiement. |
 | [deployment/INSTALL_HOOKS.md](deployment/INSTALL_HOOKS.md) | Installation des hooks git (`post-merge`, `pre-commit`). |
 | [deployment/QUE_FAIRE_COTE_SERVEUR.md](deployment/QUE_FAIRE_COTE_SERVEUR.md) | Actions à effectuer côté serveur. |
