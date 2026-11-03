@@ -354,6 +354,23 @@ class McpOAuthRepository extends AbstractRepository
     // ── Purge (CRON) ──────────────────────────────────────────────────
 
     /**
+     * Connexions MCP actives : familles de rotation (un consentement = une connexion Claude)
+     * portant au moins un jeton non révoqué et non expiré, et comptes distincts concernés.
+     *
+     * @return array{connections: int, users: int}
+     */
+    public function activeConnections(): array
+    {
+        $row = $this->fetchOne(
+            'SELECT COUNT(DISTINCT family_id) AS connections, COUNT(DISTINCT user_id) AS users FROM mcp_oauth_tokens'
+            . ' WHERE revoked_at IS NULL AND expires_at > :now',
+            [':now' => self::now()]
+        );
+
+        return ['connections' => (int) ($row['connections'] ?? 0), 'users' => (int) ($row['users'] ?? 0)];
+    }
+
+    /**
      * Supprime les lignes expirées (marge d'un jour pour les jetons, afin de garder la
      * détection de réutilisation d'un refresh récemment tourné).
      *

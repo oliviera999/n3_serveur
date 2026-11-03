@@ -1,0 +1,74 @@
+name: Santé du site (iot.olution.info)
+
+# Appelle GET /health/report.json (rapport de santé du connecteur MCP, docs/MCP.md § Rapport de
+# santé) et échoue si le statut est « rouge ». Orange : avertissement dans le résumé, sans échec.
+#
+# Secrets de dépôt (Settings → Secrets and variables → Actions) :
+#   IOT_HEALTH_URL   https://iot.olution.info/health/report.json
+#   IOT_HEALTH_TOKEN valeur de MCP_HEALTH_TOKEN du .env de production
+# S'ils manquent, le job se termine en SUCCÈS en l'expliquant (aucune fausse alerte).
+#
+# Pare-feu : les runners GitHub ont des IP variables. Si o2switch filtre par IP, ce contrôle
+# échouera (statut « injoignable ») : autoriser /health/report.json ou ignorer ce workflow.
+
+on:
+  schedule:
+    # Tous les jours à 06:23 UTC (≈ 07:23 Paris en hiver), après le rapport quotidien du CRON (7 h).
+    - cron: '23 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: health-check
+  cancel-in-progress: false
+
+jobs:
+  health:
+    name: Rapport de santé
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Interroger /health/report.json
+        env:
+          IOT_HEALTH_URL: ${{ secrets.IOT_HEALTH_URL }}
+          IOT_HEALTH_TOKEN: ${{ secrets.IOT_HEALTH_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${IOT_HEALTH_URL:-}" ] || [ -z "${IOT_HEALTH_TOKEN:-}" ]; then
+            msg="Secrets IOT_HEALTH_URL / IOT_HEALTH_TOKEN absents : contrôle ignoré (voir docs/MCP.md § Activer en production)."
+            echo "::notice title=Santé non contrôlée::${msg}"
+            echo "### Santé du site : non contrôlée" >> "$GITHUB_STEP_SUMMARY"
+            echo "${msg}" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # Jeton dans un en-tête (jamais dans l'URL), masqué dans les journaux du runner.
+          echo "::add-mask::${IOT_HEALTH_TOKEN}"
+          http_code=$(curl -sS --max-time 60 --retry 2 --retry-delay 10 \
+            -H "X-Health-Token: ${IOT_HEALTH_TOKEN}" -H 'Accept: application/json' \
+            -o report.json -w '%{http_code}' "${IOT_HEALTH_URL}" || echo "000")
+
+          if [ "${http_code}" != "200" ]; then
+            echo "::error title=Rapport de santé injoignable::HTTP ${http_code} sur ${IOT_HEALTH_URL} (404 = MCP_HEALTH_TOKEN vide en prod, 401 = jeton différent, 000 = réseau / pare-feu)."
+            echo "### Santé du site : injoignable (HTTP ${http_code})" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          status=$(jq -r '.status // "inconnu"' report.json)
+          summary=$(jq -r '.summary // ""' report.json)
+          {
+            echo "### Santé du site : ${status}"
+            echo
+            echo "${summary}"
+            echo
+            jq -r '.reasons[]? | "- **\(.level)** \(.message)"' report.json
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          case "${status}" in
+            vert)   echo "Statut vert : ${summary}" ;;
+            orange) echo "::warning title=Santé orange::${summary}" ;;
+            rouge)  echo "::error title=Santé ROUGE::${summary}"; exit 1 ;;
+            *)      echo "::error title=Réponse inattendue::statut « ${status} »"; exit 1 ;;
+          esac

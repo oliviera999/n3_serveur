@@ -64,10 +64,13 @@ class CronOrchestrator
      */
     private const CLEANING_WINDOW_SECONDS = 900;
 
-    private const LOCK_FILENAME = 'cron_orchestrator.lock';
-    private const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
-    private const GALLERY_NORMALIZE_STATE_FILENAME = 'cron_last_gallery_normalize.timestamp';
-    private const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
+    // Noms de fichiers d'état publics : relus (sans écriture) par App\Mcp\Health\CronStatusReader.
+    public const LOCK_FILENAME = 'cron_orchestrator.lock';
+    public const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
+    public const GALLERY_NORMALIZE_STATE_FILENAME = 'cron_last_gallery_normalize.timestamp';
+    public const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
+    /** Dernier passage de l'orchestrateur (début, fin, durée, statut) — écrit à chaque run. */
+    public const LAST_RUN_STATE_FILENAME = 'cron_last_run.json';
     /** 10 min : ≥ 2 800 photos/jour traitables (20/passage) — largement au-dessus du débit des 3 caméras. */
     private const DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS = 600;
 
@@ -87,6 +90,7 @@ class CronOrchestrator
     private ?MspDerivedAlertService $mspDerivedAlerts;
     private ?GalleryNormalizeService $galleryNormalizeService;
     private ?McpOAuthPurgeCommand $mcpOAuthPurge;
+    private ?HealthReportCommand $healthReport;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -120,8 +124,10 @@ class CronOrchestrator
         ?PDO $pdo = null,
         ?GalleryNormalizeService $galleryNormalizeService = null,
         ?McpOAuthPurgeCommand $mcpOAuthPurge = null,
+        ?HealthReportCommand $healthReport = null,
     ) {
         $this->mcpOAuthPurge = $mcpOAuthPurge;
+        $this->healthReport = $healthReport;
         $needsDatabase = $logger === null
             || $sensorDataService === null
             || $pumpService === null
@@ -261,6 +267,9 @@ class CronOrchestrator
             return;
         }
 
+        $started = microtime(true);
+        $this->writeLastRun($started, null, 'en_cours');
+        $status = 'erreur';
         try {
             $this->logger->info('--- Début orchestrateur CRON ---');
 
@@ -281,9 +290,49 @@ class CronOrchestrator
                 $this->markGalleryNormalizeRun();
             }
 
+            // Rapport de santé régulier (MCP_HEALTH_REPORT_ENABLED, quotidien par défaut) :
+            // sa propre échéance est tenue par la commande, sous le verrou de l'orchestrateur.
+            $this->runHealthReport();
+
             $this->logger->info('--- Fin orchestrateur CRON ---');
+            $status = 'ok';
         } finally {
+            $this->writeLastRun($started, microtime(true), $status);
             $this->releaseLock($lockHandle);
+        }
+    }
+
+    private function runHealthReport(): void
+    {
+        if ($this->healthReport === null) {
+            return;
+        }
+        try {
+            $this->healthReport->execute();
+        } catch (\Throwable $e) {
+            $this->logger->warning('Rapport de santé en erreur : ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Trace le passage courant dans `var/cache/cron_last_run.json` (lu par iot_cron_status et
+     * le rapport de santé). Best effort : une écriture impossible n'interrompt jamais le CRON.
+     */
+    private function writeLastRun(float $started, ?float $finished, string $status): void
+    {
+        try {
+            if (!is_dir($this->stateDir)) {
+                @mkdir($this->stateDir, 0755, true);
+            }
+            $payload = [
+                'started_at' => (int) $started,
+                'finished_at' => $finished !== null ? (int) $finished : null,
+                'duration_ms' => $finished !== null ? (int) round(($finished - $started) * 1000) : null,
+                'status' => $status,
+                'pid' => getmypid(),
+            ];
+            @file_put_contents($this->stateDir . '/' . self::LAST_RUN_STATE_FILENAME, (string) json_encode($payload), LOCK_EX);
+        } catch (\Throwable) {
         }
     }
 
