@@ -45,6 +45,7 @@ lot) et répond en `application/json` — pas de SSE, pas de `Mcp-Session-Id`, a
 processus long (adapté au mutualisé o2switch). `GET /mcp` et `DELETE /mcp` → **405**.
 Une requête ne contenant que des notifications → **202** sans corps.
 
+Un lot JSON-RPC est limité à **20 messages** (au-delà : erreur `-32600`, rien n'est exécuté).
 Versions de protocole acceptées : `2025-11-25`, `2025-06-18`, `2025-03-26`, `2024-11-05`
 (la version demandée est renvoyée si supportée, sinon la plus récente). L'en-tête
 `MCP-Protocol-Version`, s'il est présent, doit être l'une d'elles (sinon 400).
@@ -109,6 +110,12 @@ moins il y a d'eau. `iot_describe` l'explique au modèle.
   ailleurs (aucun autre middleware ne le lit).
 - Le rôle est **relu en base à chaque requête** : un compte désactivé ou rétrogradé perd
   immédiatement l'accès / le scope `iot.control`.
+- **Changement de mot de passe** : chaque jeton est lié à une empreinte du mot de passe
+  (`credential_epoch`, HMAC du hachage, jamais renvoyée) ; dès que le mot de passe change —
+  par l'admin web ou par SQL direct — tous les jetons d'accès et de rafraîchissement émis
+  avant sont refusés. `UserRepository` révoque en plus explicitement les jetons MCP sur
+  changement de mot de passe, de rôle, désactivation et suppression du compte.
+- Un jeton sans ressource (`resource` NULL) est refusé : l'audience est obligatoire.
 
 ### Serveur d'autorisation
 
@@ -125,7 +132,7 @@ moins il y a d'eau. `iot_describe` l'explique au modèle.
 | Erreurs | RFC 6749 (`invalid_grant`, `invalid_request`, `unsupported_grant_type`, `invalid_scope`, `invalid_target`…) |
 | Stockage | jetons opaques (256 bits) **hachés sha256** ; jamais en clair |
 | `resource` (RFC 8707) | validé s'il est fourni ; le jeton est lié à `<base>/mcp` (audience vérifiée) |
-| Consentement | page Twig autonome : nom d'hôte de redirection affiché, avertissement loopback, scopes, CSRF dédié, limitation 10 essais / 10 min / IP, anti-énumération (vérification `UserRepository::verifyPassword`) |
+| Consentement | page Twig autonome : nom d'hôte de redirection affiché, avertissement loopback, scopes, CSRF dédié, limitation 10 essais / 10 min / IP **et 5 échecs / 15 min / compte**, anti-énumération (vérification `UserRepository::verifyPassword`), non encadrable (`X-Frame-Options: DENY` + `Content-Security-Policy: frame-ancestors 'none'`) |
 
 Scopes : `iot.read` (tout compte actif), `iot.control` (opérateur ou administrateur **et**
 `MCP_CONTROL_ENABLED=true`), `offline_access` (délivre un refresh token).
@@ -157,6 +164,19 @@ d'identifiant stable à lier au jeton) : il faut un compte `n3_users`.
 
 ---
 
+### ⚠️ Effet de bord du `.htaccess` : `ADMIN_TOKEN` en en-tête
+
+La règle `RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]`, nécessaire à `/mcp`
+sous PHP-FPM/CGI, s'applique à **tout le site**. Or `AuthService::hasValidHeaderToken()`
+accepte depuis longtemps `Authorization: Bearer <ADMIN_TOKEN>` comme authentification
+**administrateur** (et comme exemption CSRF) — canal qui était jusqu'ici **inatteignable** sous
+CGI (l'en-tête n'arrivait pas à PHP). Après déploiement, quiconque connaît `ADMIN_TOKEN` peut
+l'utiliser en en-tête sur toutes les pages et API d'administration.
+
+**Recommandation** : `ADMIN_TOKEN` long et aléatoire (ex. `php -r 'echo bin2hex(random_bytes(32));'`),
+jamais réutilisé ailleurs, et vide s'il n'est pas utilisé (un `ADMIN_TOKEN` vide désactive ce
+canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
+
 ## 4. Variables d'environnement
 
 | Variable | Défaut | Rôle |
@@ -168,11 +188,12 @@ d'identifiant stable à lier au jeton) : il faut un compte `n3_users`.
 | `MCP_AUTH_CODE_TTL` | `60` | Code d'autorisation (s) |
 | `MCP_ALLOWED_ENVS` | `prod,s3` | Environnements lisibles |
 | `MCP_CONTROL_ENABLED` | `false` | Expose les outils de pilotage |
-| `MCP_CONTROL_ALLOWED_ENVS` | environnements de test | Environnements pilotables |
+| `MCP_CONTROL_ALLOWED_TARGETS` | `ffp3:test,ffp3:test3,ffp3:s3test,n3pp:n3pp_test,msp1:msp_test` | Cibles `famille:env` pilotables (jugées sur la table réellement écrite) |
+| `MCP_CONTROL_ALLOW_PRODUCTION` | `false` | ⛔ Autorise une cible listée qui vise une table de production (voir `MCP_PILOTAGE.md`) |
 | `MCP_FEED_DAILY_MAX` | `2` | Nourrissages MCP / 24 h / environnement |
 | `MCP_EXTRA_REDIRECT_URIS` | — | Redirections OAuth exactes supplémentaires (CSV) |
 | `MCP_ALLOWED_ORIGINS` | — | Origines navigateur supplémentaires (CSV) |
-| `MCP_CIMD_ALLOWED_HOSTS` | `claude.ai,claude.com` | Hôtes CIMD (`*` = tout hôte public) |
+| `MCP_CIMD_ALLOWED_HOSTS` | `claude.ai,claude.com` | Hôtes CIMD. `*` (tout hôte public) est **déconseillé** : l'IP résolue est vérifiée publique (IPv4/IPv6, mappées, NAT64) et épinglée (`CURLOPT_RESOLVE`), mais cela ouvre des requêtes sortantes vers n'importe quel domaine |
 | `MCP_DCR_ENABLED` | `true` | Enregistrement dynamique |
 | `MCP_RATE_LIMIT_MAX` / `MCP_RATE_LIMIT_WINDOW` | `300` / `60` | Débit `/mcp` par IP |
 | `DB_MCP_USER` / `DB_MCP_PASS` | — | Utilisateur SQL **SELECT seul** (recommandé) |

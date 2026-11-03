@@ -149,8 +149,9 @@ d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Inactif
 - ✅ Nouvel outil : nom `iot_*` stable, description FR précise, `inputSchema` strict
   (`additionalProperties: false`), annotations, enregistrement dans `ToolRegistry` (`config/dependencies.php`)
   et dans `ContainerWiringTest::testMcpRegistryExposesAllToolsWithStableNames`.
-- ⚠️ Pilotage : désactivé par défaut (`MCP_CONTROL_ENABLED=false`), operator+, environnements de TEST seulement
-  par défaut, liste blanche `ControlPolicy` ; OTA / reset / e-mails / suppression de photos / utilisateurs exclus ;
+- ⚠️ Pilotage : désactivé par défaut (`MCP_CONTROL_ENABLED=false`), operator+, cibles `famille:env`
+  (`MCP_CONTROL_ALLOWED_TARGETS`) jugées sur la TABLE réellement écrite (`Control\ControlTarget` — `ffp3:n3pp_test`
+  vise `ffp3Outputs` = prod → refusé ; prod seulement avec `MCP_CONTROL_ALLOW_PRODUCTION=true`), liste blanche `ControlPolicy` ; OTA / reset / e-mails / suppression de photos / utilisateurs exclus ;
   arrêt de la pompe aquarium interdit.
 - Jetons MCP ≠ session web : la session et `ADMIN_TOKEN` ne donnent aucun accès à `/mcp`.
 

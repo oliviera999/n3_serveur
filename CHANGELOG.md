@@ -37,11 +37,31 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   remise à zéro en `finally`, outils de lecture en transaction `READ ONLY` annulée, connexion
   SQL lecture seule optionnelle (`DB_MCP_USER`/`DB_MCP_PASS`, `Database::getReadOnlyConnection()`),
   aucune donnée personnelle ni secret renvoyé, limitation de débit dédiée, journal `[mcp]`.
-- **Pilotage MCP** (désactivé par défaut, operator+, environnements de test par défaut) :
+- **Pilotage MCP** (désactivé par défaut, operator+, **tables de test uniquement** par défaut) :
   plan → apply avec liste blanche et plages (`ControlPolicy`), arrêt de la pompe aquarium et
-  « forcer OFF » interdits, nourrissage plafonné (`MCP_FEED_DAILY_MAX`), chauffage 18–28 °C,
-  revérification de l'état à l'application, audit `ControlAuditLogger` (identité `mcp:<user>`).
+  « forcer OFF » interdits, nourrissage plafonné (`MCP_FEED_DAILY_MAX`, compté **par table
+  cible**), chauffage 18–28 °C, revérification de l'état sous verrou de ligne à l'application,
+  audit `ControlAuditLogger` (identité `mcp:<user>`, succès et échecs). Cibles autorisées par
+  couples `famille:env` (`MCP_CONTROL_ALLOWED_TARGETS`) jugés sur la **table réellement écrite**
+  (`Mcp\Control\ControlTarget`) ; la production n'est pilotable qu'avec
+  `MCP_CONTROL_ALLOW_PRODUCTION=true` (défaut false, garde-fous biologiques maintenus).
   Doc : `docs/MCP_PILOTAGE.md`.
+
+### Sécurité (relecture indépendante de la PR #100, avant fusion)
+- **B1 (bloquant)** — un environnement n'est « de test » que pour sa famille : `ffp3` en
+  `n3pp_test` / `msp_test` / `energie_test` écrivait dans `ffp3Outputs` (production), `n3pp` /
+  `msp1` en `test` / `test3` / `s3test` dans leurs tables de production. Le pilotage refuse
+  désormais au plan ET à l'application toute cible dont la table résolue par `TableConfig` est
+  de production ; `MCP_CONTROL_ALLOWED_ENVS` est remplacé par `MCP_CONTROL_ALLOWED_TARGETS`.
+- **I1** — les jetons MCP sont liés à une empreinte du mot de passe (`credential_epoch`) et
+  révoqués sur changement de mot de passe, de rôle, désactivation ou suppression du compte.
+- **M1** pages OAuth non encadrables (`frame-ancestors 'none'`, `.htaccess` en `setifempty`) ;
+  **M2** documentation : `Authorization: Bearer <ADMIN_TOKEN>` devient opérant sous CGI ;
+  **M3** lots JSON-RPC ≤ 20 ; **M4** CIMD `*` : IP publique épinglée, IPv6 privées refusées ;
+  **M5** ressource obligatoire sur les jetons ; **M6** 5 échecs / 15 min par compte sur la page
+  OAuth ; **M7** `SELECT … FOR UPDATE` entre relecture et écriture du pilotage.
+- Tests : matrice 3 familles × 8 environnements (aucune table de production modifiée), plafond
+  par table, audit succès/échec, intégration MariaDB (refus `ffp3:n3pp_test`, verrou, mot de passe).
 - Migration `migrations/2026_11_mcp_oauth.sql` (+ `docker/mysql/init/96-mcp-oauth.sql`) ;
   purge horaire des jetons / codes / plans expirés (`McpOAuthPurgeCommand` dans `CronOrchestrator`).
 - `tools/mcp-smoke.php` : smoke OAuth + MCP de bout en bout ; `tests/Support/dev-router.php` :

@@ -276,3 +276,12 @@ PKCE S256, jetons opaques hachés, rotation des refresh tokens). Ces jetons ne v
 pour `/mcp`, et la session web / `ADMIN_TOKEN` ne donnent **aucun** accès à `/mcp`.
 Détails : [`MCP.md`](MCP.md) § 3.
 
+### ⚠️ `Authorization: Bearer <ADMIN_TOKEN>` désormais opérant sous CGI
+
+Pour `/mcp`, le `.htaccess` recopie l'en-tête `Authorization` dans `HTTP_AUTHORIZATION`
+(`RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]`) pour **tout le site**. Le canal
+`Authorization: Bearer <ADMIN_TOKEN>` d'`AuthService` (droits administrateur, exemption CSRF),
+jusqu'ici inatteignable sous PHP-FPM/CGI, devient donc utilisable en production.
+**Utiliser un `ADMIN_TOKEN` fort** (≥ 32 octets aléatoires : `php -r 'echo bin2hex(random_bytes(32));'`),
+ou le laisser **vide** s'il ne sert pas (canal désactivé). Voir `MCP.md` § 3.
+
