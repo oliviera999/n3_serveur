@@ -7,8 +7,7 @@ namespace App\Mcp;
 /**
  * Registre des outils MCP (ordre stable = ordre de déclaration).
  *
- * Les outils de pilotage (scope `iot.control`) ne sont listés que si le pilotage est
- * activé (`MCP_CONTROL_ENABLED=true`) ET que l'appelant détient le scope effectif.
+ * La visibilité repose sur {@see Tool::isAvailableFor()} (flags .env + rôle + scopes).
  */
 final class ToolRegistry
 {
@@ -18,8 +17,10 @@ final class ToolRegistry
     /**
      * @param iterable<Tool> $tools
      */
-    public function __construct(iterable $tools, private McpConfig $config)
+    public function __construct(iterable $tools, McpConfig $config)
     {
+        // $config conservé pour signature stable (DI) ; la visibilité est dans Tool::isAvailableFor().
+        unset($config);
         foreach ($tools as $tool) {
             if (isset($this->tools[$tool->name()])) {
                 throw new \LogicException('Outil MCP en double : ' . $tool->name());
@@ -50,9 +51,7 @@ final class ToolRegistry
     {
         $out = [];
         foreach ($this->tools as $tool) {
-            if ($tool->requiredScope() === McpConfig::SCOPE_CONTROL
-                && (!$this->config->isControlEnabled() || !$context->isOperator()
-                    || !$context->hasScope(McpConfig::SCOPE_CONTROL))) {
+            if (!$tool->isAvailableFor($context)) {
                 continue;
             }
             $out[] = $tool;

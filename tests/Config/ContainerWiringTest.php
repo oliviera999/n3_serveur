@@ -214,6 +214,7 @@ final class ContainerWiringTest extends TestCase
             'iot_overview', 'iot_server_health', 'iot_describe', 'iot_latest', 'iot_series', 'iot_stats',
             'iot_tides', 'iot_energy', 'iot_pgl_stats', 'iot_outputs_state', 'iot_alerts', 'iot_contract_check',
             'iot_gallery_list', 'iot_gallery_latest', 'iot_plan_output_change', 'iot_apply_plan',
+            'iot_set_output', 'iot_device_action', 'iot_gallery_delete', 'iot_sql', 'iot_accounts', 'iot_confirm_unlock',
             'iot_recall', 'iot_remember', 'iot_forget', 'iot_health_report', 'iot_health_history',
             'iot_cron_status', 'iot_list_files', 'iot_read_file', 'iot_grep_files',
         ], $names);
@@ -306,8 +307,11 @@ final class ContainerWiringTest extends TestCase
             [\App\Controller\Ffp3\CacheController::class, 'renderer'],
             // CRON : purge des jetons / codes / plans MCP expirés.
             [\App\Command\CronOrchestrator::class, 'mcpOAuthPurge'],
+            [\App\Command\McpOAuthPurgeCommand::class, 'confirmRepo'],
             // CRON : rapport de santé régulier (sans lui, MCP_HEALTH_REPORT_ENABLED serait sans effet).
             [\App\Command\CronOrchestrator::class, 'healthReport'],
+            // CRON : rétablissement pompe après arrêt MCP borné.
+            [\App\Command\CronOrchestrator::class, 'mcpRestore'],
             // Rapport de santé : racine des galeries (UPLOADS_BASE_DIR, comme les pages galerie).
             [\App\Mcp\Health\HealthReportBuilder::class, 'projectRoot'],
         ];

@@ -25,12 +25,13 @@ require_once __DIR__ . '/../src/Util/CliGuard.php';
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$options = getopt('', ['base:', 'user:', 'password::', 'redirect::', 'tool::']);
+$options = getopt('', ['base:', 'user:', 'password::', 'redirect::', 'tool::', 'productivity']);
 $base = rtrim((string) ($options['base'] ?? 'http://127.0.0.1:8099'), '/');
 $user = (string) ($options['user'] ?? 'admin');
 $password = (string) ($options['password'] ?? (getenv('MCP_SMOKE_PASSWORD') ?: ''));
 $redirect = (string) ($options['redirect'] ?? 'http://127.0.0.1:53682/callback');
 $tool = (string) ($options['tool'] ?? 'iot_overview');
+$productivity = array_key_exists('productivity', $options);
 if ($password === '') {
     fwrite(STDERR, "Mot de passe requis : --password=… ou MCP_SMOKE_PASSWORD.\n");
     exit(2);
@@ -196,6 +197,29 @@ if (in_array('iot_health_report', $names, true)) {
     echo '         ' . mb_substr(is_array($healthData) ? (string) ($healthData['summary'] ?? '') : '', 0, 300) . "\n";
 } else {
     $check(false, 'tools/call iot_health_report', 'outil absent de tools/list (serveur < 6.52.0 ?)');
+}
+
+// 6 ter. Mode productivité (v6.53.0) : présence des outils + SELECT 1 dry_run si iot_sql listé.
+if ($productivity) {
+    foreach (['iot_set_output', 'iot_sql', 'iot_accounts', 'iot_device_action', 'iot_gallery_delete', 'iot_confirm_unlock'] as $prodTool) {
+        echo '         productivité : ' . $prodTool . (in_array($prodTool, $names, true) ? ' listé' : ' absent (flag .env)') . "\n";
+    }
+    if (in_array('iot_sql', $names, true)) {
+        $sqlCall = $json($mcp(['jsonrpc' => '2.0', 'id' => 5, 'method' => 'tools/call', 'params' => [
+            'name' => 'iot_sql',
+            'arguments' => ['sql' => 'SELECT 1 AS ok', 'dry_run' => true],
+        ]], $access)['body']);
+        $sqlData = json_decode((string) ($sqlCall['result']['content'][0]['text'] ?? ''), true);
+        $check(
+            ($sqlCall['result']['isError'] ?? true) === false
+                && is_array($sqlData)
+                && (($sqlData['class'] ?? '') === 'read' || isset($sqlData['rows'])),
+            'tools/call iot_sql SELECT 1 (dry_run)',
+            (string) json_encode($sqlData)
+        );
+    } else {
+        $check(true, 'tools/call iot_sql (skip : MCP_SQL_ENABLED=false)');
+    }
 }
 
 // 7. Rotation du refresh + réutilisation

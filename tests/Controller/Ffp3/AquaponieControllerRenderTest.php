@@ -77,7 +77,9 @@ final class AquaponieControllerRenderTest extends TestCase
         $repo->method('getFirmwareVersion')->willReturn('15.31');
         // Dernière valeur valide (brute, en mm) : 81 mm = 8,1 cm le 31/10 (cas réel de production).
         $repo->method('getLastNonNull')->willReturnCallback(
-            static fn (string $column): ?array => $column === 'EauAquarium' ? ['value' => 81.0, 'reading_time' => '2026-10-29 21:07:41'] : null
+            static fn (string $column, string $notBefore = ''): ?array => $column === 'EauAquarium'
+                ? ['value' => 81.0, 'reading_time' => '2026-10-29 21:07:41']
+                : null
         );
 
         $stats = $this->createMock(StatisticsAggregatorService::class);

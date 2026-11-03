@@ -26,11 +26,13 @@ final class McpSqliteFixture
             $pdo->exec($sql);
         }
         $hash = password_hash(self::PASSWORD, PASSWORD_BCRYPT, ['cost' => 4]);
-        $insert = $pdo->prepare('INSERT INTO n3_users (id, username, password_hash, role, is_active) VALUES (?, ?, ?, ?, ?)');
-        $insert->execute([1, 'lecteur', $hash, 'reader', 1]);
-        $insert->execute([2, 'operateur', $hash, 'operator', 1]);
-        $insert->execute([3, 'admin', $hash, 'admin', 1]);
-        $insert->execute([4, 'ancien', $hash, 'operator', 0]);
+        $insert = $pdo->prepare(
+            'INSERT INTO n3_users (id, username, email, display_name, password_hash, role, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)'
+        );
+        $insert->execute([1, 'lecteur', 'lecteur@example.test', 'Lecteur', $hash, 'reader', 1]);
+        $insert->execute([2, 'operateur', 'operateur@example.test', 'Opérateur', $hash, 'operator', 1]);
+        $insert->execute([3, 'admin', 'admin@example.test', 'Admin', $hash, 'admin', 1]);
+        $insert->execute([4, 'ancien', null, null, $hash, 'operator', 0]);
 
         return $pdo;
     }
@@ -185,6 +187,17 @@ final class McpSqliteFixture
             'CREATE TABLE mcp_health_reports (id INTEGER PRIMARY KEY AUTOINCREMENT, generated_at TEXT NOT NULL, status TEXT NOT NULL,'
                 . ' summary TEXT NOT NULL, reasons TEXT NOT NULL, report TEXT NOT NULL, trigger_source TEXT NOT NULL DEFAULT \'cron\','
                 . ' emailed INTEGER NOT NULL DEFAULT 0)',
+            // Mode productivité (migrations/2026_11_mcp_productivite.sql).
+            'CREATE TABLE mcp_confirmations (confirmation_id TEXT PRIMARY KEY, user_id INTEGER NOT NULL, client_id TEXT NOT NULL,'
+                . ' tool TEXT NOT NULL, args_fingerprint TEXT NOT NULL, categories TEXT NOT NULL, summary_json TEXT NOT NULL,'
+                . ' code_hmac TEXT NOT NULL, attempts INTEGER NOT NULL DEFAULT 0, expires_at TEXT NOT NULL,'
+                . ' consumed_at TEXT, created_at TEXT)',
+            'CREATE TABLE mcp_confirm_unlocks (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, client_id TEXT NOT NULL,'
+                . ' expires_at TEXT NOT NULL, created_at TEXT)',
+            'CREATE TABLE mcp_scheduled_restores (id INTEGER PRIMARY KEY AUTOINCREMENT, family TEXT NOT NULL, env TEXT NOT NULL,'
+                . ' target_key TEXT NOT NULL, gpio INTEGER NOT NULL, restore_value TEXT NOT NULL, restore_at TEXT NOT NULL,'
+                . ' created_by INTEGER NOT NULL, reason TEXT, status TEXT NOT NULL DEFAULT \'pending\','
+                . ' done_at TEXT, error_message TEXT, created_at TEXT)',
         ];
         $sql[] = EnergieSqliteSchema::createTableSql('energieData');
 

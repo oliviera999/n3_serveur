@@ -180,7 +180,8 @@ final class McpServerTest extends TestCase
         $list = ['jsonrpc' => '2.0', 'id' => 1, 'method' => 'tools/list'];
         self::assertSame(['iot_echo', 'iot_control_test'], $names($server->handle($list, self::context('operator', ['iot.read', 'iot.control']))));
         self::assertSame(['iot_echo'], $names($server->handle($list, self::context('reader', ['iot.read', 'iot.control']))));
-        self::assertSame(['iot_echo'], $names($server->handle($list, self::context('operator', ['iot.read']))));
+        // Sans scope iot.control : l'outil reste listé (le call déclenche le step-up OAuth).
+        self::assertSame(['iot_echo', 'iot_control_test'], $names($server->handle($list, self::context('operator', ['iot.read']))));
     }
 
     public function testControlToolRefusedWhenDisabled(): void

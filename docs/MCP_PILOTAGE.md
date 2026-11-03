@@ -1,10 +1,12 @@
 # Pilotage par le connecteur MCP — garde-fous
 
-> Version serveur : **6.51.0**. Architecture générale : [`MCP.md`](MCP.md).
+> Version serveur : **6.53.0**. Architecture générale : [`MCP.md`](MCP.md).
 
 Le pilotage permet à Claude de **préparer** puis, après accord explicite de la personne,
 d'**appliquer** un changement de consigne sur une sortie d'appareil. Il est implémenté et
-testé, mais **désactivé par défaut** et, même activé, limité aux **tables de test**.
+testé, mais **désactivé par défaut** et, même activé, limité aux **tables de test** sauf
+`MCP_CONTROL_ALLOW_PRODUCTION`. Depuis 6.53.0, un **pilotage direct** (`iot_set_output`)
+existe pour l'admin si `MCP_CONTROL_REQUIRE_PLAN=false`.
 
 > ⚠️ **Correctif de sécurité (relecture de la PR #100).** Un environnement n'est « de test » que
 > pour **sa** famille : en `n3pp_test`, `msp_test` ou `energie_test`, la table outputs FFP3
@@ -121,7 +123,38 @@ MCP_CONTROL_ALLOWED_TARGETS=ffp3:prod        # cible explicitement listée…
 MCP_CONTROL_ALLOW_PRODUCTION=true            # …ET drapeau explicite
 ```
 
-Le drapeau **ne lève aucun garde-fou** de la liste blanche : l'arrêt de la pompe aquarium, le
-« forcer OFF », les valeurs hors plage, le dépassement du plafond de nourrissage, l'OTA, le
-reset, les e-mails restent refusés (test `testProductionFlagKeepsBiologicalSafeguards`). Les
-plans visant la production portent `is_production: true`, la table ciblée et un avertissement.
+Le drapeau **ne lève aucun garde-fou** biologique à lui seul : l'arrêt de la pompe aquarium, le
+« forcer OFF », les valeurs hors plage et le dépassement du plafond de nourrissage restent
+refusés sauf `override_bio_safeguards` + confirmation par code (ou
+`MCP_CONTROL_BIO_SAFEGUARDS=false`). Les plans visant la production portent `is_production: true`,
+la table ciblée et un avertissement.
+
+## Pilotage direct (`iot_set_output`)
+
+Conditions : `MCP_CONTROL_ENABLED=true`, `MCP_CONTROL_REQUIRE_PLAN=false`, compte **admin**,
+scope `iot.control`. Même validation (`ControlPolicy::evaluate`), verrou de ligne et
+`ControlAuditLogger` que `iot_apply_plan`. Renvoie `before` / `after`.
+
+### Garde-fous biologiques réglables
+
+| Variable | Défaut | Effet |
+|---|---|---|
+| `MCP_CONTROL_BIO_SAFEGUARDS` | `true` | Couper ignore les règles bio (limites matérielles restent) |
+| `MCP_CONTROL_HEATING_MIN` / `MAX` | 18 / 28 | Plage consigne GPIO 104 |
+| `MCP_FEED_DAILY_MAX` | 2 | Nourrissages MCP / 24 h / bac |
+| `MCP_CONTROL_PUMP_STOP_MAX_MINUTES` | 0 | Arrêt pompe avec rétablissement auto (0 = interdit) |
+
+Levée au cas par cas : `override_bio_safeguards` + `override_reason` (10–200 car.) → catégorie
+`bio_override` → confirmation par code.
+
+### Arrêt pompe et rétablissement
+
+- Avec `restore_after_minutes` (1…`PUMP_STOP_MAX_MINUTES`) : écriture GPIO 117 = 2, ligne dans
+  `mcp_scheduled_restores` ; `McpRestoreCommand` (chaque minute) remet 117 = 0 et 16 = 1.
+- **Maintenance** (`maintenance=true`) : pas de rétablissement ; exige override + catégorie
+  `pump_maintenance` + code.
+
+## Confirmation par code
+
+Voir [`MCP.md` § 12](MCP.md). Catégories sensibles aussi : reset, OTA, photos, SQL DDL /
+écritures sans WHERE / outputs de production / admin comptes SQL.

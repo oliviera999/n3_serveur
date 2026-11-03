@@ -27,6 +27,8 @@ final class McpContext
         public readonly array $scopes,
         public readonly string $clientId,
         public readonly ?ServerRequestInterface $request = null,
+        public readonly bool $privacyBypass = false,
+        public readonly ?string $email = null,
     ) {
     }
 
@@ -43,5 +45,13 @@ final class McpContext
     public function isOperator(): bool
     {
         return in_array($this->role, [User::ROLE_OPERATOR, User::ROLE_ADMIN], true);
+    }
+
+    /**
+     * Admin avec MCP_PRIVACY_BYPASS : peut voir noms / e-mails (jamais les secrets).
+     */
+    public function canSeePersonalData(): bool
+    {
+        return $this->isAdmin() && $this->privacyBypass;
     }
 }

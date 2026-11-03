@@ -42,6 +42,12 @@ interface Tool
     public function requiredScope(): string;
 
     /**
+     * Visibilité pour l'appelant (flags .env + rôle). Un outil non visible est masqué
+     * de tools/list et refusé à l'appel (forbidden).
+     */
+    public function isAvailableFor(McpContext $context): bool;
+
+    /**
      * @param array<string, mixed> $arguments Arguments déjà validés contre le schéma
      */
     public function call(array $arguments, McpContext $context): ToolResult;

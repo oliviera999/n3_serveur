@@ -1,6 +1,6 @@
 # Connecteur MCP (Claude) — iot.olution.info
 
-> Version serveur : **6.52.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.53.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
 Ce serveur expose un **serveur MCP distant** (Model Context Protocol) que l'on ajoute à
 Claude (claude.ai, Desktop, mobile, Cowork, Claude Code) comme **connecteur personnalisé**.
@@ -96,6 +96,12 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_gallery_latest` | Renvoie une photo en **image** JPEG ≤ 800 px, < 1 Mo (GD), éventuellement avec la précédente. |
 | `iot_plan_output_change` | Pilotage étape 1 (désactivé par défaut) — voir `MCP_PILOTAGE.md`. |
 | `iot_apply_plan` | Pilotage étape 2 (désactivé par défaut). |
+| `iot_set_output` | **Productivité / admin** — consigne directe si `MCP_CONTROL_REQUIRE_PLAN=false`. § 12 |
+| `iot_device_action` | **Productivité / admin** — reset / OTA (`MCP_DEVICE_ACTIONS_ENABLED`). § 12 |
+| `iot_gallery_delete` | **Productivité / admin** — corbeille / purge photos. § 12 |
+| `iot_sql` | **Productivité / admin** — SQL libre (`MCP_SQL_ENABLED`). § 12 |
+| `iot_accounts` | **Productivité / admin** — comptes et destinataires (`MCP_PRIVACY_BYPASS`). § 12 |
+| `iot_confirm_unlock` | **Productivité / admin** — fenêtre sans codes (`MCP_CONFIRM_UNLOCK_MINUTES`). § 12 |
 | `iot_recall` | **Mémoire** : notes du site et notes privées (recherche sujet / texte / étiquettes, « à revérifier »). À appeler en début de tâche. § 8 |
 | `iot_remember` | **Mémoire** : crée ou met à jour (même sujet) une note, rafraîchit `verified_at`. Refuse les secrets. § 8 |
 | `iot_forget` | **Mémoire** : supprime une note (auteur ou administrateur). § 8 |
@@ -214,6 +220,18 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 | `MCP_CONTROL_ENABLED` | `false` | Expose les outils de pilotage |
 | `MCP_CONTROL_ALLOWED_TARGETS` | `ffp3:test,ffp3:test3,ffp3:s3test,n3pp:n3pp_test,msp1:msp_test` | Cibles `famille:env` pilotables (jugées sur la table réellement écrite) |
 | `MCP_CONTROL_ALLOW_PRODUCTION` | `false` | ⛔ Autorise une cible listée qui vise une table de production (voir `MCP_PILOTAGE.md`) |
+| `MCP_CONTROL_REQUIRE_PLAN` | `true` | `true` = seul plan→apply ; `false` = expose `iot_set_output` (admin) |
+| `MCP_CONTROL_BIO_SAFEGUARDS` | `true` | Garde-fous biologiques (pompe, chauffage, nourrissage) |
+| `MCP_CONTROL_HEATING_MIN` / `MAX` | `18` / `28` | Plage consigne chauffage (°C), bornée 10–35 |
+| `MCP_CONTROL_PUMP_STOP_MAX_MINUTES` | `0` | Arrêt pompe avec rétablissement auto (0 = interdit) |
+| `MCP_DEVICE_ACTIONS_ENABLED` | `false` | Reset, OTA, suppression photos |
+| `MCP_SQL_ENABLED` / `MCP_SQL_DDL_ENABLED` | `false` | SQL libre / DDL + GRANT |
+| `MCP_SQL_MAX_AFFECTED_ROWS` | `100` | Plafond DML |
+| `MCP_SQL_MAX_STATEMENT_SECONDS` | `10` | Timeout instruction |
+| `MCP_SQL_MAX_ROWS` | `200` | Plafond lignes SELECT |
+| `MCP_PRIVACY_BYPASS` | `false` | Admin voit noms / e-mails (jamais les secrets) |
+| `MCP_CONFIRM_SKIP` | — | Catégories dispensées de code (CSV) ou `all` |
+| `MCP_CONFIRM_UNLOCK_MINUTES` | `0` | Fenêtre après `iot_confirm_unlock` (0 = off) |
 | `MCP_FEED_DAILY_MAX` | `2` | Nourrissages MCP / 24 h / environnement |
 | `MCP_EXTRA_REDIRECT_URIS` | — | Redirections OAuth exactes supplémentaires (CSV) |
 | `MCP_ALLOWED_ORIGINS` | — | Origines navigateur supplémentaires (CSV) |
@@ -480,9 +498,10 @@ Liste ordonnée et exhaustive (connecteur + exploitation). Les étapes 1 à 4 re
 2. **Déployer** le code : `git pull` (cron de déploiement) puis
    `composer install --no-dev --optimize-autoloader` ; le hook `post-merge` vide `var/cache/di`
    (sinon `php bin/clear-cache.php`).
-3. **Jouer les deux migrations**, dans cet ordre (idempotentes, rejouables) :
+3. **Jouer les trois migrations**, dans cet ordre (idempotentes, rejouables) :
    1. `migrations/2026_11_mcp_oauth.sql` (jetons, codes, clients, plans) ;
-   2. `migrations/2026_11_mcp_exploitation.sql` (`mcp_memory` + 6 notes semées, `mcp_health_reports`).
+   2. `migrations/2026_11_mcp_exploitation.sql` (`mcp_memory` + 6 notes semées, `mcp_health_reports`) ;
+   3. `migrations/2026_11_mcp_productivite.sql` (confirmations, déverrouillages, rétablissements pompe).
    phpMyAdmin → SQL, ou `mysql --default-character-set=utf8mb4 -u … oliviera_iot < fichier`.
    Vérifier : `SELECT COUNT(*) FROM mcp_memory;` → 6.
 4. **(Recommandé) Utilisateur SQL lecture seule** `oliviera_mcpro` (privilège `SELECT` seul).
@@ -553,3 +572,62 @@ Liste ordonnée et exhaustive (connecteur + exploitation). Les étapes 1 à 4 re
 **Couper** : `MCP_ENABLED=false` coupe le connecteur (le rapport régulier et
 `/health/report.json` continuent tant que `MCP_HEALTH_REPORT_ENABLED` / `MCP_HEALTH_TOKEN` sont
 définis) ; vider `MCP_HEALTH_TOKEN` rend l'endpoint 404.
+
+---
+
+## 12. Mode productivité (admin, défauts protecteurs)
+
+Réservé au compte **admin**. Tous les drapeaux ci-dessous valent `false` / `true` protecteur
+par défaut dans le code : un `.env` oublié ne dérive pas. Détail du pilotage et des garde-fous :
+[`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+
+### Confirmation par code (hors Claude)
+
+Quand une opération l'exige (`bio_override`, `pump_maintenance`, `reset`, `ota`, `photo_delete`,
+`sql_ddl`, `sql_unbounded_write`, `sql_prod_outputs`, `sql_account_admin`, `unlock`), l'outil
+**n'exécute rien** : il envoie un code à 6 chiffres via `NotificationService` (e-mail du compte
+`n3_users`, à défaut `NOTIF_EMAIL_RECIPIENT`) et renvoie `confirmation_id` + résumé. On rappelle
+l'outil avec les **mêmes** arguments, `confirmation_id` et `confirmation_code`. Code à usage
+unique, 10 min, 3 essais, lié à l'utilisateur / client / outil / empreinte des arguments.
+
+Contournements (productivité) : `MCP_CONFIRM_SKIP` (CSV de catégories, ou `all` — jamais
+`unlock`) ; `iot_confirm_unlock` ouvre une fenêtre de `MCP_CONFIRM_UNLOCK_MINUTES` après un code.
+
+### Bloc `.env` — mode productivité (à coller en production)
+
+```ini
+MCP_CONTROL_ENABLED=true
+MCP_CONTROL_ALLOWED_TARGETS=ffp3:prod,ffp3:s3,n3pp:prod,msp1:prod,ffp3:test,n3pp:n3pp_test,msp1:msp_test
+MCP_CONTROL_ALLOW_PRODUCTION=true
+MCP_CONTROL_REQUIRE_PLAN=false
+MCP_CONTROL_BIO_SAFEGUARDS=true
+MCP_CONTROL_HEATING_MIN=18
+MCP_CONTROL_HEATING_MAX=28
+MCP_CONTROL_PUMP_STOP_MAX_MINUTES=15
+MCP_FEED_DAILY_MAX=3
+MCP_DEVICE_ACTIONS_ENABLED=true
+MCP_SQL_ENABLED=true
+MCP_SQL_DDL_ENABLED=true
+MCP_SQL_MAX_AFFECTED_ROWS=100
+MCP_SQL_MAX_STATEMENT_SECONDS=10
+MCP_SQL_MAX_ROWS=200
+MCP_PRIVACY_BYPASS=true
+MCP_CONFIRM_SKIP=
+MCP_CONFIRM_UNLOCK_MINUTES=30
+```
+
+### Bloc `.env` — revenir au mode protégé
+
+```ini
+MCP_CONTROL_ENABLED=false
+MCP_CONTROL_ALLOW_PRODUCTION=false
+MCP_CONTROL_REQUIRE_PLAN=true
+MCP_CONTROL_BIO_SAFEGUARDS=true
+MCP_CONTROL_PUMP_STOP_MAX_MINUTES=0
+MCP_DEVICE_ACTIONS_ENABLED=false
+MCP_SQL_ENABLED=false
+MCP_SQL_DDL_ENABLED=false
+MCP_PRIVACY_BYPASS=false
+MCP_CONFIRM_SKIP=
+MCP_CONFIRM_UNLOCK_MINUTES=0
+```

@@ -106,9 +106,9 @@ final class SecretScanner
     }
 
     /**
-     * Masque les secrets (et les e-mails) d'un texte libre, ligne de journal ou de code.
+     * Masque les secrets (et les e-mails sauf si `$keepEmails`) d'un texte libre.
      */
-    public static function mask(string $text): string
+    public static function mask(string $text, bool $keepEmails = false): string
     {
         $out = $text;
         foreach (self::secretPatterns() as [$pattern, $replacement]) {
@@ -117,10 +117,12 @@ final class SecretScanner
                 $out = $replaced;
             }
         }
-        foreach (self::PERSONAL_PATTERNS as $pattern => $replacement) {
-            $replaced = preg_replace($pattern, $replacement, $out);
-            if (is_string($replaced)) {
-                $out = $replaced;
+        if (!$keepEmails) {
+            foreach (self::PERSONAL_PATTERNS as $pattern => $replacement) {
+                $replaced = preg_replace($pattern, $replacement, $out);
+                if (is_string($replaced)) {
+                    $out = $replaced;
+                }
             }
         }
 

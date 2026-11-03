@@ -19,13 +19,16 @@ final class Redactor
         '/\$2[aby]\$\d{2}\$[.\/A-Za-z0-9]{53}/' => '[hash masqué]',
     ];
 
-    public static function redact(?string $text, int $maxLength = 300): ?string
+    public static function redact(?string $text, int $maxLength = 300, bool $keepEmails = false): ?string
     {
         if ($text === null) {
             return null;
         }
         $out = $text;
         foreach (self::PATTERNS as $pattern => $replacement) {
+            if ($keepEmails && str_contains($pattern, '@')) {
+                continue;
+            }
             $out = (string) preg_replace($pattern, $replacement, $out);
         }
         if (mb_strlen($out) > $maxLength) {
