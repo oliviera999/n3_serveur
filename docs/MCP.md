@@ -1,12 +1,12 @@
-# Connecteur MCP (Claude) — iot.olution.info
+# Connecteur MCP — iot.olution.info
 
-> Version serveur : **6.53.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.54.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
-Ce serveur expose un **serveur MCP distant** (Model Context Protocol) que l'on ajoute à
-Claude (claude.ai, Desktop, mobile, Cowork, Claude Code) comme **connecteur personnalisé**.
-Claude peut alors lire l'état des modules IoT (aquaponie FFP3, serre N3PP, météo MSP1,
-banc énergie, Poissonglouton), leurs séries de mesures, les alertes, et **regarder les
-photos** des caméras. Le pilotage existe mais est **désactivé par défaut**.
+Ce serveur expose un **serveur MCP distant** (Model Context Protocol) utilisable comme
+connecteur par **Claude**, **Cursor**, **ChatGPT**, et **Gemini Enterprise** (client
+confidentiel). Les modèles peuvent alors lire l'état des modules IoT (aquaponie FFP3,
+serre N3PP, météo MSP1, banc énergie, Poissonglouton), leurs séries, les alertes et les
+photos. Le pilotage existe mais est **désactivé par défaut**.
 
 L'authentification passe par un **serveur d'autorisation OAuth 2.1 embarqué** : chaque
 personne se connecte avec son compte `n3_users` (lecteur, opérateur, administrateur).
@@ -151,10 +151,10 @@ moins il y a d'eau. `iot_describe` l'explique au modèle.
 | Exigence | Implémentation |
 |---|---|
 | Protected Resource Metadata (RFC 9728) | `/.well-known/oauth-protected-resource` et `/.well-known/oauth-protected-resource/mcp` ; `resource` = **exactement** `<MCP_PUBLIC_BASE_URL>/mcp`, un seul issuer |
-| AS metadata (RFC 8414) | `/.well-known/oauth-authorization-server` : `S256`, `none`, `client_id_metadata_document_supported: true`, `offline_access`, endpoints register / revoke |
-| CIMD | `client_id` = URL HTTPS ; document récupéré en ≤ 3 s, ≤ 64 Kio, sans redirection, `client_id` du document = URL, client public, cache 1 h ; hôtes limités à `MCP_CIMD_ALLOWED_HOSTS` (anti-SSRF) |
-| DCR (RFC 7591) | `/oauth/register`, clients publics uniquement, `redirect_uris` strictement validées |
-| Redirections | `https://claude.ai/api/mcp/auth_callback` **exacte** ; loopback `http://localhost/…` et `http://127.0.0.1/…` **port ignoré** (Claude Code) ; `MCP_EXTRA_REDIRECT_URIS` |
+| AS metadata (RFC 8414) | `/.well-known/oauth-authorization-server` : `S256`, `none` + `client_secret_post` / `client_secret_basic`, `authorization_response_iss_parameter_supported`, CIMD, DCR, revoke |
+| CIMD | `client_id` = URL HTTPS ; hôtes : Claude, ChatGPT, Cursor (défaut) ; `MCP_CIMD_ALLOWED_HOSTS` |
+| DCR (RFC 7591) | `/oauth/register`, clients **publics** uniquement ; redirects allowlistés |
+| Redirections | Builtin : Claude, Cursor web, Cursor legacy `cursor://…`, ChatGPT, Gemini Enterprise ; loopback HTTP (port ignoré) ; `MCP_EXTRA_REDIRECT_URIS` |
 | PKCE | S256 **obligatoire** (`plain` refusé) |
 | Code d'autorisation | aléatoire, usage unique (atomique), 60 s, lié au client et à la `redirect_uri` ; rejeu → révocation des jetons émis |
 | Refresh token | **rotation** à chaque usage ; réutilisation d'un refresh déjà tourné → **révocation de toute la famille** |
@@ -187,8 +187,8 @@ d'identifiant stable à lier au jeton) : il faut un compte `n3_users`.
   pour les marées.
 - **Journal** : chaque appel est journalisé (`[mcp] tool=… user=… env=… duration_ms=… status=…`) ;
   le pilotage passe par `ControlAuditLogger` (`[control-audit] … module=mcp:<famille>`).
-- **Origin** : si l'en-tête est présent, il doit valoir `https://claude.ai`, `https://claude.com`,
-  l'origine de `MCP_PUBLIC_BASE_URL` ou une valeur de `MCP_ALLOWED_ORIGINS` (anti DNS-rebinding).
+- **Origin** : si l'en-tête est présent, il doit valoir Claude / ChatGPT / Cursor, l'origine de
+  `MCP_PUBLIC_BASE_URL` ou une valeur de `MCP_ALLOWED_ORIGINS` (anti DNS-rebinding).
 - **Débit** : `POST /mcp` limité par IP (`MCP_RATE_LIMIT_MAX` / `_WINDOW`), endpoints OAuth à
   60 requêtes / 10 min / IP.
 
@@ -233,9 +233,10 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 | `MCP_CONFIRM_SKIP` | — | Catégories dispensées de code (CSV) ou `all` |
 | `MCP_CONFIRM_UNLOCK_MINUTES` | `0` | Fenêtre après `iot_confirm_unlock` (0 = off) |
 | `MCP_FEED_DAILY_MAX` | `2` | Nourrissages MCP / 24 h / environnement |
-| `MCP_EXTRA_REDIRECT_URIS` | — | Redirections OAuth exactes supplémentaires (CSV) |
-| `MCP_ALLOWED_ORIGINS` | — | Origines navigateur supplémentaires (CSV) |
-| `MCP_CIMD_ALLOWED_HOSTS` | `claude.ai,claude.com` | Hôtes CIMD. `*` (tout hôte public) est **déconseillé** : l'IP résolue est vérifiée publique (IPv4/IPv6, mappées, NAT64) et épinglée (`CURLOPT_RESOLVE`), mais cela ouvre des requêtes sortantes vers n'importe quel domaine |
+| `MCP_EXTRA_REDIRECT_URIS` | — | Redirections OAuth exactes supplémentaires (CSV) ; Claude/Cursor/ChatGPT/Gemini Enterprise sont déjà intégrés |
+| `MCP_ALLOWED_ORIGINS` | — | Origines navigateur supplémentaires (CSV ; Claude, ChatGPT, Cursor et la base le sont) |
+| `MCP_CIMD_ALLOWED_HOSTS` | `claude.ai,claude.com,chatgpt.com,cursor.com,www.cursor.com` | Hôtes CIMD. `*` = tout hôte public (**déconseillé**) |
+| `MCP_OAUTH_CONFIDENTIAL_CLIENT_ID` / `_SECRET` | — | Client confidentiel statique (Gemini Enterprise) ; les deux requis |
 | `MCP_DCR_ENABLED` | `true` | Enregistrement dynamique |
 | `MCP_RATE_LIMIT_MAX` / `MCP_RATE_LIMIT_WINDOW` | `300` / `60` | Débit `/mcp` par IP |
 | `MCP_CREDENTIAL_SECRET` | *(vide → `API_SIG_SECRET`)* | Clé HMAC de l'empreinte de mot de passe des jetons ; **la changer révoque toutes les connexions MCP** |
@@ -286,19 +287,53 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 7. **Vérifier la transmission de `Authorization`** (cas FPM/CGI) : lancer le smoke (§ 6)
    depuis un poste ; l'étape `initialize` doit répondre 200. Un 401 à cette étape alors que
    `/oauth/token` a réussi = en-tête retiré par Apache (voir § 7).
-8. **Ajouter le connecteur** :
-   - **claude.ai** (et Desktop / mobile / Cowork) : Réglages → **Connecteurs** →
-     **Ajouter un connecteur personnalisé** → URL `https://iot.olution.info/mcp` → Ajouter →
-     **Se connecter** : la page « Autoriser l'accès » d'iot.olution.info s'ouvre ; se connecter
-     avec un compte `n3_users`. Sur un plan Team/Enterprise, c'est un propriétaire de
-     l'organisation qui ajoute le connecteur.
-   - **Claude Code** :
-     ```bash
-     claude mcp add --transport http iot https://iot.olution.info/mcp
-     ```
-     puis `/mcp` dans une session → **Authenticate** (navigateur, redirection loopback).
+8. **Ajouter le connecteur** (détail multi-clients § 5.1) :
+   - Claude / Cursor / ChatGPT / Gemini Enterprise selon le client.
 9. **Tester** dans une conversation : « Donne-moi l'état de l'aquaponie » (→ `iot_overview`),
    « Montre-moi la dernière photo de la serre » (→ `iot_gallery_latest`).
+
+### 5.1 Autres clients (Cursor, ChatGPT, Gemini)
+
+| Client | Redirect intégré | Auth client | Notes |
+|---|---|---|---|
+| Claude (web, Desktop, mobile, Cowork) | `https://claude.ai/api/mcp/auth_callback` | Public (CIMD / DCR) | Client d'origine |
+| Claude Code | loopback `http://localhost\|127.0.0.1/…` (port libre) | Public (CIMD) | — |
+| Cursor desktop | `http://localhost:8787/callback` (loopback) | Public (DCR) | Ancien : `cursor://anysphere.cursor-mcp/oauth/callback` |
+| Cursor web / Agents | `https://www.cursor.com/agents/mcp/oauth/callback` | Public (DCR) | — |
+| ChatGPT | `https://chatgpt.com/connector_platform_oauth_redirect` | Public (CIMD / DCR) | Exige `iss` (déjà renvoyé) |
+| Gemini Enterprise | `https://vertexaisearch.cloud.google.com/oauth-redirect` | **Confidentiel** (`.env`) | Pas le Gemini grand public |
+| Gemini app grand public | — | — | Pas de connecteur MCP custom équivalent |
+
+**Cursor** — dans la config MCP utilisateur (`mcp.json`) :
+
+```json
+{
+  "mcpServers": {
+    "n3-iot": {
+      "url": "https://iot.olution.info/mcp"
+    }
+  }
+}
+```
+
+Puis authentifier quand Cursor le propose (navigateur → page OAuth iot.olution.info).
+
+**ChatGPT** — ajouter un serveur MCP / plugin personnalisé avec l'URL
+`https://iot.olution.info/mcp`, auth OAuth. Copier l'URI de redirection affichée dans
+ChatGPT si elle diffère de l'URI stable (sinon elle est déjà allowlistée).
+
+**Gemini Enterprise** — créer un couple ID/secret et les coller dans le connecteur Google :
+
+```env
+MCP_OAUTH_CONFIDENTIAL_CLIENT_ID=gemini-n3-iot
+MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET=<secret long aléatoire>
+```
+
+Dans la console Gemini Enterprise (Custom MCP Server) : URL MCP = `https://iot.olution.info/mcp`,
+Authorization URL = `https://iot.olution.info/oauth/authorize`, Token URL =
+`https://iot.olution.info/oauth/token`, Client ID / Secret = les valeurs `.env`, scopes =
+`iot.read offline_access` (et `iot.control` si besoin), PKCE activé, redirect Google déjà
+intégré.
 
 ### Révoquer un accès
 

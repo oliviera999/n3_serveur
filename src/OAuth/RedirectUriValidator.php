@@ -10,17 +10,20 @@ use App\Mcp\McpConfig;
  * Validation stricte des URI de redirection OAuth.
  *
  * Politique serveur (avant même la comparaison au client) :
- *  - correspondance EXACTE avec une URI autorisée (`https://claude.ai/api/mcp/auth_callback`
- *    + `MCP_EXTRA_REDIRECT_URIS`) ;
+ *  - correspondance EXACTE avec une URI autorisée (callbacks Claude / Cursor / ChatGPT /
+ *    Gemini Enterprise + `MCP_EXTRA_REDIRECT_URIS`) ;
  *  - OU redirection loopback `http://localhost/…`, `http://127.0.0.1/…`, `http://[::1]/…`
- *    (clients natifs, ex. Claude Code), PORT IGNORÉ à la comparaison (RFC 8252 §7.3,
- *    étendu à `localhost` comme l'exige Claude Code).
+ *    (clients natifs : Claude Code, Cursor desktop :8787), PORT IGNORÉ à la comparaison
+ *    (RFC 8252 §7.3, étendu à `localhost`).
  *
  * Comparaison client ↔ requête : chaîne identique, ou — pour le loopback uniquement —
  * identique une fois le port retiré (schéma, hôte, chemin, requête). `localhost` et
  * `127.0.0.1` ne sont PAS interchangeables. Fragments et identifiants refusés.
  *
- * Référence : https://claude.com/docs/connectors/building/authentication#callback-urls
+ * Schéma `cursor://` : uniquement {@see McpConfig::CURSOR_LEGACY_CALLBACK} (pas d'autres
+ * schémas custom).
+ *
+ * Références : Claude connectors auth ; Cursor MCP OAuth docs ; OpenAI MCP auth ; Gemini Enterprise.
  */
 final class RedirectUriValidator
 {
@@ -88,6 +91,10 @@ final class RedirectUriValidator
     {
         if ($uri === '' || strlen($uri) > 512 || preg_match('/[\s\x00-\x1f]/', $uri) === 1) {
             return false;
+        }
+        // Schéma custom Cursor (legacy) : accepté uniquement pour l'URI exacte connue.
+        if ($uri === McpConfig::CURSOR_LEGACY_CALLBACK) {
+            return true;
         }
         $parts = parse_url($uri);
         if (!is_array($parts) || !isset($parts['scheme'], $parts['host']) || isset($parts['fragment'])) {
