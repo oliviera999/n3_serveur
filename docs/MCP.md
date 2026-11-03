@@ -115,6 +115,15 @@ moins il y a d'eau. `iot_describe` l'explique au modèle.
   par l'admin web ou par SQL direct — tous les jetons d'accès et de rafraîchissement émis
   avant sont refusés. `UserRepository` révoque en plus explicitement les jetons MCP sur
   changement de mot de passe, de rôle, désactivation et suppression du compte.
+- **Clé de l'empreinte** (`App\Security\McpCredentialEpoch`) : dérivée d'un secret serveur,
+  `HMAC-SHA256('mcp-credential-epoch', MCP_CREDENTIAL_SECRET)`, à défaut `API_SIG_SECRET`. Une
+  fuite de la base seule ne permet donc pas de recalculer les empreintes. Si les deux secrets
+  sont vides, une clé fixe de repli est utilisée et un avertissement est journalisé à chaque
+  connexion (`[mcp-oauth] MCP_CREDENTIAL_SECRET et API_SIG_SECRET vides…`).
+  ⚠️ **Tourner ce secret** (ou définir `MCP_CREDENTIAL_SECRET` alors que la clé venait
+  d'`API_SIG_SECRET`) **révoque toutes les connexions MCP** : chaque utilisateur doit se
+  reconnecter une fois depuis Claude. Aucune autre donnée n'est touchée. Un secret dédié
+  évite que la rotation du secret HMAC des ESP32 déconnecte Claude.
 - Un jeton sans ressource (`resource` NULL) est refusé : l'audience est obligatoire.
 
 ### Serveur d'autorisation
@@ -132,7 +141,7 @@ moins il y a d'eau. `iot_describe` l'explique au modèle.
 | Erreurs | RFC 6749 (`invalid_grant`, `invalid_request`, `unsupported_grant_type`, `invalid_scope`, `invalid_target`…) |
 | Stockage | jetons opaques (256 bits) **hachés sha256** ; jamais en clair |
 | `resource` (RFC 8707) | validé s'il est fourni ; le jeton est lié à `<base>/mcp` (audience vérifiée) |
-| Consentement | page Twig autonome : nom d'hôte de redirection affiché, avertissement loopback, scopes, CSRF dédié, limitation 10 essais / 10 min / IP **et 5 échecs / 15 min / compte**, anti-énumération (vérification `UserRepository::verifyPassword`), non encadrable (`X-Frame-Options: DENY` + `Content-Security-Policy: frame-ancestors 'none'`) |
+| Consentement | page Twig autonome : nom d'hôte de redirection affiché, avertissement loopback, scopes, CSRF dédié, limitation 10 essais / 10 min / IP **et 5 échecs / 15 min / compte** (clé du compte résolu `id:<id>` + clé du nom normalisé NFKC, sans accents ni caractères invisibles, en minuscules : « ádmin », « ADMIN », « admin␠ » partagent le compteur d'`admin`, comme la collation `utf8mb4_unicode_ci`), anti-énumération (vérification `UserRepository::verifyPassword`), non encadrable (`X-Frame-Options: DENY` + `Content-Security-Policy: frame-ancestors 'none'`) |
 
 Scopes : `iot.read` (tout compte actif), `iot.control` (opérateur ou administrateur **et**
 `MCP_CONTROL_ENABLED=true`), `offline_access` (délivre un refresh token).
@@ -196,6 +205,7 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 | `MCP_CIMD_ALLOWED_HOSTS` | `claude.ai,claude.com` | Hôtes CIMD. `*` (tout hôte public) est **déconseillé** : l'IP résolue est vérifiée publique (IPv4/IPv6, mappées, NAT64) et épinglée (`CURLOPT_RESOLVE`), mais cela ouvre des requêtes sortantes vers n'importe quel domaine |
 | `MCP_DCR_ENABLED` | `true` | Enregistrement dynamique |
 | `MCP_RATE_LIMIT_MAX` / `MCP_RATE_LIMIT_WINDOW` | `300` / `60` | Débit `/mcp` par IP |
+| `MCP_CREDENTIAL_SECRET` | *(vide → `API_SIG_SECRET`)* | Clé HMAC de l'empreinte de mot de passe des jetons ; **la changer révoque toutes les connexions MCP** |
 | `DB_MCP_USER` / `DB_MCP_PASS` | — | Utilisateur SQL **SELECT seul** (recommandé) |
 
 ---

@@ -13,6 +13,7 @@ use App\OAuth\Pkce;
 use App\OAuth\RedirectUriValidator;
 use App\Repository\McpOAuthRepository;
 use App\Repository\UserRepository;
+use App\Security\McpCredentialEpoch;
 use PDO;
 use PHPUnit\Framework\TestCase;
 use Tests\Support\McpSqliteFixture;
@@ -341,6 +342,48 @@ final class AuthorizationServerTest extends TestCase
             self::fail('refresh accepté après changement de mot de passe');
         } catch (OAuthException $e) {
             self::assertSame('invalid_grant', $e->error);
+        }
+    }
+
+    public function testCredentialEpochKeyIsDerivedFromServerSecret(): void
+    {
+        $saved = [$_ENV['MCP_CREDENTIAL_SECRET'] ?? null, $_ENV['API_SIG_SECRET'] ?? null, getenv('MCP_CREDENTIAL_SECRET'), getenv('API_SIG_SECRET')];
+        try {
+            putenv('MCP_CREDENTIAL_SECRET');
+            putenv('API_SIG_SECRET');
+            unset($_ENV['MCP_CREDENTIAL_SECRET'], $_ENV['API_SIG_SECRET']);
+            self::assertTrue(McpCredentialEpoch::isFallback());
+            $fallback = McpCredentialEpoch::compute('hash');
+
+            $_ENV['API_SIG_SECRET'] = 'secret-esp32';
+            self::assertFalse(McpCredentialEpoch::isFallback());
+            $fromSig = McpCredentialEpoch::compute('hash');
+            self::assertSame(hash_hmac('sha256', 'mcp-credential-epoch', 'secret-esp32'), McpCredentialEpoch::key());
+            self::assertNotSame($fallback, $fromSig);
+
+            // Secret dédié prioritaire sur API_SIG_SECRET.
+            $_ENV['MCP_CREDENTIAL_SECRET'] = 'secret-mcp';
+            self::assertSame(hash_hmac('sha256', 'mcp-credential-epoch', 'secret-mcp'), McpCredentialEpoch::key());
+            self::assertNotSame($fromSig, McpCredentialEpoch::compute('hash'));
+
+            // Tourner le secret invalide les jetons existants (ré-authentification requise).
+            $server = $this->server();
+            [$tokens] = $this->fullFlow(1);
+            self::assertNotNull($server->validateAccessToken($tokens['access_token'], self::RESOURCE));
+            $_ENV['MCP_CREDENTIAL_SECRET'] = 'secret-mcp-tourne';
+            self::assertNull($server->validateAccessToken($tokens['access_token'], self::RESOURCE));
+            // Une nouvelle connexion refonctionne immédiatement.
+            [$again] = $this->fullFlow(1);
+            self::assertNotNull($server->validateAccessToken($again['access_token'], self::RESOURCE));
+        } finally {
+            foreach (['MCP_CREDENTIAL_SECRET' => [0, 2], 'API_SIG_SECRET' => [1, 3]] as $name => [$envIndex, $getenvIndex]) {
+                if ($saved[$envIndex] === null) {
+                    unset($_ENV[$name]);
+                } else {
+                    $_ENV[$name] = $saved[$envIndex];
+                }
+                putenv($saved[$getenvIndex] === false ? $name : $name . '=' . $saved[$getenvIndex]);
+            }
         }
     }
 

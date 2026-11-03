@@ -256,6 +256,32 @@ final class McpMariaDbIntegrationTest extends IntegrationDbTestCase
         }
     }
 
+    public function testCollationVariantsResolveToSameAccountOnRealSchema(): void
+    {
+        $row = $this->pdo->query("SELECT id, username FROM n3_users WHERE username REGEXP '^[a-z]+$' ORDER BY id LIMIT 1")->fetch();
+        if (!is_array($row)) {
+            self::markTestSkipped('Aucun compte n3_users à nom ASCII simple.');
+        }
+        $id = (int) $row['id'];
+        $name = (string) $row['username'];
+        $users = new UserRepository($this->pdo);
+        $accented = ['a' => 'á', 'e' => 'é', 'i' => 'î', 'o' => 'ô', 'u' => 'ù'];
+        $variants = [
+            strtoupper($name),
+            $name . ' ',
+            strtr($name, $accented),
+            mb_strtoupper(strtr($name, $accented)),
+            mb_substr($name, 0, 1) . "\u{0301}" . mb_substr($name, 1),
+        ];
+        foreach ($variants as $variant) {
+            // La base (utf8mb4_unicode_ci) ramène la variante au compte : la clé `id:` du
+            // compteur d'échecs est donc commune, et la normalisation donne la même clé `name:`.
+            self::assertSame($id, $users->findIdByUsername($variant), json_encode($variant, JSON_THROW_ON_ERROR));
+            self::assertSame(\App\Controller\OAuth\OAuthController::normalizeUsername($name), \App\Controller\OAuth\OAuthController::normalizeUsername($variant));
+        }
+        self::assertNull($users->findIdByUsername($name . 'x-inexistant'));
+    }
+
     public function testOAuthFlowOnRealSchema(): void
     {
         $userId = (int) $this->pdo->query('SELECT id FROM n3_users WHERE is_active = 1 ORDER BY id LIMIT 1')->fetchColumn();

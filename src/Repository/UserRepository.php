@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Domain\User;
+use App\Security\McpCredentialEpoch;
 use PDOException;
 
 /**
@@ -175,7 +176,8 @@ class UserRepository extends AbstractRepository
      * Empreinte courte du hachage de mot de passe (« époque d'identifiants ») : liée aux
      * jetons MCP à leur émission, elle change dès que le mot de passe change — y compris
      * par une requête SQL directe — et invalide alors tous les jetons émis avant.
-     * Jamais renvoyée au client ; dérivée par HMAC pour ne rien révéler du hachage.
+     * Jamais renvoyée au client ; dérivée par HMAC, avec une clé tirée d'un secret serveur
+     * ({@see McpCredentialEpoch}), pour ne rien révéler du hachage.
      */
     public function credentialEpoch(int $id): ?string
     {
@@ -184,7 +186,19 @@ class UserRepository extends AbstractRepository
             return null;
         }
 
-        return substr(hash_hmac('sha256', $hash, 'mcp-credential-epoch'), 0, 16);
+        return McpCredentialEpoch::compute($hash);
+    }
+
+    /**
+     * Identifiant du compte correspondant à ce nom, actif ou non, ou null. La comparaison suit
+     * la collation de la colonne (`utf8mb4_unicode_ci` en production : casse, accents et
+     * espaces finaux ignorés), exactement comme {@see verifyPassword()}.
+     */
+    public function findIdByUsername(string $username): ?int
+    {
+        $id = $this->fetchScalar('SELECT id FROM `' . self::TABLE . '` WHERE username = :username LIMIT 1', ['username' => $username]);
+
+        return is_numeric($id) ? (int) $id : null;
     }
 
     /**

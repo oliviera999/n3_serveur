@@ -62,6 +62,13 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   hexadécimale et NAT64 jugées sur l'IPv4 extraite, seul `2000::/3` admis en IPv6) ;
   **M5** ressource obligatoire sur les jetons ; **M6** 5 échecs / 15 min par compte sur la page
   OAuth ; **M7** `SELECT … FOR UPDATE` entre relecture et écriture du pilotage.
+- Contre-vérification : le compteur d'échecs par compte ne se contourne plus par des variantes
+  que la collation `utf8mb4_unicode_ci` ramène au même compte (« ádmin », « ADMIN », espace final,
+  accent combinant, espace sans chasse, pleine chasse) : clé `id:<id>` du compte résolu + clé du
+  nom normalisé (NFKC, sans diacritiques ni caractères de format, minuscules), même message que
+  le compte existe ou non. La clé HMAC de `credential_epoch` est dérivée d'un secret serveur
+  (`MCP_CREDENTIAL_SECRET`, sinon `API_SIG_SECRET`, sinon repli fixe journalisé) ; tourner ce
+  secret révoque les connexions MCP.
 - Tests : matrice 3 familles × 8 environnements (aucune table de production modifiée), plafond
   par table, audit succès/échec, intégration MariaDB (refus `ffp3:n3pp_test`, verrou, mot de passe).
 - Migration `migrations/2026_11_mcp_oauth.sql` (+ `docker/mysql/init/96-mcp-oauth.sql`) ;

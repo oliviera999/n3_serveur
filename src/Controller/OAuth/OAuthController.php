@@ -15,6 +15,7 @@ use App\OAuth\Pkce;
 use App\OAuth\RedirectUriValidator;
 use App\Repository\McpOAuthRepository;
 use App\Repository\UserRepository;
+use App\Security\McpCredentialEpoch;
 use App\Security\RateLimiter;
 use App\Service\LogService;
 use App\Service\TemplateRenderer;
@@ -58,6 +59,52 @@ final class OAuthController
         private TemplateRenderer $renderer,
         private LogService $logger,
     ) {
+    }
+
+    /**
+     * Clés du compteur d'échecs PAR COMPTE pour un identifiant saisi.
+     *
+     * La colonne `username` est en `utf8mb4_unicode_ci` : « ádmin », « ÀDMÎN », « admin » suivi
+     * d'un espace, d'un accent combinant ou d'un caractère invisible désignent tous le compte
+     * `admin`. Une clé dérivée du texte brut donnerait un compteur par variante (contournement
+     * du blocage, relecture PR #100). Deux compteurs, vérifiés et incrémentés ensemble :
+     *  - `name:<nom normalisé>` toujours (même traitement que le compte existe ou non) ;
+     *  - `id:<id>` quand la base résout le nom vers un compte : couvre toute équivalence de la
+     *    collation que la normalisation n'aurait pas prévue.
+     *
+     * @return list<string>
+     */
+    private function accountKeys(string $username): array
+    {
+        $keys = ['mcp_oauth_account:name:' . self::normalizeUsername($username)];
+        $id = $this->users->findIdByUsername($username);
+        if ($id !== null) {
+            $keys[] = 'mcp_oauth_account:id:' . $id;
+        }
+
+        return $keys;
+    }
+
+    /**
+     * Forme canonique d'un identifiant : NFKC (pleine chasse, ligatures…), suppression des
+     * diacritiques et des caractères de format invisibles (espace sans chasse, trait d'union
+     * conditionnel…), minuscules, espaces de bord retirés. Sans l'extension intl, repli sur
+     * la translittération ASCII d'iconv.
+     */
+    public static function normalizeUsername(string $username): string
+    {
+        $value = mb_substr($username, 0, 64);
+        if (class_exists(\Normalizer::class)) {
+            $value = (string) \Normalizer::normalize($value, \Normalizer::FORM_KC);
+            $value = (string) \Normalizer::normalize($value, \Normalizer::FORM_D);
+            $value = (string) preg_replace('/[\p{Mn}\p{Cf}]+/u', '', $value);
+        } else {
+            $value = (string) preg_replace('/\p{Cf}+/u', '', $value);
+            $ascii = @iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $value);
+            $value = is_string($ascii) && $ascii !== '' ? $ascii : $value;
+        }
+
+        return trim(mb_strtolower($value), " \t\n\r\0\x0B\u{00A0}\u{3000}");
     }
 
     // ── Découverte ────────────────────────────────────────────────────
@@ -231,8 +278,12 @@ final class OAuthController
         $username = $str('username');
         // Compteur PAR COMPTE (attaque distribuée sur un identifiant) : vérifié AVANT le mot
         // de passe, et le même message est renvoyé que le compte existe ou non.
-        $accountKey = 'mcp_oauth_account:' . strtolower(mb_substr($username, 0, 64));
-        if ($username !== '' && $this->limiter->attempts($accountKey, self::ACCOUNT_WINDOW_SECONDS) >= self::ACCOUNT_MAX_FAILURES) {
+        $accountKeys = $username !== '' ? $this->accountKeys($username) : [];
+        $blocked = false;
+        foreach ($accountKeys as $key) {
+            $blocked = $blocked || $this->limiter->attempts($key, self::ACCOUNT_WINDOW_SECONDS) >= self::ACCOUNT_MAX_FAILURES;
+        }
+        if ($blocked) {
             $this->logger->warning('[mcp-oauth] compte temporairement bloqué {user}', ['user' => mb_substr($username, 0, 64)]);
             $context['error'] = 'Trop d\'échecs pour ce compte. Réessayez dans quelques minutes.';
             $context['username'] = $username;
@@ -241,8 +292,8 @@ final class OAuthController
         }
         $user = $username !== '' ? $this->users->verifyPassword($username, is_string($params['password'] ?? null) ? $params['password'] : '') : null;
         if ($user === null) {
-            if ($username !== '') {
-                $this->limiter->hit($accountKey, self::ACCOUNT_WINDOW_SECONDS);
+            foreach ($accountKeys as $key) {
+                $this->limiter->hit($key, self::ACCOUNT_WINDOW_SECONDS);
             }
             $this->logger->warning('[mcp-oauth] échec de connexion pour {user}', ['user' => mb_substr($username, 0, 64)]);
             $context['error'] = 'Identifiants incorrects ou compte désactivé.';
@@ -251,7 +302,12 @@ final class OAuthController
             return $this->renderConsent($response->withStatus(401), $context);
         }
         $this->limiter->clear($ipKey);
-        $this->limiter->clear($accountKey);
+        foreach ($accountKeys as $key) {
+            $this->limiter->clear($key);
+        }
+        if (McpCredentialEpoch::isFallback()) {
+            $this->logger->warning('[mcp-oauth] MCP_CREDENTIAL_SECRET et API_SIG_SECRET vides : clé fixe de repli pour l\'époque d\'identifiants des jetons MCP (définir MCP_CREDENTIAL_SECRET).');
+        }
 
         $scopes = $this->server->grantableScopes($requestedScope, $user->role);
         $code = $this->server->issueCode($client['client_id'], $user->id, $redirectUri, $scopes, $resource, $str('code_challenge'));

@@ -273,6 +273,77 @@ final class McpControllerTest extends TestCase
         self::assertSame(302, $post($this->authorizeForm(McpSqliteFixture::PASSWORD, 'admin'))->getStatusCode());
     }
 
+    /**
+     * Variantes que la collation `utf8mb4_unicode_ci` ramène au compte `admin` (vérifié sur
+     * MariaDB) : chacune doit partager LE MÊME compteur d'échecs.
+     *
+     * @return list<string>
+     */
+    private static function adminVariants(): array
+    {
+        return ['ádmin', 'Ádmin', 'àdmîn', 'admin ', "a\u{0301}dmin", "ad\u{200B}min", 'ａｄｍｉｎ', ' ADMIN'];
+    }
+
+    public function testUsernameNormalizationFoldsCollationVariants(): void
+    {
+        foreach ([...self::adminVariants(), 'admin', 'ADMIN'] as $variant) {
+            self::assertSame('admin', OAuthController::normalizeUsername($variant), json_encode($variant, JSON_THROW_ON_ERROR));
+        }
+        self::assertSame('lecteur', OAuthController::normalizeUsername('LÉCTEUR'));
+        self::assertNotSame('admin', OAuthController::normalizeUsername('admin2'));
+    }
+
+    public function testAccountLockoutCannotBeBypassedWithAccentedVariants(): void
+    {
+        $renderer = $this->createMock(TemplateRenderer::class);
+        $renderer->method('render')->willReturn('<html></html>');
+        $controller = $this->oauthController($renderer);
+        $post = fn (array $form) => $controller->authorizeSubmit(
+            self::request('POST', '/oauth/authorize', http_build_query($form), ['Content-Type' => 'application/x-www-form-urlencoded'])
+                ->withParsedBody($form),
+            new Response()
+        );
+        // 5 échecs, chacun sous une variante différente du même compte.
+        foreach (array_slice(self::adminVariants(), 0, 5) as $variant) {
+            self::assertSame(401, $post($this->authorizeForm('mauvais', $variant))->getStatusCode(), $variant);
+        }
+        // Le compte est bloqué pour TOUTES les écritures, même avec le bon mot de passe.
+        foreach (['admin', ...array_slice(self::adminVariants(), 5)] as $variant) {
+            self::assertSame(429, $post($this->authorizeForm(McpSqliteFixture::PASSWORD, $variant))->getStatusCode(), $variant);
+        }
+        // Un autre compte n'est pas affecté.
+        self::assertSame(302, $post($this->authorizeForm(McpSqliteFixture::PASSWORD, 'lecteur'))->getStatusCode());
+    }
+
+    public function testLockoutMessageIdenticalForUnknownAccount(): void
+    {
+        $bodies = [];
+        $renderer = $this->createMock(TemplateRenderer::class);
+        $renderer->method('render')->willReturnCallback(static function (string $template, array $context) use (&$bodies): string {
+            $bodies[] = (string) ($context['error'] ?? '');
+
+            return '<html></html>';
+        });
+        $controller = $this->oauthController($renderer);
+        $post = fn (array $form) => $controller->authorizeSubmit(
+            self::request('POST', '/oauth/authorize', http_build_query($form), ['Content-Type' => 'application/x-www-form-urlencoded'])
+                ->withParsedBody($form),
+            new Response()
+        );
+        foreach (['inconnu', 'Ínconnu', 'operateur', 'Opérateur'] as $i => $name) {
+            for ($n = 0; $n < 3; $n++) {
+                $post($this->authorizeForm('mauvais', $name));
+            }
+        }
+        // Compte inconnu (clé nom normalisé) et compte existant (clés nom + id) : même blocage,
+        // mêmes statuts, mêmes messages.
+        self::assertSame(429, $post($this->authorizeForm('mauvais', 'inconnu'))->getStatusCode());
+        $unknownLocked = end($bodies);
+        self::assertSame(429, $post($this->authorizeForm(McpSqliteFixture::PASSWORD, 'operateur'))->getStatusCode());
+        self::assertSame($unknownLocked, end($bodies));
+        self::assertSame(1, count(array_unique(array_filter($bodies, static fn (string $b): bool => str_contains($b, 'Identifiants')))));
+    }
+
     public function testOAuthPagesForbidFramingAndSecurityHeadersKeepIt(): void
     {
         $renderer = $this->createMock(TemplateRenderer::class);
