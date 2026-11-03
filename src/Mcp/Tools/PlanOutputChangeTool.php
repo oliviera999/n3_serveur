@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Mcp\Tools;
 
+use App\Mcp\Control\BioLimits;
 use App\Mcp\Control\ControlPolicy;
 use App\Mcp\Control\ControlTarget;
 use App\Mcp\McpConfig;
@@ -87,6 +88,16 @@ final class PlanOutputChangeTool extends AbstractTool
             ],
             'reason' => ['type' => 'string', 'maxLength' => 200, 'description' => 'Motif du changement (journalisé).'],
             'env' => $this->envProperty(true),
+            'override_bio_safeguards' => [
+                'type' => 'boolean',
+                'description' => 'Admin : mémorise une levée de garde-fou (confirmation à l\'apply).',
+            ],
+            'override_reason' => [
+                'type' => 'string',
+                'minLength' => 10,
+                'maxLength' => 200,
+                'description' => 'Motif obligatoire si override_bio_safeguards.',
+            ],
         ], ['family', 'gpio']);
     }
 
@@ -99,14 +110,21 @@ final class PlanOutputChangeTool extends AbstractTool
         if (is_float($value) && floor($value) === $value) {
             $value = (int) $value;
         }
-        $refusal = ControlPolicy::validate($family, $gpio, $value);
-        if ($refusal !== null) {
-            throw new ToolException($refusal, 'refused_by_policy');
+        $override = !empty($arguments['override_bio_safeguards']);
+        $overrideReason = isset($arguments['override_reason']) ? trim((string) $arguments['override_reason']) : '';
+        if ($override) {
+            if (!$context->isAdmin()) {
+                throw new ToolException('La levée de garde-fou est réservée aux administrateurs.', 'forbidden');
+            }
+            if (strlen($overrideReason) < 10 || strlen($overrideReason) > 200) {
+                throw new ToolException('override_reason requis (10–200 caractères).', 'invalid_arguments');
+            }
         }
-        $rule = (array) ControlPolicy::rule($family, $gpio);
+        $rule = ControlPolicy::rule($family, $gpio);
+        if ($rule === null) {
+            throw new ToolException(ControlPolicy::validate($family, $gpio, $value) ?? 'GPIO non pilotable.', 'refused_by_policy');
+        }
         $env = $this->resolveEnv($arguments, true);
-        // Cible RÉELLE (table outputs résolue par TableConfig) : refus d'une table de
-        // production même depuis un environnement « de test » d'une autre famille.
         $target = ControlTarget::resolve($family, $env);
         $target->assertAllowed($this->config);
         $isFeed = $rule['kind'] === ControlPolicy::KIND_FEED;
@@ -114,27 +132,32 @@ final class PlanOutputChangeTool extends AbstractTool
             throw new ToolException('Le nourrissage n\'existe que pour l\'aquaponie FFP3.', 'refused_by_policy');
         }
 
-        $planned = EnvironmentScope::run($env, function () use ($family, $gpio, $env, $isFeed, $target): array {
+        $planned = EnvironmentScope::run($env, function () use ($family, $gpio, $isFeed, $target): array {
             $current = $this->repo->output($family, $gpio);
             if ($current === null) {
-                throw new ToolException(sprintf('GPIO %d absent de la table outputs (%s, %s).', $gpio, $family, $env), 'not_found');
+                throw new ToolException(sprintf('GPIO %d absent de la table outputs (%s).', $gpio, $family), 'not_found');
             }
             $fedToday = $isFeed ? $this->store->countAppliedFeeds($target->physicalKey(), date('Y-m-d H:i:s', time() - 86400)) : 0;
 
             return ['current' => $current, 'fed_today' => $fedToday];
         });
 
+        $limits = BioLimits::fromConfig($this->config);
+        $decision = ControlPolicy::evaluate($family, $gpio, $value, $limits, $override, $isFeed ? $planned['fed_today'] : null);
+        if ($decision->isMaterial()) {
+            throw new ToolException((string) $decision->message, 'refused_by_policy');
+        }
+        if ($decision->isBiological() && !$override) {
+            throw new ToolException(
+                (string) $decision->message . ' Pour lever : override_bio_safeguards + motif (confirmation à l\'apply).',
+                'bio_safeguard'
+            );
+        }
+
         $before = $planned['current']['state'] === null ? null : (string) $planned['current']['state'];
         $risks = [(string) $rule['risk']];
         if ($isFeed) {
             $max = $this->config->feedDailyMax();
-            if ($planned['fed_today'] >= $max) {
-                throw new ToolException(sprintf(
-                    'Plafond de nourrissage MCP atteint : %d repas manuels sur 24 h (maximum %d). Les nourrissages automatiques continuent.',
-                    $planned['fed_today'],
-                    $max
-                ), 'feed_cap_reached');
-            }
             $after = (string) (((int) $before) + 1);
             $risks[] = sprintf('Repas manuels MCP sur 24 h : %d / %d après celui-ci.', $planned['fed_today'] + 1, $max);
         } else {
@@ -146,8 +169,10 @@ final class PlanOutputChangeTool extends AbstractTool
                 $risks[] = 'Écart de consigne supérieur à 2 °C : risque de choc thermique, préférer plusieurs petits pas.';
             }
         }
+        if ($override) {
+            $risks[] = 'Levée de garde-fou demandée : ' . $overrideReason . ' (confirmation par code à l\'apply).';
+        }
         if ($target->isProduction()) {
-            // Atteint uniquement avec MCP_CONTROL_ALLOW_PRODUCTION=true (cf. assertAllowed()).
             $risks[] = 'ATTENTION : table de PRODUCTION ' . $target->table . ' (installation réelle, êtres vivants).';
         }
         $risks[] = 'Effet au prochain réveil / poll de l\'ESP32 (de quelques secondes à FreqWakeUp).';
@@ -167,8 +192,11 @@ final class PlanOutputChangeTool extends AbstractTool
             'last_change' => $planned['current']['requestTime'] ?? null,
             'risks' => $risks,
             'reason' => isset($arguments['reason']) ? (string) $arguments['reason'] : null,
+            'override_bio_safeguards' => $override,
+            'override_reason' => $override ? $overrideReason : null,
             'expires_at' => date('Y-m-d H:i:s', time() + self::PLAN_TTL_SECONDS),
-            'next_step' => 'Après accord explicite de la personne : iot_apply_plan avec ce plan_id.',
+            'next_step' => 'Après accord explicite de la personne : iot_apply_plan avec ce plan_id'
+                . ($override ? ' (+ confirmation_id/code si demandé)' : '') . '.',
         ];
         $this->store->storePlan(
             $planId,

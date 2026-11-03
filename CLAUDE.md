@@ -145,7 +145,8 @@ d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Inactif
   (hors pilotage, seuls `iot_remember` / `iot_forget` écrivent, dans `mcp_memory` uniquement).
 - ❌ **Jamais** de secret dans la mémoire (`SecretScanner` refuse) ni en clair dans un fichier lu par
   `iot_read_file` / `iot_grep_files` (`.env` → noms seuls, secrets de journaux masqués, `realpath`
-  maintenu dans une racine de `MCP_FILE_ROOTS`, rôle admin). Exploitation : `docs/MCP.md` §§ 8-11.
+  maintenu dans une racine de `MCP_FILE_ROOTS`, rôle admin). Exploitation : `docs/MCP.md` §§ 8-11 ;
+  mode productivité admin : § 12.
 - ❌ **Jamais** de colonne / GPIO hors `Mcp\Support\FieldCatalog` ; `mail`/`mailNotif` (GPIO 100/101),
   destinataires, jetons, hachés et secrets ne sortent jamais (`Redactor` sur les textes libres).
 - ✅ Bascule d'environnement uniquement via `EnvironmentScope` (→ `TableConfig::setEnvironment()`, reset en `finally`) ;
@@ -155,8 +156,10 @@ d'autorisation OAuth 2.1 embarqué (`/oauth/*`, `/.well-known/oauth-*`). Inactif
   et dans `ContainerWiringTest::testMcpRegistryExposesAllToolsWithStableNames`.
 - ⚠️ Pilotage : désactivé par défaut (`MCP_CONTROL_ENABLED=false`), operator+, cibles `famille:env`
   (`MCP_CONTROL_ALLOWED_TARGETS`) jugées sur la TABLE réellement écrite (`Control\ControlTarget` — `ffp3:n3pp_test`
-  vise `ffp3Outputs` = prod → refusé ; prod seulement avec `MCP_CONTROL_ALLOW_PRODUCTION=true`), liste blanche `ControlPolicy` ; OTA / reset / e-mails / suppression de photos / utilisateurs exclus ;
-  arrêt de la pompe aquarium interdit.
+  vise `ffp3Outputs` = prod → refusé ; prod seulement avec `MCP_CONTROL_ALLOW_PRODUCTION=true`), liste blanche `ControlPolicy` ;
+  mode productivité admin (`iot_set_output`, SQL, reset/OTA/photos) derrière drapeaux `.env` protecteurs + confirmation par code ;
+  OTA / reset / e-mails / suppression de photos exclus du plan→apply classique ;
+  arrêt pompe interdit hors rétablissement borné / maintenance confirmée.
 - Jetons MCP ≠ session web : la session et `ADMIN_TOKEN` ne donnent aucun accès à `/mcp`.
 
 ## Versionnage — OBLIGATOIRE après chaque modification significative

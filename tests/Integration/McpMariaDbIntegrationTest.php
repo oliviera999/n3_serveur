@@ -214,9 +214,22 @@ final class McpMariaDbIntegrationTest extends IntegrationDbTestCase
             new \App\Repository\N3ppOutputRepository($this->pdo, $boards),
             new \App\Repository\MspOutputRepository($this->pdo, $boards)
         );
+        $audit = $this->createMock(\App\Service\ControlAuditLogger::class);
+        $executor = new \App\Mcp\Control\ControlExecutor($config, $store, $writer, $audit);
+        $confirm = new \App\Mcp\Confirm\ConfirmationGate(
+            $config,
+            new \App\Repository\McpConfirmRepository($this->pdo),
+            $this->createConfiguredMock(\App\Service\NotificationService::class, [
+                'recipient' => 'notif@example.test',
+                'sendConfirmationCode' => true,
+            ]),
+            new UserRepository($this->pdo),
+            $audit,
+            $this->createMock(LogService::class),
+        );
         $tools = [
             new \App\Mcp\Tools\PlanOutputChangeTool($config, new McpReadRepository($this->pdo), $store),
-            new \App\Mcp\Tools\ApplyPlanTool($config, $store, $writer, $this->createMock(\App\Service\ControlAuditLogger::class)),
+            new \App\Mcp\Tools\ApplyPlanTool($config, $store, $executor, $confirm),
         ];
         $server = new McpServer(new ToolRegistry($tools, $config), new ReadOnlyTransaction($this->pdo), $this->createMock(LogService::class), $config);
         $ctx = new McpContext(1, 'it', 'operator', ['iot.read', 'iot.control'], 'mcp-it');

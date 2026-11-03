@@ -67,7 +67,7 @@ class AuthorizationServer
                 continue; // scopes inconnus ignorés (RFC 6749 §3.3 : le serveur peut restreindre)
             }
             if ($scope === McpConfig::SCOPE_CONTROL
-                && (!$this->config->isControlEnabled() || !in_array($role, [User::ROLE_OPERATOR, User::ROLE_ADMIN], true))) {
+                && (!$this->config->isControlScopeOffered() || !in_array($role, [User::ROLE_OPERATOR, User::ROLE_ADMIN], true))) {
                 continue;
             }
             $granted[] = $scope;

@@ -53,15 +53,16 @@ final class OutputsStateTool extends AbstractTool
     public function call(array $arguments, McpContext $context): ToolResult
     {
         $family = (string) $arguments['family'];
+        $showPersonal = $context->canSeePersonalData();
 
-        return $this->inEnv($arguments, function () use ($family): array {
+        return $this->inEnv($arguments, function () use ($family, $showPersonal): array {
             $labels = FieldCatalog::gpioLabels($family);
             $actuators = [];
             $parameters = [];
             $lastChange = null;
             foreach ($this->repo->outputs($family) as $row) {
                 $gpio = (int) $row['gpio'];
-                if (in_array($gpio, self::PERSONAL_GPIOS, true)) {
+                if (!$showPersonal && in_array($gpio, self::PERSONAL_GPIOS, true)) {
                     continue;
                 }
                 $entry = [

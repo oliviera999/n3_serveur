@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Mcp;
 
 use App\Config\TableConfig;
+use App\Mcp\Confirm\ConfirmationGate;
+use App\Mcp\Control\ControlExecutor;
 use App\Mcp\Control\ControlPolicy;
 use App\Mcp\Control\OutputWriter;
 use App\Mcp\McpConfig;
@@ -29,6 +31,7 @@ use App\Mcp\Tools\PlanOutputChangeTool;
 use App\Mcp\Tools\SeriesTool;
 use App\Mcp\Tools\StatsTool;
 use App\Repository\BoardRepository;
+use App\Repository\McpConfirmRepository;
 use App\Repository\McpOAuthRepository;
 use App\Repository\McpReadRepository;
 use App\Repository\MspOutputRepository;
@@ -36,8 +39,10 @@ use App\Repository\N3ppOutputRepository;
 use App\Repository\OutputMonitorRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Repository\UserRepository;
 use App\Service\ControlAuditLogger;
 use App\Service\LogService;
+use App\Service\NotificationService;
 use App\Service\OfflineThresholdResolver;
 use App\Service\OutputService;
 use PDO;
@@ -113,6 +118,8 @@ final class McpToolsTest extends TestCase
         $audit ??= $this->createMock(ControlAuditLogger::class);
         $alerts = new ActiveAlertsReader($this->tmp . '/var/cache', $this->tmp . '/flag');
         $gallery = new GalleryReader($this->tmp);
+        $executor = new ControlExecutor($config, $store, $writer, $audit);
+        $confirm = $this->confirmationGate($config, $audit);
         $tools = [
             new OverviewTool($config, $read, new OfflineThresholdResolver(new OutputMonitorRepository($this->pdo)), $alerts),
             new DescribeTool($config),
@@ -124,10 +131,27 @@ final class McpToolsTest extends TestCase
             new GalleryListTool($config, $gallery),
             new GalleryLatestTool($config, $gallery),
             new PlanOutputChangeTool($config, $read, $store),
-            new ApplyPlanTool($config, $store, $writer, $audit),
+            new ApplyPlanTool($config, $store, $executor, $confirm),
         ];
 
         return new McpServer(new ToolRegistry($tools, $config), new ReadOnlyTransaction($this->pdo), $this->createMock(LogService::class), $config);
+    }
+
+    private function confirmationGate(McpConfig $config, ControlAuditLogger $audit): ConfirmationGate
+    {
+        $notifier = $this->createConfiguredMock(NotificationService::class, [
+            'recipient' => 'notif@example.test',
+            'sendConfirmationCode' => true,
+        ]);
+
+        return new ConfirmationGate(
+            $config,
+            new McpConfirmRepository($this->pdo),
+            $notifier,
+            new UserRepository($this->pdo),
+            $audit,
+            $this->createMock(LogService::class),
+        );
     }
 
     // ── Lecture ───────────────────────────────────────────────────────
@@ -466,7 +490,7 @@ final class McpToolsTest extends TestCase
     {
         $server = $this->controlServer(['MCP_CONTROL_ALLOWED_TARGETS' => 'ffp3:prod', 'MCP_CONTROL_ALLOW_PRODUCTION' => 'true']);
         $stop = $this->call($server, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 16, 'value' => 0, 'env' => 'prod'], self::op());
-        self::assertSame('refused_by_policy', self::data($stop)['code'], 'arrêt pompe toujours interdit');
+        self::assertSame('bio_safeguard', self::data($stop)['code'], 'arrêt pompe toujours interdit');
         $plan = self::data($this->call($server, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 15, 'value' => 1, 'env' => 'prod'], self::op()));
         self::assertTrue($plan['is_production']);
         self::assertStringContainsString('PRODUCTION', implode(' ', $plan['risks']));
@@ -485,20 +509,19 @@ final class McpToolsTest extends TestCase
     {
         $audit = $this->createMock(ControlAuditLogger::class);
         $calls = [];
-        $audit->expects(self::exactly(3))->method('logAction')->willReturnCallback(
+        $audit->expects(self::once())->method('logAction')->willReturnCallback(
             static function ($request, string $module, string $action, array $target, bool $success, ?string $reason = null, ?string $who = null) use (&$calls): void {
                 $calls[] = [$module, $action, $success, $who, $target['table'] ?? null];
             }
         );
         $server = $this->controlServer([], $audit);
         $plan = self::data($this->call($server, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 15, 'value' => 1, 'env' => 'test'], self::op()));
-        $this->call($server, 'iot_apply_plan', ['plan_id' => $plan['plan_id']], self::op());        // succès
-        $this->call($server, 'iot_apply_plan', ['plan_id' => $plan['plan_id']], self::op());        // déjà appliqué
-        $this->call($server, 'iot_apply_plan', ['plan_id' => str_repeat('a', 32)], self::op());     // introuvable
+        $this->call($server, 'iot_apply_plan', ['plan_id' => $plan['plan_id']], self::op());        // succès → audit
+        $again = $this->call($server, 'iot_apply_plan', ['plan_id' => $plan['plan_id']], self::op()); // déjà appliqué (sans audit executor)
+        $missing = $this->call($server, 'iot_apply_plan', ['plan_id' => str_repeat('a', 32)], self::op()); // introuvable
         self::assertSame(['mcp:ffp3', 'set', true, 'mcp:operator', 'ffp3Outputs2'], $calls[0]);
-        self::assertFalse($calls[1][2]);
-        self::assertFalse($calls[2][2]);
-        self::assertSame('mcp:operator', $calls[2][3]);
+        self::assertSame('plan_already_applied', self::data($again)['code']);
+        self::assertSame('plan_not_found', self::data($missing)['code']);
     }
 
     public function testPlanOwnedByAnotherUserIsRejected(): void
@@ -530,12 +553,16 @@ final class McpToolsTest extends TestCase
 
             return (string) self::data($result)['code'];
         };
-        self::assertSame('refused_by_policy', $refuse(['family' => 'ffp3', 'gpio' => 16, 'value' => 0]), 'pas d\'arrêt de la pompe aquarium');
-        self::assertSame('refused_by_policy', $refuse(['family' => 'ffp3', 'gpio' => 117, 'value' => 2]), 'pas de « forcer OFF »');
-        self::assertSame('refused_by_policy', $refuse(['family' => 'ffp3', 'gpio' => 104, 'value' => 35]), 'chauffage borné');
+        self::assertSame('bio_safeguard', $refuse(['family' => 'ffp3', 'gpio' => 16, 'value' => 0]), 'pas d\'arrêt de la pompe aquarium');
+        self::assertSame('bio_safeguard', $refuse(['family' => 'ffp3', 'gpio' => 117, 'value' => 2]), 'pas de « forcer OFF »');
+        self::assertSame('bio_safeguard', $refuse(['family' => 'ffp3', 'gpio' => 104, 'value' => 35]), 'chauffage hors plage bio');
         self::assertSame('invalid_arguments', $refuse(['family' => 'ffp3', 'gpio' => 110, 'value' => 1]), 'reset exclu');
         self::assertSame('invalid_arguments', $refuse(['family' => 'ffp3', 'gpio' => 100, 'value' => 1]), 'e-mail exclu');
-        self::assertSame('refused_by_policy', $refuse(['family' => 'n3pp', 'gpio' => 105, 'value' => 60]), 'arrosage borné');
+        self::assertSame(
+            'refused_by_policy',
+            $refuse(['family' => 'n3pp', 'gpio' => 105, 'value' => 60, 'env' => 'n3pp_test']),
+            'arrosage borné (matériel)'
+        );
         self::assertNull(ControlPolicy::validate('ffp3', 16, 1), 'démarrage de la pompe autorisé');
     }
 
@@ -549,7 +576,7 @@ final class McpToolsTest extends TestCase
         }
         self::assertSame('5', (string) $this->pdo->query('SELECT state FROM ffp3Outputs2 WHERE gpio = 108')->fetchColumn(), 'compteur monotone 3 → 5');
         $third = $this->call($server, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 108, 'env' => 'test'], self::op());
-        self::assertSame('feed_cap_reached', self::data($third)['code']);
+        self::assertSame('bio_safeguard', self::data($third)['code'], 'plafond nourrissage = violation bio à la planification');
     }
 
     public function testFeedingCapIsCountedPerTargetTable(): void
@@ -564,7 +591,7 @@ final class McpToolsTest extends TestCase
         self::assertSame(['ffp3Outputs2#all', 'ffp3Outputs3#all'], $this->pdo->query('SELECT target_key FROM mcp_control_plans WHERE applied_at IS NOT NULL ORDER BY target_key')->fetchAll(\PDO::FETCH_COLUMN));
         foreach (['test', 'test3'] as $env) {
             $again = $this->call($server, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 108, 'env' => $env], self::op());
-            self::assertSame('feed_cap_reached', self::data($again)['code'], 'plafond partagé par gpio 108/109 du même bac (' . $env . ')');
+            self::assertSame('bio_safeguard', self::data($again)['code'], 'plafond partagé par gpio 108/109 du même bac (' . $env . ')');
         }
 
         // Deux environnements résolus vers la MÊME table partagent le même compteur.
@@ -572,13 +599,17 @@ final class McpToolsTest extends TestCase
         $first = self::data($this->call($sameTable, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 108, 'env' => 'prod'], self::op()));
         self::assertFalse($this->call($sameTable, 'iot_apply_plan', ['plan_id' => $first['plan_id']], self::op())['isError']);
         $other = $this->call($sameTable, 'iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 108, 'env' => 'n3pp_test'], self::op());
-        self::assertSame('feed_cap_reached', self::data($other)['code'], 'n3pp_test vise ffp3Outputs : même bac que prod');
+        self::assertSame('bio_safeguard', self::data($other)['code'], 'n3pp_test vise ffp3Outputs : même bac que prod');
     }
 
     public function testControlToolsAnnotations(): void
     {
         $config = McpSqliteFixture::config(['MCP_CONTROL_ENABLED' => 'true']);
-        $apply = new ApplyPlanTool($config, new McpOAuthRepository($this->pdo), $this->createMock(OutputWriter::class), $this->createMock(ControlAuditLogger::class));
+        $store = new McpOAuthRepository($this->pdo);
+        $audit = $this->createMock(ControlAuditLogger::class);
+        $writer = $this->createMock(OutputWriter::class);
+        $executor = new ControlExecutor($config, $store, $writer, $audit);
+        $apply = new ApplyPlanTool($config, $store, $executor, $this->confirmationGate($config, $audit));
         self::assertTrue($apply->annotations()['destructiveHint']);
         self::assertFalse($apply->annotations()['readOnlyHint']);
         self::assertFalse($apply->isReadOnly());

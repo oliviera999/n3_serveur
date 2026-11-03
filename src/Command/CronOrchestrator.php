@@ -91,6 +91,7 @@ class CronOrchestrator
     private ?GalleryNormalizeService $galleryNormalizeService;
     private ?McpOAuthPurgeCommand $mcpOAuthPurge;
     private ?HealthReportCommand $healthReport;
+    private ?McpRestoreCommand $mcpRestore;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -125,9 +126,11 @@ class CronOrchestrator
         ?GalleryNormalizeService $galleryNormalizeService = null,
         ?McpOAuthPurgeCommand $mcpOAuthPurge = null,
         ?HealthReportCommand $healthReport = null,
+        ?McpRestoreCommand $mcpRestore = null,
     ) {
         $this->mcpOAuthPurge = $mcpOAuthPurge;
         $this->healthReport = $healthReport;
+        $this->mcpRestore = $mcpRestore;
         $needsDatabase = $logger === null
             || $sensorDataService === null
             || $pumpService === null
@@ -480,6 +483,12 @@ class CronOrchestrator
         // sol sec, batterie n3pp/msp, redémarrage) — serveur émetteur primaire.
         $this->runDerivedAlerts();
         $this->logHourlyStddev();
+        // Rétablissement pompe aquarium après arrêt MCP borné (chaque minute).
+        try {
+            $this->mcpRestore?->execute();
+        } catch (\Throwable $e) {
+            $this->logger->error('McpRestoreCommand : ' . $e->getMessage());
+        }
 
         $this->logger->addEvent('Fin tâches fréquentes CRON');
     }

@@ -295,7 +295,7 @@ deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garant
   hors pilotage, seuls `iot_remember` / `iot_forget` écrivent (table `mcp_memory`, `isReadOnly(): false`)
 - ❌ Aucun secret en mémoire (`SecretScanner` refuse) ni en clair via `iot_read_file` / `iot_grep_files`
   (`.env` → noms seuls, secrets de journaux masqués, `realpath` dans une racine `MCP_FILE_ROOTS`, rôle admin).
-  Exploitation (mémoire, rapport de santé, fichiers) : `docs/MCP.md` §§ 8-11
+  Exploitation (mémoire, rapport de santé, fichiers) : `docs/MCP.md` §§ 8-11 ; mode productivité admin : § 12
 - ❌ Aucune colonne / GPIO hors `Mcp\Support\FieldCatalog` ; `mail`/`mailNotif` (GPIO 100/101), destinataires,
   jetons, hachés et secrets ne sortent jamais
 - ✅ Bascule d'environnement via `EnvironmentScope` (→ `TableConfig::setEnvironment()`, reset en `finally`) ;
@@ -304,7 +304,9 @@ deux PR ouvertes en parallèle qui bumpent chacune → **conflit de merge garant
   annotations, ajout au `ToolRegistry` (`config/dependencies.php`) et à `ContainerWiringTest`
 - ⚠️ Pilotage désactivé par défaut (`MCP_CONTROL_ENABLED=false`), operator+, cibles `famille:env`
   (`MCP_CONTROL_ALLOWED_TARGETS`) jugées sur la TABLE réellement écrite (`Control\ControlTarget` : `ffp3:n3pp_test`
-  vise `ffp3Outputs` = prod → refusé ; prod seulement avec `MCP_CONTROL_ALLOW_PRODUCTION=true`), liste blanche `ControlPolicy` ; OTA / reset / e-mails / photos / utilisateurs exclus ; arrêt pompe aquarium interdit
+  vise `ffp3Outputs` = prod → refusé ; prod seulement avec `MCP_CONTROL_ALLOW_PRODUCTION=true`), liste blanche `ControlPolicy` ;
+  mode productivité admin (`iot_set_output`, SQL, reset/OTA/photos) derrière drapeaux `.env` protecteurs + confirmation par code ;
+  OTA / reset / e-mails / photos exclus du plan→apply classique ; arrêt pompe aquarium interdit hors rétablissement borné / maintenance confirmée
 - Jetons MCP ≠ session web : la session et `ADMIN_TOKEN` ne donnent aucun accès à `/mcp`
 
 ### 💡 Inspiration - bonnes pratiques externes (encouragé, avec citation)

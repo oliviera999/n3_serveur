@@ -22,6 +22,16 @@ use App\Config\Env;
  *  - MCP_CONTROL_ENABLED         : expose les outils de pilotage (défaut false)
  *  - MCP_CONTROL_ALLOWED_TARGETS : couples famille:env pilotables (défaut : tables réellement de test)
  *  - MCP_CONTROL_ALLOW_PRODUCTION: autorise une cible listée visant une table de PRODUCTION (défaut false)
+ *  - MCP_CONTROL_REQUIRE_PLAN    : true (défaut) = seul plan→apply ; false = iot_set_output direct (admin)
+ *  - MCP_CONTROL_BIO_SAFEGUARDS  : true (défaut) = garde-fous biologiques actifs
+ *  - MCP_CONTROL_HEATING_MIN/MAX : plage consigne chauffage (°C, défaut 18–28, bornée 10–35)
+ *  - MCP_CONTROL_PUMP_STOP_MAX_MINUTES : durée max d'arrêt pompe avec rétablissement auto (0 = interdit)
+ *  - MCP_DEVICE_ACTIONS_ENABLED  : reset distant, OTA, suppression photos (défaut false)
+ *  - MCP_SQL_ENABLED / MCP_SQL_DDL_ENABLED : SQL libre admin (défaut false)
+ *  - MCP_SQL_MAX_AFFECTED_ROWS / _STATEMENT_SECONDS / _MAX_ROWS : plafonds SQL
+ *  - MCP_PRIVACY_BYPASS          : admin voit noms/e-mails (défaut false) ; secrets jamais
+ *  - MCP_CONFIRM_SKIP            : catégories de confirmation dispensées (CSV ou `all`)
+ *  - MCP_CONFIRM_UNLOCK_MINUTES  : fenêtre de déverrouillage après code (0 = désactivé)
  *  - MCP_EXTRA_REDIRECT_URIS     : redirections OAuth supplémentaires acceptées (CSV, exactes)
  *  - MCP_ALLOWED_ORIGINS         : origines navigateur supplémentaires acceptées sur /mcp (CSV)
  *  - MCP_CIMD_ALLOWED_HOSTS      : hôtes autorisés pour les Client ID Metadata Documents (CSV, `*` = tout hôte public)
@@ -80,6 +90,10 @@ final class McpConfig
         $keys = [
             'MCP_ENABLED', 'MCP_PUBLIC_BASE_URL', 'MCP_ACCESS_TOKEN_TTL', 'MCP_REFRESH_TOKEN_TTL',
             'MCP_AUTH_CODE_TTL', 'MCP_ALLOWED_ENVS', 'MCP_CONTROL_ENABLED', 'MCP_CONTROL_ALLOWED_TARGETS', 'MCP_CONTROL_ALLOW_PRODUCTION',
+            'MCP_CONTROL_REQUIRE_PLAN', 'MCP_CONTROL_BIO_SAFEGUARDS', 'MCP_CONTROL_HEATING_MIN', 'MCP_CONTROL_HEATING_MAX',
+            'MCP_CONTROL_PUMP_STOP_MAX_MINUTES', 'MCP_DEVICE_ACTIONS_ENABLED',
+            'MCP_SQL_ENABLED', 'MCP_SQL_DDL_ENABLED', 'MCP_SQL_MAX_AFFECTED_ROWS', 'MCP_SQL_MAX_STATEMENT_SECONDS', 'MCP_SQL_MAX_ROWS',
+            'MCP_PRIVACY_BYPASS', 'MCP_CONFIRM_SKIP', 'MCP_CONFIRM_UNLOCK_MINUTES',
             'MCP_EXTRA_REDIRECT_URIS', 'MCP_ALLOWED_ORIGINS', 'MCP_CIMD_ALLOWED_HOSTS', 'MCP_DCR_ENABLED',
             'MCP_RATE_LIMIT_MAX', 'MCP_RATE_LIMIT_WINDOW', 'MCP_FEED_DAILY_MAX',
             'MCP_MEMORY_STALE_DAYS', 'MCP_MEMORY_MAX_CHARS', 'MCP_MEMORY_MAX_NOTES',
@@ -200,11 +214,113 @@ final class McpConfig
 
     /**
      * Drapeau EXPLICITE autorisant le pilotage d'une table de production listée dans
-     * MCP_CONTROL_ALLOWED_TARGETS. Défaut false. Ne lève jamais les garde-fous de ControlPolicy.
+     * MCP_CONTROL_ALLOWED_TARGETS. Défaut false. Ne lève jamais les garde-fous de ControlPolicy
+     * (sauf override_bio_safeguards + confirmation, voir docs/MCP_PILOTAGE.md).
      */
     public function isProductionControlAllowed(): bool
     {
         return $this->bool('MCP_CONTROL_ALLOW_PRODUCTION', false);
+    }
+
+    /**
+     * true (défaut protecteur) : seul plan → apply. false : expose aussi iot_set_output (admin).
+     */
+    public function requirePlan(): bool
+    {
+        return $this->bool('MCP_CONTROL_REQUIRE_PLAN', true);
+    }
+
+    /**
+     * true (défaut) : garde-fous biologiques actifs. false : ignorés (limites matérielles restent).
+     */
+    public function bioSafeguardsEnabled(): bool
+    {
+        return $this->bool('MCP_CONTROL_BIO_SAFEGUARDS', true);
+    }
+
+    public function heatingMin(): int
+    {
+        return $this->boundedInt('MCP_CONTROL_HEATING_MIN', 18, 10, 35);
+    }
+
+    public function heatingMax(): int
+    {
+        $min = $this->heatingMin();
+        $max = $this->boundedInt('MCP_CONTROL_HEATING_MAX', 28, 10, 35);
+
+        return max($min, $max);
+    }
+
+    /**
+     * Durée maximale (minutes) d'arrêt de la pompe aquarium avec rétablissement automatique.
+     * 0 (défaut) = arrêt interdit sauf mode maintenance + confirmation.
+     */
+    public function pumpStopMaxMinutes(): int
+    {
+        return $this->boundedInt('MCP_CONTROL_PUMP_STOP_MAX_MINUTES', 0, 0, 60);
+    }
+
+    public function isDeviceActionsEnabled(): bool
+    {
+        return $this->bool('MCP_DEVICE_ACTIONS_ENABLED', false);
+    }
+
+    public function isSqlEnabled(): bool
+    {
+        return $this->bool('MCP_SQL_ENABLED', false);
+    }
+
+    public function isSqlDdlEnabled(): bool
+    {
+        return $this->bool('MCP_SQL_DDL_ENABLED', false);
+    }
+
+    public function sqlMaxAffectedRows(): int
+    {
+        return $this->boundedInt('MCP_SQL_MAX_AFFECTED_ROWS', 100, 1, 10000);
+    }
+
+    public function sqlMaxStatementSeconds(): int
+    {
+        return $this->boundedInt('MCP_SQL_MAX_STATEMENT_SECONDS', 10, 1, 60);
+    }
+
+    public function sqlMaxRows(): int
+    {
+        return $this->boundedInt('MCP_SQL_MAX_ROWS', 200, 1, 2000);
+    }
+
+    public function isPrivacyBypassEnabled(): bool
+    {
+        return $this->bool('MCP_PRIVACY_BYPASS', false);
+    }
+
+    /**
+     * Catégories de confirmation dispensées (CSV) ou `['all']`. `unlock` n'est jamais dispensable.
+     *
+     * @return list<string>
+     */
+    public function confirmSkipCategories(): array
+    {
+        $items = array_map('strtolower', $this->csv('MCP_CONFIRM_SKIP', []));
+        if (in_array('all', $items, true)) {
+            return ['all'];
+        }
+
+        return array_values(array_unique($items));
+    }
+
+    public function confirmUnlockMinutes(): int
+    {
+        return $this->boundedInt('MCP_CONFIRM_UNLOCK_MINUTES', 0, 0, 480);
+    }
+
+    /**
+     * Scope `iot.control` annoncé / accordable si pilotage, SQL ou actions d'appareil sont actifs.
+     */
+    public function isControlScopeOffered(): bool
+    {
+        return $this->isControlEnabled() || $this->isSqlEnabled() || $this->isDeviceActionsEnabled();
     }
 
     /**
@@ -382,13 +498,13 @@ final class McpConfig
     }
 
     /**
-     * Scopes annoncés par le serveur de ressources (iot.control seulement si le pilotage est actif).
+     * Scopes annoncés par le serveur de ressources (iot.control si pilotage / SQL / actions appareil).
      *
      * @return list<string>
      */
     public function resourceScopes(): array
     {
-        return $this->isControlEnabled()
+        return $this->isControlScopeOffered()
             ? [self::SCOPE_READ, self::SCOPE_CONTROL]
             : [self::SCOPE_READ];
     }

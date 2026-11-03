@@ -240,7 +240,7 @@ final class OAuthController
             'redirect_uri' => $redirectUri,
             'is_loopback' => RedirectUriValidator::isLoopback($redirectUri),
             'requested_scopes' => $this->describeScopes($requestedScope),
-            'control_enabled' => $this->config->isControlEnabled(),
+            'control_enabled' => $this->config->isControlScopeOffered(),
             'hidden' => [
                 'client_id' => $client['client_id'],
                 'redirect_uri' => $redirectUri,
@@ -427,7 +427,7 @@ final class OAuthController
         $labels = [
             McpConfig::SCOPE_READ => ['Lire les mesures, l\'état des modules, les alertes et les photos', null],
             McpConfig::SCOPE_CONTROL => ['Préparer et appliquer des changements de sorties (pompes, chauffage…) sur les environnements autorisés',
-                $this->config->isControlEnabled() ? 'Réservé aux comptes opérateur et administrateur.' : 'Pilotage désactivé sur ce serveur : ce droit ne sera pas accordé.'],
+                $this->config->isControlScopeOffered() ? 'Réservé aux comptes opérateur et administrateur.' : 'Pilotage désactivé sur ce serveur : ce droit ne sera pas accordé.'],
             McpConfig::SCOPE_OFFLINE => ['Rester connecté (jeton de renouvellement, révocable)', null],
         ];
         $out = [];
@@ -438,7 +438,7 @@ final class OAuthController
             $out[] = [
                 'scope' => $scope,
                 'label' => $labels[$scope][0],
-                'granted' => $scope !== McpConfig::SCOPE_CONTROL || $this->config->isControlEnabled(),
+                'granted' => $scope !== McpConfig::SCOPE_CONTROL || $this->config->isControlScopeOffered(),
                 'note' => $labels[$scope][1],
             ];
         }

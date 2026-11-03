@@ -70,18 +70,26 @@ final class AlertsTool extends AbstractTool
                 && ($severity === null || ($a['severity'] ?? '') === $severity);
         }));
 
-        $notifications = array_map(static fn (array $r): array => [
-            'key' => (string) $r['alert_key'],
-            'severity' => (string) $r['severity'],
-            'category' => $r['category'],
-            'subject' => Redactor::redact(is_string($r['subject'] ?? null) ? $r['subject'] : null, 200),
-            'sent_at' => (string) $r['sent_at'],
-        ], $this->repo->notificationLog($window->fromSql(), $window->toSql(), $family, $severity, $limit));
+        $keepEmails = $context->canSeePersonalData();
+        $notifications = array_map(static function (array $r) use ($keepEmails): array {
+            $row = [
+                'key' => (string) $r['alert_key'],
+                'severity' => (string) $r['severity'],
+                'category' => $r['category'],
+                'subject' => Redactor::redact(is_string($r['subject'] ?? null) ? $r['subject'] : null, 200, $keepEmails),
+                'sent_at' => (string) $r['sent_at'],
+            ];
+            if ($keepEmails && isset($r['recipient'])) {
+                $row['recipient'] = (string) $r['recipient'];
+            }
+
+            return $row;
+        }, $this->repo->notificationLog($window->fromSql(), $window->toSql(), $family, $severity, $limit));
 
         $errors = [];
         if (($arguments['include_server_errors'] ?? true) === true) {
             $errors = array_map(static fn (array $r): array => [
-                'message' => Redactor::redact((string) $r['normalized_message'], 250),
+                'message' => Redactor::redact((string) $r['normalized_message'], 250, $keepEmails),
                 'occurrences' => (int) $r['occurrences'],
                 'first_seen' => $r['first_seen'],
                 'last_seen' => $r['last_seen'],
@@ -94,7 +102,8 @@ final class AlertsTool extends AbstractTool
             'active' => $active,
             'notifications' => $notifications,
             'server_errors' => $errors,
-            'note' => 'Les alertes en cours reflètent l\'environnement par défaut du serveur (celui du CRON).',
+            'note' => 'Les alertes en cours reflètent l\'environnement par défaut du serveur (celui du CRON).'
+                . ($keepEmails ? ' Destinataires inclus (MCP_PRIVACY_BYPASS).' : ''),
         ]);
     }
 }

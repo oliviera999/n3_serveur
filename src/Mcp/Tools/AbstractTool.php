@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Mcp\Tools;
 
 use App\Mcp\McpConfig;
+use App\Mcp\McpContext;
 use App\Mcp\Support\EnvironmentScope;
 use App\Mcp\Support\FieldCatalog;
 use App\Mcp\Tool;
@@ -29,6 +30,16 @@ abstract class AbstractTool implements Tool
     public function requiredScope(): string
     {
         return McpConfig::SCOPE_READ;
+    }
+
+    public function isAvailableFor(McpContext $context): bool
+    {
+        if ($this->requiredScope() !== McpConfig::SCOPE_CONTROL) {
+            return true;
+        }
+
+        // Le scope iot.control est vérifié séparément (InsufficientScopeException → step-up OAuth).
+        return $this->config->isControlEnabled() && $context->isOperator();
     }
 
     /**

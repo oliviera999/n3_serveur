@@ -305,6 +305,33 @@ class NotificationService
     }
 
     /**
+     * Envoie un code de confirmation MCP (hors Claude) à un destinataire explicite.
+     *
+     * Contourne la politique et l'anti-spam (comme {@see sendTestMail}) : le code est
+     * à usage unique et expire en 10 min. Le corps ne doit PAS être journalisé.
+     */
+    public function sendConfirmationCode(string $recipient, string $subject, string $message): bool
+    {
+        $html = $this->renderer->renderAlertHtml(
+            Severity::Alert,
+            NotificationCategory::System,
+            'MCP',
+            $subject,
+            $message
+        );
+        $text = $this->renderer->renderAlertText(
+            Severity::Alert,
+            NotificationCategory::System,
+            'MCP',
+            $subject,
+            $message
+        );
+        $formatted = $this->formatSubject(Severity::Alert, $subject, 'MCP');
+
+        return $this->sendMail($recipient, $formatted, $html, $text);
+    }
+
+    /**
      * Envoie un e-mail de TEST au destinataire configuré.
      *
      * CONTOURNE volontairement la politique, l'anti-spam et le digest : le but est de

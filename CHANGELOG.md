@@ -11,6 +11,26 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.53.0] - 2026-11-03
+
+### Ajouté — Connecteur MCP : mode productivité (admin, `.env`)
+- **`iot_set_output`** : pilotage direct (admin) si `MCP_CONTROL_REQUIRE_PLAN=false` ; même
+  validation / verrou de ligne / `ControlAuditLogger` que `iot_apply_plan` ; cibles prod via
+  `MCP_CONTROL_ALLOWED_TARGETS` + `MCP_CONTROL_ALLOW_PRODUCTION`.
+- **Garde-fous biologiques réglables** (`MCP_CONTROL_BIO_SAFEGUARDS`, plage chauffage,
+  `MCP_FEED_DAILY_MAX`, `MCP_CONTROL_PUMP_STOP_MAX_MINUTES`) et levables
+  (`override_bio_safeguards` + motif + confirmation). Arrêt pompe avec rétablissement auto
+  (`mcp_scheduled_restores` + `McpRestoreCommand` chaque minute) ou mode **maintenance**.
+- **Confirmation par code** hors Claude (`ConfirmationGate`) : e-mail à 6 chiffres, 10 min,
+  usage unique, 3 essais, empreinte des arguments ; `MCP_CONFIRM_SKIP` / `iot_confirm_unlock`.
+- **`iot_sql`** : une instruction, transaction, `dry_run`, `max_affected_rows`, timeout ;
+  DDL / GRANT / UPDATE sans WHERE / outputs prod → confirmation ; LOAD DATA / OUTFILE /
+  SHUTDOWN et colonnes secrètes interdits.
+- **`iot_device_action`** (reset, OTA), **`iot_gallery_delete`**, **`iot_accounts`**
+  (`MCP_PRIVACY_BYPASS` : noms/e-mails, jamais les secrets).
+- Migration `2026_11_mcp_productivite.sql` ; blocs `.env` productivité / protégé dans
+  `docs/MCP.md` § 12 ; tests `tests/Mcp/Productivity/*`.
+
 ## [6.52.0] - 2026-11-03
 
 ### Ajouté — Connecteur MCP : exploitation (mémoire, santé, fichiers)

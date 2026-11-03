@@ -4,22 +4,20 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Repository\McpConfirmRepository;
 use App\Repository\McpOAuthRepository;
 use App\Service\LogService;
 
 /**
- * Sous-commande CRON : purge des codes, jetons, plans de pilotage et documents CIMD
- * expirés du connecteur MCP. Exécutée par {@see CronOrchestrator} dans les tâches
- * horaires (sous le verrou flock de l'orchestrateur).
- *
- * Tolérante : si les tables MCP n'existent pas (migration non jouée), elle journalise
- * et n'interrompt pas le CRON.
+ * Sous-commande CRON : purge des codes, jetons, plans de pilotage, documents CIMD
+ * et confirmations / déverrouillages expirés du connecteur MCP.
  */
 class McpOAuthPurgeCommand
 {
     public function __construct(
         private McpOAuthRepository $repo,
         private LogService $logger,
+        private ?McpConfirmRepository $confirmRepo = null,
     ) {
     }
 
@@ -30,6 +28,9 @@ class McpOAuthPurgeCommand
     {
         try {
             $result = $this->repo->purgeExpired();
+            if ($this->confirmRepo !== null) {
+                $result = array_merge($result, $this->confirmRepo->purgeExpired());
+            }
         } catch (\Throwable $e) {
             $this->logger->info('Purge MCP OAuth ignorée (tables absentes ?) : ' . $e->getMessage());
 

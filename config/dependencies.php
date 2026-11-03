@@ -190,6 +190,8 @@ return [
             mcpOAuthPurge: $c->get(\App\Command\McpOAuthPurgeCommand::class),
             // Rapport de santé régulier (no-op tant que MCP_HEALTH_REPORT_ENABLED=false).
             healthReport: $c->get(\App\Command\HealthReportCommand::class),
+            // Rétablissement pompe après arrêt MCP borné (chaque minute).
+            mcpRestore: $c->get(\App\Command\McpRestoreCommand::class),
         );
     },
 
@@ -338,6 +340,12 @@ return [
             \App\Mcp\Tools\GalleryLatestTool::class,
             \App\Mcp\Tools\PlanOutputChangeTool::class,
             \App\Mcp\Tools\ApplyPlanTool::class,
+            \App\Mcp\Tools\SetOutputTool::class,
+            \App\Mcp\Tools\DeviceActionTool::class,
+            \App\Mcp\Tools\GalleryDeleteTool::class,
+            \App\Mcp\Tools\SqlTool::class,
+            \App\Mcp\Tools\AccountsTool::class,
+            \App\Mcp\Tools\ConfirmUnlockTool::class,
             // Exploitation : mémoire persistante, santé du site, fichiers (docs/MCP.md §§ 8-10).
             \App\Mcp\Tools\RecallTool::class,
             \App\Mcp\Tools\RememberTool::class,
@@ -350,6 +358,16 @@ return [
             \App\Mcp\Tools\GrepFilesTool::class,
         ]),
         $c->get(\App\Mcp\McpConfig::class)
+    ),
+
+    \App\Mcp\Tools\SqlTool::class => static fn (ContainerInterface $c): \App\Mcp\Tools\SqlTool => new \App\Mcp\Tools\SqlTool(
+        $c->get(\App\Mcp\McpConfig::class),
+        $c->get(PDO::class),
+        $c->get('mcp.read_pdo'),
+        $c->get(\App\Mcp\Support\ReadOnlyTransaction::class),
+        $c->get(\App\Mcp\Confirm\ConfirmationGate::class),
+        $c->get(\App\Service\ControlAuditLogger::class),
+        $c->get(\App\Service\LogService::class),
     ),
 
     // Limiteurs dédiés (portées distinctes du login web).
@@ -371,7 +389,8 @@ return [
     ),
 
     // Purge CRON des jetons/codes/plans expirés (sous-commande de CronOrchestrator).
-    \App\Command\McpOAuthPurgeCommand::class => \DI\autowire(),
+    \App\Command\McpOAuthPurgeCommand::class => \DI\autowire()
+        ->constructorParameter('confirmRepo', \DI\get(\App\Repository\McpConfirmRepository::class)),
 
     // --------------------------------------------------------------------
     // Exploitation du connecteur : santé du site, état du CRON, fichiers.
