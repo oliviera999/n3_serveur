@@ -64,7 +64,9 @@ RewriteRule ^VERSION$ - [F,L]
 # ====================================================================
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
-    Header always set X-Frame-Options "SAMEORIGIN"
+    # setifempty : conserve un X-Frame-Options plus strict posé par l'application
+    # (pages OAuth du connecteur MCP : DENY + CSP frame-ancestors 'none').
+    Header always setifempty X-Frame-Options "SAMEORIGIN"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set X-XSS-Protection "1; mode=block"
 </IfModule>

@@ -58,12 +58,14 @@ class SecurityHeadersMiddleware implements MiddlewareInterface
 
         $csp = trim((string) ($_ENV['SECURITY_CSP'] ?? '')) ?: self::DEFAULT_CSP;
 
+        // Une réponse peut fixer sa propre politique plus stricte (ex. pages OAuth du
+        // connecteur MCP : X-Frame-Options DENY + frame-ancestors 'none') : on ne l'écrase pas.
         $response = $response
             ->withHeader('X-Content-Type-Options', 'nosniff')
-            ->withHeader('X-Frame-Options', 'SAMEORIGIN')
+            ->withHeader('X-Frame-Options', $response->hasHeader('X-Frame-Options') ? $response->getHeaderLine('X-Frame-Options') : 'SAMEORIGIN')
             ->withHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
             ->withHeader('Permissions-Policy', self::DEFAULT_PERMISSIONS)
-            ->withHeader('Content-Security-Policy', $csp);
+            ->withHeader('Content-Security-Policy', $response->hasHeader('Content-Security-Policy') ? $response->getHeaderLine('Content-Security-Policy') : $csp);
 
         if ($this->isHttps($request)) {
             $response = $response->withHeader(

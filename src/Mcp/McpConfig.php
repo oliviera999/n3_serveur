@@ -20,7 +20,8 @@ use App\Config\Env;
  *  - MCP_AUTH_CODE_TTL           : durée de vie du code d'autorisation (défaut 60 s)
  *  - MCP_ALLOWED_ENVS            : environnements lisibles par les outils (défaut prod,s3)
  *  - MCP_CONTROL_ENABLED         : expose les outils de pilotage (défaut false)
- *  - MCP_CONTROL_ALLOWED_ENVS    : environnements pilotables (défaut : environnements de test)
+ *  - MCP_CONTROL_ALLOWED_TARGETS : couples famille:env pilotables (défaut : tables réellement de test)
+ *  - MCP_CONTROL_ALLOW_PRODUCTION: autorise une cible listée visant une table de PRODUCTION (défaut false)
  *  - MCP_EXTRA_REDIRECT_URIS     : redirections OAuth supplémentaires acceptées (CSV, exactes)
  *  - MCP_ALLOWED_ORIGINS         : origines navigateur supplémentaires acceptées sur /mcp (CSV)
  *  - MCP_CIMD_ALLOWED_HOSTS      : hôtes autorisés pour les Client ID Metadata Documents (CSV, `*` = tout hôte public)
@@ -66,7 +67,7 @@ final class McpConfig
         Env::load();
         $keys = [
             'MCP_ENABLED', 'MCP_PUBLIC_BASE_URL', 'MCP_ACCESS_TOKEN_TTL', 'MCP_REFRESH_TOKEN_TTL',
-            'MCP_AUTH_CODE_TTL', 'MCP_ALLOWED_ENVS', 'MCP_CONTROL_ENABLED', 'MCP_CONTROL_ALLOWED_ENVS',
+            'MCP_AUTH_CODE_TTL', 'MCP_ALLOWED_ENVS', 'MCP_CONTROL_ENABLED', 'MCP_CONTROL_ALLOWED_TARGETS', 'MCP_CONTROL_ALLOW_PRODUCTION',
             'MCP_EXTRA_REDIRECT_URIS', 'MCP_ALLOWED_ORIGINS', 'MCP_CIMD_ALLOWED_HOSTS', 'MCP_DCR_ENABLED',
             'MCP_RATE_LIMIT_MAX', 'MCP_RATE_LIMIT_WINDOW', 'MCP_FEED_DAILY_MAX',
         ];
@@ -139,16 +140,55 @@ final class McpConfig
     }
 
     /**
-     * Environnements pilotables. Défaut : environnements de TEST uniquement. Une valeur
-     * de production (`prod`, `s3`) n'est retenue que si elle est explicitement listée.
+     * Couples `famille:env` dont la table outputs est RÉELLEMENT une table de test
+     * (vérifié pour chaque couple avec TableConfig, cf. ControlTargetTest) :
+     *  - ffp3:test → ffp3Outputs2, ffp3:test3 → ffp3Outputs3, ffp3:s3test → ffp3OutputsS3Test ;
+     *  - n3pp:n3pp_test → n3ppOutputsTest ; msp1:msp_test → msp1OutputsTest.
+     * Aucun autre couple n'est de test (ex. ffp3:n3pp_test vise ffp3Outputs = PRODUCTION).
+     */
+    public const DEFAULT_CONTROL_TARGETS = ['ffp3:test', 'ffp3:test3', 'ffp3:s3test', 'n3pp:n3pp_test', 'msp1:msp_test'];
+
+    /**
+     * Cibles pilotables (`famille:env`). Défaut : {@see DEFAULT_CONTROL_TARGETS}. Une cible
+     * listée qui vise une table de production reste REFUSÉE sauf
+     * MCP_CONTROL_ALLOW_PRODUCTION=true (cf. ControlTarget::assertAllowed()).
+     *
+     * @return list<string>
+     */
+    public function controlAllowedTargets(): array
+    {
+        $targets = [];
+        foreach ($this->csv('MCP_CONTROL_ALLOWED_TARGETS', self::DEFAULT_CONTROL_TARGETS) as $target) {
+            $parts = explode(':', $target);
+            if (count($parts) === 2
+                && in_array($parts[0], ['ffp3', 'n3pp', 'msp1'], true)
+                && in_array($parts[1], self::ALL_ENVIRONMENTS, true)) {
+                $targets[] = $parts[0] . ':' . $parts[1];
+            }
+        }
+
+        return array_values(array_unique($targets));
+    }
+
+    /**
+     * Environnements apparaissant dans au moins une cible pilotable (énumération du schéma).
      *
      * @return list<string>
      */
     public function controlAllowedEnvs(): array
     {
-        $envs = $this->csv('MCP_CONTROL_ALLOWED_ENVS', self::TEST_ENVIRONMENTS);
+        $envs = array_map(static fn (string $t): string => explode(':', $t)[1], $this->controlAllowedTargets());
 
-        return array_values(array_intersect($envs, self::ALL_ENVIRONMENTS));
+        return array_values(array_unique($envs));
+    }
+
+    /**
+     * Drapeau EXPLICITE autorisant le pilotage d'une table de production listée dans
+     * MCP_CONTROL_ALLOWED_TARGETS. Défaut false. Ne lève jamais les garde-fous de ControlPolicy.
+     */
+    public function isProductionControlAllowed(): bool
+    {
+        return $this->bool('MCP_CONTROL_ALLOW_PRODUCTION', false);
     }
 
     /**

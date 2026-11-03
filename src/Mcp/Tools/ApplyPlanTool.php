@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace App\Mcp\Tools;
 
 use App\Mcp\Control\ControlPolicy;
+use App\Mcp\Control\ControlTarget;
 use App\Mcp\Control\OutputWriter;
 use App\Mcp\McpConfig;
 use App\Mcp\McpContext;
 use App\Mcp\Support\EnvironmentScope;
-use App\Mcp\Support\FieldCatalog;
 use App\Mcp\ToolException;
 use App\Mcp\ToolResult;
 use App\Repository\McpOAuthRepository;
-use App\Repository\McpReadRepository;
 use App\Service\ControlAuditLogger;
 use Slim\Psr7\Factory\ServerRequestFactory;
 
@@ -31,7 +30,6 @@ final class ApplyPlanTool extends AbstractTool
     public function __construct(
         McpConfig $config,
         private McpOAuthRepository $store,
-        private McpReadRepository $repo,
         private OutputWriter $writer,
         private ControlAuditLogger $audit,
     ) {
@@ -92,6 +90,57 @@ final class ApplyPlanTool extends AbstractTool
     {
         $planId = (string) $arguments['plan_id'];
         $plan = $this->store->findPlan($planId);
+        $request = $context->request ?? (new ServerRequestFactory())->createServerRequest('POST', '/mcp');
+        $who = 'mcp:' . $context->username;
+        $family = is_array($plan) ? (string) $plan['family'] : 'inconnu';
+        $isFeed = is_array($plan) && $plan['action'] === 'feed';
+        $auditModule = 'mcp:' . $family;
+        $auditTarget = [
+            'gpio' => is_array($plan) ? (int) $plan['gpio'] : null,
+            'env' => is_array($plan) ? (string) $plan['env'] : null,
+            'plan_id' => $planId,
+            'mcp_user' => $context->username,
+            'client' => $context->clientId,
+        ];
+
+        try {
+            [$outcome, $target] = $this->apply($planId, $plan, $context);
+        } catch (\Throwable $e) {
+            // Tout refus ou échec est audité. Le plan reste consommé s'il a été réclamé
+            // (usage unique) : un nouvel essai repasse par un nouveau plan.
+            $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget, false, $e->getMessage(), $who);
+            throw $e;
+        }
+
+        $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget + [
+            'table' => $target->table,
+            'before' => $outcome['before'],
+            'after' => $outcome['after'],
+        ], true, null, $who);
+
+        $env = $target->env;
+        $gpio = (int) $auditTarget['gpio'];
+
+        return ToolResult::json([
+            'applied' => true,
+            'plan_id' => $planId,
+            'env' => $env,
+            'is_production' => $target->isProduction(),
+            'target_table' => $target->table,
+            'family' => $family,
+            'gpio' => $gpio,
+            'before' => $outcome['before'],
+            'after' => $outcome['after'],
+            'note' => 'Consigne enregistrée ; l\'ESP32 l\'appliquera à son prochain poll. Vérifier ensuite avec iot_outputs_state / iot_latest.',
+        ]);
+    }
+
+    /**
+     * @param array<string, mixed>|null $plan
+     * @return array{0: array{before: ?string, after: ?string}, 1: ControlTarget}
+     */
+    private function apply(string $planId, ?array $plan, McpContext $context): array
+    {
         if ($plan === null || (int) $plan['user_id'] !== $context->userId) {
             throw new ToolException('Plan introuvable (ou préparé par un autre utilisateur).', 'plan_not_found');
         }
@@ -106,11 +155,16 @@ final class ApplyPlanTool extends AbstractTool
         $family = (string) $plan['family'];
         $gpio = (int) $plan['gpio'];
         $isFeed = $plan['action'] === 'feed';
-        $target = $plan['target_state'];
-        if (!in_array($env, $this->config->controlAllowedEnvs(), true)) {
-            throw new ToolException('Environnement ' . $env . ' n\'est plus pilotable (MCP_CONTROL_ALLOWED_ENVS).', 'env_not_allowed');
+        $targetState = $plan['target_state'];
+
+        // Revérification COMPLÈTE de la cible au moment d'écrire (la configuration a pu
+        // changer depuis le plan) : table réellement résolue, liste blanche, production.
+        $target = ControlTarget::resolve($family, $env);
+        $target->assertAllowed($this->config);
+        if ((string) ($plan['target_key'] ?? '') !== $target->physicalKey()) {
+            throw new ToolException('La table ciblée a changé depuis le plan : préparez-en un nouveau.', 'target_changed');
         }
-        $value = $isFeed ? null : (is_numeric($target) ? $target + 0 : null);
+        $value = $isFeed ? null : (is_numeric($targetState) ? $targetState + 0 : null);
         $refusal = ControlPolicy::validate($family, $gpio, $value);
         if ($refusal !== null) {
             throw new ToolException($refusal, 'refused_by_policy');
@@ -119,62 +173,38 @@ final class ApplyPlanTool extends AbstractTool
             throw new ToolException('Plan déjà appliqué ou expiré entre-temps.', 'plan_already_applied');
         }
 
-        $request = $context->request ?? (new ServerRequestFactory())->createServerRequest('POST', '/mcp');
-        $auditModule = 'mcp:' . $family;
-        $auditTarget = ['gpio' => $gpio, 'env' => $env, 'plan_id' => $planId, 'mcp_user' => $context->username, 'client' => $context->clientId];
-
-        try {
-            $outcome = EnvironmentScope::run($env, function () use ($family, $gpio, $isFeed, $value, $plan, $env): array {
-                $current = $this->repo->output($family, $gpio);
-                $currentState = $current !== null && $current['state'] !== null ? (string) $current['state'] : null;
-                if ($currentState !== $plan['before_state']) {
-                    throw new ToolException(sprintf(
-                        'L\'état a changé depuis le plan (prévu « %s », actuel « %s ») : rien n\'a été écrit, préparez un nouveau plan.',
-                        (string) $plan['before_state'],
-                        (string) $currentState
-                    ), 'state_changed');
+        $outcome = EnvironmentScope::run($env, fn (): array => $this->store->transactional(function () use ($family, $gpio, $isFeed, $value, $plan, $target): array {
+            // Verrou de ligne : aucune écriture concurrente entre la relecture et l'écriture.
+            $current = $this->store->outputForUpdate($family, $gpio);
+            $currentState = $current !== null && $current['state'] !== null ? (string) $current['state'] : null;
+            if ($currentState !== $plan['before_state']) {
+                throw new ToolException(sprintf(
+                    'L\'état a changé depuis le plan (prévu « %s », actuel « %s ») : rien n\'a été écrit, préparez un nouveau plan.',
+                    (string) $plan['before_state'],
+                    (string) $currentState
+                ), 'state_changed');
+            }
+            if ($isFeed) {
+                // Le plan courant est déjà réclamé (applied_at posé) : il est compté.
+                $fed = $this->store->countAppliedFeeds($target->physicalKey(), date('Y-m-d H:i:s', time() - 86400));
+                if ($fed > $this->config->feedDailyMax()) {
+                    throw new ToolException('Plafond quotidien de nourrissage MCP atteint pour ' . $target->table . '.', 'feed_cap_reached');
                 }
-                if ($isFeed) {
-                    $fed = $this->store->countAppliedFeeds($env, $family, date('Y-m-d H:i:s', time() - 86400));
-                    // Le plan courant est déjà réclamé (applied_at posé) : il est compté.
-                    if ($fed > $this->config->feedDailyMax()) {
-                        throw new ToolException('Plafond quotidien de nourrissage MCP atteint.', 'feed_cap_reached');
-                    }
-                    $counter = $this->writer->feed($gpio, isset($current['id']) ? (int) $current['id'] : 0);
-                    if ($counter === null) {
-                        throw new ToolException('Échec du nourrissage (sortie introuvable).', 'write_failed');
-                    }
-
-                    return ['before' => $currentState, 'after' => (string) $counter];
-                }
-                $after = $this->writer->write($family, $gpio, $value ?? 0, isset($current['id']) ? (int) $current['id'] : 0);
-                if ($after === null) {
-                    throw new ToolException('Écriture refusée ou sortie introuvable : vérifier avec iot_outputs_state.', 'write_failed');
+                $counter = $this->writer->feed($gpio, isset($current['id']) ? (int) $current['id'] : 0);
+                if ($counter === null) {
+                    throw new ToolException('Échec du nourrissage (sortie introuvable).', 'write_failed');
                 }
 
-                return ['before' => $currentState, 'after' => $after];
-            });
-        } catch (\Throwable $e) {
-            // Le plan reste consommé (usage unique) : tout nouvel essai repasse par un nouveau plan.
-            $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget, false, $e->getMessage(), 'mcp:' . $context->username);
-            throw $e;
-        }
+                return ['before' => $currentState, 'after' => (string) $counter];
+            }
+            $after = $this->writer->write($family, $gpio, $value ?? 0, isset($current['id']) ? (int) $current['id'] : 0);
+            if ($after === null) {
+                throw new ToolException('Écriture refusée ou sortie introuvable : vérifier avec iot_outputs_state.', 'write_failed');
+            }
 
-        $this->audit->logAction($request, $auditModule, $isFeed ? 'feed' : 'set', $auditTarget + [
-            'before' => $outcome['before'],
-            'after' => $outcome['after'],
-        ], true, null, 'mcp:' . $context->username);
+            return ['before' => $currentState, 'after' => $after];
+        }));
 
-        return ToolResult::json([
-            'applied' => true,
-            'plan_id' => $planId,
-            'env' => $env,
-            'is_production' => FieldCatalog::isProductionTarget($family, $env),
-            'family' => $family,
-            'gpio' => $gpio,
-            'before' => $outcome['before'],
-            'after' => $outcome['after'],
-            'note' => 'Consigne enregistrée ; l\'ESP32 l\'appliquera à son prochain poll. Vérifier ensuite avec iot_outputs_state / iot_latest.',
-        ]);
+        return [$outcome, $target];
     }
 }

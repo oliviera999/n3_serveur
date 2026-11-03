@@ -11,7 +11,7 @@ namespace App\OAuth;
  */
 final class CurlHttpFetcher implements HttpFetcher
 {
-    public function get(string $url, int $timeoutSeconds, int $maxBytes): array
+    public function get(string $url, int $timeoutSeconds, int $maxBytes, ?string $pinnedIp = null): array
     {
         if (!function_exists('curl_init')) {
             throw new \RuntimeException('Extension cURL indisponible.');
@@ -43,6 +43,12 @@ final class CurlHttpFetcher implements HttpFetcher
                 return strlen($chunk);
             },
         ]);
+        if ($pinnedIp !== null) {
+            $host = (string) parse_url($url, PHP_URL_HOST);
+            $port = (int) (parse_url($url, PHP_URL_PORT) ?: 443);
+            $ip = str_contains($pinnedIp, ':') ? '[' . $pinnedIp . ']' : $pinnedIp;
+            curl_setopt($handle, CURLOPT_RESOLVE, [$host . ':' . $port . ':' . $ip]);
+        }
         $ok = curl_exec($handle);
         $status = (int) curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
         $contentType = (string) curl_getinfo($handle, CURLINFO_CONTENT_TYPE);

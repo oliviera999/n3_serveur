@@ -58,7 +58,9 @@ final class McpControllerTest extends TestCase
         return new McpController($server, $this->authServer($config), new McpOAuthRepository($this->pdo), $config);
     }
 
-    private function oauthController(): OAuthController
+    private ?RateLimiter $limiter = null;
+
+    private function oauthController(?TemplateRenderer $renderer = null): OAuthController
     {
         $repo = new McpOAuthRepository($this->pdo);
         $fetcher = $this->createMock(HttpFetcher::class);
@@ -70,8 +72,8 @@ final class McpControllerTest extends TestCase
             new RedirectUriValidator($this->config),
             $repo,
             new UserRepository($this->pdo),
-            new RateLimiter(sys_get_temp_dir() . '/mcp-rl-' . bin2hex(random_bytes(4))),
-            $this->createMock(TemplateRenderer::class),
+            $this->limiter ??= new RateLimiter(sys_get_temp_dir() . '/mcp-rl-' . bin2hex(random_bytes(4))),
+            $renderer ?? $this->createMock(TemplateRenderer::class),
             $this->createMock(LogService::class)
         );
     }
@@ -92,10 +94,7 @@ final class McpControllerTest extends TestCase
 
     private function token(string $scope = 'iot.read'): string
     {
-        $token = AuthorizationServer::randomToken();
-        (new McpOAuthRepository($this->pdo))->storeToken(AuthorizationServer::hash($token), 'access', 'fam', 'client', 1, $scope, self::BASE . '/mcp', 3600);
-
-        return $token;
+        return McpSqliteFixture::accessToken($this->pdo, 1, $scope, self::BASE . '/mcp');
     }
 
     public function testUnauthenticatedRequestGets401WithResourceMetadata(): void
@@ -233,5 +232,65 @@ final class McpControllerTest extends TestCase
         self::assertNull(McpController::bearerToken(self::request('POST', '/mcp?access_token=abc')));
         $viaRedirect = (new ServerRequestFactory())->createServerRequest('POST', '/mcp', ['REDIRECT_HTTP_AUTHORIZATION' => 'Bearer xyz']);
         self::assertSame('xyz', McpController::bearerToken($viaRedirect), 'Apache FPM/CGI : REDIRECT_HTTP_AUTHORIZATION');
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function authorizeForm(string $password, string $username = 'lecteur'): array
+    {
+        $verifier = str_repeat('v', 50);
+        $this->pdo->exec("INSERT OR IGNORE INTO mcp_oauth_clients (client_id, client_name, redirect_uris) VALUES ('mcp_c', 'C', '[\"https://claude.ai/api/mcp/auth_callback\"]')");
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            @session_start();
+        }
+        $_SESSION['mcp_oauth_csrf'] = 'csrf-test';
+
+        return [
+            'client_id' => 'mcp_c', 'redirect_uri' => 'https://claude.ai/api/mcp/auth_callback', 'response_type' => 'code',
+            'state' => 's', 'scope' => 'iot.read', 'code_challenge' => \App\OAuth\Pkce::challengeFor($verifier),
+            'code_challenge_method' => 'S256', '_mcp_csrf' => 'csrf-test', 'username' => $username,
+            'password' => $password, 'decision' => 'allow',
+        ];
+    }
+
+    public function testAccountLockoutAfterRepeatedFailures(): void
+    {
+        $renderer = $this->createMock(TemplateRenderer::class);
+        $renderer->method('render')->willReturn('<html></html>');
+        $controller = $this->oauthController($renderer);
+        $post = fn (array $form) => $controller->authorizeSubmit(
+            self::request('POST', '/oauth/authorize', http_build_query($form), ['Content-Type' => 'application/x-www-form-urlencoded'])
+                ->withParsedBody($form),
+            new Response()
+        );
+        for ($i = 0; $i < 5; $i++) {
+            self::assertSame(401, $post($this->authorizeForm('mauvais'))->getStatusCode());
+        }
+        // Même avec le BON mot de passe, le compte reste bloqué pendant la fenêtre.
+        self::assertSame(429, $post($this->authorizeForm(McpSqliteFixture::PASSWORD))->getStatusCode());
+        // Un autre compte n'est pas affecté.
+        self::assertSame(302, $post($this->authorizeForm(McpSqliteFixture::PASSWORD, 'admin'))->getStatusCode());
+    }
+
+    public function testOAuthPagesForbidFramingAndSecurityHeadersKeepIt(): void
+    {
+        $renderer = $this->createMock(TemplateRenderer::class);
+        $renderer->method('render')->willReturn('<html></html>');
+        $page = $this->oauthController($renderer)->authorizeForm(self::request('GET', '/oauth/authorize?client_id=inconnu'), new Response());
+        $middleware = new \App\Middleware\SecurityHeadersMiddleware();
+        $handler = new class ($page) implements \Psr\Http\Server\RequestHandlerInterface {
+            public function __construct(private \Psr\Http\Message\ResponseInterface $response)
+            {
+            }
+
+            public function handle(\Psr\Http\Message\ServerRequestInterface $request): \Psr\Http\Message\ResponseInterface
+            {
+                return $this->response;
+            }
+        };
+        $final = $middleware->process(self::request('GET', '/oauth/authorize'), $handler);
+        self::assertSame('DENY', $final->getHeaderLine('X-Frame-Options'));
+        self::assertStringContainsString("frame-ancestors 'none'", $final->getHeaderLine('Content-Security-Policy'));
     }
 }

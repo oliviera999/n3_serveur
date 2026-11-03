@@ -77,6 +77,7 @@ final class McpMariaDbIntegrationTest extends IntegrationDbTestCase
         $this->pdo->exec("DELETE FROM ffp3Data WHERE sensor = 'mcp-it'");
         $this->pdo->exec("DELETE FROM mcp_oauth_tokens WHERE client_id LIKE 'mcp-it%'");
         $this->pdo->exec("DELETE FROM mcp_oauth_codes WHERE client_id LIKE 'mcp-it%'");
+        $this->pdo->exec("DELETE FROM mcp_control_plans WHERE client_id LIKE 'mcp-it%'");
     }
 
     private function server(): McpServer
@@ -164,6 +165,95 @@ final class McpMariaDbIntegrationTest extends IntegrationDbTestCase
         $tides = $this->call('iot_tides', ['from' => '2026-01-15', 'to' => '2026-01-16']);
         self::assertSame(48, $tides['readings']);
         self::assertSame($envBefore, TableConfig::getEnvironment(), 'environnement de la requête restauré');
+    }
+
+    /**
+     * Relecture sécurité PR #100 (B1), sur le VRAI schéma : un plan ffp3 en `n3pp_test`
+     * (qui résout vers ffp3Outputs = PRODUCTION) est refusé et ffp3Outputs reste intact,
+     * même si le couple est listé dans MCP_CONTROL_ALLOWED_TARGETS.
+     */
+    public function testControlPlanOnForeignTestEnvRefusedAndProductionUntouched(): void
+    {
+        $before = $this->pdo->query('SELECT gpio, state, requestTime, lastModifiedBy FROM ffp3Outputs ORDER BY id')->fetchAll();
+        if ($before === []) {
+            self::markTestSkipped('ffp3Outputs vide (charger docker/mysql/init/10-seed.sql).');
+        }
+        $config = McpSqliteFixture::config(['MCP_CONTROL_ENABLED' => 'true', 'MCP_CONTROL_ALLOWED_TARGETS' => 'ffp3:n3pp_test,ffp3:msp_test,ffp3:energie_test']);
+        $plan = new \App\Mcp\Tools\PlanOutputChangeTool($config, new McpReadRepository($this->pdo), new McpOAuthRepository($this->pdo));
+        $server = new McpServer(new ToolRegistry([$plan], $config), new ReadOnlyTransaction($this->pdo), $this->createMock(LogService::class), $config);
+        $ctx = new McpContext(1, 'it', 'operator', ['iot.read', 'iot.control'], 'mcp-it');
+        foreach (['n3pp_test', 'msp_test', 'energie_test'] as $env) {
+            $r = $server->handle(['jsonrpc' => '2.0', 'id' => 1, 'method' => 'tools/call', 'params' => [
+                'name' => 'iot_plan_output_change', 'arguments' => ['family' => 'ffp3', 'gpio' => 2, 'value' => 1, 'env' => $env],
+            ]], $ctx);
+            self::assertTrue($r['result']['isError'], $env);
+            self::assertSame('production_target_refused', json_decode($r['result']['content'][0]['text'], true)['code'], $env);
+        }
+        self::assertSame($before, $this->pdo->query('SELECT gpio, state, requestTime, lastModifiedBy FROM ffp3Outputs ORDER BY id')->fetchAll());
+        self::assertSame(0, (int) $this->pdo->query("SELECT COUNT(*) FROM mcp_control_plans WHERE client_id = 'mcp-it'")->fetchColumn());
+    }
+
+    /**
+     * Plan → apply réel sur ffp3:test (ffp3Outputs2) : verrou `SELECT … FOR UPDATE` dans une
+     * transaction MariaDB, écriture limitée à la table de test, production intacte.
+     */
+    public function testApplyOnRealTestTableWithRowLock(): void
+    {
+        $gpio15 = $this->pdo->query("SELECT state FROM ffp3Outputs2 WHERE gpio = 15 AND name IS NOT NULL AND name <> '' LIMIT 1")->fetchColumn();
+        if ($gpio15 === false) {
+            self::markTestSkipped('ffp3Outputs2 sans GPIO 15.');
+        }
+        $prod = $this->pdo->query('SELECT gpio, state FROM ffp3Outputs ORDER BY id')->fetchAll();
+        $this->pdo->exec("UPDATE ffp3Outputs2 SET state = '0' WHERE gpio = 15");
+        $config = McpSqliteFixture::config(['MCP_CONTROL_ENABLED' => 'true']);
+        $store = new McpOAuthRepository($this->pdo);
+        $boards = new \App\Repository\BoardRepository($this->pdo);
+        $writer = new \App\Mcp\Control\OutputWriter(
+            new \App\Service\OutputService(new \App\Repository\OutputRepository($this->pdo), $boards, new SensorReadRepository($this->pdo)),
+            new \App\Repository\OutputRepository($this->pdo),
+            new \App\Repository\N3ppOutputRepository($this->pdo, $boards),
+            new \App\Repository\MspOutputRepository($this->pdo, $boards)
+        );
+        $tools = [
+            new \App\Mcp\Tools\PlanOutputChangeTool($config, new McpReadRepository($this->pdo), $store),
+            new \App\Mcp\Tools\ApplyPlanTool($config, $store, $writer, $this->createMock(\App\Service\ControlAuditLogger::class)),
+        ];
+        $server = new McpServer(new ToolRegistry($tools, $config), new ReadOnlyTransaction($this->pdo), $this->createMock(LogService::class), $config);
+        $ctx = new McpContext(1, 'it', 'operator', ['iot.read', 'iot.control'], 'mcp-it');
+        $call = static fn (string $tool, array $args): array => json_decode($server->handle(['jsonrpc' => '2.0', 'id' => 1, 'method' => 'tools/call', 'params' => ['name' => $tool, 'arguments' => $args]], $ctx)['result']['content'][0]['text'], true);
+        try {
+            $plan = $call('iot_plan_output_change', ['family' => 'ffp3', 'gpio' => 15, 'value' => 1, 'env' => 'test']);
+            self::assertSame('ffp3Outputs2', $plan['target_table']);
+            $applied = $call('iot_apply_plan', ['plan_id' => $plan['plan_id']]);
+            self::assertTrue($applied['applied'] ?? false, json_encode($applied));
+            self::assertSame('1', (string) $this->pdo->query('SELECT state FROM ffp3Outputs2 WHERE gpio = 15 ORDER BY id LIMIT 1')->fetchColumn());
+            self::assertSame($prod, $this->pdo->query('SELECT gpio, state FROM ffp3Outputs ORDER BY id')->fetchAll(), 'production intacte');
+            self::assertFalse($this->pdo->inTransaction());
+        } finally {
+            $this->pdo->exec('UPDATE ffp3Outputs2 SET state = ' . $this->pdo->quote((string) $gpio15) . ' WHERE gpio = 15');
+        }
+    }
+
+    public function testPasswordChangeRevokesTokensOnRealSchema(): void
+    {
+        $userId = (int) $this->pdo->query('SELECT id FROM n3_users WHERE is_active = 1 ORDER BY id LIMIT 1')->fetchColumn();
+        if ($userId === 0) {
+            self::markTestSkipped('Aucun compte n3_users actif.');
+        }
+        $users = new UserRepository($this->pdo);
+        $originalHash = (string) $this->pdo->query("SELECT password_hash FROM n3_users WHERE id = {$userId}")->fetchColumn();
+        $server = new AuthorizationServer(new McpOAuthRepository($this->pdo), $users, McpSqliteFixture::config());
+        $verifier = str_repeat('w', 50);
+        $code = $server->issueCode('mcp-it-pwd', $userId, 'https://claude.ai/api/mcp/auth_callback', ['iot.read'], null, Pkce::challengeFor($verifier));
+        $tokens = $server->exchangeCode($code, 'mcp-it-pwd', 'https://claude.ai/api/mcp/auth_callback', $verifier, null, 'https://iot.example.test/mcp');
+        self::assertNotNull($server->validateAccessToken($tokens['access_token'], 'https://iot.example.test/mcp'));
+        try {
+            $users->updatePassword($userId, password_hash('nouveau-' . bin2hex(random_bytes(4)), PASSWORD_BCRYPT, ['cost' => 4]));
+            self::assertNull($server->validateAccessToken($tokens['access_token'], 'https://iot.example.test/mcp'));
+            self::assertSame(0, (int) $this->pdo->query("SELECT COUNT(*) FROM mcp_oauth_tokens WHERE client_id = 'mcp-it-pwd' AND revoked_at IS NULL")->fetchColumn());
+        } finally {
+            $this->pdo->prepare('UPDATE n3_users SET password_hash = ? WHERE id = ?')->execute([$originalHash, $userId]);
+        }
     }
 
     public function testOAuthFlowOnRealSchema(): void

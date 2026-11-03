@@ -61,10 +61,10 @@ class ClientResolver
      */
     private function resolveCimd(string $url): array
     {
-        $host = $this->validateCimdUrl($url);
+        [$host, $pinnedIp] = $this->validateCimdUrl($url);
         $document = $this->repo->findCimd($url);
         if ($document === null) {
-            $document = $this->fetchDocument($url);
+            $document = $this->fetchDocument($url, $pinnedIp);
             $this->repo->storeCimd($url, $document, self::CIMD_CACHE_SECONDS);
         }
         /** @var list<string> $uris */
@@ -79,7 +79,10 @@ class ClientResolver
         ];
     }
 
-    private function validateCimdUrl(string $url): string
+    /**
+     * @return array{0: string, 1: ?string} [hôte, IP épinglée (mode `*` uniquement)]
+     */
+    private function validateCimdUrl(string $url): array
     {
         $parts = parse_url($url);
         if (!is_array($parts) || strtolower((string) ($parts['scheme'] ?? '')) !== 'https' || !isset($parts['host'])
@@ -92,20 +95,26 @@ class ClientResolver
         if (!in_array('*', $allowed, true) && !in_array($host, $allowed, true)) {
             throw new OAuthException('invalid_client', 'Hôte de métadonnées client non autorisé : ' . $host, 401);
         }
-        if (in_array('*', $allowed, true) && !self::isPublicHost($host)) {
-            throw new OAuthException('invalid_client', 'Hôte de métadonnées client non public.', 401);
+        $pinned = null;
+        if (in_array('*', $allowed, true)) {
+            // Mode ouvert (déconseillé) : l'hôte doit résoudre vers des IP PUBLIQUES
+            // uniquement, et la requête est épinglée sur l'IP vérifiée (anti DNS-rebinding).
+            $pinned = self::resolvePublicIp($host);
+            if ($pinned === null) {
+                throw new OAuthException('invalid_client', 'Hôte de métadonnées client non public.', 401);
+            }
         }
 
-        return $host;
+        return [$host, $pinned];
     }
 
     /**
      * @return array<string, mixed>
      */
-    private function fetchDocument(string $url): array
+    private function fetchDocument(string $url, ?string $pinnedIp): array
     {
         try {
-            $response = $this->fetcher->get($url, self::CIMD_TIMEOUT_SECONDS, self::CIMD_MAX_BYTES);
+            $response = $this->fetcher->get($url, self::CIMD_TIMEOUT_SECONDS, self::CIMD_MAX_BYTES, $pinnedIp);
         } catch (\RuntimeException $e) {
             throw new OAuthException('invalid_client', 'Document de métadonnées client injoignable : ' . $e->getMessage(), 401);
         }
@@ -136,19 +145,64 @@ class ClientResolver
         return $document;
     }
 
-    private static function isPublicHost(string $host): bool
+    /**
+     * Première IP de l'hôte si TOUTES ses adresses (A et AAAA) sont publiques, sinon null.
+     * Refuse les plages privées, réservées, loopback, link-local, ULA IPv6 (fc00::/7),
+     * IPv4 mappées / NAT64 vers une adresse privée.
+     */
+    public static function resolvePublicIp(string $host, ?callable $resolver = null): ?string
     {
+        $host = trim($host, '[]');
         if (in_array($host, ['localhost'], true) || str_ends_with($host, '.local') || str_ends_with($host, '.internal')) {
-            return false;
+            return null;
         }
-        $ips = filter_var($host, FILTER_VALIDATE_IP) !== false ? [$host] : (@gethostbynamel($host) ?: []);
+        if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
+            $ips = [$host];
+        } elseif ($resolver !== null) {
+            $ips = $resolver($host);
+        } else {
+            $ips = [];
+            foreach ([DNS_A, DNS_AAAA] as $type) {
+                foreach ((array) @dns_get_record($host, $type) as $record) {
+                    $ip = $record['ip'] ?? $record['ipv6'] ?? null;
+                    if (is_string($ip)) {
+                        $ips[] = $ip;
+                    }
+                }
+            }
+        }
         if ($ips === []) {
-            return false;
+            return null;
         }
         foreach ($ips as $ip) {
-            if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
-                return false;
+            if (!self::isPublicIp((string) $ip)) {
+                return null;
             }
+        }
+
+        return (string) $ips[0];
+    }
+
+    public static function isPublicIp(string $ip): bool
+    {
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+            return false;
+        }
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+            return true;
+        }
+        $bin = inet_pton($ip);
+        if ($bin === false) {
+            return false;
+        }
+        $first = ord($bin[0]);
+        // fc00::/7 (ULA), fe80::/10 (link-local), ff00::/8 (multicast)
+        if (($first & 0xFE) === 0xFC || ($first === 0xFE && (ord($bin[1]) & 0xC0) === 0x80) || $first === 0xFF) {
+            return false;
+        }
+        // ::ffff:a.b.c.d (IPv4 mappée) et 64:ff9b::/96 (NAT64) : on juge l'IPv4 embarquée.
+        if (substr($bin, 0, 12) === str_repeat("\0", 10) . "\xff\xff" || substr($bin, 0, 12) === "\x00\x64\xff\x9b" . str_repeat("\0", 8)) {
+            return self::isPublicIp((string) inet_ntop(substr($bin, 12)));
         }
 
         return true;

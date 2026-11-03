@@ -115,7 +115,7 @@ final class AuthorizationServerTest extends TestCase
             {
             }
 
-            public function get(string $url, int $timeoutSeconds, int $maxBytes): array
+            public function get(string $url, int $timeoutSeconds, int $maxBytes, ?string $pinnedIp = null): array
             {
                 $this->calls++;
                 if ($timeoutSeconds > 3) {
@@ -318,6 +318,68 @@ final class AuthorizationServerTest extends TestCase
         $server->refresh($tokens['refresh_token'], 'client-a', null, self::RESOURCE);
     }
 
+    public function testPasswordChangeInvalidatesAccessAndRefreshTokens(): void
+    {
+        $server = $this->server();
+        [$tokens] = $this->fullFlow(1);
+        self::assertNotNull($server->validateAccessToken($tokens['access_token'], self::RESOURCE));
+        (new UserRepository($this->pdo))->updatePassword(1, password_hash('nouveau-mot-de-passe', PASSWORD_BCRYPT, ['cost' => 4]));
+        self::assertNull($server->validateAccessToken($tokens['access_token'], self::RESOURCE));
+        $this->expectException(OAuthException::class);
+        $server->refresh($tokens['refresh_token'], 'client-a', null, self::RESOURCE);
+    }
+
+    public function testPasswordChangedOutsideTheAppAlsoInvalidatesTokens(): void
+    {
+        // Changement par SQL direct (phpMyAdmin, outil) : l'empreinte d'identifiants suffit.
+        $server = $this->server();
+        [$tokens] = $this->fullFlow(1);
+        $this->pdo->exec("UPDATE n3_users SET password_hash = 'autre-hash' WHERE id = 1");
+        self::assertNull($server->validateAccessToken($tokens['access_token'], self::RESOURCE));
+        try {
+            $server->refresh($tokens['refresh_token'], 'client-a', null, self::RESOURCE);
+            self::fail('refresh accepté après changement de mot de passe');
+        } catch (OAuthException $e) {
+            self::assertSame('invalid_grant', $e->error);
+        }
+    }
+
+    public function testRoleChangeOrDeactivationThroughRepositoryRevokesTokens(): void
+    {
+        $users = new UserRepository($this->pdo);
+        [$tokens] = $this->fullFlow(2);
+        $users->update(2, null, null, 'operator', true); // inchangé : rien n'est révoqué
+        self::assertNotNull($this->server()->validateAccessToken($tokens['access_token'], self::RESOURCE));
+        $users->update(2, null, null, 'reader', true);
+        self::assertNull($this->server()->validateAccessToken($tokens['access_token'], self::RESOURCE));
+        self::assertSame(0, (int) $this->pdo->query('SELECT COUNT(*) FROM mcp_oauth_tokens WHERE user_id = 2 AND revoked_at IS NULL')->fetchColumn());
+
+        [$again] = $this->fullFlow(2);
+        $users->update(2, null, null, 'reader', false);
+        self::assertNull($this->server()->validateAccessToken($again['access_token'], self::RESOURCE));
+    }
+
+    public function testTokenWithoutResourceIsRejected(): void
+    {
+        $token = AuthorizationServer::randomToken();
+        $this->repo->storeToken(AuthorizationServer::hash($token), 'access', 'f', 'client-a', 1, 'iot.read', null, 3600, (new UserRepository($this->pdo))->credentialEpoch(1));
+        self::assertNull($this->server()->validateAccessToken($token, self::RESOURCE));
+    }
+
+    public function testCimdPublicIpChecks(): void
+    {
+        foreach (['10.0.0.1', '127.0.0.1', '169.254.1.1', 'fd12::1', 'fe80::1', '::1', '::ffff:10.0.0.1', '64:ff9b::a00:1'] as $ip) {
+            self::assertFalse(ClientResolver::isPublicIp($ip), $ip);
+        }
+        foreach (['8.8.8.8', '2606:4700::1111', '::ffff:8.8.8.8'] as $ip) {
+            self::assertTrue(ClientResolver::isPublicIp($ip), $ip);
+        }
+        // Un hôte dont UNE adresse est privée est refusé (rebinding multi-enregistrements).
+        self::assertNull(ClientResolver::resolvePublicIp('meta.example', static fn (): array => ['8.8.8.8', 'fd00::1']));
+        self::assertSame('8.8.8.8', ClientResolver::resolvePublicIp('meta.example', static fn (): array => ['8.8.8.8']));
+        self::assertNull(ClientResolver::resolvePublicIp('localhost'));
+    }
+
     public function testRevokeRefreshRevokesWholeFamily(): void
     {
         $server = $this->server();
@@ -375,9 +437,9 @@ final class AuthorizationServerTest extends TestCase
         self::assertFalse($config->isEnabled());
         self::assertFalse($config->isControlEnabled());
         self::assertSame(['prod', 's3'], $config->allowedEnvs());
-        self::assertSame(McpConfig::TEST_ENVIRONMENTS, $config->controlAllowedEnvs());
-        self::assertNotContains('prod', $config->controlAllowedEnvs());
-        self::assertNotContains('s3', $config->controlAllowedEnvs());
+        self::assertSame(['ffp3:test', 'ffp3:test3', 'ffp3:s3test', 'n3pp:n3pp_test', 'msp1:msp_test'], $config->controlAllowedTargets());
+        self::assertFalse($config->isProductionControlAllowed());
+        self::assertSame(['ffp3:test'], (new McpConfig(['MCP_CONTROL_ALLOWED_TARGETS' => 'ffp3:test, inconnu:prod, ffp3:nope, energie:energie_test']))->controlAllowedTargets());
         self::assertSame(['prod'], (new McpConfig(['MCP_ALLOWED_ENVS' => 'inconnu']))->allowedEnvs());
         self::assertSame(3600, $config->accessTokenTtl());
         self::assertSame(60, $config->authCodeTtl());

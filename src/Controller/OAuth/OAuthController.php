@@ -43,6 +43,9 @@ final class OAuthController
     private const CSRF_SESSION_KEY = 'mcp_oauth_csrf';
     private const LOGIN_MAX_ATTEMPTS = 10;
     private const LOGIN_WINDOW_SECONDS = 600;
+    /** Échecs tolérés PAR COMPTE (toutes IP confondues) avant blocage temporaire. */
+    private const ACCOUNT_MAX_FAILURES = 5;
+    private const ACCOUNT_WINDOW_SECONDS = 900;
 
     public function __construct(
         private McpConfig $config,
@@ -226,8 +229,21 @@ final class OAuthController
         }
 
         $username = $str('username');
+        // Compteur PAR COMPTE (attaque distribuée sur un identifiant) : vérifié AVANT le mot
+        // de passe, et le même message est renvoyé que le compte existe ou non.
+        $accountKey = 'mcp_oauth_account:' . strtolower(mb_substr($username, 0, 64));
+        if ($username !== '' && $this->limiter->attempts($accountKey, self::ACCOUNT_WINDOW_SECONDS) >= self::ACCOUNT_MAX_FAILURES) {
+            $this->logger->warning('[mcp-oauth] compte temporairement bloqué {user}', ['user' => mb_substr($username, 0, 64)]);
+            $context['error'] = 'Trop d\'échecs pour ce compte. Réessayez dans quelques minutes.';
+            $context['username'] = $username;
+
+            return $this->renderConsent($response->withStatus(429), $context);
+        }
         $user = $username !== '' ? $this->users->verifyPassword($username, is_string($params['password'] ?? null) ? $params['password'] : '') : null;
         if ($user === null) {
+            if ($username !== '') {
+                $this->limiter->hit($accountKey, self::ACCOUNT_WINDOW_SECONDS);
+            }
             $this->logger->warning('[mcp-oauth] échec de connexion pour {user}', ['user' => mb_substr($username, 0, 64)]);
             $context['error'] = 'Identifiants incorrects ou compte désactivé.';
             $context['username'] = $username;
@@ -235,6 +251,7 @@ final class OAuthController
             return $this->renderConsent($response->withStatus(401), $context);
         }
         $this->limiter->clear($ipKey);
+        $this->limiter->clear($accountKey);
 
         $scopes = $this->server->grantableScopes($requestedScope, $user->role);
         $code = $this->server->issueCode($client['client_id'], $user->id, $redirectUri, $scopes, $resource, $str('code_challenge'));
@@ -455,11 +472,22 @@ final class OAuthController
             ->withHeader('Cache-Control', 'no-store');
     }
 
+    /**
+     * Page OAuth jamais encadrable (anti-clickjacking du consentement). `frame-ancestors`
+     * est posé dans une CSP propre à la réponse : SecurityHeadersMiddleware ne remplace la
+     * CSP que si elle est absente, et Apache (`Header always set X-Frame-Options SAMEORIGIN`
+     * du .htaccess) ne touche pas à la CSP — `frame-ancestors` prime sur X-Frame-Options.
+     */
+    public const PAGE_CSP = "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        . "font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; "
+        . "form-action 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'";
+
     private static function noFraming(Response $response): Response
     {
         return $response
             ->withHeader('Cache-Control', 'no-store')
-            ->withHeader('X-Frame-Options', 'DENY');
+            ->withHeader('X-Frame-Options', 'DENY')
+            ->withHeader('Content-Security-Policy', self::PAGE_CSP);
     }
 
     private static function cors(Response $response): Response

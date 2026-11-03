@@ -142,6 +142,16 @@ final class McpServerTest extends TestCase
         self::assertSame(-32601, $r[1]['error']['code']);
     }
 
+    public function testBatchLargerThanTwentyIsRejected(): void
+    {
+        $server = $this->server([]);
+        $ok = $server->handle(array_fill(0, 20, ['jsonrpc' => '2.0', 'id' => 1, 'method' => 'ping']), self::context());
+        self::assertCount(20, $ok);
+        $tooMany = $server->handle(array_fill(0, 21, ['jsonrpc' => '2.0', 'id' => 1, 'method' => 'ping']), self::context());
+        self::assertSame(-32600, $tooMany['error']['code']);
+        self::assertNull($tooMany['id']);
+    }
+
     public function testInvalidRequestErrors(): void
     {
         $server = $this->server([]);

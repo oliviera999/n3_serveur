@@ -133,7 +133,11 @@ class UserRepository extends AbstractRepository
         string $role,
         bool $isActive,
     ): bool {
-        return $this->execute(
+        $before = $this->fetchOne(
+            'SELECT role, is_active FROM `' . self::TABLE . '` WHERE id = :id LIMIT 1',
+            ['id' => $id]
+        );
+        $ok = $this->execute(
             'UPDATE `' . self::TABLE . '`
              SET email = :email, display_name = :display_name, role = :role, is_active = :is_active
              WHERE id = :id',
@@ -145,14 +149,60 @@ class UserRepository extends AbstractRepository
                 'is_active' => $isActive ? 1 : 0,
             ]
         );
+        // Désactivation ou changement de rôle : les connexions MCP existantes sont coupées
+        // (un nouveau consentement recalculera les scopes du nouveau rôle).
+        if ($before !== null && ((string) $before['role'] !== $role || ((int) $before['is_active'] === 1) !== $isActive)) {
+            $this->revokeMcpTokens($id);
+        }
+
+        return $ok;
     }
 
     public function updatePassword(int $id, string $passwordHash): bool
     {
-        return $this->execute(
+        $ok = $this->execute(
             'UPDATE `' . self::TABLE . '` SET password_hash = :password_hash WHERE id = :id',
             ['id' => $id, 'password_hash' => $passwordHash]
         );
+        // Changement de mot de passe : tous les jetons MCP (accès + refresh) de l'utilisateur
+        // sont révoqués — un jeton ne survit pas au secret qui l'a obtenu.
+        $this->revokeMcpTokens($id);
+
+        return $ok;
+    }
+
+    /**
+     * Empreinte courte du hachage de mot de passe (« époque d'identifiants ») : liée aux
+     * jetons MCP à leur émission, elle change dès que le mot de passe change — y compris
+     * par une requête SQL directe — et invalide alors tous les jetons émis avant.
+     * Jamais renvoyée au client ; dérivée par HMAC pour ne rien révéler du hachage.
+     */
+    public function credentialEpoch(int $id): ?string
+    {
+        $hash = $this->fetchScalar('SELECT password_hash FROM `' . self::TABLE . '` WHERE id = :id', ['id' => $id]);
+        if (!is_string($hash) || $hash === '') {
+            return null;
+        }
+
+        return substr(hash_hmac('sha256', $hash, 'mcp-credential-epoch'), 0, 16);
+    }
+
+    /**
+     * Révoque tous les jetons OAuth du connecteur MCP d'un utilisateur. Sans effet (et
+     * sans erreur) si la migration MCP n'a pas été jouée.
+     *
+     * @return int nombre de jetons révoqués
+     */
+    public function revokeMcpTokens(int $id): int
+    {
+        try {
+            return $this->executeWithRowCount(
+                'UPDATE mcp_oauth_tokens SET revoked_at = :now WHERE user_id = :id AND revoked_at IS NULL',
+                ['now' => date('Y-m-d H:i:s'), 'id' => $id]
+            );
+        } catch (PDOException) {
+            return 0;
+        }
     }
 
     public function updateLastLogin(int $id): bool
@@ -165,6 +215,8 @@ class UserRepository extends AbstractRepository
 
     public function delete(int $id): bool
     {
+        $this->revokeMcpTokens($id);
+
         return $this->executeWithRowCount(
             'DELETE FROM `' . self::TABLE . '` WHERE id = :id',
             ['id' => $id]

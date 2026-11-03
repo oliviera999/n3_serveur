@@ -240,5 +240,7 @@ class RoutesConfigSecurityTest extends TestCase
         $this->assertMatchesRegularExpression('#RewriteRule \^\\\.well-known/oauth-#', $htaccess);
         $this->assertStringContainsString('RewriteRule ^tools/ - [F,L]', $htaccess, 'blocage tools/ conservé');
         $this->assertStringContainsString('RewriteRule ^vendor/ - [F,L]', $htaccess, 'blocage vendor/ conservé');
+        $this->assertStringContainsString('Header always setifempty X-Frame-Options "SAMEORIGIN"', $htaccess, 'n\'écrase pas le DENY des pages OAuth');
+        $this->assertStringNotContainsString('Header always set X-Frame-Options', $htaccess);
     }
 }

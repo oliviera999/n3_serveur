@@ -172,10 +172,11 @@ class McpOAuthRepository extends AbstractRepository
         string $scope,
         ?string $resource,
         int $ttlSeconds,
+        ?string $credentialEpoch = null,
     ): void {
         $this->execute(
-            'INSERT INTO mcp_oauth_tokens (token_hash, token_type, family_id, client_id, user_id, scope, resource, expires_at, created_at)'
-            . ' VALUES (:h, :t, :f, :c, :u, :s, :r, :exp, :now)',
+            'INSERT INTO mcp_oauth_tokens (token_hash, token_type, family_id, client_id, user_id, scope, resource, credential_epoch, expires_at, created_at)'
+            . ' VALUES (:h, :t, :f, :c, :u, :s, :r, :e, :exp, :now)',
             [
                 ':h' => $tokenHash,
                 ':t' => $type,
@@ -184,6 +185,7 @@ class McpOAuthRepository extends AbstractRepository
                 ':u' => $userId,
                 ':s' => $scope,
                 ':r' => $resource,
+                ':e' => $credentialEpoch,
                 ':exp' => self::at(time() + $ttlSeconds),
                 ':now' => self::now(),
             ]
@@ -196,7 +198,7 @@ class McpOAuthRepository extends AbstractRepository
     public function findToken(string $tokenHash): ?array
     {
         return $this->fetchOne(
-            'SELECT token_hash, token_type, family_id, client_id, user_id, scope, resource, expires_at, revoked_at'
+            'SELECT token_hash, token_type, family_id, client_id, user_id, scope, resource, credential_epoch, expires_at, revoked_at'
             . ' FROM mcp_oauth_tokens WHERE token_hash = :h LIMIT 1',
             [':h' => $tokenHash]
         );
@@ -246,10 +248,11 @@ class McpOAuthRepository extends AbstractRepository
         ?string $target,
         array $payload,
         int $ttlSeconds,
+        string $targetKey,
     ): void {
         $this->execute(
-            'INSERT INTO mcp_control_plans (plan_id, user_id, client_id, env, family, gpio, action, before_state, target_state, payload, expires_at, created_at)'
-            . ' VALUES (:id, :u, :c, :env, :fam, :gpio, :action, :before, :target, :payload, :exp, :now)',
+            'INSERT INTO mcp_control_plans (plan_id, user_id, client_id, env, family, gpio, target_key, action, before_state, target_state, payload, expires_at, created_at)'
+            . ' VALUES (:id, :u, :c, :env, :fam, :gpio, :tk, :action, :before, :target, :payload, :exp, :now)',
             [
                 ':id' => $planId,
                 ':u' => $userId,
@@ -257,6 +260,7 @@ class McpOAuthRepository extends AbstractRepository
                 ':env' => $env,
                 ':fam' => $family,
                 ':gpio' => $gpio,
+                ':tk' => $targetKey,
                 ':action' => $action,
                 ':before' => $before,
                 ':target' => $target,
@@ -273,7 +277,7 @@ class McpOAuthRepository extends AbstractRepository
     public function findPlan(string $planId): ?array
     {
         return $this->fetchOne(
-            'SELECT plan_id, user_id, client_id, env, family, gpio, action, before_state, target_state, payload, expires_at, applied_at'
+            'SELECT plan_id, user_id, client_id, env, family, gpio, target_key, action, before_state, target_state, payload, expires_at, applied_at'
             . ' FROM mcp_control_plans WHERE plan_id = :id LIMIT 1',
             [':id' => $planId]
         );
@@ -291,15 +295,60 @@ class McpOAuthRepository extends AbstractRepository
     }
 
     /**
-     * Nombre de nourrissages MCP appliqués depuis $since (plafond quotidien).
+     * Nombre de nourrissages MCP appliqués depuis $since sur une CIBLE PHYSIQUE (table
+     * outputs + board) — et non par environnement : deux environnements résolus vers le
+     * même bac partagent le même plafond.
      */
-    public function countAppliedFeeds(string $env, string $family, string $since): int
+    public function countAppliedFeeds(string $targetKey, string $since): int
     {
         return (int) $this->fetchScalar(
-            "SELECT COUNT(*) FROM mcp_control_plans WHERE env = :env AND family = :fam AND action = 'feed'"
+            "SELECT COUNT(*) FROM mcp_control_plans WHERE target_key = :tk AND action = 'feed'"
             . ' AND applied_at IS NOT NULL AND applied_at >= :since',
-            [':env' => $env, ':fam' => $family, ':since' => $since]
+            [':tk' => $targetKey, ':since' => $since]
         );
+    }
+
+    /**
+     * Exécute $callback dans une transaction de la connexion PRINCIPALE (celle des écritures
+     * de pilotage) : commit en cas de succès, rollback et relance sinon.
+     *
+     * @template T
+     * @param callable(): T $callback
+     * @return T
+     */
+    public function transactional(callable $callback): mixed
+    {
+        return $this->executeInTransaction($callback);
+    }
+
+    /**
+     * Relit une sortie GPIO avec VERROU DE LIGNE (`SELECT … FOR UPDATE`, MySQL / MariaDB)
+     * sur la connexion principale : la relecture de l'état et l'écriture du pilotage ne
+     * peuvent pas être entrelacées avec une autre écriture. À appeler dans transactional().
+     * Table résolue par FieldCatalog / TableConfig pour l'environnement courant.
+     *
+     * @return array<string, mixed>|null
+     */
+    public function outputForUpdate(string $family, int $gpio): ?array
+    {
+        $table = \App\Mcp\Support\FieldCatalog::outputsTable($family);
+        if (!in_array($table, \App\Util\TableValidator::OUTPUT_TABLES, true)) {
+            throw new \InvalidArgumentException('Table outputs non autorisée : ' . $table);
+        }
+        $sql = "SELECT id, state FROM `{$table}` WHERE gpio = :gpio";
+        $params = [':gpio' => $gpio];
+        if (isset(\App\Mcp\Support\FieldCatalog::BOARDS[$family])) {
+            $sql .= ' AND board = :board';
+            $params[':board'] = \App\Mcp\Support\FieldCatalog::BOARDS[$family];
+        } else {
+            $sql .= " AND name IS NOT NULL AND name <> ''";
+        }
+        $sql .= ' ORDER BY id ASC LIMIT 1';
+        if ((string) $this->pdo->getAttribute(\PDO::ATTR_DRIVER_NAME) === 'mysql') {
+            $sql .= ' FOR UPDATE';
+        }
+
+        return $this->fetchOne($sql, $params);
     }
 
     // ── Purge (CRON) ──────────────────────────────────────────────────

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Mcp\Tools;
 
 use App\Mcp\Control\ControlPolicy;
+use App\Mcp\Control\ControlTarget;
 use App\Mcp\McpConfig;
 use App\Mcp\McpContext;
 use App\Mcp\Support\EnvironmentScope;
-use App\Mcp\Support\FieldCatalog;
 use App\Mcp\ToolException;
 use App\Mcp\ToolResult;
 use App\Repository\McpOAuthRepository;
@@ -105,17 +105,21 @@ final class PlanOutputChangeTool extends AbstractTool
         }
         $rule = (array) ControlPolicy::rule($family, $gpio);
         $env = $this->resolveEnv($arguments, true);
+        // Cible RÉELLE (table outputs résolue par TableConfig) : refus d'une table de
+        // production même depuis un environnement « de test » d'une autre famille.
+        $target = ControlTarget::resolve($family, $env);
+        $target->assertAllowed($this->config);
         $isFeed = $rule['kind'] === ControlPolicy::KIND_FEED;
         if ($isFeed && $family !== 'ffp3') {
             throw new ToolException('Le nourrissage n\'existe que pour l\'aquaponie FFP3.', 'refused_by_policy');
         }
 
-        $planned = EnvironmentScope::run($env, function () use ($family, $gpio, $env, $isFeed): array {
+        $planned = EnvironmentScope::run($env, function () use ($family, $gpio, $env, $isFeed, $target): array {
             $current = $this->repo->output($family, $gpio);
             if ($current === null) {
                 throw new ToolException(sprintf('GPIO %d absent de la table outputs (%s, %s).', $gpio, $family, $env), 'not_found');
             }
-            $fedToday = $isFeed ? $this->store->countAppliedFeeds($env, $family, date('Y-m-d H:i:s', time() - 86400)) : 0;
+            $fedToday = $isFeed ? $this->store->countAppliedFeeds($target->physicalKey(), date('Y-m-d H:i:s', time() - 86400)) : 0;
 
             return ['current' => $current, 'fed_today' => $fedToday];
         });
@@ -142,8 +146,9 @@ final class PlanOutputChangeTool extends AbstractTool
                 $risks[] = 'Écart de consigne supérieur à 2 °C : risque de choc thermique, préférer plusieurs petits pas.';
             }
         }
-        if (FieldCatalog::isProductionTarget($family, $env)) {
-            $risks[] = 'ATTENTION : environnement de PRODUCTION (installation réelle, êtres vivants).';
+        if ($target->isProduction()) {
+            // Atteint uniquement avec MCP_CONTROL_ALLOW_PRODUCTION=true (cf. assertAllowed()).
+            $risks[] = 'ATTENTION : table de PRODUCTION ' . $target->table . ' (installation réelle, êtres vivants).';
         }
         $risks[] = 'Effet au prochain réveil / poll de l\'ESP32 (de quelques secondes à FreqWakeUp).';
 
@@ -151,7 +156,8 @@ final class PlanOutputChangeTool extends AbstractTool
         $plan = [
             'plan_id' => $planId,
             'env' => $env,
-            'is_production' => FieldCatalog::isProductionTarget($family, $env),
+            'is_production' => $target->isProduction(),
+            'target_table' => $target->table,
             'family' => $family,
             'gpio' => $gpio,
             'label' => $rule['label'],
@@ -175,7 +181,8 @@ final class PlanOutputChangeTool extends AbstractTool
             $before,
             $after,
             $plan,
-            self::PLAN_TTL_SECONDS
+            self::PLAN_TTL_SECONDS,
+            $target->physicalKey()
         );
 
         return ToolResult::json($plan);

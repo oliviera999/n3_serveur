@@ -46,12 +46,78 @@ final class McpSqliteFixture
         ], $overrides));
     }
 
+    /**
+     * Jeton d'accès valide (lié au mot de passe courant) pour les tests HTTP.
+     */
+    public static function accessToken(PDO $pdo, int $userId, string $scope, string $resource): string
+    {
+        $token = \App\OAuth\AuthorizationServer::randomToken();
+        $epoch = (new \App\Repository\UserRepository($pdo))->credentialEpoch($userId);
+        (new \App\Repository\McpOAuthRepository($pdo))->storeToken(
+            \App\OAuth\AuthorizationServer::hash($token),
+            'access',
+            bin2hex(random_bytes(16)),
+            'client-test',
+            $userId,
+            $scope,
+            $resource,
+            3600,
+            $epoch
+        );
+
+        return $token;
+    }
+
     public static function seedFfp3(PDO $pdo, string $table = 'ffp3Data', int $rows = 12): void
     {
         $stmt = $pdo->prepare("INSERT INTO {$table} (sensor, version, TempAir, Humidite, TempEau, EauAquarium, EauReserve, EauPotager, diffMaree, etatPompeAqua, mail, reading_time) VALUES ('ffp3', '15.31', ?, 60, ?, ?, 400, 300, ?, 1, 'secret@example.org', ?)");
         for ($i = $rows - 1; $i >= 0; $i--) {
             $stmt->execute([24 + $i * 0.1, 25 - $i * 0.05, 180 + ($i % 4) * 10, ($i % 2 === 0) ? 3 : -3, date('Y-m-d H:i:s', time() - $i * 600)]);
         }
+    }
+
+    /** Toutes les tables outputs (prod + variantes), dans l'ordre de TableValidator::OUTPUT_TABLES. */
+    public const OUTPUT_TABLES = [
+        'ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3OutputsS3', 'ffp3OutputsS3Test',
+        'n3ppOutputs', 'n3ppOutputsTest', 'msp1Outputs', 'msp1OutputsTest',
+    ];
+
+    /**
+     * Sème toutes les tables outputs (FFP3 board 1, N3PP board 3, MSP1 board 2) avec
+     * des valeurs connues, pour vérifier qu'une écriture n'atteint que la table attendue.
+     */
+    public static function seedAllOutputs(PDO $pdo): void
+    {
+        foreach (['ffp3Outputs', 'ffp3Outputs2', 'ffp3Outputs3', 'ffp3OutputsS3', 'ffp3OutputsS3Test'] as $table) {
+            self::seedOutputs($pdo, $table);
+        }
+        $sensor = static function (string $table, int $board, array $rows) use ($pdo): void {
+            $stmt = $pdo->prepare("INSERT INTO {$table} (name, board, gpio, state, requestTime) VALUES (?, ?, ?, ?, ?)");
+            foreach ($rows as [$gpio, $name, $state]) {
+                $stmt->execute([$name, $board, $gpio, $state, date('Y-m-d H:i:s', time() - 3600)]);
+            }
+        };
+        foreach (['n3ppOutputs', 'n3ppOutputsTest'] as $t) {
+            $sensor($t, 3, [[102, 'SeuilSec', '1500'], [104, 'HeureArrosage', '7'], [105, 'tempsArrosage', '5'], [107, 'FreqWakeUp', '600']]);
+        }
+        foreach (['msp1Outputs', 'msp1OutputsTest'] as $t) {
+            $sensor($t, 2, [[104, 'ServoHB', '90'], [105, 'ServoGD', '90'], [107, 'FreqWakeUp', '600'], [111, 'ServoModeAuto', '1']]);
+        }
+    }
+
+    /**
+     * Empreinte de toutes les tables outputs (pour prouver qu'aucune n'a changé).
+     *
+     * @return array<string, string>
+     */
+    public static function outputsSnapshot(PDO $pdo): array
+    {
+        $out = [];
+        foreach (self::OUTPUT_TABLES as $table) {
+            $out[$table] = md5((string) json_encode($pdo->query("SELECT gpio, state FROM {$table} ORDER BY id")->fetchAll()));
+        }
+
+        return $out;
     }
 
     public static function seedOutputs(PDO $pdo, string $table): void
@@ -88,7 +154,7 @@ final class McpSqliteFixture
 
         $sql = [
             $ffp3Data('ffp3Data'), $ffp3Data('ffp3Data2'),
-            $outputs('ffp3Outputs'), $outputs('ffp3Outputs2'),
+            $outputs('ffp3Outputs'), $outputs('ffp3Outputs2'), $outputs('ffp3Outputs3'), $outputs('ffp3OutputsS3'), $outputs('ffp3OutputsS3Test'),
             $heartbeat('ffp3Heartbeat'), $heartbeat('ffp3Heartbeat2'),
             'CREATE TABLE n3ppData (id INTEGER PRIMARY KEY AUTOINCREMENT, sensor TEXT, version TEXT, TempAir REAL, Humidite REAL,'
                 . ' Pression REAL, Luminosite REAL, Humid1 REAL, Humid2 REAL, Humid3 REAL, Humid4 REAL, HumidMoy REAL, PontDiv INTEGER,'
@@ -109,8 +175,8 @@ final class McpSqliteFixture
             'CREATE TABLE mcp_oauth_codes (code_hash TEXT PRIMARY KEY, client_id TEXT, user_id INTEGER, redirect_uri TEXT, scope TEXT,'
                 . ' resource TEXT, code_challenge TEXT, expires_at TEXT, used_at TEXT, created_at TEXT)',
             'CREATE TABLE mcp_oauth_tokens (token_hash TEXT PRIMARY KEY, token_type TEXT, family_id TEXT, client_id TEXT, user_id INTEGER,'
-                . ' scope TEXT, resource TEXT, expires_at TEXT, revoked_at TEXT, created_at TEXT, last_used_at TEXT)',
-            'CREATE TABLE mcp_control_plans (plan_id TEXT PRIMARY KEY, user_id INTEGER, client_id TEXT, env TEXT, family TEXT, gpio INTEGER,'
+                . ' scope TEXT, resource TEXT, credential_epoch TEXT, expires_at TEXT, revoked_at TEXT, created_at TEXT, last_used_at TEXT)',
+            'CREATE TABLE mcp_control_plans (plan_id TEXT PRIMARY KEY, user_id INTEGER, client_id TEXT, env TEXT, family TEXT, gpio INTEGER, target_key TEXT,'
                 . ' action TEXT, before_state TEXT, target_state TEXT, payload TEXT, expires_at TEXT, applied_at TEXT, created_at TEXT)',
         ];
         $sql[] = EnergieSqliteSchema::createTableSql('energieData');

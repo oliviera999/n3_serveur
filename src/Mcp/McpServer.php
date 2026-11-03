@@ -30,6 +30,9 @@ final class McpServer
 
     public const SERVER_NAME = 'iot-olution';
 
+    /** Taille maximale d'un lot JSON-RPC (au-delà : erreur -32600, aucun message traité). */
+    public const MAX_BATCH = 20;
+
     public function __construct(
         private ToolRegistry $registry,
         private ReadOnlyTransaction $readOnly,
@@ -53,6 +56,12 @@ final class McpServer
     public function handle(mixed $payload, McpContext $context): ?array
     {
         if (is_array($payload) && array_is_list($payload) && $payload !== []) {
+            if (count($payload) > self::MAX_BATCH) {
+                return self::error(null, new JsonRpcException(
+                    JsonRpcException::INVALID_REQUEST,
+                    sprintf('Lot JSON-RPC trop grand (%d messages, maximum %d).', count($payload), self::MAX_BATCH)
+                ));
+            }
             $responses = [];
             foreach ($payload as $message) {
                 $response = $this->handleMessage($message, $context);

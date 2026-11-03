@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `mcp_oauth_tokens` (
   `user_id` INT NOT NULL,
   `scope` VARCHAR(255) NOT NULL,
   `resource` VARCHAR(512) DEFAULT NULL,
+  `credential_epoch` CHAR(16) DEFAULT NULL COMMENT 'Empreinte du mot de passe au consentement (jeton invalide si le mot de passe change)',
   `expires_at` DATETIME NOT NULL,
   `revoked_at` DATETIME DEFAULT NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -82,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `mcp_control_plans` (
   `env` VARCHAR(32) NOT NULL,
   `family` VARCHAR(16) NOT NULL,
   `gpio` INT NOT NULL,
+  `target_key` VARCHAR(96) NOT NULL COMMENT 'Table outputs réellement ciblée + board (plafond nourrissage)',
   `action` VARCHAR(16) NOT NULL COMMENT 'set | feed',
   `before_state` VARCHAR(255) DEFAULT NULL,
   `target_state` VARCHAR(255) DEFAULT NULL,
@@ -91,5 +93,5 @@ CREATE TABLE IF NOT EXISTS `mcp_control_plans` (
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`plan_id`),
   KEY `idx_mcp_plans_expires` (`expires_at`),
-  KEY `idx_mcp_plans_applied` (`env`, `family`, `gpio`, `applied_at`)
+  KEY `idx_mcp_plans_applied` (`target_key`, `action`, `applied_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

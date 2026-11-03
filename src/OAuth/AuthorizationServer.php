@@ -192,6 +192,10 @@ class AuthorizationServer
             throw new OAuthException('invalid_grant', 'Refresh token déjà utilisé.');
         }
         $user = $this->activeUser((int) $row['user_id'], (string) $row['family_id']);
+        if (!$this->credentialsUnchanged($row)) {
+            $this->repo->revokeFamily((string) $row['family_id']);
+            throw new OAuthException('invalid_grant', 'Mot de passe modifié depuis la connexion : reconnectez-vous.');
+        }
 
         $original = preg_split('/\s+/', (string) $row['scope']) ?: [];
         $scopes = $this->grantableScopes((string) $row['scope'], $user->role);
@@ -249,12 +253,15 @@ class AuthorizationServer
         if (strtotime((string) $row['expires_at']) < time()) {
             return null;
         }
-        // Audience : un jeton émis pour une autre ressource n'est pas accepté.
-        if ($row['resource'] !== null && rtrim((string) $row['resource'], '/') !== rtrim($mcpResource, '/')) {
+        // Audience OBLIGATOIRE : un jeton sans ressource, ou émis pour une autre, est refusé.
+        if ($row['resource'] === null || rtrim((string) $row['resource'], '/') !== rtrim($mcpResource, '/')) {
             return null;
         }
         $user = $this->users->findById((int) $row['user_id']);
         if ($user === null || !$user->isActive) {
+            return null;
+        }
+        if (!$this->credentialsUnchanged($row)) {
             return null;
         }
         $scopes = array_values(array_intersect(
@@ -274,7 +281,8 @@ class AuthorizationServer
         $access = self::randomToken();
         $ttl = $this->config->accessTokenTtl();
         $scope = implode(' ', $scopes);
-        $this->repo->storeToken(self::hash($access), self::TOKEN_TYPE_ACCESS, $family, $clientId, $userId, $scope, $resource, $ttl);
+        $epoch = $this->users->credentialEpoch($userId);
+        $this->repo->storeToken(self::hash($access), self::TOKEN_TYPE_ACCESS, $family, $clientId, $userId, $scope, $resource, $ttl, $epoch);
 
         $response = [
             'access_token' => $access,
@@ -292,7 +300,8 @@ class AuthorizationServer
                 $userId,
                 $scope,
                 $resource,
-                $this->config->refreshTokenTtl()
+                $this->config->refreshTokenTtl(),
+                $epoch
             );
             $response['refresh_token'] = $refresh;
         }
@@ -301,6 +310,20 @@ class AuthorizationServer
         }
 
         return $response;
+    }
+
+    /**
+     * Vrai si le mot de passe de l'utilisateur n'a pas changé depuis l'émission du jeton
+     * (empreinte `credential_epoch`). Un jeton sans empreinte est refusé.
+     *
+     * @param array<string, mixed> $row
+     */
+    private function credentialsUnchanged(array $row): bool
+    {
+        $stored = $row['credential_epoch'] ?? null;
+        $current = $this->users->credentialEpoch((int) $row['user_id']);
+
+        return is_string($stored) && $current !== null && hash_equals($current, $stored);
     }
 
     private function activeUser(int $userId, ?string $familyToRevoke = null): User
