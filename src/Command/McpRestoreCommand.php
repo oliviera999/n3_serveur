@@ -51,8 +51,17 @@ class McpRestoreCommand
             $env = (string) $row['env'];
             try {
                 EnvironmentScope::run($env, function () use ($family): void {
-                    $this->writer->write($family, 117, 0, 0);
-                    $this->writer->write($family, 16, 1, 0);
+                    // 117 d'abord : tant que le forçage OFF est actif, le POST firmware
+                    // ré-épingle GPIO 16 à 0. Puis 16 = 1, par GPIO (l'id de ligne est inconnu ici).
+                    $force = $this->writer->write($family, 117, 0, 0);
+                    $pump = $this->writer->write($family, 16, 1, 0);
+                    if ($force === null || $pump === null || (int) $force !== 0 || (int) $pump !== 1) {
+                        throw new \RuntimeException(sprintf(
+                            'Rétablissement pompe incomplet (GPIO 117=%s, GPIO 16=%s).',
+                            $force === null ? 'null' : (string) $force,
+                            $pump === null ? 'null' : (string) $pump
+                        ));
+                    }
                 });
                 $this->repo->markDone($id);
                 $this->audit->logAction($request, 'mcp:' . $family, 'restore', [

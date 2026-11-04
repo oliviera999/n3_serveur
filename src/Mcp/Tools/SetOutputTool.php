@@ -251,20 +251,27 @@ final class SetOutputTool extends AbstractTool
         );
 
         $restoreAt = null;
-        if ($isPumpStop && !$maintenance && $restoreMinutes !== null) {
-            $ts = time() + ($restoreMinutes * 60);
-            $this->restores->schedule(
-                $family,
-                $env,
-                $target->physicalKey(),
-                117,
-                '0',
-                $ts,
-                $context->userId,
-                isset($arguments['reason']) ? (string) $arguments['reason'] : 'arrêt borné MCP'
-            );
-            // Aussi programmer le retour GPIO 16 = 1 via la même commande CRON (value 0 sur 117 implique 16=1)
-            $restoreAt = date('Y-m-d H:i:s', $ts);
+        if ($isPumpStop) {
+            // Le nouveau minuteur est inséré avant l'annulation des autres : si l'insertion
+            // échoue, l'échéance précédente reste en place. Sinon un délai plus court
+            // (ou un passage en maintenance) ne peut plus rallumer la pompe trop tôt.
+            $newId = null;
+            if (!$maintenance && $restoreMinutes !== null) {
+                $ts = time() + ($restoreMinutes * 60);
+                $newId = $this->restores->schedule(
+                    $family,
+                    $env,
+                    $target->physicalKey(),
+                    117,
+                    '0',
+                    $ts,
+                    $context->userId,
+                    isset($arguments['reason']) ? (string) $arguments['reason'] : 'arrêt borné MCP'
+                );
+                // Le CRON remet 117 = 0 puis 16 = 1 : le POST firmware a épinglé 16 à 0 pendant le forçage.
+                $restoreAt = date('Y-m-d H:i:s', $ts);
+            }
+            $this->restores->cancelPendingForTarget($target->physicalKey(), $newId);
         }
 
         return ToolResult::json([

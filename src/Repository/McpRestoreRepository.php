@@ -72,13 +72,17 @@ class McpRestoreRepository
         )->execute([self::now(), mb_substr($message, 0, 500), $id]);
     }
 
-    public function cancelPendingForTarget(string $targetKey): int
+    public function cancelPendingForTarget(string $targetKey, ?int $exceptId = null): int
     {
-        $stmt = $this->pdo->prepare(
-            'UPDATE mcp_scheduled_restores SET status = \'cancelled\', done_at = ?'
-            . ' WHERE target_key = ? AND status = \'pending\''
-        );
-        $stmt->execute([self::now(), $targetKey]);
+        $sql = 'UPDATE mcp_scheduled_restores SET status = \'cancelled\', done_at = ?'
+            . ' WHERE target_key = ? AND status = \'pending\'';
+        $params = [self::now(), $targetKey];
+        if ($exceptId !== null) {
+            $sql .= ' AND id <> ?';
+            $params[] = $exceptId;
+        }
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
 
         return $stmt->rowCount();
     }

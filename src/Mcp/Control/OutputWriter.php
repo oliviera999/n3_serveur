@@ -66,13 +66,22 @@ class OutputWriter
     private function writeFfp3(int $gpio, int|float $value, int $outputId): ?string
     {
         if ($gpio === self::AQUARIUM_PUMP_FORCE_GPIO) {
-            $ok = $this->outputService->updatePumpForceMode((int) $value);
-            if ($ok && (int) $value === 1) {
+            if (!$this->outputService->updatePumpForceMode((int) $value)) {
+                return null;
+            }
+            if ((int) $value === 1) {
                 $this->outputService->updateStateByGpio(self::AQUARIUM_PUMP_GPIO, 1);
             }
         } elseif (in_array($gpio, [2, 15, 16, 18], true)) {
             // Même écriture que le toggle de la page de contrôle (par id de la ligne nommée).
-            if ($outputId <= 0 || !$this->outputService->updateStateById($outputId, (int) $value, 'web')) {
+            // Exception : GPIO 16 sans id (CRON de rétablissement). Le forçage OFF épingle 16 à 0
+            // au POST firmware ; updateStateById(0) ne faisait rien et le cron croyait avoir réussi.
+            if ($outputId <= 0) {
+                if ($gpio !== self::AQUARIUM_PUMP_GPIO
+                    || !$this->outputService->updateStateByGpio($gpio, (int) $value)) {
+                    return null;
+                }
+            } elseif (!$this->outputService->updateStateById($outputId, (int) $value, 'web')) {
                 return null;
             }
         } else {
