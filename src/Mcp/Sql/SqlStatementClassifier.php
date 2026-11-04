@@ -92,7 +92,7 @@ final class SqlStatementClassifier
             }
         }
 
-        $tables = self::extractTables($stripped, $first);
+        $tables = self::extractTables($stripped);
         foreach ($tables as $table) {
             if (in_array(strtolower($table), self::PROTECTED_WRITE_TABLES, true) && $class !== self::CLASS_READ) {
                 throw new ToolException(
@@ -102,7 +102,9 @@ final class SqlStatementClassifier
             }
         }
 
-        $hasWhere = (bool) preg_match('/\bWHERE\b/i', $stripped);
+        // WHERE dans une chaîne ('…WHERE…') ne filtre pas : sinon un UPDATE sans clause
+        // échappe à la confirmation sql_unbounded_write.
+        $hasWhere = (bool) preg_match('/\bWHERE\b/i', self::maskLiterals($stripped));
         $unbounded = $class === self::CLASS_DML
             && in_array($first, ['UPDATE', 'DELETE'], true)
             && !$hasWhere;
@@ -258,30 +260,131 @@ final class SqlStatementClassifier
         return $tokens;
     }
 
+    /** Mots qui introduisent une référence de table. */
+    private const TABLE_INTRODUCERS = ['FROM', 'INTO', 'JOIN', 'STRAIGHT_JOIN', 'UPDATE', 'TABLE', 'USING'];
+
+    /** Modificateurs entre le verbe et le nom (UPDATE LOW_PRIORITY IGNORE …). */
+    private const TABLE_MODIFIERS = ['LOW_PRIORITY', 'DELAYED', 'HIGH_PRIORITY', 'QUICK', 'IGNORE', 'IF', 'NOT', 'EXISTS'];
+
+    /** Fin de liste de tables (ne pas les prendre pour un alias). */
+    private const TABLE_STOP = [
+        'SET', 'WHERE', 'ON', 'USING', 'VALUES', 'SELECT', 'PARTITION', 'LIMIT', 'ORDER', 'GROUP',
+        'LEFT', 'RIGHT', 'INNER', 'OUTER', 'CROSS', 'STRAIGHT_JOIN', 'NATURAL', 'JOIN', 'FROM',
+        'INTO', 'UPDATE', 'TABLE', 'HAVING', 'WINDOW', 'UNION',
+    ];
+
     /**
+     * Tables réellement visées, y compris `schema.table`, `LOW_PRIORITY` / `IGNORE`
+     * et les listes `t1, t2`. Le premier identifiant après UPDATE n'est pas toujours la table.
+     *
      * @return list<string>
      */
-    private static function extractTables(string $sql, string $first): array
+    private static function extractTables(string $sql): array
     {
+        $tokens = self::tokenize($sql);
         $tables = [];
-        $patterns = [
-            '/\bFROM\s+`?([A-Za-z0-9_]+)`?/i',
-            '/\bINTO\s+`?([A-Za-z0-9_]+)`?/i',
-            '/\bUPDATE\s+`?([A-Za-z0-9_]+)`?/i',
-            '/\bTABLE\s+`?([A-Za-z0-9_]+)`?/i',
-            '/\bJOIN\s+`?([A-Za-z0-9_]+)`?/i',
-        ];
-        if ($first === 'DELETE') {
-            $patterns[] = '/\bDELETE\s+FROM\s+`?([A-Za-z0-9_]+)`?/i';
-        }
-        foreach ($patterns as $pattern) {
-            if (preg_match_all($pattern, $sql, $m) > 0) {
-                foreach ($m[1] as $t) {
-                    $tables[] = $t;
+        $n = count($tokens);
+        for ($i = 0; $i < $n; ++$i) {
+            $word = self::upperBare($tokens[$i]);
+            if ($word === null || !in_array($word, self::TABLE_INTRODUCERS, true)) {
+                continue;
+            }
+            $j = $i + 1;
+            while ($j < $n && in_array(self::upperBare($tokens[$j]), self::TABLE_MODIFIERS, true)) {
+                ++$j;
+            }
+            while ($j < $n) {
+                $name = self::bare($tokens[$j]);
+                $upper = $name === null ? null : strtoupper($name);
+                if ($name === null || in_array($upper, self::TABLE_STOP, true) || in_array($upper, self::TABLE_MODIFIERS, true)) {
+                    break;
                 }
+                ++$j;
+                if ($j + 1 < $n && $tokens[$j] === '.') {
+                    $qualified = self::bare($tokens[$j + 1]);
+                    if ($qualified !== null) {
+                        $name = $qualified;
+                        $j += 2;
+                    }
+                }
+                $tables[] = $name;
+                $next = $j < $n ? self::upperBare($tokens[$j]) : null;
+                if ($next === 'AS') {
+                    $j += 2;
+                } elseif ($next !== null
+                    && !in_array($next, self::TABLE_STOP, true)
+                    && !in_array($next, self::TABLE_MODIFIERS, true)
+                    && !in_array($next, self::TABLE_INTRODUCERS, true)
+                    && ($j + 1 >= $n || $tokens[$j + 1] !== '.')
+                ) {
+                    ++$j;
+                }
+                if ($j < $n && $tokens[$j] === ',') {
+                    ++$j;
+                    continue;
+                }
+                break;
             }
         }
 
         return array_values(array_unique($tables));
+    }
+
+    private static function bare(string $token): ?string
+    {
+        if (preg_match('/^`([A-Za-z_][A-Za-z0-9_]*)`$/', $token, $m) === 1) {
+            return $m[1];
+        }
+        if (preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $token) === 1) {
+            return $token;
+        }
+
+        return null;
+    }
+
+    private static function upperBare(string $token): ?string
+    {
+        $bare = self::bare($token);
+
+        return $bare === null ? null : strtoupper($bare);
+    }
+
+    /**
+     * Retire le contenu des chaînes et identifiants quotés pour les tests de mots-clés.
+     */
+    private static function maskLiterals(string $sql): string
+    {
+        $out = '';
+        $len = strlen($sql);
+        $i = 0;
+        while ($i < $len) {
+            $c = $sql[$i];
+            if ($c === '\'' || $c === '"' || $c === '`') {
+                $quote = $c;
+                $out .= ' ';
+                ++$i;
+                while ($i < $len) {
+                    if ($sql[$i] === '\\' && $i + 1 < $len) {
+                        $i += 2;
+                        continue;
+                    }
+                    if ($sql[$i] === $quote) {
+                        if ($i + 1 < $len && $sql[$i + 1] === $quote) {
+                            $i += 2;
+                            continue;
+                        }
+                        ++$i;
+                        break;
+                    }
+                    ++$i;
+                }
+                $out .= ' ';
+                continue;
+            }
+            $out .= $c;
+            ++$i;
+        }
+
+        return $out;
     }
 }

@@ -150,7 +150,10 @@ Levée au cas par cas : `override_bio_safeguards` + `override_reason` (10–200 
 ### Arrêt pompe et rétablissement
 
 - Avec `restore_after_minutes` (1…`PUMP_STOP_MAX_MINUTES`) : écriture GPIO 117 = 2, ligne dans
-  `mcp_scheduled_restores` ; `McpRestoreCommand` (chaque minute) remet 117 = 0 et 16 = 1.
+  `mcp_scheduled_restores` ; `McpRestoreCommand` (chaque minute) remet 117 = 0 **puis** 16 = 1
+  (le POST firmware épingle 16 à 0 tant que le forçage OFF est actif). L'échéance n'est marquée
+  faite que si les deux écritures ont abouti. Un nouvel arrêt, ou un passage en maintenance,
+  annule le minuteur encore en attente : un délai plus court ne peut pas rallumer la pompe.
 - **Maintenance** (`maintenance=true`) : pas de rétablissement ; exige override + catégorie
   `pump_maintenance` + code.
 

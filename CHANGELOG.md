@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.53.1] - 2026-11-04
+
+### Correctif — Rétablissement pompe MCP et confirmation SQL
+- **Pompe aquarium** : `McpRestoreCommand` écrivait GPIO 16 avec un id 0. `OutputWriter`
+  refusait l'écriture sans erreur, le cron marquait l'échéance « faite », et la pompe restait
+  arrêtée (le POST firmware avait épinglé GPIO 16 à 0 pendant le forçage 117 = 2). Le
+  rétablissement écrit maintenant 16 par GPIO, et n'est clos que si 117 vaut 0 et 16 vaut 1.
+  Un nouvel arrêt ou un passage en maintenance annule le minuteur précédent.
+- **`iot_sql`** : un `UPDATE LOW_PRIORITY`, un nom `schema.table` ou une virgule
+  (`UPDATE a, ffp3Outputs`) échappait à la détection de table. La confirmation
+  « outputs de production » et l'interdiction d'écrire dans les tables MCP n'étaient
+  plus exigées. Un `WHERE` présent seulement dans une chaîne ne compte plus comme filtre.
+
 ## [6.53.0] - 2026-11-03
 
 ### Ajouté — Connecteur MCP : mode productivité (admin, `.env`)
