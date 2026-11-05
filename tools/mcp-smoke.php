@@ -42,23 +42,28 @@ $cookieJar = tempnam(sys_get_temp_dir(), 'mcp-smoke-');
 
 /**
  * @param array<string, string> $headers
- * @return array{status: int, headers: array<string, string>, body: string}
+ * @return array{status: int, headers: array<string, string>, body: string, error: string}
  */
 $http = static function (string $method, string $url, ?string $body = null, array $headers = []) use ($cookieJar): array {
     $ch = curl_init($url);
+    if ($ch === false) {
+        return ['status' => 0, 'headers' => [], 'body' => '', 'error' => 'curl_init a échoué'];
+    }
     $responseHeaders = [];
     $list = [];
     foreach ($headers as $name => $value) {
         $list[] = $name . ': ' . $value;
     }
-    curl_setopt_array($ch, [
+    $opts = [
         CURLOPT_CUSTOMREQUEST => $method,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => false,
-        CURLOPT_TIMEOUT => 15,
+        CURLOPT_CONNECTTIMEOUT => 10,
+        CURLOPT_TIMEOUT => 25,
         CURLOPT_HTTPHEADER => $list,
         CURLOPT_COOKIEJAR => $cookieJar,
         CURLOPT_COOKIEFILE => $cookieJar,
+        CURLOPT_USERAGENT => 'n3-mcp-smoke/1.0',
         CURLOPT_HEADERFUNCTION => static function ($curl, string $line) use (&$responseHeaders): int {
             $parts = explode(':', $line, 2);
             if (count($parts) === 2) {
@@ -67,15 +72,30 @@ $http = static function (string $method, string $url, ?string $body = null, arra
 
             return strlen($line);
         },
-    ]);
+    ];
+    // Windows : store CA système (sinon curl #60 → HTTP 0 en cascade).
+    if (defined('CURLSSLOPT_NATIVE_CA') && defined('CURLOPT_SSL_OPTIONS')) {
+        $opts[CURLOPT_SSL_OPTIONS] = CURLSSLOPT_NATIVE_CA;
+    }
+    curl_setopt_array($ch, $opts);
     if ($body !== null) {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
     }
     $result = curl_exec($ch);
     $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+    $err = curl_error($ch);
+    $errno = curl_errno($ch);
     curl_close($ch);
+    if ($result === false) {
+        return [
+            'status' => 0,
+            'headers' => [],
+            'body' => '',
+            'error' => $err !== '' ? "curl #{$errno}: {$err}" : "curl #{$errno}",
+        ];
+    }
 
-    return ['status' => $status, 'headers' => $responseHeaders, 'body' => is_string($result) ? $result : ''];
+    return ['status' => $status, 'headers' => $responseHeaders, 'body' => (string) $result, 'error' => $err];
 };
 
 $check = static function (bool $ok, string $label, string $detail = '') use (&$failures): void {
@@ -92,7 +112,19 @@ echo "Smoke MCP contre {$base}\n";
 // 1. 401 + WWW-Authenticate
 $r = $http('POST', $base . '/mcp', '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}', ['Content-Type' => 'application/json']);
 $www = $r['headers']['www-authenticate'] ?? '';
-$check($r['status'] === 401, 'POST /mcp sans jeton → 401', 'HTTP ' . $r['status']);
+$detail401 = 'HTTP ' . $r['status'];
+if ($r['status'] === 0 && $r['error'] !== '') {
+    $detail401 .= ' | ' . $r['error'];
+}
+$check($r['status'] === 401, 'POST /mcp sans jeton → 401', $detail401);
+if ($r['status'] === 0) {
+    echo "\nAbandon : PHP curl ne joint pas {$base} (souvent CA TLS sous Windows, curl #60).\n";
+    echo "Le discovery via mcp-activate.ps1 -Action check (curl.exe) suffit pour valider le serveur.\n";
+    echo "Smoke OAuth : lancer depuis un environnement avec CA OK (Docker / Linux / serveur),\n";
+    echo "ou installer un cacert.pem et pointer curl.cainfo dans php.ini.\n";
+    @unlink((string) $cookieJar);
+    exit(1);
+}
 $check(str_contains($www, 'resource_metadata="' . $base . '/.well-known/oauth-protected-resource/mcp"'), 'WWW-Authenticate porte resource_metadata', $www);
 
 // 2. Métadonnées
@@ -103,8 +135,18 @@ $asm = $json($http('GET', $base . '/.well-known/oauth-authorization-server')['bo
 $check(($asm['issuer'] ?? null) === $issuer && in_array('S256', (array) ($asm['code_challenge_methods_supported'] ?? []), true), 'RFC 8414 : issuer + PKCE S256');
 $check(($asm['client_id_metadata_document_supported'] ?? false) === true && in_array('none', (array) ($asm['token_endpoint_auth_methods_supported'] ?? []), true), 'CIMD annoncé + client public');
 
+$registrationEndpoint = (string) ($asm['registration_endpoint'] ?? '');
+$authorizationEndpoint = (string) ($asm['authorization_endpoint'] ?? '');
+$tokenEndpoint = (string) ($asm['token_endpoint'] ?? '');
+$revocationEndpoint = (string) ($asm['revocation_endpoint'] ?? '');
+if ($registrationEndpoint === '' || $authorizationEndpoint === '' || $tokenEndpoint === '') {
+    echo "\nAbandon : métadonnées OAuth incomplètes (registration/authorize/token manquants).\n";
+    @unlink((string) $cookieJar);
+    exit(1);
+}
+
 // 3. DCR
-$reg = $http('POST', (string) $asm['registration_endpoint'], (string) json_encode([
+$reg = $http('POST', $registrationEndpoint, (string) json_encode([
     'client_name' => 'Smoke MCP',
     'redirect_uris' => [$redirect],
     'token_endpoint_auth_method' => 'none',
@@ -127,14 +169,14 @@ $query = http_build_query([
     'code_challenge_method' => 'S256',
     'resource' => $base . '/mcp',
 ]);
-$page = $http('GET', (string) $asm['authorization_endpoint'] . '?' . $query);
+$page = $http('GET', $authorizationEndpoint . '?' . $query);
 preg_match('/name="_mcp_csrf" value="([a-f0-9]+)"/', $page['body'], $m);
 $csrf = $m[1] ?? '';
 $check($page['status'] === 200 && $csrf !== '', 'GET /oauth/authorize → page de consentement (port loopback différent accepté)', 'HTTP ' . $page['status']);
 
 parse_str($query, $form);
 $form += ['_mcp_csrf' => $csrf, 'username' => $user, 'password' => $password, 'decision' => 'allow'];
-$auth = $http('POST', (string) $asm['authorization_endpoint'], http_build_query($form), ['Content-Type' => 'application/x-www-form-urlencoded']);
+$auth = $http('POST', $authorizationEndpoint, http_build_query($form), ['Content-Type' => 'application/x-www-form-urlencoded']);
 $location = $auth['headers']['location'] ?? '';
 parse_str((string) parse_url($location, PHP_URL_QUERY), $cb);
 $code = (string) ($cb['code'] ?? '');
@@ -142,7 +184,7 @@ $check($auth['status'] === 302 && $code !== '' && ($cb['state'] ?? '') === $stat
 
 // 5. Jetons
 $t0 = microtime(true);
-$tok = $http('POST', (string) $asm['token_endpoint'], http_build_query([
+$tok = $http('POST', $tokenEndpoint, http_build_query([
     'grant_type' => 'authorization_code',
     'code' => $code,
     'client_id' => $clientId,
@@ -223,22 +265,22 @@ if ($productivity) {
 }
 
 // 7. Rotation du refresh + réutilisation
-$rot = $json($http('POST', (string) $asm['token_endpoint'], http_build_query([
+$rot = $json($http('POST', $tokenEndpoint, http_build_query([
     'grant_type' => 'refresh_token', 'refresh_token' => $refresh, 'client_id' => $clientId,
 ]), ['Content-Type' => 'application/x-www-form-urlencoded'])['body']);
 $newRefresh = (string) ($rot['refresh_token'] ?? '');
 $check($newRefresh !== '' && $newRefresh !== $refresh, 'Refresh → nouveau couple (rotation)');
-$reuse = $json($http('POST', (string) $asm['token_endpoint'], http_build_query([
+$reuse = $json($http('POST', $tokenEndpoint, http_build_query([
     'grant_type' => 'refresh_token', 'refresh_token' => $refresh, 'client_id' => $clientId,
 ]), ['Content-Type' => 'application/x-www-form-urlencoded'])['body']);
 $check(($reuse['error'] ?? '') === 'invalid_grant', 'Réutilisation de l\'ancien refresh → invalid_grant');
-$afterReuse = $json($http('POST', (string) $asm['token_endpoint'], http_build_query([
+$afterReuse = $json($http('POST', $tokenEndpoint, http_build_query([
     'grant_type' => 'refresh_token', 'refresh_token' => $newRefresh, 'client_id' => $clientId,
 ]), ['Content-Type' => 'application/x-www-form-urlencoded'])['body']);
 $check(($afterReuse['error'] ?? '') === 'invalid_grant', 'Famille révoquée après réutilisation (nouveau refresh aussi refusé)');
 
 // 8. Rejeu du code d'autorisation (doit être refusé)
-$replay = $http('POST', (string) $asm['token_endpoint'], http_build_query([
+$replay = $http('POST', $tokenEndpoint, http_build_query([
     'grant_type' => 'authorization_code', 'code' => $code, 'client_id' => $clientId,
     'redirect_uri' => (string) $form['redirect_uri'], 'code_verifier' => $verifier,
 ]), ['Content-Type' => 'application/x-www-form-urlencoded']);
@@ -246,7 +288,9 @@ $check(($json($replay['body'])['error'] ?? '') === 'invalid_grant', 'Rejeu du co
 
 // 9. Révocation
 $revokeTarget = (string) ($rot['access_token'] ?? $access);
-$http('POST', (string) $asm['revocation_endpoint'], http_build_query(['token' => $revokeTarget, 'client_id' => $clientId]), ['Content-Type' => 'application/x-www-form-urlencoded']);
+if ($revocationEndpoint !== '') {
+    $http('POST', $revocationEndpoint, http_build_query(['token' => $revokeTarget, 'client_id' => $clientId]), ['Content-Type' => 'application/x-www-form-urlencoded']);
+}
 $after = $mcp(['jsonrpc' => '2.0', 'id' => 9, 'method' => 'ping'], $revokeTarget);
 $check($after['status'] === 401, 'Jeton révoqué → 401 sur /mcp');
 
