@@ -1,12 +1,16 @@
 # Connecteur MCP — iot.olution.info
 
-> Version serveur : **6.54.0**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.54.1**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
 Ce serveur expose un **serveur MCP distant** (Model Context Protocol) utilisable comme
 connecteur par **Claude**, **Cursor**, **ChatGPT**, et **Gemini Enterprise** (client
 confidentiel). Les modèles peuvent alors lire l'état des modules IoT (aquaponie FFP3,
 serre N3PP, météo MSP1, banc énergie, Poissonglouton), leurs séries, les alertes et les
 photos. Le pilotage existe mais est **désactivé par défaut**.
+
+**Tuto simple (toutes les IA) + scripts** : [`MCP_ACTIVATION.md`](MCP_ACTIVATION.md) —
+`c:\projets_code\IOT_n3\serveur\tools\mcp-activate.ps1`,
+`php c:\projets_code\IOT_n3\serveur\tools\mcp-check-discovery.php`.
 
 L'authentification passe par un **serveur d'autorisation OAuth 2.1 embarqué** : chaque
 personne se connecte avec son compte `n3_users` (lecteur, opérateur, administrateur).
@@ -257,6 +261,9 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 ---
 
 ## 5. Mise en production (o2switch)
+
+> Parcours condensé multi-clients : **[`MCP_ACTIVATION.md`](MCP_ACTIVATION.md)**
+> (`c:\projets_code\IOT_n3\serveur\tools\mcp-activate.ps1 -Action all`).
 
 1. **Sauvegarde** de la base (phpMyAdmin → Exporter).
 2. **Déployer** le code (`git pull` + `composer install --no-dev --optimize-autoloader`) ;
@@ -527,7 +534,8 @@ elle passe par le journal applicatif. Personnaliser : `MCP_FILE_ROOTS=defaults,e
 
 ## 11. Activer en production
 
-Liste ordonnée et exhaustive (connecteur + exploitation). Les étapes 1 à 4 reprennent § 5.
+> Tuto simple + script : **[`MCP_ACTIVATION.md`](MCP_ACTIVATION.md)**.
+> Liste ordonnée et exhaustive ci-dessous (connecteur + exploitation). Les étapes 1 à 4 reprennent § 5.
 
 1. **Sauvegarder** la base (phpMyAdmin → Exporter).
 2. **Déployer** le code : `git pull` (cron de déploiement) puis

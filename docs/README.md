@@ -1,6 +1,6 @@
 # 📚 Index de la documentation — Serveur unifié n³ IoT
 
-**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.52.0**)
+**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.54.1**)
 **Dernière mise à jour de l’index** : 3 novembre 2026
 
 Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des
@@ -23,7 +23,8 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 | [API_REALTIME_OUTPUTS_CONTRAT.md](API_REALTIME_OUTPUTS_CONTRAT.md) | Contrat de l’API d’état des sorties (`/api/outputs/state`). |
 | [COMPAT_FLOTTE_DEPLOYEE.md](COMPAT_FLOTTE_DEPLOYEE.md) | Rollbacks serveur pour la flotte non reflashable (clés plates n3pp/msp, seuil « silencieux »). |
 | [OTA_N3PP_MSP.md](OTA_N3PP_MSP.md) | Mises à jour OTA des firmwares N3PP / MSP. |
-| [MCP.md](MCP.md) | **Connecteur MCP pour Claude** : endpoint `/mcp`, outils, serveur OAuth embarqué, mise en prod o2switch, dépannage. |
+| [MCP_ACTIVATION.md](MCP_ACTIVATION.md) | **Tuto simple** : activer le connecteur MCP (serveur + Claude / Cursor / ChatGPT / Gemini) + scripts `mcp-activate.ps1` / `mcp-check-discovery.php`. |
+| [MCP.md](MCP.md) | **Connecteur MCP** (Claude, Cursor, ChatGPT, Gemini Enterprise) : endpoint `/mcp`, outils, OAuth, mise en prod, dépannage. |
 | [MCP.md § 8](MCP.md#8-mémoire-persistante) | Mémoire persistante du connecteur (`iot_recall` / `iot_remember` / `iot_forget`, notes semées, refus des secrets). |
 | [MCP.md § 9](MCP.md#9-rapport-de-santé) | Rapport de santé du site : règles vert / orange / rouge, rapport quotidien par le CRON, `GET /health/report.json`, workflow `health-check.yml`. |
 | [MCP.md § 10](MCP.md#10-consultation-des-journaux-et-fichiers-lecture-seule) | Consultation des journaux et fichiers en lecture seule (admin) : racines, anti-traversée, masquage des secrets. |

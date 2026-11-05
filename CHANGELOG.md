@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.54.1] - 2026-11-03
+
+### Ajouté — Tuto d'activation MCP multi-IA + scripts
+- `docs/MCP_ACTIVATION.md` : étapes serveur communes puis Claude / Cursor / ChatGPT / Gemini.
+- `tools/mcp-activate.ps1` (secrets, bloc `.env`, check via `curl.exe`, cursor, gemini) ;
+  `tools/mcp-check-discovery.php` (well-known + 401 `/mcp`, messages HTTP 0/404).
+- Liens depuis `docs/MCP.md` et `docs/README.md`.
+- Diagnostic : HTTP **404** = `MCP_ENABLED` off ; HTTP **0** en PHP = CA TLS Windows.
+
 ## [6.54.0] - 2026-11-03
 
 ### Ajouté — Connecteur MCP multi-clients (Cursor, ChatGPT, Gemini Enterprise)
