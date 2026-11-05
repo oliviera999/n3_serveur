@@ -49,9 +49,15 @@ composer install --no-dev --optimize-autoloader
 
 ### A3. Migrations SQL (ordre, idempotentes)
 
-1. `migrations/2026_11_mcp_oauth.sql`
-2. `migrations/2026_11_mcp_exploitation.sql`
-3. `migrations/2026_11_mcp_productivite.sql`
+Sur le serveur o2switch (`DB_HOST=localhost`), depuis la racine du dépôt :
+
+```bash
+mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_oauth.sql
+mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_exploitation.sql
+mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_productivite.sql
+```
+
+(`-p` demande `DB_PASS` ; alternativement phpMyAdmin → SQL, dans le même ordre.)
 
 Contrôle : `SELECT COUNT(*) FROM mcp_memory;` → au moins 6 lignes.
 
@@ -123,7 +129,7 @@ Attendu :
 
 ### A8. Smoke OAuth complet (conseillé)
 
-Compte **lecteur** de test dans `n3_users` :
+Compte **lecteur** (ou admin) de test dans `n3_users` — **mot de passe réel** du compte web, pas une valeur fictive.
 
 ```powershell
 $env:MCP_SMOKE_PASSWORD='…'
@@ -132,11 +138,29 @@ php c:\projets_code\IOT_n3\serveur\tools\mcp-smoke.php --base=https://iot.olutio
 
 Attendu : `SMOKE OK`.
 
+> Sous Windows, si tu vois **HTTP 0 / curl #60**, c’est le CA TLS de PHP (pas le serveur).
+> Le `mcp-activate.ps1 -Action check` déjà OK suffit pour la découverte ; le smoke OAuth
+> complet se lance mieux via Docker :
+> `docker compose … exec app php tools/mcp-smoke.php --base=https://iot.olution.info --user=… --password=…`
+> ou après configuration de `curl.cainfo` dans `php.ini`.
+
 ### A9. Compte utilisateur
 
 Chaque personne qui connecte une IA doit avoir un compte sur
-[iot.olution.info](https://iot.olution.info) (`n3_users`).  
+[iot.olution.info](https://iot.olution.info) (**table `n3_users`**, actif).  
 Lecture seule = rôle **lecteur** ; fichiers / CRON / productivité = **admin**.
+
+Le compte de secours `.env` (`ADMIN_USERNAME`) **ne marche pas** sur la page OAuth.
+
+Si la page Claude/Cursor dit *« Identifiants incorrects ou compte désactivé »* alors que
+`/login` accepte le même couple :
+
+1. Attendre **15 min** si beaucoup d’essais (verrouillage 5 échecs / compte).
+2. Dans `/admin/users` : compte **actif**, **réinitialiser le mot de passe**, retester
+   d’abord https://iot.olution.info/login avec ce username (pas l’e-mail).
+3. Sur la page OAuth : retaper le mot de passe à la main (pas seulement autofill).
+4. Si le message devient *« Mot de passe non reçu »* → WAF ModSecurity sur `/oauth/*`
+   (exception hébergeur, cf. `docs/MCP.md` § 7).
 
 ---
 

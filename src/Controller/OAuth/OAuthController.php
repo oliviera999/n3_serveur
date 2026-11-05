@@ -185,12 +185,9 @@ final class OAuthController
 
     public function authorizeSubmit(Request $request, Response $response): Response
     {
-        $body = $request->getParsedBody();
-        if (!is_array($body)) {
-            parse_str((string) $request->getAttribute('raw_post_body', (string) $request->getBody()), $body);
-        }
-
-        return $this->handleAuthorize($request, $response, $body, true);
+        // Même lecture que /oauth/token : parsedBody, corps brut, puis $_POST
+        // (sous mod_php form-urlencoded, php://input est souvent déjà vide).
+        return $this->handleAuthorize($request, $response, self::formParams($request), true);
     }
 
     /**
@@ -276,6 +273,7 @@ final class OAuthController
         }
 
         $username = $str('username');
+        $password = is_string($params['password'] ?? null) ? $params['password'] : '';
         // Compteur PAR COMPTE (attaque distribuée sur un identifiant) : vérifié AVANT le mot
         // de passe, et le même message est renvoyé que le compte existe ou non.
         $accountKeys = $username !== '' ? $this->accountKeys($username) : [];
@@ -290,12 +288,27 @@ final class OAuthController
 
             return $this->renderConsent($response->withStatus(429), $context);
         }
-        $user = $username !== '' ? $this->users->verifyPassword($username, is_string($params['password'] ?? null) ? $params['password'] : '') : null;
+        // Mot de passe absent du POST alors que le username est là : souvent WAF/ModSecurity
+        // qui a vidé le corps, ou navigateur qui n'a pas renvoyé le champ (≠ mauvais mdp).
+        if ($username !== '' && $password === '') {
+            $this->logger->warning('[mcp-oauth] POST authorize sans password (clés={keys})', [
+                'keys' => implode(',', array_keys($params)),
+            ]);
+            $context['error'] = 'Mot de passe non reçu par le serveur. Réessayez ; si le problème continue, exception ModSecurity sur /oauth/* (hébergeur).';
+            $context['username'] = $username;
+
+            return $this->renderConsent($response->withStatus(400), $context);
+        }
+        $user = $username !== '' ? $this->users->verifyPassword($username, $password) : null;
         if ($user === null) {
             foreach ($accountKeys as $key) {
                 $this->limiter->hit($key, self::ACCOUNT_WINDOW_SECONDS);
             }
-            $this->logger->warning('[mcp-oauth] échec de connexion pour {user}', ['user' => mb_substr($username, 0, 64)]);
+            $known = $username !== '' && $this->users->findIdByUsername($username) !== null;
+            $this->logger->warning('[mcp-oauth] échec de connexion pour {user} (compte_connu={known})', [
+                'user' => mb_substr($username, 0, 64),
+                'known' => $known ? 'oui' : 'non',
+            ]);
             $context['error'] = 'Identifiants incorrects ou compte désactivé.';
             $context['username'] = $username;
 
@@ -398,9 +411,9 @@ final class OAuthController
         if (is_array($parsed) && $parsed !== []) {
             return $parsed;
         }
-        $raw = (string) $request->getBody();
+        $raw = (string) $request->getAttribute('raw_post_body', '');
         if ($raw === '') {
-            $raw = (string) $request->getAttribute('raw_post_body', '');
+            $raw = (string) $request->getBody();
         }
         $contentType = strtolower($request->getHeaderLine('Content-Type'));
         if (str_contains($contentType, 'application/json')) {
@@ -408,10 +421,15 @@ final class OAuthController
 
             return is_array($json) ? $json : [];
         }
-        $out = [];
-        parse_str($raw, $out);
-
-        return $out;
+        if ($raw !== '') {
+            $out = [];
+            parse_str($raw, $out);
+            if ($out !== []) {
+                return $out;
+            }
+        }
+        // Dernier recours : PHP a peuplé $_POST et vidé php://input (form-urlencoded).
+        return isset($_POST) && is_array($_POST) ? $_POST : [];
     }
 
     /**

@@ -1,6 +1,6 @@
 # Connecteur MCP — iot.olution.info
 
-> Version serveur : **6.54.1**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.54.3**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
 Ce serveur expose un **serveur MCP distant** (Model Context Protocol) utilisable comme
 connecteur par **Claude**, **Cursor**, **ChatGPT**, et **Gemini Enterprise** (client
@@ -269,7 +269,8 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 2. **Déployer** le code (`git pull` + `composer install --no-dev --optimize-autoloader`) ;
    le hook `post-merge` vide `var/cache/di` (sinon `php bin/clear-cache.php`).
 3. **Jouer la migration** `migrations/2026_11_mcp_oauth.sql` (phpMyAdmin → SQL, ou
-   `mysql -u … oliviera_iot < migrations/2026_11_mcp_oauth.sql`). Idempotente.
+   `mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_oauth.sql`).
+   Idempotente. (Les deux autres : voir § 11 / [`MCP_ACTIVATION.md`](MCP_ACTIVATION.md).)
 4. **(Recommandé) Utilisateur SQL lecture seule** : cPanel → Bases de données MySQL →
    créer `oliviera_mcpro`, l'ajouter à la base avec le **seul** privilège `SELECT`.
 5. **`.env`** :
@@ -384,6 +385,7 @@ est loopback : acceptée), ajoutez-la sinon à `MCP_EXTRA_REDIRECT_URIS`.
 | 401 en boucle après une connexion réussie | En-tête `Authorization` retiré par Apache (PHP-FPM / CGI) | La règle `E=HTTP_AUTHORIZATION` du `.htaccess` doit être présente ; si l'hébergeur l'ignore, essayer `CGIPassAuth On` (Apache ≥ 2.4.13, nécessite `AllowOverride AuthConfig` — sinon erreur 500 globale : tester d'abord) |
 | 403 / page HTML ModSecurity sur `/oauth/token` ou `/mcp` | WAF o2switch (règles OWASP sur JSON / jetons) | cPanel → **ModSecurity** : désactiver pour le domaine le temps du test, puis demander au support o2switch une exception ciblée sur `/mcp` et `/oauth/*` |
 | Blocage par IP | Pare-feu / géoblocage | Autoriser la plage de sortie Anthropic **`160.79.104.0/21`** (découverte, jeton et `/mcp` viennent de là) |
+| `Identifiants incorrects` sur `/oauth/authorize` alors que `/login` OK | Mot de passe `.env` (fallback web) ≠ hash `n3_users` ; compte inactif ; verrouillage 5 essais ; POST sans `password` (WAF) | Réinit MDP dans `/admin/users` ; attendre 15 min ; retaper le MDP ; si « Mot de passe non reçu » → exception ModSecurity `/oauth/*` |
 | `invalid_grant` au refresh | Refresh déjà utilisé (rotation) ou compte désactivé | Normal après une réutilisation : se reconnecter depuis Claude |
 | « Redirection refusée » sur la page OAuth | `redirect_uri` hors liste | Ajouter l'URI exacte à `MCP_EXTRA_REDIRECT_URIS` (claude.ai et loopback sont intégrés) |
 | `iot.control` jamais accordé | `MCP_CONTROL_ENABLED=false` ou compte lecteur | Voir `MCP_PILOTAGE.md` |
@@ -541,11 +543,14 @@ elle passe par le journal applicatif. Personnaliser : `MCP_FILE_ROOTS=defaults,e
 2. **Déployer** le code : `git pull` (cron de déploiement) puis
    `composer install --no-dev --optimize-autoloader` ; le hook `post-merge` vide `var/cache/di`
    (sinon `php bin/clear-cache.php`).
-3. **Jouer les trois migrations**, dans cet ordre (idempotentes, rejouables) :
-   1. `migrations/2026_11_mcp_oauth.sql` (jetons, codes, clients, plans) ;
-   2. `migrations/2026_11_mcp_exploitation.sql` (`mcp_memory` + 6 notes semées, `mcp_health_reports`) ;
-   3. `migrations/2026_11_mcp_productivite.sql` (confirmations, déverrouillages, rétablissements pompe).
-   phpMyAdmin → SQL, ou `mysql --default-character-set=utf8mb4 -u … oliviera_iot < fichier`.
+3. **Jouer les trois migrations**, dans cet ordre (idempotentes, rejouables) —
+   sur o2switch (`DB_HOST=localhost`), depuis la racine du dépôt :
+   ```bash
+   mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_oauth.sql
+   mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_exploitation.sql
+   mysql --default-character-set=utf8mb4 -h localhost -u oliviera_iot -p oliviera_iot < migrations/2026_11_mcp_productivite.sql
+   ```
+   (jetons/OAuth ; mémoire + santé ; productivité). phpMyAdmin → SQL possible à la place.
    Vérifier : `SELECT COUNT(*) FROM mcp_memory;` → 6.
 4. **(Recommandé) Utilisateur SQL lecture seule** `oliviera_mcpro` (privilège `SELECT` seul).
 5. **`.env`** (valeurs longues et aléatoires : `php -r 'echo bin2hex(random_bytes(32)), PHP_EOL;'`) :

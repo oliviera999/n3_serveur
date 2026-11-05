@@ -11,6 +11,20 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.54.3] - 2026-11-05
+
+### Correctif — Login OAuth MCP (`n3_users`) plus robuste
+- `/oauth/authorize` : même parsing de formulaire que `/oauth/token` (`formParams` + repli
+  `$_POST`) ; message dédié si le mot de passe n’arrive pas (WAF) ; log compte connu ou non.
+- Doc activation / dépannage si `/login` OK mais OAuth refuse.
+
+## [6.54.2] - 2026-11-05
+
+### Correctif — Smoke MCP sous Windows (TLS) + commandes migrations localhost
+- `tools/mcp-smoke.php` : CA natif, message curl #60, abandon propre si HTTP 0 (plus d’warnings
+  sur les endpoints manquants).
+- Doc activation : migrations `-h localhost` ; note smoke / CA Windows.
+
 ## [6.54.1] - 2026-11-03
 
 ### Ajouté — Tuto d'activation MCP multi-IA + scripts
