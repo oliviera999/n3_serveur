@@ -11,6 +11,12 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.54.4] - 2026-11-05
+
+### Correctif — CI merge multi-clients
+- PHPStan : repli `$_POST` dans `formParams` sans `isset`/`is_array` redondants.
+- `composer update` symfony/filesystem + http-client (avis sécurité du 2026-11-04).
+
 ## [6.54.3] - 2026-11-05
 
 ### Correctif — Login OAuth MCP (`n3_users`) plus robuste
