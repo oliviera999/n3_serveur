@@ -1,6 +1,6 @@
 # Connecteur MCP — iot.olution.info
 
-> Version serveur : **6.54.3**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.54.4**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
 Ce serveur expose un **serveur MCP distant** (Model Context Protocol) utilisable comme
 connecteur par **Claude**, **Cursor**, **ChatGPT**, et **Gemini Enterprise** (client

@@ -429,7 +429,7 @@ final class OAuthController
             }
         }
         // Dernier recours : PHP a peuplé $_POST et vidé php://input (form-urlencoded).
-        return isset($_POST) && is_array($_POST) ? $_POST : [];
+        return $_POST;
     }
 
     /**
