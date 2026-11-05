@@ -613,9 +613,20 @@ final class OAuthController
      * CSP que si elle est absente, et Apache (`Header always set X-Frame-Options SAMEORIGIN`
      * du .htaccess) ne touche pas à la CSP — `frame-ancestors` prime sur X-Frame-Options.
      */
-    public const PAGE_CSP = "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-        . "font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; "
-        . "form-action 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'";
+    /**
+     * CSP des pages de consentement. `form-action` doit autoriser les hôtes de
+     * redirection OAuth : Chrome applique form-action aussi au 302 qui suit le POST
+     * (sinon « form-action 'self' » bloque le retour vers Claude / Cursor / ChatGPT).
+     */
+    public const PAGE_CSP = "default-src 'self'; "
+        . "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        . "font-src 'self' data: https://fonts.gstatic.com; "
+        . "img-src 'self' data:; script-src 'self' 'unsafe-inline'; "
+        . "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; "
+        . "form-action 'self' https://claude.ai https://claude.com "
+        . "https://www.cursor.com https://cursor.com https://chatgpt.com "
+        . "https://vertexaisearch.cloud.google.com http://127.0.0.1:* http://localhost:*; "
+        . "base-uri 'none'; object-src 'none'; frame-ancestors 'none'";
 
     private static function noFraming(Response $response): Response
     {

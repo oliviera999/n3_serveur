@@ -3,10 +3,10 @@
  * Gère le cache offline et les notifications push
  */
 
-const CACHE_NAME = 'n3-iot-v5.1.8';
+const CACHE_NAME = 'n3-iot-v5.1.9';
 // Cache runtime versionné (aligné sur CACHE_NAME) : les anciens caches runtime
 // non versionnés / d'anciennes versions sont purgés à l'activation.
-const RUNTIME_CACHE = 'n3-iot-runtime-v5.1.8';
+const RUNTIME_CACHE = 'n3-iot-runtime-v5.1.9';
 // Borne la croissance du cache runtime (éviction FIFO à l'ajout).
 const RUNTIME_MAX_ENTRIES = 60;
 
@@ -50,6 +50,13 @@ const API_URLS = [
     '/api/outputs/',
     '/post-data',
     '/heartbeat',
+];
+
+// OAuth / MCP : ne jamais intercepter (consentement, jetons, discovery).
+const BYPASS_PATH_PREFIXES = [
+    '/oauth/',
+    '/mcp',
+    '/.well-known/oauth-',
 ];
 
 /**
@@ -101,6 +108,11 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
+
+    // Laisser le navigateur gérer OAuth/MCP sans SW (évite CSP / erreurs réseau sur /oauth/authorize).
+    if (BYPASS_PATH_PREFIXES.some(prefix => url.pathname === prefix || url.pathname.startsWith(prefix))) {
+        return;
+    }
 
     if (API_URLS.some(apiUrl => url.pathname.includes(apiUrl))) {
         event.respondWith(fetch(request));

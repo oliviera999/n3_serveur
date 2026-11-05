@@ -1,6 +1,6 @@
 # 📚 Index de la documentation — Serveur unifié n³ IoT
 
-**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.54.4**)
+**Version du projet** : voir [`VERSION`](../VERSION) (actuellement **6.54.5**)
 **Dernière mise à jour de l’index** : 3 novembre 2026
 
 Backend PHP (Slim 4) pour [iot.olution.info](https://iot.olution.info) : collecte des

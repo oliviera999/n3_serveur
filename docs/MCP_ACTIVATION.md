@@ -161,6 +161,8 @@ Si la page Claude/Cursor dit *« Identifiants incorrects ou compte désactivé �
 3. Sur la page OAuth : retaper le mot de passe à la main (pas seulement autofill).
 4. Si le message devient *« Mot de passe non reçu »* → WAF ModSecurity sur `/oauth/*`
    (exception hébergeur, cf. `docs/MCP.md` § 7).
+5. Si la console affiche `form-action 'self'` / `ERR_FAILED` sur le POST authorize →
+   déployer ≥ **6.54.5**, puis hard-refresh (Ctrl+F5) ou Application → Service Workers → Unregister.
 
 ---
 

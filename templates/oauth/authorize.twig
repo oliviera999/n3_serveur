@@ -47,7 +47,8 @@
             </ul>
             <p><small>Les droits réellement accordés dépendent du rôle de votre compte. {{ roles_note }}</small></p>
 
-            <form method="POST" action="{{ base_path|default('') }}/oauth/authorize" class="login-form" autocomplete="on">
+            {# action vide = URL courante (évite une URL absolue mal interprétée avec CSP form-action) #}
+            <form method="POST" action="" class="login-form" autocomplete="on">
                 <input type="hidden" name="_mcp_csrf" value="{{ mcp_csrf }}" />
                 {% for name, value in hidden %}
                 <input type="hidden" name="{{ name }}" value="{{ value }}" />

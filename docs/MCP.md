@@ -1,6 +1,6 @@
 # Connecteur MCP — iot.olution.info
 
-> Version serveur : **6.54.4**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
+> Version serveur : **6.54.5**. Pilotage : voir [`MCP_PILOTAGE.md`](MCP_PILOTAGE.md).
 
 Ce serveur expose un **serveur MCP distant** (Model Context Protocol) utilisable comme
 connecteur par **Claude**, **Cursor**, **ChatGPT**, et **Gemini Enterprise** (client
@@ -386,6 +386,7 @@ est loopback : acceptée), ajoutez-la sinon à `MCP_EXTRA_REDIRECT_URIS`.
 | 403 / page HTML ModSecurity sur `/oauth/token` ou `/mcp` | WAF o2switch (règles OWASP sur JSON / jetons) | cPanel → **ModSecurity** : désactiver pour le domaine le temps du test, puis demander au support o2switch une exception ciblée sur `/mcp` et `/oauth/*` |
 | Blocage par IP | Pare-feu / géoblocage | Autoriser la plage de sortie Anthropic **`160.79.104.0/21`** (découverte, jeton et `/mcp` viennent de là) |
 | `Identifiants incorrects` sur `/oauth/authorize` alors que `/login` OK | Mot de passe `.env` (fallback web) ≠ hash `n3_users` ; compte inactif ; verrouillage 5 essais ; POST sans `password` (WAF) | Réinit MDP dans `/admin/users` ; attendre 15 min ; retaper le MDP ; si « Mot de passe non reçu » → exception ModSecurity `/oauth/*` |
+| Console : `form-action 'self'` bloque le POST `/oauth/authorize` | Chrome applique `form-action` aussi au **302** vers Claude/Cursor ; ancienne CSP trop stricte ; SW qui interceptait `/oauth/*` | Déployer ≥ 6.54.5 (CSP `form-action` élargi + SW bypass) ; hard-refresh / désinscrire le SW une fois |
 | `invalid_grant` au refresh | Refresh déjà utilisé (rotation) ou compte désactivé | Normal après une réutilisation : se reconnecter depuis Claude |
 | « Redirection refusée » sur la page OAuth | `redirect_uri` hors liste | Ajouter l'URI exacte à `MCP_EXTRA_REDIRECT_URIS` (claude.ai et loopback sont intégrés) |
 | `iot.control` jamais accordé | `MCP_CONTROL_ENABLED=false` ou compte lecteur | Voir `MCP_PILOTAGE.md` |

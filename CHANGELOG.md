@@ -11,6 +11,15 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.54.5] - 2026-11-05
+
+### Correctif — CSP OAuth : POST authorize bloqué (Claude / Cursor)
+- Pages OAuth : `form-action` autorise les hôtes de redirection (Claude, Cursor, ChatGPT,
+  Gemini) — Chrome applique aussi cette directive au 302 post-consentement.
+- Service worker : ne plus intercepter `/oauth/*`, `/mcp`, `/.well-known/oauth-*` ;
+  bump cache `n3-iot-v5.1.9`.
+- Formulaire authorize : `action=""` (URL courante).
+
 ## [6.54.4] - 2026-11-05
 
 ### Correctif — CI merge multi-clients
