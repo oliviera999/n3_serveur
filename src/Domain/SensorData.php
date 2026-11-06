@@ -55,6 +55,8 @@ class SensorData
      * @param ?int    $tideNoiseMm     Hystérésis firmware utilisée pour détecter les inversions (mm)
      * @param ?int    $tideWindowMs    Fenêtre temporelle firmware utilisée pour diffMaree (ms)
      * @param ?int    $tideExtremeMm   Dernier extrême confirmé côté firmware (distance capteur-surface, mm)
+     * @param ?EchoDiagnostic $wlAquaDiag Diagnostic d'écho ultrason aquarium (ffp5cs ≥ 15.33, champ `wlAquaDiag`)
+     * @param ?EchoDiagnostic $wlPotaDiag Diagnostic d'écho ultrason potager (champ `wlPotaDiag`)
      */
     public function __construct(
         public ?string $sensor,
@@ -95,7 +97,9 @@ class SensorData
         public ?int    $tideTrend = null,
         public ?int    $tideNoiseMm = null,
         public ?int    $tideWindowMs = null,
-        public ?int    $tideExtremeMm = null
+        public ?int    $tideExtremeMm = null,
+        public ?EchoDiagnostic $wlAquaDiag = null,
+        public ?EchoDiagnostic $wlPotaDiag = null,
     ) {
     }
 }

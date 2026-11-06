@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.57.0] - 2026-11-06
+
+### Ajout — FFP3 : diagnostic d'écho ultrason remonté par le firmware (ffp5cs 15.33)
+- Contrat POST `wlAquaDiag` / `wlPotaDiag` = `<etat>,<timeouts>,<rejets>,<mm>` (etat `ok | no_echo |
+  out_of_range | disabled`) : distingue à distance « aucun écho » (câble, alimentation, capteur HS) de
+  « écho hors plage » (objet / eau / condensation au contact). `App\Domain\EchoDiagnostic` (parse strict,
+  valeurs malformées ignorées), bloc suffixe HMAC aligné firmware (`Ffp3HmacPostBody`), contrat `ffp3.json`.
+- Stockage : `migrations/2026_11_ffp3_echo_diag.sql` (colonnes `wlAqua*` / `wlPota*`, idempotent) ;
+  champs ignorés tant qu'elle n'est pas appliquée (`columnExists`).
+- MCP : champs `wl*Status/Timeouts/Rejected/RawMm` au catalogue, colonnes **optionnelles**
+  (`McpReadRepository` ne les sélectionne que si elles existent : aucun outil cassé avant migration).
+- Alerte « Capteur EauAquarium absent / figé » : ligne « Diagnostic du firmware » avec l'interprétation.
+
 ## [6.56.0] - 2026-11-06
 
 ### Correctif — FFP3 : plus de coupure pompe sur capteur figé / muet, alerte « capteur absent »

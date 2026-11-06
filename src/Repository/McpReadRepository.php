@@ -473,8 +473,53 @@ class McpReadRepository extends AbstractRepository
     private function validFields(string $family, array $fields, bool $numericOnly): array
     {
         $allowed = $numericOnly ? FieldCatalog::numericFields($family) : array_keys(FieldCatalog::fields($family));
+        $valid = array_values(array_intersect($fields, $allowed));
 
-        return array_values(array_intersect($fields, $allowed));
+        // Colonnes optionnelles (migration récente) : ignorées tant qu'elles n'existent pas dans
+        // la table de l'environnement courant — sinon « Unknown column » casserait iot_latest.
+        $optional = array_filter($valid, static fn (string $f): bool => FieldCatalog::isOptionalColumn($family, $f));
+        if ($optional === []) {
+            return $valid;
+        }
+        $existing = $this->tableColumns($this->table(FieldCatalog::dataTable($family)));
+
+        return array_values(array_filter(
+            $valid,
+            static fn (string $f): bool => !FieldCatalog::isOptionalColumn($family, $f) || isset($existing[$f])
+        ));
+    }
+
+    /** @var array<string, array<string, true>> Colonnes par table (cache de requête / worker). */
+    private array $columnsCache = [];
+
+    /**
+     * @return array<string, true>
+     */
+    private function tableColumns(string $table): array
+    {
+        if (isset($this->columnsCache[$table])) {
+            return $this->columnsCache[$table];
+        }
+        $columns = [];
+        try {
+            if ($this->driver() === 'sqlite') {
+                foreach ($this->fetchAll("PRAGMA table_info(`{$table}`)") as $row) {
+                    $columns[(string) $row['name']] = true;
+                }
+            } else {
+                $rows = $this->fetchAll(
+                    'SELECT COLUMN_NAME AS name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = :t',
+                    [':t' => $table]
+                );
+                foreach ($rows as $row) {
+                    $columns[(string) $row['name']] = true;
+                }
+            }
+        } catch (\Throwable) {
+            $columns = [];
+        }
+
+        return $this->columnsCache[$table] = $columns;
     }
 
     /**

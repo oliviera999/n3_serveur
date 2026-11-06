@@ -320,4 +320,37 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
         $stale['reading_time'] = date('Y-m-d H:i:s', $this->now - 7200); // appareil silencieux : DeviceHealthService couvre
         $this->buildService($stale, $notifier, recentAqua: $this->recent(array_fill(0, 8, null)))->run();
     }
+
+    public function testSensorAbsentAlertIncludesFirmwareEchoDiagnosis(): void
+    {
+        $messages = [];
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $sev, NotificationCategory $cat, string $family, string $subject, string $message) use (&$messages): bool {
+                $messages[] = $message;
+
+                return true;
+            }
+        );
+        $reading = $this->mutedReading() + ['wlAquaStatus' => 'out_of_range', 'wlAquaTimeouts' => '0', 'wlAquaRejected' => '5', 'wlAquaRawMm' => '14'];
+        $this->buildService($reading, $notifier, recentAqua: $this->recent(array_fill(0, 8, null)))->run();
+
+        self::assertCount(1, $messages);
+        self::assertStringContainsString('Diagnostic du firmware (dernière mesure) : écho hors plage (5 rejet(s), dernier à 14 mm)', $messages[0]);
+    }
+
+    public function testSensorAbsentAlertSaysWhenDiagnosisUnavailable(): void
+    {
+        $messages = [];
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $sev, NotificationCategory $cat, string $family, string $subject, string $message) use (&$messages): bool {
+                $messages[] = $message;
+
+                return true;
+            }
+        );
+        $this->buildService($this->mutedReading(), $notifier, recentAqua: $this->recent(array_fill(0, 8, null)))->run();
+        self::assertStringContainsString('Diagnostic du firmware : indisponible', $messages[0]);
+    }
 }

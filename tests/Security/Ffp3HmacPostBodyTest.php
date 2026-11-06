@@ -43,6 +43,26 @@ class Ffp3HmacPostBodyTest extends TestCase
         ));
     }
 
+    /**
+     * ffp5cs ≥ 15.33 : diagnostics d'écho entre tideExtremeMm et configSynced, comme
+     * ffp3_post_body.cpp kSuffixKeys (test natif test_echo_diag_suffix_order).
+     */
+    public function testFullUpdateBodyWithEchoDiagnosticsKeepsFirmwareOrder(): void
+    {
+        $referenceBody = 'api_key=testkey&sensor=ffp3&version=15.33&TempAir=25.0&Humidite=60.0'
+            . '&Pression=0.0&TempEau=22.0&EauPotager=180&EauReserve=410'
+            . '&diffMaree=0&Luminosite=0&etatPompeAqua=1&etatPompeTank=0&etatHeat=0&etatUV=0'
+            . '&bouffeMatin=9&bouffeMidi=13&bouffeSoir=18&tempsGros=7&tempsPetits=7'
+            . '&aqThreshold=15&tankThreshold=100&chauffageThreshold=15.0'
+            . '&tempsRemplissageSec=60&limFlood=7&WakeUp=0&FreqWakeUp=2000'
+            . '&bouffePetits=0&bouffeGros=0&mailNotif=checked'
+            . '&resetMode=0&tideEvent=none&tideTrend=0&tideNoiseMm=20&tideWindowMs=15000'
+            . '&tideExtremeMm=0&wlAquaDiag=no_echo,8,0,0&wlPotaDiag=ok,0,0,0&configSynced=1&post_id=esp32-wroom-1-2';
+
+        parse_str($referenceBody, $params);
+        $this->assertSame($referenceBody, Ffp3HmacPostBody::buildFromParams($params));
+    }
+
     public function testMeasurementBodyRoundTrip(): void
     {
         $referenceBody = 'api_key=k&sensor=esp32-wroom&version=13.89&TempAir=22.5&Humidite=55.0'

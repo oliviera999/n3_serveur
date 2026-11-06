@@ -112,6 +112,30 @@ class SensorRepositoryTest extends TestCase
         );
     }
 
+    public function testInsertStoresEchoDiagnosticWhenColumnsExist(): void
+    {
+        $columns = ['wlAquaStatus', 'wlAquaTimeouts', 'wlAquaRejected', 'wlAquaRawMm', 'wlPotaStatus', 'wlPotaTimeouts', 'wlPotaRejected', 'wlPotaRawMm'];
+        foreach ($columns as $c) {
+            $this->pdo->exec("ALTER TABLE ffp3Data ADD COLUMN {$c} TEXT");
+        }
+        // SQLite n'a pas d'INFORMATION_SCHEMA : on simule une base migrée via le cache de columnExists.
+        $ref = new ReflectionClass(SensorRepository::class);
+        $prop = $ref->getProperty('columnExistsCache');
+        $prop->setAccessible(true);
+        $prop->setValue(null, array_fill_keys(array_map(static fn (string $c): string => 'ffp3Data.' . $c, $columns), true));
+
+        $data = $this->makeSensorData();
+        $data->wlAquaDiag = \App\Domain\EchoDiagnostic::parse('out_of_range,1,4,15');
+        $this->repo->insert($data);
+
+        $row = $this->pdo->query('SELECT wlAquaStatus, wlAquaTimeouts, wlAquaRejected, wlAquaRawMm, wlPotaStatus FROM ffp3Data')->fetch(PDO::FETCH_ASSOC);
+        $this->assertSame('out_of_range', $row['wlAquaStatus']);
+        $this->assertSame(1, (int) $row['wlAquaTimeouts']);
+        $this->assertSame(4, (int) $row['wlAquaRejected']);
+        $this->assertSame(15, (int) $row['wlAquaRawMm']);
+        $this->assertNull($row['wlPotaStatus'], 'diagnostic potager absent du POST → NULL');
+    }
+
     public function testInsertPersistsMandatoryColumns(): void
     {
         $this->repo->insert($this->makeSensorData());
