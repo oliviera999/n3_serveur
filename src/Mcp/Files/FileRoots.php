@@ -22,6 +22,9 @@ use App\Mcp\Health\LogLocator;
  *  - `var`         : var/ (journaux locaux, état du CRON ; le cache compilé est exclu) ;
  *  - `php-errors`  : journal d'erreurs PHP (ini error_log, error_log de cPanel), s'il est localisable ;
  *  - `config`, `docs`, `migrations` : dossiers du dépôt ;
+ *  - `src`, `templates` : code applicatif et vues Twig (diagnostic à distance : lire la logique
+ *    CRON / POST / alertes sans accès shell ; le dépôt est public, les garde-fous de
+ *    {@see SafeFileReader} — admin, masquage, plafonds, binaires et `.env` — s'appliquent tels quels) ;
  *  - `.htaccess`, `run-cron.php` : fichiers uniques.
  * La sortie du CRON n'a pas de fichier propre (crontab documentée `>> /dev/null`,
  * docs/deployment/CRON.md) : elle passe par le journal applicatif (racine `logs`).
@@ -130,6 +133,8 @@ final class FileRoots
         $out['config'] = $this->projectRoot . '/config';
         $out['docs'] = $this->projectRoot . '/docs';
         $out['migrations'] = $this->projectRoot . '/migrations';
+        $out['src'] = $this->projectRoot . '/src';
+        $out['templates'] = $this->projectRoot . '/templates';
         $out['.htaccess'] = $this->projectRoot . '/.htaccess';
         $out['run-cron.php'] = $this->projectRoot . '/run-cron.php';
 

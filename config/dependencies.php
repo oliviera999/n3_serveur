@@ -330,6 +330,7 @@ return [
             \App\Mcp\Tools\LatestTool::class,
             \App\Mcp\Tools\SeriesTool::class,
             \App\Mcp\Tools\StatsTool::class,
+            \App\Mcp\Tools\SensorHealthTool::class,
             \App\Mcp\Tools\TidesTool::class,
             \App\Mcp\Tools\EnergyTool::class,
             \App\Mcp\Tools\PglStatsTool::class,
