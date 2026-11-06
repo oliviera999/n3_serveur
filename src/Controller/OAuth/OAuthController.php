@@ -624,8 +624,8 @@ final class OAuthController
         . "img-src 'self' data:; script-src 'self' 'unsafe-inline'; "
         . "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; "
         . "form-action 'self' https://claude.ai https://claude.com "
-        . "https://www.cursor.com https://cursor.com https://chatgpt.com "
-        . "https://vertexaisearch.cloud.google.com http://127.0.0.1:* http://localhost:*; "
+        . 'https://www.cursor.com https://cursor.com https://chatgpt.com '
+        . 'https://vertexaisearch.cloud.google.com http://127.0.0.1:* http://localhost:*; '
         . "base-uri 'none'; object-src 'none'; frame-ancestors 'none'";
 
     private static function noFraming(Response $response): Response
