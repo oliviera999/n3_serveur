@@ -107,6 +107,16 @@ class SensorRepository extends AbstractRepository
             'tideNoiseMm' => [':tideNoiseMm', $data->tideNoiseMm],
             'tideWindowMs' => [':tideWindowMs', $data->tideWindowMs],
             'tideExtremeMm' => [':tideExtremeMm', $data->tideExtremeMm],
+            // Diagnostic d'écho ultrason (ffp5cs ≥ 15.33, migrations/2026_11_ffp3_echo_diag.sql) :
+            // colonnes ignorées tant que la migration n'est pas appliquée (columnExists).
+            'wlAquaStatus' => [':wlAquaStatus', $data->wlAquaDiag?->status],
+            'wlAquaTimeouts' => [':wlAquaTimeouts', $data->wlAquaDiag?->timeouts],
+            'wlAquaRejected' => [':wlAquaRejected', $data->wlAquaDiag?->rejected],
+            'wlAquaRawMm' => [':wlAquaRawMm', $data->wlAquaDiag?->lastRejectedMm],
+            'wlPotaStatus' => [':wlPotaStatus', $data->wlPotaDiag?->status],
+            'wlPotaTimeouts' => [':wlPotaTimeouts', $data->wlPotaDiag?->timeouts],
+            'wlPotaRejected' => [':wlPotaRejected', $data->wlPotaDiag?->rejected],
+            'wlPotaRawMm' => [':wlPotaRawMm', $data->wlPotaDiag?->lastRejectedMm],
         ];
 
         foreach ($optionalCols as $colName => [$ph, $value]) {

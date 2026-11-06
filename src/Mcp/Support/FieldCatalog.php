@@ -38,7 +38,7 @@ final class FieldCatalog
     private const MM_TO_CM = 0.1;
 
     /**
-     * @var array<string, array{label: string, fields: array<string, array{unit: string, meaning: string, range?: string, kind: string, scale?: float, numeric?: bool}>}>
+     * @var array<string, array{label: string, fields: array<string, array{unit: string, meaning: string, range?: string, kind: string, scale?: float, numeric?: bool, optional?: bool}>}>
      */
     private const CATALOG = [
         'ffp3' => [
@@ -57,6 +57,14 @@ final class FieldCatalog
                 'tideExtremeMm' => ['unit' => 'mm', 'kind' => 'mesure', 'meaning' => "Distance à l'extrême (pleine/basse mer) détecté par le firmware."],
                 'tideEvent' => ['unit' => '', 'kind' => 'événement', 'numeric' => false, 'meaning' => 'Événement de marée signalé par le firmware (texte court : pleine mer / basse mer…), vide sinon.'],
                 'Luminosite' => ['unit' => 'UA', 'kind' => 'mesure', 'meaning' => 'Luminosité (photorésistance), unité arbitraire : sert à comparer, pas une valeur absolue.'],
+                'wlAquaStatus' => ['unit' => '', 'kind' => 'diagnostic', 'numeric' => false, 'optional' => true, 'meaning' => "Diagnostic d'écho du capteur ultrason aquarium (EauAquarium) (firmware ≥ 15.33) : ok ; no_echo = aucun écho (câble/connecteur, alimentation 5 V ou capteur HS) ; out_of_range = écho hors plage (objet, eau ou condensation au contact) ; disabled = capteur désactivé après échecs consécutifs."],
+                'wlAquaTimeouts' => ['unit' => 'tirs', 'kind' => 'diagnostic', 'optional' => true, 'meaning' => "Tirs ultrason sans aucun écho dans le dernier cycle de lecture (aquarium (EauAquarium)). 0 attendu ; ≥ 5 avec un statut no_echo = plus d'écho du tout."],
+                'wlAquaRejected' => ['unit' => 'échos', 'kind' => 'diagnostic', 'optional' => true, 'meaning' => 'Échos reçus mais hors plage valide [20 mm ; 4000 mm[ dans le dernier cycle (aquarium (EauAquarium)).'],
+                'wlAquaRawMm' => ['unit' => 'mm', 'kind' => 'diagnostic', 'optional' => true, 'meaning' => 'Distance BRUTE du dernier écho rejeté (aquarium (EauAquarium), mm, 0 = aucun) : quelques mm = obstacle collé au capteur.'],
+                'wlPotaStatus' => ['unit' => '', 'kind' => 'diagnostic', 'numeric' => false, 'optional' => true, 'meaning' => "Diagnostic d'écho du capteur ultrason bac potager (EauPotager) (firmware ≥ 15.33) : ok ; no_echo = aucun écho (câble/connecteur, alimentation 5 V ou capteur HS) ; out_of_range = écho hors plage (objet, eau ou condensation au contact) ; disabled = capteur désactivé après échecs consécutifs."],
+                'wlPotaTimeouts' => ['unit' => 'tirs', 'kind' => 'diagnostic', 'optional' => true, 'meaning' => "Tirs ultrason sans aucun écho dans le dernier cycle de lecture (bac potager (EauPotager)). 0 attendu ; ≥ 5 avec un statut no_echo = plus d'écho du tout."],
+                'wlPotaRejected' => ['unit' => 'échos', 'kind' => 'diagnostic', 'optional' => true, 'meaning' => 'Échos reçus mais hors plage valide [20 mm ; 4000 mm[ dans le dernier cycle (bac potager (EauPotager)).'],
+                'wlPotaRawMm' => ['unit' => 'mm', 'kind' => 'diagnostic', 'optional' => true, 'meaning' => 'Distance BRUTE du dernier écho rejeté (bac potager (EauPotager), mm, 0 = aucun) : quelques mm = obstacle collé au capteur.'],
                 'Pression' => ['unit' => 'hPa', 'kind' => 'mesure', 'range' => '980–1040', 'meaning' => 'Pression atmosphérique (BME280), vide si capteur absent.'],
                 'etatPompeAqua' => ['unit' => '0/1', 'kind' => 'état actionneur', 'meaning' => "Pompe aquarium (GPIO 16) : 1 = en marche. Elle crée les marées vers le potager ; coupée trop longtemps, l'eau ne circule plus (oxygénation, filtration)."],
                 'etatPompeTank' => ['unit' => '0/1', 'kind' => 'état actionneur', 'meaning' => 'Pompe réserve (GPIO 18) : 1 = remplissage de l\'aquarium depuis la réserve en cours.'],
@@ -195,7 +203,7 @@ final class FieldCatalog
     }
 
     /**
-     * @return array<string, array{unit: string, meaning: string, range?: string, kind: string, scale?: float, numeric?: bool}>
+     * @return array<string, array{unit: string, meaning: string, range?: string, kind: string, scale?: float, numeric?: bool, optional?: bool}>
      */
     public static function fields(string $family): array
     {
@@ -246,6 +254,15 @@ final class FieldCatalog
     public static function sensorFields(string $family): array
     {
         return array_values(array_intersect(self::SENSOR_FIELDS[$family] ?? [], self::numericFields($family)));
+    }
+
+    /**
+     * Colonne ajoutée par une migration récente (ex. diagnostic d'écho, 6.57.0) : à ne
+     * sélectionner que si elle existe dans la table ({@see \App\Repository\McpReadRepository}).
+     */
+    public static function isOptionalColumn(string $family, string $field): bool
+    {
+        return (self::fields($family)[$field]['optional'] ?? false) === true;
     }
 
     public static function scale(string $family, string $field): float

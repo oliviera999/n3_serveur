@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\DerivedAlert;
 
+use App\Domain\EchoDiagnostic;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\OutputRepository;
@@ -72,6 +73,10 @@ class Ffp3DerivedAlertService
     /** Capteurs suivis par l'alerte « absent / figé » : colonne => libellé. */
     private const MONITORED_SENSORS = [
         'EauAquarium' => 'niveau d\'eau de l\'aquarium (ultrason)',
+    ];
+    /** Préfixe des colonnes de diagnostic d'écho firmware (ffp5cs ≥ 15.33) par capteur suivi. */
+    private const ECHO_DIAG_PREFIX = [
+        'EauAquarium' => 'wlAqua',
     ];
     /** Lignes examinées pour l'alerte capteur (≈ 6 h au rythme du firmware). */
     private const SENSOR_WINDOW_READINGS = 60;
@@ -205,7 +210,7 @@ class Ffp3DerivedAlertService
                 continue;
             }
 
-            $sent = $this->notifySensorTransition($column, $label, $previousStatus, $result);
+            $sent = $this->notifySensorTransition($column, $label, $previousStatus, $result, $this->echoDiagnosticLine($column, $reading));
             if ($sent) {
                 $state['sensors'][$column] = [
                     'status' => $result['status'],
@@ -221,7 +226,7 @@ class Ffp3DerivedAlertService
     /**
      * @param array{status: string, readings: int, since: string|null, last_value: float|null} $result
      */
-    private function notifySensorTransition(string $column, string $label, string $previousStatus, array $result): bool
+    private function notifySensorTransition(string $column, string $label, string $previousStatus, array $result, string $diagLine = ''): bool
     {
         $last = $result['last_value'] !== null ? sprintf('%.0f mm', $result['last_value']) : 'aucune sur la période examinée';
         $consequence = 'Tant que la mesure est invalide, le serveur ne coupe plus la pompe sur un « problème de marées », '
@@ -235,13 +240,14 @@ class Ffp3DerivedAlertService
                 'Capteur ' . $column . ' absent',
                 sprintf(
                     "Le capteur « %s » ne fournit plus de valeur : %d mesure(s) reçue(s) d'affilée sans %s, depuis le %s.\n"
-                    . "Dernière valeur valide : %s.\n%s"
+                    . "Dernière valeur valide : %s.\n%s%s"
                     . 'Vérifier sur place le capteur (position, condensation, câble/connecteur) ; un redémarrage de l\'ESP32 ne suffit pas si l\'écho est perdu.',
                     $label,
                     $result['readings'],
                     $column,
                     (string) $result['since'],
                     $last,
+                    $diagLine,
                     $consequence
                 ),
                 'ffp3:sensor-absent:' . $column
@@ -256,12 +262,13 @@ class Ffp3DerivedAlertService
                 sprintf(
                     "Le capteur « %s » renvoie exactement la même valeur (%s) sur %d mesures depuis le %s.\n"
                     . "Une vraie mesure varie avec les marées : valeur probablement répétée par le firmware faute d'écho, "
-                    . "ou pompe aquarium arrêtée.\n%s"
+                    . "ou pompe aquarium arrêtée.\n%s%s"
                     . 'Vérifier le capteur et la pompe sur place.',
                     $label,
                     $last,
                     $result['readings'],
                     (string) $result['since'],
+                    $diagLine,
                     $consequence
                 ),
                 'ffp3:sensor-frozen:' . $column
@@ -281,6 +288,32 @@ class Ffp3DerivedAlertService
                 $last
             )
         );
+    }
+
+    /**
+     * Ligne « diagnostic firmware » des e-mails capteur, lue sur la dernière mesure (colonnes
+     * wl*Status/Timeouts/Rejected/RawMm, migrations/2026_11_ffp3_echo_diag.sql).
+     *
+     * @param array<string, mixed> $reading
+     */
+    private function echoDiagnosticLine(string $column, array $reading): string
+    {
+        $prefix = self::ECHO_DIAG_PREFIX[$column] ?? null;
+        if ($prefix === null) {
+            return '';
+        }
+        $status = isset($reading[$prefix . 'Status']) && is_string($reading[$prefix . 'Status']) ? $reading[$prefix . 'Status'] : null;
+        $int = static fn (mixed $v): ?int => is_numeric($v) ? (int) $v : null;
+        $explained = EchoDiagnostic::explain(
+            $status,
+            $int($reading[$prefix . 'Timeouts'] ?? null),
+            $int($reading[$prefix . 'Rejected'] ?? null),
+            $int($reading[$prefix . 'RawMm'] ?? null)
+        );
+
+        return $explained !== null
+            ? 'Diagnostic du firmware (dernière mesure) : ' . $explained . ".\n"
+            : "Diagnostic du firmware : indisponible (ffp5cs < 15.33 ou migration 2026_11_ffp3_echo_diag.sql non appliquée).\n";
     }
 
     private function intSetting(string $key, int $default): int

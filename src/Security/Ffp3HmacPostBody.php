@@ -29,6 +29,8 @@ final class Ffp3HmacPostBody
 
     private const SUFFIX_KEYS = [
         'resetMode', 'tideEvent', 'tideTrend', 'tideNoiseMm', 'tideWindowMs', 'tideExtremeMm',
+        // ffp5cs ≥ 15.33 (ffp3_post_body.cpp kSuffixKeys) : même position des deux côtés.
+        'wlAquaDiag', 'wlPotaDiag',
         'configSynced', 'post_id',
     ];
 

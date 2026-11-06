@@ -6,6 +6,7 @@ namespace App\Controller\Ffp3;
 
 use App\Config\TableConfig;
 use App\Controller\AbstractPostDataController;
+use App\Domain\EchoDiagnostic;
 use App\Domain\SensorData;
 use App\Repository\BoardRepository;
 use App\Repository\OutputRepository;
@@ -415,7 +416,10 @@ class PostDataController extends AbstractPostDataController
             tideTrend: $toInt('tideTrend'),
             tideNoiseMm: $toInt('tideNoiseMm'),
             tideWindowMs: $toInt('tideWindowMs'),
-            tideExtremeMm: $toInt('tideExtremeMm')
+            tideExtremeMm: $toInt('tideExtremeMm'),
+            // ffp5cs ≥ 15.33 : diagnostic d'écho ultrason (« etat,timeouts,rejets,mm ») — malformé → null.
+            wlAquaDiag: EchoDiagnostic::parse($sanitize('wlAquaDiag')),
+            wlPotaDiag: EchoDiagnostic::parse($sanitize('wlPotaDiag'))
         );
     }
 

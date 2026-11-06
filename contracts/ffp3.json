@@ -58,7 +58,9 @@
     {"name": "tideTrend", "type": "int", "direction": "tx"},
     {"name": "tideNoiseMm", "type": "int", "direction": "tx"},
     {"name": "tideWindowMs", "type": "int", "direction": "tx"},
-    {"name": "tideExtremeMm", "type": "int", "direction": "tx"}
+    {"name": "tideExtremeMm", "type": "int", "direction": "tx"},
+    {"name": "wlAquaDiag", "type": "string", "direction": "tx"},
+    {"name": "wlPotaDiag", "type": "string", "direction": "tx"}
   ],
   "gpio": {
     "2": "etatHeat",

@@ -473,6 +473,14 @@ api_key=<valeur .env>
 - `EauAquarium` reste une **distance capteur -> surface** (pas une hauteur d'eau).
 - `diffMaree` côté firmware = `(distance passée sur fenêtre - distance actuelle)` ; valeur positive = surface qui remonte vers le capteur.
 - Les champs `tideEvent/tideTrend/tideNoiseMm/tideWindowMs/tideExtremeMm` sont optionnels et utilisés pour l'observabilité min/max.
+- **Diagnostic d'écho ultrason** (ffp5cs ≥ 15.33, serveur ≥ 6.57.0) : `wlAquaDiag` et `wlPotaDiag` =
+  `<etat>,<timeouts>,<rejets>,<mm>` — etat `ok | no_echo | out_of_range | disabled`, tirs sans écho et échos
+  hors plage du cycle, distance du dernier écho rejeté (0 = aucun). Placés dans le **bloc suffixe signé**
+  entre `tideExtremeMm` et `configSynced` (`Ffp3HmacPostBody::SUFFIX_KEYS` ↔ `ffp3_post_body.cpp`), omis si
+  le capteur n'a pas été lu. Rangés dans `wlAquaStatus/Timeouts/Rejected/RawMm` (idem `wlPota*`) après
+  `migrations/2026_11_ffp3_echo_diag.sql` ; ignorés tant que la migration n'est pas appliquée. Valeur
+  malformée → ignorée (`App\Domain\EchoDiagnostic::parse`). Visibles dans `iot_latest` et cités dans
+  l'alerte « Capteur EauAquarium absent / figé ».
 - **Migration BDD** : exécuter `migrations/002_add_tide_event_columns.sql` sur prod et test pour persister ces champs (sinon ignorés silencieusement par le repository).
 
 ```

@@ -144,8 +144,9 @@ déjà « absente » depuis le dernier reboot).
 > **Suivi (06/11/2026)** — implémentés : serveur 1 à 5 en **6.56.0** (alerte capteur absent / figé,
 > garde `TideCutGuard` + disjoncteur, NULL traité comme défaut capteur, règle santé), outils MCP en
 > 6.55.0 ; firmware 7, 9, 10 en **ffp5cs 15.32** (n3_firmwires PR #120, OTA non déployé). Restent : 6
-> (crontab prod à passer à 1 min — action hébergeur, `docs/deployment/CRON.md`) et 8 (état capteur au
-> POST : changement de contrat). Le capteur lui-même reste à inspecter sur place.
+> (crontab prod à passer à 1 min — action hébergeur, `docs/deployment/CRON.md`). Le 8 (état capteur au
+> POST) est fait en **6.57.0 / ffp5cs 15.33** : `wlAquaDiag` / `wlPotaDiag` (aucun écho vs écho hors plage),
+> après migration `2026_11_ffp3_echo_diag.sql` et OTA. Le capteur lui-même reste à inspecter sur place.
 
 ### Serveur (`n3_serveur`)
 1. **Alerte « capteur aquarium absent »** : si les K dernières lignes (ou les N dernières minutes de
