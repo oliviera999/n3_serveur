@@ -214,7 +214,8 @@ final class ContainerWiringTest extends TestCase
             'iot_overview', 'iot_server_health', 'iot_describe', 'iot_latest', 'iot_series', 'iot_stats',
             'iot_sensor_health', 'iot_tides', 'iot_energy', 'iot_pgl_stats', 'iot_outputs_state', 'iot_alerts', 'iot_contract_check',
             'iot_gallery_list', 'iot_gallery_latest', 'iot_plan_output_change', 'iot_apply_plan',
-            'iot_set_output', 'iot_device_action', 'iot_gallery_delete', 'iot_sql', 'iot_accounts', 'iot_confirm_unlock',
+            'iot_set_output', 'iot_device_action', 'iot_gallery_delete', 'iot_sql', 'iot_sql_select', 'iot_db_schema', 'iot_migrate',
+            'iot_accounts', 'iot_confirm_unlock',
             'iot_recall', 'iot_remember', 'iot_forget', 'iot_health_report', 'iot_health_history',
             'iot_cron_status', 'iot_list_files', 'iot_read_file', 'iot_grep_files',
         ], $names);

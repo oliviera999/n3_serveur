@@ -345,6 +345,9 @@ return [
             \App\Mcp\Tools\DeviceActionTool::class,
             \App\Mcp\Tools\GalleryDeleteTool::class,
             \App\Mcp\Tools\SqlTool::class,
+            \App\Mcp\Tools\SqlSelectTool::class,
+            \App\Mcp\Tools\DbSchemaTool::class,
+            \App\Mcp\Tools\MigrateTool::class,
             \App\Mcp\Tools\AccountsTool::class,
             \App\Mcp\Tools\ConfirmUnlockTool::class,
             // Exploitation : mémoire persistante, santé du site, fichiers (docs/MCP.md §§ 8-10).
@@ -370,6 +373,36 @@ return [
         $c->get(\App\Service\ControlAuditLogger::class),
         $c->get(\App\Service\LogService::class),
     ),
+
+    // Outils SQL ciblés (6.58.0) : lecture seule via la connexion lecture ; migrations via la connexion
+    // d'écriture, limitées aux fichiers migrations/*.sql additifs du dépôt.
+    \App\Mcp\Tools\SqlSelectTool::class => static fn (ContainerInterface $c): \App\Mcp\Tools\SqlSelectTool => new \App\Mcp\Tools\SqlSelectTool(
+        $c->get(\App\Mcp\McpConfig::class),
+        new \App\Mcp\Sql\SqlReader($c->get('mcp.read_pdo'), $c->get(\App\Mcp\McpConfig::class)->sqlMaxStatementSeconds()),
+        $c->get(\App\Service\LogService::class),
+    ),
+    \App\Mcp\Tools\DbSchemaTool::class => static function (ContainerInterface $c): \App\Mcp\Tools\DbSchemaTool {
+        $schema = new \App\Mcp\Sql\SchemaReader($c->get('mcp.read_pdo'));
+
+        return new \App\Mcp\Tools\DbSchemaTool(
+            $c->get(\App\Mcp\McpConfig::class),
+            $schema,
+            new \App\Mcp\Sql\MigrationCatalog(dirname(__DIR__) . '/migrations', $schema),
+        );
+    },
+    \App\Mcp\Tools\MigrateTool::class => static function (ContainerInterface $c): \App\Mcp\Tools\MigrateTool {
+        $schema = new \App\Mcp\Sql\SchemaReader($c->get(PDO::class));
+
+        return new \App\Mcp\Tools\MigrateTool(
+            $c->get(\App\Mcp\McpConfig::class),
+            $c->get(PDO::class),
+            $schema,
+            new \App\Mcp\Sql\MigrationCatalog(dirname(__DIR__) . '/migrations', $schema),
+            $c->get(\App\Mcp\Confirm\ConfirmationGate::class),
+            $c->get(\App\Service\ControlAuditLogger::class),
+            $c->get(\App\Service\LogService::class),
+        );
+    },
 
     // Limiteurs dédiés (portées distinctes du login web).
     'mcp.rate_limit' => static function (ContainerInterface $c): \App\Middleware\RateLimitMiddleware {
