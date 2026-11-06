@@ -19,6 +19,8 @@ final class ConfirmCategory
     public const SQL_UNBOUNDED_WRITE = 'sql_unbounded_write';
     public const SQL_PROD_OUTPUTS = 'sql_prod_outputs';
     public const SQL_ACCOUNT_ADMIN = 'sql_account_admin';
+    /** iot_migrate : application d'une migration du dépôt (DDL additive). */
+    public const SQL_MIGRATION = 'sql_migration';
     public const UNLOCK = 'unlock';
 
     /** @var list<string> */
@@ -32,6 +34,7 @@ final class ConfirmCategory
         self::SQL_UNBOUNDED_WRITE,
         self::SQL_PROD_OUTPUTS,
         self::SQL_ACCOUNT_ADMIN,
+        self::SQL_MIGRATION,
         self::UNLOCK,
     ];
 

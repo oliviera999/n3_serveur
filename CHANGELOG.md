@@ -11,6 +11,21 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.58.0] - 2026-11-06
+
+### Ajout — MCP : outils SQL ciblés (du plus étroit au plus large)
+- `iot_db_schema` (admin, lecture seule, métadonnées) : tables (moteur, lignes estimées, taille),
+  colonnes et index d'une table, et état de chaque `migrations/*.sql` face au schéma réel
+  (`MigrationCatalog` / `MigrationFile` : applied, pending, partial, table_missing, unverifiable).
+- `iot_sql_select` (admin, lecture seule, `MCP_SQL_SELECT_ENABLED` défaut true) : une lecture SQL
+  (SELECT/WITH/SHOW/DESCRIBE/EXPLAIN), transaction READ ONLY, délai et lignes plafonnés, secrets et
+  e-mails masqués ; toute écriture refusée. Lecture partagée avec `iot_sql` (`SqlReader`, extrait).
+- `iot_migrate` (admin, `MCP_MIGRATIONS_ENABLED` défaut false, scope `iot.control`) : applique UN
+  fichier `migrations/*.sql` du dépôt, uniquement s'il est additif (ADD COLUMN / ADD INDEX / CREATE
+  TABLE / CREATE INDEX) ; plan puis code de confirmation `sql_migration` ; instructions déjà en place
+  et tables absentes sautées (rejouable), partiel non idempotent refusé ; journal + audit.
+- Doc `docs/MCP.md` § 12 (tableau des outils SQL, blocs `.env`), `.env.example`, instructions MCP.
+
 ## [6.57.0] - 2026-11-06
 
 ### Ajout — FFP3 : diagnostic d'écho ultrason remonté par le firmware (ffp5cs 15.33)

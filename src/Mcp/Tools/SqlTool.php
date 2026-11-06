@@ -9,6 +9,7 @@ use App\Mcp\Control\ControlTarget;
 use App\Mcp\InsufficientScopeException;
 use App\Mcp\McpConfig;
 use App\Mcp\McpContext;
+use App\Mcp\Sql\SqlReader;
 use App\Mcp\Sql\SqlStatementClassifier;
 use App\Mcp\Support\ReadOnlyTransaction;
 use App\Mcp\Support\SecretScanner;
@@ -221,40 +222,9 @@ final class SqlTool extends AbstractTool
      */
     private function runSelect(string $sql, int $maxRows, bool $keepEmails): array
     {
-        $wrapped = $this->wrapTimeout($sql, true);
-        $stmt = $this->readPdo->query($wrapped);
-        if ($stmt === false) {
-            throw new ToolException('Échec de la lecture SQL.', 'sql_failed');
-        }
-        $columns = [];
-        for ($i = 0; $i < $stmt->columnCount(); ++$i) {
-            $meta = $stmt->getColumnMeta($i);
-            $columns[] = is_array($meta) ? (string) ($meta['name'] ?? 'col' . $i) : 'col' . $i;
-        }
-        $rows = [];
-        $n = 0;
-        while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
-            if ($n >= $maxRows) {
-                break;
-            }
-            $clean = [];
-            foreach ($row as $k => $v) {
-                if (is_string($v) && strlen($v) > 500) {
-                    $v = substr($v, 0, 500) . '…';
-                }
-                if (is_string($v)) {
-                    $v = SecretScanner::mask($v, $keepEmails);
-                }
-                if (preg_match('/(password|secret|token|hash|hmac|credential)/i', (string) $k) === 1) {
-                    $v = '[masqué]';
-                }
-                $clean[(string) $k] = $v;
-            }
-            $rows[] = $clean;
-            ++$n;
-        }
+        $data = (new SqlReader($this->readPdo, $this->config->sqlMaxStatementSeconds()))->select($sql, $maxRows, $keepEmails);
 
-        return ['columns' => $columns, 'rows' => $rows];
+        return ['columns' => $data['columns'], 'rows' => $data['rows']];
     }
 
     private function runWrite(string $sql, bool $dryRun, int $maxAffected, bool $isDdl): int
@@ -306,25 +276,7 @@ final class SqlTool extends AbstractTool
 
     private function wrapTimeout(string $sql, bool $isSelect): string
     {
-        $seconds = $this->config->sqlMaxStatementSeconds();
-        try {
-            $driver = (string) $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
-            if ($driver !== 'mysql') {
-                return $sql;
-            }
-            $version = (string) $this->pdo->query('SELECT VERSION()')->fetchColumn();
-        } catch (\Throwable) {
-            return $sql;
-        }
-        if (stripos($version, 'MariaDB') !== false) {
-            return 'SET STATEMENT max_statement_time=' . $seconds . ' FOR ' . $sql;
-        }
-        // MySQL : hint MAX_EXECUTION_TIME (ms) sur SELECT uniquement.
-        if ($isSelect && preg_match('/^\s*SELECT\b/i', $sql) === 1) {
-            return preg_replace('/^\s*SELECT\b/i', 'SELECT /*+ MAX_EXECUTION_TIME(' . ($seconds * 1000) . ') */', $sql, 1) ?? $sql;
-        }
-
-        return $sql;
+        return SqlReader::withTimeout($this->pdo, $sql, $isSelect, $this->config->sqlMaxStatementSeconds());
     }
 
     /**

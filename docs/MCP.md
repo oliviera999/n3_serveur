@@ -105,6 +105,9 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_device_action` | **Productivité / admin** — reset / OTA (`MCP_DEVICE_ACTIONS_ENABLED`). § 12 |
 | `iot_gallery_delete` | **Productivité / admin** — corbeille / purge photos. § 12 |
 | `iot_sql` | **Productivité / admin** — SQL libre (`MCP_SQL_ENABLED`). § 12 |
+| `iot_sql_select` | **Admin**, lecture seule — une instruction SELECT / WITH / SHOW / DESCRIBE / EXPLAIN, transaction READ ONLY, délai et lignes plafonnés, secrets masqués (`MCP_SQL_SELECT_ENABLED`, défaut `true`). § 12 |
+| `iot_db_schema` | **Admin**, lecture seule — tables, colonnes, index (métadonnées) et état de chaque `migrations/*.sql` face au schéma réel (applied / pending / partial / table_missing / unverifiable). § 12 |
+| `iot_migrate` | **Admin** — applique UN fichier `migrations/*.sql` du dépôt, uniquement s'il est additif (ADD COLUMN / ADD INDEX / CREATE TABLE / CREATE INDEX) ; plan puis code de confirmation `sql_migration` (`MCP_MIGRATIONS_ENABLED`, défaut `false`, scope `iot.control`). § 12 |
 | `iot_accounts` | **Productivité / admin** — comptes et destinataires (`MCP_PRIVACY_BYPASS`). § 12 |
 | `iot_confirm_unlock` | **Productivité / admin** — fenêtre sans codes (`MCP_CONFIRM_UNLOCK_MINUTES`). § 12 |
 | `iot_recall` | **Mémoire** : notes du site et notes privées (recherche sujet / texte / étiquettes, « à revérifier »). À appeler en début de tâche. § 8 |
@@ -231,6 +234,8 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 | `MCP_CONTROL_PUMP_STOP_MAX_MINUTES` | `0` | Arrêt pompe avec rétablissement auto (0 = interdit) |
 | `MCP_DEVICE_ACTIONS_ENABLED` | `false` | Reset, OTA, suppression photos |
 | `MCP_SQL_ENABLED` / `MCP_SQL_DDL_ENABLED` | `false` | SQL libre / DDL + GRANT |
+| `MCP_SQL_SELECT_ENABLED` | `true` | `iot_sql_select` (lecture seule, admin, hors mode productivité) |
+| `MCP_MIGRATIONS_ENABLED` | `false` | `iot_migrate` (migrations additives du dépôt, code de confirmation) |
 | `MCP_SQL_MAX_AFFECTED_ROWS` | `100` | Plafond DML |
 | `MCP_SQL_MAX_STATEMENT_SECONDS` | `10` | Timeout instruction |
 | `MCP_SQL_MAX_ROWS` | `200` | Plafond lignes SELECT |
@@ -636,7 +641,7 @@ par défaut dans le code : un `.env` oublié ne dérive pas. Détail du pilotage
 ### Confirmation par code (hors Claude)
 
 Quand une opération l'exige (`bio_override`, `pump_maintenance`, `reset`, `ota`, `photo_delete`,
-`sql_ddl`, `sql_unbounded_write`, `sql_prod_outputs`, `sql_account_admin`, `unlock`), l'outil
+`sql_ddl`, `sql_unbounded_write`, `sql_prod_outputs`, `sql_account_admin`, `sql_migration`, `unlock`), l'outil
 **n'exécute rien** : il envoie un code à 6 chiffres via `NotificationService` (e-mail du compte
 `n3_users`, à défaut `NOTIF_EMAIL_RECIPIENT`) et renvoie `confirmation_id` + résumé. On rappelle
 l'outil avec les **mêmes** arguments, `confirmation_id` et `confirmation_code`. Code à usage
@@ -644,6 +649,23 @@ unique, 10 min, 3 essais, lié à l'utilisateur / client / outil / empreinte des
 
 Contournements (productivité) : `MCP_CONFIRM_SKIP` (CSV de catégories, ou `all` — jamais
 `unlock`) ; `iot_confirm_unlock` ouvre une fenêtre de `MCP_CONFIRM_UNLOCK_MINUTES` après un code.
+
+### Outils SQL : du plus étroit au plus large (6.58.0)
+
+| Besoin | Outil | Activation |
+|---|---|---|
+| Voir le schéma, savoir si une migration est passée | `iot_db_schema` | toujours (admin) |
+| Lire des données en SQL | `iot_sql_select` | `MCP_SQL_SELECT_ENABLED=true` (défaut) |
+| Appliquer une migration **du dépôt**, additive | `iot_migrate` | `MCP_MIGRATIONS_ENABLED=true` + scope `iot.control` + code |
+| Tout le reste (DML, DDL arbitraire) | `iot_sql` | `MCP_SQL_ENABLED=true` (+ `MCP_SQL_DDL_ENABLED`) + code |
+
+`iot_migrate` ne prend **aucun SQL de l'appelant** : seulement un nom de fichier de `migrations/`. Une
+migration contenant une instruction non additive (DROP, UPDATE, DELETE, MODIFY, CHANGE, RENAME,
+GRANT…) est refusée (`migration_not_additive`, à passer par phpMyAdmin). Les instructions déjà en
+place dans le schéma réel et celles visant une table absente sont sautées : rejouer est sans effet ;
+une instruction partiellement appliquée sans `IF NOT EXISTS` est refusée (`migration_partial`).
+Exemple — diagnostic d'écho ultrason (6.57.0) : `iot_db_schema` (`migration`: `2026_11_ffp3_echo_diag.sql`)
+puis `iot_migrate` (`file` idem, `action`: `apply`) et le code reçu par e-mail.
 
 ### Bloc `.env` — mode productivité (à coller en production)
 
@@ -663,6 +685,8 @@ MCP_SQL_DDL_ENABLED=true
 MCP_SQL_MAX_AFFECTED_ROWS=100
 MCP_SQL_MAX_STATEMENT_SECONDS=10
 MCP_SQL_MAX_ROWS=200
+MCP_SQL_SELECT_ENABLED=true
+MCP_MIGRATIONS_ENABLED=true
 MCP_PRIVACY_BYPASS=true
 MCP_CONFIRM_SKIP=
 MCP_CONFIRM_UNLOCK_MINUTES=30
@@ -679,6 +703,7 @@ MCP_CONTROL_PUMP_STOP_MAX_MINUTES=0
 MCP_DEVICE_ACTIONS_ENABLED=false
 MCP_SQL_ENABLED=false
 MCP_SQL_DDL_ENABLED=false
+MCP_MIGRATIONS_ENABLED=false
 MCP_PRIVACY_BYPASS=false
 MCP_CONFIRM_SKIP=
 MCP_CONFIRM_UNLOCK_MINUTES=0

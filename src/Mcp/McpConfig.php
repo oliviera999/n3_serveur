@@ -28,6 +28,8 @@ use App\Config\Env;
  *  - MCP_CONTROL_PUMP_STOP_MAX_MINUTES : durée max d'arrêt pompe avec rétablissement auto (0 = interdit)
  *  - MCP_DEVICE_ACTIONS_ENABLED  : reset distant, OTA, suppression photos (défaut false)
  *  - MCP_SQL_ENABLED / MCP_SQL_DDL_ENABLED : SQL libre admin (défaut false)
+ *  - MCP_SQL_SELECT_ENABLED : iot_sql_select, lecture SQL seule admin (défaut true)
+ *  - MCP_MIGRATIONS_ENABLED : iot_migrate, migrations additives du dépôt + code (défaut false)
  *  - MCP_SQL_MAX_AFFECTED_ROWS / _STATEMENT_SECONDS / _MAX_ROWS : plafonds SQL
  *  - MCP_PRIVACY_BYPASS          : admin voit noms/e-mails (défaut false) ; secrets jamais
  *  - MCP_CONFIRM_SKIP            : catégories de confirmation dispensées (CSV ou `all`)
@@ -122,6 +124,7 @@ final class McpConfig
             'MCP_CONTROL_REQUIRE_PLAN', 'MCP_CONTROL_BIO_SAFEGUARDS', 'MCP_CONTROL_HEATING_MIN', 'MCP_CONTROL_HEATING_MAX',
             'MCP_CONTROL_PUMP_STOP_MAX_MINUTES', 'MCP_DEVICE_ACTIONS_ENABLED',
             'MCP_SQL_ENABLED', 'MCP_SQL_DDL_ENABLED', 'MCP_SQL_MAX_AFFECTED_ROWS', 'MCP_SQL_MAX_STATEMENT_SECONDS', 'MCP_SQL_MAX_ROWS',
+            'MCP_SQL_SELECT_ENABLED', 'MCP_MIGRATIONS_ENABLED',
             'MCP_PRIVACY_BYPASS', 'MCP_CONFIRM_SKIP', 'MCP_CONFIRM_UNLOCK_MINUTES',
             'MCP_EXTRA_REDIRECT_URIS', 'MCP_ALLOWED_ORIGINS', 'MCP_CIMD_ALLOWED_HOSTS', 'MCP_DCR_ENABLED',
             'MCP_OAUTH_CONFIDENTIAL_CLIENT_ID', 'MCP_OAUTH_CONFIDENTIAL_CLIENT_SECRET',
@@ -305,6 +308,18 @@ final class McpConfig
         return $this->bool('MCP_SQL_DDL_ENABLED', false);
     }
 
+    /** iot_sql_select : lecture SQL seule, admin, hors mode productivité (défaut activé). */
+    public function isSqlSelectEnabled(): bool
+    {
+        return $this->bool('MCP_SQL_SELECT_ENABLED', true);
+    }
+
+    /** iot_migrate : application des migrations additives du dépôt (défaut désactivé). */
+    public function isMigrationsEnabled(): bool
+    {
+        return $this->bool('MCP_MIGRATIONS_ENABLED', false);
+    }
+
     public function sqlMaxAffectedRows(): int
     {
         return $this->boundedInt('MCP_SQL_MAX_AFFECTED_ROWS', 100, 1, 10000);
@@ -350,7 +365,8 @@ final class McpConfig
      */
     public function isControlScopeOffered(): bool
     {
-        return $this->isControlEnabled() || $this->isSqlEnabled() || $this->isDeviceActionsEnabled();
+        return $this->isControlEnabled() || $this->isSqlEnabled() || $this->isDeviceActionsEnabled()
+            || $this->isMigrationsEnabled();
     }
 
     /**
