@@ -209,7 +209,7 @@ class CronOrchestratorTest extends TestCase
         $pump->method('getResetModeState')->willReturn(0);
 
         $stats = $this->createMock(SensorStatisticsService::class);
-        $stats->expects($this->never())->method('stddevOnLastReadings');
+        $stats->expects($this->never())->method('lastReadingsWindow');
         $stats->method('stddev')->willReturn(0.2);
 
         $notifier = $this->createMock(NotificationService::class);
@@ -246,7 +246,7 @@ class CronOrchestratorTest extends TestCase
 
         // Écart-type sous le seuil : déclencherait normalement l'arrêt + le flag.
         $stats = $this->createMock(SensorStatisticsService::class);
-        $stats->method('stddevOnLastReadings')->willReturn(0.2);
+        $stats->method('lastReadingsWindow')->willReturn(self::flatLiveWindow());
         $stats->method('stddev')->willReturn(0.2);
 
         $notifier = $this->createMock(NotificationService::class);
@@ -327,9 +327,106 @@ class CronOrchestratorTest extends TestCase
     {
         $stats = $this->createMock(SensorStatisticsService::class);
         $stats->method('stddevOnLastReadings')->willReturn(2.0);
+        $stats->method('lastReadingsWindow')->willReturn(['rows' => 60, 'non_null' => 60, 'distinct' => 30, 'stddev' => 8.0]);
         $stats->method('stddev')->willReturn(1.5);
 
         return $stats;
+    }
+
+    /**
+     * Marée réellement plate sur un signal vivant (pompe en panne) : seule situation qui coupe.
+     *
+     * @return array{rows: int, non_null: int, distinct: int, stddev: float|null}
+     */
+    private static function flatLiveWindow(): array
+    {
+        return ['rows' => 60, 'non_null' => 60, 'distinct' => 3, 'stddev' => 0.4];
+    }
+
+    /**
+     * @param array{rows: int, non_null: int, distinct: int, stddev: float|null} $window
+     */
+    private function statsWith(array $window): SensorStatisticsService
+    {
+        $stats = $this->createMock(SensorStatisticsService::class);
+        $stats->method('lastReadingsWindow')->willReturn($window);
+        $stats->method('stddev')->willReturn(0.0);
+
+        return $stats;
+    }
+
+    private function pumpMock(bool $expectCut): PumpService
+    {
+        $pump = $this->createMock(PumpService::class);
+        $pump->expects($expectCut ? $this->once() : $this->never())->method('stopPompeAqua');
+        $pump->method('getAquaPumpState')->willReturn(1);
+        $pump->method('getTankPumpState')->willReturn(0);
+        $pump->method('getResetModeState')->willReturn(0);
+
+        return $pump;
+    }
+
+    public function testTideCutOnFlatLiveSignal(): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())->method('notifyMareesProblem');
+
+        $this->buildOrchestrator(pumpService: $this->pumpMock(true), statsService: $this->statsWith(self::flatLiveWindow()), notifier: $notifier)->execute();
+
+        $this->assertFileExists($this->tempDir . '/pump_restart_scheduled.flag');
+        $state = json_decode((string) file_get_contents($this->tempDir . '/' . CronOrchestrator::TIDE_CUTS_STATE_FILENAME), true);
+        $this->assertCount(1, $state['cuts']);
+    }
+
+    /**
+     * @return iterable<string, array{array{rows: int, non_null: int, distinct: int, stddev: float|null}}>
+     */
+    public static function invalidWindows(): iterable
+    {
+        yield 'capteur figé (incident 30/10 : 60 × 81 mm)' => [['rows' => 60, 'non_null' => 60, 'distinct' => 1, 'stddev' => 0.0]];
+        yield 'transition figé → muet (STDDEV 0 sur peu de valeurs)' => [['rows' => 60, 'non_null' => 10, 'distinct' => 1, 'stddev' => 0.0]];
+        yield 'capteur muet (fenêtre NULL)' => [['rows' => 60, 'non_null' => 0, 'distinct' => 0, 'stddev' => null]];
+    }
+
+    /**
+     * @dataProvider invalidWindows
+     * @param array{rows: int, non_null: int, distinct: int, stddev: float|null} $window
+     */
+    public function testTideNeverCutsOnInvalidSensorData(array $window): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('notifyMareesProblem');
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $this->buildOrchestrator(pumpService: $this->pumpMock(false), statsService: $this->statsWith($window), notifier: $notifier)->execute();
+
+        $this->assertFileDoesNotExist($this->tempDir . '/pump_restart_scheduled.flag');
+    }
+
+    public function testTideBreakerRefusesCutsAndNotifiesOnce(): void
+    {
+        $recent = array_map(static fn (int $i): int => time() - 3600 * $i, range(1, 6));
+        file_put_contents($this->tempDir . '/' . CronOrchestrator::TIDE_CUTS_STATE_FILENAME, (string) json_encode(['cuts' => $recent]));
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('notifyMareesProblem');
+        $notifier->expects($this->once())->method('sendAlert')
+            ->with($this->anything(), $this->anything(), 'FFP3', 'Coupures « marée » suspendues', $this->stringContains('6 fois en 24 h'), 'ffp3:tide-breaker')
+            ->willReturn(true);
+
+        $this->buildOrchestrator(pumpService: $this->pumpMock(false), statsService: $this->statsWith(self::flatLiveWindow()), notifier: $notifier)->execute();
+        // Deuxième passage : disjoncteur toujours ouvert, déjà notifié → aucun nouvel e-mail.
+        $this->buildOrchestrator(pumpService: $this->pumpMock(false), statsService: $this->statsWith(self::flatLiveWindow()), notifier: $notifier)->execute();
+    }
+
+    public function testTideCutsOlderThan24hDoNotCountTowardsBreaker(): void
+    {
+        $old = array_map(static fn (int $i): int => time() - 86400 - 60 * $i, range(1, 10));
+        file_put_contents($this->tempDir . '/' . CronOrchestrator::TIDE_CUTS_STATE_FILENAME, (string) json_encode(['cuts' => $old]));
+
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())->method('notifyMareesProblem');
+        $this->buildOrchestrator(pumpService: $this->pumpMock(true), statsService: $this->statsWith(self::flatLiveWindow()), notifier: $notifier)->execute();
     }
 
     private function defaultRepoMock(): SensorReadRepository

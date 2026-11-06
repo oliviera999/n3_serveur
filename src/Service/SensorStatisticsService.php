@@ -164,6 +164,43 @@ class SensorStatisticsService
     }
 
     /**
+     * Qualité de la fenêtre des N dernières lignes d'une colonne : nombre de lignes, de valeurs
+     * non nulles, de valeurs DISTINCTES et écart-type (population, NULL ignorés).
+     * Permet de distinguer une marée plate d'un capteur figé (1 valeur distincte) ou muet
+     * (aucune valeur) — {@see TideCutGuard}.
+     *
+     * @return array{rows: int, non_null: int, distinct: int, stddev: float|null}
+     */
+    public function lastReadingsWindow(string $column, int $limit = 60): array
+    {
+        if (!in_array($column, self::NUMERIC_COLUMNS, true)) {
+            throw new \InvalidArgumentException("Colonne non autorisée : $column");
+        }
+        $limit = max(1, $limit);
+        $table = TableConfig::getDataTable();
+        $sql = <<<SQL
+            SELECT COUNT(*) AS n_rows, COUNT(sub.$column) AS n_values,
+                   COUNT(DISTINCT sub.$column) AS n_distinct, STDDEV(sub.$column) AS stddev_amount
+            FROM (
+                SELECT $column
+                FROM {$table}
+                ORDER BY reading_time DESC
+                LIMIT $limit
+            ) AS sub
+        SQL;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
+
+        return [
+            'rows' => (int) ($row['n_rows'] ?? 0),
+            'non_null' => (int) ($row['n_values'] ?? 0),
+            'distinct' => (int) ($row['n_distinct'] ?? 0),
+            'stddev' => isset($row['stddev_amount']) ? (float) $row['stddev_amount'] : null,
+        ];
+    }
+
+    /**
      * Calcule l'écart-type des N dernières mesures pour une colonne donnée.
      * (À compléter selon les besoins du projet)
      */

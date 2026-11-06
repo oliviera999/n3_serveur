@@ -34,6 +34,13 @@ Chemin serveur : `/home4/oliviera/iot.olution.info`
 * * * * * cd /home4/oliviera/iot.olution.info && /usr/bin/php run-cron.php >> /dev/null 2>&1
 ```
 
+> ⚠️ **Constat du 06/11/2026** (journaux `cronlog-*` et notifications) : en production l'orchestrateur
+> tournait encore **toutes les 5 min** (passages à :00, :05, :10…), pas à la minute comme ci-dessus.
+> Conséquences : latence des alertes jusqu'à 5 min, et redémarrage pompe différé effectif de 5 **ou
+> 10 min** (`RestartPumpCommand::RESTART_DELAY` = 300 s évalué à chaque passage). Vérifier la ligne
+> `run-cron.php` de la crontab cPanel et la passer à `* * * * *`. Le dernier passage est visible via
+> `iot_cron_status` / `var/cache/cron_last_run.json`.
+
 **Migration** : supprimer toute entrée legacy (`cronpompe.php`, multiples `run-cron.php`, scripts `cronmsp1.php` / `cronn3pp.php` si encore présents).
 
 ### Prérequis

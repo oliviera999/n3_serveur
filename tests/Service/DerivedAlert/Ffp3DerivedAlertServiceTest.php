@@ -42,9 +42,11 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
         array $reading,
         NotificationService $notifier,
         array $gpioValues = [114 => 8.0, 104 => 22.0],
+        array $recentAqua = [],
     ): Ffp3DerivedAlertService {
         $sensorRepo = $this->createMock(SensorReadRepository::class);
         $sensorRepo->method('getLastReadings')->willReturn($reading);
+        $sensorRepo->method('getRecentColumnValues')->willReturn($recentAqua);
 
         $outputRepo = $this->createMock(OutputRepository::class);
         $outputRepo->method('findByGpio')->willReturnCallback(
@@ -232,5 +234,90 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
         $service = $this->buildService($this->reading(200.0, 1), $notifier);
         $service->run(); // init
         $service->run(); // même état → rien
+    }
+
+    /**
+     * @param list<float|null> $values plus récente d'abord, toutes les 10 min
+     * @return list<array{value: mixed, reading_time: string}>
+     */
+    private function recent(array $values): array
+    {
+        $out = [];
+        foreach ($values as $i => $v) {
+            $out[] = ['value' => $v, 'reading_time' => date('Y-m-d H:i:s', $this->now - 30 - $i * 600)];
+        }
+
+        return $out;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function mutedReading(): array
+    {
+        return ['id' => 43, 'EauAquarium' => null, 'TempEau' => 21.5, 'etatHeat' => 0, 'reading_time' => date('Y-m-d H:i:s', $this->now - 30)];
+    }
+
+    public function testSensorAbsentAlertOnceThenRecoveryOnce(): void
+    {
+        $subjects = [];
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $sev, NotificationCategory $cat, string $family, string $subject, string $message, ?string $key = null) use (&$subjects): bool {
+                $subjects[] = [$sev, $subject, $key, $message];
+
+                return true;
+            }
+        );
+        $muted = $this->recent(array_merge(array_fill(0, 6, null), [81.0, 81.0]));
+
+        $this->buildService($this->mutedReading(), $notifier, recentAqua: $muted)->run();
+        $this->now += 60;
+        $this->buildService($this->mutedReading(), $notifier, recentAqua: $muted)->run(); // latché : rien
+
+        self::assertCount(1, $subjects);
+        self::assertSame(Severity::Critical, $subjects[0][0]);
+        self::assertSame('Capteur EauAquarium absent', $subjects[0][1]);
+        self::assertSame('ffp3:sensor-absent:EauAquarium', $subjects[0][2]);
+        self::assertStringContainsString('81 mm', $subjects[0][3]);
+        $state = json_decode((string) file_get_contents($this->stateFile), true);
+        self::assertSame('absent', $state['sensors']['EauAquarium']['status']);
+
+        // Retour de mesures variées → un e-mail de rétablissement (Info).
+        $this->now += 600;
+        $this->buildService($this->reading(95.0), $notifier, recentAqua: $this->recent([95.0, 101.0, 108.0, 99.0]))->run();
+        self::assertCount(2, $subjects);
+        self::assertSame(Severity::Info, $subjects[1][0]);
+        self::assertSame('Capteur EauAquarium rétabli', $subjects[1][1]);
+    }
+
+    public function testSensorFrozenAlert(): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())->method('sendAlert')
+            ->with(Severity::Critical, NotificationCategory::Hydraulic, 'FFP3', 'Capteur EauAquarium figé', $this->stringContains('81 mm'), 'ffp3:sensor-frozen:EauAquarium')
+            ->willReturn(true);
+
+        $frozen = $this->recent(array_merge(array_fill(0, 14, 81.0), [95.0]));
+        $this->buildService($this->reading(81.0), $notifier, recentAqua: $frozen)->run();
+    }
+
+    public function testSensorAlertNotLatchedWhenSendFails(): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->exactly(2))->method('sendAlert')->willReturn(false);
+        $muted = $this->recent(array_fill(0, 8, null));
+        $this->buildService($this->mutedReading(), $notifier, recentAqua: $muted)->run();
+        $this->now += 60;
+        $this->buildService($this->mutedReading(), $notifier, recentAqua: $muted)->run();
+    }
+
+    public function testSensorCheckSkippedOnStaleReading(): void
+    {
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+        $stale = $this->mutedReading();
+        $stale['reading_time'] = date('Y-m-d H:i:s', $this->now - 7200); // appareil silencieux : DeviceHealthService couvre
+        $this->buildService($stale, $notifier, recentAqua: $this->recent(array_fill(0, 8, null)))->run();
     }
 }

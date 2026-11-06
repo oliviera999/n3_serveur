@@ -146,6 +146,34 @@ class SensorReadRepository extends AbstractRepository
      *
      * @return string|null Date/heure SQL de la dernière mesure, ou null
      */
+    /**
+     * Valeurs brutes (NULL compris) d'une colonne capteur sur les `$limit` dernières lignes,
+     * de la plus RÉCENTE à la plus ancienne (départage `id DESC`, comme getLastReadings).
+     * Sert à distinguer un capteur muet (série de NULL) ou figé (valeur répétée).
+     * Colonne inconnue → [].
+     *
+     * @return list<array{value: mixed, reading_time: string}>
+     */
+    public function getRecentColumnValues(string $column, int $limit): array
+    {
+        if (!in_array($column, self::LAST_VALID_COLUMNS, true)) {
+            return [];
+        }
+        $limit = max(1, min(1000, $limit));
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $sql = sprintf(
+            'SELECT `%s` AS v, reading_time FROM `%s` ORDER BY reading_time DESC, id DESC LIMIT %d',
+            $column,
+            $table,
+            $limit
+        );
+
+        return array_values(array_map(
+            static fn (array $row): array => ['value' => $row['v'] ?? null, 'reading_time' => (string) ($row['reading_time'] ?? '')],
+            $this->fetchAll($sql)
+        ));
+    }
+
     public function getLastReadingDate(): ?string
     {
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());

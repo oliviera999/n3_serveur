@@ -11,6 +11,23 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.56.0] - 2026-11-06
+
+### Correctif — FFP3 : plus de coupure pompe sur capteur figé / muet, alerte « capteur absent »
+- `CronOrchestrator::checkTideSystem` : décision par `TideCutGuard` (pur, testé) sur la fenêtre
+  des 60 dernières mesures (`SensorStatisticsService::lastReadingsWindow` : lignes, valeurs non
+  nulles, valeurs distinctes, écart-type). Plus de coupure si le capteur est absent, si la
+  couverture < 80 % ou si une seule valeur se répète (capteur figé). Disjoncteur
+  `TIDE_MAX_PUMP_CUTS_PER_DAY` (défaut 6 / 24 h glissantes) : au-delà, pompe laissée en marche et
+  alerte unique « Coupures « marée » suspendues ». Incident 30/10 : 196 coupures en 37 h.
+- `Ffp3DerivedAlertService` : alerte Critique « Capteur EauAquarium absent » (≥ 6 mesures vides
+  d'affilée) ou « figé » (même valeur ≥ 12 mesures et ≥ 2 h), Info « rétabli » au retour ; un
+  e-mail par transition (`SensorPresenceEvaluator`, réglages `SENSOR_*` du catalogue). Incident
+  visible dans les alertes en cours MCP.
+- Rapport de santé : orange `capteur_muet` / `capteur_fige` (FFP3 en ligne, analyse 12 h).
+- Doc : cadence CRON réelle constatée à 5 min (`docs/deployment/CRON.md`), suivi des correctifs
+  dans `docs/DIAGNOSTIC_FFP3_NIVEAU_AQUARIUM_2026-11.md`. Firmware associé : ffp5cs 15.32.
+
 ## [6.55.0] - 2026-11-06
 
 ### Ajout — MCP : diagnostic capteur à distance (suite incident FFP3 EauAquarium)

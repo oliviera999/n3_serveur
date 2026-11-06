@@ -32,7 +32,8 @@ Deux invariants :
 | Niveau aquarium bas | ffp5cs | ✅ (doublon) | `EauAquarium` (mm) + `aqThreshold` |
 | Trop-plein / débordement | ffp5cs | ❌ | `EauAquarium` + `limFlood` ✅ |
 | Réserve basse | ffp5cs | ✅ opt-in (doublon) | `EauReserve` + `tankThreshold` |
-| Problème de marées | ❌ | ✅ | `EauAquarium` (stddev) |
+| Problème de marées | ❌ | ✅ (6.56.0 : seulement sur donnée valide et variée ; disjoncteur 6 coupures / 24 h) | `EauAquarium` (stddev, couverture, valeurs distinctes) |
+| Capteur aquarium absent / figé (6.56.0) | ❌ | ✅ | `EauAquarium` vide ≥ 6 mesures, ou identique ≥ 12 mesures et 2 h |
 | Chauffage ON/OFF | ffp5cs | ❌ | `TempEau` + `etatHeat` + `chauffageThreshold` ✅ |
 | Nourrissage fait/manqué/plafond | ffp5cs | ❌ | compteurs `bouffePetits/Gros` + créneaux ✅ |
 | Sol sec | n3pp | ❌ | `HumidMoy` + `SeuilSec` ✅ |

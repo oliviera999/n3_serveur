@@ -84,6 +84,23 @@ final class ActiveAlertsReader
                         ? date('Y-m-d H:i:s', (int) $flood['lastEmailTs']) : null,
                 ];
             }
+            // Capteur absent / figé (Ffp3DerivedAlertService::checkSensorPresence, 6.56.0).
+            foreach ((array) ($state['sensors'] ?? []) as $column => $sensor) {
+                $status = is_array($sensor) ? (string) ($sensor['status'] ?? 'ok') : 'ok';
+                if ($status !== 'absent' && $status !== 'frozen') {
+                    continue;
+                }
+                $alerts[] = [
+                    'key' => $family . ':sensor-' . $status . ':' . $column,
+                    'family' => $family,
+                    'type' => 'derivee',
+                    'label' => $status === 'absent'
+                        ? sprintf('Capteur %s absent : plus de valeur (supervision marées / niveau / trop-plein aveugle)', $column)
+                        : sprintf('Capteur %s figé : même valeur répétée (mesure non fiable)', $column),
+                    'severity' => 'critical',
+                    'since' => isset($sensor['since']) && is_string($sensor['since']) ? $sensor['since'] : null,
+                ];
+            }
             $pump = $state['pump'] ?? null;
             if (is_array($pump) && ($pump['stuckAlerted'] ?? false) === true) {
                 $alerts[] = [
