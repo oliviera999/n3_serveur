@@ -177,6 +177,66 @@ class McpReadRepository extends AbstractRepository
         ];
     }
 
+    /**
+     * Dernière valeur NON NULLE d'un champ numérique depuis `$since` (recherche bornée dans le
+     * temps : parcours descendant de l'index `reading_time`, jamais toute la table).
+     *
+     * @return array{value: mixed, reading_time: string}|null
+     */
+    public function lastNonNull(string $family, string $field, string $since): ?array
+    {
+        $table = $this->table(FieldCatalog::dataTable($family));
+        if (!in_array($field, FieldCatalog::numericFields($family), true)) {
+            return null;
+        }
+        $row = $this->fetchOne(
+            "SELECT `{$field}` AS v, `reading_time` FROM `{$table}` WHERE reading_time >= :since AND `{$field}` IS NOT NULL"
+            . ' ORDER BY reading_time DESC LIMIT 1',
+            [':since' => $since]
+        );
+
+        return $row === null ? null : ['value' => $row['v'], 'reading_time' => (string) $row['reading_time']];
+    }
+
+    /**
+     * Lignes reçues strictement après `$after` : nombre et date de la première.
+     *
+     * @return array{count: int, first: string|null}
+     */
+    public function rowsAfter(string $family, string $after): array
+    {
+        $table = $this->table(FieldCatalog::dataTable($family));
+        $row = $this->fetchOne(
+            "SELECT COUNT(*) AS n, MIN(reading_time) AS first FROM `{$table}` WHERE reading_time > :after",
+            [':after' => $after]
+        ) ?? [];
+
+        return [
+            'count' => (int) ($row['n'] ?? 0),
+            'first' => isset($row['first']) ? (string) $row['first'] : null,
+        ];
+    }
+
+    /**
+     * Lignes les plus RÉCENTES d'abord (colonnes choisies), plafonnées : pour analyser la fin
+     * d'une fenêtre (valeur figée, série de NULL) sans tronquer les mesures récentes.
+     *
+     * @param list<string> $fields
+     * @return list<array<string, mixed>>
+     */
+    public function recentRows(string $family, array $fields, string $from, string $to, int $limit = self::MAX_RAW_ROWS): array
+    {
+        $table = $this->table(FieldCatalog::dataTable($family));
+        $columns = $this->columnList($family, $fields);
+        $limit = max(1, min(self::MAX_RAW_ROWS, $limit));
+
+        return $this->fetchAll(
+            "SELECT {$columns}, `reading_time` FROM `{$table}` WHERE reading_time BETWEEN :from AND :to"
+            . " ORDER BY reading_time DESC LIMIT {$limit}",
+            [':from' => $from, ':to' => $to]
+        );
+    }
+
     public function countBetween(string $family, string $from, string $to): int
     {
         $table = $this->table(FieldCatalog::dataTable($family));

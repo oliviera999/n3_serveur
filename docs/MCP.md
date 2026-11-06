@@ -87,9 +87,10 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_overview` | Par module : en ligne / hors ligne (âge mesure + heartbeat vs seuil dérivé de la veille), firmware, dernière mesure résumée, alertes actives. **Point de départ.** |
 | `iot_server_health` | Version, BDD (latence), dernier passage du CRON horaire, galeries (nb photos, plus récente, à normaliser). |
 | `iot_describe` | Dictionnaire des champs (unité, sens, plage, type) et des GPIO, par famille. |
-| `iot_latest` | Dernière mesure complète d'une famille (unités converties). |
+| `iot_latest` | Dernière mesure complète d'une famille (unités converties). Un capteur physique vide est listé dans `missing_fields` (dernière valeur non nulle, depuis quand, nb de mesures ; recherche ≤ 30 j). |
 | `iot_series` | Série agrégée en SQL (`auto|5min|15min|1h|6h|1d`, `avg|min|max`, ≤ 500 points, ≤ 180 j) + stats par champ. |
 | `iot_stats` | Min / max / moyenne / écart-type / couverture sur une période. |
+| `iot_sensor_health` | Santé **par capteur** sur la fin d'une période (défaut 48 h, ≤ 30 j) : `ok` / `intermittent` / `absent` (≥ 3 mesures vides d'affilée) / `frozen` (même valeur ≥ `frozen_minutes`, défaut 120, et ≥ 5 mesures) / `no_data` ; dernière valeur non nulle, début et durée du silence et du figement, couverture. Par défaut : capteurs physiques (`FieldCatalog::sensorFields`). |
 | `iot_tides` | Marées FFP3 via `TideAnalysisService` (cycles, marnage, fréquence, réserve, diffMaree, événements firmware), ≤ 14 j. |
 | `iot_energy` | Bilan du banc INA226 (Wh produits / consommés, puissances, tension et SoC batterie). |
 | `iot_pgl_stats` | Compteur Poissonglouton (total, jour, historiques). |
@@ -510,6 +511,7 @@ le statut est `rouge` ou si l'endpoint ne répond pas 200, avertissement si `ora
 | `var` | `var/` (journaux locaux, états du CRON) ; `var/cache/` exclu |
 | `php-errors` | journal d'erreurs PHP (`ini_get('error_log')`), s'il est localisable |
 | `config`, `docs`, `migrations` | dossiers du dépôt |
+| `src`, `templates` | code applicatif et vues Twig (depuis 6.55.0) : lire la logique CRON / POST / alertes à distance. Le dépôt est public ; mêmes garde-fous que les autres racines (admin, secrets masqués, `.env` réduit aux noms, binaires refusés, plafonds). Pour les retirer : `MCP_FILE_ROOTS` explicite sans `defaults` |
 | `.htaccess`, `run-cron.php` | fichiers uniques |
 
 La sortie du CRON n'a pas de fichier propre (crontab `>> /dev/null`, `docs/deployment/CRON.md`) :

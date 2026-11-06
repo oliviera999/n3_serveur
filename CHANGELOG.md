@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.55.0] - 2026-11-06
+
+### Ajout — MCP : diagnostic capteur à distance (suite incident FFP3 EauAquarium)
+- Fichiers MCP (admin, lecture seule) : `src/` et `templates/` rejoignent les racines par
+  défaut de `iot_list_files` / `iot_read_file` / `iot_grep_files`, avec les mêmes garde-fous
+  (secrets masqués, `.env` réduit aux noms, binaires refusés, plafonds, `realpath` confiné).
+- Nouvel outil `iot_sensor_health` (lecture) : par capteur, statut ok / intermittent / absent /
+  frozen / no_data, dernière valeur non nulle, début et durée du silence et du figement,
+  couverture (défaut 48 h, ≤ 30 j). Capteurs physiques : `FieldCatalog::sensorFields()`.
+- `iot_latest` : bloc `missing_fields` quand un capteur physique est vide (dernière valeur
+  non nulle sur ≤ 30 j, depuis quand, nombre de mesures) — il disparaissait sans signal.
+- Diagnostic de référence : `docs/DIAGNOSTIC_FFP3_NIVEAU_AQUARIUM_2026-11.md`.
+
 ## [6.54.5] - 2026-11-05
 
 ### Correctif — CSP OAuth : POST authorize bloqué (Claude / Cursor)
