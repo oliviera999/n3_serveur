@@ -17,6 +17,7 @@ namespace App\Mcp\Health;
  * | BDD         | latence > 500 ms                              | injoignable                             |
  * | CRON        | orchestrateur > 5 min, tâches horaires en retard | orchestrateur > 15 min ou jamais vu  |
  * | Appareils   | un appareil de production hors ligne          | aquaponie FFP3 (prod/s3) hors ligne > 6 h |
+ * | Capteurs    | FFP3 en ligne : capteur physique muet (≥ 3 mesures vides), ou niveau aquarium / potager figé (≥ 2 h) | — |
  * | Erreurs     | ≥ 20 erreurs serveur / 24 h ou ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
  * | Galeries    | galerie active sans photo depuis > 48 h       | —                                       |
  * | Disque      | < 10 % ou < 1 Gio libres                      | < 2 % ou < 200 Mio libres               |
@@ -102,6 +103,26 @@ final class HealthRules
                 $add(self::STATUS_RED, 'aquaponie_hors_ligne', sprintf('%s hors ligne depuis %s (êtres vivants : vérifier sur place).', $label, self::duration($silence)));
             } else {
                 $add(self::STATUS_ORANGE, 'appareil_hors_ligne', sprintf('%s hors ligne%s.', $label, $silence !== null ? ' depuis ' . self::duration($silence) : ''));
+            }
+        }
+
+        // Capteurs (FFP3 en ligne : un capteur muet / figé aveugle marées, niveau bas, trop-plein)
+        foreach ((array) ($report['devices'] ?? []) as $device) {
+            if (!is_array($device) || ($device['online'] ?? null) !== true) {
+                continue;
+            }
+            foreach ((array) ($device['sensor_issues'] ?? []) as $issue) {
+                if (!is_array($issue)) {
+                    continue;
+                }
+                $absent = ($issue['status'] ?? '') === 'absent';
+                $add(self::STATUS_ORANGE, $absent ? 'capteur_muet' : 'capteur_fige', sprintf(
+                    '%s : capteur %s %s%s.',
+                    (string) ($device['label'] ?? $device['id'] ?? '?'),
+                    (string) ($issue['field'] ?? '?'),
+                    $absent ? 'muet (plus de valeur)' : 'figé (même valeur répétée)',
+                    isset($issue['since']) && is_string($issue['since']) ? ' depuis le ' . $issue['since'] : ''
+                ));
             }
         }
 

@@ -11,6 +11,7 @@ use App\Config\Version;
 use App\Mcp\McpConfig;
 use App\Mcp\Support\EnvironmentScope;
 use App\Mcp\Support\FieldCatalog;
+use App\Mcp\Tools\SensorHealthTool;
 use App\Repository\McpHealthRepository;
 use App\Repository\McpOAuthRepository;
 use App\Repository\McpReadRepository;
@@ -36,6 +37,15 @@ use PDO;
  */
 final class HealthReportBuilder
 {
+    /** Profondeur d'analyse des capteurs FFP3 (muet / figé). */
+    private const SENSOR_LOOKBACK_SECONDS = 12 * 3600;
+    /**
+     * Seuls les niveaux entraînés par les marées sont jugés « figés » : réserve, température ou
+     * humidité (DHT au % entier) peuvent légitimement rester stables des heures. « Muet » vaut
+     * pour tous les capteurs physiques.
+     */
+    private const FROZEN_CHECK_FIELDS = ['EauAquarium', 'EauPotager'];
+
     /** Seuil hors ligne du banc énergie (mesure toutes les 10 s) — miroir d'OverviewTool. */
     private const ENERGIE_OFFLINE_SECONDS = 90;
 
@@ -255,7 +265,39 @@ final class HealthReportBuilder
             'silent_seconds' => $silence,
             'offline_threshold_seconds' => $threshold,
             'firmware_version' => isset($latest['version']) && $latest['version'] !== '' ? (string) $latest['version'] : null,
-        ];
+        ] + ($family === 'ffp3' && $online ? ['sensor_issues' => $this->sensorIssues($family, $now)] : []);
+    }
+
+    /**
+     * Capteurs physiques muets ou figés sur les 12 dernières heures (FFP3 en ligne uniquement :
+     * l'aquaponie est le seul module dont un capteur muet aveugle des automatismes — marées,
+     * niveau bas, trop-plein ; incident du 30/10/2026). Même analyse que iot_sensor_health.
+     *
+     * @return list<array{field: string, status: string, since: string|null, last_value: mixed}>
+     */
+    private function sensorIssues(string $family, int $now): array
+    {
+        try {
+            $fields = FieldCatalog::sensorFields($family);
+            $rows = $this->read->recentRows($family, $fields, date('Y-m-d H:i:s', $now - self::SENSOR_LOOKBACK_SECONDS), date('Y-m-d H:i:s', $now), 2000);
+        } catch (\Throwable) {
+            return [];
+        }
+        $issues = [];
+        foreach ($fields as $field) {
+            $analysis = SensorHealthTool::analyse($family, $field, $rows, SensorHealthTool::DEFAULT_FROZEN_MINUTES * 60);
+            if ($analysis['status'] === 'absent'
+                || ($analysis['status'] === 'frozen' && in_array($field, self::FROZEN_CHECK_FIELDS, true))) {
+                $issues[] = [
+                    'field' => $field,
+                    'status' => (string) $analysis['status'],
+                    'since' => $analysis['status'] === 'absent' ? ($analysis['null_since'] ?? null) : ($analysis['frozen_since'] ?? null),
+                    'last_value' => $analysis['last_value'] ?? null,
+                ];
+            }
+        }
+
+        return $issues;
     }
 
     /**

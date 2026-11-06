@@ -30,6 +30,7 @@ use App\Service\PumpService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
 use App\Service\SystemHealthService;
+use App\Service\TideCutGuard;
 use App\Util\JsonFileStore;
 use PDO;
 
@@ -52,6 +53,12 @@ class CronOrchestrator
     private const TIDE_STDDEV_GPIO = 129;
     /** Conversion cm→mm (EauAquarium est stocké en mm ; le seuil BDD GPIO 102 est en cm). */
     private const MM_PER_CM = 10.0;
+    /** Fenêtre d'évaluation des marées (lignes les plus récentes). */
+    private const TIDE_WINDOW_READINGS = 60;
+    /** Part minimale de valeurs non nulles dans la fenêtre pour oser couper la pompe. */
+    private const TIDE_MIN_COVERAGE = 0.8;
+    /** Disjoncteur : coupures « marée » maximales sur 24 h glissantes (0 = sans limite). */
+    private const DEFAULT_TIDE_MAX_CUTS_PER_DAY = 6;
     /** Forfait hors-ligne (s) de repli quand aucun résolveur dérivé n'est disponible. */
     private const DEFAULT_OFFLINE_FALLBACK_SECONDS = 3600;
 
@@ -69,6 +76,8 @@ class CronOrchestrator
     public const HOURLY_STATE_FILENAME = 'cron_last_hourly.timestamp';
     public const GALLERY_NORMALIZE_STATE_FILENAME = 'cron_last_gallery_normalize.timestamp';
     public const PUMP_RESTART_FLAG_FILENAME = 'pump_restart_scheduled.flag';
+    /** Horodatages des coupures « marée » (disjoncteur 24 h) + état de la notification du disjoncteur. */
+    public const TIDE_CUTS_STATE_FILENAME = 'tide_cuts.json';
     /** Dernier passage de l'orchestrateur (début, fin, durée, statut) — écrit à chaque run. */
     public const LAST_RUN_STATE_FILENAME = 'cron_last_run.json';
     /** 10 min : ≥ 2 800 photos/jour traitables (20/passage) — largement au-dessus du débit des 3 caméras. */
@@ -95,6 +104,7 @@ class CronOrchestrator
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
+    private int $tideMaxCutsPerDay;
     private int $hourlyIntervalSeconds;
     private int $galleryNormalizeIntervalSeconds;
     private bool $galleryNormalizeEnabled;
@@ -210,6 +220,8 @@ class CronOrchestrator
         );
         $this->stddevThreshold = $operationalSettings?->float('TIDE_STDDEV_THRESHOLD', 1.0)
             ?? (float) ($_ENV['TIDE_STDDEV_THRESHOLD'] ?? 1.0);
+        $this->tideMaxCutsPerDay = $operationalSettings?->int('TIDE_MAX_PUMP_CUTS_PER_DAY', self::DEFAULT_TIDE_MAX_CUTS_PER_DAY)
+            ?? (int) ($_ENV['TIDE_MAX_PUMP_CUTS_PER_DAY'] ?? self::DEFAULT_TIDE_MAX_CUTS_PER_DAY);
         $this->hourlyIntervalSeconds = $operationalSettings?->int('CRON_HOURLY_INTERVAL_SECONDS', 3600)
             ?? (int) ($_ENV['CRON_HOURLY_INTERVAL_SECONDS'] ?? 3600);
 
@@ -614,17 +626,93 @@ class CronOrchestrator
             return;
         }
 
-        $stddev = $this->statsService->stddevOnLastReadings('EauAquarium');
+        // 6.56.0 : la pompe n'est coupée que sur une donnée VALIDE et VIVANTE (TideCutGuard) —
+        // un capteur figé ou muet donne aussi un écart-type nul (incident 30/10/2026 : 196
+        // coupures sur une valeur figée à 81 mm, docs/DIAGNOSTIC_FFP3_NIVEAU_AQUARIUM_2026-11.md).
+        $raw = $this->statsService->lastReadingsWindow('EauAquarium', self::TIDE_WINDOW_READINGS);
+        $window = [
+            'rows' => (int) ($raw['rows'] ?? 0),
+            'non_null' => (int) ($raw['non_null'] ?? 0),
+            'distinct' => (int) ($raw['distinct'] ?? 0),
+            'stddev' => isset($raw['stddev']) ? (float) $raw['stddev'] : null,
+        ];
+        $store = new JsonFileStore($this->stateDir . '/' . self::TIDE_CUTS_STATE_FILENAME);
+        $state = $store->load();
+        $now = time();
+        $cuts = array_values(array_filter(
+            array_map('intval', (array) ($state['cuts'] ?? [])),
+            static fn (int $ts): bool => $ts > $now - 86400
+        ));
 
-        if ($stddev === null || $stddev >= $this->resolveTideStddevThreshold()) {
-            return;
+        $decision = TideCutGuard::decide(
+            $window,
+            $this->resolveTideStddevThreshold(),
+            self::TIDE_MIN_COVERAGE,
+            count($cuts),
+            $this->tideMaxCutsPerDay
+        );
+        $summary = sprintf(
+            'stddev=%s, valeurs=%d/%d, distinctes=%d, coupures 24 h=%d',
+            $window['stddev'] === null ? 'NULL' : (string) round($window['stddev'], 3),
+            $window['non_null'],
+            $window['rows'],
+            $window['distinct'],
+            count($cuts)
+        );
+
+        if ($decision !== TideCutGuard::BREAKER_OPEN && count($cuts) < $this->tideMaxCutsPerDay) {
+            $state['breakerNotified'] = false;
         }
 
-        $this->logger->warning("Problème de marée détecté (stddev: {$stddev}). Arrêt de la pompe de l'aquarium.");
-        $this->pumpService->stopPompeAqua();
-        file_put_contents($this->pumpRestartFlagFile, (string) time());
-        $this->logger->info('Pompe aquarium arrêtée. Redémarrage programmé dans 5 minutes (délai horodaté, indépendant de la cadence CRON).');
-        $this->notifier->notifyMareesProblem();
+        switch ($decision) {
+            case TideCutGuard::OK:
+                break;
+            case TideCutGuard::SENSOR_ABSENT:
+            case TideCutGuard::INSUFFICIENT_DATA:
+            case TideCutGuard::SENSOR_FROZEN:
+                // Pas de coupure : la donnée ne permet pas de juger les marées. Le défaut capteur
+                // est signalé par l'alerte dérivée « capteur absent / figé » (Ffp3DerivedAlertService).
+                $this->logger->warning("Marée : coupure pompe ÉVITÉE ({$decision}) — donnée niveau aquarium invalide ({$summary}).");
+                break;
+            case TideCutGuard::BREAKER_OPEN:
+                $this->logger->warning("Marée : disjoncteur ouvert, coupure pompe refusée ({$summary}).");
+                if (($state['breakerNotified'] ?? false) !== true) {
+                    $sent = $this->notifier->sendAlert(
+                        Severity::Alert,
+                        NotificationCategory::Hydraulic,
+                        'FFP3',
+                        'Coupures « marée » suspendues',
+                        sprintf(
+                            "Le contrôle des marées a déjà coupé la pompe de l'aquarium %d fois en 24 h : les coupures "
+                            . "automatiques sont suspendues, la pompe reste en marche.\n"
+                            . 'Écart-type du niveau toujours sous le seuil (%s). Vérifier sur place la pompe, le siphon '
+                            . 'et le capteur de niveau (une mesure qui ne varie plus peut aussi venir du capteur).',
+                            count($cuts),
+                            $summary
+                        ),
+                        'ffp3:tide-breaker'
+                    );
+                    $state['breakerNotified'] = $sent;
+                }
+                break;
+            default:
+                $this->logger->warning("Problème de marée détecté ({$summary}). Arrêt de la pompe de l'aquarium.");
+                $this->pumpService->stopPompeAqua();
+                file_put_contents($this->pumpRestartFlagFile, (string) $now);
+                $cuts[] = $now;
+                $this->logger->info('Pompe aquarium arrêtée. Redémarrage programmé dans 5 minutes (délai horodaté, indépendant de la cadence CRON).');
+                $this->notifier->notifyMareesProblem();
+        }
+
+        $state['cuts'] = $cuts;
+        try {
+            if (!is_dir($this->stateDir)) {
+                @mkdir($this->stateDir, 0755, true);
+            }
+            $store->save($state);
+        } catch (\Throwable $e) {
+            $this->logger->warning('Marée : état du disjoncteur non enregistré : ' . $e->getMessage());
+        }
     }
 
     /**

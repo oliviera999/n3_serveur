@@ -447,6 +447,7 @@ Statut = **pire niveau déclenché** ; aucune règle = `vert`. Les raisons sont 
 | BDD | latence > 500 ms | injoignable |
 | CRON | orchestrateur sans passage depuis > 5 min ; tâches horaires en retard | orchestrateur > 15 min, ou jamais vu |
 | Appareils | un appareil de production hors ligne | aquaponie FFP3 (`prod` ou `s3`) hors ligne depuis > 6 h |
+| Capteurs | FFP3 en ligne : capteur physique muet (≥ 3 mesures vides sur 12 h) ou niveau aquarium / potager figé (≥ 2 h) | — |
 | Erreurs | ≥ 20 erreurs serveur / 24 h ; ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
 | Galeries | galerie active sans photo depuis > 48 h | — |
 | Disque | < 10 % ou < 1 Gio libres | < 2 % ou < 200 Mio libres |
