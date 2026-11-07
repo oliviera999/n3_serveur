@@ -13,6 +13,7 @@ use App\Repository\OutputRepository;
 use App\Repository\SensorRepository;
 use App\Security\Ffp3HmacPostBody;
 use App\Security\SignatureValidator;
+use App\Service\ContactRecorder;
 use App\Service\ErrorAlertService;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
@@ -46,9 +47,10 @@ class PostDataController extends AbstractPostDataController
         private ErrorAlertService $errorAlert,
         private SensorRepository $sensorRepo,
         private OutputRepository $outputRepo,
-        private BoardRepository $boardRepo
+        private BoardRepository $boardRepo,
+        ?ContactRecorder $contactRecorder = null
     ) {
-        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings);
+        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings, $contactRecorder);
     }
 
     protected function componentName(): string
@@ -150,6 +152,7 @@ class PostDataController extends AbstractPostDataController
                 return ResponseHelper::text($response, 'Signature incorrecte', 401);
             }
             $this->authenticatedByHmac = true;
+            $this->authMode = $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp';
             $this->recordHmacAudit('ok', $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp', [
                 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
                 'sensor' => trim((string) ($params['sensor'] ?? '')),
@@ -298,6 +301,7 @@ class PostDataController extends AbstractPostDataController
         }
 
         $this->authenticatedByHmac = true;
+        $this->authMode = 'x_sig_body';
         $body = $headerAuth['body'];
         $this->recordHmacAudit('ok', 'x_sig_body', [
             'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',

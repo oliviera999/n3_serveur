@@ -88,6 +88,7 @@ trait HmacAuthTrait
                 $sigWindow
             )) {
                 $this->authenticatedByHmac = true;
+                $this->authMode = 'x_sig_body';
                 $this->logger->info("{$this->componentName()}: auth HMAC body OK", [
                     'sensor' => trim((string) ($params['sensor'] ?? '')),
                     'body_source' => $bodySource,
@@ -251,6 +252,7 @@ trait HmacAuthTrait
         }
 
         $this->authenticatedByHmac = true;
+        $this->authMode = $nonceRequired ? 'legacy_nonce' : 'legacy_timestamp';
         $this->logger->info("{$this->componentName()}: auth HMAC OK", [
             'sensor' => trim((string) ($params['sensor'] ?? '')),
         ]);

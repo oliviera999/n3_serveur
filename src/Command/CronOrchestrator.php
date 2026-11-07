@@ -15,7 +15,9 @@ use App\Repository\NotificationPolicyRepository;
 use App\Repository\OutputMonitorRepository;
 use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
+use App\Repository\DeviceContactRepository;
 use App\Service\Availability\AvailabilityNotifier;
+use App\Service\Availability\DatabaseContactEvidence;
 use App\Service\DerivedAlert\DerivedAlertStateStore;
 use App\Service\DerivedAlert\Ffp3DerivedAlertService;
 use App\Service\DerivedAlert\MspDerivedAlertService;
@@ -24,8 +26,11 @@ use App\Service\DeviceHealthService;
 use App\Service\GalleryNormalizeService;
 use App\Service\LogService;
 use App\Service\NotificationService;
+use App\Service\ClockDriftAlertService;
 use App\Service\OfflineThresholdResolver;
 use App\Service\OperationalSettingsService;
+use App\Service\OtaReleaseSyncService;
+use App\Service\OtaSilenceAlertService;
 use App\Service\PumpService;
 use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
@@ -101,6 +106,9 @@ class CronOrchestrator
     private ?McpOAuthPurgeCommand $mcpOAuthPurge;
     private ?HealthReportCommand $healthReport;
     private ?McpRestoreCommand $mcpRestore;
+    private ?OtaReleaseSyncService $otaReleaseSync;
+    private ?ClockDriftAlertService $clockDriftAlerts;
+    private ?OtaSilenceAlertService $otaSilenceAlerts;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -137,10 +145,16 @@ class CronOrchestrator
         ?McpOAuthPurgeCommand $mcpOAuthPurge = null,
         ?HealthReportCommand $healthReport = null,
         ?McpRestoreCommand $mcpRestore = null,
+        ?OtaReleaseSyncService $otaReleaseSync = null,
+        ?ClockDriftAlertService $clockDriftAlerts = null,
+        ?OtaSilenceAlertService $otaSilenceAlerts = null,
     ) {
         $this->mcpOAuthPurge = $mcpOAuthPurge;
         $this->healthReport = $healthReport;
         $this->mcpRestore = $mcpRestore;
+        $this->otaReleaseSync = $otaReleaseSync;
+        $this->clockDriftAlerts = $clockDriftAlerts;
+        $this->otaSilenceAlerts = $otaSilenceAlerts;
         $needsDatabase = $logger === null
             || $sensorDataService === null
             || $pumpService === null
@@ -192,13 +206,28 @@ class CronOrchestrator
             new JsonFileStore($this->stateDir . '/availability_state.json')
         );
 
+        // Preuves de contact (rafales de POST / heartbeats, dernier contact authentifié, période
+        // FreqWakeUp effective) : modèle de réveil attendu + rétablissement sur preuve (6.59.0).
+        $evidence = null;
+        if ($pdo !== null && $this->offlineResolver !== null) {
+            $evidence = new DatabaseContactEvidence(
+                $this->sensorReadRepo,
+                new N3ppSensorRepository($pdo),
+                new MspSensorRepository($pdo),
+                new HeartbeatMonitorRepository($pdo),
+                $this->offlineResolver,
+                new DeviceContactRepository($pdo)
+            );
+        }
+
         $this->healthService = $healthService ?? new SystemHealthService(
             $this->sensorReadRepo,
             $this->notifier,
             $this->logger,
             $this->outputRepo,
             $operationalSettings,
-            $availability
+            $availability,
+            $evidence
         );
         $this->deviceHealthService = $deviceHealthService ?? new DeviceHealthService(
             new HeartbeatMonitorRepository($pdo ?? Database::getConnection()),
@@ -209,7 +238,8 @@ class CronOrchestrator
             $this->offlineResolver,
             $operationalSettings,
             null,
-            $availability
+            $availability,
+            $evidence
         );
 
         $this->aquaLowThreshold = $operationalSettings?->float(
@@ -501,6 +531,13 @@ class CronOrchestrator
         } catch (\Throwable $e) {
             $this->logger->error('McpRestoreCommand : ' . $e->getMessage());
         }
+        // Publications OTA : relecture des manifestes (quelques fichiers) → `ota_releases`
+        // horodate la mise à disposition d'une version à la minute (déploiement git chaque minute).
+        try {
+            $this->otaReleaseSync?->sync('cron');
+        } catch (\Throwable $e) {
+            $this->logger->warning('OtaReleaseSyncService : ' . $e->getMessage());
+        }
 
         $this->logger->addEvent('Fin tâches fréquentes CRON');
     }
@@ -538,6 +575,21 @@ class CronOrchestrator
         // « plus de données » ci-dessous pour la même panne FFP3 (un seul e-mail, pas deux).
         $this->deviceHealthService->checkAllFamilies();
         $this->healthService->checkOnlineStatus($this->resolveFfp3OfflineThresholdSeconds());
+        // Dérive d'horloge firmware (P4) et module muet après téléchargement OTA (P1) — 6.59.0.
+        try {
+            $this->clockDriftAlerts?->run([
+                ['family' => 'ffp3', 'env' => \App\Config\TableConfig::getEnvironment()],
+                ['family' => 'n3pp', 'env' => \App\Config\TableConfig::getEnvironment()],
+                ['family' => 'msp1', 'env' => \App\Config\TableConfig::getEnvironment()],
+            ]);
+        } catch (\Throwable $e) {
+            $this->logger->warning('ClockDriftAlertService : ' . $e->getMessage());
+        }
+        try {
+            $this->otaSilenceAlerts?->run();
+        } catch (\Throwable $e) {
+            $this->logger->warning('OtaSilenceAlertService : ' . $e->getMessage());
+        }
         // Envoie un unique e-mail regroupant les alertes de faible sévérité accumulées.
         $this->notifier->flushDigest();
         // Connecteur MCP : purge des jetons / codes / plans expirés (no-op sans les tables).

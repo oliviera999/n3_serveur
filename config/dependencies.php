@@ -128,9 +128,18 @@ return [
                 'MSP1' => static fn (): ?string => $c->get(\App\Repository\MspSensorRepository::class)->getLastReadingDate(),
             ],
             // Sans elle, une panne prolongée rappellerait son alerte à chaque passage horaire.
-            $c->get(\App\Service\Availability\AvailabilityNotifier::class)
+            $c->get(\App\Service\Availability\AvailabilityNotifier::class),
+            // Preuves de contact : modèle de réveil attendu (réveils manqués) + rétablissement
+            // conditionné à un contact authentifié réellement reçu (6.59.0).
+            $c->get(\App\Service\Availability\DatabaseContactEvidence::class)
         );
     },
+
+    // Source des preuves de contact (tables de mesures, heartbeats, journal device_contacts).
+    // Le journal est optionnel (table créée par la migration 2026_11_contact_diagnostics.sql ou
+    // à la première écriture) : paramètre optionnel → câblage explicite obligatoire.
+    \App\Service\Availability\DatabaseContactEvidence::class => \DI\autowire()
+        ->constructorParameter('contacts', \DI\get(\App\Repository\DeviceContactRepository::class)),
 
     \App\Service\NotificationPolicySaveService::class => function (ContainerInterface $c): \App\Service\NotificationPolicySaveService {
         return new \App\Service\NotificationPolicySaveService(
@@ -192,8 +201,49 @@ return [
             healthReport: $c->get(\App\Command\HealthReportCommand::class),
             // Rétablissement pompe après arrêt MCP borné (chaque minute).
             mcpRestore: $c->get(\App\Command\McpRestoreCommand::class),
+            // 6.59.0 : publications OTA détectées chaque minute ; dérive d'horloge et « muet après
+            // téléchargement OTA » aux tâches horaires. Sans câblage explicite ces paramètres
+            // optionnels resteraient null et les trois supervisions seraient silencieusement inactives.
+            otaReleaseSync: $c->get(\App\Service\OtaReleaseSyncService::class),
+            clockDriftAlerts: $c->get(\App\Service\ClockDriftAlertService::class),
+            otaSilenceAlerts: $c->get(\App\Service\OtaSilenceAlertService::class),
         );
     },
+
+    // ====================================================================
+    // Diagnostic des pertes de contact (6.59.0) — docs/DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md
+    // ====================================================================
+    // Manifestes OTA relus par le CRON pour alimenter `ota_releases`.
+    \App\Service\OtaReleaseSyncService::class => static fn (ContainerInterface $c): \App\Service\OtaReleaseSyncService
+        => new \App\Service\OtaReleaseSyncService(
+            $c->get(\App\Repository\OtaReleaseRepository::class),
+            $c->get(\App\Service\LogService::class),
+            dirname(__DIR__) . '/ota'
+        ),
+
+    // Pause / canari des canaux OTA : réglages opérationnels (paramètre optionnel → explicite).
+    \App\Service\OtaChannelPolicy::class => \DI\autowire()
+        ->constructorParameter('settings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Service\ClockDriftAlertService::class => \DI\autowire()
+        ->constructorParameter('settings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    \App\Service\OtaSilenceAlertService::class => \DI\autowire()
+        ->constructorParameter('evidence', \DI\get(\App\Service\Availability\DatabaseContactEvidence::class))
+        ->constructorParameter('settings', \DI\get(\App\Service\OperationalSettingsService::class)),
+
+    // Journal des contacts (POST / heartbeat / rapport OTA, acceptés ou rejetés) dans les contrôleurs
+    // d'ingestion : paramètres optionnels → câblage explicite, sinon aucun contact n'est tracé.
+    \App\Controller\Ffp3\PostDataController::class => \DI\autowire()
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class)),
+    \App\Controller\Msp\MspPostDataController::class => \DI\autowire()
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class)),
+    \App\Controller\N3pp\N3ppPostDataController::class => \DI\autowire()
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class)),
+    \App\Controller\OtaReportController::class => \DI\autowire()
+        ->constructorParameter('contacts', \DI\get(\App\Service\ContactRecorder::class))
+        ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
     \App\Service\GalleryNormalizeService::class => \DI\autowire()
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
@@ -213,7 +263,8 @@ return [
     \App\Service\SystemHealthService::class => \DI\autowire()
         ->constructorParameter('outputRepo', \DI\get(\App\Repository\OutputRepository::class))
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
-        ->constructorParameter('availability', \DI\get(\App\Service\Availability\AvailabilityNotifier::class)),
+        ->constructorParameter('availability', \DI\get(\App\Service\Availability\AvailabilityNotifier::class))
+        ->constructorParameter('evidence', \DI\get(\App\Service\Availability\DatabaseContactEvidence::class)),
 
     \App\Repository\SensorReadRepository::class => \DI\autowire()
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
@@ -228,7 +279,9 @@ return [
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
 
     \App\Controller\Ffp3\HeartbeatController::class => \DI\autowire()
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class))
+        ->constructorParameter('deviceEvents', \DI\get(\App\Repository\DeviceEventRepository::class)),
 
     \App\Controller\Gallery\GalleryUploadController::class => \DI\autowire()
         ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
@@ -260,12 +313,16 @@ return [
     \App\Controller\Msp\MspHeartbeatController::class => \DI\autowire()
         ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
         ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class))
+        ->constructorParameter('deviceEvents', \DI\get(\App\Repository\DeviceEventRepository::class)),
 
     \App\Controller\N3pp\N3ppHeartbeatController::class => \DI\autowire()
         ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
         ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class))
+        ->constructorParameter('deviceEvents', \DI\get(\App\Repository\DeviceEventRepository::class)),
 
     // POST banc énergie (INA226) : audit HMAC + mode strict / nonce + réglages opérationnels
     // (fenêtre SIG_VALID_WINDOW, rate-limit firmware) pilotés en BDD — câblage explicite,
@@ -273,7 +330,8 @@ return [
     \App\Controller\Energie\EnergiePostDataController::class => \DI\autowire()
         ->constructorParameter('hmacAuditLogger', \DI\get(\App\Service\HmacAuditLogger::class))
         ->constructorParameter('hmacPolicyService', \DI\get(\App\Service\HmacPolicyService::class))
-        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class)),
+        ->constructorParameter('operationalSettings', \DI\get(\App\Service\OperationalSettingsService::class))
+        ->constructorParameter('contactRecorder', \DI\get(\App\Service\ContactRecorder::class)),
 
     // --------------------------------------------------------------------
     // Authentification et rendu — même défaut, conséquences non plus sur la
@@ -356,6 +414,8 @@ return [
             \App\Mcp\Tools\ForgetTool::class,
             \App\Mcp\Tools\HealthReportTool::class,
             \App\Mcp\Tools\HealthHistoryTool::class,
+            // Diagnostic des pertes de contact (6.59.0) : frise + classification de la cause.
+            \App\Mcp\Tools\ContactTimelineTool::class,
             \App\Mcp\Tools\CronStatusTool::class,
             \App\Mcp\Tools\ListFilesTool::class,
             \App\Mcp\Tools\ReadFileTool::class,
@@ -451,7 +511,26 @@ return [
 
     // Galeries : même racine que les pages galerie et iot_server_health (UPLOADS_BASE_DIR).
     \App\Mcp\Health\HealthReportBuilder::class => \DI\autowire()
-        ->constructorParameter('projectRoot', \DI\factory(static fn (): string => \App\Config\Paths::getProjectRoot())),
+        ->constructorParameter('projectRoot', \DI\factory(static fn (): string => \App\Config\Paths::getProjectRoot()))
+        ->constructorParameter('timeline', \DI\get(\App\Mcp\Timeline\ContactTimelineBuilder::class)),
+
+    // Vue d'ensemble : résumé « perte de contact » des modules hors ligne (paramètre optionnel).
+    \App\Mcp\Tools\OverviewTool::class => \DI\autowire()
+        ->constructorParameter('timeline', \DI\get(\App\Mcp\Timeline\ContactTimelineBuilder::class)),
+
+    // Frise des contacts : lectures via la connexion lecture seule MCP ; les dépôts de diagnostic
+    // (device_contacts, ota_events, ota_releases, device_events) y sont construits sur `mcp.read_pdo`.
+    \App\Mcp\Timeline\ContactTimelineBuilder::class => static fn (ContainerInterface $c): \App\Mcp\Timeline\ContactTimelineBuilder
+        => new \App\Mcp\Timeline\ContactTimelineBuilder(
+            $c->get(\App\Repository\McpReadRepository::class),
+            new \App\Repository\DeviceContactRepository($c->get('mcp.read_pdo')),
+            new \App\Repository\OtaEventRepository($c->get('mcp.read_pdo')),
+            new \App\Repository\OtaReleaseRepository($c->get('mcp.read_pdo')),
+            new \App\Repository\DeviceEventRepository($c->get('mcp.read_pdo')),
+            $c->get(\App\Mcp\Support\GalleryReader::class),
+            $c->get(\App\Mcp\Support\ActiveAlertsReader::class),
+            $c->get(\App\Service\OfflineThresholdResolver::class),
+        ),
 
     \App\Mcp\Files\FileRoots::class => static fn (ContainerInterface $c): \App\Mcp\Files\FileRoots => new \App\Mcp\Files\FileRoots(
         dirname(__DIR__),

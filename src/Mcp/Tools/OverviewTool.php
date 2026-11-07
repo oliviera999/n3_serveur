@@ -9,6 +9,7 @@ use App\Mcp\McpConfig;
 use App\Mcp\McpContext;
 use App\Mcp\Support\ActiveAlertsReader;
 use App\Mcp\Support\FieldCatalog;
+use App\Mcp\Timeline\ContactTimelineBuilder;
 use App\Mcp\ToolResult;
 use App\Repository\McpReadRepository;
 use App\Service\OfflineThresholdResolver;
@@ -27,6 +28,7 @@ final class OverviewTool extends AbstractTool
         private McpReadRepository $repo,
         private OfflineThresholdResolver $thresholds,
         private ActiveAlertsReader $alerts,
+        private ?ContactTimelineBuilder $timeline = null,
     ) {
         parent::__construct($config);
     }
@@ -47,7 +49,9 @@ final class OverviewTool extends AbstractTool
             . 'compteur Poissonglouton) : en ligne ou hors ligne (âge de la dernière mesure et du dernier heartbeat comparés '
             . 'au seuil dérivé du temps de veille configuré), version du firmware, dernière mesure résumée (unités converties, '
             . 'niveaux d\'eau en cm) et nombre d\'alertes actives. Un module en veille profonde peut sembler silencieux '
-            . 'quelques minutes : se fier à « online » qui tient compte de la veille.';
+            . 'quelques minutes : se fier à « online » qui tient compte de la veille. Pour un module hors ligne, '
+            . '« contact_loss » résume le dernier contact, les réveils manqués et la cause la plus probable '
+            . '(détail et preuves : iot_contact_timeline).';
     }
 
     public function inputSchema(): array
@@ -132,7 +136,7 @@ final class OverviewTool extends AbstractTool
             $value = FieldCatalog::present($family, $field, $latest[$field] ?? null);
             $summary[$field] = $value === null ? null : ['value' => $value, 'unit' => FieldCatalog::unit($family, $field)];
         }
-        return $out + [
+        $result = $out + [
             'status' => $online ? 'en_ligne' : 'hors_ligne',
             'online' => $online,
             'last_reading' => $lastReading,
@@ -141,6 +145,38 @@ final class OverviewTool extends AbstractTool
             'heartbeat' => $heartbeat,
             'firmware_version' => isset($latest['version']) && $latest['version'] !== '' ? (string) $latest['version'] : null,
             'latest' => $summary,
+        ];
+        if (!$online && $this->timeline !== null && $family !== 'energie') {
+            $result['contact_loss'] = self::contactLossSummary($this->timeline, $family, $env);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Résumé « perte de contact » (dernier contact, réveils manqués, cause la plus probable) pour un
+     * module hors ligne — partagé avec le rapport de santé. Jamais d'exception : null si indisponible.
+     *
+     * @return array<string, mixed>|null
+     */
+    public static function contactLossSummary(ContactTimelineBuilder $timeline, string $family, string $env): ?array
+    {
+        try {
+            $now = new \DateTimeImmutable('now');
+            $t = $timeline->build($family, $env, $now->modify('-24 hours'), $now);
+        } catch (\Throwable) {
+            return null;
+        }
+        $top = $t['classification']['causes'][0] ?? null;
+
+        return [
+            'last_contact' => $t['last_contact'],
+            'last_authenticated_contact' => $t['last_authenticated_contact'],
+            'missed_wakes' => $t['expected_wake']['missed_wakes'],
+            'next_expected_at' => $t['expected_wake']['next_expected_at'],
+            'verdict' => $t['classification']['verdict'],
+            'top_cause' => $top !== null ? ['cause' => $top['cause'], 'probability' => $top['probability'], 'for' => array_slice($top['for'], 0, 3)] : null,
+            'detail_tool' => 'iot_contact_timeline',
         ];
     }
 

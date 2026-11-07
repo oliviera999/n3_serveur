@@ -525,6 +525,82 @@ Source : `OutputCacheService::getOutputsState()` (SELECT gpio, state depuis tabl
 
 ---
 
+## 🩺 Traçabilité des contacts, OTA et horloge (serveur 6.59.0)
+
+Incident du 06/11/2026 (`docs/DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md`). Rien n'affaiblit
+l'authentification : on **ajoute** de la trace et un endpoint **signé**.
+
+### Heure serveur dans toute réponse firmware
+
+`POST /post-data*`, `POST /heartbeat*`, `POST /ota-report*` répondent **toujours** (200 comme 401/400)
+avec `Date: <RFC 7231 GMT>` et `X-Server-Ts: <epoch>`. `/ota-report` ajoute `"server_ts"` au JSON.
+Le firmware se recale dessus quand NTP échoue, puis re-signe (fenêtre `SIG_VALID_WINDOW`).
+
+### `POST /ffp3/ota-report` (et `/ota-report-test`, `/ota-report3`, `/n3pp/ota-report`, `/msp1/ota-report`…)
+
+Rapport d'événements du firmware. **HMAC obligatoire** : en-têtes `X-Sig-Timestamp / X-Sig-Nonce /
+X-Sig-Hmac` (HMAC-SHA256 `ts\nnonce\nbody`, contrat ffp5cs ≥ 13.80) **ou** `timestamp` + `signature`
+dans le corps (contrat n3pp / msp). Aucun repli `api_key` → 401. Corps `application/x-www-form-urlencoded` :
+
+```
+board=esp32-wroom-a1b2c3&version=15.34&uptime=42&src=ota_report
+&events=[{"q":7,"t":1793981517,"u":30,"e":"check","d":"remote=15.33 local=15.31"},
+         {"q":8,"t":1793981520,"u":33,"e":"start","d":"15.31->15.33 size=1575872"},
+         {"q":9,"t":0,"u":90,"e":"progress","d":"25%"}]
+```
+
+`q` = séquence firmware (acquittement / dédoublonnage), `t` = horloge firmware (0 = inconnue),
+`u` = uptime, `e` ∈ `check | start | progress | done | fail | rollback | marked_valid | wifi_fail |
+ntp_ok | sleep | wake | panic …` (≤ 32 caractères), `d` = détail (≤ 255), ≤ 32 événements par
+rapport, `src` ∈ `ota_report | heartbeat_log | boot`. Réponse :
+
+```json
+{"status":"ok","acked":[7,8,9],"stored":3,"server_ts":1793979558}
+```
+
+Le firmware purge de son anneau NVS les séquences acquittées ; un doublon est acquitté sans réinsertion.
+Table : `device_events` (`migrations/2026_11_contact_diagnostics.sql`).
+
+### Heartbeat enrichi (optionnel, rétrocompatible)
+
+Champs supplémentaires acceptés par `/heartbeat*` (FFP3) et `/n3pp|msp1/heartbeat` — un firmware
+antérieur n'en envoie aucun, rien ne change pour lui :
+
+| Champ | Sens | Colonne |
+|---|---|---|
+| `rssi` | dBm | `rssi` |
+| `version` | version firmware | `version` |
+| `rst` | raison du dernier boot (`POWERON`, `SW`, `PANIC`, `TASK_WDT`, `BROWNOUT`…) | `resetReason` |
+| `part` | partition en cours (`app0` / `app1`) | `partition` |
+| `ota` | état de l'image (`valid`, `pending`, `new`, `invalid`, `undefined`) | `otaState` |
+| `fails` | boots ratés consécutifs | `failedBoots` |
+| `safe` | 1 = mode sans échec | `safeMode` |
+| `clk` | décalage mesuré horloge firmware − serveur (s) | `clockOffsetS` |
+| `wifi_ms`, `wifi_tries` | durée et tentatives de connexion Wi-Fi | `wifiConnectMs`, `wifiAttempts` |
+| `board` | identifiant de carte (= `X-Ota-Board`) | → `device_events.board` |
+| `boot=1` | premier heartbeat après boot → événement `boot` dans `device_events` | — |
+| `log` | journal de bord (même JSON que `events` ci-dessus) → `device_events` (`heartbeat_log`) | — |
+
+Le CRC32 du heartbeat FFP3 porte toujours sur `uptime=…&free=…&min=…&reboots=…` seul. Le heartbeat
+FFP3 sans en-têtes `X-Sig-*` est accepté (compat) mais journalisé `auth_mode=crc_only` : il **ne compte
+pas** comme contact authentifié pour clore une alerte « hors ligne ».
+
+### Journal des contacts et des téléchargements OTA
+
+- `device_contacts` : une ligne par POST / heartbeat / rapport OTA, accepté ou rejeté (motif
+  `signature_invalid`, `signature_incomplete`, `strict_mode`, `api_key_invalid`, `crc_mismatch`,
+  `missing_fields`, `duplicate`, `rate_limited`, `server_error`…), `clock_offset_s`.
+- `ota_events` : chaque requête `/ota/**` (manifeste ou binaire) avec IP, canal, `X-Ota-Board`,
+  `X-Ota-Version`, Range, statut, octets servis / taille, durée, `complete`.
+- Pause / canari : `OTA_PAUSED_CHANNELS`, `OTA_CANARY_CHANNELS`, `OTA_CANARY_BOARDS` (réglages de
+  supervision) → le fichier n'est **pas** servi, réponse `503` + `Retry-After: 1800` ; le firmware doit
+  traiter 503 comme « pas de mise à jour maintenant ». En-têtes conseillés côté firmware sur `/ota/**` :
+  `X-Ota-Board: <type>-<id>` et `X-Ota-Version: <version courante>`.
+
+Lecture : outil MCP `iot_contact_timeline` (`docs/MCP.md` § 13), procédure `docs/PROCEDURE_PERTE_CONTACT.md`.
+
+---
+
 ## 🔧 Diagnostic HTTP 500 (post-data / heartbeat)
 
 En cas de `HTTP 500` sur un endpoint d'ingestion, les causes habituelles sont :

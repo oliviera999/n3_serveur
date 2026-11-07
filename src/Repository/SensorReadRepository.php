@@ -174,6 +174,21 @@ class SensorReadRepository extends AbstractRepository
         ));
     }
 
+    /**
+     * Horodatages des `$limit` dernières mesures (du plus récent au plus ancien), pour reconstituer
+     * le rythme des rafales ({@see \App\Service\Availability\WakeScheduleModel}).
+     *
+     * @return list<string>
+     */
+    public function getRecentReadingTimes(int $limit = 400): array
+    {
+        $limit = max(1, min(5000, $limit));
+        $table = TableValidator::validateDataTable(TableConfig::getDataTable());
+        $rows = $this->fetchAll("SELECT reading_time FROM `{$table}` ORDER BY reading_time DESC, id DESC LIMIT {$limit}");
+
+        return array_values(array_map(static fn (array $r): string => (string) $r['reading_time'], $rows));
+    }
+
     public function getLastReadingDate(): ?string
     {
         $table = TableValidator::validateDataTable(TableConfig::getDataTable());

@@ -151,13 +151,30 @@ final class McpSqliteFixture
             . ' gpio INTEGER NOT NULL, name TEXT, state TEXT, description TEXT, requestTime TEXT, lastModifiedBy TEXT)';
         $sensorOutputs = static fn (string $t): string => "CREATE TABLE {$t} (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT,"
             . ' board INTEGER NOT NULL, gpio INTEGER NOT NULL, state TEXT, requestTime TEXT)';
+        // Schéma réel : ffp3Heartbeat* date ses lignes dans `timestamp`, n3pp/msp1 dans `reading_time`
+        // (HeartbeatMonitorRepository::timeColumnFor) ; colonnes enrichies de 2026_11_contact_diagnostics.sql.
         $heartbeat = static fn (string $t): string => "CREATE TABLE {$t} (id INTEGER PRIMARY KEY AUTOINCREMENT, uptime INTEGER,"
-            . ' freeHeap INTEGER, minHeap INTEGER, reboots INTEGER, rssi INTEGER, reading_time TEXT NOT NULL)';
+            . ' freeHeap INTEGER, minHeap INTEGER, reboots INTEGER, rssi INTEGER, version TEXT, resetReason TEXT, partition TEXT,'
+            . ' otaState TEXT, failedBoots INTEGER, safeMode INTEGER, clockOffsetS INTEGER, wifiConnectMs INTEGER, wifiAttempts INTEGER,'
+            . ' `' . \App\Repository\HeartbeatMonitorRepository::timeColumnFor($t) . '` TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)';
 
         $sql = [
             $ffp3Data('ffp3Data'), $ffp3Data('ffp3Data2'),
             $outputs('ffp3Outputs'), $outputs('ffp3Outputs2'), $outputs('ffp3Outputs3'), $outputs('ffp3OutputsS3'), $outputs('ffp3OutputsS3Test'),
-            $heartbeat('ffp3Heartbeat'), $heartbeat('ffp3Heartbeat2'),
+            $heartbeat('ffp3Heartbeat'), $heartbeat('ffp3Heartbeat2'), $heartbeat('n3ppHeartbeat'), $heartbeat('msp1Heartbeat'),
+            // Diagnostic des pertes de contact (migrations/2026_11_contact_diagnostics.sql, équivalents SQLite).
+            'CREATE TABLE device_contacts (id INTEGER PRIMARY KEY AUTOINCREMENT, received_at TEXT NOT NULL, family TEXT NOT NULL,'
+                . ' env TEXT NOT NULL, kind TEXT NOT NULL, accepted INTEGER NOT NULL, http_status INTEGER NOT NULL, auth_mode TEXT,'
+                . ' reject_reason TEXT, ts_received INTEGER, clock_offset_s INTEGER, firmware_version TEXT, post_id TEXT, ip TEXT)',
+            'CREATE TABLE ota_events (id INTEGER PRIMARY KEY AUTOINCREMENT, occurred_at TEXT NOT NULL, ip TEXT, path TEXT NOT NULL,'
+                . ' channel TEXT NOT NULL, kind TEXT NOT NULL, board TEXT, firmware_version TEXT, range_header TEXT, http_status INTEGER NOT NULL,'
+                . ' bytes_sent INTEGER NOT NULL DEFAULT 0, file_size INTEGER, duration_ms INTEGER, complete INTEGER NOT NULL DEFAULT 0, note TEXT)',
+            'CREATE TABLE ota_releases (id INTEGER PRIMARY KEY AUTOINCREMENT, target TEXT NOT NULL, channel TEXT NOT NULL, board TEXT NOT NULL,'
+                . ' version TEXT NOT NULL, hash TEXT, size INTEGER, bin_url TEXT, published_at TEXT NOT NULL, detected_at TEXT NOT NULL,'
+                . ' author TEXT, source TEXT NOT NULL DEFAULT \'cron\')',
+            'CREATE TABLE device_events (id INTEGER PRIMARY KEY AUTOINCREMENT, received_at TEXT NOT NULL, family TEXT NOT NULL, env TEXT NOT NULL,'
+                . ' board TEXT, firmware_version TEXT, source TEXT NOT NULL, seq INTEGER, device_ts INTEGER, uptime_s INTEGER, event TEXT NOT NULL,'
+                . ' detail TEXT, UNIQUE (family, env, board, source, seq))',
             'CREATE TABLE n3ppData (id INTEGER PRIMARY KEY AUTOINCREMENT, sensor TEXT, version TEXT, TempAir REAL, Humidite REAL,'
                 . ' Pression REAL, Luminosite REAL, Humid1 REAL, Humid2 REAL, Humid3 REAL, Humid4 REAL, HumidMoy REAL, PontDiv INTEGER,'
                 . ' WakeUp INTEGER, ArrosageManu INTEGER, SeuilSec INTEGER, FreqWakeUp INTEGER, SeuilPontDiv INTEGER, mail TEXT,'

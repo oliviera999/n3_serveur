@@ -32,10 +32,31 @@ final class HeartbeatMonitorRepositoryTest extends TestCase
 
     private function createTable(string $table): void
     {
+        // Schémas réels : ffp3Heartbeat* date ses lignes dans `timestamp`, n3pp/msp1 dans `reading_time`.
+        $column = HeartbeatMonitorRepository::timeColumnFor($table);
         $this->pdo->exec("CREATE TABLE `{$table}` (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            reading_time TEXT
+            `{$column}` TEXT
         )");
+    }
+
+    /**
+     * Incident du 06/11/2026 : « Unknown column 'reading_time' » sur ffp3Heartbeat à chaque passage
+     * horaire — la supervision heartbeat FFP3 était aveugle. La colonne dépend de la famille.
+     */
+    public function testFfp3TableUsesTimestampColumn(): void
+    {
+        self::assertSame('timestamp', HeartbeatMonitorRepository::timeColumnFor('ffp3Heartbeat'));
+        self::assertSame('timestamp', HeartbeatMonitorRepository::timeColumnFor('ffp3HeartbeatS3'));
+        self::assertSame('reading_time', HeartbeatMonitorRepository::timeColumnFor('n3ppHeartbeat'));
+        self::assertSame('reading_time', HeartbeatMonitorRepository::timeColumnFor('msp1HeartbeatTest'));
+
+        $this->createTable('ffp3Heartbeat');
+        $this->pdo->exec("INSERT INTO ffp3Heartbeat (`timestamp`) VALUES ('2026-11-06 16:39:58')");
+        $this->pdo->exec("INSERT INTO ffp3Heartbeat (`timestamp`) VALUES ('2026-11-06 16:40:27')");
+
+        self::assertSame('2026-11-06 16:40:27', $this->repo->getLastHeartbeatDate('ffp3Heartbeat'));
+        self::assertSame(['2026-11-06 16:40:27', '2026-11-06 16:39:58'], $this->repo->getRecentHeartbeatDates('ffp3Heartbeat'));
     }
 
     public function testReturnsNullWhenTableEmpty(): void

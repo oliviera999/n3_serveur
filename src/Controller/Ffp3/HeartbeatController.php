@@ -6,10 +6,14 @@ namespace App\Controller\Ffp3;
 
 use App\Config\Paths;
 use App\Config\TableConfig;
+use App\Controller\Concerns\HeartbeatExtras;
 use App\Controller\Concerns\OperationalSettingsTrait;
 use App\Middleware\RawPostBodyMiddleware;
+use App\Repository\DeviceContactRepository;
+use App\Repository\DeviceEventRepository;
 use App\Repository\HeartbeatRepository;
 use App\Security\SignatureValidator;
+use App\Service\ContactRecorder;
 use App\Service\ErrorAlertService;
 use App\Service\HmacAuditLogger;
 use App\Service\LogService;
@@ -24,10 +28,19 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * Réception des battements de coeur (uptime, mémoire, reboot count).
  *
  * L'écriture est déléguée à HeartbeatRepository (whitelist de tables par environnement).
+ *
+ * 6.59.0 : chaque heartbeat — accepté ou rejeté — est journalisé dans `device_contacts` avec le
+ * mode d'authentification réel (`x_sig_body` ou `crc_only`) et le décalage d'horloge ; les champs
+ * enrichis du firmware ≥ 15.34 ({@see HeartbeatExtras}) sont stockés quand les colonnes existent ;
+ * le journal de bord transporté (`log=`) et l'événement de boot vont dans `device_events` ; toute
+ * réponse porte l'heure serveur (`Date`, `X-Server-Ts`) pour que le module se recale.
  */
 class HeartbeatController
 {
     use OperationalSettingsTrait;
+
+    /** Mode d'auth constaté pour la requête courante (journal des contacts). */
+    private string $authMode = 'crc_only';
 
     public function __construct(
         private LogService $logger,
@@ -35,6 +48,8 @@ class HeartbeatController
         private ErrorAlertService $errorAlert,
         private HeartbeatRepository $heartbeatRepo,
         ?OperationalSettingsService $operationalSettings = null,
+        private ?ContactRecorder $contactRecorder = null,
+        private ?DeviceEventRepository $deviceEvents = null,
     ) {
         $this->operationalSettings = $operationalSettings;
     }
@@ -48,13 +63,64 @@ class HeartbeatController
      */
     public function handle(Request $request, Response $response): Response
     {
+        $this->authMode = 'crc_only';
+        $params = RequestHelper::extractParams($request);
+        $result = $this->process($request, $response, $params);
+        $this->recordContact($request, $params, $result);
+        foreach (ContactRecorder::serverTimeHeaders() as $name => $value) {
+            $result = $result->withHeader($name, $value);
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    private function recordContact(Request $request, array $params, Response $result): void
+    {
+        if ($this->contactRecorder === null) {
+            return;
+        }
+        $status = $result->getStatusCode();
+        $accepted = $status >= 200 && $status < 300;
+        $body = strtolower((string) $result->getBody());
+        $reason = null;
+        if (!$accepted) {
+            $reason = match (true) {
+                str_contains($body, 'signature incorrecte') => 'signature_invalid',
+                str_contains($body, 'signature incomplete') => 'signature_incomplete',
+                str_contains($body, 'crc mismatch') => 'crc_mismatch',
+                str_contains($body, 'champs manquants') => 'missing_fields',
+                str_contains($body, 'configuration serveur') => 'server_config',
+                str_contains($body, 'erreur serveur') => 'server_error',
+                default => 'http_' . $status,
+            };
+        }
+        $ts = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        $this->contactRecorder->record([
+            'family' => 'ffp3',
+            'kind' => DeviceContactRepository::KIND_HEARTBEAT,
+            'accepted' => $accepted,
+            'http_status' => $status,
+            'auth_mode' => $this->authMode,
+            'reject_reason' => $reason,
+            'ts_received' => $ts !== '' ? $ts : null,
+            'firmware_version' => isset($params['version']) && is_scalar($params['version']) ? trim((string) $params['version']) : null,
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? null,
+        ]);
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    private function process(Request $request, Response $response, array $params): Response
+    {
         // Vérifier méthode POST
         if ($request->getMethod() !== 'POST') {
             $this->logger->warning('Heartbeat: Méthode non autorisée', ['method' => $request->getMethod()]);
             return ResponseHelper::text($response, 'Méthode non autorisée', 405);
         }
-
-        $params = RequestHelper::extractParams($request);
 
         // Valeur scalar ou chaîne vide (évite erreur si POST malformé avec tableaux)
         $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k])
@@ -109,13 +175,20 @@ class HeartbeatController
 
         // Insertion en base de données via repository (whitelist tables par env)
         try {
-            $this->heartbeatRepo->insert((int) $uptime, (int) $free, (int) $min, (int) $reboots);
+            $extras = HeartbeatExtras::columns($params);
+            $this->heartbeatRepo->insert((int) $uptime, (int) $free, (int) $min, (int) $reboots, $extras);
 
             $this->logger->info('Heartbeat reçu', [
                 'env' => TableConfig::getEnvironment(),
                 'uptime' => $uptime,
                 'reboots' => $reboots,
+                'auth' => $this->authMode,
+                'rst' => $extras['resetReason'],
+                'ota' => $extras['otaState'],
+                'safe' => $extras['safeMode'],
+                'clk' => $extras['clockOffsetS'],
             ]);
+            $this->storeDeviceEvents($params, $extras);
 
             return ResponseHelper::textClose($response, 'OK', 200);
         } catch (\Throwable $e) {
@@ -208,6 +281,7 @@ class HeartbeatController
             return ResponseHelper::text($response, 'Signature incorrecte', 401);
         }
 
+        $this->authMode = 'x_sig_body';
         $this->logger->info('Heartbeat: auth HMAC OK', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a']);
         $this->hmacAuditLogger?->record('Heartbeat', 'ok', 'x_sig_body', [
             'ip' => $_SERVER['REMOTE_ADDR'] ?? 'n/a',
@@ -218,6 +292,39 @@ class HeartbeatController
         ]);
 
         return null;
+    }
+
+    /**
+     * Journal de bord et événement de boot transportés par le heartbeat → `device_events`.
+     * Best effort : une erreur n'empêche pas la réponse OK (le heartbeat est déjà inséré).
+     *
+     * @param array<string, mixed>        $params
+     * @param array<string, scalar|null> $extras
+     */
+    private function storeDeviceEvents(array $params, array $extras): void
+    {
+        if ($this->deviceEvents === null) {
+            return;
+        }
+        $events = HeartbeatExtras::events($params);
+        if ($events === []) {
+            return;
+        }
+        $board = isset($params['board']) && is_scalar($params['board']) ? substr(trim((string) $params['board']), 0, 64) : null;
+        foreach ($events as $event) {
+            try {
+                $this->deviceEvents->record($event + [
+                    'family' => 'ffp3',
+                    'env' => TableConfig::getEnvironment(),
+                    'board' => $board,
+                    'firmware_version' => $extras['version'] ?? null,
+                ]);
+            } catch (\Throwable $e) {
+                $this->logger->warning('Heartbeat: journal de bord non enregistré', ['error' => $e->getMessage()]);
+
+                return;
+            }
+        }
     }
 
     /**

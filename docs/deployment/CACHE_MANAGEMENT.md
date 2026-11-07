@@ -330,3 +330,16 @@ fi
 **Dernière mise à jour** : 2025-10-13  
 **Version du projet** : 4.5.33
 
+## Cache Twig non inscriptible (hébergement mutualisé)
+
+Symptôme (error_log, juin → novembre 2026) : `Failed to write cache file …/var/cache/twig/…` → erreur
+500 sur `/` et `/serre` ; et `Error while renaming …/var/cache/di/CompiledContainer.php` côté CRON.
+Cause : les fichiers de `var/cache/` sont créés tour à tour par le compte du CRON (SSH) et par le
+worker PHP du web ; chacun crée des fichiers/dossiers que l'autre ne peut plus réécrire.
+
+Depuis 6.59.0, `TemplateRenderer` fait un test d'écriture réel : dossier non inscriptible → rendu
+**sans cache** (une ligne `[twig-cache]` dans error_log, jamais une 500). `TWIG_CACHE_DIR` (.env)
+permet de pointer vers un dossier propre au web. Correctif pérenne côté hébergeur : un seul
+propriétaire pour `var/cache` (ou `chmod g+s var/cache` + umask 002 pour les deux comptes), puis
+`rm -rf var/cache/twig/* var/cache/di/*`.
+

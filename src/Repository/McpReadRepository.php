@@ -266,6 +266,27 @@ class McpReadRepository extends AbstractRepository
     }
 
     /**
+     * Horodatages (et version firmware) des mesures d'une fenêtre, du plus ancien au plus récent :
+     * sert à reconstituer les rafales de POST pour la frise des contacts.
+     *
+     * @return list<array{reading_time: string, version: ?string}>
+     */
+    public function readingTimesBetween(string $family, string $from, string $to, int $limit = 5000): array
+    {
+        $table = $this->table(FieldCatalog::dataTable($family));
+        $limit = max(1, min(self::MAX_RAW_ROWS, $limit));
+        $rows = $this->fetchAll(
+            "SELECT `reading_time`, `version` FROM `{$table}` WHERE reading_time BETWEEN :from AND :to ORDER BY reading_time ASC, id ASC LIMIT {$limit}",
+            [':from' => $from, ':to' => $to]
+        );
+
+        return array_values(array_map(static fn (array $r): array => [
+            'reading_time' => (string) $r['reading_time'],
+            'version' => isset($r['version']) && $r['version'] !== '' ? (string) $r['version'] : null,
+        ], $rows));
+    }
+
+    /**
      * Dernier heartbeat (sans champ sensible), ou null si table vide/absente.
      *
      * @return array<string, mixed>|null
@@ -277,11 +298,53 @@ class McpReadRepository extends AbstractRepository
             return null;
         }
         $table = $this->table($tableName);
+        // ffp3Heartbeat* date ses lignes dans `timestamp`, n3pp/msp1 dans `reading_time` : on expose
+        // toujours `reading_time` aux appelants (OverviewTool, HealthReportBuilder, timeline).
+        $column = HeartbeatMonitorRepository::timeColumnFor($table);
         try {
-            return $this->fetchOne("SELECT * FROM `{$table}` ORDER BY reading_time DESC LIMIT 1");
+            $row = $this->fetchOne("SELECT * FROM `{$table}` ORDER BY `{$column}` DESC, id DESC LIMIT 1");
         } catch (\PDOException) {
             return null;
         }
+        if ($row !== null && $column !== 'reading_time' && isset($row[$column])) {
+            $row['reading_time'] = $row[$column];
+        }
+
+        return $row;
+    }
+
+    /**
+     * Heartbeats d'une famille sur une fenêtre (du plus ancien au plus récent), colonnes brutes
+     * plus `reading_time` normalisé. Les colonnes de diagnostic (resetReason, otaState…) ne sont
+     * présentes qu'après `migrations/2026_11_contact_diagnostics.sql`.
+     *
+     * @return list<array<string, mixed>>
+     */
+    public function heartbeatsBetween(string $family, string $from, string $to, int $limit = 500): array
+    {
+        $tableName = FieldCatalog::heartbeatTable($family);
+        if ($tableName === null) {
+            return [];
+        }
+        $table = $this->table($tableName);
+        $column = HeartbeatMonitorRepository::timeColumnFor($table);
+        $limit = max(1, min(5000, $limit));
+        try {
+            $rows = $this->fetchAll(
+                "SELECT * FROM `{$table}` WHERE `{$column}` BETWEEN :from AND :to ORDER BY `{$column}` ASC, id ASC LIMIT {$limit}",
+                [':from' => $from, ':to' => $to]
+            );
+        } catch (\PDOException) {
+            return [];
+        }
+        foreach ($rows as &$row) {
+            if ($column !== 'reading_time' && isset($row[$column])) {
+                $row['reading_time'] = $row[$column];
+            }
+        }
+        unset($row);
+
+        return $rows;
     }
 
     /**

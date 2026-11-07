@@ -7,7 +7,9 @@ namespace Tests\Service;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
+use App\Service\Availability\AvailabilityIncident;
 use App\Service\Availability\AvailabilityNotifier;
+use App\Service\Availability\ContactEvidenceSource;
 use App\Service\DeviceHealthService;
 use App\Service\LogService;
 use App\Service\NotificationService;
@@ -443,5 +445,120 @@ final class DeviceHealthServiceTest extends TestCase
             self::assertArrayHasKey('table', $entry);
             self::assertNotSame('', $entry['table']);
         }
+    }
+    // ── 6.59.0 : modèle de réveil attendu + rétablissement sur preuve ──────────────────
+
+    /** @param list<int> $contacts */
+    private function evidence(array $contacts, int $period, ?int $lastAuthenticated): ContactEvidenceSource
+    {
+        return new class ($contacts, $period, $lastAuthenticated) implements ContactEvidenceSource {
+            public function __construct(private array $contacts, private int $period, private ?int $lastAuth)
+            {
+            }
+
+            public function recentContacts(string $family): array
+            {
+                return $this->contacts;
+            }
+
+            public function lastAuthenticatedContact(string $family): ?int
+            {
+                return $this->lastAuth;
+            }
+
+            public function expectedPeriodSeconds(string $family): ?int
+            {
+                return $this->period;
+            }
+        };
+    }
+
+    /** @return list<int> */
+    private static function bursts(int $lastStart, int $period, int $n = 4): array
+    {
+        $out = [];
+        for ($k = 0; $k < $n; $k++) {
+            for ($i = 0; $i < 8; $i++) {
+                $out[] = $lastStart - $k * $period + 30 * $i;
+            }
+        }
+
+        return $out;
+    }
+
+    public function testTwoMissedWakesTriggerAlertWithExpectedTime(): void
+    {
+        $now = time();
+        $lastBurst = $now - 4500; // réveils attendus à +2000 et +4000 manqués (période 2000 s)
+        $repo = $this->repoReturning(['ffp3Heartbeat' => date('Y-m-d H:i:s', $lastBurst + 200)]);
+        $subjects = [];
+        $messages = [];
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendImmediateAlert')->willReturnCallback(
+            static function (Severity $s, NotificationCategory $c, string $f, string $subject, string $message) use (&$subjects, &$messages): bool {
+                $subjects[] = $subject;
+                $messages[] = $message;
+
+                return true;
+            }
+        );
+        $state = sys_get_temp_dir() . '/avail_dh_' . uniqid('', true) . '.json';
+        $availability = new AvailabilityNotifier($notifier, $this->createMock(LogService::class), new JsonFileStore($state));
+
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            null,
+            $availability,
+            $this->evidence(self::bursts($lastBurst, 2000), 2000, $lastBurst + 200)
+        );
+
+        self::assertSame(1, $service->checkAllFamilies());
+        self::assertSame(['Appareil silencieux (heartbeat)'], $subjects);
+        self::assertStringContainsString('a manqué 2 réveil(s) attendu(s)', $messages[0]);
+        self::assertStringContainsString('réveil(s) manqué(s), le premier était attendu vers ' . date('d/m H:i', $lastBurst + 2000), $messages[0]);
+        self::assertTrue($availability->isOffline(AvailabilityIncident::heartbeat('FFP3')));
+        // Le dernier contact mémorisé est le plus récent de TOUTES les traces (dernière mesure de la rafale à +210 s),
+        // pas seulement le dernier contact authentifié : un rétablissement exige une trace plus récente que tout cela.
+        self::assertSame($lastBurst + 210, $availability->lastKnownContact(AvailabilityIncident::heartbeat('FFP3')));
+
+        // Passage suivant sans nouveau contact (même si la période configurée triple à la nuit) : rien n'est clos.
+        $night = new DeviceHealthService($repo, $notifier, $this->createMock(LogService::class), 3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']], null, null, null, $availability,
+            $this->evidence(self::bursts($lastBurst, 2000), 6000, $lastBurst + 200));
+        $night->checkAllFamilies();
+        self::assertTrue($availability->isOffline(AvailabilityIncident::heartbeat('FFP3')), 'pas de contact nouveau : pas de rétablissement');
+        self::assertCount(1, $subjects);
+
+        // Un vrai contact authentifié après l'ouverture → clôture.
+        $back = new DeviceHealthService($repo, $notifier, $this->createMock(LogService::class), 3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']], null, null, null, $availability,
+            $this->evidence(array_merge(self::bursts($lastBurst, 2000), [$now - 60]), 2000, $now - 60));
+        $back->checkAllFamilies();
+        self::assertFalse($availability->isOffline(AvailabilityIncident::heartbeat('FFP3')));
+        self::assertSame(['Appareil silencieux (heartbeat)', 'Appareil de nouveau en ligne'], $subjects);
+        @unlink($state);
+    }
+
+    public function testOneMissedWakeIsNotAnOutage(): void
+    {
+        $now = time();
+        $lastBurst = $now - 2500;
+        $repo = $this->repoReturning(['ffp3Heartbeat' => date('Y-m-d H:i:s', $lastBurst)]);
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+        $notifier->expects($this->never())->method('sendImmediateAlert');
+
+        $service = new DeviceHealthService($repo, $notifier, $this->createMock(LogService::class), 60,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']], null, null, null, null,
+            $this->evidence(self::bursts($lastBurst, 2000), 2000, $lastBurst));
+
+        self::assertSame(0, $service->checkAllFamilies(), 'un seul réveil manqué est toléré même si le seuil fixe est dépassé');
+        self::assertSame(1, $service->assess('FFP3')?->missedWakes);
     }
 }

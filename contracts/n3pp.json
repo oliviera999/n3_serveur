@@ -7,7 +7,8 @@
   "endpoints": {
     "postData": "/n3pp/post-data",
     "heartbeat": "/n3pp/heartbeat",
-    "outputsState": "/n3pp/api/firmware/outputs/state"
+    "outputsState": "/n3pp/api/firmware/outputs/state",
+    "otaReport": "/n3pp/ota-report"
   },
   "pages": {
     "suivi": "/serre",
@@ -62,5 +63,44 @@
   "serverSource": {
     "postDataController": "src/Controller/N3pp/N3ppPostDataController.php",
     "gpioMapClass": "App\\Config\\N3ppGpioMap"
+  },
+  "heartbeatFields": [
+    {"name": "sensor", "type": "string", "direction": "tx", "required": true},
+    {"name": "version", "type": "string", "direction": "tx", "required": true},
+    {"name": "uptime", "type": "int", "direction": "tx", "required": true},
+    {"name": "free", "type": "int", "direction": "tx", "required": true},
+    {"name": "min", "type": "int", "direction": "tx", "required": true},
+    {"name": "reboots", "type": "int", "direction": "tx", "required": true},
+    {"name": "rssi", "type": "int", "direction": "tx", "required": false},
+    {"name": "ip", "type": "string", "direction": "tx", "required": false},
+    {"name": "rst", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "resetReason", "note": "POWERON|SW|PANIC|INT_WDT|TASK_WDT|WDT|DEEPSLEEP|BROWNOUT|SDIO|OTHER"},
+    {"name": "part", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "partition"},
+    {"name": "ota", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "otaState", "note": "valid|pending|new|invalid|aborted|undefined"},
+    {"name": "fails", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "failedBoots"},
+    {"name": "safe", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "safeMode"},
+    {"name": "clk", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "clockOffsetS", "note": "horloge firmware − serveur (s), mesuré sur X-Server-Ts"},
+    {"name": "wifi_ms", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "wifiConnectMs"},
+    {"name": "wifi_tries", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "wifiAttempts"},
+    {"name": "board", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "note": "identifiant de carte = en-tête X-Ota-Board"},
+    {"name": "boot", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "note": "1 sur le premier heartbeat après boot → device_events(boot)"},
+    {"name": "log", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "note": "JSON compact [{q,t,u,e,d}] : journal de bord → device_events(heartbeat_log)"}
+  ],
+  "otaReport": {
+    "auth": "hmac_required",
+    "note": "Signature obligatoire (X-Sig-* ou timestamp+signature), aucun repli api_key. Réponse JSON {status, acked[], stored, server_ts} + en-têtes Date / X-Server-Ts.",
+    "fields": [
+      {"name": "board", "type": "string", "direction": "tx", "required": false},
+      {"name": "version", "type": "string", "direction": "tx", "required": false},
+      {"name": "uptime", "type": "int", "direction": "tx", "required": false},
+      {"name": "src", "type": "string", "direction": "tx", "required": false, "note": "ota_report|heartbeat_log|boot"},
+      {"name": "events", "type": "string", "direction": "tx", "required": true, "note": "JSON compact [{q:seq,t:epoch|0,u:uptime,e:check|start|progress|done|fail|rollback|marked_valid|...,d:detail}] ≤ 32"}
+    ]
+  },
+  "serverTime": {
+    "headers": [
+      "Date",
+      "X-Server-Ts"
+    ],
+    "note": "présents sur toute réponse de postData / heartbeat / otaReport, acceptée ou rejetée (recalage horloge firmware avant signature)"
   }
 }

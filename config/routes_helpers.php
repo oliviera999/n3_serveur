@@ -14,6 +14,7 @@ use App\Controller\Ffp3\OutputController;
 use App\Controller\Ffp3\PostDataController;
 use App\Controller\Ffp3\RealtimeApiController;
 use App\Controller\Ffp3\TideStatsController;
+use App\Controller\OtaReportController;
 use App\Controller\SupervisionController;
 use App\Middleware\EnvironmentMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -45,6 +46,10 @@ function registerFirmwareRoutes($app, string $groupPrefix, string $env, string $
         $group->post($postDataPath, [PostDataController::class, 'handle']);
         $group->get($outputsStatePath, [OutputController::class, 'getOutputsState']);
         $group->post($heartbeatPath, [HeartbeatController::class, 'handle']);
+        // 6.59.0 : rapport d'événements OTA / journal de bord du firmware (HMAC obligatoire).
+        // Même suffixe d'environnement que le heartbeat : /heartbeat-test → /ota-report-test, /heartbeat3 → /ota-report3…
+        $group->post(str_replace('/heartbeat', '/ota-report', $heartbeatPath), [OtaReportController::class, 'handle'])
+            ->setArgument('family', 'ffp3');
         foreach ($extraPostData as $path) {
             $group->post($path, [PostDataController::class, 'handle']);
         }
@@ -208,6 +213,8 @@ function registerIotModuleRoutes($app, string $pathPrefix, string $env, array $c
         if ($heartbeatController !== null) {
             $group->post("/{$pathPrefix}/heartbeat", [$heartbeatController, 'handle']);
         }
+        // 6.59.0 : rapport d'événements OTA / journal de bord du firmware (HMAC obligatoire).
+        $group->post("/{$pathPrefix}/ota-report", [OtaReportController::class, 'handle'])->setArgument('family', $module);
     };
 
     $app->group('', $callback)->add(new EnvironmentMiddleware($env));

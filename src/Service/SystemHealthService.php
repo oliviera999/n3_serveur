@@ -10,6 +10,9 @@ use App\Repository\OutputRepository;
 use App\Repository\SensorReadRepository;
 use App\Service\Availability\AvailabilityIncident;
 use App\Service\Availability\AvailabilityNotifier;
+use App\Service\Availability\ContactEvidenceSource;
+use App\Service\Availability\WakeAssessment;
+use App\Service\Availability\WakeScheduleModel;
 
 /**
  * Service de surveillance de l'état de santé du système.
@@ -44,6 +47,8 @@ class SystemHealthService
         private ?OutputRepository $outputRepo = null,
         private ?OperationalSettingsService $operationalSettings = null,
         private ?AvailabilityNotifier $availability = null,
+        private ?ContactEvidenceSource $evidence = null,
+        private ?WakeScheduleModel $wakeModel = null,
     ) {
     }
 
@@ -85,23 +90,72 @@ class SystemHealthService
 
         $now = time();
 
-        if (($now - $lastReadingTimestamp) > $maxOfflineSeconds) {
+        // 6.59.0 : modèle de réveil attendu (réveils manqués) quand des preuves sont câblées ;
+        // sinon seuil historique. Dans les deux cas, le rétablissement exige un contact
+        // authentifié postérieur au dernier contact connu (incident du 06/11/2026 : faux
+        // « Réception des données rétablie » à 19:40 quand le seuil nuit s'est allongé).
+        $assessment = $this->assess();
+        $offline = $assessment !== null && $assessment->lastContact !== null
+            ? $assessment->isOffline()
+            : ($now - $lastReadingTimestamp) > $maxOfflineSeconds;
+
+        if ($offline) {
             $this->logger->critical('Le système semble hors ligne !');
-            $this->reportDataFlowDown(
-                sprintf(
+            $message = $assessment !== null && $assessment->isOffline()
+                ? sprintf(
+                    "%d réveil(s) attendu(s) manqué(s) : aucune mesure reçue depuis %d minute(s).\n%s\n"
+                    . 'Le système ne transmet plus de données. Veuillez intervenir (iot_contact_timeline pour la frise).',
+                    $assessment->missedWakes,
+                    (int) round(($now - $lastReadingTimestamp) / 60),
+                    $assessment->describe()
+                )
+                : sprintf(
                     "Aucune mesure reçue depuis %d minute(s) (seuil : %d minute(s)).\n"
                     . 'Le système ne transmet plus de données. Veuillez intervenir.',
                     (int) round(($now - $lastReadingTimestamp) / 60),
                     (int) round($maxOfflineSeconds / 60)
-                ),
+                );
+            $this->reportDataFlowDown(
+                $message,
                 Severity::Critical,
                 function (): void {
                     $this->notifier->notifySystemOffline();
-                }
+                },
+                $lastReadingTimestamp
             );
         } else {
             $this->logger->info('Le système est en ligne.');
-            $this->availability?->reportOnline(AvailabilityIncident::dataFlow(self::FAMILY));
+            $this->availability?->reportOnline(
+                AvailabilityIncident::dataFlow(self::FAMILY),
+                $this->lastAuthenticatedContact() ?? $lastReadingTimestamp
+            );
+        }
+    }
+
+    /** Évaluation « réveils manqués » FFP3, ou null sans source de preuves. */
+    public function assess(): ?WakeAssessment
+    {
+        if ($this->evidence === null) {
+            return null;
+        }
+        try {
+            return ($this->wakeModel ?? new WakeScheduleModel())->assess(
+                $this->evidence->recentContacts(self::FAMILY),
+                $this->evidence->expectedPeriodSeconds(self::FAMILY)
+            );
+        } catch (\Throwable $e) {
+            $this->logger->warning('SystemHealthService: preuves de contact illisibles', ['error' => $e->getMessage()]);
+
+            return null;
+        }
+    }
+
+    private function lastAuthenticatedContact(): ?int
+    {
+        try {
+            return $this->evidence?->lastAuthenticatedContact(self::FAMILY);
+        } catch (\Throwable) {
+            return null;
         }
     }
 
@@ -116,7 +170,7 @@ class SystemHealthService
      *
      * @param callable(): void $legacyNotify Envoi historique, utilisé sans machine à états
      */
-    private function reportDataFlowDown(string $message, Severity $severity, callable $legacyNotify): void
+    private function reportDataFlowDown(string $message, Severity $severity, callable $legacyNotify, ?int $lastContactTs = null): void
     {
         if ($this->availability === null) {
             $legacyNotify();
@@ -136,7 +190,8 @@ class SystemHealthService
             AvailabilityIncident::dataFlow(self::FAMILY),
             $message . "\n\nCet e-mail ne sera pas répété : un second message vous préviendra dès que "
             . 'les données reprendront.',
-            $severity
+            $severity,
+            $lastContactTs
         );
     }
 

@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Controller\Concerns;
 
+use App\Repository\DeviceContactRepository;
+use App\Repository\DeviceEventRepository;
 use App\Security\RateLimiter;
 use App\Security\SignatureValidator;
+use App\Service\ContactRecorder;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
@@ -65,7 +68,18 @@ final class LegacyHeartbeatHandler
         private readonly ?HmacAuditLogger $hmacAuditLogger = null,
         private readonly ?HmacPolicyService $hmacPolicyService = null,
         private readonly ?OperationalSettingsService $operationalSettings = null,
+        private readonly ?ContactRecorder $contactRecorder = null,
+        private readonly ?DeviceEventRepository $deviceEvents = null,
     ) {
+    }
+
+    /** Mode d'authentification constaté pour la requête courante (journal des contacts). */
+    private string $authMode = 'none';
+
+    /** Famille du journal des contacts, déduite du composant (MspHeartbeat → msp1, N3ppHeartbeat → n3pp). */
+    private function family(): string
+    {
+        return str_starts_with(strtolower($this->componentName), 'msp') ? 'msp1' : 'n3pp';
     }
 
     private function opInt(string $envKey, int $default): int
@@ -75,6 +89,64 @@ final class LegacyHeartbeatHandler
     }
 
     public function handle(Request $request, Response $response, string $tableName): Response
+    {
+        $this->authMode = 'none';
+        $params = $request->getMethod() === 'POST' ? RequestHelper::extractParams($request) : [];
+        $result = $this->process($request, $response, $tableName, $params);
+        $this->recordContact($request, $params, $result);
+        foreach (ContactRecorder::serverTimeHeaders() as $name => $value) {
+            $result = $result->withHeader($name, $value);
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    private function recordContact(Request $request, array $params, Response $result): void
+    {
+        if ($this->contactRecorder === null) {
+            return;
+        }
+        $status = $result->getStatusCode();
+        $accepted = $status >= 200 && $status < 300;
+        $body = strtolower((string) $result->getBody());
+        $reason = null;
+        if (!$accepted) {
+            $reason = match (true) {
+                str_contains($body, 'signature incorrecte') => 'signature_invalid',
+                str_contains($body, 'signature incomplete') => 'signature_incomplete',
+                str_contains($body, 'signature hmac requise') => 'strict_mode',
+                str_contains($body, 'cle api invalide') => 'api_key_invalid',
+                str_contains($body, 'champs manquants') => 'missing_fields',
+                str_contains($body, 'configuration serveur') => 'server_config',
+                str_contains($body, 'trop de requetes') => 'rate_limited',
+                str_contains($body, 'erreur serveur') => 'server_error',
+                default => 'http_' . $status,
+            };
+        }
+        $ts = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        if ($ts === '' && isset($params['timestamp']) && is_scalar($params['timestamp'])) {
+            $ts = trim((string) $params['timestamp']);
+        }
+        $this->contactRecorder->record([
+            'family' => $this->family(),
+            'kind' => DeviceContactRepository::KIND_HEARTBEAT,
+            'accepted' => $accepted,
+            'http_status' => $status,
+            'auth_mode' => $this->authMode,
+            'reject_reason' => $reason,
+            'ts_received' => $ts !== '' ? $ts : null,
+            'firmware_version' => isset($params['version']) && is_scalar($params['version']) ? trim((string) $params['version']) : null,
+            'ip' => ClientIpResolver::resolve($request),
+        ]);
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     */
+    private function process(Request $request, Response $response, string $tableName, array $params): Response
     {
         if ($request->getMethod() !== 'POST') {
             return ResponseHelper::text($response, 'POST requis', 405);
@@ -97,7 +169,6 @@ final class LegacyHeartbeatHandler
             }
         }
 
-        $params = RequestHelper::extractParams($request);
         if ($params === []) {
             return ResponseHelper::text($response, 'Donnees manquantes', 400);
         }
@@ -136,11 +207,9 @@ final class LegacyHeartbeatHandler
         }
 
         try {
-            $stmt = $this->pdo->prepare(
-                "INSERT INTO {$tableName} (uptime, freeHeap, minHeap, reboots, rssi, sensor, version) "
-                . 'VALUES (:uptime, :free, :min, :reboots, :rssi, :sensor, :version)'
-            );
-            $stmt->execute([
+            $columns = ['uptime', 'freeHeap', 'minHeap', 'reboots', 'rssi', 'sensor', 'version'];
+            $placeholders = [':uptime', ':free', ':min', ':reboots', ':rssi', ':sensor', ':version'];
+            $values = [
                 ':uptime' => (int) $uptime,
                 ':free' => (int) $free,
                 ':min' => (int) $min,
@@ -148,14 +217,33 @@ final class LegacyHeartbeatHandler
                 ':rssi' => $rssi,
                 ':sensor' => $sensor,
                 ':version' => $version,
-            ]);
+            ];
+            // Heartbeat enrichi (firmware ≥ 4.76 / 2.79) : colonnes de la migration
+            // 2026_11_contact_diagnostics.sql, écrites seulement si elles existent.
+            $extras = HeartbeatExtras::columns($params);
+            foreach (['resetReason', 'partition', 'otaState', 'failedBoots', 'safeMode', 'clockOffsetS', 'wifiConnectMs', 'wifiAttempts'] as $column) {
+                if (($extras[$column] ?? null) === null || !$this->columnExists($tableName, $column)) {
+                    continue;
+                }
+                $columns[] = "`{$column}`";
+                $placeholders[] = ':' . $column;
+                $values[':' . $column] = $extras[$column];
+            }
+            $stmt = $this->pdo->prepare(
+                "INSERT INTO {$tableName} (" . implode(', ', $columns) . ') VALUES (' . implode(', ', $placeholders) . ')'
+            );
+            $stmt->execute($values);
 
             $this->logger->info("{$this->componentName} OK", [
                 'sensor' => $sensor,
                 'version' => $version,
                 'uptime' => $uptime,
                 'reboots' => $reboots,
+                'auth' => $this->authMode,
+                'rst' => $extras['resetReason'],
+                'ota' => $extras['otaState'],
             ]);
+            $this->storeDeviceEvents($params, $version);
 
             return ResponseHelper::textClose($response, 'OK', 200);
         } catch (\Throwable $e) {
@@ -183,6 +271,8 @@ final class LegacyHeartbeatHandler
             return $headerError;
         }
         if ($headerVerified) {
+            $this->authMode = 'x_sig_body';
+
             return null;
         }
 
@@ -216,6 +306,8 @@ final class LegacyHeartbeatHandler
                 'ts_received' => (string) $timestamp,
                 'window_s' => $sigWindow,
             ]);
+            $this->authMode = 'legacy_timestamp';
+
             return null;
         }
 
@@ -250,8 +342,71 @@ final class LegacyHeartbeatHandler
             ]);
             return ResponseHelper::text($response, 'Cle API invalide', 401);
         }
+        $this->authMode = 'api_key';
 
         return null;
+    }
+
+    /** @var array<string, bool> */
+    private static array $columnCache = [];
+
+    private function columnExists(string $table, string $column): bool
+    {
+        $key = "{$table}.{$column}";
+        if (isset(self::$columnCache[$key])) {
+            return self::$columnCache[$key];
+        }
+        try {
+            if ($this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite') {
+                $exists = false;
+                foreach ($this->pdo->query("PRAGMA table_info(`{$table}`)")->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                    if (($row['name'] ?? '') === $column) {
+                        $exists = true;
+                        break;
+                    }
+                }
+            } else {
+                $stmt = $this->pdo->prepare('SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = :t AND COLUMN_NAME = :c LIMIT 1');
+                $stmt->execute([':t' => $table, ':c' => $column]);
+                $exists = $stmt->fetch() !== false;
+            }
+        } catch (\Throwable) {
+            $exists = false;
+        }
+        self::$columnCache[$key] = $exists;
+
+        return $exists;
+    }
+
+    /**
+     * Journal de bord et événement de boot transportés par le heartbeat → `device_events` (best effort).
+     *
+     * @param array<string, mixed> $params
+     */
+    private function storeDeviceEvents(array $params, ?string $version): void
+    {
+        if ($this->deviceEvents === null) {
+            return;
+        }
+        $events = HeartbeatExtras::events($params);
+        if ($events === []) {
+            return;
+        }
+        $board = isset($params['board']) && is_scalar($params['board']) ? substr(trim((string) $params['board']), 0, 64) : null;
+        foreach ($events as $event) {
+            try {
+                $this->deviceEvents->record($event + [
+                    'family' => $this->family(),
+                    'env' => \App\Config\TableConfig::getEnvironment(),
+                    'board' => $board,
+                    'firmware_version' => $version,
+                ]);
+            } catch (\Throwable $e) {
+                $this->logger->warning("{$this->componentName}: journal de bord non enregistré", ['error' => $e->getMessage()]);
+
+                return;
+            }
+        }
     }
 
     /**

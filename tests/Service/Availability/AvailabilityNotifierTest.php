@@ -236,4 +236,58 @@ final class AvailabilityNotifierTest extends TestCase
         self::assertSame('ffp3:offline', AvailabilityIncident::dataFlow('FFP3')->key);
         self::assertSame('FFP3', AvailabilityIncident::dataFlow('ffp3')->family);
     }
+    /**
+     * Incident du 06/11/2026 : à 18:35 « Système hors ligne » (dernier POST 16:39:18) ; à 19:40 le
+     * seuil nuit s'allonge et l'âge du dernier POST repasse SOUS le seuil → l'ancien code annonçait
+     * « Réception des données rétablie » sans la moindre donnée reçue, puis « hors ligne » à 21:45.
+     * Désormais la clôture exige un contact strictement postérieur au dernier contact connu.
+     */
+    public function testRecoveryRequiresNewContactAfterOutageOpened(): void
+    {
+        $lastPost = (int) strtotime('2026-11-06 16:39:18');
+        $subjects = [];
+        $mails = $this->createMock(NotificationService::class);
+        $mails->method('sendImmediateAlert')->willReturnCallback(
+            static function (Severity $s, NotificationCategory $c, string $f, string $subject) use (&$subjects): bool {
+                $subjects[] = $subject;
+
+                return true;
+            }
+        );
+        $notifier = $this->notifier($mails);
+        $incident = AvailabilityIncident::dataFlow('FFP3');
+
+        // 18:35 : ouverture, dernier contact connu = 16:39:18.
+        self::assertTrue($notifier->reportOffline($incident, 'plus de données', Severity::Critical, $lastPost));
+        self::assertSame($lastPost, $notifier->lastKnownContact($incident));
+
+        // 19:40 : la supervision juge « en ligne » (seuil nuit) mais le dernier contact est inchangé.
+        self::assertFalse($notifier->reportOnline($incident, $lastPost), 'aucun nouveau contact : pas de rétablissement');
+        self::assertTrue($notifier->isOffline($incident));
+        // Un appelant qui ne fournit aucun contact ne peut pas non plus clore l'incident.
+        self::assertFalse($notifier->reportOnline($incident, null));
+        self::assertTrue($notifier->isOffline($incident));
+
+        // 21:45 : toujours hors ligne, aucun second e-mail d'ouverture.
+        self::assertFalse($notifier->reportOffline($incident, 'plus de données', Severity::Critical, $lastPost));
+
+        // Un POST réellement reçu plus tard → UN e-mail de rétablissement.
+        self::assertTrue($notifier->reportOnline($incident, $lastPost + 3 * 3600));
+        self::assertFalse($notifier->isOffline($incident));
+
+        self::assertSame(['Système hors ligne', 'Réception des données rétablie'], $subjects);
+    }
+
+    public function testLegacyStateWithoutKnownContactStillCloses(): void
+    {
+        // État persisté par une version antérieure (sans last_contact) : comportement historique.
+        $mails = $this->createMock(NotificationService::class);
+        $mails->method('sendImmediateAlert')->willReturn(true);
+        $notifier = $this->notifier($mails);
+        $incident = AvailabilityIncident::heartbeat('N3PP');
+
+        $notifier->reportOffline($incident, 'plus de heartbeat'); // sans horodatage
+        self::assertTrue($notifier->reportOnline($incident));
+        self::assertFalse($notifier->isOffline($incident));
+    }
 }

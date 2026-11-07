@@ -11,6 +11,8 @@ use App\Config\Version;
 use App\Mcp\McpConfig;
 use App\Mcp\Support\EnvironmentScope;
 use App\Mcp\Support\FieldCatalog;
+use App\Mcp\Timeline\ContactTimelineBuilder;
+use App\Mcp\Tools\OverviewTool;
 use App\Mcp\Tools\SensorHealthTool;
 use App\Repository\McpHealthRepository;
 use App\Repository\McpOAuthRepository;
@@ -65,6 +67,7 @@ final class HealthReportBuilder
         private CertificateProbe $tls,
         ?string $projectRoot = null,
         ?\Closure $diskSpace = null,
+        private ?ContactTimelineBuilder $timeline = null,
     ) {
         $this->projectRoot = rtrim($projectRoot ?? dirname(__DIR__, 3), '/');
         $this->diskSpace = $diskSpace;
@@ -256,7 +259,7 @@ final class HealthReportBuilder
         $online = $silence !== null && $silence <= $threshold;
         $active = $silence !== null && $silence <= HealthRules::DEVICE_INACTIVE_SECONDS;
 
-        return $out + [
+        $result = $out + [
             'online' => $online,
             'active' => $active,
             'status' => $online ? 'en_ligne' : ($active ? 'hors_ligne' : 'inactif'),
@@ -266,6 +269,15 @@ final class HealthReportBuilder
             'offline_threshold_seconds' => $threshold,
             'firmware_version' => isset($latest['version']) && $latest['version'] !== '' ? (string) $latest['version'] : null,
         ] + ($family === 'ffp3' && $online ? ['sensor_issues' => $this->sensorIssues($family, $now)] : []);
+        // Module hors ligne mais encore actif (< 30 j) : résumé de la perte de contact (6.59.0).
+        if (!$online && $active && $this->timeline !== null && $family !== 'energie') {
+            $summary = OverviewTool::contactLossSummary($this->timeline, $family, $env);
+            if ($summary !== null) {
+                $result['contact_loss'] = $summary;
+            }
+        }
+
+        return $result;
     }
 
     /**

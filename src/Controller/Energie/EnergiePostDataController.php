@@ -7,6 +7,7 @@ namespace App\Controller\Energie;
 use App\Controller\AbstractHmacPostDataController;
 use App\Domain\EnergieSensorData;
 use App\Repository\EnergieSensorRepository;
+use App\Service\ContactRecorder;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
@@ -32,8 +33,9 @@ class EnergiePostDataController extends AbstractHmacPostDataController
         ?HmacPolicyService $hmacPolicyService,
         ?OperationalSettingsService $operationalSettings,
         private EnergieSensorRepository $sensorRepo,
+        ?ContactRecorder $contactRecorder = null,
     ) {
-        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings);
+        parent::__construct($logger, $hmacAuditLogger, $hmacPolicyService, $operationalSettings, $contactRecorder);
     }
 
     protected function componentName(): string

@@ -115,6 +115,7 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_forget` | **Mémoire** : supprime une note (auteur ou administrateur). § 8 |
 | `iot_health_report` | **Santé** : rapport complet construit à la demande, statut vert / orange / rouge + raisons. § 9 |
 | `iot_health_history` | **Santé** : N derniers rapports stockés par le CRON + évolution du statut. § 9 |
+| `iot_contact_timeline` | **Perte de contact** : frise fusionnée (POST acceptés / rejetés avec motif et décalage d'horloge, heartbeats enrichis, OTA serveur et firmware, publications, photos de la caméra du site, e-mails, erreurs), dernier contact, prochain réveil attendu (réveils manqués), **classification probabiliste de la cause** (OTA, crash, Wi-Fi, horloge/signature, alimentation, serveur) avec preuves pour / contre, et ce qui reste invérifiable. § 13 |
 | `iot_cron_status` | **Admin** — dernier passage de `CronOrchestrator` et de chaque sous-tâche, retards. § 9 |
 | `iot_list_files` | **Admin** — racines autorisées, contenu d'un dossier (lecture seule). § 10 |
 | `iot_read_file` | **Admin** — lecture par `offset`/`limit` ou `tail`, secrets masqués, `.env` réduit aux noms. § 10 |
@@ -708,3 +709,55 @@ MCP_PRIVACY_BYPASS=false
 MCP_CONFIRM_SKIP=
 MCP_CONFIRM_UNLOCK_MINUTES=0
 ```
+
+---
+
+## 13. Diagnostic des pertes de contact (6.59.0)
+
+Né de l'incident du 06/11/2026 (`docs/DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md`) : le WROOM FFP3
+s'est tu à 16:40, juste après la publication OTA 15.33, sans qu'aucune donnée ne permette de trancher
+entre OTA, crash, réseau, horloge, alimentation ou serveur. Procédure d'exploitation :
+`docs/PROCEDURE_PERTE_CONTACT.md`.
+
+### Sources (toutes additives, `migrations/2026_11_contact_diagnostics.sql`)
+
+| Table | Alimentée par | Contenu |
+|---|---|---|
+| `device_contacts` | tous les contrôleurs d'ingestion (`ContactRecorder`) | une ligne par POST / heartbeat / rapport OTA, **accepté ou rejeté** : motif, mode d'auth réel (`x_sig_body`, `legacy_timestamp`, `api_key`, `crc_only`, `none`), `ts_received`, `clock_offset_s = ts_received − serveur` |
+| `ota_events` | `OtaFileController` (`OtaEventRecorder`) | chaque fichier servi : IP, chemin, canal, carte (`X-Ota-Board`), Range, statut, octets / taille, durée, `complete`, note (`paused`, `canary_denied`…) |
+| `ota_releases` | CRON chaque minute (`OtaReleaseSyncService`) | publications détectées par relecture des manifestes : cible, canal, carte, version, empreinte, taille, `published_at` (mtime), auteur git si lisible |
+| `device_events` | `POST /<famille>/ota-report` (HMAC obligatoire) et heartbeat (`log=`, `boot=1`) | événements du firmware : `check`, `start`, `progress`, `done`, `fail`, `rollback`, `marked_valid`, journal de bord (Wi-Fi, DNS/TLS, HTTP, NTP, veille, panic), boot |
+| `*Heartbeat` (colonnes ajoutées) | heartbeat enrichi (firmware ≥ 15.34 / 4.76 / 2.79) | `resetReason`, `partition`, `otaState`, `failedBoots`, `safeMode`, `clockOffsetS`, `wifiConnectMs`, `wifiAttempts`, `rssi`, `version` |
+
+Les tables sont aussi créées à la première écriture si la migration n'a pas encore été appliquée
+(`CREATE TABLE IF NOT EXISTS`) ; les colonnes heartbeat ne sont écrites que si elles existent.
+
+### `iot_contact_timeline`
+
+Paramètres : `family` (ffp3 / n3pp / msp1), `env` (prod, s3…), `from` / `to` (défaut 24 h, max 30 j).
+Réponse : `last_contact`, `last_authenticated_contact`, `expected_wake` (modèle de réveil :
+période retenue = max(FreqWakeUp × facteur nuit, période observée des rafales), `missed_wakes`,
+`first_missed_at`, `next_expected_at`), `classification` (`verdict`, `causes[]` triées par probabilité
+avec `for` / `against`, `unverifiable[]`), `active_alerts`, `timeline[]` (≤ 600 entrées, POST regroupés
+en rafales), `counts`, `notes`. Les classes `Mcp\Timeline\ContactLossClassifier` (pure, testée) et
+`Mcp\Timeline\ContactTimelineBuilder` portent la logique ; `iot_overview` et `iot_health_report`
+en exposent le résumé `contact_loss` pour chaque module hors ligne.
+
+### Supervision associée (CRON)
+
+- `DeviceHealthService` / `SystemHealthService` : verdict par **réveils manqués** (`OFFLINE_MISSED_WAKEUPS`,
+  défaut 2) au lieu d'un seuil fixe ; **rétablissement uniquement sur contact authentifié postérieur**
+  au dernier contact connu (plus de « Réception des données rétablie » quand seul le seuil change).
+- `ClockDriftAlertService` : P4 « Horloge du module désynchronisée » quand 3 rafales consécutives
+  dépassent `CLOCK_DRIFT_ALERT_SECONDS` (défaut 120 s).
+- `OtaSilenceAlertService` : P1 « Module muet après téléchargement OTA » si aucun contact dans les
+  `OTA_SILENT_AFTER_DOWNLOAD_WAKEUPS` (défaut 2) réveils suivant un binaire servi en entier.
+- Pause / canari des canaux OTA : `OTA_PAUSED_CHANNELS`, `OTA_CANARY_CHANNELS`, `OTA_CANARY_BOARDS`
+  (réglages opérationnels, groupe « Sécurité firmware ») → 503 + `Retry-After` côté firmware.
+
+### Heure serveur renvoyée au firmware
+
+Toute réponse des routes firmware (`/post-data*`, `/heartbeat*`, `/ota-report*`), acceptée ou
+rejetée, porte `Date` (RFC 7231) et `X-Server-Ts` (epoch) ; `/ota-report` renvoie aussi `server_ts`
+dans son JSON. Le firmware ≥ 15.34 s'en sert pour se recaler quand NTP échoue, **avant** de re-signer.
+
