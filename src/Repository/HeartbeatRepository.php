@@ -45,6 +45,10 @@ final class HeartbeatRepository extends AbstractRepository
         'clockOffsetS' => 'clockOffsetS',
         'wifiConnectMs' => 'wifiConnectMs',
         'wifiAttempts' => 'wifiAttempts',
+        // 6.60.0 : migrations/2026_11_heartbeat_resources.sql
+        'maxBlock' => 'maxBlock',
+        'idlePct' => 'idlePct',
+        'nvsUsedPct' => 'nvsUsedPct',
     ];
 
     /** @var array<string, bool> Cache colonnes par worker. */

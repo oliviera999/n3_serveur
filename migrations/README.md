@@ -29,6 +29,7 @@ Comparaison dump prod vs serveur **5.1.3** : voir le plan d'audit dans le dépô
 | Angles servo FFP3 (GPIO 118-123) | `tools/sql/migrate-gpio118-123-servo-angles-ffp3.sql` | Si prod antérieure à 5.3.9 (auto-créé depuis 5.3.9) |
 | **Connecteur MCP + OAuth** (`mcp_oauth_*`, `mcp_control_plans`) | `2026_11_mcp_oauth.sql` | Avant `MCP_ENABLED=true` (serveur 6.51.0, voir `docs/MCP.md`) |
 | Diagnostic d'écho ultrason FFP3 (`wlAqua*`, `wlPota*`) | `2026_11_ffp3_echo_diag.sql` | Recommandé (serveur 6.57.0 / ffp5cs 15.33) — sans elle, le diagnostic est ignoré |
+| **Ressources heartbeat** (`maxBlock`, `idlePct`, `nvsUsedPct` sur les tables heartbeat) | `2026_11_heartbeat_resources.sql` | Recommandé (serveur 6.60.0 / ffp5cs 15.35) — colonnes ignorées tant qu'elles n'existent pas |
 | **Diagnostic des pertes de contact** (`device_contacts`, `ota_events`, `ota_releases`, `device_events`, colonnes heartbeat) | `2026_11_contact_diagnostics.sql` | Recommandé (serveur 6.59.0 / ffp5cs 15.34) — les tables sont aussi créées à la première écriture ; les colonnes heartbeat enrichies ne le sont pas |
 | Validation post-migration | `99_validate_prod.sql` | Après migration |
 

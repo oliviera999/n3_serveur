@@ -156,6 +156,7 @@ final class McpSqliteFixture
         $heartbeat = static fn (string $t): string => "CREATE TABLE {$t} (id INTEGER PRIMARY KEY AUTOINCREMENT, uptime INTEGER,"
             . ' freeHeap INTEGER, minHeap INTEGER, reboots INTEGER, rssi INTEGER, version TEXT, resetReason TEXT, partition TEXT,'
             . ' otaState TEXT, failedBoots INTEGER, safeMode INTEGER, clockOffsetS INTEGER, wifiConnectMs INTEGER, wifiAttempts INTEGER,'
+            . ' maxBlock INTEGER, idlePct INTEGER, nvsUsedPct INTEGER,'
             . ' `' . \App\Repository\HeartbeatMonitorRepository::timeColumnFor($t) . '` TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)';
 
         $sql = [

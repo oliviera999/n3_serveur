@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.60.0] - 2026-11-07
+
+### Ajout — Heartbeat : ressources mémoire / CPU / NVS (analyse charge ESP FFP3 du 07/11)
+- Colonnes `maxBlock` (plus grand bloc libre du tas), `idlePct` (% idle CPU) et `nvsUsedPct` (% NVS)
+  sur les tables heartbeat (`migrations/2026_11_heartbeat_resources.sql`, additive) ; champs `blk`,
+  `idle`, `nvs` du heartbeat (ffp5cs ≥ 15.35, `contracts/ffp3.json`), écrits seulement si la colonne existe.
+- `iot_contact_timeline` affiche le plus grand bloc libre sur chaque heartbeat.
+- Note de contrat : depuis ffp5cs 15.35, `min` est le plancher heap depuis le boot (avant : plancher
+  historique rechargé de la NVS, identique sur plusieurs boots).
+
 ## [6.59.0] - 2026-11-07
 
 ### Ajout — Pertes de contact diagnosticables (incident FFP3 WROOM du 06/11/2026)
