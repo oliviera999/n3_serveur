@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Controller\Ffp3;
 
+use App\Config\OperationalSettingsCatalog;
 use App\Controller\Ffp3\OtaFileController;
 use App\Repository\OtaEventRepository;
+use App\Repository\ServerSettingsRepository;
 use App\Service\LogService;
 use App\Service\OperationalSettingsService;
 use App\Service\OtaChannelPolicy;
@@ -232,13 +234,25 @@ class OtaFileControllerTest extends TestCase
         return [$controller, $pdo];
     }
 
+    /**
+     * OperationalSettingsService est final : on simule le dépôt de réglages (clés `op_<ENV_KEY>`) derrière
+     * un service réel, comme en production (réglage BDD prioritaire sur `.env`).
+     *
+     * @param array<string, string> $values réglages indexés par clé d'environnement
+     */
     private function settingsWith(array $values): OperationalSettingsService
     {
-        $settings = $this->createMock(OperationalSettingsService::class);
-        $settings->method('string')->willReturnCallback(static fn (string $key, string $default = ''): string => $values[$key] ?? $default);
-        $settings->method('bool')->willReturnCallback(static fn (string $key, bool $default): bool => $default);
+        $byDbKey = [];
+        foreach ($values as $envKey => $value) {
+            $byDbKey[OperationalSettingsCatalog::dbKey($envKey)] = $value;
+        }
+        $repo = $this->createMock(ServerSettingsRepository::class);
+        $repo->method('hasKey')->willReturnCallback(static fn (string $key): bool => array_key_exists($key, $byDbKey));
+        $repo->method('getRaw')->willReturnCallback(static fn (string $key): ?string => $byDbKey[$key] ?? null);
+        $repo->method('getString')->willReturnCallback(static fn (string $key, string $default = ''): string => $byDbKey[$key] ?? $default);
+        $repo->method('getBool')->willReturnCallback(static fn (string $key, bool $default = false): bool => $default);
 
-        return $settings;
+        return new OperationalSettingsService($repo);
     }
 
     /** @return list<array<string, mixed>> */

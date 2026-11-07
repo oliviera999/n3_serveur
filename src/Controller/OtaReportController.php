@@ -78,6 +78,11 @@ final class OtaReportController
             return $this->reply($response, ['status' => 'error', 'message' => 'corps trop long'], 413);
         }
         $params = RequestHelper::extractParams($request, $rawBody);
+        if ($params === [] && $rawBody !== '' && !str_contains(strtolower($request->getHeaderLine('Content-Type')), 'json')) {
+            // Corps x-www-form-urlencoded non analysé en amont (pas de BodyParsingMiddleware) : le corps
+            // brut, celui qui est signé, fait foi.
+            parse_str($rawBody, $params);
+        }
         $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k]) ? trim((string) $params[$k]) : '';
         $version = substr($get('version'), 0, 30);
         $board = substr($get('board'), 0, 64);

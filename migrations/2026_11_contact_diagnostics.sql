@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `device_events` (
     `env` VARCHAR(16) NOT NULL,
     `board` VARCHAR(64) DEFAULT NULL,
     `firmware_version` VARCHAR(30) DEFAULT NULL,
-    `source` VARCHAR(12) NOT NULL COMMENT 'ota_report | heartbeat_log | boot',
+    `source` VARCHAR(16) NOT NULL COMMENT 'ota_report | heartbeat_log | boot',
     `seq` INT UNSIGNED DEFAULT NULL COMMENT 'numéro de séquence firmware (acquittement / dédoublonnage)',
     `device_ts` BIGINT DEFAULT NULL COMMENT 'horloge firmware au moment de l\'événement (0 = inconnue)',
     `uptime_s` INT UNSIGNED DEFAULT NULL,

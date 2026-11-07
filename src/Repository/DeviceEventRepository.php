@@ -42,7 +42,7 @@ class DeviceEventRepository extends AbstractRepository
             ':env' => substr($event['env'], 0, 16),
             ':board' => isset($event['board']) && $event['board'] !== '' ? substr((string) $event['board'], 0, 64) : null,
             ':version' => isset($event['firmware_version']) && $event['firmware_version'] !== '' ? substr((string) $event['firmware_version'], 0, 30) : null,
-            ':source' => substr($event['source'], 0, 12),
+            ':source' => substr($event['source'], 0, 16),
             ':seq' => $event['seq'] ?? null,
             ':device_ts' => $event['device_ts'] ?? null,
             ':uptime' => $event['uptime_s'] ?? null,
@@ -107,7 +107,7 @@ class DeviceEventRepository extends AbstractRepository
             : 'CREATE TABLE IF NOT EXISTS `' . self::TABLE . '` ('
                 . ' `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, `received_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,'
                 . ' `family` VARCHAR(8) NOT NULL, `env` VARCHAR(16) NOT NULL, `board` VARCHAR(64) DEFAULT NULL, `firmware_version` VARCHAR(30) DEFAULT NULL,'
-                . ' `source` VARCHAR(12) NOT NULL, `seq` INT UNSIGNED DEFAULT NULL, `device_ts` BIGINT DEFAULT NULL, `uptime_s` INT UNSIGNED DEFAULT NULL,'
+                . ' `source` VARCHAR(16) NOT NULL, `seq` INT UNSIGNED DEFAULT NULL, `device_ts` BIGINT DEFAULT NULL, `uptime_s` INT UNSIGNED DEFAULT NULL,'
                 . ' `event` VARCHAR(32) NOT NULL, `detail` VARCHAR(255) DEFAULT NULL,'
                 . ' PRIMARY KEY (`id`), UNIQUE KEY `uq_device_event_seq` (`family`, `env`, `board`, `source`, `seq`),'
                 . ' KEY `idx_device_events_time` (`family`, `env`, `received_at`)'
