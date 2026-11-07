@@ -32,6 +32,13 @@ use Psr\Http\Message\ResponseInterface as Response;
 trait HmacAuthTrait
 {
     /**
+     * Mode d'authentification retenu (x_sig_body, legacy_timestamp, legacy_nonce, api_key) pour le journal
+     * des contacts. Déclaration identique à celle d'AbstractPostDataController (compatible) : les contrôleurs
+     * qui utilisent ce trait sans en hériter (Pgl) disposent ainsi de la propriété.
+     */
+    protected ?string $authMode = null;
+
+    /**
      * Valide la signature HMAC si présente. Active `authenticatedByHmac` en cas
      * de succès pour bypasser la vérification api_key.
      *

@@ -244,7 +244,7 @@ final class OtaFileController
     /**
      * @param int $sent Octets effectivement écrits dans la réponse (sortie)
      */
-    private function stream(Response $response, string $file, int $offset, int $length, ?int &$sent = null): Response
+    private function stream(Response $response, string $file, int $offset, int $length, int &$sent = 0): Response
     {
         $sent = 0;
         $stream = fopen($file, 'rb');

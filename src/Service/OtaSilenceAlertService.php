@@ -68,7 +68,7 @@ class OtaSilenceAlertService
                 $verdict['download']['channel'],
                 $verdict['download']['bytes_sent'],
                 $verdict['download']['ip'] ?? '?',
-                isset($verdict['download']['board']) && $verdict['download']['board'] !== null ? ', carte ' . $verdict['download']['board'] : '',
+                isset($verdict['download']['board']) ? ', carte ' . $verdict['download']['board'] : '',
                 $verdict['download']['occurred_at'],
                 $verdict['missed_wakes'],
                 (int) round($verdict['period'] / 60),

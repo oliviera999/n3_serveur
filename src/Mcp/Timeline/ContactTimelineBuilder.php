@@ -165,9 +165,9 @@ final class ContactTimelineBuilder
                     self::dur((int) ($hb['uptime'] ?? 0)),
                     $reboots ?? '?',
                     $rst !== null ? ', boot ' . $rst : '',
-                    isset($hb['otaState']) && $hb['otaState'] !== null ? ', OTA ' . $hb['otaState'] . (isset($hb['partition']) && $hb['partition'] !== null ? ' sur ' . $hb['partition'] : '') : '',
+                    isset($hb['otaState']) ? ', OTA ' . $hb['otaState'] . (isset($hb['partition']) ? ' sur ' . $hb['partition'] : '') : '',
                     isset($hb['safeMode']) && (int) $hb['safeMode'] === 1 ? ', MODE SANS ÉCHEC' : '',
-                    isset($hb['clockOffsetS']) && $hb['clockOffsetS'] !== null ? sprintf(', horloge %+d s', (int) $hb['clockOffsetS']) : ''
+                    isset($hb['clockOffsetS']) ? sprintf(', horloge %+d s', (int) $hb['clockOffsetS']) : ''
                 ),
             ];
         }
@@ -442,7 +442,7 @@ final class ContactTimelineBuilder
             ],
             'camera' => ['had_uploads_before' => $camBefore > 0, 'uploads_after_loss' => $camAfter],
             'server' => ['errors_5xx_after_loss' => $errorsAfter, 'cron_late' => false, 'other_devices_contacting' => $camAfter > 0],
-            'wifi' => ['fail_events' => $wifiFails, 'last_rssi' => $lastHb !== null && isset($lastHb['rssi']) && $lastHb['rssi'] !== null ? (int) $lastHb['rssi'] : null],
+            'wifi' => ['fail_events' => $wifiFails, 'last_rssi' => $lastHb !== null && isset($lastHb['rssi']) ? (int) $lastHb['rssi'] : null],
             'firmware' => ['seen_version' => $lastVersion, 'published_version' => $releaseVersion],
         ];
     }
