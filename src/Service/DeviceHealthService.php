@@ -343,7 +343,7 @@ class DeviceHealthService
             $message = sprintf(
                 "L'appareil %s a manqué %d réveil(s) attendu(s) : aucun POST ni heartbeat depuis environ %d minute(s).\n%s\n"
                 . "L'appareil ne transmet plus : vérifiez son alimentation, sa connexion réseau ou son firmware "
-                . "(outil MCP iot_contact_timeline pour la frise des preuves).",
+                . '(outil MCP iot_contact_timeline pour la frise des preuves).',
                 strtoupper($family),
                 $assessment->missedWakes,
                 $minutes,

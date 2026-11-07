@@ -528,17 +528,35 @@ final class DeviceHealthServiceTest extends TestCase
         self::assertSame($lastBurst + 210, $availability->lastKnownContact(AvailabilityIncident::heartbeat('FFP3')));
 
         // Passage suivant sans nouveau contact (même si la période configurée triple à la nuit) : rien n'est clos.
-        $night = new DeviceHealthService($repo, $notifier, $this->createMock(LogService::class), 3600,
-            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']], null, null, null, $availability,
-            $this->evidence(self::bursts($lastBurst, 2000), 6000, $lastBurst + 200));
+        $night = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            null,
+            $availability,
+            $this->evidence(self::bursts($lastBurst, 2000), 6000, $lastBurst + 200)
+        );
         $night->checkAllFamilies();
         self::assertTrue($availability->isOffline(AvailabilityIncident::heartbeat('FFP3')), 'pas de contact nouveau : pas de rétablissement');
         self::assertCount(1, $subjects);
 
         // Un vrai contact authentifié après l'ouverture → clôture.
-        $back = new DeviceHealthService($repo, $notifier, $this->createMock(LogService::class), 3600,
-            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']], null, null, null, $availability,
-            $this->evidence(array_merge(self::bursts($lastBurst, 2000), [$now - 60]), 2000, $now - 60));
+        $back = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            3600,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            null,
+            $availability,
+            $this->evidence(array_merge(self::bursts($lastBurst, 2000), [$now - 60]), 2000, $now - 60)
+        );
         $back->checkAllFamilies();
         self::assertFalse($availability->isOffline(AvailabilityIncident::heartbeat('FFP3')));
         self::assertSame(['Appareil silencieux (heartbeat)', 'Appareil de nouveau en ligne'], $subjects);
@@ -554,9 +572,18 @@ final class DeviceHealthServiceTest extends TestCase
         $notifier->expects($this->never())->method('sendAlert');
         $notifier->expects($this->never())->method('sendImmediateAlert');
 
-        $service = new DeviceHealthService($repo, $notifier, $this->createMock(LogService::class), 60,
-            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']], null, null, null, null,
-            $this->evidence(self::bursts($lastBurst, 2000), 2000, $lastBurst));
+        $service = new DeviceHealthService(
+            $repo,
+            $notifier,
+            $this->createMock(LogService::class),
+            60,
+            [['family' => 'FFP3', 'table' => 'ffp3Heartbeat']],
+            null,
+            null,
+            null,
+            null,
+            $this->evidence(self::bursts($lastBurst, 2000), 2000, $lastBurst)
+        );
 
         self::assertSame(0, $service->checkAllFamilies(), 'un seul réveil manqué est toléré même si le seuil fixe est dépassé');
         self::assertSame(1, $service->assess('FFP3')?->missedWakes);

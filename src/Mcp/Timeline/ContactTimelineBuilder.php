@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Mcp\Timeline;
 
-use App\Config\TableConfig;
 use App\Mcp\Support\ActiveAlertsReader;
 use App\Mcp\Support\GalleryReader;
 use App\Repository\DeviceContactRepository;

@@ -60,9 +60,9 @@ class OtaSilenceAlertService
             $message = sprintf(
                 "Le module %s a téléchargé EN ENTIER un binaire OTA (%s, canal %s, %d octets, IP %s%s) à %s et n'a plus "
                 . "donné signe de vie depuis : %d réveil(s) attendu(s) manqué(s) (période %d min). Dernier contact : %s.\n"
-                . "Causes probables : image qui ne démarre pas (rollback attendu si CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE et "
-                . "image non validée), flash interrompu, ou boot sans réseau. Vérifier iot_contact_timeline ; si le module ne "
-                . "revient pas au prochain réveil, mettre le canal en pause (OTA_PAUSED_CHANNELS) avant toute autre publication.",
+                . 'Causes probables : image qui ne démarre pas (rollback attendu si CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE et '
+                . 'image non validée), flash interrompu, ou boot sans réseau. Vérifier iot_contact_timeline ; si le module ne '
+                . 'revient pas au prochain réveil, mettre le canal en pause (OTA_PAUSED_CHANNELS) avant toute autre publication.',
                 $upper,
                 $verdict['download']['path'] ?? 'firmware.bin',
                 $verdict['download']['channel'],

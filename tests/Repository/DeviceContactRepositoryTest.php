@@ -71,7 +71,7 @@ final class DeviceContactRepositoryTest extends TestCase
 
     public function testMissingTableIsDetected(): void
     {
-        self::assertTrue(DeviceContactRepository::isMissingTable(new \PDOException("SQLSTATE[HY000]: General error: 1 no such table: device_contacts")));
+        self::assertTrue(DeviceContactRepository::isMissingTable(new \PDOException('SQLSTATE[HY000]: General error: 1 no such table: device_contacts')));
         self::assertTrue(DeviceContactRepository::isMissingTable(new \PDOException("SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oliviera_iot.device_contacts' doesn't exist")));
         self::assertFalse(DeviceContactRepository::isMissingTable(new \PDOException('SQLSTATE[23000]: Integrity constraint violation')));
     }
