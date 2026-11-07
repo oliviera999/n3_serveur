@@ -31,6 +31,7 @@ final class HeartbeatExtras
         $get = static fn (string $k): string => isset($params[$k]) && is_scalar($params[$k]) ? trim((string) $params[$k]) : '';
         $int = static fn (string $v): ?int => $v !== '' && preg_match('/^-?\d{1,10}$/', $v) === 1 ? (int) $v : null;
         $tok = static fn (string $v, int $max): ?string => $v !== '' ? substr(preg_replace('/[^A-Za-z0-9_.:-]/', '', $v) ?? '', 0, $max) : null;
+        $pct = static fn (string $v): ?int => $v !== '' && preg_match('/^\d{1,3}$/', $v) === 1 && (int) $v <= 100 ? (int) $v : null;
 
         return [
             'rssi' => $int($get('rssi')),
@@ -43,6 +44,10 @@ final class HeartbeatExtras
             'clockOffsetS' => $int($get('clk')),
             'wifiConnectMs' => $int($get('wifi_ms')),
             'wifiAttempts' => $int($get('wifi_tries')),
+            // 6.60.0 / ffp5cs 15.35 : ressources (plus grand bloc libre, % idle CPU, % NVS utilisée)
+            'maxBlock' => $int($get('blk')),
+            'idlePct' => $pct($get('idle')),
+            'nvsUsedPct' => $pct($get('nvs')),
         ];
     }
 

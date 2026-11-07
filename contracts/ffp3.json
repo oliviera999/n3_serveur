@@ -100,7 +100,7 @@
   "heartbeatFields": [
     {"name": "uptime", "type": "int", "direction": "tx", "required": true},
     {"name": "free", "type": "int", "direction": "tx", "required": true},
-    {"name": "min", "type": "int", "direction": "tx", "required": true},
+    {"name": "min", "type": "int", "direction": "tx", "required": true, "note": "depuis ffp5cs 15.35 : plancher heap DEPUIS LE BOOT (avant : plancher historique rechargé de la NVS)"},
     {"name": "reboots", "type": "int", "direction": "tx", "required": true},
     {"name": "crc", "type": "string", "direction": "tx", "required": true, "note": "CRC32B de uptime=&free=&min=&reboots="},
     {"name": "ip", "type": "string", "direction": "tx", "required": false},
@@ -114,6 +114,9 @@
     {"name": "clk", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "clockOffsetS", "note": "horloge firmware − serveur (s), mesuré sur X-Server-Ts"},
     {"name": "wifi_ms", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "wifiConnectMs"},
     {"name": "wifi_tries", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "column": "wifiAttempts"},
+    {"name": "blk", "type": "int", "direction": "tx", "required": false, "since": "ffp5cs 15.35", "column": "maxBlock", "note": "plus grand bloc libre du tas (octets) — fragmentation"},
+    {"name": "idle", "type": "int", "direction": "tx", "required": false, "since": "ffp5cs 15.35", "column": "idlePct", "note": "% idle CPU (2 coeurs) sur le dernier intervalle, omis si inconnu"},
+    {"name": "nvs", "type": "int", "direction": "tx", "required": false, "since": "ffp5cs 15.35", "column": "nvsUsedPct", "note": "% d'entrées utilisées de la partition NVS"},
     {"name": "board", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "note": "identifiant de carte = en-tête X-Ota-Board"},
     {"name": "boot", "type": "int", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "note": "1 sur le premier heartbeat après boot → device_events(boot)"},
     {"name": "log", "type": "string", "direction": "tx", "required": false, "since": "15.34 / 4.76 / 2.79", "note": "JSON compact [{q,t,u,e,d}] : journal de bord → device_events(heartbeat_log)"}

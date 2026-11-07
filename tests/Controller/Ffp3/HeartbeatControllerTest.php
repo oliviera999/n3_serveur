@@ -246,13 +246,16 @@ class HeartbeatControllerTest extends TestCase
         $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN safeMode INTEGER');
         $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN clockOffsetS INTEGER');
         $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN version TEXT');
-        // partition / failedBoots / rssi / wifi* absentes : doivent être ignorées sans erreur.
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN maxBlock INTEGER');
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN idlePct INTEGER');
+        // partition / failedBoots / rssi / wifi* / nvsUsedPct absentes : doivent être ignorées sans erreur.
 
         $params = [
             'uptime' => '31', 'free' => '80000', 'min' => '60000', 'reboots' => '106',
             'crc' => self::crcFor(31, 80000, 60000, 106),
             'version' => '15.34', 'rst' => 'SW', 'part' => 'app1', 'ota' => 'pending', 'fails' => '0', 'safe' => '0',
             'clk' => '-3', 'rssi' => '-67', 'wifi_ms' => '2100', 'wifi_tries' => '1', 'board' => 'esp32-wroom-a1b2c3', 'boot' => '1',
+            'blk' => '31732', 'idle' => '87', 'nvs' => '41',
             'log' => json_encode([
                 ['q' => 41, 't' => 1793981640, 'u' => 5, 'e' => 'wifi_ok', 'd' => 'rssi=-67 2100ms'],
                 ['q' => 42, 't' => 1793981650, 'u' => 15, 'e' => 'ntp_ok', 'd' => 'offset=-3'],
@@ -270,6 +273,8 @@ class HeartbeatControllerTest extends TestCase
         $this->assertSame(0, (int) $row['safeMode']);
         $this->assertSame(-3, (int) $row['clockOffsetS']);
         $this->assertSame('15.34', $row['version']);
+        $this->assertSame(31732, (int) $row['maxBlock'], 'plus grand bloc libre (fragmentation)');
+        $this->assertSame(87, (int) $row['idlePct']);
 
         $events = $this->pdo->query('SELECT source, seq, event, detail, board FROM device_events ORDER BY id')->fetchAll(PDO::FETCH_ASSOC);
         $this->assertCount(3, $events);

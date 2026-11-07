@@ -161,13 +161,14 @@ final class ContactTimelineBuilder
                 'at' => (string) $hb['reading_time'],
                 'type' => 'heartbeat',
                 'label' => sprintf(
-                    'Heartbeat : uptime %s, reboots %s%s%s%s%s',
+                    'Heartbeat : uptime %s, reboots %s%s%s%s%s%s',
                     self::dur((int) ($hb['uptime'] ?? 0)),
                     $reboots ?? '?',
                     $rst !== null ? ', boot ' . $rst : '',
                     isset($hb['otaState']) ? ', OTA ' . $hb['otaState'] . (isset($hb['partition']) ? ' sur ' . $hb['partition'] : '') : '',
                     isset($hb['safeMode']) && (int) $hb['safeMode'] === 1 ? ', MODE SANS ÉCHEC' : '',
-                    isset($hb['clockOffsetS']) ? sprintf(', horloge %+d s', (int) $hb['clockOffsetS']) : ''
+                    isset($hb['clockOffsetS']) ? sprintf(', horloge %+d s', (int) $hb['clockOffsetS']) : '',
+                    isset($hb['maxBlock']) ? sprintf(', bloc libre %d Ko', intdiv((int) $hb['maxBlock'], 1024)) : ''
                 ),
             ];
         }
