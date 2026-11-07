@@ -169,6 +169,7 @@ final class OtaFileController
         if ($range === null) {
             // Pas de Range exploitable → réponse complète (comportement historique).
             $response = $response->withHeader('Content-Length', (string) $fileSize);
+            $sent = 0;
             $response = $this->stream($response, $file, 0, $fileSize, $sent);
             $event['bytes_sent'] = $sent;
             $event['complete'] = $sent === $fileSize;
@@ -184,6 +185,7 @@ final class OtaFileController
             ->withHeader('Content-Range', "bytes {$start}-{$end}/{$fileSize}")
             ->withStatus(206);
 
+        $sent = 0;
         $response = $this->stream($response, $file, $start, $length, $sent);
         $event['bytes_sent'] = $sent;
         // Une reprise qui va jusqu'à la fin du fichier clôt le transfert côté firmware.
