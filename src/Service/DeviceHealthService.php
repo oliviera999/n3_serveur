@@ -10,6 +10,9 @@ use App\Notification\Severity;
 use App\Repository\HeartbeatMonitorRepository;
 use App\Service\Availability\AvailabilityIncident;
 use App\Service\Availability\AvailabilityNotifier;
+use App\Service\Availability\ContactEvidenceSource;
+use App\Service\Availability\WakeAssessment;
+use App\Service\Availability\WakeScheduleModel;
 
 /**
  * Supervision « appareil silencieux » (heartbeat) GÉNÉRALISÉE À TOUTES LES FAMILLES.
@@ -46,6 +49,16 @@ use App\Service\Availability\AvailabilityNotifier;
  *     ({@see OfflineThresholdResolver}) modélise la cadence des DONNÉES ; l'appliquer tel
  *     quel au heartbeat raccourcissait la tolérance historique (3600 s → ~1260 s en
  *     journée). Il ne peut plus que l'ALLONGER (facteur nuit), jamais la raccourcir.
+ *
+ * MODÈLE DE RÉVEIL ATTENDU (6.59.0, incident du 06/11/2026) : quand une
+ * {@see ContactEvidenceSource} est câblée, le verdict ne repose plus sur un seuil en secondes
+ * mais sur le nombre de RÉVEILS MANQUÉS ({@see WakeScheduleModel} : période configurée
+ * `FreqWakeUp` × facteur nuit confrontée au rythme des rafales observées). L'e-mail indique
+ * « N réveils manqués » et l'heure du premier réveil attendu non honoré ; le rétablissement
+ * n'est annoncé que sur un contact authentifié postérieur au dernier contact connu.
+ * Le 06/11, la lecture de `ffp3Heartbeat` échouait (colonne `reading_time` inexistante :
+ * {@see HeartbeatMonitorRepository::timeColumnFor()}), ce qui rendait cette supervision
+ * aveugle pour FFP3 — corrigé dans le repository.
  */
 class DeviceHealthService
 {
@@ -76,6 +89,8 @@ class DeviceHealthService
         private ?OperationalSettingsService $operationalSettings = null,
         private ?array $lastDataProviders = null,
         private ?AvailabilityNotifier $availability = null,
+        private ?ContactEvidenceSource $evidence = null,
+        private ?WakeScheduleModel $wakeModel = null,
     ) {
         $this->offlineThresholdSeconds = $offlineThresholdSeconds
             ?? $this->operationalSettings?->int('HEARTBEAT_OFFLINE_THRESHOLD_SECONDS', self::DEFAULT_OFFLINE_THRESHOLD_SECONDS)
@@ -157,6 +172,11 @@ class DeviceHealthService
             return false;
         }
 
+        $assessment = $this->assess($family);
+        if ($assessment !== null && $assessment->lastContact !== null) {
+            return $this->judgeWithWakeModel($family, $assessment);
+        }
+
         $threshold = $this->resolveThresholdSeconds($family);
         $ageSeconds = time() - $lastTs;
         if ($ageSeconds <= $threshold) {
@@ -165,7 +185,7 @@ class DeviceHealthService
                 'age_seconds' => $ageSeconds,
                 'threshold_seconds' => $threshold,
             ]);
-            $this->markOnline($family);
+            $this->markOnline($family, $this->lastAuthenticatedContact($family) ?? $lastTs);
 
             return false;
         }
@@ -180,12 +200,68 @@ class DeviceHealthService
                 'data_age_seconds' => $dataAge,
                 'threshold_seconds' => $threshold,
             ]);
-            $this->markOnline($family);
+            $this->markOnline($family, $this->lastAuthenticatedContact($family) ?? (time() - $dataAge));
 
             return false;
         }
 
-        return $this->alertOffline($family, $ageSeconds, $threshold);
+        return $this->alertOffline($family, $ageSeconds, $threshold, null, $lastTs);
+    }
+
+    /**
+     * Évaluation « réveils manqués » de la famille, ou null sans source de preuves.
+     */
+    public function assess(string $family): ?WakeAssessment
+    {
+        if ($this->evidence === null) {
+            return null;
+        }
+        try {
+            $contacts = $this->evidence->recentContacts($family);
+            $period = $this->evidence->expectedPeriodSeconds($family);
+        } catch (\Throwable $e) {
+            $this->logger->warning('DeviceHealthService: preuves de contact illisibles', [
+                'family' => $family,
+                'error' => $e->getMessage(),
+            ]);
+
+            return null;
+        }
+
+        return ($this->wakeModel ?? new WakeScheduleModel())->assess($contacts, $period);
+    }
+
+    /**
+     * Verdict fondé sur le modèle de réveil attendu. Retourne vrai si la famille est hors ligne.
+     */
+    private function judgeWithWakeModel(string $family, WakeAssessment $assessment): bool
+    {
+        if (!$assessment->isOffline()) {
+            $this->logger->info('DeviceHealthService: appareil en ligne (réveils honorés)', [
+                'family' => $family,
+                'missed_wakes' => $assessment->missedWakes,
+                'next_expected_at' => $assessment->nextExpectedAt !== null ? date('Y-m-d H:i:s', $assessment->nextExpectedAt) : null,
+            ]);
+            $this->markOnline($family, $this->lastAuthenticatedContact($family) ?? $assessment->lastContact);
+
+            return false;
+        }
+
+        $age = time() - (int) $assessment->lastContact;
+
+        return $this->alertOffline($family, $age, $assessment->period * $assessment->tolerance + $assessment->margin, $assessment, $assessment->lastContact);
+    }
+
+    private function lastAuthenticatedContact(string $family): ?int
+    {
+        if ($this->evidence === null) {
+            return null;
+        }
+        try {
+            return $this->evidence->lastAuthenticatedContact($family);
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     /**
@@ -241,9 +317,9 @@ class DeviceHealthService
      * ligne » si — et seulement si — une panne annoncée était en cours. No-op sans
      * machine à états (ancien comportement) ou si l'appareil n'avait jamais été signalé.
      */
-    private function markOnline(string $family): void
+    private function markOnline(string $family, ?int $contactTs = null): void
     {
-        $this->availability?->reportOnline(AvailabilityIncident::heartbeat($family));
+        $this->availability?->reportOnline(AvailabilityIncident::heartbeat($family), $contactTs);
     }
 
     /**
@@ -254,28 +330,43 @@ class DeviceHealthService
      * @return bool Toujours vrai : la famille EST détectée silencieuse, que l'e-mail parte
      *              (première fois) ou soit tu (incident déjà annoncé)
      */
-    private function alertOffline(string $family, int $ageSeconds, int $thresholdSeconds): bool
+    private function alertOffline(string $family, int $ageSeconds, int $thresholdSeconds, ?WakeAssessment $assessment = null, ?int $lastContactTs = null): bool
     {
         $minutes = (int) round($ageSeconds / 60);
         $this->logger->critical('DeviceHealthService: appareil silencieux', [
             'family' => $family,
             'age_seconds' => $ageSeconds,
+            'missed_wakes' => $assessment?->missedWakes,
         ]);
 
-        $message = sprintf(
-            "Aucun battement de cœur (heartbeat) reçu de l'appareil %s depuis environ %d minute(s) "
-            . "(seuil : %d minute(s)), et aucune mesure récente non plus.\nL'appareil ne transmet "
-            . 'plus : vérifiez son alimentation, sa connexion réseau ou son firmware.',
-            strtoupper($family),
-            $minutes,
-            (int) round($thresholdSeconds / 60)
-        );
+        if ($assessment !== null) {
+            $message = sprintf(
+                "L'appareil %s a manqué %d réveil(s) attendu(s) : aucun POST ni heartbeat depuis environ %d minute(s).\n%s\n"
+                . "L'appareil ne transmet plus : vérifiez son alimentation, sa connexion réseau ou son firmware "
+                . '(outil MCP iot_contact_timeline pour la frise des preuves).',
+                strtoupper($family),
+                $assessment->missedWakes,
+                $minutes,
+                $assessment->describe()
+            );
+        } else {
+            $message = sprintf(
+                "Aucun battement de cœur (heartbeat) reçu de l'appareil %s depuis environ %d minute(s) "
+                . "(seuil : %d minute(s)), et aucune mesure récente non plus.\nL'appareil ne transmet "
+                . 'plus : vérifiez son alimentation, sa connexion réseau ou son firmware.',
+                strtoupper($family),
+                $minutes,
+                (int) round($thresholdSeconds / 60)
+            );
+        }
 
         if ($this->availability !== null) {
             $this->availability->reportOffline(
                 AvailabilityIncident::heartbeat($family),
                 $message . "\n\nCet e-mail ne sera pas répété : un second message vous préviendra "
-                . "dès que l'appareil réémettra."
+                . "dès que l'appareil réémettra.",
+                Severity::Critical,
+                $lastContactTs
             );
 
             return true;

@@ -11,6 +11,55 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.59.0] - 2026-11-07
+
+### Ajout — Pertes de contact diagnosticables (incident FFP3 WROOM du 06/11/2026)
+- **Diagnostic** `docs/DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md` : chronologie 06/11 (dernier POST
+  16:39:18, dernier heartbeat 16:40:27, OTA 15.33 publiée 16:01:42, caméra du site toujours active),
+  check OTA à chaque réveil (3 s après le mail de réveil), rollback ESP-IDF activé mais validation sur
+  simple uptime, horloge firmware en avance d'un cycle de veille par réveil (`getSleptTime` ajoute une
+  durée déjà comptée par l'horloge système), bloc suffixe `wlAquaDiag` sans effet sur la signature.
+  Verdict : OTA 15.33 la plus probable. Procédure courte : `docs/PROCEDURE_PERTE_CONTACT.md`.
+- **Outil MCP `iot_contact_timeline`** (`Mcp\Timeline\ContactTimelineBuilder` + `ContactLossClassifier`,
+  pur et testé) : frise fusionnée (POST acceptés en rafales, requêtes rejetées avec motif et décalage
+  d'horloge, heartbeats enrichis, OTA serveur / firmware, publications, photos de la caméra du site,
+  e-mails, erreurs), dernier contact, prochain réveil attendu, classification probabiliste de la cause
+  (OTA, crash, Wi-Fi, horloge/signature, alimentation, serveur) avec preuves pour / contre et liste
+  de l'invérifiable. Résumé `contact_loss` dans `iot_overview` et `iot_health_report`.
+- **Journal des contacts** `device_contacts` (`ContactRecorder`) dans TOUS les contrôleurs d'ingestion
+  (POST FFP3 / N3PP / MSP1 / énergie, heartbeats, rapport OTA) : accepté ou rejeté, motif, mode
+  d'auth réel, `clock_offset_s`. Alerte P4 `ClockDriftAlertService` (3 rafales > `CLOCK_DRIFT_ALERT_SECONDS`).
+  Toute réponse firmware porte `Date` + `X-Server-Ts` (`/ota-report` : `server_ts` JSON).
+- **Journal OTA** : `ota_events` (chaque manifeste / binaire servi par `OtaFileController` : IP, canal,
+  `X-Ota-Board`, Range, statut, octets / taille, durée, complet), `ota_releases` (publications détectées
+  chaque minute par `OtaReleaseSyncService` : version, canal, carte, empreinte, taille, horodatage,
+  auteur git), endpoint signé `POST /<famille>/ota-report` (`OtaReportController`, HMAC obligatoire) →
+  `device_events` (check / start / progress / done / fail / rollback / marked_valid, journal de bord, boot).
+- **Garde-fous de déploiement** : `OTA_PAUSED_CHANNELS`, `OTA_CANARY_CHANNELS`, `OTA_CANARY_BOARDS`
+  (`OtaChannelPolicy`, 503 + Retry-After, aucun octet servi) ; alerte P1 « Module muet après
+  téléchargement OTA » (`OtaSilenceAlertService`, `OTA_SILENT_AFTER_DOWNLOAD_WAKEUPS`).
+- **Heartbeat enrichi** (firmware ffp5cs ≥ 15.34, n3pp ≥ 4.76, msp ≥ 2.79) : `rst`, `part`, `ota`,
+  `fails`, `safe`, `clk`, `wifi_ms`, `wifi_tries`, `rssi`, `version`, `board`, `boot`, `log` → colonnes
+  optionnelles des tables heartbeat + `device_events`. Contrat `contracts/ffp3.json` (`heartbeatFields`).
+- Migration additive `migrations/2026_11_contact_diagnostics.sql` (tables créées aussi à la première écriture).
+
+### Correctif — Supervision de disponibilité
+- `HeartbeatMonitorRepository` : colonne de date par table (`ffp3Heartbeat*` → `timestamp`, autres →
+  `reading_time`) — « Unknown column 'reading_time' » rendait la supervision heartbeat FFP3 aveugle
+  à chaque passage horaire. Idem `McpReadRepository::lastHeartbeat`.
+- `AvailabilityNotifier` : un rétablissement n'est émis que sur un contact **authentifié postérieur**
+  au dernier contact connu à l'ouverture (test reproduisant le faux « Réception des données rétablie »
+  du 06/11 à 19:40, dû au seuil nuit qui s'allonge).
+- Modèle de **réveil attendu** (`Availability\WakeScheduleModel`) : période = max(FreqWakeUp × facteur
+  nuit, rafales observées), verdict par **réveils manqués** (`OFFLINE_MISSED_WAKEUPS`, défaut 2),
+  e-mail « N réveils manqués, le premier attendu vers HH:MM, prochain vers HH:MM ».
+  `DatabaseContactEvidence` câblée dans `DeviceHealthService` et `SystemHealthService` (CRON + container).
+
+### Correctif — Cache Twig
+- `TemplateRenderer` : test d'écriture réel du dossier de cache ; non inscriptible (fichiers créés par
+  un autre compte sur l'hébergement : CRON vs web) → rendu **sans cache** + une ligne d'error_log au
+  lieu d'une erreur 500 sur `/` et `/serre` ; `TWIG_CACHE_DIR` pour déplacer le cache.
+
 ## [6.58.0] - 2026-11-06
 
 ### Ajout — MCP : outils SQL ciblés (du plus étroit au plus large)

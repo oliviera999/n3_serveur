@@ -33,13 +33,19 @@ class TemplateRenderer
 
         $loader = new FilesystemLoader($templatesPath);
 
+        // Cache compilé Twig : `TWIG_CACHE_DIR` (.env) sinon var/cache/twig. Si le dossier n'est
+        // pas inscriptible par l'utilisateur courant — cas de l'hébergement mutualisé où le CRON
+        // (compte SSH) et le web (compte PHP-FPM) créent des fichiers que l'autre ne peut pas
+        // réécrire : « Failed to write cache file … var/cache/twig/… » → erreur 500 sur / et /serre
+        // (error_log juin–nov. 2026) — on rend SANS cache (plus lent, jamais une 500) et on le
+        // journalise une fois par processus. Voir docs/DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md § Twig.
         $cacheConfig = false;
         if ($useCache) {
-            $cacheDir = dirname(__DIR__, 2) . '/var/cache/twig';
-            if (!is_dir($cacheDir)) {
-                @mkdir($cacheDir, 0755, true);
-            }
-            $cacheConfig = $cacheDir;
+            $cacheConfig = self::resolveWritableCacheDir(
+                isset($_ENV['TWIG_CACHE_DIR']) && is_string($_ENV['TWIG_CACHE_DIR']) && $_ENV['TWIG_CACHE_DIR'] !== ''
+                    ? $_ENV['TWIG_CACHE_DIR']
+                    : dirname(__DIR__, 2) . '/var/cache/twig'
+            );
         }
 
         $this->twig = new Environment($loader, [
@@ -57,6 +63,41 @@ class TemplateRenderer
                 $format
             )
         ));
+    }
+
+    /**
+     * Dossier de cache utilisable, ou false (rendu sans cache) s'il ne peut être ni créé ni écrit.
+     * Test d'écriture réel (fichier temporaire) : `is_writable()` ment sur certains montages et ne
+     * détecte pas un sous-dossier de hachage appartenant à un autre utilisateur.
+     *
+     * @return string|false
+     */
+    public static function resolveWritableCacheDir(string $dir): string|false
+    {
+        if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
+            self::warnOnce('Twig : dossier de cache non créable, rendu sans cache', $dir);
+
+            return false;
+        }
+        $probe = $dir . '/.write-test-' . getmypid();
+        if (@file_put_contents($probe, '1') === false) {
+            self::warnOnce('Twig : dossier de cache non inscriptible, rendu sans cache', $dir);
+
+            return false;
+        }
+        @unlink($probe);
+
+        return $dir;
+    }
+
+    private static function warnOnce(string $message, string $dir): void
+    {
+        static $warned = false;
+        if ($warned) {
+            return;
+        }
+        $warned = true;
+        error_log(sprintf('[twig-cache] %s : %s (propriétaire/permissions : voir docs/deployment/CACHE_MANAGEMENT.md)', $message, $dir));
     }
 
     /**

@@ -223,6 +223,68 @@ final class OperationalSettingsCatalog
                 'hint' => 'Exiger une clé API pour /ota/* (comme le mode strict HMAC).',
                 'default' => false,
             ],
+            'OTA_PAUSED_CHANNELS' => [
+                'env' => 'OTA_PAUSED_CHANNELS',
+                'type' => self::TYPE_STRING,
+                'group' => self::GROUP_SECURITY,
+                'label' => 'Canaux OTA en pause',
+                'hint' => 'Liste CSV de canaux (premier segment du chemin : esp32-wroom, esp32-s3, n3pp, msp, cam ; '
+                    . 'root = manifeste ffp5cs partagé). Les requêtes de ces canaux reçoivent 503 : aucun module '
+                    . 'ne télécharge la version publiée. Vide = rien en pause.',
+                'default' => '',
+            ],
+            'OTA_CANARY_CHANNELS' => [
+                'env' => 'OTA_CANARY_CHANNELS',
+                'type' => self::TYPE_STRING,
+                'group' => self::GROUP_SECURITY,
+                'label' => 'Canaux OTA en mode canari',
+                'hint' => 'Liste CSV de canaux servis UNIQUEMENT aux cartes de « Cartes canaris » (en-tête X-Ota-Board '
+                    . 'du firmware ≥ 15.34 / 4.76 / 2.79). Les autres cartes reçoivent 503 et réessaieront plus tard.',
+                'default' => '',
+            ],
+            'OTA_CANARY_BOARDS' => [
+                'env' => 'OTA_CANARY_BOARDS',
+                'type' => self::TYPE_STRING,
+                'group' => self::GROUP_SECURITY,
+                'label' => 'Cartes canaris OTA',
+                'hint' => 'Liste CSV d\'identifiants de carte (X-Ota-Board, ex. esp32-wroom-a1b2c3) autorisés sur les '
+                    . 'canaux canaris.',
+                'default' => '',
+            ],
+            'OTA_SILENT_AFTER_DOWNLOAD_WAKEUPS' => [
+                'env' => 'OTA_SILENT_AFTER_DOWNLOAD_WAKEUPS',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_ALERTS,
+                'label' => 'Alerte module muet après OTA (réveils)',
+                'hint' => 'Nombre de réveils attendus sans contact après le téléchargement COMPLET d\'un binaire OTA '
+                    . 'avant d\'alerter « module muet après mise à jour ».',
+                'default' => 2,
+                'min' => 1,
+                'max' => 10,
+            ],
+            'CLOCK_DRIFT_ALERT_SECONDS' => [
+                'env' => 'CLOCK_DRIFT_ALERT_SECONDS',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_ALERTS,
+                'label' => 'Dérive d\'horloge firmware (alerte)',
+                'hint' => 'Décalage |ts firmware − heure serveur| au-delà duquel une rafale est jugée désynchronisée ; '
+                    . 'alerte P4 Diagnostic quand 3 rafales consécutives dépassent ce seuil. 0 = désactivé.',
+                'default' => 120,
+                'min' => 0,
+                'max' => 86400,
+                'unit' => 's',
+            ],
+            'OFFLINE_MISSED_WAKEUPS' => [
+                'env' => 'OFFLINE_MISSED_WAKEUPS',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_ALERTS,
+                'label' => 'Réveils manqués avant « hors ligne »',
+                'hint' => 'Nombre de réveils attendus (FreqWakeUp × facteur nuit, confronté aux rafales observées) non '
+                    . 'honorés avant de déclarer un module hors ligne.',
+                'default' => 2,
+                'min' => 1,
+                'max' => 10,
+            ],
             'FIRMWARE_RATE_LIMIT_MAX' => [
                 'env' => 'FIRMWARE_RATE_LIMIT_MAX',
                 'type' => self::TYPE_INT,

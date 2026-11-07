@@ -7,7 +7,9 @@ namespace App\Controller;
 use App\Controller\Concerns\HmacPolicyTrait;
 use App\Controller\Concerns\OperationalSettingsTrait;
 use App\Middleware\RawPostBodyMiddleware;
+use App\Repository\DeviceContactRepository;
 use App\Security\RateLimiter;
+use App\Service\ContactRecorder;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
@@ -31,14 +33,122 @@ abstract class AbstractPostDataController
     /** True si l'authentification HMAC FFP3 a réussi (évite le double contrôle api_key). */
     protected bool $authenticatedByHmac = false;
 
+    /** Mode d'authentification retenu (x_sig_body, legacy_timestamp, legacy_nonce, api_key), pour le journal des contacts. */
+    protected ?string $authMode = null;
+
+    /** Journal `device_contacts` (accepté / rejeté + décalage d'horloge) — optionnel, câblé par le container. */
+    protected ?ContactRecorder $contactRecorder = null;
+
     public function __construct(
         protected LogService $logger,
         protected ?HmacAuditLogger $hmacAuditLogger = null,
         ?HmacPolicyService $hmacPolicyService = null,
         ?OperationalSettingsService $operationalSettings = null,
+        ?ContactRecorder $contactRecorder = null,
     ) {
         $this->hmacPolicyService = $hmacPolicyService;
         $this->operationalSettings = $operationalSettings;
+        $this->contactRecorder = $contactRecorder;
+    }
+
+    /**
+     * Famille du journal des contacts (`ffp3`, `n3pp`, `msp1`, `energie`), déduite du composant.
+     */
+    protected function contactFamily(): string
+    {
+        $name = strtolower($this->componentName());
+        foreach (['n3pp', 'msp', 'energie', 'pgl'] as $prefix) {
+            if (str_starts_with($name, $prefix)) {
+                return $prefix === 'msp' ? 'msp1' : $prefix;
+            }
+        }
+
+        return 'ffp3';
+    }
+
+    /**
+     * Horodatage envoyé par le firmware (en-tête X-Sig-Timestamp, sinon champ `timestamp`), ou null.
+     *
+     * @param array<string, mixed> $params
+     */
+    protected function receivedTimestamp(Request $request, array $params): ?string
+    {
+        $header = trim($request->getHeaderLine('X-Sig-Timestamp'));
+        if ($header !== '') {
+            return $header;
+        }
+        foreach (['timestamp', '__sig_ts'] as $key) {
+            if (isset($params[$key]) && is_scalar($params[$key]) && trim((string) $params[$key]) !== '') {
+                return trim((string) $params[$key]);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Trace le contact dans `device_contacts` (jamais bloquant).
+     *
+     * @param array<string, mixed> $params
+     */
+    protected function recordContact(Request $request, array $params, Response $response, bool $accepted, ?string $reason = null): void
+    {
+        if ($this->contactRecorder === null) {
+            return;
+        }
+        $this->contactRecorder->record([
+            'family' => $this->contactFamily(),
+            'kind' => DeviceContactRepository::KIND_POST,
+            'accepted' => $accepted,
+            'http_status' => $response->getStatusCode(),
+            'auth_mode' => $accepted || $this->authenticatedByHmac
+                ? ($this->authMode ?? ($this->authenticatedByHmac ? 'hmac' : 'api_key'))
+                : ($this->authMode ?? 'none'),
+            'reject_reason' => $reason,
+            'ts_received' => $this->receivedTimestamp($request, $params),
+            'firmware_version' => isset($params['version']) && is_scalar($params['version']) ? trim((string) $params['version']) : null,
+            'post_id' => isset($params['post_id']) && is_scalar($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
+            'ip' => ClientIpResolver::resolve($request),
+        ]);
+    }
+
+    /**
+     * Motif de rejet court et stable, dérivé du corps texte de la réponse de refus.
+     */
+    protected static function rejectReasonFrom(Response $response): string
+    {
+        $body = strtolower(trim((string) $response->getBody()));
+        $map = [
+            'signature incorrecte' => 'signature_invalid',
+            'signature incomplete' => 'signature_incomplete',
+            'signature hmac requise' => 'strict_mode',
+            'post_id requis' => 'nonce_required',
+            'cle api invalide' => 'api_key_invalid',
+            'configuration serveur' => 'server_config',
+            'trop de requetes' => 'rate_limited',
+            'donnees manquantes' => 'empty_body',
+            'champs sensor et version' => 'missing_fields',
+        ];
+        foreach ($map as $needle => $code) {
+            if (str_contains($body, $needle)) {
+                return $code;
+            }
+        }
+
+        return 'http_' . $response->getStatusCode();
+    }
+
+    /**
+     * Ajoute l'heure serveur à toute réponse firmware (acceptée ou rejetée) : en-têtes `Date` et
+     * `X-Server-Ts`, pour qu'un module dont NTP a échoué puisse se recaler avant de re-signer.
+     */
+    protected static function withServerTime(Response $response): Response
+    {
+        foreach (ContactRecorder::serverTimeHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
+
+        return $response;
     }
 
     /**
@@ -143,10 +253,17 @@ abstract class AbstractPostDataController
 
     /**
      * Flux principal : validation, sanitisation, construction DTO, insertion.
+     * Toute réponse porte l'heure serveur ({@see withServerTime()}) et tout contact est journalisé.
      */
     public function handle(Request $request, Response $response): Response
     {
+        return self::withServerTime($this->process($request, $response));
+    }
+
+    private function process(Request $request, Response $response): Response
+    {
         $this->authenticatedByHmac = false;
+        $this->authMode = null;
         $component = $this->componentName();
 
         if ($request->getMethod() !== 'POST') {
@@ -159,6 +276,8 @@ abstract class AbstractPostDataController
 
         $rlError = $this->enforceFirmwareRateLimit($request, $response, $component);
         if ($rlError !== null) {
+            $this->recordContact($request, [], $rlError, false, 'rate_limited');
+
             return $rlError;
         }
 
@@ -188,6 +307,8 @@ abstract class AbstractPostDataController
             'hmac_ok' => $this->authenticatedByHmac,
         ]);
         if ($authError !== null) {
+            $this->recordContact($request, $params, $authError, false, self::rejectReasonFrom($authError));
+
             return $authError;
         }
 
@@ -207,8 +328,13 @@ abstract class AbstractPostDataController
                     'version' => trim((string) ($params['version'] ?? '')),
                     'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
                 ]);
-                return ResponseHelper::text($response, 'Cle API invalide', 401);
+                $this->authMode = 'api_key';
+                $reject = ResponseHelper::text($response, 'Cle API invalide', 401);
+                $this->recordContact($request, $params, $reject, false, 'api_key_invalid');
+
+                return $reject;
             }
+            $this->authMode = 'api_key';
         }
 
         $sensor = trim((string) ($params['sensor'] ?? ''));
@@ -220,11 +346,17 @@ abstract class AbstractPostDataController
                 'has_version' => isset($params['version']),
                 'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
             ]);
-            return ResponseHelper::text($response, 'Champs sensor et version requis', 400);
+            $reject = ResponseHelper::text($response, 'Champs sensor et version requis', 400);
+            $this->recordContact($request, $params, $reject, false, 'missing_fields');
+
+            return $reject;
         }
 
         $hookResp = $this->afterValidatedParams($request, $response, $params);
         if ($hookResp !== null) {
+            // Doublon post_id (rejeu de file firmware) : contact authentifié, réponse 200 sans insertion.
+            $this->recordContact($request, $params, $hookResp, $hookResp->getStatusCode() < 400, $hookResp->getStatusCode() < 400 ? 'duplicate' : self::rejectReasonFrom($hookResp));
+
             return $hookResp;
         }
 
@@ -252,7 +384,10 @@ abstract class AbstractPostDataController
                 'version' => $version,
             ]);
 
-            return ResponseHelper::textClose($response, 'Donnees enregistrees avec succes', 200);
+            $ok = ResponseHelper::textClose($response, 'Donnees enregistrees avec succes', 200);
+            $this->recordContact($request, $params, $ok, true);
+
+            return $ok;
         } catch (\Throwable $e) {
             $this->logger->error("{$component}: rejet exception code=500", [
                 'msg' => $e->getMessage(),
@@ -262,7 +397,10 @@ abstract class AbstractPostDataController
                 'post_id' => isset($params['post_id']) ? substr(trim((string) $params['post_id']), 0, 64) : null,
                 'trace' => $e->getTraceAsString(),
             ]);
-            return ResponseHelper::text($response, 'Erreur serveur', 500);
+            $error = ResponseHelper::text($response, 'Erreur serveur', 500);
+            $this->recordContact($request, $params, $error, false, 'server_error');
+
+            return $error;
         }
     }
 }

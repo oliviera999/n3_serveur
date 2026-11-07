@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Controller\Ffp3;
 
 use App\Service\OperationalSettingsService;
+use App\Service\OtaChannelPolicy;
+use App\Service\OtaEventRecorder;
+use App\Util\ClientIpResolver;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -19,6 +22,14 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  *  - HTTP Range (206 Partial Content) : permet la reprise / le download résumable
  *    côté firmware (audit S3 — prépare l'unification des modes de download OTA).
  *    `Accept-Ranges: bytes` est toujours annoncé.
+ *  - **Journalisation** (6.59.0) : chaque requête — manifeste comme binaire, servie ou
+ *    refusée — est enregistrée dans `ota_events` ({@see OtaEventRecorder}) : IP, chemin, canal,
+ *    carte (`X-Ota-Board`) et version (`X-Ota-Version`) annoncées par le firmware, Range,
+ *    statut, octets servis / taille, durée, transfert complet. Incident du 06/11/2026 : aucun
+ *    moyen de savoir si le WROOM avait téléchargé la 15.33.
+ *  - **Pause / canari** (6.59.0, {@see OtaChannelPolicy}) : un canal en pause ou réservé à des
+ *    cartes canaris répond 503 + `Retry-After` ; le firmware traite cela comme une vérification
+ *    échouée et réessaiera plus tard, sans télécharger.
  *
  * Conformité RFC 7233 : un en-tête `Range` **non analysable** est ignoré (réponse
  * 200 complète) ; seul un range syntaxiquement valide mais hors limites donne 416.
@@ -28,11 +39,15 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 final class OtaFileController
 {
     private const CHUNK = 65536;
+    /** Délai suggéré au firmware quand le canal est en pause / réservé (s). */
+    private const RETRY_AFTER_SECONDS = 1800;
 
     /** @param string $otaDir Dossier racine des fichiers OTA (sans slash final requis). */
     public function __construct(
         private string $otaDir,
         private ?OperationalSettingsService $operationalSettings = null,
+        private ?OtaEventRecorder $events = null,
+        private ?OtaChannelPolicy $policy = null,
     ) {
     }
 
@@ -41,19 +56,56 @@ final class OtaFileController
      */
     public function __invoke(Request $request, Response $response, array $args): Response
     {
+        $startedAt = microtime(true);
         $path = $args['path'] ?? '';
+        $event = [
+            'ip' => ClientIpResolver::resolve($request),
+            'path' => $path,
+            'channel' => OtaChannelPolicy::channelOf($path),
+            'kind' => OtaChannelPolicy::kindOf($path),
+            'board' => trim($request->getHeaderLine('X-Ota-Board')),
+            'firmware_version' => trim($request->getHeaderLine('X-Ota-Version')),
+            'range_header' => trim($request->getHeaderLine('Range')),
+            'http_status' => 500,
+            'bytes_sent' => 0,
+            'file_size' => null,
+            'duration_ms' => null,
+            'complete' => false,
+            'note' => null,
+        ];
+
+        $result = $this->serve($request, $response, $path, $event);
+
+        $event['http_status'] = $result->getStatusCode();
+        $event['duration_ms'] = (int) round((microtime(true) - $startedAt) * 1000);
+        $this->events?->record($event);
+
+        return $result;
+    }
+
+    /**
+     * @param array<string, mixed> $event Enrichi au fil de la réponse (taille, octets, note)
+     */
+    private function serve(Request $request, Response $response, string $path, array &$event): Response
+    {
         if ($path === '' || strpos($path, '..') !== false) {
+            $event['note'] = 'bad_path';
+
             return $response->withStatus(400);
         }
 
         $authReject = $this->enforceAuth($request, $response, $path);
         if ($authReject !== null) {
+            $event['note'] = 'auth_rejected';
+
             return $authReject;
         }
 
         $base = rtrim($this->otaDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         $file = $base . str_replace('/', DIRECTORY_SEPARATOR, $path);
         if (!is_file($file)) {
+            $event['note'] = 'not_found';
+
             return $response->withStatus(404);
         }
 
@@ -64,13 +116,35 @@ final class OtaFileController
         $realBase = realpath(rtrim($this->otaDir, DIRECTORY_SEPARATOR));
         if ($realFile === false || $realBase === false
             || !str_starts_with($realFile, $realBase . DIRECTORY_SEPARATOR)) {
+            $event['note'] = 'outside_base';
+
             return $response->withStatus(404);
+        }
+
+        // Pause / canari : décidé APRÈS la résolution du fichier (un 404 reste un 404) et
+        // AVANT toute lecture — aucun octet ne part d'un canal retenu.
+        $decision = $this->policy?->decide((string) $event['channel'], (string) $event['board'] !== '' ? (string) $event['board'] : null)
+            ?? OtaChannelPolicy::DECISION_ALLOW;
+        if ($decision !== OtaChannelPolicy::DECISION_ALLOW) {
+            $event['note'] = $decision;
+            $response->getBody()->write($decision === OtaChannelPolicy::DECISION_PAUSED
+                ? 'Canal OTA en pause'
+                : 'Canal OTA reserve aux cartes canaris');
+
+            return $response
+                ->withHeader('Content-Type', 'text/plain; charset=utf-8')
+                ->withHeader('Retry-After', (string) self::RETRY_AFTER_SECONDS)
+                ->withHeader('Cache-Control', 'no-store')
+                ->withStatus(503);
         }
 
         $fileSize = filesize($file);
         if ($fileSize === false) {
+            $event['note'] = 'filesize_failed';
+
             return $response->withStatus(500);
         }
+        $event['file_size'] = $fileSize;
 
         $ext = pathinfo($file, PATHINFO_EXTENSION);
         if ($ext === 'json') {
@@ -85,6 +159,8 @@ final class OtaFileController
         $range = $this->parseRange($request->getHeaderLine('Range'), $fileSize);
 
         if ($range === 'unsatisfiable') {
+            $event['note'] = 'range_unsatisfiable';
+
             return $response
                 ->withHeader('Content-Range', 'bytes */' . $fileSize)
                 ->withStatus(416);
@@ -93,7 +169,12 @@ final class OtaFileController
         if ($range === null) {
             // Pas de Range exploitable → réponse complète (comportement historique).
             $response = $response->withHeader('Content-Length', (string) $fileSize);
-            return $this->stream($response, $file, 0, $fileSize);
+            $sent = 0;
+            $response = $this->stream($response, $file, 0, $fileSize, $sent);
+            $event['bytes_sent'] = $sent;
+            $event['complete'] = $sent === $fileSize;
+
+            return $response;
         }
 
         // Range valide → 206 Partial Content.
@@ -104,7 +185,13 @@ final class OtaFileController
             ->withHeader('Content-Range', "bytes {$start}-{$end}/{$fileSize}")
             ->withStatus(206);
 
-        return $this->stream($response, $file, $start, $length);
+        $sent = 0;
+        $response = $this->stream($response, $file, $start, $length, $sent);
+        $event['bytes_sent'] = $sent;
+        // Une reprise qui va jusqu'à la fin du fichier clôt le transfert côté firmware.
+        $event['complete'] = $sent === $length && $end === $fileSize - 1;
+
+        return $response;
     }
 
     /**
@@ -156,8 +243,12 @@ final class OtaFileController
         return [$start, $end];
     }
 
-    private function stream(Response $response, string $file, int $offset, int $length): Response
+    /**
+     * @param int $sent Octets effectivement écrits dans la réponse (sortie)
+     */
+    private function stream(Response $response, string $file, int $offset, int $length, int &$sent = 0): Response
     {
+        $sent = 0;
         $stream = fopen($file, 'rb');
         if ($stream === false) {
             return $response->withStatus(500);
@@ -174,6 +265,7 @@ final class OtaFileController
             }
             $body->write($chunk);
             $remaining -= strlen($chunk);
+            $sent += strlen($chunk);
         }
         fclose($stream);
 

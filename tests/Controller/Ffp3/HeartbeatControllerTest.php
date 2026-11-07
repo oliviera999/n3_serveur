@@ -6,8 +6,11 @@ namespace Tests\Controller\Ffp3;
 
 use App\Controller\Ffp3\HeartbeatController;
 use App\Middleware\RawPostBodyMiddleware;
+use App\Repository\DeviceContactRepository;
+use App\Repository\DeviceEventRepository;
 use App\Repository\HeartbeatRepository;
 use App\Security\SignatureValidator;
+use App\Service\ContactRecorder;
 use App\Service\ErrorAlertService;
 use App\Service\LogService;
 use PDO;
@@ -217,5 +220,94 @@ class HeartbeatControllerTest extends TestCase
 
         $this->assertSame(401, $response->getStatusCode());
         $this->assertSame(0, $this->rowCount());
+    }
+    // ── 6.59.0 : heartbeat enrichi, journal des contacts, heure serveur ────────────────
+
+    private function diagnosticController(): HeartbeatController
+    {
+        HeartbeatRepository::resetColumnCache();
+        return new HeartbeatController(
+            $this->createMock(LogService::class),
+            null,
+            $this->createMock(ErrorAlertService::class),
+            $this->repo,
+            null,
+            new ContactRecorder(new DeviceContactRepository($this->pdo), $this->createMock(LogService::class)),
+            new DeviceEventRepository($this->pdo)
+        );
+    }
+
+    /** Un firmware 15.34 envoie les champs enrichis : stockés quand les colonnes existent, journal → device_events. */
+    public function testEnrichedHeartbeatStoresDiagnosticColumnsAndBootEvent(): void
+    {
+        HeartbeatRepository::resetColumnCache();
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN resetReason TEXT');
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN otaState TEXT');
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN safeMode INTEGER');
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN clockOffsetS INTEGER');
+        $this->pdo->exec('ALTER TABLE ffp3Heartbeat ADD COLUMN version TEXT');
+        // partition / failedBoots / rssi / wifi* absentes : doivent être ignorées sans erreur.
+
+        $params = [
+            'uptime' => '31', 'free' => '80000', 'min' => '60000', 'reboots' => '106',
+            'crc' => self::crcFor(31, 80000, 60000, 106),
+            'version' => '15.34', 'rst' => 'SW', 'part' => 'app1', 'ota' => 'pending', 'fails' => '0', 'safe' => '0',
+            'clk' => '-3', 'rssi' => '-67', 'wifi_ms' => '2100', 'wifi_tries' => '1', 'board' => 'esp32-wroom-a1b2c3', 'boot' => '1',
+            'log' => json_encode([
+                ['q' => 41, 't' => 1793981640, 'u' => 5, 'e' => 'wifi_ok', 'd' => 'rssi=-67 2100ms'],
+                ['q' => 42, 't' => 1793981650, 'u' => 15, 'e' => 'ntp_ok', 'd' => 'offset=-3'],
+            ]),
+        ];
+        $response = $this->diagnosticController()->handle($this->postRequest($params), new Response());
+
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertNotSame('', $response->getHeaderLine('X-Server-Ts'));
+        $this->assertStringEndsWith('GMT', $response->getHeaderLine('Date'));
+
+        $row = $this->pdo->query('SELECT * FROM ffp3Heartbeat')->fetch(PDO::FETCH_ASSOC);
+        $this->assertSame('SW', $row['resetReason']);
+        $this->assertSame('pending', $row['otaState']);
+        $this->assertSame(0, (int) $row['safeMode']);
+        $this->assertSame(-3, (int) $row['clockOffsetS']);
+        $this->assertSame('15.34', $row['version']);
+
+        $events = $this->pdo->query('SELECT source, seq, event, detail, board FROM device_events ORDER BY id')->fetchAll(PDO::FETCH_ASSOC);
+        $this->assertCount(3, $events);
+        $this->assertSame('boot', $events[0]['source']);
+        $this->assertStringContainsString('rst=SW part=app1 ota=pending fails=0 safe=0 reboots=106', $events[0]['detail']);
+        $this->assertSame('heartbeat_log', $events[1]['source']);
+        $this->assertSame(41, (int) $events[1]['seq']);
+        $this->assertSame('wifi_ok', $events[1]['event']);
+        $this->assertSame('esp32-wroom-a1b2c3', $events[2]['board']);
+
+        $contact = $this->pdo->query('SELECT * FROM device_contacts')->fetch(PDO::FETCH_ASSOC);
+        $this->assertSame('heartbeat', $contact['kind']);
+        $this->assertSame(1, (int) $contact['accepted']);
+        $this->assertSame('crc_only', $contact['auth_mode'], 'sans X-Sig le heartbeat FFP3 n\'est PAS authentifié');
+        $this->assertSame('15.34', $contact['firmware_version']);
+    }
+
+    /** Rejet HMAC : journalisé avec le motif et le décalage d'horloge (cas du 06/11/2026, +2 045 s). */
+    public function testRejectedHmacHeartbeatIsJournaledWithClockOffset(): void
+    {
+        $_ENV['API_SIG_SECRET'] = 'secret-de-test';
+        $body = 'uptime=506249&free=54724&min=25100&reboots=105&crc=' . self::crcFor(506249, 54724, 25100, 105);
+        $ts = time() + 2045;
+        $request = $this->postRequest(['uptime' => '506249', 'free' => '54724', 'min' => '25100', 'reboots' => '105', 'crc' => self::crcFor(506249, 54724, 25100, 105)])
+            ->withAttribute(RawPostBodyMiddleware::ATTRIBUTE, $body)
+            ->withHeader('X-Sig-Timestamp', (string) $ts)
+            ->withHeader('X-Sig-Nonce', 'abcdef0123456789')
+            ->withHeader('X-Sig-Hmac', SignatureValidator::createSignatureForBody($ts, 'abcdef0123456789', $body, 'secret-de-test'));
+
+        $response = $this->diagnosticController()->handle($request, new Response());
+        unset($_ENV['API_SIG_SECRET']);
+
+        $this->assertSame(401, $response->getStatusCode(), 'horodatage hors fenêtre : signature refusée');
+        $this->assertSame(0, $this->rowCount());
+        $this->assertNotSame('', $response->getHeaderLine('X-Server-Ts'), 'le firmware peut se recaler sur la réponse de rejet');
+        $contact = $this->pdo->query('SELECT * FROM device_contacts')->fetch(PDO::FETCH_ASSOC);
+        $this->assertSame(0, (int) $contact['accepted']);
+        $this->assertSame('signature_invalid', $contact['reject_reason']);
+        $this->assertEqualsWithDelta(2045, (int) $contact['clock_offset_s'], 3);
     }
 }

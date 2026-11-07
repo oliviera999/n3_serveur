@@ -108,6 +108,33 @@ class OfflineThresholdResolver
         return $this->bound(self::DEFAULT_FREQ_WAKEUP_SECONDS * self::TOLERANCE_CYCLES + self::MARGIN_SECONDS);
     }
 
+    /**
+     * Période de réveil EFFECTIVE (s) de la famille : `FreqWakeUp` en BDD, multiplié par le facteur
+     * nuit quand le régime nuit (ou sa grâce matinale) s'applique. C'est la « période configurée »
+     * attendue par {@see \App\Service\Availability\WakeScheduleModel} ; contrairement à
+     * {@see resolveForFamily()}, aucun cycle de tolérance ni marge n'est appliqué ici.
+     */
+    public function expectedSleepSeconds(string $family, ?int $nowHour = null): int
+    {
+        foreach ($this->defaultFamilies() as $entry) {
+            if ($entry['family'] === $family) {
+                $sleep = $this->readPositiveInt($entry['table'], $entry['freqGpio'], self::DEFAULT_FREQ_WAKEUP_SECONDS);
+                if ($entry['night']) {
+                    $multiplier = max(1, $this->readPositiveInt($entry['table'], self::NIGHT_MULTIPLIER_GPIO, self::DEFAULT_NIGHT_MULTIPLIER));
+                    $hour = $nowHour ?? (int) date('G');
+                    $graceHours = (int) ceil(($sleep * $multiplier) / 3600);
+                    if ($this->isNightRegime($hour, $entry['table'], $graceHours)) {
+                        $sleep *= $multiplier;
+                    }
+                }
+
+                return max(self::MIN_SECONDS, min(self::MAX_SECONDS, $sleep));
+            }
+        }
+
+        return self::DEFAULT_FREQ_WAKEUP_SECONDS;
+    }
+
     private function resolve(string $table, int $freqGpio, bool $nightAware, ?int $nowHour): int
     {
         $sleep = $this->readPositiveInt($table, $freqGpio, self::DEFAULT_FREQ_WAKEUP_SECONDS);

@@ -13,6 +13,13 @@ namespace App\Repository;
  * (DeviceHealthService) détecte un appareil devenu silencieux. La table cible est validée
  * contre une whitelist stricte couvrant toutes les variantes d'environnement, pour exclure
  * toute injection (le nom provient de TableConfig).
+ *
+ * ⚠️ Colonne de date PAR FAMILLE (incident du 06/11/2026) : les tables FFP3 historiques
+ * (`ffp3Heartbeat*`) datent leurs lignes dans `timestamp`, les tables N3PP / MSP1 créées
+ * par `CREATE_LEGACY_HEARTBEAT_TABLES.sql` dans `reading_time`. Lire `reading_time` sur
+ * `ffp3Heartbeat` levait « Unknown column 'reading_time' » à chaque passage horaire :
+ * la supervision heartbeat FFP3 était AVEUGLE (fail-safe silencieux) depuis sa mise en
+ * place. {@see self::timeColumnFor()} est la source unique de vérité de cette correspondance.
  */
 class HeartbeatMonitorRepository extends AbstractRepository
 {
@@ -36,6 +43,17 @@ class HeartbeatMonitorRepository extends AbstractRepository
     ];
 
     /**
+     * Colonne horodatant une ligne de heartbeat, selon la table.
+     *
+     * `ffp3Heartbeat*` → `timestamp` (schéma historique, `DEFAULT current_timestamp()`) ;
+     * `n3ppHeartbeat*` / `msp1Heartbeat*` → `reading_time`.
+     */
+    public static function timeColumnFor(string $table): string
+    {
+        return str_starts_with($table, 'ffp3Heartbeat') ? 'timestamp' : 'reading_time';
+    }
+
+    /**
      * Retourne la date SQL du dernier heartbeat reçu dans la table donnée, ou null si la
      * table est vide (aucun appareil n'a jamais émis).
      *
@@ -46,10 +64,28 @@ class HeartbeatMonitorRepository extends AbstractRepository
     public function getLastHeartbeatDate(string $table): ?string
     {
         $validated = $this->validateTable($table);
+        $column = self::timeColumnFor($validated);
 
-        $value = $this->fetchScalar("SELECT MAX(reading_time) FROM `{$validated}`");
+        $value = $this->fetchScalar("SELECT MAX(`{$column}`) FROM `{$validated}`");
 
         return $value !== null ? (string) $value : null;
+    }
+
+    /**
+     * Horodatages des `$limit` derniers heartbeats (du plus récent au plus ancien), pour
+     * reconstituer le rythme des réveils ({@see \App\Service\Availability\WakeScheduleModel}).
+     *
+     * @return list<string>
+     */
+    public function getRecentHeartbeatDates(string $table, int $limit = 200): array
+    {
+        $validated = $this->validateTable($table);
+        $column = self::timeColumnFor($validated);
+        $limit = max(1, min(2000, $limit));
+
+        $rows = $this->fetchAll("SELECT `{$column}` AS t FROM `{$validated}` ORDER BY `{$column}` DESC, id DESC LIMIT {$limit}");
+
+        return array_values(array_map(static fn (array $r): string => (string) $r['t'], $rows));
     }
 
     /**

@@ -4,7 +4,15 @@ declare(strict_types=1);
 
 namespace Tests\Controller\Ffp3;
 
+use App\Config\OperationalSettingsCatalog;
 use App\Controller\Ffp3\OtaFileController;
+use App\Repository\OtaEventRepository;
+use App\Repository\ServerSettingsRepository;
+use App\Service\LogService;
+use App\Service\OperationalSettingsService;
+use App\Service\OtaChannelPolicy;
+use App\Service\OtaEventRecorder;
+use PDO;
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\Psr7\Response;
@@ -209,5 +217,141 @@ class OtaFileControllerTest extends TestCase
 
         $r = $this->get('test/firmware.bin', [], ['api_key' => 'secret-key']);
         $this->assertSame(200, $r->getStatusCode());
+    }
+    // ── Journalisation ota_events + pause / canari (6.59.0) ──────────────────────────
+
+    /** @return array{0: OtaFileController, 1: PDO} */
+    private function journaledController(?OperationalSettingsService $settings = null): array
+    {
+        $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $controller = new OtaFileController(
+            $this->otaDir,
+            null,
+            new OtaEventRecorder(new OtaEventRepository($pdo), $this->createMock(LogService::class)),
+            new OtaChannelPolicy($settings)
+        );
+
+        return [$controller, $pdo];
+    }
+
+    /**
+     * OperationalSettingsService est final : on simule le dépôt de réglages (clés `op_<ENV_KEY>`) derrière
+     * un service réel, comme en production (réglage BDD prioritaire sur `.env`).
+     *
+     * @param array<string, string> $values réglages indexés par clé d'environnement
+     */
+    private function settingsWith(array $values): OperationalSettingsService
+    {
+        $byDbKey = [];
+        foreach ($values as $envKey => $value) {
+            $byDbKey[OperationalSettingsCatalog::dbKey($envKey)] = $value;
+        }
+        $repo = $this->createMock(ServerSettingsRepository::class);
+        $repo->method('hasKey')->willReturnCallback(static fn (string $key): bool => array_key_exists($key, $byDbKey));
+        $repo->method('getRaw')->willReturnCallback(static fn (string $key): ?string => $byDbKey[$key] ?? null);
+        $repo->method('getString')->willReturnCallback(static fn (string $key, string $default = ''): string => $byDbKey[$key] ?? $default);
+        $repo->method('getBool')->willReturnCallback(static fn (string $key, bool $default = false): bool => $default);
+
+        return new OperationalSettingsService($repo);
+    }
+
+    /** @return list<array<string, mixed>> */
+    private function events(PDO $pdo): array
+    {
+        return $pdo->query('SELECT * FROM ota_events ORDER BY id')->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function testFullDownloadIsJournaledAsComplete(): void
+    {
+        [$controller, $pdo] = $this->journaledController();
+        $request = (new ServerRequestFactory())->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin', ['REMOTE_ADDR' => '105.155.251.0'])
+            ->withHeader('X-Ota-Board', 'esp32-wroom-a1b2c3')
+            ->withHeader('X-Ota-Version', '15.31');
+        $r = $controller($request, new Response(), ['path' => 'test/firmware.bin']);
+        $this->assertSame(200, $r->getStatusCode());
+
+        $events = $this->events($pdo);
+        $this->assertCount(1, $events);
+        $e = $events[0];
+        $this->assertSame('test/firmware.bin', $e['path']);
+        $this->assertSame('test', $e['channel']);
+        $this->assertSame('bin', $e['kind']);
+        $this->assertSame('esp32-wroom-a1b2c3', $e['board']);
+        $this->assertSame('15.31', $e['firmware_version']);
+        $this->assertSame('105.155.251.0', $e['ip']);
+        $this->assertSame(200, (int) $e['http_status']);
+        $this->assertSame(1000, (int) $e['bytes_sent']);
+        $this->assertSame(1000, (int) $e['file_size']);
+        $this->assertSame(1, (int) $e['complete']);
+        $this->assertNotNull($e['duration_ms']);
+    }
+
+    public function testPartialRangeIsJournaledAsIncompleteUnlessItReachesTheEnd(): void
+    {
+        [$controller, $pdo] = $this->journaledController();
+        $request = (new ServerRequestFactory())->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin')->withHeader('Range', 'bytes=0-99');
+        $controller($request, new Response(), ['path' => 'test/firmware.bin']);
+        $request = (new ServerRequestFactory())->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin')->withHeader('Range', 'bytes=100-');
+        $controller($request, new Response(), ['path' => 'test/firmware.bin']);
+
+        $events = $this->events($pdo);
+        $this->assertCount(2, $events);
+        $this->assertSame('bytes=0-99', $events[0]['range_header']);
+        $this->assertSame(100, (int) $events[0]['bytes_sent']);
+        $this->assertSame(0, (int) $events[0]['complete']);
+        $this->assertSame(900, (int) $events[1]['bytes_sent']);
+        $this->assertSame(1, (int) $events[1]['complete'], 'la reprise qui atteint la fin clôt le transfert');
+    }
+
+    public function testMetadataRequestsAndNotFoundAreJournaledToo(): void
+    {
+        [$controller, $pdo] = $this->journaledController();
+        $controller((new ServerRequestFactory())->createServerRequest('GET', 'http://localhost/ota/test/metadata.json'), new Response(), ['path' => 'test/metadata.json']);
+        $controller((new ServerRequestFactory())->createServerRequest('GET', 'http://localhost/ota/metadata.json'), new Response(), ['path' => 'metadata.json']);
+
+        $events = $this->events($pdo);
+        $this->assertSame('metadata', $events[0]['kind']);
+        $this->assertSame(200, (int) $events[0]['http_status']);
+        $this->assertSame('root', $events[1]['channel'], 'manifeste racine ffp5cs = canal root');
+        $this->assertSame(404, (int) $events[1]['http_status']);
+        $this->assertSame('not_found', $events[1]['note']);
+    }
+
+    public function testPausedChannelIsRefusedWithoutServingBytes(): void
+    {
+        [$controller, $pdo] = $this->journaledController($this->settingsWith(['OTA_PAUSED_CHANNELS' => 'test, esp32-wroom']));
+        $r = $controller((new ServerRequestFactory())->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin'), new Response(), ['path' => 'test/firmware.bin']);
+
+        $this->assertSame(503, $r->getStatusCode());
+        $this->assertSame('1800', $r->getHeaderLine('Retry-After'));
+        $events = $this->events($pdo);
+        $this->assertSame('paused', $events[0]['note']);
+        $this->assertSame(0, (int) $events[0]['bytes_sent']);
+    }
+
+    public function testCanaryChannelServesOnlyListedBoards(): void
+    {
+        [$controller, $pdo] = $this->journaledController($this->settingsWith(['OTA_CANARY_CHANNELS' => 'test', 'OTA_CANARY_BOARDS' => 'esp32-wroom-canari']));
+        $factory = new ServerRequestFactory();
+
+        $denied = $controller($factory->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin')->withHeader('X-Ota-Board', 'esp32-wroom-prod'), new Response(), ['path' => 'test/firmware.bin']);
+        $anonymous = $controller($factory->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin'), new Response(), ['path' => 'test/firmware.bin']);
+        $allowed = $controller($factory->createServerRequest('GET', 'http://localhost/ota/test/firmware.bin')->withHeader('X-Ota-Board', 'esp32-wroom-canari'), new Response(), ['path' => 'test/firmware.bin']);
+
+        $this->assertSame(503, $denied->getStatusCode());
+        $this->assertSame(503, $anonymous->getStatusCode(), 'une carte qui ne s\'identifie pas attend la fin du canari');
+        $this->assertSame(200, $allowed->getStatusCode());
+        $notes = array_column($this->events($pdo), 'note');
+        $this->assertSame(['canary_denied', 'canary_denied', null], $notes);
+    }
+
+    public function testChannelAndKindDerivation(): void
+    {
+        $this->assertSame('esp32-wroom', OtaChannelPolicy::channelOf('esp32-wroom/firmware.bin'));
+        $this->assertSame('root', OtaChannelPolicy::channelOf('metadata.json'));
+        $this->assertSame('cam', OtaChannelPolicy::channelOf('cam/ffp3/firmware.bin'));
+        $this->assertSame('bin', OtaChannelPolicy::kindOf('esp32-wroom/firmware.bin'));
+        $this->assertSame('metadata', OtaChannelPolicy::kindOf('n3pp/metadata.json'));
+        $this->assertSame('other', OtaChannelPolicy::kindOf('esp32-s3/littlefs.img'));
     }
 }

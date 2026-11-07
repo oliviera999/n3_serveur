@@ -40,6 +40,11 @@ use App\Util\JsonFileStore;
  * Perte du fichier d'état (purge de `var/cache/`, redéploiement) : au pire un incident
  * en cours est ré-annoncé une fois, puis le silence reprend — jamais de régression vers
  * l'ancien flot d'e-mails récurrents.
+ *
+ * Rétablissement sur PREUVE (6.59.0, incident du 06/11/2026) : la clôture d'un incident
+ * exige un contact (POST ou heartbeat authentifié) strictement postérieur au dernier
+ * contact connu à l'ouverture — jamais un simple « âge repassé sous le seuil », le seuil
+ * variant avec l'heure (régime nuit). Voir {@see self::reportOnline()}.
  */
 class AvailabilityNotifier
 {
@@ -70,7 +75,8 @@ class AvailabilityNotifier
     public function reportOffline(
         AvailabilityIncident $incident,
         string $message,
-        Severity $severity = Severity::Critical
+        Severity $severity = Severity::Critical,
+        ?int $lastContactTs = null
     ): bool {
         $state = $this->store->load();
         $record = $this->recordFor($state, $incident->key);
@@ -79,6 +85,8 @@ class AvailabilityNotifier
         if ($record['status'] !== self::STATUS_OFFLINE) {
             // Bascule en ligne -> hors ligne : nouvel incident, e-mail d'ouverture à émettre.
             $record = $this->newRecord(self::STATUS_OFFLINE, $now, false);
+            // Dernier contact connu à l'ouverture : la clôture exigera un contact PLUS RÉCENT.
+            $record['last_contact'] = $lastContactTs ?? 0;
         }
 
         $sent = false;
@@ -118,11 +126,25 @@ class AvailabilityNotifier
      *
      * @return bool Vrai si un e-mail de rétablissement vient d'être émis
      */
-    public function reportOnline(AvailabilityIncident $incident): bool
+    public function reportOnline(AvailabilityIncident $incident, ?int $contactTs = null): bool
     {
         $state = $this->store->load();
         $record = $this->recordFor($state, $incident->key);
         $now = time();
+
+        if ($record['status'] === self::STATUS_OFFLINE && !$this->hasRecoveryEvidence($record, $contactTs)) {
+            // Incident du 06/11/2026 : le seuil « hors ligne » s'allonge à la tombée de la nuit, l'âge
+            // du dernier POST repasse SOUS le seuil et la supervision concluait « rétabli » alors
+            // qu'aucune donnée n'était arrivée depuis 3 h. On n'annonce un rétablissement que sur
+            // un contact réellement reçu APRÈS le dernier contact connu à l'ouverture de l'incident.
+            $this->logger->info('AvailabilityNotifier: pas de nouveau contact, rétablissement non annoncé', [
+                'incident' => $incident->key,
+                'dernier_contact_connu' => $record['last_contact'] > 0 ? date('Y-m-d H:i:s', $record['last_contact']) : null,
+                'contact_propose' => $contactTs !== null ? date('Y-m-d H:i:s', $contactTs) : null,
+            ]);
+
+            return false;
+        }
 
         if ($record['status'] === self::STATUS_OFFLINE) {
             $outage = max(0, $now - $record['since']);
@@ -155,6 +177,30 @@ class AvailabilityNotifier
         $this->persist($state, $incident->key, $record);
 
         return $sent;
+    }
+
+    /**
+     * Preuve de rétablissement : un contact authentifié strictement postérieur au dernier contact
+     * connu à l'ouverture. Sans contact proposé, ou si l'ouverture n'a pas mémorisé de contact
+     * (état persisté par une version antérieure), on retombe sur l'ancien comportement (clôture)
+     * uniquement quand AUCUN horodatage n'est disponible : un appelant qui fournit un contact
+     * trop ancien n'obtient jamais la clôture.
+     *
+     * @param array{status: string, since: int, notified: bool, attempts: int, outage: int, last_contact: int} $record
+     */
+    private function hasRecoveryEvidence(array $record, ?int $contactTs): bool
+    {
+        if ($contactTs === null) {
+            return $record['last_contact'] === 0;
+        }
+
+        return $contactTs > $record['last_contact'];
+    }
+
+    /** Dernier contact mémorisé à l'ouverture de l'incident (epoch), 0 si inconnu. */
+    public function lastKnownContact(AvailabilityIncident $incident): int
+    {
+        return $this->recordFor($this->store->load(), $incident->key)['last_contact'];
     }
 
     /** Indique si l'incident est actuellement OUVERT (appareil déclaré hors ligne). */
@@ -207,7 +253,7 @@ class AvailabilityNotifier
      *
      * @param array<string, mixed> $state
      *
-     * @return array{status: string, since: int, notified: bool, attempts: int, outage: int}
+     * @return array{status: string, since: int, notified: bool, attempts: int, outage: int, last_contact: int}
      */
     private function recordFor(array $state, string $key): array
     {
@@ -226,11 +272,12 @@ class AvailabilityNotifier
             'notified' => (bool) ($raw['notified'] ?? true),
             'attempts' => isset($raw['attempts']) && is_numeric($raw['attempts']) ? (int) $raw['attempts'] : 0,
             'outage' => isset($raw['outage']) && is_numeric($raw['outage']) ? (int) $raw['outage'] : 0,
+            'last_contact' => isset($raw['last_contact']) && is_numeric($raw['last_contact']) ? (int) $raw['last_contact'] : 0,
         ];
     }
 
     /**
-     * @return array{status: string, since: int, notified: bool, attempts: int, outage: int}
+     * @return array{status: string, since: int, notified: bool, attempts: int, outage: int, last_contact: int}
      */
     private function newRecord(string $status, int $since, bool $notified): array
     {
@@ -240,12 +287,13 @@ class AvailabilityNotifier
             'notified' => $notified,
             'attempts' => 0,
             'outage' => 0,
+            'last_contact' => 0,
         ];
     }
 
     /**
-     * @param array<string, mixed>                                                        $state
-     * @param array{status: string, since: int, notified: bool, attempts: int, outage: int} $record
+     * @param array<string, mixed>                                                                           $state
+     * @param array{status: string, since: int, notified: bool, attempts: int, outage: int, last_contact: int} $record
      */
     private function persist(array $state, string $key, array $record): void
     {

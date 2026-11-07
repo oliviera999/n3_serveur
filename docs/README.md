@@ -72,6 +72,8 @@ données (msp1, n3pp, ffp3, poissonglouton, banc énergie), contrôle des sortie
 | Fichier | Description |
 |---------|-------------|
 | [DIAGNOSTIC_FFP3_NIVEAU_AQUARIUM_2026-11.md](DIAGNOSTIC_FFP3_NIVEAU_AQUARIUM_2026-11.md) | Diagnostic 30/10→06/11/2026 : EauAquarium figé (81 mm) puis NULL, 196 coupures pompe « marées », angle mort NULL — verdicts code+données, correctifs proposés. |
+| [DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md](DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md) | Diagnostic 06/11/2026 : perte de contact du WROOM FFP3 à 16:40 juste après la publication OTA 15.33 — chronologie, check OTA à chaque réveil, rollback, horloge en avance d'un cycle (double comptage), verdict et ce qui manquait. |
+| [PROCEDURE_PERTE_CONTACT.md](PROCEDURE_PERTE_CONTACT.md) | Procédure courte « un module ne répond plus » : `iot_contact_timeline`, lecture du verdict, quoi faire sur place, ce qui reste invérifiable à distance et le matériel pour le couvrir. |
 | [AUDIT_BUGS_2026-07.md](AUDIT_BUGS_2026-07.md) | Audit de bugs transverse (sécurité, logique, robustesse) — constats vérifiés + options de correction. Jumeau : `n3_firmwires/docs/AUDIT_BUGS_2026-07.md`. |
 | [AUDIT_SIMPLIFICATION_BACKEND.md](AUDIT_SIMPLIFICATION_BACKEND.md) | Audit de simplification du backend. |
 | [PLAN_ACTION_BDD_2026_07.md](PLAN_ACTION_BDD_2026_07.md) | Plan d'action BDD (audits 05/07/2026) : 41 actions, arbitrages verrouillés, **Annexe B élagage qualitatif** (rétention temporelle annulée). |

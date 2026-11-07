@@ -84,7 +84,7 @@ $loadRoutesConfig = static function () use ($routesConfigPath): array {
     error_log('[iot.olution.info] routes_config.php absent: ' . $routesConfigPath);
     return [
         'exact_public_paths' => ['/', '/login', '/logout', '/ping', '/favicon.ico'],
-        'public_paths' => ['/api/', '/post-data', '/heartbeat', '/assets/', '/aquaponie', '/meteo', '/serre', '/gallery/', '/ota/', '/ffp3/ota/'],
+        'public_paths' => ['/api/', '/post-data', '/heartbeat', '/ota-report', '/assets/', '/aquaponie', '/meteo', '/serre', '/gallery/', '/ota/', '/ffp3/ota/'],
         'protected_paths' => ['/dashboard', '/supervision', '/export-data', '/admin/'],
         'asset_js' => [],
         'asset_css' => [],
@@ -235,9 +235,13 @@ $app->get('/serre-description', [N3ppDescriptionController::class, 'show']);
 // OperationalSettingsService explicite : le paramètre est optionnel, donc jamais
 // autowiré (PHP-DI ignore les paramètres à valeur par défaut). Sans lui, OTA_REQUIRE_AUTH
 // n'était lu que dans `.env` et le réglage de supervision restait sans effet.
+// 6.59.0 : journal `ota_events` (qui a téléchargé quoi, quand, complet ou non) et garde-fous de
+// déploiement (canal en pause / canari, OTA_PAUSED_CHANNELS, OTA_CANARY_*) — docs/ENDPOINTS_ESP32_SERVEUR.md.
 $otaHandler = new \App\Controller\Ffp3\OtaFileController(
     dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ota',
-    $container->get(\App\Service\OperationalSettingsService::class)
+    $container->get(\App\Service\OperationalSettingsService::class),
+    $container->get(\App\Service\OtaEventRecorder::class),
+    $container->get(\App\Service\OtaChannelPolicy::class)
 );
 
 // Fichiers OTA (n3pp, msp, cam, ffp3) — servis depuis serveur/ota/

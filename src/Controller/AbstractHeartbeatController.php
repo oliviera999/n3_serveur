@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Concerns\LegacyHeartbeatHandler;
+use App\Repository\DeviceEventRepository;
+use App\Service\ContactRecorder;
 use App\Service\HmacAuditLogger;
 use App\Service\HmacPolicyService;
 use App\Service\LogService;
@@ -29,6 +31,8 @@ abstract class AbstractHeartbeatController
         ?HmacAuditLogger $hmacAuditLogger = null,
         ?HmacPolicyService $hmacPolicyService = null,
         ?OperationalSettingsService $operationalSettings = null,
+        ?ContactRecorder $contactRecorder = null,
+        ?DeviceEventRepository $deviceEvents = null,
     ) {
         $this->handler = new LegacyHeartbeatHandler(
             logger: $logger,
@@ -38,6 +42,8 @@ abstract class AbstractHeartbeatController
             hmacAuditLogger: $hmacAuditLogger,
             hmacPolicyService: $hmacPolicyService,
             operationalSettings: $operationalSettings,
+            contactRecorder: $contactRecorder,
+            deviceEvents: $deviceEvents,
         );
     }
 

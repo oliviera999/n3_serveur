@@ -178,6 +178,20 @@ final class ContainerWiringTest extends TestCase
             \App\Mcp\Health\HealthReportBuilder::class,
             \App\Mcp\Files\FileRoots::class,
             \App\Mcp\Files\SafeFileReader::class,
+            // Diagnostic des pertes de contact (6.59.0)
+            \App\Repository\DeviceContactRepository::class,
+            \App\Repository\OtaEventRepository::class,
+            \App\Repository\OtaReleaseRepository::class,
+            \App\Repository\DeviceEventRepository::class,
+            \App\Service\ContactRecorder::class,
+            \App\Service\OtaEventRecorder::class,
+            \App\Service\OtaChannelPolicy::class,
+            \App\Service\OtaReleaseSyncService::class,
+            \App\Service\ClockDriftAlertService::class,
+            \App\Service\OtaSilenceAlertService::class,
+            \App\Service\Availability\DatabaseContactEvidence::class,
+            \App\Controller\OtaReportController::class,
+            \App\Mcp\Timeline\ContactTimelineBuilder::class,
         ];
     }
 
@@ -217,6 +231,7 @@ final class ContainerWiringTest extends TestCase
             'iot_set_output', 'iot_device_action', 'iot_gallery_delete', 'iot_sql', 'iot_sql_select', 'iot_db_schema', 'iot_migrate',
             'iot_accounts', 'iot_confirm_unlock',
             'iot_recall', 'iot_remember', 'iot_forget', 'iot_health_report', 'iot_health_history',
+            'iot_contact_timeline',
             'iot_cron_status', 'iot_list_files', 'iot_read_file', 'iot_grep_files',
         ], $names);
         foreach ($registry->all() as $tool) {
@@ -315,6 +330,32 @@ final class ContainerWiringTest extends TestCase
             [\App\Command\CronOrchestrator::class, 'mcpRestore'],
             // Rapport de santé : racine des galeries (UPLOADS_BASE_DIR, comme les pages galerie).
             [\App\Mcp\Health\HealthReportBuilder::class, 'projectRoot'],
+            // Diagnostic des pertes de contact (6.59.0) : journal des contacts dans TOUS les contrôleurs
+            // d'ingestion, preuves de contact dans les supervisions, garde-fous OTA et alertes CRON.
+            [\App\Controller\Ffp3\PostDataController::class, 'contactRecorder'],
+            [\App\Controller\Msp\MspPostDataController::class, 'contactRecorder'],
+            [\App\Controller\N3pp\N3ppPostDataController::class, 'contactRecorder'],
+            [\App\Controller\Energie\EnergiePostDataController::class, 'contactRecorder'],
+            [\App\Controller\Ffp3\HeartbeatController::class, 'contactRecorder'],
+            [\App\Controller\Ffp3\HeartbeatController::class, 'deviceEvents'],
+            [\App\Controller\Msp\MspHeartbeatController::class, 'handler.contactRecorder'],
+            [\App\Controller\Msp\MspHeartbeatController::class, 'handler.deviceEvents'],
+            [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.contactRecorder'],
+            [\App\Controller\N3pp\N3ppHeartbeatController::class, 'handler.deviceEvents'],
+            [\App\Controller\OtaReportController::class, 'contacts'],
+            [\App\Controller\OtaReportController::class, 'hmacAuditLogger'],
+            [\App\Controller\OtaReportController::class, 'operationalSettings'],
+            [\App\Service\DeviceHealthService::class, 'evidence'],
+            [\App\Service\SystemHealthService::class, 'evidence'],
+            [\App\Service\Availability\DatabaseContactEvidence::class, 'contacts'],
+            [\App\Service\OtaChannelPolicy::class, 'settings'],
+            [\App\Service\ClockDriftAlertService::class, 'settings'],
+            [\App\Service\OtaSilenceAlertService::class, 'settings'],
+            [\App\Command\CronOrchestrator::class, 'otaReleaseSync'],
+            [\App\Command\CronOrchestrator::class, 'clockDriftAlerts'],
+            [\App\Command\CronOrchestrator::class, 'otaSilenceAlerts'],
+            [\App\Mcp\Tools\OverviewTool::class, 'timeline'],
+            [\App\Mcp\Health\HealthReportBuilder::class, 'timeline'],
         ];
 
         foreach ($cases as [$class, $path]) {
