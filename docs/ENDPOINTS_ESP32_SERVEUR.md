@@ -577,6 +577,9 @@ antérieur n'en envoie aucun, rien ne change pour lui :
 | `safe` | 1 = mode sans échec | `safeMode` |
 | `clk` | décalage mesuré horloge firmware − serveur (s) | `clockOffsetS` |
 | `wifi_ms`, `wifi_tries` | durée et tentatives de connexion Wi-Fi | `wifiConnectMs`, `wifiAttempts` |
+| `blk` | plus grand bloc libre du tas (octets) — fragmentation (ffp5cs ≥ 15.35) | `maxBlock` |
+| `idle` | % idle CPU sur 2 cœurs, dernier intervalle (ffp5cs ≥ 15.35) | `idlePct` |
+| `nvs` | % d'entrées NVS utilisées (ffp5cs ≥ 15.35) | `nvsUsedPct` |
 | `board` | identifiant de carte (= `X-Ota-Board`) | → `device_events.board` |
 | `boot=1` | premier heartbeat après boot → événement `boot` dans `device_events` | — |
 | `log` | journal de bord (même JSON que `events` ci-dessus) → `device_events` (`heartbeat_log`) | — |
