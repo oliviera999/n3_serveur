@@ -63,11 +63,18 @@ else
 fi
 echo ""
 
+# Étape 3b: Migrations additives en attente (non bloquant ; le CRON les appliquerait sinon)
+echo "🗄️  [3b/4] Migrations additives de la base..."
+if [ -f "bin/migrate.php" ]; then
+    php bin/migrate.php || echo "⚠️  Migration en échec (non bloquant) — voir le journal [auto-migrate]"
+fi
+echo ""
+
 # Étape 4: Permissions
 echo "🔧 [4/4] Permissions..."
 chmod -R 755 public/ 2>/dev/null || true
 chmod -R 775 var/cache/ 2>/dev/null || true
-chmod +x bin/clear-cache.php bin/deploy.sh bin/install-hook-post-merge.sh 2>/dev/null || true
+chmod +x bin/clear-cache.php bin/migrate.php bin/deploy.sh bin/install-hook-post-merge.sh 2>/dev/null || true
 echo "✅ Terminé"
 echo ""
 

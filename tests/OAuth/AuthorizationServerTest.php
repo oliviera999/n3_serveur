@@ -500,7 +500,7 @@ final class AuthorizationServerTest extends TestCase
 
     public function testScopesDependOnRoleAndControlFlag(): void
     {
-        $off = $this->server();
+        $off = $this->server(McpSqliteFixture::config(['MCP_MIGRATIONS_ENABLED' => 'false']));
         self::assertSame(['iot.read', 'offline_access'], $off->grantableScopes('', 'admin'));
         self::assertSame(['iot.read'], $off->grantableScopes('iot.control', 'admin'), 'pilotage désactivé : jamais accordé');
 

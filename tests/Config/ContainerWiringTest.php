@@ -354,6 +354,10 @@ final class ContainerWiringTest extends TestCase
             [\App\Command\CronOrchestrator::class, 'otaReleaseSync'],
             [\App\Command\CronOrchestrator::class, 'clockDriftAlerts'],
             [\App\Command\CronOrchestrator::class, 'otaSilenceAlerts'],
+            [\App\Command\CronOrchestrator::class, 'autoMigrate'],
+            [\App\Command\AutoMigrateCommand::class, 'settings'],
+            [\App\Command\AutoMigrateCommand::class, 'audit'],
+            [\App\Command\AutoMigrateCommand::class, 'notifier'],
             [\App\Mcp\Tools\OverviewTool::class, 'timeline'],
             [\App\Mcp\Health\HealthReportBuilder::class, 'timeline'],
         ];

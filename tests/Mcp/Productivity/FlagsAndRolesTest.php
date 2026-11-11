@@ -158,9 +158,16 @@ final class FlagsAndRolesTest extends TestCase
 
     public function testSqlHiddenByDefault(): void
     {
-        $config = McpSqliteFixture::config(['MCP_SQL_ENABLED' => 'false']);
+        $config = McpSqliteFixture::config(['MCP_SQL_ENABLED' => 'false', 'MCP_MIGRATIONS_ENABLED' => 'false']);
         self::assertFalse($config->isSqlEnabled());
         self::assertFalse($config->isControlScopeOffered());
+    }
+
+    public function testMigrationsEnabledByDefaultOfferControlScope(): void
+    {
+        $config = McpSqliteFixture::config();
+        self::assertTrue($config->isMigrationsEnabled(), '6.61.0 : iot_migrate actif par défaut');
+        self::assertTrue($config->isControlScopeOffered());
     }
 
     public function testSqlEnablesControlScope(): void

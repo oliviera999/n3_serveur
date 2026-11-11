@@ -107,7 +107,7 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_sql` | **Productivité / admin** — SQL libre (`MCP_SQL_ENABLED`). § 12 |
 | `iot_sql_select` | **Admin**, lecture seule — une instruction SELECT / WITH / SHOW / DESCRIBE / EXPLAIN, transaction READ ONLY, délai et lignes plafonnés, secrets masqués (`MCP_SQL_SELECT_ENABLED`, défaut `true`). § 12 |
 | `iot_db_schema` | **Admin**, lecture seule — tables, colonnes, index (métadonnées) et état de chaque `migrations/*.sql` face au schéma réel (applied / pending / partial / table_missing / unverifiable). § 12 |
-| `iot_migrate` | **Admin** — applique UN fichier `migrations/*.sql` du dépôt, uniquement s'il est additif (ADD COLUMN / ADD INDEX / CREATE TABLE / CREATE INDEX) ; plan puis code de confirmation `sql_migration` (`MCP_MIGRATIONS_ENABLED`, défaut `false`, scope `iot.control`). § 12 |
+| `iot_migrate` | **Admin** — applique UN fichier `migrations/*.sql` du dépôt (`plan` / `apply`) ou TOUTES les migrations en attente (`plan_all` / `apply_all`, un seul code), uniquement additives (ADD COLUMN / ADD INDEX / CREATE TABLE / CREATE INDEX) ; plan puis code de confirmation `sql_migration` (`MCP_MIGRATIONS_ENABLED`, défaut `true` depuis 6.61.0, scope `iot.control`). § 12 |
 | `iot_accounts` | **Productivité / admin** — comptes et destinataires (`MCP_PRIVACY_BYPASS`). § 12 |
 | `iot_confirm_unlock` | **Productivité / admin** — fenêtre sans codes (`MCP_CONFIRM_UNLOCK_MINUTES`). § 12 |
 | `iot_recall` | **Mémoire** : notes du site et notes privées (recherche sujet / texte / étiquettes, « à revérifier »). À appeler en début de tâche. § 8 |
@@ -236,7 +236,7 @@ canal). Les jetons MCP, eux, ne valent que pour `/mcp`.
 | `MCP_DEVICE_ACTIONS_ENABLED` | `false` | Reset, OTA, suppression photos |
 | `MCP_SQL_ENABLED` / `MCP_SQL_DDL_ENABLED` | `false` | SQL libre / DDL + GRANT |
 | `MCP_SQL_SELECT_ENABLED` | `true` | `iot_sql_select` (lecture seule, admin, hors mode productivité) |
-| `MCP_MIGRATIONS_ENABLED` | `false` | `iot_migrate` (migrations additives du dépôt, code de confirmation) |
+| `MCP_MIGRATIONS_ENABLED` | `true` | `iot_migrate` (migrations additives du dépôt, code de confirmation) |
 | `MCP_SQL_MAX_AFFECTED_ROWS` | `100` | Plafond DML |
 | `MCP_SQL_MAX_STATEMENT_SECONDS` | `10` | Timeout instruction |
 | `MCP_SQL_MAX_ROWS` | `200` | Plafond lignes SELECT |
@@ -657,7 +657,8 @@ Contournements (productivité) : `MCP_CONFIRM_SKIP` (CSV de catégories, ou `all
 |---|---|---|
 | Voir le schéma, savoir si une migration est passée | `iot_db_schema` | toujours (admin) |
 | Lire des données en SQL | `iot_sql_select` | `MCP_SQL_SELECT_ENABLED=true` (défaut) |
-| Appliquer une migration **du dépôt**, additive | `iot_migrate` | `MCP_MIGRATIONS_ENABLED=true` + scope `iot.control` + code |
+| Appliquer une migration **du dépôt**, additive | `iot_migrate` | `MCP_MIGRATIONS_ENABLED=true` (défaut) + scope `iot.control` + code |
+| … sans intervention | CRON `AutoMigrateCommand` | `AUTO_MIGRATE_ENABLED=true` (défaut) |
 | Tout le reste (DML, DDL arbitraire) | `iot_sql` | `MCP_SQL_ENABLED=true` (+ `MCP_SQL_DDL_ENABLED`) + code |
 
 `iot_migrate` ne prend **aucun SQL de l'appelant** : seulement un nom de fichier de `migrations/`. Une
@@ -666,7 +667,20 @@ GRANT…) est refusée (`migration_not_additive`, à passer par phpMyAdmin). Les
 place dans le schéma réel et celles visant une table absente sont sautées : rejouer est sans effet ;
 une instruction partiellement appliquée sans `IF NOT EXISTS` est refusée (`migration_partial`).
 Exemple — diagnostic d'écho ultrason (6.57.0) : `iot_db_schema` (`migration`: `2026_11_ffp3_echo_diag.sql`)
-puis `iot_migrate` (`file` idem, `action`: `apply`) et le code reçu par e-mail.
+puis `iot_migrate` (`file` idem, `action`: `apply`) et le code reçu par e-mail. Toutes d'un coup :
+`iot_migrate` (`action`: `apply_all`, sans `file`).
+
+#### Migrations automatiques (6.61.0)
+
+Le serveur applique **lui-même** les migrations additives en attente : `AutoMigrateCommand`, en tête
+de chaque run CRON, examine `migrations/` dès qu'il change (déploiement git) et au plus toutes les
+`AUTO_MIGRATE_INTERVAL_SECONDS` (défaut 900 s). Même moteur que `iot_migrate` (`Mcp\Sql\MigrationRunner`) :
+fichiers entièrement additifs seulement, chaque instruction ré-évaluée contre le schéma réel, arrêt
+au premier échec. Un fichier en échec n'est retenté qu'après 24 h ou dès que son contenu change.
+`AUTO_MIGRATE_EXCLUDE` (CSV) en écarte ; `AUTO_MIGRATE_ENABLED=false` coupe tout (réglages
+opérationnels de l'admin web, groupe Maintenance, ou `.env`). Journal `[auto-migrate]`, audit
+`cron:migrate`, e-mail système (info si appliqué, alerte si échec). Manuel / déploiement :
+`php bin/migrate.php [--dry-run]` (appelé par `bin/deploy.sh` et le hook `post-merge`).
 
 ### Bloc `.env` — mode productivité (à coller en production)
 

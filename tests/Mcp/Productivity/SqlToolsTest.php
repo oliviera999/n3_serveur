@@ -188,10 +188,45 @@ final class SqlToolsTest extends TestCase
 
     // ── iot_migrate ────────────────────────────────────────────────────
 
-    public function testMigrateDisabledByDefault(): void
+    public function testMigrateEnabledByDefaultAndDisableable(): void
     {
-        $r = $this->call($this->server(), 'iot_migrate', ['file' => '2026_11_new_col.sql'], 'admin', ['iot.read', 'iot.control']);
+        $plan = self::data($this->call($this->server(), 'iot_migrate', ['file' => '2026_11_new_col.sql']));
+        self::assertFalse($plan['executed'], '6.61.0 : actif par défaut, plan sans exécution');
+
+        $off = $this->server(['MCP_MIGRATIONS_ENABLED' => 'false']);
+        $r = $this->call($off, 'iot_migrate', ['file' => '2026_11_new_col.sql'], 'admin', ['iot.read', 'iot.control']);
         self::assertTrue($r['isError'] ?? true);
+    }
+
+    public function testMigratePlanAllThenApplyAllWithSingleCode(): void
+    {
+        file_put_contents($this->dir . '/2026_11_new_table.sql', "CREATE TABLE IF NOT EXISTS mcp_extra (id INTEGER PRIMARY KEY);\n");
+        $server = $this->server();
+        $plan = self::data($this->call($server, 'iot_migrate', ['action' => 'plan_all']));
+        self::assertSame(['2026_11_new_col.sql', '2026_11_new_table.sql'], array_column($plan['pending_files'], 'file'));
+        self::assertSame(3, $plan['to_execute']);
+        self::assertFalse($plan['executed']);
+
+        $scopes = ['iot.read', 'iot.control'];
+        $pending = self::data($this->call($server, 'iot_migrate', ['action' => 'apply_all'], 'admin', $scopes));
+        self::assertTrue($pending['confirmation_required']);
+        self::assertSame(1, preg_match('/Code à usage unique[^\n]*: (\d{6})/', $this->sentBodies[0], $m));
+
+        $done = self::data($this->call($server, 'iot_migrate', [
+            'action' => 'apply_all', 'confirmation_id' => $pending['confirmation_id'], 'confirmation_code' => $m[1],
+        ], 'admin', $scopes));
+        self::assertTrue($done['ok']);
+        self::assertSame([], $done['still_pending']);
+        $schema = new SchemaReader($this->pdo);
+        self::assertTrue($schema->columnExists('ffp3Data2', 'wlAquaStatus'));
+        self::assertTrue($schema->tableExists('mcp_extra'));
+        self::assertCount(1, $this->sentBodies, 'un seul code pour tout le lot');
+    }
+
+    public function testMigrateRequiresFileForSingleActions(): void
+    {
+        $r = $this->call($this->server(), 'iot_migrate', ['action' => 'plan']);
+        self::assertSame('missing_file', self::data($r)['code']);
     }
 
     public function testMigratePlanThenConfirmedApplyThenIdempotentReplay(): void

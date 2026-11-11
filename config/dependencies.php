@@ -207,8 +207,30 @@ return [
             otaReleaseSync: $c->get(\App\Service\OtaReleaseSyncService::class),
             clockDriftAlerts: $c->get(\App\Service\ClockDriftAlertService::class),
             otaSilenceAlerts: $c->get(\App\Service\OtaSilenceAlertService::class),
+            // 6.61.0 : migrations additives du dépôt appliquées seules après déploiement
+            // (AUTO_MIGRATE_ENABLED, défaut true). Optionnel → câblage explicite obligatoire.
+            autoMigrate: $c->get(\App\Command\AutoMigrateCommand::class),
         );
     },
+
+    \App\Mcp\Sql\MigrationRunner::class => static function (ContainerInterface $c): \App\Mcp\Sql\MigrationRunner {
+        $schema = new \App\Mcp\Sql\SchemaReader($c->get(PDO::class));
+
+        return new \App\Mcp\Sql\MigrationRunner(
+            $c->get(PDO::class),
+            $schema,
+            new \App\Mcp\Sql\MigrationCatalog(dirname(__DIR__) . '/migrations', $schema),
+        );
+    },
+    \App\Command\AutoMigrateCommand::class => static fn (ContainerInterface $c): \App\Command\AutoMigrateCommand
+        => new \App\Command\AutoMigrateCommand(
+            $c->get(\App\Mcp\Sql\MigrationRunner::class),
+            $c->get(\App\Service\LogService::class),
+            dirname(__DIR__) . '/var/cache/auto_migrate_state.json',
+            $c->get(\App\Service\OperationalSettingsService::class),
+            $c->get(\App\Service\ControlAuditLogger::class),
+            $c->get(\App\Service\NotificationService::class),
+        ),
 
     // ====================================================================
     // Diagnostic des pertes de contact (6.59.0) — docs/DIAGNOSTIC_FFP3_PERTE_CONTACT_2026-11-06.md

@@ -176,7 +176,8 @@ final class McpControllerTest extends TestCase
         self::assertSame(self::BASE . '/mcp', $prm['resource']);
         self::assertSame([self::BASE], $prm['authorization_servers']);
         self::assertSame(['header'], $prm['bearer_methods_supported']);
-        self::assertSame(['iot.read'], $prm['scopes_supported'], 'iot.control non annoncé si le pilotage est désactivé');
+        // 6.61.0 : iot_migrate actif par défaut → iot.control annoncé même sans pilotage (apply exige ce scope).
+        self::assertSame(['iot.read', 'iot.control'], $prm['scopes_supported'], 'iot.control annoncé (migrations actives par défaut)');
 
         $asm = OAuthMetadata::authorizationServer($this->config, self::BASE);
         self::assertSame(self::BASE, $asm['issuer']);

@@ -372,6 +372,35 @@ final class OperationalSettingsCatalog
                 'max' => 90,
                 'unit' => 'j',
             ],
+            'AUTO_MIGRATE_ENABLED' => [
+                'env' => 'AUTO_MIGRATE_ENABLED',
+                'type' => self::TYPE_BOOL,
+                'group' => self::GROUP_MAINTENANCE,
+                'label' => 'Migrations automatiques (cron)',
+                'hint' => 'Le CRON applique seul les migrations ADDITIVES du dépôt (ADD COLUMN / INDEX, CREATE TABLE) '
+                    . 'restées en attente, dès un déploiement. DROP / UPDATE / MODIFY restent manuels.',
+                'default' => true,
+            ],
+            'AUTO_MIGRATE_INTERVAL_SECONDS' => [
+                'env' => 'AUTO_MIGRATE_INTERVAL_SECONDS',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_MAINTENANCE,
+                'label' => 'Intervalle examen des migrations',
+                'hint' => 'Examen du dossier migrations/ au plus à cette cadence (et immédiatement quand il change).',
+                'default' => 900,
+                'min' => 60,
+                'max' => 86400,
+                'unit' => 's',
+            ],
+            'AUTO_MIGRATE_EXCLUDE' => [
+                'env' => 'AUTO_MIGRATE_EXCLUDE',
+                'type' => self::TYPE_STRING,
+                'group' => self::GROUP_MAINTENANCE,
+                'label' => 'Migrations exclues de l’automatique',
+                'hint' => 'Liste CSV de fichiers migrations/*.sql à ne jamais appliquer seul (ex. index UNIQUE sur une '
+                    . 'table aux doublons). Vide = aucune exclusion.',
+                'default' => '',
+            ],
             'HMAC_AUDIT_ROTATE_DAYS' => [
                 'env' => 'HMAC_AUDIT_ROTATE_DAYS',
                 'type' => self::TYPE_INT,
