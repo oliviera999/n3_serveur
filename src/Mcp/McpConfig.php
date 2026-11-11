@@ -29,7 +29,7 @@ use App\Config\Env;
  *  - MCP_DEVICE_ACTIONS_ENABLED  : reset distant, OTA, suppression photos (défaut false)
  *  - MCP_SQL_ENABLED / MCP_SQL_DDL_ENABLED : SQL libre admin (défaut false)
  *  - MCP_SQL_SELECT_ENABLED : iot_sql_select, lecture SQL seule admin (défaut true)
- *  - MCP_MIGRATIONS_ENABLED : iot_migrate, migrations additives du dépôt + code (défaut false)
+ *  - MCP_MIGRATIONS_ENABLED : iot_migrate, migrations additives du dépôt + code (défaut true)
  *  - MCP_SQL_MAX_AFFECTED_ROWS / _STATEMENT_SECONDS / _MAX_ROWS : plafonds SQL
  *  - MCP_PRIVACY_BYPASS          : admin voit noms/e-mails (défaut false) ; secrets jamais
  *  - MCP_CONFIRM_SKIP            : catégories de confirmation dispensées (CSV ou `all`)
@@ -314,10 +314,10 @@ final class McpConfig
         return $this->bool('MCP_SQL_SELECT_ENABLED', true);
     }
 
-    /** iot_migrate : application des migrations additives du dépôt (défaut désactivé). */
+    /** iot_migrate : application des migrations additives du dépôt (défaut activé depuis 6.61.0, code de confirmation requis). */
     public function isMigrationsEnabled(): bool
     {
-        return $this->bool('MCP_MIGRATIONS_ENABLED', false);
+        return $this->bool('MCP_MIGRATIONS_ENABLED', true);
     }
 
     public function sqlMaxAffectedRows(): int

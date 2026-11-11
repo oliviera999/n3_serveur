@@ -109,6 +109,7 @@ class CronOrchestrator
     private ?OtaReleaseSyncService $otaReleaseSync;
     private ?ClockDriftAlertService $clockDriftAlerts;
     private ?OtaSilenceAlertService $otaSilenceAlerts;
+    private ?AutoMigrateCommand $autoMigrate;
 
     private float $aquaLowThreshold;
     private float $stddevThreshold;
@@ -148,7 +149,9 @@ class CronOrchestrator
         ?OtaReleaseSyncService $otaReleaseSync = null,
         ?ClockDriftAlertService $clockDriftAlerts = null,
         ?OtaSilenceAlertService $otaSilenceAlerts = null,
+        ?AutoMigrateCommand $autoMigrate = null,
     ) {
+        $this->autoMigrate = $autoMigrate;
         $this->mcpOAuthPurge = $mcpOAuthPurge;
         $this->healthReport = $healthReport;
         $this->mcpRestore = $mcpRestore;
@@ -318,6 +321,10 @@ class CronOrchestrator
         try {
             $this->logger->info('--- Début orchestrateur CRON ---');
 
+            // Migrations additives du dépôt en attente (après un déploiement git) : appliquées
+            // en tête de run pour que les POST suivants trouvent leurs colonnes.
+            $this->runAutoMigrate();
+
             // Si un redémarrage pompe vient d'être exécuté, ne pas réévaluer la marée
             // dans le même run : l'écart-type est encore bas (pompe à l'arrêt pendant
             // 5 min) et checkTideSystem recouperait immédiatement la pompe, annulant
@@ -344,6 +351,18 @@ class CronOrchestrator
         } finally {
             $this->writeLastRun($started, microtime(true), $status);
             $this->releaseLock($lockHandle);
+        }
+    }
+
+    private function runAutoMigrate(): void
+    {
+        if ($this->autoMigrate === null) {
+            return;
+        }
+        try {
+            $this->autoMigrate->execute();
+        } catch (\Throwable $e) {
+            $this->logger->warning('Migrations automatiques en erreur : ' . $e->getMessage());
         }
     }
 

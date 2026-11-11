@@ -11,6 +11,24 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.61.0] - 2026-11-11
+
+### Ajout — Le serveur applique seul ses migrations additives (diagnostic d'écho ultrason jeté depuis 6.57.0)
+- **Constat** : `2026_11_ffp3_echo_diag.sql` jamais appliquée en production → `wlAquaDiag` / `wlPotaDiag`
+  envoyés par ffp5cs 15.35 ignorés (colonnes absentes), capteur ultrason aquarium muet depuis le 31/10 sans
+  cause lisible. Même cas pour `2026_11_heartbeat_resources.sql`.
+- **CRON `AutoMigrateCommand`** (en tête de chaque run) : applique les migrations ENTIÈREMENT additives du
+  dépôt (ADD COLUMN / ADD INDEX / CREATE TABLE / CREATE INDEX) restées en attente ; examen dès que
+  `migrations/` change (déploiement git) et au plus toutes les `AUTO_MIGRATE_INTERVAL_SECONDS` (900 s).
+  Fichier en échec retenté après 24 h ou dès correction ; `AUTO_MIGRATE_EXCLUDE` (CSV) ; coupure par
+  `AUTO_MIGRATE_ENABLED=false` (réglage opérationnel admin, groupe Maintenance, ou `.env`). Journal
+  `[auto-migrate]`, audit `cron:migrate`, e-mail système (info si appliqué, alerte si échec).
+- **`bin/migrate.php [--dry-run]`** (CLI gardé) ; appelé par `bin/deploy.sh` et le hook `post-merge`.
+- **`iot_migrate` actif par défaut** (`MCP_MIGRATIONS_ENABLED=true`, code de confirmation inchangé) et
+  nouvelles actions `plan_all` / `apply_all` (toutes les migrations en attente, un seul code). Conséquence :
+  le scope `iot.control` est désormais annoncé par défaut.
+- Moteur commun `Mcp\Sql\MigrationRunner` (outil MCP, CRON, CLI) ; `MigrationCatalog::hash()` / `fingerprint()`.
+
 ## [6.60.0] - 2026-11-07
 
 ### Ajout — Heartbeat : ressources mémoire / CPU / NVS (analyse charge ESP FFP3 du 07/11)

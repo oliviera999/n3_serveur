@@ -11,6 +11,7 @@ use App\Mcp\McpConfig;
 use App\Mcp\McpContext;
 use App\Mcp\Sql\MigrationCatalog;
 use App\Mcp\Sql\MigrationFile;
+use App\Mcp\Sql\MigrationRunner;
 use App\Mcp\Sql\SchemaReader;
 use App\Mcp\ToolException;
 use App\Mcp\ToolResult;
@@ -27,22 +28,28 @@ use Slim\Psr7\Factory\ServerRequestFactory;
  * CREATE INDEX) sont applicables. Les instructions déjà en place (schéma réel) et celles visant une
  * table absente sont sautées : rejouer est sans effet.
  *
- * Désactivé par défaut (MCP_MIGRATIONS_ENABLED=false), scope iot.control, rôle admin, plan d'abord
+ * Activé par défaut depuis 6.61.0 (MCP_MIGRATIONS_ENABLED=true ; false pour le retirer), scope iot.control, rôle admin, plan d'abord
  * (action « plan », défaut), puis application avec confirmation par code hors Claude (catégorie
- * sql_migration). Journal [mcp-migrate] + audit de contrôle.
+ * sql_migration). plan_all / apply_all : toutes les migrations additives en attente, un seul code.
+ * Journal [mcp-migrate] + audit de contrôle. Exécution : {@see MigrationRunner} (partagée avec le CRON
+ * {@see \App\Command\AutoMigrateCommand}, qui applique seul les migrations additives après un déploiement).
  */
 final class MigrateTool extends AbstractTool
 {
+    private MigrationRunner $runner;
+
     public function __construct(
         McpConfig $config,
-        private PDO $pdo,
-        private SchemaReader $schema,
+        PDO $pdo,
+        SchemaReader $schema,
         private MigrationCatalog $migrations,
         private ConfirmationGate $confirm,
         private ControlAuditLogger $audit,
         private LogService $logger,
+        ?MigrationRunner $runner = null,
     ) {
         parent::__construct($config);
+        $this->runner = $runner ?? new MigrationRunner($pdo, $schema, $migrations);
     }
 
     public function name(): string
@@ -62,6 +69,8 @@ final class MigrateTool extends AbstractTool
             . 'DELETE, MODIFY… restent à phpMyAdmin. action « plan » (défaut) : instructions et état réel (applied / pending / '
             . 'partial / table_missing), rien n\'est exécuté. action « apply » : exécute les seules instructions en attente, '
             . 'après confirmation par code envoyé par e-mail (confirmation_id + confirmation_code). Rejouer est sans effet. '
+            . 'action « plan_all » / « apply_all » (sans « file ») : toutes les migrations additives en attente, un seul code. '
+            . 'Le CRON du serveur applique aussi seul les migrations additives en attente (AUTO_MIGRATE_ENABLED). '
             . 'État de toutes les migrations : iot_db_schema avec « migrations »: true.';
     }
 
@@ -95,23 +104,25 @@ final class MigrateTool extends AbstractTool
     {
         return $this->objectSchema([
             'file' => ['type' => 'string', 'pattern' => '^[A-Za-z0-9][A-Za-z0-9_.-]{0,120}\.sql$', 'description' => 'Nom du fichier dans migrations/.'],
-            'action' => ['type' => 'string', 'enum' => ['plan', 'apply'], 'default' => 'plan'],
+            'action' => ['type' => 'string', 'enum' => ['plan', 'apply', 'plan_all', 'apply_all'], 'default' => 'plan'],
             'confirmation_id' => ['type' => 'string', 'pattern' => '^[a-f0-9]{32}$'],
             'confirmation_code' => ['type' => 'string', 'pattern' => '^[0-9]{6}$'],
-        ], ['file']);
+        ]);
     }
 
     public function call(array $arguments, McpContext $context): ToolResult
     {
         AdminGuard::assertAdmin($context);
-        $file = (string) $arguments['file'];
         $action = (string) ($arguments['action'] ?? 'plan');
+        if ($action === 'plan_all' || $action === 'apply_all') {
+            return $this->callAll($action, $arguments, $context);
+        }
+        if (!isset($arguments['file']) || !is_string($arguments['file']) || $arguments['file'] === '') {
+            throw new ToolException('« file » est requis pour les actions plan et apply (ou utiliser plan_all / apply_all).', 'missing_file');
+        }
+        $file = $arguments['file'];
         $inspected = $this->migrations->inspect($file);
-
-        $runnable = array_values(array_filter(
-            $inspected['statements'],
-            static fn (array $s): bool => in_array($s['status'], [MigrationCatalog::ST_PENDING, MigrationCatalog::ST_PARTIAL], true)
-        ));
+        $runnable = MigrationRunner::runnable($inspected);
         $plan = [
             'file' => $file,
             'status' => $inspected['status'],
@@ -132,27 +143,19 @@ final class MigrateTool extends AbstractTool
         if (!$context->hasScope(McpConfig::SCOPE_CONTROL)) {
             throw new InsufficientScopeException(McpConfig::SCOPE_CONTROL);
         }
-        if (!$inspected['additive_only']) {
-            throw new ToolException('Migration non additive (DROP, UPDATE, DELETE, MODIFY…) : à appliquer via phpMyAdmin.', 'migration_not_additive');
+        $blocker = MigrationRunner::blocker($inspected);
+        if ($blocker !== null && $blocker['code'] === 'migration_not_additive') {
+            throw new ToolException($blocker['message'], $blocker['code']);
         }
         if ($runnable === []) {
             return ToolResult::json($plan + ['executed' => false, 'note' => 'Rien à faire : déjà appliquée.']);
         }
-        foreach ($runnable as $s) {
-            if ($s['status'] === MigrationCatalog::ST_PARTIAL && !$s['idempotent']) {
-                throw new ToolException(
-                    'Instruction partiellement appliquée sur ' . $s['table'] . ' sans « IF NOT EXISTS » : rejouer échouerait. '
-                    . 'Compléter à la main (manquant : ' . implode(', ', $s['missing']) . ').',
-                    'migration_partial'
-                );
-            }
+        if ($blocker !== null) {
+            throw new ToolException($blocker['message'], $blocker['code']);
         }
 
         $pending = $this->confirm->check($this->name(), $arguments, $context, [ConfirmCategory::SQL_MIGRATION], [
-            'cible' => 'Migration ' . $file . ' → ' . implode(', ', array_values(array_unique(array_map(
-                static fn (array $s): string => (string) $s['table'],
-                $runnable
-            )))),
+            'cible' => 'Migration ' . $file . ' → ' . implode(', ', self::tables($runnable)),
             'effet' => sprintf('%d instruction(s) DDL additive(s) en PRODUCTION (base courante)', count($runnable)),
             'risques' => ['DDL : verrou possible le temps de l\'ALTER sur les grosses tables'],
         ]);
@@ -160,46 +163,110 @@ final class MigrateTool extends AbstractTool
             return $pending;
         }
 
-        // Instructions brutes (non tronquées), dans l'ordre du fichier, ré-évaluées une par une.
-        $results = [];
-        $failed = false;
-        foreach ($this->migrations->statements($file) as $raw) {
-            [$status] = $this->migrations->statementStatus($raw);
-            if (!in_array($status, [MigrationCatalog::ST_PENDING, MigrationCatalog::ST_PARTIAL], true)) {
-                $results[] = ['table' => $raw['table'], 'status' => $status, 'executed' => false];
-                continue;
-            }
-            $started = microtime(true);
-            try {
-                $this->pdo->exec($raw['sql']);
-                $this->schema->forget();
-                $results[] = ['table' => $raw['table'], 'status' => 'done', 'executed' => true, 'ms' => (int) round((microtime(true) - $started) * 1000)];
-            } catch (\Throwable $e) {
-                $failed = true;
-                $results[] = ['table' => $raw['table'], 'status' => 'error', 'executed' => false, 'error' => mb_substr($e->getMessage(), 0, 300)];
-                break;
-            }
-        }
-
-        $this->logger->info('[mcp-migrate] user={user} client={client} file={file} ok={ok} executed={n}', [
-            'user' => $context->username,
-            'client' => $context->clientId,
-            'file' => $file,
-            'ok' => $failed ? '0' : '1',
-            'n' => (string) count(array_filter($results, static fn (array $r): bool => $r['executed'])),
-        ]);
-        $request = $context->request ?? (new ServerRequestFactory())->createServerRequest('POST', '/mcp');
-        $this->audit->logAction($request, 'mcp:migrate', $file, ['results' => $results], !$failed, null, 'mcp:' . $context->username);
-
-        $this->schema->forget();
-        $after = $this->migrations->inspect($file);
+        $outcome = $this->runner->apply($file);
+        $this->journal($context, $file, $outcome);
 
         return ToolResult::json([
             'file' => $file,
             'executed' => true,
-            'ok' => !$failed,
-            'results' => $results,
-            'status_after' => $after['status'],
+            'ok' => $outcome['ok'],
+            'results' => $outcome['results'],
+            'status_after' => $outcome['status_after'],
         ]);
+    }
+
+    /**
+     * plan_all : toutes les migrations additives en attente ; apply_all : les applique toutes (dans
+     * l'ordre alphabétique des fichiers) avec UN seul code de confirmation. Les fichiers bloqués
+     * (partiels non idempotents) sont listés et sautés ; arrêt au premier fichier en échec.
+     *
+     * @param array<string, mixed> $arguments
+     */
+    private function callAll(string $action, array $arguments, McpContext $context): ToolResult
+    {
+        $files = [];
+        $blocked = [];
+        $count = 0;
+        $tables = [];
+        foreach ($this->runner->pendingFiles() as $file) {
+            $inspected = $this->migrations->inspect($file);
+            $runnable = MigrationRunner::runnable($inspected);
+            $blocker = MigrationRunner::blocker($inspected);
+            $entry = ['file' => $file, 'status' => $inspected['status'], 'to_execute' => count($runnable), 'tables' => self::tables($runnable)];
+            if ($blocker !== null) {
+                $blocked[] = $entry + ['blocked' => $blocker['message']];
+                continue;
+            }
+            $files[] = $entry;
+            $count += count($runnable);
+            $tables = array_merge($tables, self::tables($runnable));
+        }
+        $plan = ['pending_files' => $files, 'blocked_files' => $blocked, 'to_execute' => $count];
+
+        if ($action === 'plan_all' || $files === []) {
+            return ToolResult::json($plan + [
+                'executed' => false,
+                'note' => $files === []
+                    ? 'Aucune migration additive en attente applicable.'
+                    : 'Pour tout appliquer : action « apply_all » (un seul code de confirmation par e-mail).',
+            ]);
+        }
+
+        if (!$context->hasScope(McpConfig::SCOPE_CONTROL)) {
+            throw new InsufficientScopeException(McpConfig::SCOPE_CONTROL);
+        }
+        $pending = $this->confirm->check($this->name(), $arguments, $context, [ConfirmCategory::SQL_MIGRATION], [
+            'cible' => count($files) . ' migration(s) : ' . implode(', ', array_column($files, 'file')),
+            'effet' => sprintf('%d instruction(s) DDL additive(s) en PRODUCTION sur %s', $count, implode(', ', array_values(array_unique($tables)))),
+            'risques' => ['DDL : verrou possible le temps de l\'ALTER sur les grosses tables'],
+        ]);
+        if ($pending !== null) {
+            return $pending;
+        }
+
+        $outcomes = [];
+        $ok = true;
+        foreach ($files as $entry) {
+            $outcome = $this->runner->apply($entry['file']);
+            $this->journal($context, $entry['file'], $outcome);
+            $outcomes[] = $outcome;
+            if (!$outcome['ok']) {
+                $ok = false;
+                break;
+            }
+        }
+
+        return ToolResult::json([
+            'executed' => true,
+            'ok' => $ok,
+            'files' => $outcomes,
+            'blocked_files' => $blocked,
+            'still_pending' => $this->runner->pendingFiles(),
+        ]);
+    }
+
+    /**
+     * @param array{ok: bool, executed: int, results: list<array<string, mixed>>} $outcome
+     */
+    private function journal(McpContext $context, string $file, array $outcome): void
+    {
+        $this->logger->info('[mcp-migrate] user={user} client={client} file={file} ok={ok} executed={n}', [
+            'user' => $context->username,
+            'client' => $context->clientId,
+            'file' => $file,
+            'ok' => $outcome['ok'] ? '1' : '0',
+            'n' => (string) $outcome['executed'],
+        ]);
+        $request = $context->request ?? (new ServerRequestFactory())->createServerRequest('POST', '/mcp');
+        $this->audit->logAction($request, 'mcp:migrate', $file, ['results' => $outcome['results']], $outcome['ok'], null, 'mcp:' . $context->username);
+    }
+
+    /**
+     * @param list<array<string, mixed>> $statements
+     * @return list<string>
+     */
+    private static function tables(array $statements): array
+    {
+        return array_values(array_unique(array_map(static fn (array $s): string => (string) $s['table'], $statements)));
     }
 }

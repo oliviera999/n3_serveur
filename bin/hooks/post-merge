@@ -27,4 +27,10 @@ else
     exit 1
 fi
 
+# Migrations ADDITIVES en attente (ADD COLUMN / INDEX, CREATE TABLE) — non bloquant :
+# le CRON (AutoMigrateCommand) les appliquerait de toute façon dans la minute.
+if [ -f "$PROJECT_ROOT/bin/migrate.php" ]; then
+    php "$PROJECT_ROOT/bin/migrate.php" || echo "⚠️  Migration automatique en échec (non bloquant)"
+fi
+
 exit 0

@@ -82,6 +82,30 @@ final class MigrationCatalog
     }
 
     /**
+     * Empreinte du contenu d'un fichier (sha1) : une migration corrigée dans le dépôt est retentée.
+     */
+    public function hash(string $file): string
+    {
+        return sha1($this->read($file));
+    }
+
+    /**
+     * Empreinte de l'ensemble du dossier (noms + tailles + dates) : change à chaque déploiement
+     * apportant ou modifiant une migration.
+     */
+    public function fingerprint(): string
+    {
+        $real = realpath($this->directory);
+        $parts = [];
+        foreach ($this->files() as $name) {
+            $path = $real . '/' . $name;
+            $parts[] = $name . ':' . (int) @filesize($path) . ':' . (int) @filemtime($path);
+        }
+
+        return sha1(implode('|', $parts));
+    }
+
+    /**
      * Instructions brutes (non tronquées) d'un fichier, pour exécution.
      *
      * @return list<array{sql: string, kind: string, table: string|null, columns: list<string>, indexes: list<string>}>
