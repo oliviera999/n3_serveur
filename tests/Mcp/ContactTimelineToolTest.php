@@ -39,6 +39,11 @@ final class ContactTimelineToolTest extends TestCase
         McpSqliteFixture::seedAllOutputs($this->pdo);
         $this->pdo->exec("UPDATE ffp3Outputs SET state = '2000' WHERE gpio = 116");
         $this->pdo->exec("INSERT INTO ffp3Outputs (board, gpio, name, state, requestTime, lastModifiedBy) VALUES ('1', 116, 'FreqWakeUp', '2000', '2026-11-06 00:00:00', 'esp32')");
+        // Facteur nuit (GPIO 126) neutralisé : OfflineThresholdResolver::expectedSleepSeconds()
+        // le lit à l'heure RÉELLE (date('G')). Sans cela, de 19 h à 8 h (nuit + grâce matinale),
+        // la période attendue devient 2000 × 3 = 6000 s et le test n'est vert qu'en journée.
+        $this->pdo->exec("UPDATE ffp3Outputs SET state = '1' WHERE gpio = 126");
+        $this->pdo->exec("INSERT INTO ffp3Outputs (board, gpio, name, state, requestTime, lastModifiedBy) VALUES ('1', 126, 'NightSleepMultiplier', '1', '2026-11-06 00:00:00', 'esp32')");
         $this->tmp = sys_get_temp_dir() . '/mcp-timeline-' . bin2hex(random_bytes(4));
         mkdir($this->tmp . '/var/cache', 0777, true);
     }

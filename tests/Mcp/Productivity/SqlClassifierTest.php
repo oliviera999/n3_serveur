@@ -89,4 +89,58 @@ final class SqlClassifierTest extends TestCase
         $m = SqlStatementClassifier::classify("SELECT 1 /* comment */ -- fin\n");
         self::assertSame(SqlStatementClassifier::CLASS_READ, $m['class']);
     }
+
+    public function testUpdateModifierStillDetectsProductionTable(): void
+    {
+        $prod = ['ffp3Outputs', 'n3ppOutputs', 'msp1Outputs', 'ffp3OutputsS3'];
+        $m = SqlStatementClassifier::classify(
+            'UPDATE LOW_PRIORITY IGNORE ffp3Outputs SET state = \'0\' WHERE gpio = 16',
+            $prod
+        );
+        self::assertTrue($m['touches_prod_outputs']);
+        self::assertContains('sql_prod_outputs', $m['needs_confirm']);
+        self::assertContains('ffp3Outputs', $m['tables']);
+    }
+
+    public function testSchemaQualifiedProductionTableNeedsConfirm(): void
+    {
+        $m = SqlStatementClassifier::classify(
+            'UPDATE `olution`.`ffp3Outputs` SET state = \'0\' WHERE gpio = 16',
+            ['ffp3Outputs']
+        );
+        self::assertTrue($m['touches_prod_outputs']);
+        self::assertContains('sql_prod_outputs', $m['needs_confirm']);
+        self::assertNotContains('olution', $m['tables']);
+    }
+
+    public function testSecondTableInUpdateListIsSeen(): void
+    {
+        $m = SqlStatementClassifier::classify(
+            'UPDATE dummy, ffp3Outputs SET ffp3Outputs.state = \'0\' WHERE dummy.id = 1',
+            ['ffp3Outputs']
+        );
+        self::assertContains('ffp3Outputs', $m['tables']);
+        self::assertTrue($m['touches_prod_outputs']);
+    }
+
+    public function testSchemaQualifiedProtectedTableIsRejected(): void
+    {
+        $this->expectException(ToolException::class);
+        SqlStatementClassifier::classify('DELETE FROM olution.mcp_oauth_tokens WHERE id = 1');
+    }
+
+    public function testWhereOnlyInsideStringIsUnbounded(): void
+    {
+        $m = SqlStatementClassifier::classify("UPDATE ffp3Data SET note = 'pas de WHERE ici'");
+        self::assertTrue($m['unbounded_write']);
+        self::assertContains('sql_unbounded_write', $m['needs_confirm']);
+    }
+
+    public function testRealWhereStillCounts(): void
+    {
+        $m = SqlStatementClassifier::classify("UPDATE ffp3Data SET note = 'WHERE' WHERE id = 4");
+        self::assertTrue($m['has_where']);
+        self::assertFalse($m['unbounded_write']);
+        self::assertSame([], $m['needs_confirm']);
+    }
 }
