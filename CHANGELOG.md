@@ -23,6 +23,8 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   (`UPDATE a, ffp3Outputs`) échappait à la détection de table. La confirmation
   « outputs de production » et l'interdiction d'écrire dans les tables MCP n'étaient
   plus exigées. Un `WHERE` présent seulement dans une chaîne ne compte plus comme filtre.
+- **Tests** : `ContactTimelineToolTest` neutralise le facteur nuit (GPIO 126). Il dépendait de
+  l'heure réelle et n'était vert qu'entre 8 h et 19 h (période attendue 6000 s au lieu de 2000 s).
 
 ## [6.61.0] - 2026-11-11
 
