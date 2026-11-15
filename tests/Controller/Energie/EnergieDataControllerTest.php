@@ -243,4 +243,48 @@ final class EnergieDataControllerTest extends TestCase
         $blockIds = array_column($ctx['layout']['blocks'], 'id');
         $this->assertNotContains('systeme', $blockIds);
     }
+
+    /**
+     * Incident du 14/11/2026 : `GET /energie` sans table `energieData` → PDOException → 500.
+     * La page doit répondre 200 avec « Banc énergie pas encore installé », sans requête de mesures.
+     */
+    public function testMissingTableRendersNotInstalledPageWith200(): void
+    {
+        if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
+            $this->markTestSkipped('PDO sqlite driver not available');
+        }
+        TableConfig::setEnvironment('prod');
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $repo = new EnergieSensorRepository($pdo); // aucune table energieData
+
+        $dateRange = $this->createMock(DateRangeExtractor::class);
+        $dateRange->expects($this->never())->method('extract');
+
+        $controller = new EnergieDataController(
+            new TemplateRenderer(dirname(__DIR__, 3) . '/templates', false),
+            $repo,
+            $this->createMock(CsrfService::class),
+            $dateRange,
+            $this->createMock(CsvExportService::class),
+            new ChartDataService(),
+            $this->displayPresets(),
+        );
+        $response = $controller->show(
+            (new ServerRequestFactory())->createServerRequest('GET', '/energie'),
+            (new ResponseFactory())->createResponse()
+        );
+        $html = (string) $response->getBody();
+
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertStringContainsString('Banc énergie pas encore installé', $html);
+        $this->assertStringContainsString('Aucune donnée', $html);
+        $this->assertStringContainsString('noindex', $html);
+        $this->assertSame('noindex', $response->getHeaderLine('X-Robots-Tag'));
+        $this->assertTrue($repo->isTableMissing());
+        // Les lectures restent sûres (API temps réel, MCP) : aucune donnée, pas d'exception.
+        $this->assertNull($repo->getLatest());
+        $this->assertSame([], $repo->fetchBetween('2026-11-14 00:00:00', '2026-11-14 23:59:59'));
+        $this->assertSame(0, $repo->countReadingsToday());
+    }
 }

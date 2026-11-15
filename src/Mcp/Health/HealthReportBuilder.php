@@ -231,8 +231,8 @@ final class HealthReportBuilder
         $out = ['id' => $family . ':' . $env, 'family' => $family, 'env' => $env, 'label' => $label];
         try {
             $latest = $this->read->latest($family);
-        } catch (\Throwable) {
-            return $out + ['online' => null, 'active' => false, 'status' => 'indisponible', 'note' => 'Table de mesures absente ou illisible.'];
+        } catch (\Throwable $e) {
+            return $out + ['online' => null, 'active' => false, 'status' => 'indisponible'] + self::unavailableNote($e);
         }
         if ($latest === null) {
             return $out + ['online' => null, 'active' => false, 'status' => 'jamais_vu'];
@@ -462,6 +462,24 @@ final class HealthReportBuilder
     {
         // prod est toujours inclus (installations réelles) ; s3 si MCP_ALLOWED_ENVS l'autorise.
         return array_values(array_unique(array_merge(['prod'], array_intersect(self::PRODUCTION_ENVS, $this->config->allowedEnvs()))));
+    }
+
+    /**
+     * Note d'un module dont la table de mesures est illisible : table absente (module pas encore
+     * installé, ex. banc énergie) distinguée d'une autre erreur. N'influe pas sur le statut.
+     *
+     * @return array{table_missing: bool, note: string}
+     */
+    public static function unavailableNote(\Throwable $e): array
+    {
+        if (\App\Util\MissingTable::is($e)) {
+            return [
+                'table_missing' => true,
+                'note' => 'Table de mesures absente : module pas encore installé ou migration non appliquée (iot_db_schema, « migrations »: true).',
+            ];
+        }
+
+        return ['table_missing' => false, 'note' => 'Table de mesures illisible (erreur SQL autre que « table absente »).'];
     }
 
     private static function age(?string $sqlDate, int $now): ?int

@@ -97,8 +97,8 @@ final class OverviewTool extends AbstractTool
         $out['active_alerts'] = $alertCount;
         try {
             $latest = $this->repo->latest($family);
-        } catch (\Throwable) {
-            return $out + ['status' => 'indisponible', 'online' => null, 'note' => 'Table de mesures absente ou illisible.'];
+        } catch (\Throwable $e) {
+            return $out + ['status' => 'indisponible', 'online' => null] + \App\Mcp\Health\HealthReportBuilder::unavailableNote($e);
         }
         if ($latest === null) {
             return $out + ['status' => 'jamais_vu', 'online' => null, 'note' => 'Aucune mesure enregistrée.'];

@@ -185,4 +185,58 @@ final class AbstractSensorRepositoryTest extends TestCase
         $this->assertSame('N/A', $this->repo->getFirmwareVersion());
         $this->assertNull($this->repo->getLastReadingDate());
     }
+
+    /**
+     * Table absente (module pas encore installé) : lectures « aucune donnée », pas d'exception.
+     */
+    public function testMissingTableReadsReturnEmpty(): void
+    {
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $repo = $this->makeRepo($pdo);
+
+        $this->assertTrue($repo->isTableMissing());
+        $this->assertNull($repo->getLatest());
+        $this->assertSame('N/A', $repo->getFirmwareVersion());
+        $this->assertNull($repo->getLastReadingDate());
+        $this->assertNull($repo->getFirstReadingDate());
+        $this->assertNull($repo->getLastNonNull('TempAir', '2000-01-01 00:00:00'));
+        $this->assertSame([], $repo->fetchBetween('2000-01-01 00:00:00', '2100-01-01 00:00:00'));
+        $this->assertSame([], $repo->getRecentReadingTimes(10));
+        $this->assertSame(0, $repo->countReadingsToday());
+        $this->assertSame(0, $repo->countReadingsBetween('2000-01-01 00:00:00', '2100-01-01 00:00:00'));
+    }
+
+    public function testExistingTableIsNotReportedMissing(): void
+    {
+        $this->assertFalse($this->repo->isTableMissing());
+    }
+
+    /**
+     * Seule « table inexistante » est absorbée : une autre erreur SQL (ici colonne inconnue dans
+     * le filtre qualité) doit remonter, jamais être maquillée en « aucune donnée ».
+     */
+    public function testOtherSqlErrorsAreNotMasked(): void
+    {
+        $repo = new class ($this->pdo) extends AbstractSensorRepository {
+            protected function getTableName(): string
+            {
+                return 'sensors_test';
+            }
+
+            protected function qualityFilterSql(): string
+            {
+                return 'ColonneInexistante > 0';
+            }
+
+            /** @return string[] */
+            public function getSensorColumns(): array
+            {
+                return ['TempAir'];
+            }
+        };
+
+        $this->expectException(\PDOException::class);
+        $repo->fetchBetween('2000-01-01 00:00:00', '2100-01-01 00:00:00');
+    }
 }

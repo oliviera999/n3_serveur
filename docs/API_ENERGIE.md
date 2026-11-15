@@ -171,7 +171,11 @@ supervision quand le module réel postera en production.
 
 ## 5. Déploiement
 
-1. Appliquer `migrations/2026_10_energie_tables.sql` (tables + lien de menu ; idempotent).
-   Docker local : `docker/mysql/init/92-energie.sql`.
+1. Tables `energieData` / `energieDataTest` : `migrations/2026_10_energie_tables.sql` (CREATE TABLE
+   IF NOT EXISTS seulement depuis 6.62.0 → **appliquée seule par le CRON** `AutoMigrateCommand`
+   après déploiement, ou via l'outil MCP `iot_migrate`). Le lien de menu « Énergie (banc) » est semé
+   par `NavPageRepository` et se pilote depuis `/supervision`. Docker local : `docker/mysql/init/92-energie.sql`.
+   Tant que la table manque, `/energie[-test]` affiche « Banc énergie pas encore installé » (HTTP 200,
+   `noindex`) et les API temps réel renvoient des listes vides — plus d'erreur 500.
 2. Vérifier `API_KEY` / `API_SIG_SECRET` dans le `.env` (mêmes valeurs que les autres firmwares).
 3. Firmware : URL `https://iot.olution.info/energie-test/post-data` (banc) ou `/energie/post-data` (module réel).

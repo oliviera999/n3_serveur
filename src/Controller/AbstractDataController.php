@@ -57,6 +57,12 @@ abstract class AbstractDataController
         $testSuffix = $environment === $this->getTestEnvironmentName() ? ' (TEST)' : '';
         $catalog = $this->catalog();
 
+        // Module pas encore installé (table de mesures absente) : page « aucune donnée » en 200
+        // plutôt qu'une PDOException → 500 « Exception non gérée » (incident /energie du 14/11/2026).
+        if ($this->sensorRepo->isTableMissing()) {
+            return $this->renderUnavailable($response, $environment, $testSuffix);
+        }
+
         $defaultEnd = date('Y-m-d H:i:s');
         $defaultStart = date('Y-m-d H:i:s', strtotime('-24 hours'));
         $lastDate = $this->sensorRepo->getLastReadingDate();
@@ -159,6 +165,45 @@ abstract class AbstractDataController
         $html = $this->renderer->render($this->getTemplateName(), $context);
         $response->getBody()->write($html);
         return $response->withHeader('Content-Type', 'text/html; charset=utf-8');
+    }
+
+    /**
+     * Titre de la page « module pas encore installé » (table de mesures absente).
+     */
+    protected function getUnavailableHeading(): string
+    {
+        return 'Module pas encore installé';
+    }
+
+    /**
+     * Texte de la page « module pas encore installé ».
+     */
+    protected function getUnavailableMessage(): string
+    {
+        return 'Aucune donnée pour le moment : ce module n\'envoie pas encore de mesures. '
+            . 'Cette page se remplira d\'elle-même dès ses premiers envois.';
+    }
+
+    /**
+     * Page « aucune donnée » (HTTP 200, non indexée) quand la table de mesures n'existe pas.
+     */
+    private function renderUnavailable(Response $response, string $environment, string $testSuffix): Response
+    {
+        $html = $this->renderer->render('module_unavailable.twig', [
+            'page_title' => $this->getPageTitle($testSuffix),
+            'nav_active' => $this->getNavActive(),
+            'environment' => $environment,
+            'heading' => $this->getUnavailableHeading(),
+            'message' => $this->getUnavailableMessage(),
+            'version' => Version::getWithPrefix(),
+            'load_enhancement_scripts' => false,
+            'load_realtime_styles' => false,
+        ]);
+        $response->getBody()->write($html);
+
+        return $response
+            ->withHeader('Content-Type', 'text/html; charset=utf-8')
+            ->withHeader('X-Robots-Tag', 'noindex');
     }
 
     /** Profondeur de recherche de la dernière valeur valide d'une carte vide (jours). */

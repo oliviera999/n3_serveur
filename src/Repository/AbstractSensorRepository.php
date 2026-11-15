@@ -4,16 +4,71 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Util\MissingTable;
 use PDO;
 
 /**
  * Classe abstraite pour les repositories de capteurs MSP1, N3PP et ENERGIE.
  * Fournit les méthodes communes : getLatest, fetchBetween, exportCsv, getLastReadingDate, countReadingsToday.
  * Les sous-classes définissent getTableName() et getSensorColumns().
+ *
+ * TABLE ABSENTE (module pas encore installé, migration non appliquée) : les LECTURES rendent
+ * « aucune donnée » (null / [] / 0) au lieu de lever une PDOException, et {@see isTableMissing()}
+ * permet à la page d'afficher « module pas encore installé ». Seule l'erreur « table inexistante »
+ * est absorbée ({@see MissingTable}) : toute autre erreur SQL remonte telle quelle. Incident du
+ * 14/11/2026 : `GET /energie` → 500 « Table 'energieData' doesn't exist ».
  */
 abstract class AbstractSensorRepository extends AbstractRepository
 {
+    /** @var array<string, bool> table => absente (mémorisé par table : l'env peut changer par requête) */
+    private array $missingTables = [];
+
     abstract protected function getTableName(): string;
+
+    /**
+     * Vrai si la table de mesures de l'environnement courant n'existe pas (module non installé).
+     * Une sonde `SELECT … LIMIT 0` par table et par instance, puis mémorisée ; toute autre
+     * erreur SQL que « table inexistante » remonte.
+     */
+    public function isTableMissing(): bool
+    {
+        $table = $this->getTableName();
+        if (!array_key_exists($table, $this->missingTables)) {
+            try {
+                $this->pdo->query("SELECT 1 FROM `{$table}` LIMIT 0");
+                $this->missingTables[$table] = false;
+            } catch (\PDOException $e) {
+                if (!MissingTable::is($e)) {
+                    throw $e;
+                }
+                $this->missingTables[$table] = true;
+            }
+        }
+
+        return $this->missingTables[$table];
+    }
+
+    /**
+     * Exécute une lecture ; si la table n'existe pas, renvoie `$whenMissing` (et le mémorise).
+     *
+     * @template T
+     * @param callable(): T $read
+     * @param T $whenMissing
+     * @return T
+     */
+    protected function readOrEmpty(callable $read, mixed $whenMissing): mixed
+    {
+        try {
+            return $read();
+        } catch (\PDOException $e) {
+            if (!MissingTable::is($e)) {
+                throw $e;
+            }
+            $this->missingTables[$this->getTableName()] = true;
+
+            return $whenMissing;
+        }
+    }
 
     /** @return string[] */
     abstract public function getSensorColumns(): array;
@@ -25,7 +80,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
     {
         $table = $this->getTableName();
         $sql = "SELECT version FROM `{$table}` ORDER BY reading_time DESC LIMIT 1";
-        $result = $this->fetchOne($sql);
+        $result = $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql), null);
         return $result['version'] ?? 'N/A';
     }
 
@@ -38,8 +93,8 @@ abstract class AbstractSensorRepository extends AbstractRepository
     {
         $table = $this->getTableName();
         $sql = "SELECT * FROM `{$table}` ORDER BY reading_time DESC LIMIT 1";
-        $row = $this->fetchOne($sql);
-        return $row;
+
+        return $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql), null);
     }
 
     /**
@@ -62,7 +117,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
         $filter = $this->qualityFilterSql();
         $whereFilter = $filter !== '' ? " AND ({$filter})" : '';
         $sql = "SELECT * FROM `{$table}` WHERE reading_time BETWEEN :start AND :end{$whereFilter} ORDER BY reading_time ASC";
-        return $this->fetchAll($sql, [':start' => $start, ':end' => $end]);
+        return $this->readOrEmpty(fn (): array => $this->fetchAll($sql, [':start' => $start, ':end' => $end]), []);
     }
 
     /**
@@ -116,7 +171,10 @@ abstract class AbstractSensorRepository extends AbstractRepository
     {
         $limit = max(1, min(5000, $limit));
         $table = $this->getTableName();
-        $rows = $this->fetchAll("SELECT reading_time FROM `{$table}` ORDER BY reading_time DESC, id DESC LIMIT {$limit}");
+        $rows = $this->readOrEmpty(
+            fn (): array => $this->fetchAll("SELECT reading_time FROM `{$table}` ORDER BY reading_time DESC, id DESC LIMIT {$limit}"),
+            []
+        );
 
         return array_values(array_map(static fn (array $r): string => (string) $r['reading_time'], $rows));
     }
@@ -128,7 +186,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
     {
         $table = $this->getTableName();
         $sql = "SELECT MAX(reading_time) AS last_date FROM `{$table}`";
-        $result = $this->fetchOne($sql);
+        $result = $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql), null);
         return isset($result['last_date']) ? (string) $result['last_date'] : null;
     }
 
@@ -148,7 +206,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
         $sql = "SELECT `{$column}` AS v, reading_time FROM `{$table}`"
             . " WHERE `{$column}` IS NOT NULL AND reading_time >= :since"
             . ' ORDER BY reading_time DESC LIMIT 1';
-        $row = $this->fetchOne($sql, [':since' => $notBefore]);
+        $row = $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql, [':since' => $notBefore]), null);
         if ($row === null || !is_numeric($row['v'] ?? null)) {
             return null;
         }
@@ -163,7 +221,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
     {
         $table = $this->getTableName();
         $sql = "SELECT MIN(reading_time) AS first_date FROM `{$table}`";
-        $result = $this->fetchOne($sql);
+        $result = $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql), null);
         return isset($result['first_date']) ? (string) $result['first_date'] : null;
     }
 
@@ -176,7 +234,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
         $start = date('Y-m-d 00:00:00');
         $end = date('Y-m-d 23:59:59');
         $sql = "SELECT COUNT(*) AS cnt FROM `{$table}` WHERE reading_time BETWEEN :start AND :end";
-        $result = $this->fetchOne($sql, [':start' => $start, ':end' => $end]);
+        $result = $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql, [':start' => $start, ':end' => $end]), null);
         return (int) ($result['cnt'] ?? 0);
     }
 
@@ -192,7 +250,7 @@ abstract class AbstractSensorRepository extends AbstractRepository
         $filter = $this->qualityFilterSql();
         $whereFilter = $filter !== '' ? " AND ({$filter})" : '';
         $sql = "SELECT COUNT(*) AS cnt FROM `{$table}` WHERE reading_time BETWEEN :start AND :end{$whereFilter}";
-        $result = $this->fetchOne($sql, [':start' => $start, ':end' => $end]);
+        $result = $this->readOrEmpty(fn (): ?array => $this->fetchOne($sql, [':start' => $start, ':end' => $end]), null);
         return (int) ($result['cnt'] ?? 0);
     }
 }

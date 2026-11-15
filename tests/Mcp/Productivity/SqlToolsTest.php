@@ -9,6 +9,7 @@ use App\Mcp\McpContext;
 use App\Mcp\McpServer;
 use App\Mcp\Sql\MigrationCatalog;
 use App\Mcp\Sql\MigrationFile;
+use App\Mcp\Sql\MigrationRunner;
 use App\Mcp\Sql\SchemaReader;
 use App\Mcp\Sql\SqlReader;
 use App\Mcp\Support\ReadOnlyTransaction;
@@ -120,6 +121,19 @@ final class SqlToolsTest extends TestCase
     }
 
     // ── iot_db_schema ──────────────────────────────────────────────────
+
+    /**
+     * 6.62.0 : la migration du banc énergie doit rester ADDITIVE pour qu'AutoMigrate (CRON) et
+     * iot_migrate l'appliquent — un INSERT navPages l'avait rendue « non additive » et les tables
+     * n'avaient jamais été créées en prod (GET /energie → 500, 14/11/2026).
+     */
+    public function testEnergieMigrationIsAdditiveSoAutoMigrateAppliesIt(): void
+    {
+        $st = MigrationFile::parse((string) file_get_contents(dirname(__DIR__, 3) . '/migrations/2026_10_energie_tables.sql'));
+        self::assertTrue(MigrationFile::isAdditiveOnly($st));
+        self::assertSame(['energieData', 'energieDataTest'], array_column($st, 'table'));
+        self::assertNull(MigrationRunner::blocker(['additive_only' => true, 'statements' => []]));
+    }
 
     public function testDbSchemaListsTablesColumnsAndMigrationStates(): void
     {
