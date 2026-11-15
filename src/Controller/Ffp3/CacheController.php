@@ -6,6 +6,7 @@ namespace App\Controller\Ffp3;
 
 use App\Config\Paths;
 use App\Service\TemplateRenderer;
+use App\Util\CacheDirectoryPurger;
 use App\Util\ResponseHelper;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -37,38 +38,25 @@ class CacheController
 
         foreach ($cacheDirs as $cacheDir) {
             $dirName = basename($cacheDir);
-
-            if (!is_dir($cacheDir)) {
+            // Fichiers seulement, arborescence conservée et racine recréée : jamais de dossier
+            // retiré sous les pieds d'une requête en train d'écrire son template compilé
+            // (« Failed to write cache file » → 500 sur /serre, 14/11/2026).
+            $purge = CacheDirectoryPurger::purge($cacheDir);
+            $totalDeleted += $purge['deleted'];
+            if ($purge['failed'] > 0) {
+                $errors[] = "Erreur sur {$dirName}: " . implode(' ; ', $purge['errors']);
                 $results[$dirName] = [
-                    'status' => 'skipped',
-                    'message' => "N'existe pas encore, rien à vider",
-                    'deleted' => 0,
+                    'status' => 'error',
+                    'message' => "{$purge['deleted']} fichier(s) supprimé(s), {$purge['failed']} échec(s)",
+                    'deleted' => $purge['deleted'],
                 ];
                 continue;
             }
-
-            try {
-                $deleted = $this->deleteRecursive($cacheDir);
-                $totalDeleted += $deleted;
-
-                // Recréer le dossier vide avec les bonnes permissions
-                if (!is_dir($cacheDir)) {
-                    mkdir($cacheDir, 0755, true);
-                }
-
-                $results[$dirName] = [
-                    'status' => 'success',
-                    'message' => "{$deleted} fichier(s) supprimé(s)",
-                    'deleted' => $deleted,
-                ];
-            } catch (\Exception $e) {
-                $errors[] = "Erreur sur {$dirName}: " . $e->getMessage();
-                $results[$dirName] = [
-                    'status' => 'error',
-                    'message' => $e->getMessage(),
-                    'deleted' => 0,
-                ];
-            }
+            $results[$dirName] = [
+                'status' => 'success',
+                'message' => "{$purge['deleted']} fichier(s) supprimé(s)" . ($purge['created'] ? ' (dossier créé)' : ''),
+                'deleted' => $purge['deleted'],
+            ];
         }
 
         // Vider l'opcache PHP si disponible
@@ -388,36 +376,5 @@ HTML;
         }
 
         return $result;
-    }
-
-    /**
-     * Supprime récursivement un répertoire et son contenu
-     *
-     * @param string $dir Chemin du répertoire à supprimer
-     * @return int Nombre de fichiers supprimés
-     */
-    private function deleteRecursive(string $dir): int
-    {
-        $count = 0;
-
-        if (!is_dir($dir)) {
-            return 0;
-        }
-
-        $items = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::CHILD_FIRST
-        );
-
-        foreach ($items as $item) {
-            if ($item->isDir()) {
-                rmdir($item->getRealPath());
-            } else {
-                unlink($item->getRealPath());
-                $count++;
-            }
-        }
-
-        return $count;
     }
 }

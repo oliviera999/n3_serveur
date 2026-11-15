@@ -343,3 +343,21 @@ permet de pointer vers un dossier propre au web. Correctif pérenne côté hébe
 propriétaire pour `var/cache` (ou `chmod g+s var/cache` + umask 002 pour les deux comptes), puis
 `rm -rf var/cache/twig/* var/cache/di/*`.
 
+
+### 6.62.0 — échec d'écriture ponctuel toléré, vidage sans suppression de dossiers
+
+Le test d'écriture de 6.59.0 ne sonde que la RACINE du cache. Le 14/11/2026, `GET /serre` a encore
+répondu 500 (`Failed to write cache file …/var/cache/twig/86/86718b….php`) : sous-dossier de hachage
+d'un autre compte, quota, ou course avec un vidage de cache. Depuis 6.62.0 :
+
+- **`App\Util\TolerantTwigCache`** (cache Twig de `TemplateRenderer`) : si l'écriture d'un template
+  compilé échoue, la page est rendue **sans cache** (Twig évalue le code compilé en mémoire) et une
+  ligne `WARNING [twig-cache] écriture du cache impossible…` est écrite au journal applicatif (une
+  fois par fichier et par processus) — jamais une 500. Les fichiers temporaires orphelins (> 1 min)
+  sont nettoyés.
+- **`App\Util\CacheDirectoryPurger`** (`POST /admin/clear-cache` et `php bin/clear-cache.php`) :
+  supprime les **fichiers** seulement, conserve l'arborescence (racine + sous-dossiers de hachage,
+  jamais retirés sous les pieds d'une requête qui écrit) et recrée la racine si elle manque (0775).
+  Préférer ces deux voies au `rm -rf var/cache/twig/*`, qui retire aussi les sous-dossiers.
+- **`iot_health_report`** : bloc `cache` et raison orange `cache_non_inscriptible` si `var/cache`,
+  `var/cache/twig`, un sous-dossier de hachage ou un état JSON de supervision n'est pas inscriptible.

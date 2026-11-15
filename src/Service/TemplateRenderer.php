@@ -9,6 +9,7 @@ use App\Repository\NavPageRepository;
 use App\Security\AuthService;
 use App\Security\CsrfService;
 use App\Util\DisplayTime;
+use App\Util\TolerantTwigCache;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
@@ -25,7 +26,8 @@ class TemplateRenderer
         bool $useCache = true,
         ?CsrfService $csrfService = null,
         ?AuthService $authService = null,
-        ?NavPageRepository $navPageRepository = null
+        ?NavPageRepository $navPageRepository = null,
+        private ?LogService $logger = null
     ) {
         $this->csrfService = $csrfService;
         $this->authService = $authService;
@@ -48,8 +50,11 @@ class TemplateRenderer
             );
         }
 
+        // Écriture ponctuellement impossible (sous-dossier de hachage d'un autre compte, quota, course
+        // avec un vidage de cache) : TolerantTwigCache rend la page sans cache + WARNING au lieu d'une
+        // 500 (incident `GET /serre` du 14/11/2026, « Failed to write cache file … »).
         $this->twig = new Environment($loader, [
-            'cache' => $cacheConfig,
+            'cache' => $cacheConfig !== false ? new TolerantTwigCache($cacheConfig, $this->logger) : false,
             'autoescape' => 'html',
         ]);
 

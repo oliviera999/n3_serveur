@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../src/Util/CliGuard.php';
 \App\Util\CliGuard::assertCli();
+require_once __DIR__ . '/../src/Util/CacheDirectoryPurger.php';
 
 // Chemins des répertoires de cache
 $projectRoot = dirname(__DIR__);
@@ -29,26 +30,19 @@ $errors = [];
 foreach ($cacheDirs as $cacheDir) {
     $dirName = basename($cacheDir);
     
-    if (!is_dir($cacheDir)) {
-        echo "ℹ️  {$dirName}/ : N'existe pas encore, rien à vider.\n";
-        continue;
-    }
-    
     echo "🗑️  Vidage de {$dirName}/...\n";
-    
-    try {
-        $deleted = deleteRecursive($cacheDir);
-        $totalDeleted += $deleted;
-        echo "   ✅ {$deleted} fichier(s) supprimé(s)\n";
-        
-        // Recréer le dossier vide avec les bonnes permissions
-        if (!is_dir($cacheDir)) {
-            mkdir($cacheDir, 0755, true);
-            echo "   📁 Dossier recréé\n";
-        }
-    } catch (Exception $e) {
-        $errors[] = "Erreur sur {$dirName}: " . $e->getMessage();
-        echo "   ❌ ERREUR : " . $e->getMessage() . "\n";
+
+    // Fichiers seulement : l'arborescence est conservée (une requête web en cours peut être en
+    // train d'y écrire un template compilé) — voir App\Util\CacheDirectoryPurger.
+    $purge = \App\Util\CacheDirectoryPurger::purge($cacheDir);
+    $totalDeleted += $purge['deleted'];
+    echo "   ✅ {$purge['deleted']} fichier(s) supprimé(s)\n";
+    if ($purge['created']) {
+        echo "   📁 Dossier recréé\n";
+    }
+    foreach ($purge['errors'] as $error) {
+        $errors[] = "Erreur sur {$dirName}: " . $error;
+        echo "   ❌ ERREUR : " . $error . "\n";
     }
 }
 
@@ -91,38 +85,3 @@ if (empty($errors)) {
     echo "\n";
     exit(1);
 }
-
-/**
- * Supprime récursivement un répertoire et son contenu
- * 
- * @param string $dir Chemin du répertoire à supprimer
- * @return int Nombre de fichiers supprimés
- */
-function deleteRecursive(string $dir): int
-{
-    $count = 0;
-    
-    if (!is_dir($dir)) {
-        return 0;
-    }
-    
-    $items = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
-        RecursiveIteratorIterator::CHILD_FIRST
-    );
-    
-    foreach ($items as $item) {
-        if ($item->isDir()) {
-            rmdir($item->getRealPath());
-        } else {
-            unlink($item->getRealPath());
-            $count++;
-        }
-    }
-    
-    // Ne pas supprimer le dossier racine du cache, seulement son contenu
-    // rmdir($dir);
-    
-    return $count;
-}
-

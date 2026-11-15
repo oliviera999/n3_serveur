@@ -440,7 +440,10 @@ version applicative et PHP, latence et version BDD, taille des tables principale
 production (`prod`, et `s3` si autorisé ; en ligne / hors ligne d'après le dernier heartbeat ou
 la dernière mesure comparés au seuil dérivé de la veille, firmware), erreurs serveur
 (`error_alerts`) et notifications (`notification_log`, par gravité, sans destinataire) sur 24 h
-et 7 j, dernière photo par galerie, espace disque libre (`disk_free_space`), jours avant
+et 7 j, dernière photo par galerie, espace disque libre (`disk_free_space`), bloc `cache`
+(6.62.0 : `var/cache` et `var/cache/twig` inscriptibles, sous-dossiers de hachage Twig et états JSON de
+la supervision non inscriptibles — contrôle par `is_writable`, sans aucune écriture, vu par le
+processus qui génère le rapport : PHP web pour l'outil, compte du CRON pour le rapport planifié), jours avant
 expiration du certificat TLS (`stream_socket_client` + `openssl_x509_parse`, délai 3 s, erreur
 rendue dans le rapport), connexions MCP actives (familles de jetons valides).
 
@@ -457,10 +460,15 @@ Statut = **pire niveau déclenché** ; aucune règle = `vert`. Les raisons sont 
 | Erreurs | ≥ 20 erreurs serveur / 24 h ; ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
 | Galeries | galerie active sans photo depuis > 48 h | — |
 | Disque | < 10 % ou < 1 Gio libres | < 2 % ou < 200 Mio libres |
+| Cache (`cache_non_inscriptible`) | `var/cache` ou `var/cache/twig` non inscriptible, un sous-dossier de hachage Twig ou un état JSON de supervision non inscriptible | — |
 | TLS | expire dans < 21 j, ou certificat illisible | expiré ou < 7 j |
 
 Un appareil **inactif** (jamais vu, ou silencieux depuis > 30 jours) et une galerie sans photo
 depuis > 30 jours sont listés mais **n'influent pas** sur le statut (module retiré).
+Un module dont la **table de mesures est absente** (ex. banc énergie avant
+`2026_10_energie_tables.sql`) est listé `indisponible` avec `table_missing: true` et n'influe pas
+non plus sur le statut ; les outils de lecture renvoient alors l'erreur explicite `table_missing`
+(plus d'« erreur interne »).
 
 ### Rapport régulier (CRON)
 

@@ -30,7 +30,7 @@ use PDO;
  * principales, CRON (dernier passage et retards), appareils (en ligne / hors ligne, dernier
  * heartbeat, seuil, firmware) pour chaque environnement de PRODUCTION lisible
  * (MCP_ALLOWED_ENVS ∩ {prod, s3}), erreurs et notifications sur 24 h et 7 j, dernière photo
- * par galerie, espace disque, expiration du certificat TLS, connexions MCP actives ; puis un
+ * par galerie, espace disque, `var/cache` inscriptible, expiration du certificat TLS, connexions MCP actives ; puis un
  * statut global calculé par {@see HealthRules} et un résumé d'une ligne.
  *
  * Lecture seule : aucune écriture (le stockage est fait par la commande CRON). Chaque bloc est
@@ -68,10 +68,16 @@ final class HealthReportBuilder
         ?string $projectRoot = null,
         ?\Closure $diskSpace = null,
         private ?ContactTimelineBuilder $timeline = null,
+        ?string $cacheDir = null,
     ) {
         $this->projectRoot = rtrim($projectRoot ?? dirname(__DIR__, 3), '/');
         $this->diskSpace = $diskSpace;
+        // var/cache de l'APPLICATION (pas la racine des galeries $projectRoot, qui peut être
+        // UPLOADS_BASE_DIR) : cache Twig compilé + états JSON de la supervision.
+        $this->cacheDir = rtrim($cacheDir ?? dirname(__DIR__, 3) . '/var/cache', '/');
     }
+
+    private string $cacheDir;
 
     /** @var (\Closure(string): array{free: float|false, total: float|false})|null Mesure disque (tests) */
     private ?\Closure $diskSpace;
@@ -97,6 +103,7 @@ final class HealthReportBuilder
             'errors' => $this->errors($now),
             'galleries' => $this->galleries($now),
             'disk' => $this->disk(),
+            'cache' => $this->cacheBlock(),
             // null = non contrôlé (hôte inconnu ou contrôle non demandé) : n'influe pas sur le statut.
             'tls' => $checkTls ? $this->tlsBlock() : null,
             'mcp' => $this->mcp(),
@@ -423,6 +430,63 @@ final class HealthReportBuilder
             'free_percent' => $pct,
             'free_human' => HealthRules::bytes((int) $free),
             'note' => 'Sur un mutualisé, le total est celui du volume ; le quota du compte se lit dans cPanel.',
+        ];
+    }
+
+    /**
+     * `var/cache` inscriptible ? (contrôle SANS écriture : is_writable seulement.) Un cache non
+     * inscriptible fait rendre les pages sans cache (plus lent, WARNING au journal) et empêche la
+     * supervision d'enregistrer ses états (alertes dérivées, incidents de disponibilité).
+     * Le point de vue est celui du processus qui construit le rapport : PHP web pour
+     * iot_health_report / GET /health/report.json, compte du CRON pour le rapport planifié.
+     *
+     * @return array<string, mixed>
+     */
+    private function cacheBlock(): array
+    {
+        $root = $this->cacheDir;
+        $twig = isset($_ENV['TWIG_CACHE_DIR']) && is_string($_ENV['TWIG_CACHE_DIR']) && $_ENV['TWIG_CACHE_DIR'] !== ''
+            ? rtrim($_ENV['TWIG_CACHE_DIR'], '/')
+            : $root . '/twig';
+        $rootExists = is_dir($root);
+        // Dossier absent : il sera créé s'il est créable (parent inscriptible).
+        $rootWritable = $rootExists ? is_writable($root) : is_writable(dirname($root));
+        $twigExists = is_dir($twig);
+        $twigWritable = $twigExists ? is_writable($twig) : $rootWritable;
+
+        $badSubdirs = [];
+        if ($twigExists) {
+            $scanned = 0;
+            foreach (scandir($twig) ?: [] as $name) {
+                if ($name === '.' || $name === '..' || !is_dir($twig . '/' . $name)) {
+                    continue;
+                }
+                if (++$scanned > 512) {
+                    break;
+                }
+                if (!is_writable($twig . '/' . $name)) {
+                    $badSubdirs[] = $name;
+                }
+            }
+        }
+        $badStateFiles = [];
+        foreach (glob($root . '/*.json') ?: [] as $file) {
+            if (!is_writable($file)) {
+                $badStateFiles[] = basename($file);
+            }
+        }
+
+        return [
+            'dir' => 'var/cache',
+            'exists' => $rootExists,
+            'writable' => $rootWritable,
+            'twig_exists' => $twigExists,
+            'twig_writable' => $twigWritable,
+            'twig_unwritable_subdirs' => count($badSubdirs),
+            'twig_unwritable_sample' => array_slice($badSubdirs, 0, 5),
+            'unwritable_state_files' => array_slice($badStateFiles, 0, 10),
+            'note' => 'Vu par le processus qui génère ce rapport (web pour iot_health_report, compte du CRON pour le rapport planifié). '
+                . 'Correctif : propriétaire / droits de var/cache (docs/deployment/CACHE_MANAGEMENT.md).',
         ];
     }
 
