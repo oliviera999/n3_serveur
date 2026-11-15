@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+{# Module pas encore installé (table de mesures absente) : page « aucune donnée » en HTTP 200,
+   rendue par AbstractDataController::show() au lieu d'une erreur 500. Pas de graphiques. #}
+{% set page_family = 'gallery' %}
+
+{% block title %}{{ page_title|default('Module pas encore installé') }}{% endblock %}
+
+{% block head_css %}<meta name="robots" content="noindex" />{% endblock %}
+
+{% block content %}
+<article class="post featured module-unavailable">
+    <header class="major">
+        <h2>{{ heading|default('Module pas encore installé') }}</h2>
+        <p>{{ message|default('Aucune donnée pour le moment.') }}</p>
+    </header>
+    <p><a href="{{ base_path|default('') }}/" class="button primary">Retour à l'accueil</a></p>
+</article>
+{% endblock %}
+
+{% block scripts_vendor %}{% endblock %}
+{% block scripts %}{% endblock %}

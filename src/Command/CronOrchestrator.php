@@ -36,6 +36,7 @@ use App\Service\SensorDataService;
 use App\Service\SensorStatisticsService;
 use App\Service\SystemHealthService;
 use App\Service\TideCutGuard;
+use App\Service\WaterLowGuard;
 use App\Util\JsonFileStore;
 use PDO;
 
@@ -85,6 +86,15 @@ class CronOrchestrator
     public const TIDE_CUTS_STATE_FILENAME = 'tide_cuts.json';
     /** Dernier passage de l'orchestrateur (début, fin, durée, statut) — écrit à chaque run. */
     public const LAST_RUN_STATE_FILENAME = 'cron_last_run.json';
+    /** Incident « aquarium bas » (anti-rebond des e-mails P1, 6.62.0). */
+    public const WATER_LOW_STATE_FILENAME = 'water_low_state.json';
+    /** Fenêtre de fiabilité du capteur pour l'alerte niveau bas (≈ 2 rafales de réveil FFP3). */
+    private const DEFAULT_WATER_LOW_WINDOW_READINGS = 24;
+    private const DEFAULT_WATER_LOW_CONFIRM_READINGS = 3;
+    private const DEFAULT_WATER_LOW_MIN_COVERAGE = 0.8;
+    private const DEFAULT_WATER_LOW_MAX_ECHO_TIMEOUTS = 0;
+    /** Rappel e-mail d'un incident « aquarium bas » toujours ouvert (6 h). */
+    private const DEFAULT_WATER_LOW_REMINDER_SECONDS = 21600;
     /** 10 min : ≥ 2 800 photos/jour traitables (20/passage) — largement au-dessus du débit des 3 caméras. */
     private const DEFAULT_GALLERY_NORMALIZE_INTERVAL_SECONDS = 600;
 
@@ -112,6 +122,11 @@ class CronOrchestrator
     private ?AutoMigrateCommand $autoMigrate;
 
     private float $aquaLowThreshold;
+    private int $waterLowWindow;
+    private int $waterLowConfirm;
+    private float $waterLowMinCoverage;
+    private int $waterLowMaxEchoTimeouts;
+    private int $waterLowReminderSeconds;
     private float $stddevThreshold;
     private int $tideMaxCutsPerDay;
     private int $hourlyIntervalSeconds;
@@ -251,6 +266,16 @@ class CronOrchestrator
         ) ?? (float) (
             $_ENV['AQUA_LOW_LEVEL_THRESHOLD'] ?? self::DEFAULT_AQUA_LOW_LEVEL_THRESHOLD_MM
         );
+        $this->waterLowWindow = max(1, $operationalSettings?->int('WATER_LOW_WINDOW_READINGS', self::DEFAULT_WATER_LOW_WINDOW_READINGS)
+            ?? (int) ($_ENV['WATER_LOW_WINDOW_READINGS'] ?? self::DEFAULT_WATER_LOW_WINDOW_READINGS));
+        $this->waterLowConfirm = max(1, $operationalSettings?->int('WATER_LOW_CONFIRM_READINGS', self::DEFAULT_WATER_LOW_CONFIRM_READINGS)
+            ?? (int) ($_ENV['WATER_LOW_CONFIRM_READINGS'] ?? self::DEFAULT_WATER_LOW_CONFIRM_READINGS));
+        $this->waterLowMinCoverage = $operationalSettings?->float('WATER_LOW_MIN_COVERAGE', self::DEFAULT_WATER_LOW_MIN_COVERAGE)
+            ?? (float) ($_ENV['WATER_LOW_MIN_COVERAGE'] ?? self::DEFAULT_WATER_LOW_MIN_COVERAGE);
+        $this->waterLowMaxEchoTimeouts = $operationalSettings?->int('WATER_LOW_MAX_ECHO_TIMEOUTS', self::DEFAULT_WATER_LOW_MAX_ECHO_TIMEOUTS)
+            ?? (int) ($_ENV['WATER_LOW_MAX_ECHO_TIMEOUTS'] ?? self::DEFAULT_WATER_LOW_MAX_ECHO_TIMEOUTS);
+        $this->waterLowReminderSeconds = max(900, $operationalSettings?->int('WATER_LOW_REMINDER_SECONDS', self::DEFAULT_WATER_LOW_REMINDER_SECONDS)
+            ?? (int) ($_ENV['WATER_LOW_REMINDER_SECONDS'] ?? self::DEFAULT_WATER_LOW_REMINDER_SECONDS));
         $this->stddevThreshold = $operationalSettings?->float('TIDE_STDDEV_THRESHOLD', 1.0)
             ?? (float) ($_ENV['TIDE_STDDEV_THRESHOLD'] ?? 1.0);
         $this->tideMaxCutsPerDay = $operationalSettings?->int('TIDE_MAX_PUMP_CUTS_PER_DAY', self::DEFAULT_TIDE_MAX_CUTS_PER_DAY)
@@ -647,41 +672,141 @@ class CronOrchestrator
      */
     private function checkLowWaterLevel(): void
     {
-        $lastReading = $this->sensorReadRepo->getLastReadings();
-        $lastWaterLevel = $lastReading['EauAquarium'] ?? null;
+        // 6.62.0 : fenêtre de mesures (et non plus la seule dernière) pour juger la fiabilité du
+        // capteur — WaterLowGuard — et incident persistant pour l'anti-rebond des e-mails P1.
+        $raw = $this->sensorReadRepo->getLastReadings($this->waterLowWindow);
+        $rows = $raw === [] ? [] : (array_is_list($raw) ? $raw : [$raw]);
+        $lastWaterLevel = $rows[0]['EauAquarium'] ?? null;
 
         $threshold = $this->resolveAquaLowThresholdMm();
 
         $this->logger->addName("Dernier niveau d'eau aquarium: ");
         $this->logger->addTask((string) $lastWaterLevel);
 
-        // EauAquarium = distance capteur→surface en mm : valeur élevée = eau basse (comme côté firmware).
-        if ($lastWaterLevel === null || $lastWaterLevel <= $threshold) {
+        $assessment = WaterLowGuard::assess(
+            array_values(array_filter($rows, 'is_array')),
+            $threshold,
+            $this->waterLowConfirm,
+            $this->waterLowMinCoverage,
+            $this->waterLowMaxEchoTimeouts
+        );
+        if ($assessment['decision'] === WaterLowGuard::NO_DATA) {
             return;
         }
 
-        $this->logger->addEvent(
-            "ALERTE: Niveau d'eau aquarium bas (distance {$lastWaterLevel} mm) - remplissage attendu côté ESP32"
-        );
+        $store = new JsonFileStore($this->stateDir . '/' . self::WATER_LOW_STATE_FILENAME);
+        $state = $store->load();
+        $active = ($state['active'] ?? false) === true;
+        $now = time();
 
+        if ($assessment['decision'] === WaterLowGuard::NORMAL) {
+            if ($active) {
+                $this->logger->info('Niveau aquarium revenu sous le seuil : incident « aquarium bas » clos (aucun e-mail).', [
+                    'depuis' => date('Y-m-d H:i:s', (int) ($state['since'] ?? $now)),
+                    'emails' => (int) ($state['emails'] ?? 0),
+                ]);
+                $this->saveWaterLowState($store, ['active' => false, 'closed_at' => $now]);
+            }
+
+            return;
+        }
+
+        $level = (float) $assessment['level'];
+        if ($assessment['decision'] === WaterLowGuard::UNRELIABLE) {
+            // Gravité rétrogradée (P3, file de synthèse, 6 h d'anti-spam) : une P1 ne repose que sur
+            // des mesures fiables. L'incident n'est ni ouvert ni clos sur une mesure douteuse.
+            $summary = implode(' ; ', $assessment['reasons']);
+            $this->logger->warning("Niveau aquarium bas NON confirmé ({$level} mm > {$threshold} mm) : mesure peu fiable — {$summary}. Alerte P1 non émise.");
+            $this->notifier->sendAlert(
+                Severity::Info,
+                NotificationCategory::Hydraulic,
+                'FFP3',
+                "Niveau d'eau aquarium bas ? (mesure peu fiable)",
+                sprintf(
+                    "La distance capteur→surface de l'aquarium indique %.0f mm (seuil de remplissage %.0f mm), "
+                    . "mais la mesure n'est pas fiable : %s.\n"
+                    . "Aucune alerte P1 n'est émise sur ces données. Vérifier le capteur ultrason (position, "
+                    . "condensation, câble) ; l'alerte P1 repartira dès que des mesures valides confirmeront le niveau bas.",
+                    $level,
+                    $threshold,
+                    $summary
+                ),
+                'ffp3:water-low-unreliable'
+            );
+
+            return;
+        }
+
+        // LOW : niveau bas fiable et confirmé.
+        $this->logger->addEvent("ALERTE: Niveau d'eau aquarium bas (distance {$level} mm) - remplissage attendu côté ESP32");
         $message = sprintf(
-            "La distance capteur→surface de l'aquarium a atteint %.0f mm (seuil de remplissage %.0f mm).\n"
+            "La distance capteur→surface de l'aquarium a atteint %.0f mm (seuil de remplissage %.0f mm), "
+            . "confirmée sur %d mesures consécutives fiables.\n"
             . "Le niveau est sous la consigne : l'ESP32 déclenche le remplissage depuis la réserve "
             . "(pompe réserve, durée « Remplissage »).\n"
             . 'Aucune action serveur — le pilotage de la pompe et ses sécurités (réserve basse, '
             . "remplissage inefficace) restent au firmware.\n"
             . "Si l'alerte persiste, vérifier la réserve, la pompe et le capteur.",
-            $lastWaterLevel,
-            $threshold
+            $level,
+            $threshold,
+            $this->waterLowConfirm
         );
-        $this->notifier->sendAlert(
+
+        if (!$active) {
+            $sent = $this->notifier->sendAlert(
+                Severity::Critical,
+                NotificationCategory::Hydraulic,
+                'FFP3',
+                "Niveau d'eau aquarium bas",
+                $message,
+                'ffp3:water-low'
+            );
+            // Incident ouvert sur envoi effectif (filtré / échec → nouvel essai au prochain passage).
+            if ($sent) {
+                $this->saveWaterLowState($store, ['active' => true, 'since' => $now, 'last_email' => $now, 'emails' => 1]);
+            }
+
+            return;
+        }
+
+        $lastEmail = (int) ($state['last_email'] ?? 0);
+        if ($now - $lastEmail < $this->waterLowReminderSeconds) {
+            $this->logger->info('Aquarium bas : incident déjà annoncé, e-mail supprimé.', [
+                'depuis' => date('Y-m-d H:i:s', (int) ($state['since'] ?? $now)),
+                'prochain_rappel' => date('Y-m-d H:i:s', $lastEmail + $this->waterLowReminderSeconds),
+            ]);
+
+            return;
+        }
+        $since = (int) ($state['since'] ?? $now);
+        $sent = $this->notifier->sendAlert(
             Severity::Critical,
             NotificationCategory::Hydraulic,
             'FFP3',
-            "Niveau d'eau aquarium bas",
-            $message,
+            "Niveau d'eau aquarium toujours bas (rappel)",
+            sprintf("Rappel : niveau bas signalé depuis le %s.\n", date('Y-m-d H:i', $since)) . $message,
             'ffp3:water-low'
         );
+        if ($sent) {
+            $state['last_email'] = $now;
+            $state['emails'] = (int) ($state['emails'] ?? 1) + 1;
+            $this->saveWaterLowState($store, $state);
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $state
+     */
+    private function saveWaterLowState(JsonFileStore $store, array $state): void
+    {
+        try {
+            if (!is_dir($this->stateDir)) {
+                @mkdir($this->stateDir, 0775, true);
+            }
+            $store->save($state);
+        } catch (\Throwable $e) {
+            $this->logger->warning('Aquarium bas : état de l\'incident non enregistré : ' . $e->getMessage());
+        }
     }
 
     private function checkTideSystem(): void

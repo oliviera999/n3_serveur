@@ -29,7 +29,7 @@ use App\Service\OperationalSettingsService;
  *    réserve) entre deux lectures — remplace les confirmations P3 du firmware ;
  *  - CAPTEUR ABSENT / FIGÉ (6.56.0) : EauAquarium vide sur les dernières mesures, ou
  *    même valeur répétée des heures ({@see SensorPresenceEvaluator}) — un e-mail à
- *    l'ouverture, un au rétablissement. Sans ce signal, un capteur muet rendait aveugles
+ *    l'ouverture, un au rétablissement ; la clôture ne dépend pas de l'envoi de ce dernier (6.62.0). Sans ce signal, un capteur muet rendait aveugles
  *    le contrôle des marées, le niveau bas et le trop-plein (incident 30/10/2026).
  *
  * NOURRISSAGE (fait / manqué / plafond) — GAP DOCUMENTÉ : non dérivable du POST
@@ -83,6 +83,11 @@ class Ffp3DerivedAlertService
     private const DEFAULT_SENSOR_ABSENT_MIN_READINGS = 6;
     private const DEFAULT_SENSOR_FROZEN_MIN_READINGS = 12;
     private const DEFAULT_SENSOR_FROZEN_MIN_SECONDS = 7200;
+    /**
+     * Clôture d'une alerte capteur : mesures valides consécutives exigées (6.62.0) — un capteur
+     * intermittent ne fait pas battre l'alerte ouverte / close à chaque mesure isolée.
+     */
+    private const DEFAULT_SENSOR_RECOVERY_MIN_READINGS = 3;
 
     public function __construct(
         private SensorReadRepository $sensorReadRepo,
@@ -210,7 +215,14 @@ class Ffp3DerivedAlertService
                 continue;
             }
 
+            if ($result['status'] === SensorPresenceEvaluator::STATUS_OK) {
+                $this->closeSensorAlert($column, $label, $previousStatus, $result, $rows, $state, $now);
+                continue;
+            }
+
             $sent = $this->notifySensorTransition($column, $label, $previousStatus, $result, $this->echoDiagnosticLine($column, $reading));
+            // Ouverture (ou absent ↔ figé) latchée sur envoi effectif : un envoi filtré / refusé est
+            // retenté au prochain passage.
             if ($sent) {
                 $state['sensors'][$column] = [
                     'status' => $result['status'],
@@ -221,6 +233,54 @@ class Ffp3DerivedAlertService
                 $this->logger->warning("Capteur {$column} : {$previousStatus} → {$result['status']}.");
             }
         }
+    }
+
+    /**
+     * Retour à la normale d'un capteur en alerte (absent / figé) : la CLÔTURE de l'alerte active ne
+     * dépend plus de l'envoi de l'e-mail « rétabli ».
+     *
+     * Avant 6.62.0, l'état n'était mis à jour que si l'e-mail partait ; en mode de notification
+     * « important », l'e-mail « rétabli » (P3) est filtré → l'alerte `ffp3:sensor-absent:EauAquarium`
+     * ouverte le 06/11 05:03 est restée active alors que le capteur mesurait de nouveau (retenté à
+     * chaque passage du CRON depuis le 11/11, « Notification filtrée par la politique… »).
+     *
+     * Désormais : clôture dès que les `SENSOR_RECOVERY_MIN_READINGS` dernières mesures sont valides
+     * (stabilité), e-mail « rétabli » tenté une seule fois, résultat journalisé. Rejouer est sans
+     * effet (état déjà `ok`) : le prochain passage du CRON clôt seul toute alerte restée ouverte à tort.
+     *
+     * @param array{status: string, readings: int, since: string|null, last_value: float|null} $result
+     * @param list<array{value: mixed, reading_time: string}> $rows plus récente d'abord
+     * @param array<string, mixed> $state
+     */
+    private function closeSensorAlert(string $column, string $label, string $previousStatus, array $result, array $rows, array &$state, int $now): void
+    {
+        $needed = max(1, $this->intSetting('SENSOR_RECOVERY_MIN_READINGS', self::DEFAULT_SENSOR_RECOVERY_MIN_READINGS));
+        $stable = count($rows) >= $needed;
+        for ($i = 0; $stable && $i < $needed; $i++) {
+            $v = $rows[$i]['value'] ?? null;
+            if ($v === null || $v === '' || !is_numeric($v)) {
+                $stable = false;
+            }
+        }
+        if (!$stable) {
+            $this->logger->info("Capteur {$column} : mesure revenue mais pas encore stable ({$needed} valeurs valides consécutives exigées), alerte maintenue.");
+
+            return;
+        }
+
+        $state['sensors'][$column] = [
+            'status' => SensorPresenceEvaluator::STATUS_OK,
+            'since' => null,
+            'last_value' => $result['last_value'],
+            'changed_at' => $now,
+        ];
+        $sent = $this->notifySensorTransition($column, $label, $previousStatus, $result);
+        $this->logger->warning(sprintf(
+            'Capteur %s : %s → ok, alerte close%s.',
+            $column,
+            $previousStatus,
+            $sent ? ' (e-mail « rétabli » envoyé)' : ' (e-mail « rétabli » non envoyé : filtré par la politique de notification ou échec)'
+        ));
     }
 
     /**

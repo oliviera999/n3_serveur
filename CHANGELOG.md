@@ -11,6 +11,32 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.62.0] - 2026-11-15
+
+### Correctif — Erreurs remontées par la production le 14/11/2026
+- **`GET /energie` → 500 (4×)** : `2026_10_energie_tables.sql` contenait un `INSERT … navPages`, donc
+  « non additive » : `AutoMigrateCommand` l'ignorait et `energieData` / `energieDataTest` n'existaient
+  pas. L'`INSERT` est retiré (lien déjà semé par `NavPageRepository`) → le CRON (ou `iot_migrate`) crée
+  les tables seul. `AbstractSensorRepository` rend « aucune donnée » quand la table manque
+  (`App\Util\MissingTable` : 42S02 / 1146 seulement, les autres erreurs SQL remontent) ;
+  `AbstractDataController` affiche « Banc énergie pas encore installé » (HTTP 200, `noindex`) ;
+  les outils MCP renvoient l'erreur explicite `table_missing` au lieu d'une erreur interne.
+- **`GET /serre` → 500 (1×)** : « Failed to write cache file …/var/cache/twig/86/… ».
+  `App\Util\TolerantTwigCache` rend la page sans cache et journalise un WARNING ;
+  `App\Util\CacheDirectoryPurger` (vidage admin et `bin/clear-cache.php`) ne supprime plus que les
+  fichiers, garde l'arborescence et recrée la racine. `iot_health_report` : bloc `cache` et raison
+  orange `cache_non_inscriptible`.
+- **Alerte `ffp3:sensor-absent:EauAquarium` restée ouverte** : la clôture ne dépend plus de l'envoi de
+  l'e-mail « rétabli » (filtré en mode `important`) ; elle a lieu après 3 mesures valides consécutives
+  (`SENSOR_RECOVERY_MIN_READINGS`). Le prochain passage du CRON clôt l'alerte en cours.
+- **Fausses alertes P1 « Niveau d'eau aquarium bas » (~37 e-mails du 11 au 13/11)** :
+  `App\Service\WaterLowGuard` exige un niveau bas confirmé sur 3 mesures et un capteur fiable sur
+  24 mesures (`wlAquaStatus` = ok, `wlAquaTimeouts` = 0, couverture ≥ 80 %). Sinon, l'alerte part en
+  P3 « mesure peu fiable ». Anti-rebond : un seul e-mail P1 par incident, puis un rappel toutes les
+  6 h (`var/cache/water_low_state.json`, réglages `WATER_LOW_*`).
+- **Vérifié, rien à corriger** : `ClockDriftAlertService` (table `device_contacts` présente et
+  alimentée, aucun WARNING les 14 et 15/11).
+
 ## [6.61.1] - 2026-11-14
 
 ### Correctif — Rétablissement pompe MCP et confirmation SQL (repris de la PR IOT_n3 #47, ex-6.53.1)

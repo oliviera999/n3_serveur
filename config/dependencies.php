@@ -73,7 +73,9 @@ return [
             ($_ENV['ENV'] ?? 'prod') === 'prod',
             $c->get(\App\Security\CsrfService::class),
             $c->get(\App\Security\AuthService::class),
-            $c->get(\App\Repository\NavPageRepository::class)
+            $c->get(\App\Repository\NavPageRepository::class),
+            // WARNING journalisé si l'écriture du cache Twig échoue (rendu sans cache, pas de 500).
+            $c->get(\App\Service\LogService::class)
         );
     },
 

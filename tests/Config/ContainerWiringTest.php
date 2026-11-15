@@ -321,6 +321,8 @@ final class ContainerWiringTest extends TestCase
             [\App\Middleware\AuthGuardMiddleware::class, 'templateRenderer'],
             [\App\Middleware\ErrorHandlerMiddleware::class, 'renderer'],
             [\App\Controller\Ffp3\CacheController::class, 'renderer'],
+            // Échec d'écriture du cache Twig journalisé en WARNING (6.62.0).
+            [\App\Service\TemplateRenderer::class, 'logger'],
             // CRON : purge des jetons / codes / plans MCP expirés.
             [\App\Command\CronOrchestrator::class, 'mcpOAuthPurge'],
             [\App\Command\McpOAuthPurgeCommand::class, 'confirmRepo'],

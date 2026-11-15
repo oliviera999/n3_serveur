@@ -69,4 +69,16 @@ class EnergieDataController extends AbstractDataController
     {
         return 'energie_test';
     }
+
+    protected function getUnavailableHeading(): string
+    {
+        return 'Banc énergie pas encore installé';
+    }
+
+    protected function getUnavailableMessage(): string
+    {
+        return 'Aucune donnée pour le moment : le banc de mesure énergie (panneau solaire, batterie, '
+            . 'consommation — capteurs INA226) n\'envoie pas encore de mesures. Cette page se remplira '
+            . 'd\'elle-même dès ses premiers envois.';
+    }
 }

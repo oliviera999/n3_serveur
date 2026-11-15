@@ -291,6 +291,55 @@ final class Ffp3DerivedAlertServiceTest extends TestCase
         self::assertSame('Capteur EauAquarium rétabli', $subjects[1][1]);
     }
 
+    /**
+     * Incident du 14/11/2026 : l'alerte `ffp3:sensor-absent:EauAquarium` ouverte le 06/11 05:03 restait
+     * active parce que l'e-mail « rétabli » (P3) était filtré par la politique (mode « important »).
+     * La clôture ne dépend plus de l'envoi ; rejouer ne renvoie rien.
+     */
+    public function testSensorAlertClosedEvenWhenRecoveryEmailIsFiltered(): void
+    {
+        file_put_contents($this->stateFile, (string) json_encode(['sensors' => ['EauAquarium' => [
+            'status' => 'absent', 'since' => '2026-11-06 05:03:53', 'last_value' => 81.0, 'changed_at' => $this->now - 8 * 86400,
+        ]]]));
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->once())->method('sendAlert')
+            ->with(Severity::Info, NotificationCategory::Hydraulic, 'FFP3', 'Capteur EauAquarium rétabli')
+            ->willReturn(false); // filtré par la politique de notification
+
+        $valid = $this->recent([104.0, 110.0, 118.0, 127.0, 135.0]);
+        $this->buildService($this->reading(104.0), $notifier, recentAqua: $valid)->run();
+        $state = json_decode((string) file_get_contents($this->stateFile), true);
+        self::assertSame('ok', $state['sensors']['EauAquarium']['status'], 'alerte close malgré l\'e-mail filtré');
+
+        // Passage suivant du CRON : idempotent (aucun nouvel envoi, l'expects once le vérifie).
+        $this->now += 60;
+        $this->buildService($this->reading(108.0), $notifier, recentAqua: $valid)->run();
+
+        // Vue iot_alerts : plus d'alerte « sensor-absent » en cours.
+        $dir = sys_get_temp_dir() . '/active_alerts_' . uniqid('', true);
+        mkdir($dir);
+        copy($this->stateFile, $dir . '/derived_alerts_ffp3.json');
+        $alerts = (new \App\Mcp\Support\ActiveAlertsReader($dir, $dir . '/absent.flag'))->active();
+        unlink($dir . '/derived_alerts_ffp3.json');
+        rmdir($dir);
+        self::assertSame([], array_values(array_filter($alerts, static fn (array $a): bool => str_contains((string) $a['key'], 'sensor-absent'))));
+    }
+
+    /**
+     * Capteur intermittent : une valeur isolée entre des vides ne clôt pas l'alerte (stabilité exigée).
+     */
+    public function testSensorAlertStaysOpenUntilRecoveryIsStable(): void
+    {
+        file_put_contents($this->stateFile, (string) json_encode(['sensors' => ['EauAquarium' => ['status' => 'absent', 'since' => '2026-11-06 05:03:53']]]));
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->expects($this->never())->method('sendAlert');
+
+        $flapping = $this->recent([104.0, null, 110.0, null, null]);
+        $this->buildService($this->reading(104.0), $notifier, recentAqua: $flapping)->run();
+        $state = json_decode((string) file_get_contents($this->stateFile), true);
+        self::assertSame('absent', $state['sensors']['EauAquarium']['status']);
+    }
+
     public function testSensorFrozenAlert(): void
     {
         $notifier = $this->createMock(NotificationService::class);

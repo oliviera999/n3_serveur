@@ -285,6 +285,27 @@ final class McpServerTest extends TestCase
         self::assertSame(['error' => 'Fenêtre trop large', 'code' => 'window_too_large'], self::decodeText($r));
     }
 
+    /**
+     * Table absente (module pas encore installé, ex. energieData) : erreur explicite « table_missing »
+     * au lieu d'une « erreur interne » ; toute autre PDOException reste une erreur interne.
+     */
+    public function testMissingTableBecomesExplicitToolError(): void
+    {
+        $config = McpSqliteFixture::config();
+        $tool = self::echoTool($config, McpConfig::SCOPE_READ, static function (): ToolResult {
+            throw new \PDOException("SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oliviera_iot.energieData' doesn't exist");
+        });
+        $r = $this->server([$tool], $config)->handle(['jsonrpc' => '2.0', 'id' => 1, 'method' => 'tools/call', 'params' => ['name' => 'iot_echo']], self::context());
+        self::assertTrue($r['result']['isError']);
+        self::assertSame('table_missing', self::decodeText($r)['code']);
+
+        $other = self::echoTool($config, McpConfig::SCOPE_READ, static function (): ToolResult {
+            throw new \PDOException('SQLSTATE[HY000] [2002] Connection refused');
+        });
+        $r = $this->server([$other], $config)->handle(['jsonrpc' => '2.0', 'id' => 2, 'method' => 'tools/call', 'params' => ['name' => 'iot_echo']], self::context());
+        self::assertSame('internal_error', self::decodeText($r)['code']);
+    }
+
     public function testDuplicateToolNamesRejected(): void
     {
         $config = McpSqliteFixture::config();

@@ -21,6 +21,7 @@ namespace App\Mcp\Health;
  * | Erreurs     | ≥ 20 erreurs serveur / 24 h ou ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
  * | Galeries    | galerie active sans photo depuis > 48 h       | —                                       |
  * | Disque      | < 10 % ou < 1 Gio libres                      | < 2 % ou < 200 Mio libres               |
+ * | Cache       | var/cache ou var/cache/twig (ou un sous-dossier / un état JSON) non inscriptible | — |
  * | TLS         | expire dans < 21 j, ou certificat illisible   | expiré ou expire dans < 7 j             |
  *
  * Un appareil « inactif » (jamais vu, ou silencieux depuis plus de 30 jours) ou une galerie
@@ -160,6 +161,27 @@ final class HealthRules
                 $add(self::STATUS_RED, 'disque_plein', $text);
             } elseif ($free < self::DISK_ORANGE_BYTES || ($pct !== null && $pct < self::DISK_ORANGE_PERCENT)) {
                 $add(self::STATUS_ORANGE, 'disque_bas', $text);
+            }
+        }
+
+        // Cache (var/cache : templates Twig compilés + états JSON de la supervision)
+        $cache = $report['cache'] ?? null;
+        if (is_array($cache)) {
+            $problems = [];
+            if (($cache['writable'] ?? true) === false) {
+                $problems[] = 'var/cache non inscriptible';
+            } elseif (($cache['twig_writable'] ?? true) === false) {
+                $problems[] = 'var/cache/twig non inscriptible';
+            }
+            if ((int) ($cache['twig_unwritable_subdirs'] ?? 0) > 0) {
+                $problems[] = sprintf('%d sous-dossier(s) de var/cache/twig non inscriptible(s)', (int) $cache['twig_unwritable_subdirs']);
+            }
+            if ((array) ($cache['unwritable_state_files'] ?? []) !== []) {
+                $problems[] = 'état(s) de supervision non inscriptible(s) : ' . implode(', ', array_map('strval', (array) $cache['unwritable_state_files']));
+            }
+            if ($problems !== []) {
+                $add(self::STATUS_ORANGE, 'cache_non_inscriptible', 'Cache serveur : ' . implode(' ; ', $problems)
+                    . ' (pages rendues sans cache, états d\'alerte non enregistrés).');
             }
         }
 

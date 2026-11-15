@@ -236,23 +236,43 @@ final class McpServer
         } catch (ToolException $e) {
             $result = ToolResult::error($e->getMessage(), $e->errorCode());
             $status = 'erreur_outil';
+        } catch (\PDOException $e) {
+            if (!\App\Util\MissingTable::is($e)) {
+                $result = $this->internalError($name, $e);
+                $status = 'exception';
+            } else {
+                // Module pas encore installé (ex. banc énergie sans energieData) : réponse explicite,
+                // pas une « erreur interne » journalisée en ERROR.
+                $result = ToolResult::error(
+                    'Table de mesures absente dans cet environnement : module pas encore installé ou migration non appliquée '
+                    . '(voir iot_db_schema avec « migrations »: true, puis iot_migrate).',
+                    'table_missing'
+                );
+                $status = 'table_absente';
+            }
         } catch (\Throwable $e) {
-            $reference = substr(bin2hex(random_bytes(6)), 0, 12);
-            $this->logger->error('[mcp] exception outil {tool} [{ref}] {class}: {msg} in {file}:{line}', [
-                'tool' => $name,
-                'ref' => $reference,
-                'class' => $e::class,
-                'msg' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => (string) $e->getLine(),
-            ]);
-            $result = ToolResult::error('Erreur interne du serveur (référence ' . $reference . ').', 'internal_error');
+            $result = $this->internalError($name, $e);
             $status = 'exception';
         }
 
         $this->logCall($name, $context, $env, $started, $status);
 
         return $result->toArray();
+    }
+
+    private function internalError(string $name, \Throwable $e): ToolResult
+    {
+        $reference = substr(bin2hex(random_bytes(6)), 0, 12);
+        $this->logger->error('[mcp] exception outil {tool} [{ref}] {class}: {msg} in {file}:{line}', [
+            'tool' => $name,
+            'ref' => $reference,
+            'class' => $e::class,
+            'msg' => $e->getMessage(),
+            'file' => $e->getFile(),
+            'line' => (string) $e->getLine(),
+        ]);
+
+        return ToolResult::error('Erreur interne du serveur (référence ' . $reference . ').', 'internal_error');
     }
 
     private function logCall(string $tool, McpContext $context, string $env, float $started, string $status): void

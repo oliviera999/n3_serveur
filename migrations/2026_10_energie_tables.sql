@@ -13,8 +13,16 @@
 -- Toutes les colonnes de mesure sont NULLables (champ absent / non numérique).
 -- Contrat complet : docs/API_ENERGIE.md.
 --
--- Idempotent : CREATE TABLE IF NOT EXISTS + INSERT … ON DUPLICATE KEY UPDATE
--- (l'état actif/inactif courant du lien de menu est conservé s'il existe déjà).
+-- Idempotent : CREATE TABLE IF NOT EXISTS uniquement — fichier ADDITIF, donc appliqué
+-- seul par le CRON (AutoMigrateCommand) ou via l'outil MCP iot_migrate.
+--
+-- Serveur 6.62.0 : l'`INSERT … ON DUPLICATE KEY UPDATE` du lien de menu `navPages`
+-- (« Énergie (banc) » → /energie-test) a été RETIRÉ de ce fichier. Il le rendait « non
+-- additif » : AutoMigrate l'ignorait, les deux tables n'ont jamais été créées en prod et
+-- `GET /energie` répondait 500 (« Table 'energieData' doesn't exist », 14/11/2026). Le lien
+-- est déjà semé (inactif ou actif selon la page de supervision) par
+-- App\Repository\NavPageRepository::SEED à la création de `navPages` ; il se pilote depuis
+-- /supervision (bascule « Afficher dans le menu »).
 -- ============================================================================
 
 CREATE TABLE IF NOT EXISTS `energieData` (
@@ -52,17 +60,6 @@ CREATE TABLE IF NOT EXISTS `energieData` (
 
 CREATE TABLE IF NOT EXISTS `energieDataTest` LIKE `energieData`;
 
--- Lien « Énergie (banc) » du menu de navigation (table globale `navPages`, cf.
--- 2026_07_nav_pages.sql) vers la page du banc de test (/energie-test) : la page
--- prod (/energie) reste vide tant que le module réel n'existe pas. Les deux liens
--- sont pilotables ensuite depuis la page de supervision.
--- Prérequis : table `navPages` présente (2026_07_nav_pages.sql, ou auto-créée par
--- App\Repository\NavPageRepository au premier affichage d'une page).
-INSERT INTO `navPages` (`page_key`, `label`, `url`, `active`, `sort_order`) VALUES
-    ('energie-test', 'Énergie (banc)', '/energie-test', 1, 55)
-ON DUPLICATE KEY UPDATE `page_key` = `page_key`;
-
 -- Vérification :
 -- SHOW CREATE TABLE `energieData`;
 -- SHOW CREATE TABLE `energieDataTest`;
--- SELECT * FROM `navPages` WHERE `page_key` = 'energie-test';
