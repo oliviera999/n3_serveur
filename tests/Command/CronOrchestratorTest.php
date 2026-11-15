@@ -6,6 +6,8 @@ namespace Tests\Command;
 
 use App\Command\CronOrchestrator;
 use App\Command\RestartPumpCommand;
+use App\Notification\NotificationCategory;
+use App\Notification\Severity;
 use App\Repository\SensorReadRepository;
 use App\Service\DeviceHealthService;
 use App\Service\LogService;
@@ -136,10 +138,12 @@ class CronOrchestratorTest extends TestCase
         $pump->method('getResetModeState')->willReturn(0);
 
         $repo = $this->createMock(SensorReadRepository::class);
-        $repo->method('getLastReadings')->willReturn(['EauAquarium' => 210.0]);
+        $repo->method('getLastReadings')->willReturn(self::aquaRows(array_fill(0, 24, 210.0)));
 
         $notifier = $this->createMock(NotificationService::class);
-        $notifier->expects($this->once())->method('sendAlert');
+        $notifier->expects($this->once())->method('sendAlert')
+            ->with(Severity::Critical, NotificationCategory::Hydraulic, 'FFP3', "Niveau d'eau aquarium bas")
+            ->willReturn(true);
 
         $orchestrator = $this->buildOrchestrator(
             pumpService: $pump,
@@ -149,6 +153,105 @@ class CronOrchestratorTest extends TestCase
         );
 
         $orchestrator->execute();
+    }
+
+    /**
+     * @param list<float|null> $levels plus récente d'abord
+     * @return list<array<string, mixed>>
+     */
+    private static function aquaRows(array $levels, string $status = 'ok', int $timeouts = 0): array
+    {
+        $rows = [];
+        foreach ($levels as $i => $level) {
+            $rows[] = [
+                'EauAquarium' => $level,
+                'wlAquaStatus' => $level === null ? 'no_echo' : $status,
+                'wlAquaTimeouts' => $level === null ? 4 : $timeouts,
+                'reading_time' => date('Y-m-d H:i:s', time() - 30 * $i),
+            ];
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @param list<array<string, mixed>> $rows
+     */
+    private function runWaterLow(array $rows, NotificationService $notifier): void
+    {
+        $repo = $this->createMock(SensorReadRepository::class);
+        $repo->method('getLastReadings')->willReturn($rows);
+        $this->buildOrchestrator(sensorReadRepo: $repo, notifier: $notifier, statsService: $this->defaultStatsMock())->execute();
+    }
+
+    /**
+     * Fausses alertes du 11-13/11/2026 : capteur intermittent (vides, `no_echo`, tirs sans écho) →
+     * PAS de P1 ; gravité rétrogradée en P3 « mesure peu fiable ».
+     */
+    public function testIntermittentSensorNeverTriggersP1WaterLow(): void
+    {
+        $sent = [];
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $sev, NotificationCategory $cat, string $family, string $subject, string $message = '', ?string $key = null) use (&$sent): bool {
+                $sent[] = [$sev, $key];
+
+                return true;
+            }
+        );
+
+        // 59 % de mesures valides (14/24), valeurs au-dessus du seuil (180 mm).
+        $intermittent = self::aquaRows([250.0, 252.0, 249.0, null, 251.0, null, 248.0, null, 250.0, null, 253.0, null,
+            249.0, null, 251.0, null, 252.0, null, 250.0, null, 249.0, 251.0, null, 250.0]);
+        $this->runWaterLow($intermittent, $notifier);
+        // Couverture parfaite mais tirs sans écho (wlAquaTimeouts = 2) — nuit du 11 au 12/11.
+        $this->runWaterLow(self::aquaRows(array_fill(0, 24, 250.0), 'ok', 2), $notifier);
+        // 13/11 12:05 : 152 mm juste au-dessus du seuil, après une série de no_echo dans la fenêtre.
+        $this->runWaterLow(self::aquaRows(array_merge(array_fill(0, 20, 190.0), [89.0, null, null, null])), $notifier);
+
+        self::assertNotEmpty($sent);
+        foreach ($sent as [$severity, $key]) {
+            self::assertSame(Severity::Info, $severity, 'aucune alerte P1 sur un capteur non fiable');
+            self::assertSame('ffp3:water-low-unreliable', $key);
+        }
+        self::assertFileDoesNotExist($this->tempDir . '/' . CronOrchestrator::WATER_LOW_STATE_FILENAME, 'aucun incident ouvert');
+    }
+
+    /**
+     * Anti-rebond : un seul e-mail P1 par incident, rappel espacé (6 h), clôture au retour sous le seuil.
+     */
+    public function testWaterLowSendsOneP1PerIncidentThenSpacedReminder(): void
+    {
+        $subjects = [];
+        $notifier = $this->createMock(NotificationService::class);
+        $notifier->method('sendAlert')->willReturnCallback(
+            static function (Severity $sev, NotificationCategory $cat, string $family, string $subject) use (&$subjects): bool {
+                $subjects[] = $subject;
+
+                return true;
+            }
+        );
+        $low = self::aquaRows(array_fill(0, 24, 210.0));
+
+        $this->runWaterLow($low, $notifier);
+        $this->runWaterLow($low, $notifier); // incident déjà annoncé : e-mail supprimé
+        $this->runWaterLow($low, $notifier);
+        self::assertSame(["Niveau d'eau aquarium bas"], $subjects);
+
+        // 7 h plus tard (rappel dû) : un seul rappel.
+        $stateFile = $this->tempDir . '/' . CronOrchestrator::WATER_LOW_STATE_FILENAME;
+        $state = json_decode((string) file_get_contents($stateFile), true);
+        $state['last_email'] = time() - 7 * 3600;
+        file_put_contents($stateFile, (string) json_encode($state));
+        $this->runWaterLow($low, $notifier);
+        $this->runWaterLow($low, $notifier);
+        self::assertSame(["Niveau d'eau aquarium bas", "Niveau d'eau aquarium toujours bas (rappel)"], $subjects);
+
+        // Retour sous le seuil : incident clos sans e-mail ; une nouvelle baisse rouvre un incident.
+        $this->runWaterLow(self::aquaRows(array_fill(0, 24, 150.0)), $notifier);
+        self::assertFalse(json_decode((string) file_get_contents($stateFile), true)['active']);
+        $this->runWaterLow($low, $notifier);
+        self::assertCount(3, $subjects);
     }
 
     public function testNormalWaterLevelSendsNoAlert(): void

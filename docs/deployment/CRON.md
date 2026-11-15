@@ -74,7 +74,16 @@ Chaque passage écrit `var/cache/cron_last_run.json` (début, fin, durée, statu
 3. Nettoyage valeurs aberrantes (`SensorDataService::cleanAllSensorData`)
 4. Alerte niveau eau aquarium bas (GPIO 102, seuil de remplissage) → **email seul, aucune action pompe** :
    ce seuil est celui sur lequel le firmware *démarre* le remplissage ; le pilotage de la pompe
-   réserve et ses sécurités (réserve basse, remplissage inefficace) restent côté ESP32 (depuis 6.27.0)
+   réserve et ses sécurités (réserve basse, remplissage inefficace) restent côté ESP32 (depuis 6.27.0).
+   **Depuis 6.62.0** (`App\Service\WaterLowGuard`, fausses alertes P1 du 11-13/11/2026) :
+   - jugé sur les `WATER_LOW_WINDOW_READINGS` (24) dernières mesures : P1 seulement si le niveau
+     bas est confirmé sur `WATER_LOW_CONFIRM_READINGS` (3) mesures consécutives ET que le capteur
+     est fiable sur la fenêtre (aucun `wlAquaStatus` ≠ `ok`, aucun `wlAquaTimeouts` >
+     `WATER_LOW_MAX_ECHO_TIMEOUTS` (0), couverture ≥ `WATER_LOW_MIN_COVERAGE` (0,8)) ; sinon
+     gravité **rétrogradée** en P3 « mesure peu fiable » (clé `ffp3:water-low-unreliable`, digest, 6 h) ;
+   - **anti-rebond** : un seul e-mail P1 par incident (`var/cache/water_low_state.json`), puis un
+     rappel toutes les `WATER_LOW_REMINDER_SECONDS` (6 h) ; incident clos sans e-mail quand le niveau
+     repasse sous le seuil. Réglages en BDD (`OperationalSettingsService`) ou `.env`.
 5. Détection marée figée (écart-type faible) → arrêt pompe aqua + flag 5 min + email.
    ⚠️ Sautée tant qu'un redémarrage est déjà programmé (sinon, à 1 min, le flag serait
    réécrit à chaque tick et le redémarrage perpétuellement repoussé).
@@ -90,6 +99,10 @@ Chaque passage écrit `var/cache/cron_last_run.json` (début, fin, durée, statu
    - MSP1 : batterie faible, redémarrage, firmware mis à jour + **alertes météo opt-in**
      (gel `MSP_FROST_ALERT_THRESHOLD_C`, canicule `MSP_HEAT_ALERT_THRESHOLD_C`,
      pluie `MSP_RAIN_WET_THRESHOLD` — désactivées si non définies dans `.env`)
+   - FFP3 capteur EauAquarium absent / figé : **depuis 6.62.0**, la CLÔTURE de l'alerte ne dépend
+     plus de l'envoi de l'e-mail « rétabli » (P3, filtré en mode `important`) : close dès
+     `SENSOR_RECOVERY_MIN_READINGS` (3) mesures valides consécutives — le passage suivant du CRON
+     clôt seul une alerte restée ouverte à tort (état JSON, aucune migration SQL).
    État inter-runs persisté dans `var/cache/derived_alerts_*.json`
 8. Log écart-type sur la dernière heure (informatif)
 
