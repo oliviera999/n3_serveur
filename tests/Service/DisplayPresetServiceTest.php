@@ -84,6 +84,36 @@ final class DisplayPresetServiceTest extends TestCase
         $this->assertContains('simple', array_column($ctx['presets_menu'], 'slug'));
     }
 
+    /**
+     * FFP3 (pas de ligne en BDD aujourd'hui) : un preset enregistré depuis l'éditeur qui remet le
+     * potager en « affiché » l'emporte sur le défaut masqué du catalogue.
+     */
+    public function testFfp3StoredPresetForcingThePotagerWinsOverTheHiddenDefault(): void
+    {
+        $catalog = $this->registry->get('ffp3');
+        $this->assertNotNull($catalog);
+        $defaultBlocks = array_column($this->service->pageContext($catalog, null)['layout']['blocks'], null, 'id');
+        $this->assertNotContains('EauPotager', array_column($defaultBlocks['niveaux']['cards'], 'key'));
+
+        $this->service->save($catalog, [
+            'slug' => 'etendu',
+            'label' => 'Étendu',
+            'is_default' => true,
+            'show_on_page' => true,
+            'layout' => ['blocks' => [['id' => 'niveaux', 'cards' => ['EauPotager' => 'shown'], 'series' => ['EauPotager' => 'shown']]]],
+        ], 'prof');
+
+        $niveaux = array_column($this->service->pageContext($catalog, null)['layout']['blocks'], null, 'id')['niveaux'];
+        $this->assertContains('EauPotager', array_column($niveaux['cards'], 'key'));
+        $this->assertTrue(array_column($niveaux['chart']['series'], null, 'id')['EauPotager']['visible']);
+
+        // L'éditeur expose l'état complet (base des cases à cocher) : carte et série modifiables.
+        $editor = array_column($this->service->editorData($catalog, 'prod')['presets'], null, 'slug');
+        $this->assertSame('shown', array_column($editor['etendu']['blocks'], null, 'id')['niveaux']['cards']['EauPotager']);
+        $this->assertSame('hidden', array_column($editor['simple']['blocks'], null, 'id')['niveaux']['cards']['EauPotager']);
+        $this->assertSame('legend', array_column($editor['simple']['blocks'], null, 'id')['niveaux']['series']['EauPotager']);
+    }
+
     public function testCustomizingABuiltInPresetAndResettingIt(): void
     {
         $catalog = $this->registry->get('energie');

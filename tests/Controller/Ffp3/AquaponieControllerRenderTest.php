@@ -160,6 +160,23 @@ final class AquaponieControllerRenderTest extends TestCase
         $this->assertStringNotContainsString('data-preset="technique"', $html);
     }
 
+    /**
+     * Potager masqué par défaut (18/11/2026) : pas de carte, série présente mais décochée dans la
+     * légende ; `?preset=simple` idem. Les autres niveaux restent affichés.
+     */
+    public function testPotagerCardIsHiddenAndItsSeriesUncheckedInTheLegend(): void
+    {
+        foreach (['/aquaponie-test', '/aquaponie-test?preset=simple'] as $uri) {
+            $html = (string) $this->render($uri)->getBody();
+
+            $this->assertStringNotContainsString('data-sensor="EauPotager"', $html, "{$uri} : carte potager absente");
+            $this->assertStringContainsString('data-sensor="EauAquarium"', $html, $uri);
+            $this->assertStringContainsString('data-sensor="EauReserve"', $html, $uri);
+            $this->assertMatchesRegularExpression('/"id":"EauPotager","name":"Potager"[^}]*"visible":false\}/', $html, "{$uri} : série en légende décochée");
+            $this->assertMatchesRegularExpression('/"id":"EauAquarium","name":"Aquarium"[^}]*"visible":true\}/', $html, $uri);
+        }
+    }
+
     public function testRememberedPresetCookieRendersSimpleViewDirectly(): void
     {
         $html = (string) $this->render('/aquaponie-test', ['n3_preset_ffp3' => 'simple'])->getBody();

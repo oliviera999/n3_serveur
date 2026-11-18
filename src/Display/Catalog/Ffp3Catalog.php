@@ -117,7 +117,9 @@ final class Ffp3Catalog extends PageCatalog
                 'cards' => [
                     ['key' => 'EauAquarium', 'label' => 'Aquarium', 'icon' => 'fa-fish', 'color' => $aquarium, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'aquarium', 'stuck_check' => true],
                     ['key' => 'EauReserve', 'label' => 'Réserve', 'icon' => 'fa-droplet', 'color' => $reserve, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'reserve'],
-                    ['key' => 'EauPotager', 'label' => 'Potager', 'icon' => 'fa-seedling', 'color' => $potager, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'potager'],
+                    // Ultrason du bac potager FIXE (décision du 18/11/2026) : carte masquée par défaut
+                    // (et donc dans « simple »), réactivable par un preset. Mesures toujours stockées.
+                    ['key' => 'EauPotager', 'label' => 'Potager', 'icon' => 'fa-seedling', 'color' => $potager, 'unit' => 'cm', 'decimals' => 1, 'css_class' => 'potager', 'default' => false],
                 ],
                 'chart' => [
                     'id' => 'chart-ffp3-eau',
@@ -132,7 +134,8 @@ final class Ffp3Catalog extends PageCatalog
                         ['column' => 'EauAquarium', 'name' => 'Aquarium', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $aquarium, 'fill' => [255, 99, 0, 0.3, 0.05], 'lineWidth' => 2.5],
                         // Réserve en légende (décochée) par défaut, comme avant : son niveau élevé écrasait l'amplitude des marées.
                         ['column' => 'EauReserve', 'name' => 'Réserve', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $reserve, 'fill' => [0, 126, 97, 0.3, 0.05], 'dashStyle' => 'ShortDot', 'default' => self::SERIES_LEGEND],
-                        ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $potager, 'fill' => [39, 189, 160, 0.3, 0.05], 'lineWidth' => 1.5],
+                        // Potager en légende (décochée) dans tous les presets intégrés : un clic l'affiche.
+                        ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $potager, 'fill' => [39, 189, 160, 0.3, 0.05], 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],
                         // Tendances (régression sur le temps, recalculée au zoom) : dans la légende, décochées — comme ≤ 6.45.0.
                         ['id' => 'trend-EauAquarium', 'trend_of' => 'EauAquarium', 'name' => 'Tendance aquarium', 'type' => 'line', 'color' => '#b34700', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],
                         ['id' => 'trend-EauReserve', 'trend_of' => 'EauReserve', 'name' => 'Tendance réserve', 'type' => 'line', 'color' => '#00594a', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],

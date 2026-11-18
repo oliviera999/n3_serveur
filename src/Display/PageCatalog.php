@@ -64,7 +64,7 @@ abstract class PageCatalog
     /** @var list<array<string, mixed>>|null */
     private ?array $normalizedBlocks = null;
 
-    /** Clé de page (msp1, n3pp, energie) : identifiant des presets en BDD. */
+    /** Clé de page (msp1, n3pp, energie, ffp3) : identifiant des presets en BDD (table displayPresets). */
     abstract public function pageKey(): string;
 
     /** Libellé lisible de la page (éditeur de presets). */
