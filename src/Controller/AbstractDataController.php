@@ -459,6 +459,7 @@ abstract class AbstractDataController
                     'tooltip' => $s['tooltip'],
                     'opacity' => $s['opacity'],
                     'step' => $s['step'] ?? null,
+                    'fitToData' => $s['fit_to_data'] ?? false,
                     'onMarkers' => $s['on_markers'] ?? null,
                     'visible' => $s['visible'],
                 ];

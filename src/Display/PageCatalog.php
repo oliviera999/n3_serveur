@@ -21,7 +21,7 @@ namespace App\Display;
  *     css_class, if_present, format (number|onoff), stuck_check, default, simple } ;
  *   - chart : { id, kind (main|cycles), yAxis, tooltip, series: [ { id, column, name,
  *     type, color, fill [r,g,b,top?,bottom?], lineWidth, dashStyle, yAxis, tooltip,
- *     opacity, step, on_markers { lane, symbol, radius }, trend_of, trend_round,
+ *     opacity, step, fit_to_data, on_markers { lane, symbol, radius }, trend_of, trend_round,
  *     trend_kind (linear|moving_avg), trend_window (min),
  *     default (shown|legend), simple } ] } ;
  *   - options : paramètres propres au type (template, src, form_id…).
@@ -282,6 +282,9 @@ abstract class PageCatalog
                     'opacity' => $s['opacity'] ?? null,
                     // Ligne en escalier (états 0/1) : true = 'left' côté Highcharts.
                     'step' => $step === true ? 'left' : (is_string($step) && $step !== '' ? $step : null),
+                    // Aire (areaspline) remplie jusqu'au bas du graphique et non jusqu'à 0 :
+                    // l'axe Y se cadre sur les courbes au lieu d'inclure le zéro (threshold: null).
+                    'fit_to_data' => (bool) ($s['fit_to_data'] ?? false),
                     // Marqueurs « ON » : un point (à hauteur fixe `lane`) par mesure dont la valeur est > 0.
                     'on_markers' => $onMarkers,
                     'trend_of' => $trendOf,

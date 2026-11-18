@@ -11,6 +11,17 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.62.1] - 2026-11-18
+
+### Correctif — Graphique des niveaux d'eau cadré sur les courbes
+- **Page aquaponie, « Niveaux d'eau »** : l'axe des ordonnées partait toujours de 0, ce qui écrasait
+  les variations (marées de quelques cm). Les aires Highcharts (`areaspline`) se remplissent jusqu'à
+  0 par défaut (`threshold: 0`), ce qui force le zéro sur l'axe. Nouvelle option de série du catalogue
+  `fit_to_data` (→ `threshold: null` dans `n3-layout-charts.js`) : l'aire se remplit jusqu'au bas du
+  graphique et l'axe se cadre sur les courbes, comme pour la température. Activée sur Aquarium,
+  Réserve et Potager ; `minRange` de 5 cm sur l'axe pour qu'un niveau quasi stable ne remplisse pas
+  toute la hauteur. Test : `Ffp3CatalogTest::testWaterLevelAxisFitsTheCurvesInsteadOfStartingAtZero`.
+
 ## [6.62.0] - 2026-11-15
 
 ### Correctif — Erreurs remontées par la production le 14/11/2026
