@@ -20,13 +20,16 @@ namespace App\Mcp\Health;
  * | Capteurs    | FFP3 en ligne : capteur physique muet (≥ 3 mesures vides), ou niveau aquarium / potager figé (≥ 2 h), ou réserve figée alors que la pompe de réserve a tourné ; un capteur `disabled` par le firmware n'est qu'une information | — |
  * | Erreurs     | ≥ 20 erreurs serveur / 24 h ou ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
  * | Galeries    | galerie active sans photo depuis > 48 h       | —                                       |
- * | Disque      | < 10 % ou < 1 Gio libres                      | < 2 % ou < 200 Mio libres               |
+ * | Disque      | quota du COMPTE : < 10 % ou < 1 Gio libres     | quota : < 2 % ou < 200 Mio libres       |
  * | Cache       | var/cache ou var/cache/twig (ou un sous-dossier / un état JSON) non inscriptible | — |
  * | TLS         | expire dans < 21 j, ou certificat illisible   | expiré ou expire dans < 7 j             |
  *
  * Un appareil « inactif » (jamais vu, ou silencieux depuis plus de 30 jours) ou une galerie
  * inactive (aucune photo depuis 30 jours) n'influe pas sur le statut : il est seulement listé,
  * pour qu'un module retiré ne laisse pas le rapport orange indéfiniment.
+ *
+ * Disque (6.63.0) : seul le quota du compte (`disk.quota`, {@see DiskQuotaProbe}) est jugé ; le
+ * volume (`disk.free_*`, partagé sur un mutualisé) est une information ; quota inconnu = pas d'alerte.
  */
 final class HealthRules
 {
@@ -155,12 +158,12 @@ final class HealthRules
             }
         }
 
-        // Disque
-        $disk = is_array($report['disk'] ?? null) ? $report['disk'] : [];
+        // Disque : quota du compte (le volume partagé n'est qu'une information).
+        $disk = is_array($report['disk'] ?? null) && is_array($report['disk']['quota'] ?? null) ? $report['disk']['quota'] : [];
         if (isset($disk['free_bytes']) && is_int($disk['free_bytes'])) {
             $free = $disk['free_bytes'];
             $pct = isset($disk['free_percent']) && is_numeric($disk['free_percent']) ? (float) $disk['free_percent'] : null;
-            $text = sprintf('Espace disque libre : %s%s.', self::bytes($free), $pct !== null ? sprintf(' (%.1f %%)', $pct) : '');
+            $text = sprintf('Quota disque du compte : %s libres%s.', self::bytes($free), $pct !== null ? sprintf(' (%.1f %%)', $pct) : '');
             if ($free < self::DISK_RED_BYTES || ($pct !== null && $pct < self::DISK_RED_PERCENT)) {
                 $add(self::STATUS_RED, 'disque_plein', $text);
             } elseif ($free < self::DISK_ORANGE_BYTES || ($pct !== null && $pct < self::DISK_ORANGE_PERCENT)) {

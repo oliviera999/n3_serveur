@@ -69,7 +69,13 @@ final class HealthReportBuilder
         ?\Closure $diskSpace = null,
         private ?ContactTimelineBuilder $timeline = null,
         ?string $cacheDir = null,
+        ?DiskQuotaProbe $quota = null,
+        ?LogLocator $logs = null,
     ) {
+        // Défauts construits ici (pas d'autowiring des paramètres optionnels) : sonde de quota
+        // système / DISK_QUOTA_BYTES, et journaux de l'APPLICATION (pas de la racine des galeries).
+        $this->quota = $quota ?? new DiskQuotaProbe();
+        $this->logs = $logs ?? new LogLocator(dirname(__DIR__, 3));
         $this->projectRoot = rtrim($projectRoot ?? dirname(__DIR__, 3), '/');
         $this->diskSpace = $diskSpace;
         // var/cache de l'APPLICATION (pas la racine des galeries $projectRoot, qui peut être
@@ -78,6 +84,13 @@ final class HealthReportBuilder
     }
 
     private string $cacheDir;
+
+    private DiskQuotaProbe $quota;
+
+    private LogLocator $logs;
+
+    /** Journal listé dans le rapport au-delà de cette taille (information). */
+    public const LARGE_LOG_BYTES = 50 * 1048576;
 
     /** @var (\Closure(string): array{free: float|false, total: float|false})|null Mesure disque (tests) */
     private ?\Closure $diskSpace;
@@ -103,6 +116,7 @@ final class HealthReportBuilder
             'errors' => $this->errors($now),
             'galleries' => $this->galleries($now),
             'disk' => $this->disk(),
+            'logs' => $this->logsBlock(),
             'cache' => $this->cacheBlock(),
             // null = non contrôlé (hôte inconnu ou contrôle non demandé) : n'influe pas sur le statut.
             'tls' => $checkTls ? $this->tlsBlock() : null,
@@ -441,17 +455,67 @@ final class HealthReportBuilder
             $free = @disk_free_space($this->projectRoot);
             $total = @disk_total_space($this->projectRoot);
         }
+        $quota = $this->safe(fn (): array => $this->quota->probe());
+        if ($quota !== [] && isset($quota['free_bytes']) && is_int($quota['free_bytes'])) {
+            $quota['free_human'] = HealthRules::bytes($quota['free_bytes']);
+        }
         if ($free === false) {
-            return ['free_bytes' => null, 'error' => 'disk_free_space indisponible (fonction désactivée par l\'hébergeur ?).'];
+            return [
+                'free_bytes' => null,
+                'error' => 'disk_free_space indisponible (fonction désactivée par l\'hébergeur ?).',
+                'quota' => $quota,
+            ];
         }
         $pct = $total !== false && $total > 0 ? round($free / $total * 100, 1) : null;
 
         return [
+            // Volume (partagé sur un mutualisé) : INFORMATION seulement depuis 6.63.0.
             'free_bytes' => (int) $free,
             'total_bytes' => $total !== false ? (int) $total : null,
             'free_percent' => $pct,
             'free_human' => HealthRules::bytes((int) $free),
-            'note' => 'Sur un mutualisé, le total est celui du volume ; le quota du compte se lit dans cPanel.',
+            // Quota du compte : c'est lui que jugent les règles (inconnu = pas d'alerte).
+            'quota' => $quota,
+            'note' => 'free_* = volume (partagé sur un mutualisé, information) ; quota = place du compte, seule jugée par les règles.',
+        ];
+    }
+
+    /**
+     * Journaux de plus de {@see self::LARGE_LOG_BYTES} (information, sans lecture du contenu) :
+     * chemin relatif à la racine de l'application, taille, type. Le fichier nu `cronlog.txt` et
+     * `error_log` sont vidés chaque nuit par {@see \App\Command\LogRotationCommand}.
+     *
+     * @return array<string, mixed>
+     */
+    private function logsBlock(): array
+    {
+        $root = $this->logs->projectRoot();
+        $files = $this->safe(fn (): array => $this->logs->files());
+        $large = [];
+        $total = 0;
+        foreach ($files as $file) {
+            $total += (int) $file['size'];
+            if ((int) $file['size'] <= self::LARGE_LOG_BYTES) {
+                continue;
+            }
+            $path = (string) $file['path'];
+            $large[] = [
+                'path' => str_starts_with($path, $root . '/') ? substr($path, strlen($root) + 1) : basename($path),
+                'kind' => (string) $file['kind'],
+                'size_bytes' => (int) $file['size'],
+                'size_human' => HealthRules::bytes((int) $file['size']),
+                'modified_at' => date('Y-m-d H:i:s', (int) $file['mtime']),
+            ];
+        }
+        usort($large, static fn (array $a, array $b): int => $b['size_bytes'] <=> $a['size_bytes']);
+
+        return [
+            'files' => count($files),
+            'total_bytes' => $total,
+            'large_threshold_bytes' => self::LARGE_LOG_BYTES,
+            'large' => $large,
+            'note' => 'Information (n\'influe pas sur le statut). cronlog.txt nu et error_log : vidés chaque nuit, archives '
+                . '<nom>.AAAA-MM-JJ.gz gardées LOG_RETENTION_DAYS jours (défaut 30).',
         ];
     }
 

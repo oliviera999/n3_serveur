@@ -440,7 +440,10 @@ version applicative et PHP, latence et version BDD, taille des tables principale
 production (`prod`, et `s3` si autorisé ; en ligne / hors ligne d'après le dernier heartbeat ou
 la dernière mesure comparés au seuil dérivé de la veille, firmware), erreurs serveur
 (`error_alerts`) et notifications (`notification_log`, par gravité, sans destinataire) sur 24 h
-et 7 j, dernière photo par galerie, espace disque libre (`disk_free_space`), bloc `cache`
+et 7 j, dernière photo par galerie, espace disque : volume (`disk_free_space`, **information** — partagé
+sur un mutualisé) et **quota du compte** (`disk.quota`, 6.63.0 : commande `quota -w`, sinon
+`DISK_QUOTA_BYTES` + `du -sk` sur `DISK_QUOTA_PATH`/`HOME`, sinon `inconnu` sans alerte), bloc `logs`
+(6.63.0 : journaux de plus de 50 Mo, chemin relatif, information), bloc `cache`
 (6.62.0 : `var/cache` et `var/cache/twig` inscriptibles, sous-dossiers de hachage Twig et états JSON de
 la supervision non inscriptibles — contrôle par `is_writable`, sans aucune écriture, vu par le
 processus qui génère le rapport : PHP web pour l'outil, compte du CRON pour le rapport planifié), jours avant
@@ -459,7 +462,7 @@ Statut = **pire niveau déclenché** ; aucune règle = `vert`. Les raisons sont 
 | Capteurs | FFP3 en ligne, sur la **même fenêtre que `iot_sensor_health` (48 h, 6.63.0)** : capteur physique muet (≥ 3 mesures vides) ; niveau aquarium / potager figé (≥ 2 h) ; réserve figée **alors que la pompe de réserve a tourné**. « Depuis au moins le » quand le début est hors fenêtre. Un capteur `disabled` par le firmware est rangé dans `sensor_info` (information, n'influe pas) | — |
 | Erreurs | ≥ 20 erreurs serveur / 24 h ; ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
 | Galeries | galerie active sans photo depuis > 48 h | — |
-| Disque | < 10 % ou < 1 Gio libres | < 2 % ou < 200 Mio libres |
+| Disque (quota du **compte** ; volume = information ; quota inconnu = rien) | < 10 % ou < 1 Gio libres | < 2 % ou < 200 Mio libres |
 | Cache (`cache_non_inscriptible`) | `var/cache` ou `var/cache/twig` non inscriptible, un sous-dossier de hachage Twig ou un état JSON de supervision non inscriptible | — |
 | TLS | expire dans < 21 j, ou certificat illisible | expiré ou < 7 j |
 
