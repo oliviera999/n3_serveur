@@ -366,10 +366,22 @@ final class OperationalSettingsCatalog
                 'type' => self::TYPE_INT,
                 'group' => self::GROUP_MAINTENANCE,
                 'label' => 'Rotation cronlog (jours)',
-                'hint' => '0 = pas de rotation. Pris en compte au prochain processus.',
+                'hint' => 'Copies datées Monolog cronlog-AAAA-MM-JJ conservées N jours ; 0 = pas de rotation. Pris en compte au prochain processus.',
                 'default' => 14,
                 'min' => 0,
                 'max' => 90,
+                'unit' => 'j',
+            ],
+            'LOG_RETENTION_DAYS' => [
+                'env' => 'LOG_RETENTION_DAYS',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_MAINTENANCE,
+                'label' => 'Conservation des archives de journaux (jours)',
+                'hint' => 'cronlog.txt nu (sortie de la crontab) et error_log : vidés chaque nuit par le CRON, copie '
+                    . 'compressée <nom>.AAAA-MM-JJ.gz conservée N jours ; 0 = jamais supprimée.',
+                'default' => 30,
+                'min' => 0,
+                'max' => 365,
                 'unit' => 'j',
             ],
             'AUTO_MIGRATE_ENABLED' => [

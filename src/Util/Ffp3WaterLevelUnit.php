@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Util;
 
+use App\Config\SensorFieldMap;
+
 /**
  * Les niveaux FFP3 (EauAquarium, EauReserve, EauPotager) sont stockés en millimètres
  * côté firmware / BDD ; l'interface les présente en centimètres (÷10).
@@ -12,7 +14,8 @@ final class Ffp3WaterLevelUnit
 {
     public const MM_PER_CM = 10.0;
 
-    private const SENSOR_KEYS = ['EauAquarium', 'EauReserve', 'EauPotager'];
+    /** Niveaux d'eau stockés en mm : liste tenue par {@see SensorFieldMap} (source unique). */
+    private const SENSOR_KEYS = SensorFieldMap::FFP3_WATER_LEVELS;
 
     /**
      * @param array<string, mixed>|null $row Une ligne ffp3Data (ou équivalent)

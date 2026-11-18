@@ -212,6 +212,9 @@ return [
             // 6.61.0 : migrations additives du dépôt appliquées seules après déploiement
             // (AUTO_MIGRATE_ENABLED, défaut true). Optionnel → câblage explicite obligatoire.
             autoMigrate: $c->get(\App\Command\AutoMigrateCommand::class),
+            // 6.63.0 : rotation quotidienne de cronlog.txt (fichier nu) et error_log. Optionnel →
+            // câblage explicite obligatoire.
+            logRotation: $c->get(\App\Command\LogRotationCommand::class),
         );
     },
 
@@ -516,6 +519,14 @@ return [
     // Journaux : LOG_FILE_PATH (relatif = racine du dépôt pour le CRON, public/ pour le web).
     \App\Mcp\Health\LogLocator::class => static fn (): \App\Mcp\Health\LogLocator
         => new \App\Mcp\Health\LogLocator(dirname(__DIR__)),
+
+    // Rotation des journaux (6.63.0) : journal et réglages optionnels → passés explicitement.
+    \App\Command\LogRotationCommand::class => static fn (ContainerInterface $c): \App\Command\LogRotationCommand
+        => new \App\Command\LogRotationCommand(
+            $c->get(\App\Mcp\Health\LogLocator::class),
+            $c->get(\App\Service\LogService::class),
+            $c->get(\App\Service\OperationalSettingsService::class),
+        ),
 
     // Cadences attendues des sous-tâches, lues comme le CRON (réglage BDD > .env > défaut).
     \App\Mcp\Health\CronStatusReader::class => static function (ContainerInterface $c): \App\Mcp\Health\CronStatusReader {

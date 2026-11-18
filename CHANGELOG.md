@@ -11,6 +11,35 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.63.0] - 2026-11-18
+
+### Fonctionnalité — Potager masqué par défaut, capteurs désactivés, journaux et quota disque
+- **Page aquaponie** : l'ultrason du bac potager est fixe (décision du 18/11/2026). Carte `EauPotager`
+  masquée par défaut (et dans « simple »), série `EauPotager` en **légende décochée** dans tous les
+  presets intégrés : un clic l'affiche. Un preset enregistré (éditeur de `/aquaponie-control`) qui la
+  remet en « affiché » l'emporte. Aucune donnée retirée (stockage, export, connecteur).
+- **Capteur désactivé ≠ capteur figé** : quand le diagnostic d'écho firmware (`wlAquaStatus` /
+  `wlPotaStatus`) vaut `disabled`, `iot_sensor_health` renvoie le statut `disabled` (information,
+  `disabled_fields`, hors `suspect_fields`), le rapport de santé le range dans `sensor_info` (aucune
+  raison orange) et la carte de la page affiche « Capteur désactivé par le firmware » au lieu de
+  l'alerte « figé ». Contrôles serveur (marées, trop-plein, niveau bas) et alertes e-mail inchangés.
+- **Même date « figé depuis »** : le rapport de santé analyse la même fenêtre (48 h) et fait le même
+  calcul que `iot_sensor_health` (avant : 12 h contre 48 h) ; « depuis au moins le » si le début est
+  hors fenêtre. `EauReserve` est jugée figée **seulement** si la pompe de réserve a tourné pendant la
+  répétition (réserve immobile pompe à l'arrêt = normal).
+- **Journaux** : `cronlog.txt` nu (sortie de la ligne `git pull` de la crontab, 118 Mo — Monolog écrit
+  seulement les copies `cronlog-AAAA-MM-JJ.txt`) et `error_log` sont archivés chaque nuit en
+  `<nom>.AAAA-MM-JJ.gz`, **vidés** sur place, archives supprimées après `LOG_RETENTION_DAYS` jours
+  (défaut 30, réglage BDD/.env) — nouveau `LogRotationCommand` dans l'orchestrateur CRON.
+- **Disque** : le volume partagé (`disk_free_space`) n'est plus qu'une information ; les règles jugent
+  le **quota du compte** (`quota -w`, sinon `DISK_QUOTA_BYTES` + `du`, sinon « inconnu » sans alerte).
+  Le rapport liste les journaux de plus de 50 Mo (bloc `logs`).
+- **Refactorisation** : `Config\SensorFieldMap`, source unique des capteurs physiques, colonnes de
+  diagnostic d'écho et champs jugés « figés » (FieldCatalog, rapport de santé, outil MCP, alertes
+  dérivées, page de suivi, conversion mm → cm).
+- Tests : catalogue / presets / rendu FFP3, `SensorHealthToolTest`, `McpHealthTest`,
+  `LogRotationCommandTest`, `SensorFieldMapTest`, `ContainerWiringTest`.
+
 ## [6.62.1] - 2026-11-18
 
 ### Correctif — Graphique des niveaux d'eau cadré sur les courbes

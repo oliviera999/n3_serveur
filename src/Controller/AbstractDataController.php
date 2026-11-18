@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Config\SensorFieldMap;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Display\PageCatalog;
@@ -266,11 +267,15 @@ abstract class AbstractDataController
      * période sont identiques : capteur probablement figé (ex. niveau aquarium bloqué à
      * la même valeur pendant des heures alors que les marées le font varier).
      *
+     * Un capteur désactivé par le firmware ({@see self::disabledSensors()}) n'est pas « figé » :
+     * il répète sa dernière valeur, ce n'est pas une mesure (6.63.0).
+     *
      * @param array<string, mixed> $layout sortie de LayoutResolver::resolve()
      * @param array<int, array<string, mixed>> $readings lectures de la période
+     * @param array<string, string> $disabled capteurs désactivés (clé de carte => colonne de statut)
      * @return array<string, float> clé de carte => valeur répétée
      */
-    public static function stuckSensors(array $layout, array $readings): array
+    public static function stuckSensors(array $layout, array $readings, array $disabled = []): array
     {
         $out = [];
         foreach ($layout['blocks'] ?? [] as $block) {
@@ -279,6 +284,9 @@ abstract class AbstractDataController
                     continue;
                 }
                 $key = (string) $card['key'];
+                if (isset($disabled[$key])) {
+                    continue;
+                }
                 $count = 0;
                 $first = null;
                 $same = true;
@@ -306,6 +314,34 @@ abstract class AbstractDataController
                     && $tMin !== null && $tMax !== null && ($tMax - $tMin) >= self::STUCK_MIN_SECONDS
                 ) {
                     $out[$key] = $first;
+                }
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * Cartes visibles dont le diagnostic d'écho firmware de la DERNIÈRE mesure vaut `disabled`
+     * (ffp5cs ≥ 15.33, colonnes `wlAquaStatus` / `wlPotaStatus`, cf. {@see SensorFieldMap}).
+     * La carte l'indique (information) au lieu d'alerter « capteur figé ».
+     *
+     * @param array<string, mixed> $layout sortie de LayoutResolver::resolve()
+     * @param array<string, mixed>|null $latestRow dernière ligne brute (SELECT *), colonnes de diagnostic incluses
+     * @return array<string, string> clé de carte => colonne de statut
+     */
+    public static function disabledSensors(string $family, array $layout, ?array $latestRow): array
+    {
+        if ($latestRow === null || $latestRow === []) {
+            return [];
+        }
+        $disabled = SensorFieldMap::disabledInRow($family, $latestRow);
+        $out = [];
+        foreach ($layout['blocks'] ?? [] as $block) {
+            foreach ($block['cards'] ?? [] as $card) {
+                $key = (string) $card['key'];
+                if (isset($disabled[$key])) {
+                    $out[$key] = $disabled[$key];
                 }
             }
         }

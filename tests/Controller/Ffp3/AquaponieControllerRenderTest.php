@@ -59,20 +59,22 @@ final class AquaponieControllerRenderTest extends TestCase
 
     /**
      * @param array<string, string> $cookies
+     * @param array<string, mixed> $lastExtra colonnes ajoutées à la dernière ligne (SELECT *), ex. diagnostic d'écho
+     * @param list<array<string, mixed>>|null $rowsOverride lignes de la période (sinon rows())
      */
-    private function render(string $uri, array $cookies = [], bool $aquariumSilent = false): ResponseInterface
+    private function render(string $uri, array $cookies = [], bool $aquariumSilent = false, array $lastExtra = [], ?array $rowsOverride = null): ResponseInterface
     {
         if (!in_array('sqlite', PDO::getAvailableDrivers(), true)) {
             $this->markTestSkipped('PDO sqlite driver not available');
         }
         TableConfig::setEnvironment('test');
-        $rows = $this->rows($aquariumSilent);
+        $rows = $rowsOverride ?? $this->rows($aquariumSilent);
         $last = '2026-10-30 10:04:00';
 
         $repo = $this->createMock(SensorReadRepository::class);
         $repo->method('getLastReadingDate')->willReturn($last);
         $repo->method('fetchBetween')->willReturn($rows);
-        $repo->method('getLastReadings')->willReturn($rows[2]);
+        $repo->method('getLastReadings')->willReturn($rows[2] + $lastExtra);
         $repo->method('getFirstReadingDate')->willReturn('2026-01-01 00:00:00');
         $repo->method('getFirmwareVersion')->willReturn('15.31');
         // Dernière valeur valide (brute, en mm) : 81 mm = 8,1 cm le 31/10 (cas réel de production).
@@ -158,6 +160,50 @@ final class AquaponieControllerRenderTest extends TestCase
         $this->assertSame(1, substr_count($html, 'data-preset="simple"'));
         $this->assertStringNotContainsString('data-preset="visite"', $html);
         $this->assertStringNotContainsString('data-preset="technique"', $html);
+    }
+
+    /**
+     * Potager masqué par défaut (18/11/2026) : pas de carte, série présente mais décochée dans la
+     * légende ; `?preset=simple` idem. Les autres niveaux restent affichés.
+     */
+    public function testPotagerCardIsHiddenAndItsSeriesUncheckedInTheLegend(): void
+    {
+        foreach (['/aquaponie-test', '/aquaponie-test?preset=simple'] as $uri) {
+            $html = (string) $this->render($uri)->getBody();
+
+            $this->assertStringNotContainsString('data-sensor="EauPotager"', $html, "{$uri} : carte potager absente");
+            $this->assertStringContainsString('data-sensor="EauAquarium"', $html, $uri);
+            $this->assertStringContainsString('data-sensor="EauReserve"', $html, $uri);
+            $this->assertMatchesRegularExpression('/"id":"EauPotager","name":"Potager"[^}]*"visible":false\}/', $html, "{$uri} : série en légende décochée");
+            $this->assertMatchesRegularExpression('/"id":"EauAquarium","name":"Aquarium"[^}]*"visible":true\}/', $html, $uri);
+        }
+    }
+
+    /**
+     * Aquarium figé (même valeur sur toute la période) : alerte « figé » ; mais si le diagnostic
+     * d'écho de la dernière mesure vaut `disabled`, la carte l'indique sans alerter.
+     */
+    public function testDisabledSensorShowsAnInformationInsteadOfTheFrozenAlert(): void
+    {
+        // 25 mesures sur 2 h 24 (≥ STUCK_MIN_READINGS / STUCK_MIN_SECONDS), aquarium constant.
+        $base = $this->rows()[0];
+        $frozen = [];
+        for ($k = 0; $k < 25; $k++) {
+            $frozen[] = ['reading_time' => date('Y-m-d H:i:s', strtotime('2026-10-30 07:40:00') + $k * 360), 'EauAquarium' => 180] + $base;
+        }
+
+        $html = (string) $this->render('/aquaponie-test', [], false, ['wlAquaStatus' => 'ok'], $frozen)->getBody();
+        $this->assertStringContainsString('data-stuck="EauAquarium"', $html);
+        $this->assertStringNotContainsString('data-disabled=', $html);
+
+        $html = (string) $this->render('/aquaponie-test', [], false, ['wlAquaStatus' => 'disabled'], $frozen)->getBody();
+        $this->assertStringNotContainsString('data-stuck="EauAquarium"', $html);
+        $this->assertStringContainsString('data-disabled="EauAquarium"', $html);
+        $this->assertStringContainsString('Capteur désactivé par le firmware', $html);
+
+        // Potager désactivé mais carte masquée : rien à afficher, et aucune alerte.
+        $html = (string) $this->render('/aquaponie-test', [], false, ['wlPotaStatus' => 'disabled'], $frozen)->getBody();
+        $this->assertStringNotContainsString('data-disabled=', $html);
     }
 
     public function testRememberedPresetCookieRendersSimpleViewDirectly(): void

@@ -153,6 +153,12 @@ class AquaponieController
             ) ?? [];
         }
         $latest = $latestRow !== [] ? $latestRow : null;
+        // Diagnostic d'écho de la dernière mesure (SELECT * : colonnes wl*Status si migrées).
+        $disabledSensors = AbstractDataController::disabledSensors(
+            $catalog->pageKey(),
+            $display['layout'],
+            $this->sensorReadRepo->getLastReadings()
+        );
 
         $allStats = $this->statsAggregator->aggregateAllStats($startDate, $endDate);
         $statsFlattened = Ffp3WaterLevelUnit::scaleAquaponieFlattenedStatsFromMmToCm(
@@ -196,7 +202,8 @@ class AquaponieController
                 $latest,
                 fn (string $column): ?array => $this->lastValidInDisplayUnits($column, $lastDate)
             ),
-            'stuck' => AbstractDataController::stuckSensors($display['layout'], $rowsAsc),
+            'stuck' => AbstractDataController::stuckSensors($display['layout'], $rowsAsc, $disabledSensors),
+            'disabled_sensors' => $disabledSensors,
             'start_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $startDate),
             'end_date' => \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $endDate),
             'measure_count' => $measureCount,

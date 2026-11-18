@@ -137,7 +137,7 @@ Exemple pour FFP3 (suffixes de table selon l'environnement) :
 - Connexion unique via `App\Config\Database::getConnection()`
 
 ### Gestion des erreurs
-- Logs via Monolog dans `cronlog.txt` (ou `LOG_FILE_PATH` du .env)
+- Logs via Monolog dans `cronlog.txt` (ou `LOG_FILE_PATH` du .env) : copies datées `cronlog-AAAA-MM-JJ.txt` (`LOG_ROTATE_DAYS`) ; le fichier nu et `error_log` sont vidés chaque nuit par `LogRotationCommand` (archives `.gz`, `LOG_RETENTION_DAYS`, défaut 30)
 - Réponses HTTP appropriées (200, 400, 401, 500)
 
 ## 🔧 Développement

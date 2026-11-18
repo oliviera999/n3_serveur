@@ -120,6 +120,7 @@ class CronOrchestrator
     private ?ClockDriftAlertService $clockDriftAlerts;
     private ?OtaSilenceAlertService $otaSilenceAlerts;
     private ?AutoMigrateCommand $autoMigrate;
+    private ?LogRotationCommand $logRotation;
 
     private float $aquaLowThreshold;
     private int $waterLowWindow;
@@ -165,8 +166,10 @@ class CronOrchestrator
         ?ClockDriftAlertService $clockDriftAlerts = null,
         ?OtaSilenceAlertService $otaSilenceAlerts = null,
         ?AutoMigrateCommand $autoMigrate = null,
+        ?LogRotationCommand $logRotation = null,
     ) {
         $this->autoMigrate = $autoMigrate;
+        $this->logRotation = $logRotation;
         $this->mcpOAuthPurge = $mcpOAuthPurge;
         $this->healthReport = $healthReport;
         $this->mcpRestore = $mcpRestore;
@@ -367,6 +370,10 @@ class CronOrchestrator
                 $this->markGalleryNormalizeRun();
             }
 
+            // Rotation quotidienne des journaux non gérés par Monolog (cronlog.txt nu, error_log) :
+            // sa propre échéance (date du jour) est tenue par la commande.
+            $this->runLogRotation();
+
             // Rapport de santé régulier (MCP_HEALTH_REPORT_ENABLED, quotidien par défaut) :
             // sa propre échéance est tenue par la commande, sous le verrou de l'orchestrateur.
             $this->runHealthReport();
@@ -388,6 +395,18 @@ class CronOrchestrator
             $this->autoMigrate->execute();
         } catch (\Throwable $e) {
             $this->logger->warning('Migrations automatiques en erreur : ' . $e->getMessage());
+        }
+    }
+
+    private function runLogRotation(): void
+    {
+        if ($this->logRotation === null) {
+            return;
+        }
+        try {
+            $this->logRotation->execute();
+        } catch (\Throwable $e) {
+            $this->logger->warning('Rotation des journaux en erreur : ' . $e->getMessage());
         }
     }
 

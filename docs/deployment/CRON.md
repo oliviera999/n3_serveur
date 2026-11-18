@@ -160,11 +160,24 @@ Fichier d’état : `var/cache/cron_last_gallery_normalize.timestamp`
 | `RESERVE_LOW_LEVEL_THRESHOLD` | *(vide = désactivé)* | Distance capteur→surface réserve (mm) au-delà de laquelle la réserve est basse — alerte email uniquement (aucune action pompe) |
 | `TIDE_STDDEV_THRESHOLD` | `1` | Seuil écart-type marée |
 | `CLEAN_MIN_*` / `CLEAN_MAX_*` | voir `.env.example` | Seuils nettoyage capteurs |
-| `LOG_FILE_PATH` | `cronlog.txt` | Journal Monolog |
+| `LOG_FILE_PATH` | `cronlog.txt` | Journal Monolog (base des copies datées `cronlog-AAAA-MM-JJ.txt`) |
+| `LOG_ROTATE_DAYS` | `14` | Copies datées Monolog conservées (0 = pas de rotation : Monolog écrit alors le fichier nu) |
+| `LOG_RETENTION_DAYS` | `30` | Archives `<nom>.AAAA-MM-JJ.gz` du fichier nu `cronlog.txt` et d'`error_log`, vidés chaque nuit (0 = jamais supprimées) |
 | `NOTIF_EMAIL_RECIPIENT` | — | Destinataire alertes email |
 | `NOTIF_MODE` / `NOTIF_DISABLED_CATEGORIES` | voir `.env.example` | Défaut global ; surcharge par famille via les pages de contrôle (FFP3, MSP1, N3PP, galeries) |
 
 ## Logs et diagnostic
+
+> ⚠️ **Constat du 18/11/2026** : `logs/cronlog.txt` pesait **118 Mo** alors que les copies datées
+> `cronlog-AAAA-MM-JJ.txt` existaient. Ces copies sont écrites par **Monolog** (`RotatingFileHandler`),
+> qui n'écrit **jamais** le fichier nu `LOG_FILE_PATH` : celui-ci reçoit la **sortie de la ligne de
+> déploiement de la crontab** (`git pull` + hook `post-merge` : « Déjà à jour. », vidage des caches,
+> chaque minute), redirigée vers `logs/cronlog.txt` au lieu de `/dev/null` comme documenté ci-dessus.
+> Correctif côté hébergeur (cPanel → Tâches cron) : remettre `>> /dev/null 2>&1` sur la ligne `git pull`.
+> Côté code (6.63.0), `LogRotationCommand` (orchestrateur, premier passage de la journée) archive le
+> fichier nu et `error_log` en `<nom>.AAAA-MM-JJ.gz`, les **vide** sur place et supprime les archives de
+> plus de **`LOG_RETENTION_DAYS`** jours (défaut 30). Les rotations
+> Monolog ne sont jamais touchées. Le rapport de santé liste les journaux de plus de 50 Mo (bloc `logs`).
 
 - **Journal applicatif** : [https://iot.olution.info/public/cronlog.txt](https://iot.olution.info/public/cronlog.txt)
 - **Marqueurs attendus** : `--- Début orchestrateur CRON ---` / `--- Fin orchestrateur CRON ---`

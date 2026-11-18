@@ -6,6 +6,7 @@ namespace App\Mcp\Health;
 
 use App\Config\GalleryConfig;
 use App\Config\PglConfig;
+use App\Config\SensorFieldMap;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Mcp\McpConfig;
@@ -39,14 +40,13 @@ use PDO;
  */
 final class HealthReportBuilder
 {
-    /** Profondeur d'analyse des capteurs FFP3 (muet / figé). */
-    private const SENSOR_LOOKBACK_SECONDS = 12 * 3600;
     /**
-     * Seuls les niveaux entraînés par les marées sont jugés « figés » : réserve, température ou
-     * humidité (DHT au % entier) peuvent légitimement rester stables des heures. « Muet » vaut
-     * pour tous les capteurs physiques.
+     * Profondeur d'analyse des capteurs FFP3 (muet / figé) : la MÊME fenêtre et le même calcul
+     * que `iot_sensor_health` (avant 6.63.0 : 12 h ici contre 48 h dans l'outil, d'où deux dates
+     * « figé depuis » différentes). Les champs jugés « figés » et leurs conditions (réserve :
+     * seulement si la pompe de réserve a tourné) viennent de {@see SensorFieldMap}.
      */
-    private const FROZEN_CHECK_FIELDS = ['EauAquarium', 'EauPotager'];
+    private const SENSOR_LOOKBACK_SECONDS = SensorHealthTool::DEFAULT_WINDOW_SECONDS;
 
     /** Seuil hors ligne du banc énergie (mesure toutes les 10 s) — miroir d'OverviewTool. */
     private const ENERGIE_OFFLINE_SECONDS = 90;
@@ -69,7 +69,13 @@ final class HealthReportBuilder
         ?\Closure $diskSpace = null,
         private ?ContactTimelineBuilder $timeline = null,
         ?string $cacheDir = null,
+        ?DiskQuotaProbe $quota = null,
+        ?LogLocator $logs = null,
     ) {
+        // Défauts construits ici (pas d'autowiring des paramètres optionnels) : sonde de quota
+        // système / DISK_QUOTA_BYTES, et journaux de l'APPLICATION (pas de la racine des galeries).
+        $this->quota = $quota ?? new DiskQuotaProbe();
+        $this->logs = $logs ?? new LogLocator(dirname(__DIR__, 3));
         $this->projectRoot = rtrim($projectRoot ?? dirname(__DIR__, 3), '/');
         $this->diskSpace = $diskSpace;
         // var/cache de l'APPLICATION (pas la racine des galeries $projectRoot, qui peut être
@@ -78,6 +84,13 @@ final class HealthReportBuilder
     }
 
     private string $cacheDir;
+
+    private DiskQuotaProbe $quota;
+
+    private LogLocator $logs;
+
+    /** Journal listé dans le rapport au-delà de cette taille (information). */
+    public const LARGE_LOG_BYTES = 50 * 1048576;
 
     /** @var (\Closure(string): array{free: float|false, total: float|false})|null Mesure disque (tests) */
     private ?\Closure $diskSpace;
@@ -103,6 +116,7 @@ final class HealthReportBuilder
             'errors' => $this->errors($now),
             'galleries' => $this->galleries($now),
             'disk' => $this->disk(),
+            'logs' => $this->logsBlock(),
             'cache' => $this->cacheBlock(),
             // null = non contrôlé (hôte inconnu ou contrôle non demandé) : n'influe pas sur le statut.
             'tls' => $checkTls ? $this->tlsBlock() : null,
@@ -275,7 +289,7 @@ final class HealthReportBuilder
             'silent_seconds' => $silence,
             'offline_threshold_seconds' => $threshold,
             'firmware_version' => isset($latest['version']) && $latest['version'] !== '' ? (string) $latest['version'] : null,
-        ] + ($family === 'ffp3' && $online ? ['sensor_issues' => $this->sensorIssues($family, $now)] : []);
+        ] + ($family === 'ffp3' && $online ? $this->sensorBlocks($family, $now) : []);
         // Module hors ligne mais encore actif (< 30 j) : résumé de la perte de contact (6.59.0).
         if (!$online && $active && $this->timeline !== null && $family !== 'energie') {
             $summary = OverviewTool::contactLossSummary($this->timeline, $family, $env);
@@ -288,35 +302,57 @@ final class HealthReportBuilder
     }
 
     /**
-     * Capteurs physiques muets ou figés sur les 12 dernières heures (FFP3 en ligne uniquement :
-     * l'aquaponie est le seul module dont un capteur muet aveugle des automatismes — marées,
-     * niveau bas, trop-plein ; incident du 30/10/2026). Même analyse que iot_sensor_health.
+     * Capteurs physiques muets ou figés sur la fenêtre de `iot_sensor_health` (FFP3 en ligne
+     * uniquement : l'aquaponie est le seul module dont un capteur muet aveugle des automatismes —
+     * marées, niveau bas, trop-plein ; incident du 30/10/2026). Même analyse que iot_sensor_health.
      *
-     * @return list<array{field: string, status: string, since: string|null, last_value: mixed}>
+     * `sensor_issues` (influe sur le statut) : capteur muet, ou figé parmi
+     * {@see SensorFieldMap::frozenCheckedFields()}. `sensor_info` (n'influe PAS) : capteur désactivé
+     * par le firmware (diagnostic d'écho `disabled`) — visible pour savoir qu'il est hors service.
+     *
+     * @return array{sensor_issues: list<array<string, mixed>>, sensor_info?: list<array<string, mixed>>}
      */
-    private function sensorIssues(string $family, int $now): array
+    private function sensorBlocks(string $family, int $now): array
     {
         try {
             $fields = FieldCatalog::sensorFields($family);
-            $rows = $this->read->recentRows($family, $fields, date('Y-m-d H:i:s', $now - self::SENSOR_LOOKBACK_SECONDS), date('Y-m-d H:i:s', $now), 2000);
+            $rows = $this->read->recentRows(
+                $family,
+                array_merge($fields, SensorFieldMap::auxiliaryColumns($family, $fields)),
+                date('Y-m-d H:i:s', $now - self::SENSOR_LOOKBACK_SECONDS),
+                date('Y-m-d H:i:s', $now)
+            );
         } catch (\Throwable) {
-            return [];
+            return ['sensor_issues' => []];
         }
+        $frozenChecked = SensorFieldMap::frozenCheckedFields($family);
         $issues = [];
+        $info = [];
         foreach ($fields as $field) {
             $analysis = SensorHealthTool::analyse($family, $field, $rows, SensorHealthTool::DEFAULT_FROZEN_MINUTES * 60);
-            if ($analysis['status'] === 'absent'
-                || ($analysis['status'] === 'frozen' && in_array($field, self::FROZEN_CHECK_FIELDS, true))) {
+            $status = (string) $analysis['status'];
+            if ($status === SensorHealthTool::STATUS_DISABLED) {
+                $info[] = [
+                    'field' => $field,
+                    'status' => $status,
+                    'since' => $analysis['disabled_since'] ?? null,
+                    'since_is_lower_bound' => (bool) ($analysis['disabled_since_is_lower_bound'] ?? false),
+                    'last_value' => $analysis['last_value'] ?? null,
+                ];
+                continue;
+            }
+            if ($status === 'absent' || ($status === 'frozen' && in_array($field, $frozenChecked, true))) {
                 $issues[] = [
                     'field' => $field,
-                    'status' => (string) $analysis['status'],
-                    'since' => $analysis['status'] === 'absent' ? ($analysis['null_since'] ?? null) : ($analysis['frozen_since'] ?? null),
+                    'status' => $status,
+                    'since' => $status === 'absent' ? ($analysis['null_since'] ?? null) : ($analysis['frozen_since'] ?? null),
+                    'since_is_lower_bound' => (bool) ($analysis['since_is_lower_bound'] ?? false),
                     'last_value' => $analysis['last_value'] ?? null,
                 ];
             }
         }
 
-        return $issues;
+        return ['sensor_issues' => $issues] + ($info === [] ? [] : ['sensor_info' => $info]);
     }
 
     /**
@@ -419,17 +455,67 @@ final class HealthReportBuilder
             $free = @disk_free_space($this->projectRoot);
             $total = @disk_total_space($this->projectRoot);
         }
+        $quota = $this->safe(fn (): array => $this->quota->probe());
+        if ($quota !== [] && isset($quota['free_bytes']) && is_int($quota['free_bytes'])) {
+            $quota['free_human'] = HealthRules::bytes($quota['free_bytes']);
+        }
         if ($free === false) {
-            return ['free_bytes' => null, 'error' => 'disk_free_space indisponible (fonction désactivée par l\'hébergeur ?).'];
+            return [
+                'free_bytes' => null,
+                'error' => 'disk_free_space indisponible (fonction désactivée par l\'hébergeur ?).',
+                'quota' => $quota,
+            ];
         }
         $pct = $total !== false && $total > 0 ? round($free / $total * 100, 1) : null;
 
         return [
+            // Volume (partagé sur un mutualisé) : INFORMATION seulement depuis 6.63.0.
             'free_bytes' => (int) $free,
             'total_bytes' => $total !== false ? (int) $total : null,
             'free_percent' => $pct,
             'free_human' => HealthRules::bytes((int) $free),
-            'note' => 'Sur un mutualisé, le total est celui du volume ; le quota du compte se lit dans cPanel.',
+            // Quota du compte : c'est lui que jugent les règles (inconnu = pas d'alerte).
+            'quota' => $quota,
+            'note' => 'free_* = volume (partagé sur un mutualisé, information) ; quota = place du compte, seule jugée par les règles.',
+        ];
+    }
+
+    /**
+     * Journaux de plus de {@see self::LARGE_LOG_BYTES} (information, sans lecture du contenu) :
+     * chemin relatif à la racine de l'application, taille, type. Le fichier nu `cronlog.txt` et
+     * `error_log` sont vidés chaque nuit par {@see \App\Command\LogRotationCommand}.
+     *
+     * @return array<string, mixed>
+     */
+    private function logsBlock(): array
+    {
+        $root = $this->logs->projectRoot();
+        $files = $this->safe(fn (): array => $this->logs->files());
+        $large = [];
+        $total = 0;
+        foreach ($files as $file) {
+            $total += (int) $file['size'];
+            if ((int) $file['size'] <= self::LARGE_LOG_BYTES) {
+                continue;
+            }
+            $path = (string) $file['path'];
+            $large[] = [
+                'path' => str_starts_with($path, $root . '/') ? substr($path, strlen($root) + 1) : basename($path),
+                'kind' => (string) $file['kind'],
+                'size_bytes' => (int) $file['size'],
+                'size_human' => HealthRules::bytes((int) $file['size']),
+                'modified_at' => date('Y-m-d H:i:s', (int) $file['mtime']),
+            ];
+        }
+        usort($large, static fn (array $a, array $b): int => $b['size_bytes'] <=> $a['size_bytes']);
+
+        return [
+            'files' => count($files),
+            'total_bytes' => $total,
+            'large_threshold_bytes' => self::LARGE_LOG_BYTES,
+            'large' => $large,
+            'note' => 'Information (n\'influe pas sur le statut). cronlog.txt nu et error_log : vidés chaque nuit, archives '
+                . '<nom>.AAAA-MM-JJ.gz gardées LOG_RETENTION_DAYS jours (défaut 30).',
         ];
     }
 

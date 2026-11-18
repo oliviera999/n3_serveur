@@ -110,6 +110,47 @@ final class Ffp3CatalogTest extends TestCase
         $this->assertFalse($series['EauReserve']['visible']);
     }
 
+    /**
+     * Ultrason du bac potager fixe (décision du 18/11/2026) : carte masquée et série en légende
+     * décochée dans TOUS les presets intégrés ; le reste des niveaux d'eau ne bouge pas.
+     */
+    public function testPotagerIsHiddenByDefaultButOneClickAwayInTheLegend(): void
+    {
+        foreach (array_keys($this->catalog->builtInPresets()) as $slug) {
+            $layout = $this->resolvePreset($slug);
+            $niveaux = array_column($layout['blocks'], null, 'id')['niveaux'] ?? null;
+            $this->assertIsArray($niveaux, $slug);
+            $cards = array_column($niveaux['cards'], 'key');
+            $this->assertNotContains('EauPotager', $cards, "{$slug} : carte potager masquée");
+            $this->assertContains('EauAquarium', $cards, $slug);
+            $this->assertContains('EauReserve', $cards, $slug);
+
+            $series = array_column($niveaux['chart']['series'], null, 'id');
+            $this->assertArrayHasKey('EauPotager', $series, "{$slug} : série potager présente dans la légende");
+            $this->assertFalse($series['EauPotager']['visible'], "{$slug} : série potager décochée");
+            $this->assertTrue($series['EauAquarium']['visible'], $slug);
+            foreach (['trend-EauPotager', 'ma-EauPotager'] as $id) {
+                $this->assertArrayHasKey($id, $series, "{$slug} : {$id} toujours en légende");
+                $this->assertFalse($series[$id]['visible'], $slug);
+            }
+            // Le live garde la cible de la série (cochée depuis la légende, elle se met à jour).
+            $this->assertArrayHasKey('EauPotager', $layout['sensor_map'], $slug);
+        }
+        // Mesures toujours lues, agrégées et exportées.
+        $this->assertContains('EauPotager', $this->catalog->chartColumns());
+        $this->assertContains('EauPotager', $this->catalog->statsColumns());
+    }
+
+    public function testAPresetCanShowThePotagerCardAndSeriesAgain(): void
+    {
+        $raw = ['blocks' => [['id' => 'niveaux', 'cards' => ['EauPotager' => 'shown'], 'series' => ['EauPotager' => 'shown']]]];
+        $layout = $this->resolver->resolve($this->catalog, $this->resolver->normalize($this->catalog, $raw, true));
+        $niveaux = array_column($layout['blocks'], null, 'id')['niveaux'];
+
+        $this->assertContains('EauPotager', array_column($niveaux['cards'], 'key'));
+        $this->assertTrue(array_column($niveaux['chart']['series'], null, 'id')['EauPotager']['visible']);
+    }
+
     public function testChemistryBlockIsShownInEveryPresetEvenWithoutSensorData(): void
     {
         $block = $this->catalog->block('chimie');

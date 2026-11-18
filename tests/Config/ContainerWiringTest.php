@@ -357,6 +357,10 @@ final class ContainerWiringTest extends TestCase
             [\App\Command\CronOrchestrator::class, 'clockDriftAlerts'],
             [\App\Command\CronOrchestrator::class, 'otaSilenceAlerts'],
             [\App\Command\CronOrchestrator::class, 'autoMigrate'],
+            // 6.63.0 : rotation des journaux (et ses réglages BDD, sinon .env seul).
+            [\App\Command\CronOrchestrator::class, 'logRotation'],
+            [\App\Command\LogRotationCommand::class, 'logger'],
+            [\App\Command\LogRotationCommand::class, 'operationalSettings'],
             [\App\Command\AutoMigrateCommand::class, 'settings'],
             [\App\Command\AutoMigrateCommand::class, 'audit'],
             [\App\Command\AutoMigrateCommand::class, 'notifier'],
