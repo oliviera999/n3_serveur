@@ -7,6 +7,7 @@ namespace App\Mcp\Support;
 use App\Config\Ffp3GpioMap;
 use App\Config\MspGpioMap;
 use App\Config\N3ppGpioMap;
+use App\Config\SensorFieldMap;
 use App\Config\TableConfig;
 
 /**
@@ -180,18 +181,6 @@ final class FieldCatalog
         'energie' => ['PanneauP', 'BatterieV', 'BatterieI', 'BatterieSoc', 'ConsoP'],
     ];
 
-    /**
-     * Capteurs PHYSIQUES suivis par `iot_sensor_health` et signalés par `iot_latest` quand ils sont
-     * muets. Exclus volontairement : luminosité (constante la nuit), pression FFP3 (0 sans BME280),
-     * champs de marée calculés, états d'actionneurs, réglages — tous légitimement constants ou vides.
-     */
-    private const SENSOR_FIELDS = [
-        'ffp3' => ['TempAir', 'Humidite', 'TempEau', 'EauAquarium', 'EauReserve', 'EauPotager'],
-        'n3pp' => ['TempAir', 'Humidite', 'Humid1', 'Humid2', 'Humid3', 'Humid4', 'HumidMoy'],
-        'msp1' => ['TempAirInt', 'TempAirExt', 'HumidAirInt', 'HumidAirExt', 'Pression', 'HumidSol', 'TempEau'],
-        'energie' => ['BatterieV', 'ConsoV'],
-    ];
-
     public static function isFamily(string $family): bool
     {
         return isset(self::CATALOG[$family]);
@@ -249,11 +238,14 @@ final class FieldCatalog
     }
 
     /**
+     * Capteurs PHYSIQUES suivis par `iot_sensor_health` et signalés par `iot_latest` quand ils sont
+     * muets — liste tenue par {@see SensorFieldMap} (source unique, 6.63.0).
+     *
      * @return list<string> Capteurs physiques de la famille (sous-ensemble des champs numériques)
      */
     public static function sensorFields(string $family): array
     {
-        return array_values(array_intersect(self::SENSOR_FIELDS[$family] ?? [], self::numericFields($family)));
+        return array_values(array_intersect(SensorFieldMap::physical($family), self::numericFields($family)));
     }
 
     /**

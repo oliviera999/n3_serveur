@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\DerivedAlert;
 
+use App\Config\SensorFieldMap;
 use App\Domain\EchoDiagnostic;
 use App\Notification\NotificationCategory;
 use App\Notification\Severity;
@@ -73,10 +74,6 @@ class Ffp3DerivedAlertService
     /** Capteurs suivis par l'alerte « absent / figé » : colonne => libellé. */
     private const MONITORED_SENSORS = [
         'EauAquarium' => 'niveau d\'eau de l\'aquarium (ultrason)',
-    ];
-    /** Préfixe des colonnes de diagnostic d'écho firmware (ffp5cs ≥ 15.33) par capteur suivi. */
-    private const ECHO_DIAG_PREFIX = [
-        'EauAquarium' => 'wlAqua',
     ];
     /** Lignes examinées pour l'alerte capteur (≈ 6 h au rythme du firmware). */
     private const SENSOR_WINDOW_READINGS = 60;
@@ -358,7 +355,8 @@ class Ffp3DerivedAlertService
      */
     private function echoDiagnosticLine(string $column, array $reading): string
     {
-        $prefix = self::ECHO_DIAG_PREFIX[$column] ?? null;
+        // Préfixe des colonnes de diagnostic d'écho (ffp5cs ≥ 15.33) : source unique SensorFieldMap.
+        $prefix = SensorFieldMap::echoPrefix('ffp3', $column);
         if ($prefix === null) {
             return '';
         }
