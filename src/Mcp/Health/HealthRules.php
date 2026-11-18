@@ -17,7 +17,7 @@ namespace App\Mcp\Health;
  * | BDD         | latence > 500 ms                              | injoignable                             |
  * | CRON        | orchestrateur > 5 min, tâches horaires en retard | orchestrateur > 15 min ou jamais vu  |
  * | Appareils   | un appareil de production hors ligne          | aquaponie FFP3 (prod/s3) hors ligne > 6 h |
- * | Capteurs    | FFP3 en ligne : capteur physique muet (≥ 3 mesures vides), ou niveau aquarium / potager figé (≥ 2 h) | — |
+ * | Capteurs    | FFP3 en ligne : capteur physique muet (≥ 3 mesures vides), ou niveau aquarium / potager figé (≥ 2 h), ou réserve figée alors que la pompe de réserve a tourné ; un capteur `disabled` par le firmware n'est qu'une information | — |
  * | Erreurs     | ≥ 20 erreurs serveur / 24 h ou ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
  * | Galeries    | galerie active sans photo depuis > 48 h       | —                                       |
  * | Disque      | < 10 % ou < 1 Gio libres                      | < 2 % ou < 200 Mio libres               |
@@ -117,12 +117,16 @@ final class HealthRules
                     continue;
                 }
                 $absent = ($issue['status'] ?? '') === 'absent';
+                $since = '';
+                if (isset($issue['since']) && is_string($issue['since'])) {
+                    $since = (($issue['since_is_lower_bound'] ?? false) === true ? ' depuis au moins le ' : ' depuis le ') . $issue['since'];
+                }
                 $add(self::STATUS_ORANGE, $absent ? 'capteur_muet' : 'capteur_fige', sprintf(
                     '%s : capteur %s %s%s.',
                     (string) ($device['label'] ?? $device['id'] ?? '?'),
                     (string) ($issue['field'] ?? '?'),
                     $absent ? 'muet (plus de valeur)' : 'figé (même valeur répétée)',
-                    isset($issue['since']) && is_string($issue['since']) ? ' depuis le ' . $issue['since'] : ''
+                    $since
                 ));
             }
         }

@@ -145,6 +145,85 @@ final class SensorHealthToolTest extends TestCase
         self::assertNull($allNull['last_value']);
     }
 
+    /**
+     * Lignes DESC (la plus récente d'abord) toutes les 10 min, sur 4 h : $value(k) donne la ligne k.
+     *
+     * @param callable(int): array<string, mixed> $value
+     * @return list<array<string, mixed>>
+     */
+    private static function rowsDesc(callable $value, int $count = 25): array
+    {
+        $now = time();
+        $rows = [];
+        for ($k = 0; $k < $count; $k++) {
+            $rows[] = $value($k) + ['reading_time' => date('Y-m-d H:i:s', $now - $k * 600)];
+        }
+
+        return $rows;
+    }
+
+    /** Potager fixe (18/11/2026) : statut d'écho `disabled` → ni figé, ni muet. */
+    public function testDisabledEchoStatusIsNotFrozen(): void
+    {
+        $rows = self::rowsDesc(static fn (int $k): array => ['EauPotager' => 121, 'wlPotaStatus' => $k < 20 ? 'disabled' : 'ok']);
+        $a = SensorHealthTool::analyse('ffp3', 'EauPotager', $rows, 7200);
+
+        self::assertSame('disabled', $a['status']);
+        self::assertSame('disabled', $a['echo_status']);
+        self::assertSame($rows[19]['reading_time'], $a['disabled_since']);
+        self::assertFalse($a['disabled_since_is_lower_bound']);
+        self::assertSame(12.1, $a['last_value'], 'la valeur reste lisible (mm → cm)');
+
+        // Même chose capteur muet : `disabled` l'emporte (le firmware n'envoie plus rien).
+        $muted = self::rowsDesc(static fn (int $k): array => ['EauAquarium' => null, 'wlAquaStatus' => 'disabled']);
+        self::assertSame('disabled', SensorHealthTool::analyse('ffp3', 'EauAquarium', $muted, 7200)['status']);
+    }
+
+    public function testRepeatedValueWithOkEchoStatusIsFrozen(): void
+    {
+        $rows = self::rowsDesc(static fn (int $k): array => ['EauPotager' => 121, 'wlPotaStatus' => 'ok']);
+        $a = SensorHealthTool::analyse('ffp3', 'EauPotager', $rows, 7200);
+
+        self::assertSame('frozen', $a['status']);
+        self::assertSame('ok', $a['echo_status']);
+    }
+
+    public function testStillReserveWithPumpOffIsOk(): void
+    {
+        $rows = self::rowsDesc(static fn (int $k): array => ['EauReserve' => 180, 'etatPompeTank' => 0]);
+        $a = SensorHealthTool::analyse('ffp3', 'EauReserve', $rows, 7200);
+
+        self::assertSame('ok', $a['status']);
+        self::assertFalse($a['activity_during_repeat']);
+        self::assertSame(25, $a['frozen_readings'], 'la répétition reste décrite');
+    }
+
+    public function testStillReserveWhileThePumpRanIsFrozen(): void
+    {
+        $rows = self::rowsDesc(static fn (int $k): array => ['EauReserve' => 180, 'etatPompeTank' => $k === 10 ? 1 : 0]);
+        $a = SensorHealthTool::analyse('ffp3', 'EauReserve', $rows, 7200);
+
+        self::assertSame('frozen', $a['status']);
+        self::assertTrue($a['activity_during_repeat']);
+
+        // Pompe en marche sur la toute dernière mesure seulement : le niveau n'a pas encore pu bouger.
+        $justStarted = self::rowsDesc(static fn (int $k): array => ['EauReserve' => 180, 'etatPompeTank' => $k === 0 ? 1 : 0]);
+        self::assertSame('ok', SensorHealthTool::analyse('ffp3', 'EauReserve', $justStarted, 7200)['status']);
+    }
+
+    public function testToolReadsEchoStatusAndListsDisabledFieldsApart(): void
+    {
+        $this->pdo->exec('ALTER TABLE ffp3Data ADD COLUMN wlPotaStatus TEXT');
+        $this->pdo->exec("UPDATE ffp3Data SET EauPotager = 121, wlPotaStatus = 'disabled'");
+
+        $r = self::data($this->call('iot_sensor_health', ['family' => 'ffp3', 'from' => '-12h']));
+
+        self::assertSame('disabled', $r['fields']['EauPotager']['status']);
+        self::assertSame(['EauPotager'], $r['disabled_fields']);
+        self::assertNotContains('EauPotager', $r['suspect_fields']);
+        self::assertStringContainsString('Désactivé(s) par le firmware', $r['note']);
+    }
+
     public function testWindowIsCappedAndArgumentsStrict(): void
     {
         $tooWide = $this->call('iot_sensor_health', ['family' => 'ffp3', 'from' => '-40d']);

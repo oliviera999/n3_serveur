@@ -6,6 +6,7 @@ namespace App\Mcp\Health;
 
 use App\Config\GalleryConfig;
 use App\Config\PglConfig;
+use App\Config\SensorFieldMap;
 use App\Config\TableConfig;
 use App\Config\Version;
 use App\Mcp\McpConfig;
@@ -39,14 +40,13 @@ use PDO;
  */
 final class HealthReportBuilder
 {
-    /** Profondeur d'analyse des capteurs FFP3 (muet / figé). */
-    private const SENSOR_LOOKBACK_SECONDS = 12 * 3600;
     /**
-     * Seuls les niveaux entraînés par les marées sont jugés « figés » : réserve, température ou
-     * humidité (DHT au % entier) peuvent légitimement rester stables des heures. « Muet » vaut
-     * pour tous les capteurs physiques.
+     * Profondeur d'analyse des capteurs FFP3 (muet / figé) : la MÊME fenêtre et le même calcul
+     * que `iot_sensor_health` (avant 6.63.0 : 12 h ici contre 48 h dans l'outil, d'où deux dates
+     * « figé depuis » différentes). Les champs jugés « figés » et leurs conditions (réserve :
+     * seulement si la pompe de réserve a tourné) viennent de {@see SensorFieldMap}.
      */
-    private const FROZEN_CHECK_FIELDS = ['EauAquarium', 'EauPotager'];
+    private const SENSOR_LOOKBACK_SECONDS = SensorHealthTool::DEFAULT_WINDOW_SECONDS;
 
     /** Seuil hors ligne du banc énergie (mesure toutes les 10 s) — miroir d'OverviewTool. */
     private const ENERGIE_OFFLINE_SECONDS = 90;
@@ -275,7 +275,7 @@ final class HealthReportBuilder
             'silent_seconds' => $silence,
             'offline_threshold_seconds' => $threshold,
             'firmware_version' => isset($latest['version']) && $latest['version'] !== '' ? (string) $latest['version'] : null,
-        ] + ($family === 'ffp3' && $online ? ['sensor_issues' => $this->sensorIssues($family, $now)] : []);
+        ] + ($family === 'ffp3' && $online ? $this->sensorBlocks($family, $now) : []);
         // Module hors ligne mais encore actif (< 30 j) : résumé de la perte de contact (6.59.0).
         if (!$online && $active && $this->timeline !== null && $family !== 'energie') {
             $summary = OverviewTool::contactLossSummary($this->timeline, $family, $env);
@@ -288,35 +288,57 @@ final class HealthReportBuilder
     }
 
     /**
-     * Capteurs physiques muets ou figés sur les 12 dernières heures (FFP3 en ligne uniquement :
-     * l'aquaponie est le seul module dont un capteur muet aveugle des automatismes — marées,
-     * niveau bas, trop-plein ; incident du 30/10/2026). Même analyse que iot_sensor_health.
+     * Capteurs physiques muets ou figés sur la fenêtre de `iot_sensor_health` (FFP3 en ligne
+     * uniquement : l'aquaponie est le seul module dont un capteur muet aveugle des automatismes —
+     * marées, niveau bas, trop-plein ; incident du 30/10/2026). Même analyse que iot_sensor_health.
      *
-     * @return list<array{field: string, status: string, since: string|null, last_value: mixed}>
+     * `sensor_issues` (influe sur le statut) : capteur muet, ou figé parmi
+     * {@see SensorFieldMap::frozenCheckedFields()}. `sensor_info` (n'influe PAS) : capteur désactivé
+     * par le firmware (diagnostic d'écho `disabled`) — visible pour savoir qu'il est hors service.
+     *
+     * @return array{sensor_issues: list<array<string, mixed>>, sensor_info?: list<array<string, mixed>>}
      */
-    private function sensorIssues(string $family, int $now): array
+    private function sensorBlocks(string $family, int $now): array
     {
         try {
             $fields = FieldCatalog::sensorFields($family);
-            $rows = $this->read->recentRows($family, $fields, date('Y-m-d H:i:s', $now - self::SENSOR_LOOKBACK_SECONDS), date('Y-m-d H:i:s', $now), 2000);
+            $rows = $this->read->recentRows(
+                $family,
+                array_merge($fields, SensorFieldMap::auxiliaryColumns($family, $fields)),
+                date('Y-m-d H:i:s', $now - self::SENSOR_LOOKBACK_SECONDS),
+                date('Y-m-d H:i:s', $now)
+            );
         } catch (\Throwable) {
-            return [];
+            return ['sensor_issues' => []];
         }
+        $frozenChecked = SensorFieldMap::frozenCheckedFields($family);
         $issues = [];
+        $info = [];
         foreach ($fields as $field) {
             $analysis = SensorHealthTool::analyse($family, $field, $rows, SensorHealthTool::DEFAULT_FROZEN_MINUTES * 60);
-            if ($analysis['status'] === 'absent'
-                || ($analysis['status'] === 'frozen' && in_array($field, self::FROZEN_CHECK_FIELDS, true))) {
+            $status = (string) $analysis['status'];
+            if ($status === SensorHealthTool::STATUS_DISABLED) {
+                $info[] = [
+                    'field' => $field,
+                    'status' => $status,
+                    'since' => $analysis['disabled_since'] ?? null,
+                    'since_is_lower_bound' => (bool) ($analysis['disabled_since_is_lower_bound'] ?? false),
+                    'last_value' => $analysis['last_value'] ?? null,
+                ];
+                continue;
+            }
+            if ($status === 'absent' || ($status === 'frozen' && in_array($field, $frozenChecked, true))) {
                 $issues[] = [
                     'field' => $field,
-                    'status' => (string) $analysis['status'],
-                    'since' => $analysis['status'] === 'absent' ? ($analysis['null_since'] ?? null) : ($analysis['frozen_since'] ?? null),
+                    'status' => $status,
+                    'since' => $status === 'absent' ? ($analysis['null_since'] ?? null) : ($analysis['frozen_since'] ?? null),
+                    'since_is_lower_bound' => (bool) ($analysis['since_is_lower_bound'] ?? false),
                     'last_value' => $analysis['last_value'] ?? null,
                 ];
             }
         }
 
-        return $issues;
+        return ['sensor_issues' => $issues] + ($info === [] ? [] : ['sensor_info' => $info]);
     }
 
     /**

@@ -90,7 +90,7 @@ et renvoient `env` + `is_production`. Sorties en JSON compact (`content` texte +
 | `iot_latest` | Dernière mesure complète d'une famille (unités converties). Un capteur physique vide est listé dans `missing_fields` (dernière valeur non nulle, depuis quand, nb de mesures ; recherche ≤ 30 j). |
 | `iot_series` | Série agrégée en SQL (`auto|5min|15min|1h|6h|1d`, `avg|min|max`, ≤ 500 points, ≤ 180 j) + stats par champ. |
 | `iot_stats` | Min / max / moyenne / écart-type / couverture sur une période. |
-| `iot_sensor_health` | Santé **par capteur** sur la fin d'une période (défaut 48 h, ≤ 30 j) : `ok` / `intermittent` / `absent` (≥ 3 mesures vides d'affilée) / `frozen` (même valeur ≥ `frozen_minutes`, défaut 120, et ≥ 5 mesures) / `no_data` ; dernière valeur non nulle, début et durée du silence et du figement, couverture. Par défaut : capteurs physiques (`FieldCatalog::sensorFields`). |
+| `iot_sensor_health` | Santé **par capteur** sur la fin d'une période (défaut 48 h, ≤ 30 j) : `ok` / `intermittent` / `absent` (≥ 3 mesures vides d'affilée) / `frozen` (même valeur ≥ `frozen_minutes`, défaut 120, et ≥ 5 mesures) / `disabled` (6.63.0 : diagnostic d'écho firmware `wlAquaStatus` / `wlPotaStatus` = `disabled` sur la dernière mesure — information, listé dans `disabled_fields`, jamais dans `suspect_fields` ; l'emporte sur figé / muet) / `no_data` ; dernière valeur non nulle, début et durée du silence et du figement (`disabled_since` pour un capteur désactivé), couverture. `EauReserve` n'est `frozen` que si la pompe de réserve (`etatPompeTank`) a tourné pendant la répétition (`activity_during_repeat`). Par défaut : capteurs physiques (`Config\SensorFieldMap`, source unique). |
 | `iot_tides` | Marées FFP3 via `TideAnalysisService` (cycles, marnage, fréquence, réserve, diffMaree, événements firmware), ≤ 14 j. |
 | `iot_energy` | Bilan du banc INA226 (Wh produits / consommés, puissances, tension et SoC batterie). |
 | `iot_pgl_stats` | Compteur Poissonglouton (total, jour, historiques). |
@@ -456,7 +456,7 @@ Statut = **pire niveau déclenché** ; aucune règle = `vert`. Les raisons sont 
 | BDD | latence > 500 ms | injoignable |
 | CRON | orchestrateur sans passage depuis > 5 min ; tâches horaires en retard | orchestrateur > 15 min, ou jamais vu |
 | Appareils | un appareil de production hors ligne | aquaponie FFP3 (`prod` ou `s3`) hors ligne depuis > 6 h |
-| Capteurs | FFP3 en ligne : capteur physique muet (≥ 3 mesures vides sur 12 h) ou niveau aquarium / potager figé (≥ 2 h) | — |
+| Capteurs | FFP3 en ligne, sur la **même fenêtre que `iot_sensor_health` (48 h, 6.63.0)** : capteur physique muet (≥ 3 mesures vides) ; niveau aquarium / potager figé (≥ 2 h) ; réserve figée **alors que la pompe de réserve a tourné**. « Depuis au moins le » quand le début est hors fenêtre. Un capteur `disabled` par le firmware est rangé dans `sensor_info` (information, n'influe pas) | — |
 | Erreurs | ≥ 20 erreurs serveur / 24 h ; ≥ 1 notification critique / 24 h | ≥ 200 erreurs serveur / 24 h |
 | Galeries | galerie active sans photo depuis > 48 h | — |
 | Disque | < 10 % ou < 1 Gio libres | < 2 % ou < 200 Mio libres |

@@ -31,7 +31,12 @@
             le {{ lv.reading_time|localdt('d/m/Y à H:i') }}
         </div>
     {% endif %}
-    {% if (stuck|default({}))[card.key] is defined %}
+    {% if (disabled_sensors|default({}))[card.key] is defined %}
+        <div class="stat-card-secondary" data-disabled="{{ card.key }}">
+            <i class="fas fa-power-off" aria-hidden="true"></i>
+            Capteur désactivé par le firmware : la valeur affichée n'est plus une mesure.
+        </div>
+    {% elseif (stuck|default({}))[card.key] is defined %}
         <div class="stat-card-secondary stat-card-alert" data-stuck="{{ card.key }}">
             <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
             Valeur identique sur toute la période : capteur figé ?
