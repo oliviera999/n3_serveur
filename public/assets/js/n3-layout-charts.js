@@ -3,12 +3,14 @@
  * pilotées par catalogue (MSP1, N3PP, ENERGIE, FFP3) à partir d'un payload JSON :
  *   { readingTime: [ms…], columns: { Col: [v…] }, charts: [ { id, kind, yAxis, tooltip,
  *     series: [ { id, name, column, trendOf, trendRound, type, color, fill, lineWidth,
- *                 dashStyle, yAxis, tooltip, opacity, step, onMarkers, visible } ] } ] }
+ *                 dashStyle, yAxis, tooltip, opacity, step, fitToData, onMarkers, visible } ] } ] }
  *
  * Les séries arrivent déjà filtrées et ordonnées par le preset d'affichage : leur
  * index est celui de la sensor map générée côté serveur (mise à jour live).
  *
  * - `step` : ligne en escalier (états 0/1).
+ * - `fitToData` : aire remplie jusqu'au bas du graphique (threshold: null) au lieu de 0 —
+ *   l'axe Y se cadre sur les courbes au lieu d'inclure le zéro (niveaux d'eau).
  * - `onMarkers` { lane, symbol, radius } : un marqueur par mesure > 0, posé à la
  *   hauteur fixe `lane` (axe d'événements masqué 0–1, ou index de ligne d'un
  *   chronogramme) — reprend les marqueurs « Pompe ON / Chauffage ON » de l'ancienne
@@ -136,6 +138,7 @@
         if (s.tooltip) out.tooltip = s.tooltip;
         if (s.opacity != null) out.opacity = s.opacity;
         if (s.step) out.step = s.step;
+        if (s.fitToData) out.threshold = null;
         if (s.onMarkers) {
             out.type = 'scatter';
             out.data = onMarkerPoints(data, s.onMarkers.lane || 0);

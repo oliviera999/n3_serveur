@@ -122,15 +122,17 @@ final class Ffp3Catalog extends PageCatalog
                 'chart' => [
                     'id' => 'chart-ffp3-eau',
                     'yAxis' => [
-                        ['title' => ['text' => 'Niveaux eau (cm)'], 'opposite' => false],
+                        // Axe cadré sur les courbes (pas de 0 forcé, cf. fit_to_data des séries), comme
+                        // la température ; minRange : un niveau quasi stable ne remplit pas toute la hauteur.
+                        ['title' => ['text' => 'Niveaux eau (cm)'], 'opposite' => false, 'minRange' => 5],
                         $eventsAxis,
                     ],
                     'tooltip' => ['valueDecimals' => 1, 'valueSuffix' => ' cm'],
                     'series' => [
-                        ['column' => 'EauAquarium', 'name' => 'Aquarium', 'type' => 'areaspline', 'color' => $aquarium, 'fill' => [255, 99, 0, 0.3, 0.05], 'lineWidth' => 2.5],
+                        ['column' => 'EauAquarium', 'name' => 'Aquarium', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $aquarium, 'fill' => [255, 99, 0, 0.3, 0.05], 'lineWidth' => 2.5],
                         // Réserve en légende (décochée) par défaut, comme avant : son niveau élevé écrasait l'amplitude des marées.
-                        ['column' => 'EauReserve', 'name' => 'Réserve', 'type' => 'areaspline', 'color' => $reserve, 'fill' => [0, 126, 97, 0.3, 0.05], 'dashStyle' => 'ShortDot', 'default' => self::SERIES_LEGEND],
-                        ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'color' => $potager, 'fill' => [39, 189, 160, 0.3, 0.05], 'lineWidth' => 1.5],
+                        ['column' => 'EauReserve', 'name' => 'Réserve', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $reserve, 'fill' => [0, 126, 97, 0.3, 0.05], 'dashStyle' => 'ShortDot', 'default' => self::SERIES_LEGEND],
+                        ['column' => 'EauPotager', 'name' => 'Potager', 'type' => 'areaspline', 'fit_to_data' => true, 'color' => $potager, 'fill' => [39, 189, 160, 0.3, 0.05], 'lineWidth' => 1.5],
                         // Tendances (régression sur le temps, recalculée au zoom) : dans la légende, décochées — comme ≤ 6.45.0.
                         ['id' => 'trend-EauAquarium', 'trend_of' => 'EauAquarium', 'name' => 'Tendance aquarium', 'type' => 'line', 'color' => '#b34700', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],
                         ['id' => 'trend-EauReserve', 'trend_of' => 'EauReserve', 'name' => 'Tendance réserve', 'type' => 'line', 'color' => '#00594a', 'dashStyle' => 'ShortDash', 'lineWidth' => 1.5, 'default' => self::SERIES_LEGEND],

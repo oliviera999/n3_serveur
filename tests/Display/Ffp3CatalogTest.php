@@ -159,6 +159,29 @@ final class Ffp3CatalogTest extends TestCase
         $this->assertArrayHasKey('step', $heat);
     }
 
+    /**
+     * Niveaux d'eau : axe Y cadré sur les courbes (comme la température), pas de 0 forcé
+     * par le remplissage des aires (threshold Highcharts = 0 par défaut).
+     */
+    public function testWaterLevelAxisFitsTheCurvesInsteadOfStartingAtZero(): void
+    {
+        $chart = $this->chart('chart-ffp3-eau');
+        $this->assertArrayNotHasKey('min', $chart['yAxis'][0]);
+        $this->assertArrayHasKey('minRange', $chart['yAxis'][0]);
+
+        $series = array_column($chart['series'], null, 'column');
+        foreach (['EauAquarium', 'EauReserve', 'EauPotager'] as $column) {
+            $this->assertSame('areaspline', $series[$column]['type'], $column);
+            $this->assertTrue($series[$column]['fit_to_data'], $column);
+        }
+
+        $charts = $this->resolvePreset(PageCatalog::PRESET_EXTENDED)['charts'];
+        $payload = AbstractDataController::chartPayload($charts, ['reading_time' => [1, 2], 'EauAquarium' => [20.0, 21.0]]);
+        $eau = array_column($payload['charts'], null, 'id')['chart-ffp3-eau'];
+        $aquarium = array_column($eau['series'], null, 'column')['EauAquarium'];
+        $this->assertTrue($aquarium['fitToData']);
+    }
+
     public function testStepOptionIsKeptByTheCatalog(): void
     {
         $catalog = new class () extends PageCatalog {
