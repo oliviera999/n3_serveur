@@ -48,8 +48,10 @@ de production ; on documente l'équivalence firmware↔serveur plutôt que d'ali
 
 1. **Galerie caméra** : le firmware `uploadphotosserver -e ffp3` poste vers `/ffp3gallery/`
    (photos, `board=5`) — sous-système **distinct** des tables capteurs `ffp3Data*`.
-2. **Dépôt serveur PHP** : le firmware embarque ce dépôt (n3_serveur) comme sous-module
-   `ffp5cs/ffp3` → `github.com/oliviera999/ffp3.git`.
+2. **Ancien dépôt serveur PHP** : `github.com/oliviera999/ffp3.git` (« FFP3 Datas » v4.x, dernier
+   commit le 20/03/2026) est le **prédécesseur** de ce dépôt, qui sert la prod depuis (v6.x). Ce
+   n'est **pas** n3_serveur. Le firmware ne l'embarque plus : le sous-module `ffp5cs/ffp3` de
+   n3_firmwires a été retiré le 24/11/2026.
 3. **Contrat d'auth HMAC générique** : côté firmware, `shared/n3_data` nomme « FFP3 » sa version
    moderne du protocole HMAC, réutilisée par `msp`/`n3pp` — sans lien avec le système aquaponie.
 
@@ -59,6 +61,6 @@ de production ; on documente l'équivalence firmware↔serveur plutôt que d'ali
 |---|---|---|
 | **Validation `sensor ↔ env`** | Logger un **warning** (jamais un rejet) dans `PostDataController` si `sensor` reçu ≠ identité attendue pour l'env de la route, afin de détecter un firmware mal configuré qui écrirait dans la mauvaise table `ffp3*`. | **Différé, recommandé en *log-only*.** Ne jamais rejeter (casserait la prod / firmwares hétérogènes). À faire après stabilisation de `sensor="ffp3"`. |
 | **Aligner le canal OTA `ffp5` sur `ffp3`** | Radical unique. | **Documenté seulement.** Touche le pipeline OTA firmware → risque de coupure de mise à jour. |
-| **Renommer le dossier firmware `ffp5cs/` → `ffp3/`** | Aligner firmware↔serveur. | **Rejeté.** Casse sous-module, manifest, CI, scripts. |
+| **Renommer le dossier firmware `ffp5cs/` → `ffp3/`** | Aligner firmware↔serveur. | **Rejeté.** Casse manifest, CI, scripts. |
 | **Renommer les tables `ffp3Data*` → `ffp5*`** | Aligner serveur↔firmware. | **Rejeté.** Migration de données de prod (100k+ lignes), réécriture `TableConfig`/repos/dashboards, risque de perte de données. |
 | **Renommer le « contrat HMAC FFP3 »** | Il n'est pas spécifique à ffp3. | **Rejeté.** Surface trop large (tous firmwares + `SignatureValidator`) pour un gain cosmétique. |
