@@ -15,6 +15,49 @@
 
   var boot = window.TIMELAPSE_BOOT || {};
   var BASE = typeof boot.basePath === 'string' ? boot.basePath : '';
+  /** Fuseau d'affichage : heure locale du projet (Casablanca), quel que soit le navigateur. */
+  var TZ = typeof boot.timeZone === 'string' && boot.timeZone !== '' ? boot.timeZone : 'Africa/Casablanca';
+  var NIGHT_PREF_KEY = 'n3.timelapse.hideNight';
+
+  function withTz(opts) {
+    var o = {};
+    if (opts) Object.keys(opts).forEach(function (k) { o[k] = opts[k]; });
+    o.timeZone = TZ;
+    return o;
+  }
+  function fmtDate(d, opts) { return d.toLocaleDateString('fr-FR', withTz(opts)); }
+  function fmtTime(d, opts) { return d.toLocaleTimeString('fr-FR', withTz(opts)); }
+  function fmtDateTime(d, opts) { return d.toLocaleString('fr-FR', withTz(opts)); }
+
+  /** Décalage (ms) du fuseau TZ par rapport à UTC à l'instant d. */
+  function tzOffsetMs(d) {
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: TZ, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+      }).formatToParts(d);
+      var v = {};
+      parts.forEach(function (p) { v[p.type] = p.value; });
+      var asUtc = Date.UTC(+v.year, +v.month - 1, +v.day, +v.hour % 24, +v.minute, +v.second);
+      return asUtc - Math.floor(d.getTime() / 1000) * 1000;
+    } catch (e) {
+      return -d.getTimezoneOffset() * 60000;
+    }
+  }
+
+  /** Valeur « AAAA-MM-JJTHH:MM » d'un champ datetime-local saisie en heure de TZ → Date. */
+  function fromZonedInputValue(str) {
+    if (!str) return new Date(NaN);
+    var t = Date.parse(str + ':00Z');
+    if (isNaN(t)) return new Date(NaN);
+    var guess = t - tzOffsetMs(new Date(t));
+    return new Date(t - tzOffsetMs(new Date(guess)));
+  }
+
+  function hideNight() {
+    var el = document.getElementById('hideNight');
+    return !el || el.checked;
+  }
 
   var CONFIG = {
     defaultFps: 24,
@@ -590,7 +633,8 @@
       '?from=' + encodeURIComponent(from.toISOString()) +
       '&to=' + encodeURIComponent(to.toISOString()) +
       '&limit=' + limit +
-      '&step=' + step;
+      '&step=' + step +
+      (hideNight() ? '&night=hide' : '');
     var resp = await fetch(url);
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     var data = await resp.json();
@@ -638,11 +682,11 @@
       } catch (e) { /* ignore */ }
     }
     $('noImage').style.display = 'none';
-    $('tsOverlay').textContent = frame.timestamp.toLocaleDateString('fr-FR') + ' · ' +
-      frame.timestamp.toLocaleTimeString('fr-FR');
+    $('tsOverlay').textContent = fmtDate(frame.timestamp) + ' · ' +
+      fmtTime(frame.timestamp);
     updateScrubber();
     var cur = $('statCurrent');
-    if (cur) cur.textContent = frame.timestamp.toLocaleString('fr-FR');
+    if (cur) cur.textContent = fmtDateTime(frame.timestamp);
   }
 
   async function playLoop() {
@@ -775,9 +819,9 @@
     return { from: from, end: end, clamped: clamped };
   }
 
-  /** Date → valeur d'un champ `datetime-local` (heure locale du navigateur). */
+  /** Date → valeur d'un champ `datetime-local`, en heure de Casablanca (TZ), pas celle du navigateur. */
   function toLocalInputValue(d) {
-    var local = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+    var local = new Date(d.getTime() + tzOffsetMs(d));
     return local.toISOString().slice(0, 16);
   }
 
@@ -822,6 +866,9 @@
     } else {
       parts.push(label + formatInt(n) + ' images');
     }
+    if (meta && meta.night_hidden > 0) {
+      parts.push(formatInt(meta.night_hidden) + ' photos de nuit masquées');
+    }
     if (options && options.clamped) {
       parts.push('début ramené à la plus ancienne photo disponible');
     }
@@ -835,8 +882,8 @@
       var fallback = computeRange(state.activeRange || '1d');
       setDateRangeFromBounds(fallback.from, fallback.end);
     }
-    var from = fromOrNull != null ? fromOrNull : new Date($('dateFrom').value);
-    var to = toOrNull != null ? toOrNull : new Date($('dateTo').value);
+    var from = fromOrNull != null ? fromOrNull : fromZonedInputValue($('dateFrom').value);
+    var to = toOrNull != null ? toOrNull : fromZonedInputValue($('dateTo').value);
     if (isNaN(from) || isNaN(to) || from >= to) {
       showToast('Plage invalide', 'error');
       return;
@@ -914,7 +961,7 @@
     $('scrubberFill').style.width = pct + '%';
     $('scrubber').value = pct;
     var f = state.frames[state.currentIndex];
-    if (f) $('timeCurrent').textContent = f.timestamp.toLocaleTimeString('fr-FR');
+    if (f) $('timeCurrent').textContent = fmtTime(f.timestamp);
   }
 
   function updateTimeLabels() {
@@ -924,10 +971,10 @@
     var opts = { day: '2-digit', month: '2-digit' };
     var long = (last - first) > 180 * 86400000;
     if (long) opts.year = '2-digit';
-    $('timeStart').textContent = first.toLocaleDateString('fr-FR', opts) +
-      ' ' + first.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-    $('timeEnd').textContent = last.toLocaleDateString('fr-FR', opts) +
-      ' ' + last.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    $('timeStart').textContent = fmtDate(first, opts) +
+      ' ' + fmtTime(first, { hour: '2-digit', minute: '2-digit' });
+    $('timeEnd').textContent = fmtDate(last, opts) +
+      ' ' + fmtTime(last, { hour: '2-digit', minute: '2-digit' });
   }
 
   function formatSpan(ms) {
@@ -992,7 +1039,7 @@
           fresh.forEach(function (f) { queuePreload(f, true); });
         }
       }
-      if (btn) btn.title = 'Suivi des nouvelles photos — dernière vérification ' + new Date().toLocaleTimeString('fr-FR');
+      if (btn) btn.title = 'Suivi des nouvelles photos — dernière vérification ' + fmtTime(new Date());
       if (state.isLive && state.frames.length) {
         stopPlay();
         goTo(state.frames.length - 1);
@@ -1128,8 +1175,8 @@
     exportCtx.font = Math.max(11, Math.round(band * 0.45)) + 'px Raleway';
     exportCtx.fillStyle = '#00B794';
     exportCtx.fillText(
-      'n³ · ' + frame.timestamp.toLocaleDateString('fr-FR') + ' ' +
-        frame.timestamp.toLocaleTimeString('fr-FR'),
+      'n³ · ' + fmtDate(frame.timestamp) + ' ' +
+        fmtTime(frame.timestamp),
       10,
       exportCanvas.height - Math.round(band * 0.33)
     );
@@ -1408,7 +1455,7 @@
 
   function updateClock() {
     var el = $('clock');
-    if (el) el.textContent = new Date().toLocaleTimeString('fr-FR');
+    if (el) el.textContent = fmtTime(new Date());
   }
 
   function resizeCanvas() {
@@ -1463,6 +1510,18 @@
         updateStats();
       });
     });
+    var nightBox = $('hideNight');
+    if (nightBox) {
+      try {
+        var saved = window.localStorage.getItem(NIGHT_PREF_KEY);
+        if (saved === '0') nightBox.checked = false;
+      } catch (e) { /* stockage indisponible : défaut coché */ }
+      nightBox.addEventListener('change', function () {
+        try { window.localStorage.setItem(NIGHT_PREF_KEY, nightBox.checked ? '1' : '0'); } catch (e) { /* ignoré */ }
+        if (state.activeRange) selectRange(state.activeRange);
+        else loadRange(null, null);
+      });
+    }
     var demo = $('demoMode');
     if (demo) {
       demo.addEventListener('change', function () {

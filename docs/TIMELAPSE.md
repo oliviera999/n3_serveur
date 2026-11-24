@@ -1,6 +1,6 @@
 # Timelapse galeries — lecture & export vidéo
 
-**Version** : voir `VERSION` · Dernière mise à jour : 2026-11-02
+**Version** : voir `VERSION` · Dernière mise à jour : 2026-11-24
 
 Page : `/gallery/{slug}/timelapse` (`msp1`, `n3pp`, `ffp3`).  
 Code UI : `templates/gallery_timelapse.twig` + `public/assets/js/timelapse.js`
@@ -26,6 +26,28 @@ dernière photo. Les mois sont **calendaires** ; le début est ramené à la plu
 disponible si besoin (signalé dans le bandeau). Défaut à l’ouverture : **1 j** (repli sur toute
 la galerie si vide). La saisie manuelle Début / Fin + « Charger la plage » reste possible.
 
+## En-tête, statut caméra, heures (6.65.0)
+
+- En-tête commun des pages de suivi (`partials/_hero_data.twig`).
+- **Statut réel de la caméra** (`App\Service\GalleryCameraStatus`), à la place du « EN LIGNE » fixe :
+  - `EN LIGNE` : photo reçue depuis moins de 2 h ;
+  - `CONNECTÉE, SANS PHOTO` : la carte a lu l'état de ses sorties (`Boards.last_request`) depuis
+    moins de 30 min mais n'envoie plus de photo (normal la nuit, sinon à vérifier sur place) ;
+  - `HORS LIGNE` : ni photo ni contact récents ; `STATUT INCONNU` : rien d'enregistré.
+  Le bandeau affiche aussi la version du firmware caméra (GPIO 100 de `UploadPhotoNOutputs`).
+- **Heures en heure de Casablanca** (`DisplayTime::DISPLAY_TZ`, passée au JS par
+  `TIMELAPSE_BOOT.timeZone`) : horloge, horodatage incrusté, échelle, champs Début / Fin
+  (saisis et relus dans ce fuseau, quel que soit celui du navigateur), vidéo exportée.
+
+## Nuits masquées (6.65.0)
+
+Case **« Masquer les nuits »** (cochée par défaut, choix mémorisé dans le navigateur) : le JS
+ajoute `night=hide` à l'API. Une photo est « de nuit » si sa luminance moyenne, mesurée par le
+CRON de normalisation (`params.mean_luma` du méta `.normalized/*.json`), est sous le **seuil de
+nuit unique** `GALLERY_NIGHT_LUMA` (défaut 32 / 255, Supervision → Galeries photo). Le même seuil
+décide qu'une photo n'est pas normalisée. Une photo **pas encore analysée** reste affichée
+(`meta.night_unknown`). Changer le seuil ne demande pas de renormaliser : la luminance est stockée.
+
 Un **bandeau** sous la visionneuse (hors panneau replié) indique la couverture réelle :
 « 6 mois · 800 images affichées sur 26 280 photos (1 sur ~32,9, réparties sur toute la plage) ».
 
@@ -34,7 +56,7 @@ Un **bandeau** sous la visionneuse (hors panneau replié) indique la couverture 
 | Méthode | Route | Rôle |
 |---------|-------|------|
 | GET | `/api/gallery/{slug}/latest` | Bornes (plus récente / plus ancienne) + `count` |
-| GET | `/api/gallery/{slug}/photos?from&to[&limit][&step]` | Liste pour le timelapse |
+| GET | `/api/gallery/{slug}/photos?from&to[&limit][&step][&night=hide]` | Liste pour le timelapse (`night=hide` : sans les photos de nuit ; défaut : toutes) |
 | GET | `/gallery/{slug}/files/{filename}[?v=]` | JPEG (ETag) — sert la copie `.normalized/` courante si présente |
 
 ### Réponse `photos`
@@ -48,7 +70,11 @@ Un **bandeau** sous la visionneuse (hors panneau replié) indique la couverture 
     "truncated": true,
     "limit": 800,
     "step": 1,
-    "effective_step": 32.9
+    "effective_step": 32.9,
+    "night": "hide",
+    "night_hidden": 9120,
+    "night_unknown": 0,
+    "night_luma": 32
   }
 }
 ```

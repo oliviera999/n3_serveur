@@ -11,6 +11,29 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.65.0] - 2026-11-24
+
+### Fonctionnalité — Timelapse : nuits masquées, seuil de nuit unique, vrai statut caméra, heure de Casablanca
+- **Nuits masquées par défaut** : case « Masquer les nuits » (cochée, mémorisée dans le navigateur) ;
+  l'API `/api/gallery/{slug}/photos` accepte `night=hide` et retire les photos de nuit **avant**
+  l'échantillonnage (`meta.night_hidden`, `meta.night_unknown`, `meta.night_luma`). Sans le paramètre,
+  l'API rend toujours toutes les photos (compatibilité). Le bandeau indique « N photos de nuit masquées ».
+- **Seuil de nuit unique** `GALLERY_NIGHT_LUMA` (défaut 32 / 255, Supervision → Galeries photo) :
+  remplace la constante `DARK_FRAME_LUMA` du CRON de normalisation et sert aussi au filtre du
+  timelapse. La luminance mesurée (`params.mean_luma` du méta) est relue : changer le seuil ne
+  demande pas de renormaliser. Photo pas encore analysée → affichée.
+- **Vrai statut caméra** au lieu du « EN LIGNE » fixe (`App\Service\GalleryCameraStatus`) :
+  EN LIGNE (photo < 2 h), CONNECTÉE, SANS PHOTO (contact `Boards.last_request` < 30 min sans photo
+  récente — cas de la caméra msp1 le 24/11/2026), HORS LIGNE (cas ffp3 : rien depuis le 11/11),
+  avec la version firmware caméra (GPIO 100).
+- **Heures en heure de Casablanca** (`DisplayTime::DISPLAY_TZ` → `TIMELAPSE_BOOT.timeZone`) :
+  horloge, horodatage incrusté, échelle, champs Début / Fin et vidéo exportée, quel que soit le
+  fuseau du navigateur.
+- **Mise en page** : en-tête commun des pages de suivi (`partials/_hero_data.twig`) et bandeau de
+  statut coloré (vert / orange / rouge).
+- Docs : `docs/TIMELAPSE.md`. Tests : `GalleryCameraStatusTest`,
+  `GalleryListPhotosTest::testNightHideRemovesDarkPhotosBeforeSampling`.
+
 ## [6.64.0] - 2026-11-24
 
 ### Sécurité — Journaux et photos brutes plus servis par Apache ; mail d'alerte avec l'erreur réelle
