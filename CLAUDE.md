@@ -71,7 +71,7 @@ S'y ajoute **ENERGIE (banc INA226)** : `energieData` / `energieDataTest` — fam
 > (dépôt n3_firmwires) — il n'existe dans aucun identifiant de code serveur. Le firmware s'identifie
 > par la **route** (jamais par le champ `sensor`, seulement journalisé). Depuis firmware v15.09,
 > `sensor="ffp3"`. Le mot « ffp3 » recouvre aussi la galerie caméra (`/ffp3gallery/`) et le
-> sous-module firmware `ffp5cs/ffp3` (= ce dépôt). Détails : **`docs/NOMENCLATURE_FFP3.md`**.
+> dépôt `oliviera999/ffp3`, **prédécesseur abandonné** de ce dépôt (v4.x, plus aucun lien). Détails : **`docs/NOMENCLATURE_FFP3.md`**.
 
 `ENV` (dans `.env`) choisit l'environnement par défaut parmi
 `prod, test, test3, s3, s3test, n3pp_test, msp_test, energie_test` (défaut `prod`).
