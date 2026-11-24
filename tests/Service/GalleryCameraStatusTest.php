@@ -48,6 +48,24 @@ final class GalleryCameraStatusTest extends TestCase
         $this->assertStringStartsWith('dernier contact le ', $s['detail']);
     }
 
+    /**
+     * Régression 6.65.0 : getLastBoardRequest() rend 'd/m/Y H:i:s' en heure de Casablanca
+     * (BoardRepository::formatTimestamp) ; ce format était ignoré → msp1 « HORS LIGNE ».
+     */
+    public function testDisplayFormattedContactFromRepositoryIsRead(): void
+    {
+        $display = (new \DateTimeImmutable('@' . (self::NOW - 180)))
+            ->setTimezone(new \DateTimeZone('Africa/Casablanca'))->format('d/m/Y H:i:s');
+        $s = GalleryCameraStatus::evaluate(self::NOW - 4 * 86400, $display, self::NOW);
+        $this->assertSame('no_photo', $s['state']);
+        $this->assertNotSame('', $s['last_contact']);
+    }
+
+    public function testUnreadableContactIsIgnored(): void
+    {
+        $this->assertSame('unknown', GalleryCameraStatus::evaluate(null, 'pas une date', self::NOW)['state']);
+    }
+
     public function testNothingKnownIsUnknown(): void
     {
         $this->assertSame('unknown', GalleryCameraStatus::evaluate(null, null, self::NOW)['state']);

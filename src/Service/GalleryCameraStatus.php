@@ -30,20 +30,16 @@ final class GalleryCameraStatus
 
     /**
      * @param int|null    $lastPhotoTs  horodatage Unix de la dernière photo
-     * @param string|null $lastContact  `Boards.last_request` (heure serveur, 'Y-m-d H:i:s')
+     * @param string|null $lastContact  `Boards.last_request` tel que rendu par
+     *                                  `GalleryControlRepository::getLastBoardRequest()` : déjà converti
+     *                                  en heure de Casablanca, format 'd/m/Y H:i:s' (BoardRepository).
+     *                                  Le format brut de la base ('Y-m-d H:i:s', heure serveur) est accepté aussi.
      *
      * @return array{state: string, label: string, detail: string, last_photo: string, last_contact: string}
      */
     public static function evaluate(?int $lastPhotoTs, ?string $lastContact, int $now): array
     {
-        $contactTs = null;
-        if ($lastContact !== null && trim($lastContact) !== '') {
-            try {
-                $contactTs = (new DateTimeImmutable($lastContact, new \DateTimeZone($_ENV['APP_TIMEZONE'] ?? 'Europe/Paris')))->getTimestamp();
-            } catch (\Exception) {
-                $contactTs = null;
-            }
-        }
+        $contactTs = self::parseContact($lastContact);
 
         $photoStr = $lastPhotoTs !== null ? self::fmt($lastPhotoTs) : '';
         $contactStr = $contactTs !== null ? self::fmt($contactTs) : '';
@@ -81,6 +77,26 @@ final class GalleryCameraStatus
             'last_photo' => $photoStr,
             'last_contact' => $contactStr,
         ];
+    }
+
+    /**
+     * 6.65.1 : en 6.65.0 seul le format brut était lu ; le repository renvoie 'd/m/Y H:i:s'
+     * (Casablanca), donc le contact était ignoré et une caméra qui interroge le serveur sans
+     * envoyer de photo passait « HORS LIGNE » au lieu de « CONNECTÉE, SANS PHOTO ».
+     */
+    private static function parseContact(?string $lastContact): ?int
+    {
+        $value = trim((string) $lastContact);
+        if ($value === '') {
+            return null;
+        }
+        $display = DateTimeImmutable::createFromFormat('!d/m/Y H:i:s', $value, new \DateTimeZone(DisplayTime::DISPLAY_TZ));
+        if ($display !== false) {
+            return $display->getTimestamp();
+        }
+        $server = DateTimeImmutable::createFromFormat('!Y-m-d H:i:s', $value, new \DateTimeZone($_ENV['APP_TIMEZONE'] ?? 'Europe/Paris'));
+
+        return $server !== false ? $server->getTimestamp() : null;
     }
 
     /** Durée lisible : « il y a 5 min », « il y a 1 h 20 ». */
