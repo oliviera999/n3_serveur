@@ -31,6 +31,10 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
   fuseau du navigateur.
 - **Mise en page** : en-tête commun des pages de suivi (`partials/_hero_data.twig`) et bandeau de
   statut coloré (vert / orange / rouge).
+- **Dépendances (sécurité)** : `twig/twig` 3.27.1 → 3.31.1 (CVE-2026-133763 à -133772 : sandbox,
+  autoescaping), `web-token/jwt-library` 3.4.10 → 3.4.13 (JWE/JWS, avis du 08/11/2026),
+  `spomky-labs/pki-framework` 1.4.2 → 1.6.3, et leurs dépendances symfony/console, symfony/string,
+  polyfills. `composer audit` faisait échouer la CI (« Audit sécurité des dépendances »).
 - Docs : `docs/TIMELAPSE.md`. Tests : `GalleryCameraStatusTest`,
   `GalleryListPhotosTest::testNightHideRemovesDarkPhotosBeforeSampling`.
 
