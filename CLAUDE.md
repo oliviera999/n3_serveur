@@ -8,6 +8,15 @@ supervision de systèmes IoT (aquaponie, serre/élevage, station météo) basés
 > aussi dans `.cursorrules`** (et inversement). `.cursorrules` reste la référence détaillée ;
 > ce `CLAUDE.md` en est la version opérationnelle pour Claude Code.
 
+## Où ce dépôt s'inscrit
+
+- **Projet Claude Code** : « n³ IoT » (dépôts `n3_firmwires`, `n3_serveur`, `IOT_n3`) ; ses
+  instructions s'ajoutent à ce fichier.
+- **Projets de chat claude.ai** : « N³ » (projet pédagogique, documentation) et « Pcb » (carte
+  universelle n³, électronique). Les choix matériels s'y discutent ; le code se fait ici.
+- **Connecteur MCP `iot_olution`** : lecture de la prod iot.olution.info (mesures, santé, OTA).
+- `IOT_n3` épingle ce dépôt comme sous-module : après une livraison, y mettre à jour le pointeur.
+
 ## Commandes essentielles
 
 ```bash
