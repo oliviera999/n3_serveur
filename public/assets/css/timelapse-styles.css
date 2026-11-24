@@ -46,6 +46,28 @@
     animation: timelapse-pulse 2s ease-in-out infinite;
 }
 
+/* Statut réel de la caméra (6.65.0) : bandeau sous l'en-tête commun des pages de suivi. */
+.timelapse-camera-status {
+    flex-wrap: wrap;
+    margin: -0.5rem 0 1.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    background: rgba(0, 139, 116, 0.08);
+    opacity: 1;
+}
+
+.timelapse-camera-status .timelapse-status-dot {
+    width: 9px;
+    height: 9px;
+    background: #2ecc71;
+}
+
+.timelapse-camera-status--no_photo { background: rgba(245, 158, 11, 0.12); }
+.timelapse-camera-status--no_photo .timelapse-status-dot { background: #f59e0b; }
+.timelapse-camera-status--offline { background: rgba(239, 68, 68, 0.1); }
+.timelapse-camera-status--offline .timelapse-status-dot { background: #ef4444; animation: none; }
+.timelapse-camera-status--unknown .timelapse-status-dot { background: #95a5a6; animation: none; }
+
 @keyframes timelapse-pulse {
     0%,
     100% { opacity: 1; }

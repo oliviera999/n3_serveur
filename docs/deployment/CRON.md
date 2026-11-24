@@ -179,7 +179,7 @@ Fichier d’état : `var/cache/cron_last_gallery_normalize.timestamp`
 > plus de **`LOG_RETENTION_DAYS`** jours (défaut 30). Les rotations
 > Monolog ne sont jamais touchées. Le rapport de santé liste les journaux de plus de 50 Mo (bloc `logs`).
 
-- **Journal applicatif** : [https://iot.olution.info/public/cronlog.txt](https://iot.olution.info/public/cronlog.txt)
+- **Journal applicatif** : journal `cronlog-AAAA-MM-JJ.txt` (non public depuis 6.64.0 : SSH `tail`, gestionnaire de fichiers cPanel ou outil MCP `iot_read_file`)
 - **Marqueurs attendus** : `--- Début orchestrateur CRON ---` / `--- Fin orchestrateur CRON ---`
 - **Erreurs wrapper** : `error_log` PHP, lignes `[run-cron]`
 - **Test manuel SSH** :

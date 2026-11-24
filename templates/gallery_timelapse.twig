@@ -547,17 +547,24 @@
     {% endif %}
   </div>
 
-  <div class="timelapse-hero">
-    <div>
-      <h1><i class="fas fa-film"></i> {{ gallery_title }}</h1>
-      <p class="timelapse-hero-subtitle">Faites défiler les images une à une, choisissez une plage de temps, puis transformez la séquence en vidéo. Quelques heures de vie de l'écosystème, condensées en quelques secondes.</p>
-      <div class="timelapse-status timelapse-status-spacing">
-        <span class="timelapse-status-dot"></span>
-        <span id="systemStatus">EN LIGNE</span>
-        <span class="timelapse-separator">|</span>
-        <span id="clock">--:--:--</span>
-      </div>
-    </div>
+  {# Même en-tête que les pages de suivi (aquaponie, météo, serre) : partials/_hero_data.twig #}
+  {% include 'partials/_hero_data.twig' with {
+      hero_title: gallery_title,
+      hero_icon: 'fa-film',
+      hero_subtitle: "Faites défiler les images une à une, choisissez une plage de temps, puis transformez la séquence en vidéo. Quelques heures de vie de l'écosystème, condensées en quelques secondes."
+  } %}
+
+  {% set cam = camera_status|default({state: 'unknown', label: 'STATUT INCONNU', detail: ''}) %}
+  <div class="timelapse-status timelapse-camera-status timelapse-camera-status--{{ cam.state }}" role="status"
+       title="{% if cam.last_photo|default('') %}Dernière photo : {{ cam.last_photo }}. {% endif %}{% if cam.last_contact|default('') %}Dernier contact de la caméra : {{ cam.last_contact }}.{% endif %} Heures de Casablanca.">
+    <span class="timelapse-status-dot"></span>
+    <span id="systemStatus"><strong>{{ cam.label }}</strong>{% if cam.detail %} — {{ cam.detail }}{% endif %}</span>
+    {% if firmware_version|default('') %}
+    <span class="timelapse-separator">|</span>
+    <span>Caméra v{{ firmware_version }}</span>
+    {% endif %}
+    <span class="timelapse-separator">|</span>
+    <span><span id="clock">--:--:--</span> (Casablanca)</span>
   </div>
 
   <div class="timelapse-grid">
@@ -635,6 +642,9 @@
               <input type="datetime-local" id="dateTo">
             </div>
           </div>
+          <label class="timelapse-demo-label" title="Photos dont la luminance moyenne est sous le seuil de nuit ({{ night_luma|default(32) }} / 255, réglable dans Supervision → Galeries photo). Les photos pas encore analysées par le CRON restent affichées.">
+            <input type="checkbox" id="hideNight" autocomplete="off" checked> Masquer les nuits
+          </label>
           <button class="timelapse-btn timelapse-btn-primary" id="btnLoad">Charger la plage</button>
         </div>
         <div class="timelapse-section">
@@ -737,7 +747,8 @@
 window.TIMELAPSE_BOOT = {
   basePath: {{ (base_path|default(''))|json_encode|raw }},
   apiUrl: {{ (api_photos_url|default(''))|json_encode|raw }},
-  apiLatestUrl: {{ (api_latest_url|default(''))|json_encode|raw }}
+  apiLatestUrl: {{ (api_latest_url|default(''))|json_encode|raw }},
+  timeZone: {{ (display_timezone|default('Africa/Casablanca'))|json_encode|raw }}
 };
 </script>
 <script src="{{ base_path|default('') }}/assets/js/timelapse.js?v={{ version|default('')|url_encode }}"></script>

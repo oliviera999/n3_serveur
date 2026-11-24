@@ -616,7 +616,7 @@ En cas de `HTTP 500` sur un endpoint d'ingestion, les causes habituelles sont :
 **Démarche** :
 
 1. Récupérer la **référence d'erreur** affichée à l'utilisateur (ex. `bb3262da436c`) et la
-   chercher dans le cronlog applicatif Monolog : `https://iot.olution.info/public/cronlog.txt`
+   chercher dans le cronlog applicatif Monolog : journal `cronlog-AAAA-MM-JJ.txt` (non public depuis 6.64.0 : SSH `tail`, gestionnaire de fichiers cPanel ou outil MCP `iot_read_file`)
    (voir `docs/DEBUG_ERREURS_SERVEUR.md`).
 2. Consulter le log Apache du serveur (`error.log`) pour la trace PHP brute.
 3. Vérifier la présence des tables/colonnes attendues via les scripts `migrations/` (ex.

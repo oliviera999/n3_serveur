@@ -77,8 +77,13 @@ class GalleryNormalizeService
     private const CONTRAST_MIN_RANGE = 8;
     private const STRETCH_SCALE_MAX = 1.35;
 
-    /** Luma moyenne en dessous de laquelle une photo est considérée « nuit » et laissée telle quelle. */
-    private const DARK_FRAME_LUMA = 32.0;
+    /**
+     * Luma moyenne par défaut sous laquelle une photo est « de nuit » : laissée telle quelle ici,
+     * masquée par défaut dans le timelapse. Réglable : GALLERY_NIGHT_LUMA (Supervision → Galeries).
+     */
+    public const DEFAULT_NIGHT_LUMA = 32.0;
+
+    private ?float $nightLuma = null;
 
     /** Fenêtre de lissage : ±2 photos (5 au total, comme la taille par défaut du filtre FFmpeg). */
     private const SMOOTH_RADIUS = 2;
@@ -494,7 +499,7 @@ class GalleryNormalizeService
             'luma' => $meanLuma,
             'neutral' => $neutral,
             'samples' => $samples,
-            'dark' => $meanLuma < self::DARK_FRAME_LUMA,
+            'dark' => $meanLuma < $this->nightLumaThreshold(),
         ];
     }
 
@@ -954,6 +959,47 @@ class GalleryNormalizeService
     private function clampQuality(int $quality): int
     {
         return max(60, min(95, $quality));
+    }
+
+    /** Seuil de nuit unique (CRON de normalisation + filtre du timelapse). */
+    public function nightLumaThreshold(): float
+    {
+        if ($this->nightLuma === null) {
+            $value = $this->operationalSettings?->int('GALLERY_NIGHT_LUMA', (int) self::DEFAULT_NIGHT_LUMA)
+                ?? (int) ($_ENV['GALLERY_NIGHT_LUMA'] ?? self::DEFAULT_NIGHT_LUMA);
+            $this->nightLuma = (float) max(0, min(255, $value));
+        }
+
+        return $this->nightLuma;
+    }
+
+    /**
+     * Luminance moyenne mesurée par le CRON (méta de normalisation, photo normalisée ou
+     * laissée telle quelle car sombre). Null si la photo n'a pas encore été analysée.
+     */
+    public function measuredLuma(string $slug, string $filename): ?float
+    {
+        try {
+            $path = $this->store->metaPath($slug, $filename);
+        } catch (\InvalidArgumentException) {
+            return null;
+        }
+        $raw = @file_get_contents($path);
+        if ($raw === false) {
+            return null;
+        }
+        $meta = json_decode($raw, true);
+        $luma = is_array($meta) ? ($meta['params']['mean_luma'] ?? null) : null;
+
+        return is_numeric($luma) ? (float) $luma : null;
+    }
+
+    /** true = nuit, false = jour, null = pas encore analysée (affichée). */
+    public function isNightPhoto(string $slug, string $filename): ?bool
+    {
+        $luma = $this->measuredLuma($slug, $filename);
+
+        return $luma === null ? null : $luma < $this->nightLumaThreshold();
     }
 
     private function resolveStrength(): float

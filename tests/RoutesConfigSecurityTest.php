@@ -265,4 +265,28 @@ class RoutesConfigSecurityTest extends TestCase
         $this->assertStringContainsString('Header always setifempty X-Frame-Options "SAMEORIGIN"', $htaccess, 'n\'écrase pas le DENY des pages OAuth');
         $this->assertStringNotContainsString('Header always set X-Frame-Options', $htaccess);
     }
+
+    /**
+     * Constaté le 24/11/2026 : GET /cronlog.txt → 200 et GET /uploads/msp1/<photo> → 200.
+     * Le DocumentRoot est la racine du dépôt : tout fichier existant est servi par Apache
+     * avant le routeur Slim, d'où ces blocages explicites.
+     */
+    public function testHtaccessBlocksLogsAndRawUploads(): void
+    {
+        $htaccess = (string) file_get_contents(__DIR__ . '/../.htaccess');
+        $this->assertStringContainsString('RewriteRule ^uploads/ - [F,L]', $htaccess, 'photos servies seulement par /gallery/{slug}/files/');
+        $this->assertStringContainsString('RewriteRule (^|/)(cronlog|error_log|hmac-audit)[^/]*$ - [F,L]', $htaccess);
+        $this->assertStringContainsString('RewriteRule \\.(log|gz)$ - [F,L]', $htaccess);
+
+        $logs = '#(^|/)(cronlog|error_log|hmac-audit)[^/]*$#';
+        foreach (['cronlog.txt', 'cronlog-2026-11-24.txt', 'cronlog.txt.2026-11-23.gz', 'error_log', 'error_log.2026-11-23.gz', 'hmac-audit.log', 'public/error_log', 'public/cronlog.txt'] as $path) {
+            $this->assertGreaterThan(0, preg_match($logs, $path) + preg_match('#\\.(log|gz)$#', $path), "{$path} doit être bloqué");
+        }
+        foreach (['ota/esp32-wroom/firmware.bin', 'assets/css/app.css', 'gallery/msp1/files/x.jpg'] as $path) {
+            $this->assertSame(0, preg_match($logs, $path) + preg_match('#\\.(log|gz)$#', $path) + preg_match('#^uploads/#', $path), "{$path} reste servi");
+        }
+
+        // L'ordre compte : les blocages précèdent le routeur final (RewriteCond !-f).
+        $this->assertLessThan(strrpos($htaccess, 'RewriteRule ^ public/index.php [L]'), strpos($htaccess, 'RewriteRule ^uploads/ - [F,L]'));
+    }
 }

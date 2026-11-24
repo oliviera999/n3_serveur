@@ -200,4 +200,39 @@ final class ErrorAlertServiceTest extends TestCase
 
         $this->addToAssertionCount(1);
     }
+
+    public function testAlertBodyGivesRealErrorPageAndCodeWithoutSecrets(): void
+    {
+        $occ = static fn (string $at, string $error, string $url): array => [
+            'created_at' => $at,
+            'message' => 'Exception non gérée',
+            'context' => [
+                'error' => $error,
+                'file' => '/home4/compte/iot.olution.info/src/Repository/AbstractRepository.php',
+                'line' => 48,
+                'url' => $url,
+                'method' => 'GET',
+            ],
+        ];
+        $body = ErrorAlertService::buildAlertBody('Exception non gérée', 6, [
+            $occ('2026-11-15 12:11:20', "SQLSTATE[42S02]: Table 'x.energieData' doesn't exist", 'https://iot.olution.info/energie?api_key=SECRET123'),
+            $occ('2026-11-15 12:11:17', "SQLSTATE[42S02]: Table 'x.energieData' doesn't exist", 'https://iot.olution.info/energie?api_key=SECRET123'),
+            $occ('2026-11-15 12:10:00', 'Division by zero', 'https://iot.olution.info/aquaponie'),
+        ], '/home4/compte/iot.olution.info/cronlog.txt');
+
+        $this->assertStringContainsString("Table 'x.energieData' doesn't exist", $body);
+        $this->assertStringContainsString('Page : GET https://iot.olution.info/energie', $body);
+        $this->assertStringContainsString('Code : src/Repository/AbstractRepository.php:48', $body);
+        $this->assertStringContainsString('2 fois, dernière le 2026-11-15 12:11:20', $body);
+        $this->assertStringContainsString('2. Division by zero', $body);
+        $this->assertStringNotContainsString('SECRET123', $body, 'la query string ne part pas par mail');
+        $this->assertStringNotContainsString('/home4/', $body, 'le chemin absolu de l\'hébergeur ne part pas par mail');
+    }
+
+    public function testAlertBodyWithoutOccurrencesStillReadable(): void
+    {
+        $body = ErrorAlertService::buildAlertBody('Erreur X: *', 5, [], 'cronlog.txt');
+        $this->assertStringContainsString('Détail indisponible', $body);
+        $this->assertStringContainsString('Occurrences: 5 fois', $body);
+    }
 }

@@ -168,6 +168,48 @@ class GalleryListPhotosTest extends TestCase
         $this->assertSame(400, $response->getStatusCode());
     }
 
+    public function testNightHideRemovesDarkPhotosBeforeSampling(): void
+    {
+        $names = [];
+        for ($h = 0; $h < 6; $h++) {
+            $names[$h] = sprintf('2026-06-01_%02d-00-00_photo.jpg', $h);
+            file_put_contents($this->tmpDir . '/' . $names[$h], 'fake');
+        }
+        $normalize = $this->createMock(GalleryNormalizeService::class);
+        $normalize->method('nightLumaThreshold')->willReturn(32.0);
+        // 00 h et 01 h = nuit ; 02 h pas encore analysée ; le reste = jour.
+        $normalize->method('isNightPhoto')->willReturnCallback(
+            static fn (string $slug, string $name): ?bool => match (true) {
+                str_contains($name, '_00-00-00'), str_contains($name, '_01-00-00') => true,
+                str_contains($name, '_02-00-00') => null,
+                default => false,
+            }
+        );
+        $controller = $this->makeController($normalize);
+
+        $base = ['from' => '2026-06-01T00:00:00', 'to' => '2026-06-01T23:59:59', 'limit' => '100'];
+        $hidden = $this->payload($controller->listPhotos($this->requestWithQuery($base + ['night' => 'hide']), new Response(), ['slug' => 'msp1']));
+        $this->assertSame(4, $hidden['meta']['matched']);
+        $this->assertSame(2, $hidden['meta']['night_hidden']);
+        $this->assertSame(1, $hidden['meta']['night_unknown']);
+        $this->assertSame('hide', $hidden['meta']['night']);
+        $this->assertStringContainsString('_02-00-00', $hidden['photos'][0]['url'], 'non analysée → affichée');
+
+        $all = $this->payload($controller->listPhotos($this->requestWithQuery($base), new Response(), ['slug' => 'msp1']));
+        $this->assertSame(6, $all['meta']['matched'], 'sans night=hide, l\'API garde toutes les photos (compatibilité)');
+        $this->assertSame('show', $all['meta']['night']);
+    }
+
+    /** @return array<string, mixed> */
+    private function payload(\Psr\Http\Message\ResponseInterface $response): array
+    {
+        $response->getBody()->rewind();
+        $data = json_decode((string) $response->getBody(), true);
+        $this->assertIsArray($data);
+
+        return $data;
+    }
+
     private function makeController(?GalleryNormalizeService $normalize = null): GalleryViewController
     {
         $renderer = $this->createMock(TemplateRenderer::class);

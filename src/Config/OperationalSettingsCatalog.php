@@ -617,6 +617,17 @@ final class OperationalSettingsCatalog
                 'min' => 0,
                 'max' => 1,
             ],
+            'GALLERY_NIGHT_LUMA' => [
+                'env' => 'GALLERY_NIGHT_LUMA',
+                'type' => self::TYPE_INT,
+                'group' => self::GROUP_GALLERY,
+                'label' => 'Seuil de nuit des photos',
+                'hint' => 'Luminance moyenne (0–255) sous laquelle une photo est « de nuit » : non normalisée par le CRON '
+                    . 'et masquée par défaut dans le timelapse (case « Masquer les nuits »). Défaut 32.',
+                'default' => 32,
+                'min' => 0,
+                'max' => 255,
+            ],
             'GALLERY_NORMALIZE_JPEG_QUALITY' => [
                 'env' => 'GALLERY_NORMALIZE_JPEG_QUALITY',
                 'type' => self::TYPE_INT,

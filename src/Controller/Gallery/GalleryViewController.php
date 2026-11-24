@@ -8,8 +8,10 @@ use App\Config\GalleryConfig;
 use App\Config\Paths;
 use App\Repository\GalleryControlRepository;
 use App\Repository\NavPageRepository;
+use App\Service\GalleryCameraStatus;
 use App\Service\GalleryNormalizeService;
 use App\Service\TemplateRenderer;
+use App\Util\DisplayTime;
 use App\Util\GalleryTimestamp;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -325,9 +327,35 @@ class GalleryViewController
             'active_page' => 'gallery',
             'environment' => $_ENV['ENV'] ?? 'prod',
             'firmware_version' => $this->firmwareVersionForSlug($slug),
+            'camera_status' => $this->cameraStatusForSlug($slug),
+            'display_timezone' => DisplayTime::DISPLAY_TZ,
+            'night_luma' => $this->normalizeService->nightLumaThreshold(),
         ]);
         $response->getBody()->write($html);
         return $response;
+    }
+
+    /**
+     * Statut réel de la caméra : dernière photo de la galerie + dernier contact de la carte.
+     *
+     * @return array{state: string, label: string, detail: string, last_photo: string, last_contact: string}
+     */
+    private function cameraStatusForSlug(string $slug): array
+    {
+        $lastPhotoTs = null;
+        try {
+            $entries = $this->listImageEntries($this->getUploadDir($slug));
+            $lastPhotoTs = $entries !== [] ? (int) $entries[0]['ts'] : null;
+        } catch (\Throwable) {
+            $lastPhotoTs = null;
+        }
+        try {
+            $lastContact = $this->galleryControlRepository->getLastBoardRequest($slug);
+        } catch (\Throwable) {
+            $lastContact = null;
+        }
+
+        return GalleryCameraStatus::evaluate($lastPhotoTs, $lastContact, time());
     }
 
     private function showGallery(Request $request, Response $response, string $slug, string $navLabel, string $pageTitle, string $backUrl, string $navActive): Response
@@ -503,6 +531,27 @@ class GalleryViewController
         // Tri chronologique NUMÉRIQUE (une comparaison de chaînes ISO se trompe au passage à l'heure d'hiver).
         usort($matched, static fn (array $a, array $b): int => [$a['ts'], $a['name']] <=> [$b['ts'], $b['name']]);
 
+        // night=hide : photos de nuit retirées AVANT l'échantillonnage (luminance mesurée par le CRON
+        // de normalisation < GALLERY_NIGHT_LUMA). Une photo pas encore analysée reste affichée.
+        $hideNight = in_array(strtolower((string) ($params['night'] ?? '')), ['hide', '0', 'false', 'no'], true);
+        $nightHidden = 0;
+        $nightUnknown = 0;
+        if ($hideNight) {
+            $kept = [];
+            foreach ($matched as $entry) {
+                $night = $this->normalizeService->isNightPhoto($slug, $entry['name']);
+                if ($night === true) {
+                    $nightHidden++;
+                    continue;
+                }
+                if ($night === null) {
+                    $nightUnknown++;
+                }
+                $kept[] = $entry;
+            }
+            $matched = $kept;
+        }
+
         $matchedCount = count($matched);
         $wanted = (int) ceil($matchedCount / $step);
         $target = min($limit, $wanted);
@@ -526,6 +575,10 @@ class GalleryViewController
                 'limit' => $limit,
                 'step' => $step,
                 'effective_step' => $photos !== [] ? round($matchedCount / count($photos), 1) : (float) $step,
+                'night' => $hideNight ? 'hide' : 'show',
+                'night_hidden' => $nightHidden,
+                'night_unknown' => $nightUnknown,
+                'night_luma' => $this->normalizeService->nightLumaThreshold(),
             ],
         ];
 
