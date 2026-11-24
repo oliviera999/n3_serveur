@@ -267,7 +267,7 @@ netstat -tlnp | grep -E '80|443'
 
 **Accès direct depuis le navigateur (diagnostic sans SSH) :**
 
-- Cronlog : https://iot.olution.info/public/cronlog.txt  
+- Cronlog : journal `cronlog-AAAA-MM-JJ.txt` (non public depuis 6.64.0 : SSH `tail`, gestionnaire de fichiers cPanel ou outil MCP `iot_read_file`)  
 - error_log (public) : https://iot.olution.info/public/error_log (ou https://iot.olution.info/ffp3/public/error_log selon la config)  
 - Résumé des erreurs : https://iot.olution.info/ffp3/admin/analyze-errors (protégé par auth, même token que clear-cache)
 

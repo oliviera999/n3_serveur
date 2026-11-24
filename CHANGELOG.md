@@ -11,6 +11,25 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.64.0] - 2026-11-24
+
+### Sécurité — Journaux et photos brutes plus servis par Apache ; mail d'alerte avec l'erreur réelle
+- **Journaux publics** (constaté le 24/11/2026) : `GET /cronlog.txt` → 200 (sortie du `git pull` de la
+  crontab, 490 Ko) et `GET /error_log.AAAA-MM-JJ.gz` → 200. Le DocumentRoot étant la racine du dépôt,
+  Apache servait tout fichier existant avant le routeur. Nouvelles règles `.htaccess` :
+  `(^|/)(cronlog|error_log|hmac-audit)[^/]*$` et `\.(log|gz)$` → 403 (racine ou sous-dossier).
+- **Photos brutes** : `GET /uploads/{slug}/<photo>.jpg` → 200, y compris pour une photo mise à la
+  corbeille (`uploads/trash/`). `RewriteRule ^uploads/ - [F,L]` : les photos ne passent plus que par
+  `/gallery/{slug}/files/` (photo encore en galerie) et `/admin/gallery/{slug}/trash/files/` (admin).
+- **Mail « Erreur répétée »** : il ne donnait que le message normalisé (« Exception non gérée ») et
+  renvoyait vers le journal. Il liste maintenant chaque erreur distincte des 5 dernières minutes
+  (5 au plus) : message réel, page (méthode + URL **sans query string**), fichier:ligne **relatif au
+  dépôt**, nombre d'occurrences et heure de la dernière. Le sujet reprend le message normalisé.
+- **Docs** : les liens vers `https://iot.olution.info/public/cronlog.txt` (déjà 404) sont remplacés
+  par la lecture SSH / cPanel / `iot_read_file` ; exemple de mail à jour (`docs/ERROR_ALERT_SERVICE.md`).
+- Tests : `RoutesConfigSecurityTest::testHtaccessBlocksLogsAndRawUploads`,
+  `ErrorAlertServiceTest::testAlertBodyGivesRealErrorPageAndCodeWithoutSecrets`.
+
 ## [6.63.0] - 2026-11-18
 
 ### Fonctionnalité — Potager masqué par défaut, capteurs désactivés, journaux et quota disque

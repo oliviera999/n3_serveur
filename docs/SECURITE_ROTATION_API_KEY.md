@@ -53,7 +53,7 @@ Comme tous les firmwares ne peuvent pas etre reflashes en meme temps, deux strat
 ### 4. Verifications post-rotation
 
 - Smoke test local Docker (`tools/local-docker.ps1 -Action smoke -AuthMode both`).
-- Verifier les logs production (`https://iot.olution.info/public/cronlog.txt`) : absence de `rejet auth api_key code=401` repetes.
+- Verifier les logs production (journal `cronlog-AAAA-MM-JJ.txt` (non public depuis 6.64.0 : SSH `tail`, gestionnaire de fichiers cPanel ou outil MCP `iot_read_file`)) : absence de `rejet auth api_key code=401` repetes.
 - Verifier `Boards.timeLastRequest` pour chaque board (doit s'actualiser apres rotation).
 
 ### 5. Purger l'historique git si la cle a ete commitee

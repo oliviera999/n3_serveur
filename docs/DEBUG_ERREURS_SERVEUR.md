@@ -6,7 +6,7 @@ Ce document décrit comment diagnostiquer les erreurs du serveur IoT n3 en produ
 
 | Log | URL | Description |
 |-----|-----|-------------|
-| Cronlog (Monolog) | https://iot.olution.info/public/cronlog.txt | Log applicatif (CRON, erreurs métier). |
+| Cronlog (Monolog) | non public (SSH, cPanel, `iot_read_file`) | Log applicatif (CRON, erreurs métier). |
 | error_log | https://iot.olution.info/public/error_log | Log PHP / erreurs web. DocumentRoot = racine du dépôt, fichiers dans `public/` accessibles via `/public/`. |
 | Analyse des erreurs | https://iot.olution.info/admin/analyze-errors (avec auth / token) | Résumé des error_log. Route `/admin/*` selon config serveur. |
 
@@ -17,7 +17,7 @@ Les fichiers `error_log` à la racine du projet (hors `public/`) ne sont pas acc
 Quand l’utilisateur voit un message du type « Une erreur serveur est survenue » avec une **référence** (ex. `Référence : bb3262da436c`) :
 
 1. **Récupérer le contenu des logs**
-   - Ouvrir le cronlog : https://iot.olution.info/public/cronlog.txt  
+   - Lire le journal `cronlog-AAAA-MM-JJ.txt` (non public depuis 6.64.0 : SSH `tail`, gestionnaire de fichiers cPanel ou outil MCP `iot_read_file`)  
    - Ouvrir l’error_log : https://iot.olution.info/public/error_log .
 
 2. **Rechercher la référence**
@@ -63,7 +63,7 @@ Un script PowerShell en local permet de vérifier les pages **du serveur distant
   Options : `-BaseUrl`, `-ReportDir` (défaut `scripts/reports`), `-LogLines` (nombre de lignes d’erreur à inclure), `-ExportJson`.
 - **Rapports** : générés dans `scripts/reports/` (fichiers non versionnés, voir `.gitignore`). Nom du fichier : `check-pages-YYYY-MM-DD-HHmm.md`.
 
-Le script teste les principales URLs (FFP3, MSP1, N3PP, galeries), récupère le contenu de `cronlog.txt` et `error_log` via les URLs ci-dessus, compte les motifs d’erreur et extrait les dernières lignes pertinentes.
+Le script teste les principales URLs (FFP3, MSP1, N3PP, galeries), récupérait le contenu de `cronlog.txt` et `error_log` par HTTP : ces fichiers ne sont plus servis (403 depuis 6.64.0, 404 déjà sous `/public/`), la section Logs du rapport reste vide — lire les journaux par SSH, cPanel ou `iot_read_file`, compte les motifs d’erreur et extrait les dernières lignes pertinentes.
 
 ## Processus automatisé (agent / diagnostic)
 

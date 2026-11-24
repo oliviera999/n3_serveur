@@ -222,17 +222,21 @@ class ErrorAlertService
 
     /**
      * Envoie une alerte par email
+     *
+     * Le corps contient les dernières occurrences réelles (message d'exception, page
+     * appelée, fichier et ligne) : avant 6.64.0, il ne donnait que le message normalisé
+     * (« Exception non gérée ») et renvoyait vers le journal.
      */
     private function sendAlert(string $normalizedMessage, int $count): void
     {
-        $subject = '🚨 Alerte: Erreur répétée détectée';
+        $subject = '🚨 Alerte: Erreur répétée détectée — ' . self::truncate($normalizedMessage, 80);
 
-        $message = "Le système a détecté une erreur qui se répète de manière anormale.\n\n";
-        $message .= "Erreur: {$normalizedMessage}\n";
-        $message .= "Occurrences: {$count} fois dans les " . (self::TIME_WINDOW_SECONDS / 60) . " dernières minutes\n";
-        $message .= 'Seuil déclenchement: ' . self::ERROR_THRESHOLD . " occurrences\n\n";
-        $message .= "Veuillez vérifier les logs pour plus de détails.\n";
-        $message .= 'Fichier de log: ' . ($_ENV['LOG_FILE_PATH'] ?? 'cronlog.txt');
+        $message = self::buildAlertBody(
+            $normalizedMessage,
+            $count,
+            $this->fetchRecentOccurrences($normalizedMessage),
+            (string) ($_ENV['LOG_FILE_PATH'] ?? 'cronlog.txt'),
+        );
 
         $this->notifier->sendCustomAlert($subject, $message);
 
@@ -240,6 +244,120 @@ class ErrorAlertService
             'message' => $normalizedMessage,
             'count' => $count,
         ]);
+    }
+
+    /**
+     * Dernières occurrences de l'erreur dans la fenêtre (message brut + contexte décodé).
+     *
+     * @return list<array{created_at: string, message: string, context: array<string, mixed>}>
+     */
+    private function fetchRecentOccurrences(string $normalizedMessage): array
+    {
+        try {
+            $stmt = Database::getConnection()->prepare('
+                SELECT message, context, created_at
+                FROM `' . self::ERROR_LOG_TABLE . '`
+                WHERE normalized_message = :message
+                  AND created_at >= DATE_SUB(NOW(), INTERVAL :window SECOND)
+                ORDER BY id DESC
+                LIMIT 50
+            ');
+            $stmt->execute([':message' => $normalizedMessage, ':window' => self::TIME_WINDOW_SECONDS]);
+
+            $rows = [];
+            foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                $context = json_decode((string) ($row['context'] ?? ''), true);
+                $rows[] = [
+                    'created_at' => (string) ($row['created_at'] ?? ''),
+                    'message' => (string) ($row['message'] ?? ''),
+                    'context' => is_array($context) ? $context : [],
+                ];
+            }
+
+            return $rows;
+        } catch (\Throwable $e) {
+            $this->logger->warning('ErrorAlertService : occurrences illisibles pour le mail', ['error' => $e->getMessage()]);
+
+            return [];
+        }
+    }
+
+    /**
+     * Corps du mail d'alerte : résumé, puis chaque erreur distincte (message réel, page
+     * sans query string, fichier:ligne relatif au dépôt) avec son nombre d'occurrences.
+     *
+     * @param list<array{created_at: string, message: string, context: array<string, mixed>}> $occurrences
+     *        les plus récentes d'abord
+     */
+    public static function buildAlertBody(string $normalizedMessage, int $count, array $occurrences, string $logFile): string
+    {
+        $body = "Le système a détecté une erreur qui se répète de manière anormale.\n\n";
+        $body .= "Erreur: {$normalizedMessage}\n";
+        $body .= "Occurrences: {$count} fois dans les " . (self::TIME_WINDOW_SECONDS / 60) . " dernières minutes\n";
+        $body .= 'Seuil déclenchement: ' . self::ERROR_THRESHOLD . " occurrences\n";
+
+        /** @var array<string, array{n: int, last: string, error: string, page: string, where: string}> $groups */
+        $groups = [];
+        foreach ($occurrences as $occ) {
+            $ctx = $occ['context'];
+            $error = self::truncate(trim((string) ($ctx['error'] ?? $occ['message'])), 500);
+            $page = trim(((string) ($ctx['method'] ?? '')) . ' ' . self::stripQuery((string) ($ctx['url'] ?? '')));
+            $where = '';
+            if (isset($ctx['file']) && (string) $ctx['file'] !== '') {
+                $where = self::relativePath((string) $ctx['file']) . (isset($ctx['line']) ? ':' . (int) $ctx['line'] : '');
+            }
+            $key = $error . '|' . $page . '|' . $where;
+            if (!isset($groups[$key])) {
+                $groups[$key] = ['n' => 0, 'last' => $occ['created_at'], 'error' => $error, 'page' => $page, 'where' => $where];
+            }
+            $groups[$key]['n']++;
+        }
+
+        if ($groups === []) {
+            $body .= "\nDétail indisponible : voir le journal.\n";
+        } else {
+            $body .= "\nDernières occurrences (de la plus récente à la plus ancienne) :\n";
+            $i = 0;
+            foreach ($groups as $g) {
+                if (++$i > 5) {
+                    $body .= '… et ' . (count($groups) - 5) . " autre(s) erreur(s) distincte(s).\n";
+                    break;
+                }
+                $body .= "\n" . $i . '. ' . $g['error'] . "\n";
+                if ($g['page'] !== '') {
+                    $body .= '   Page : ' . $g['page'] . "\n";
+                }
+                if ($g['where'] !== '') {
+                    $body .= '   Code : ' . $g['where'] . "\n";
+                }
+                $body .= '   ' . $g['n'] . ' fois, dernière le ' . $g['last'] . "\n";
+            }
+        }
+
+        $body .= "\nJournal complet : " . basename($logFile) . ' (lignes « Exception non gérée [id] »).';
+
+        return $body;
+    }
+
+    /** URL sans query string ni fragment (un jeton ou une clé API ne part pas par mail). */
+    private static function stripQuery(string $url): string
+    {
+        return (string) preg_replace('/[?#].*$/s', '', $url);
+    }
+
+    /** Chemin relatif au dépôt (…/src/X.php) : le chemin absolu de l'hébergeur ne sort pas. */
+    private static function relativePath(string $file): string
+    {
+        if (preg_match('#/((?:src|templates|config|public|tools|bin|vendor)/.+)$#', $file, $m) === 1) {
+            return $m[1];
+        }
+
+        return basename($file);
+    }
+
+    private static function truncate(string $text, int $max): string
+    {
+        return mb_strlen($text) > $max ? mb_substr($text, 0, $max - 1) . '…' : $text;
     }
 
     /**

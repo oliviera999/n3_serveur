@@ -58,6 +58,20 @@ RewriteRule ^run-cron\.php$ - [F,L]
 # est encore dans la galerie.
 RewriteRule (^|/)\.normalized(/|$) - [F,L]
 
+# Photos des galeries (uploads/{slug}/, corbeille uploads/trash/) : jamais
+# servies par Apache. Le PHP les sert par /gallery/{slug}/files/{fichier}
+# (photo encore dans la galerie) et /admin/gallery/{slug}/trash/files/ (admin).
+# Sans cette règle, une photo mise à la corbeille restait téléchargeable par
+# son chemin direct (constaté le 24/11/2026 : GET /uploads/msp1/<photo> → 200).
+RewriteRule ^uploads/ - [F,L]
+
+# Journaux (racine ou sous-dossier, ex. public/error_log) : cronlog.txt (sortie du `git pull` de la crontab),
+# copies Monolog cronlog-AAAA-MM-JJ.txt, error_log PHP, hmac-audit.log et leurs
+# archives .gz (LogRotationCommand). Constaté le 24/11/2026 :
+# GET /cronlog.txt → 200 (490 Ko lisibles par tous), error_log.AAAA-MM-JJ.gz → 200.
+RewriteRule (^|/)(cronlog|error_log|hmac-audit)[^/]*$ - [F,L]
+RewriteRule \.(log|gz)$ - [F,L]
+
 # Fichiers de configuration / documentation a la racine (pas de contenu servi).
 RewriteRule ^(phpunit\.xml(\.dist)?|phpstan.*\.neon|\.php-cs-fixer\.php)$ - [F,L]
 RewriteRule ^docker-compose.*\.yml$ - [F,L]

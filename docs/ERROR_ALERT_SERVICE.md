@@ -123,18 +123,25 @@ Si nécessaire, exécuter:
 
 ## Exemple d'Alerte Email
 
-**Sujet:** 🚨 Alerte: Erreur répétée détectée
+**Sujet:** 🚨 Alerte: Erreur répétée détectée — Exception non gérée
 
-**Corps:**
+**Corps** (depuis 6.64.0 : erreur réelle, page et code de chaque erreur distincte, 5 au plus ;
+query string et chemin absolu de l'hébergeur retirés) :
 ```
 Le système a détecté une erreur qui se répète de manière anormale.
 
-Erreur: Erreur insertion données: Connection refused
-Occurrences: 7 fois dans les 5 dernières minutes
+Erreur: Exception non gérée
+Occurrences: 6 fois dans les 5 dernières minutes
 Seuil déclenchement: 5 occurrences
 
-Veuillez vérifier les logs pour plus de détails.
-Fichier de log: cronlog.txt
+Dernières occurrences (de la plus récente à la plus ancienne) :
+
+1. SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oliviera_iot.energieData' doesn't exist
+   Page : GET https://iot.olution.info/energie
+   Code : src/Repository/AbstractRepository.php:48
+   6 fois, dernière le 2026-11-15 12:11:17
+
+Journal complet : cronlog.txt (lignes « Exception non gérée [id] »).
 ```
 
 ---

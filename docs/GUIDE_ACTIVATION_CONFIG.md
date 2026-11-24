@@ -54,7 +54,7 @@ Légende cases : `[ ]` à vérifier · cocher `[x]` une fois validé.
 
 ### 2.2 — L'orchestrateur s'exécute réellement
 - [ ] **Vérifier** : le journal applicatif est frais et contient les marqueurs de début/fin.
-- **Comment** : ouvrir <https://iot.olution.info/public/cronlog.txt> (ou `tail -n 50 public/cronlog.txt`). Test manuel : `php run-cron.php` puis re-regarder.
+- **Comment** : lire le journal `cronlog-AAAA-MM-JJ.txt` (non public depuis 6.64.0 : SSH `tail`, gestionnaire de fichiers cPanel ou outil MCP `iot_read_file`). Test manuel : `php run-cron.php` puis re-regarder.
 - **Attendu** : lignes `--- Début orchestrateur CRON ---` / `--- Fin orchestrateur CRON ---` datées de moins de ~5 min, sans exception PHP.
 - **Sinon** : vérifier le chemin PHP du crontab, les droits, et `error_log` (lignes `[run-cron]`). Le verrou `flock` (`cron_orchestrator.lock`) empêche les recouvrements — normal si un run est sauté.
 
