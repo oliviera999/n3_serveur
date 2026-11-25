@@ -66,10 +66,11 @@ RewriteRule (^|/)\.normalized(/|$) - [F,L]
 RewriteRule ^uploads/ - [F,L]
 
 # Journaux (racine ou sous-dossier, ex. public/error_log) : cronlog.txt (sortie du `git pull` de la crontab),
-# copies Monolog cronlog-AAAA-MM-JJ.txt, error_log PHP, hmac-audit.log et leurs
-# archives .gz (LogRotationCommand). Constaté le 24/11/2026 :
-# GET /cronlog.txt → 200 (490 Ko lisibles par tous), error_log.AAAA-MM-JJ.gz → 200.
-RewriteRule (^|/)(cronlog|error_log|hmac-audit)[^/]*$ - [F,L]
+# copies Monolog cronlog-AAAA-MM-JJ.txt, error_log PHP et leurs archives .gz (LogRotationCommand).
+# hmac-audit.log et hmac-audit-AAAA-MM-JJ.log sont couverts par la règle « .log / .gz » :
+# ne pas interdire le préfixe nu « hmac-audit », c'est la route Slim /admin/hmac-audit.
+# Constaté le 24/11/2026 : GET /cronlog.txt → 200, error_log.AAAA-MM-JJ.gz → 200.
+RewriteRule (^|/)(cronlog|error_log)[^/]*$ - [F,L]
 RewriteRule \.(log|gz)$ - [F,L]
 
 # Fichiers de configuration / documentation a la racine (pas de contenu servi).

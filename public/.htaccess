@@ -86,3 +86,13 @@
 <FilesMatch "^(\.env|\.env\..*|\.gitignore|\.gitmodules|composer\.json|composer\.lock|README\.md|CHANGELOG\.md|VERSION)$">
     Require all denied
 </FilesMatch>
+
+# Journaux écrits dans ce dossier (cwd du SAPI web). Le .htaccess de la racine du dépôt
+# ne s'applique pas quand le DocumentRoot est public/ : sans ce bloc, cronlog.txt,
+# error_log, hmac-audit.log et les archives .gz redeviennent téléchargeables dès qu'ils
+# sont recréés (constaté le 24/11/2026, toujours servis le 25/11 si le fichier existe).
+# FilesMatch ne vise que le nom de fichier : /admin/hmac-audit (pas une extension .log)
+# reste une route Slim.
+<FilesMatch "(^(cronlog|error_log))|\.(log|gz)$">
+    Require all denied
+</FilesMatch>

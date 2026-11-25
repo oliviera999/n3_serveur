@@ -267,26 +267,47 @@ class RoutesConfigSecurityTest extends TestCase
     }
 
     /**
-     * Constaté le 24/11/2026 : GET /cronlog.txt → 200 et GET /uploads/msp1/<photo> → 200.
-     * Le DocumentRoot est la racine du dépôt : tout fichier existant est servi par Apache
+     * Constaté le 24/11/2026 : GET /cronlog.txt → 200 et GET /uploads/msp1/<photo> → 200
+     * lorsque ces chemins sont de vrais fichiers sous le DocumentRoot. Apache les sert
      * avant le routeur Slim, d'où ces blocages explicites.
      */
     public function testHtaccessBlocksLogsAndRawUploads(): void
     {
         $htaccess = (string) file_get_contents(__DIR__ . '/../.htaccess');
         $this->assertStringContainsString('RewriteRule ^uploads/ - [F,L]', $htaccess, 'photos servies seulement par /gallery/{slug}/files/');
-        $this->assertStringContainsString('RewriteRule (^|/)(cronlog|error_log|hmac-audit)[^/]*$ - [F,L]', $htaccess);
+        $this->assertStringContainsString('RewriteRule (^|/)(cronlog|error_log)[^/]*$ - [F,L]', $htaccess);
+        $this->assertStringNotContainsString('(cronlog|error_log|hmac-audit)', $htaccess, 'le préfixe nu hmac-audit interdirait /admin/hmac-audit');
         $this->assertStringContainsString('RewriteRule \\.(log|gz)$ - [F,L]', $htaccess);
 
-        $logs = '#(^|/)(cronlog|error_log|hmac-audit)[^/]*$#';
-        foreach (['cronlog.txt', 'cronlog-2026-11-24.txt', 'cronlog.txt.2026-11-23.gz', 'error_log', 'error_log.2026-11-23.gz', 'hmac-audit.log', 'public/error_log', 'public/cronlog.txt'] as $path) {
+        $logs = '#(^|/)(cronlog|error_log)[^/]*$#';
+        foreach (['cronlog.txt', 'cronlog-2026-11-24.txt', 'cronlog.txt.2026-11-23.gz', 'error_log', 'error_log.2026-11-23.gz', 'hmac-audit.log', 'hmac-audit-2026-11-24.log', 'public/error_log', 'public/cronlog.txt'] as $path) {
             $this->assertGreaterThan(0, preg_match($logs, $path) + preg_match('#\\.(log|gz)$#', $path), "{$path} doit être bloqué");
         }
-        foreach (['ota/esp32-wroom/firmware.bin', 'assets/css/app.css', 'gallery/msp1/files/x.jpg'] as $path) {
+        foreach (['ota/esp32-wroom/firmware.bin', 'assets/css/app.css', 'gallery/msp1/files/x.jpg', 'admin/hmac-audit', 'admin/api/hmac-audit/status'] as $path) {
             $this->assertSame(0, preg_match($logs, $path) + preg_match('#\\.(log|gz)$#', $path) + preg_match('#^uploads/#', $path), "{$path} reste servi");
         }
 
         // L'ordre compte : les blocages précèdent le routeur final (RewriteCond !-f).
         $this->assertLessThan(strrpos($htaccess, 'RewriteRule ^ public/index.php [L]'), strpos($htaccess, 'RewriteRule ^uploads/ - [F,L]'));
+    }
+
+    /**
+     * DocumentRoot de production = public/ (le .htaccess racine n'est alors pas lu).
+     * Les journaux du SAPI web sont créés dans ce dossier : ils doivent être refusés
+     * par nom de fichier, sans interdire la route /admin/hmac-audit.
+     */
+    public function testPublicHtaccessDeniesLogFilesByName(): void
+    {
+        $htaccess = (string) file_get_contents(__DIR__ . '/../public/.htaccess');
+        $this->assertStringContainsString('<FilesMatch "(^(cronlog|error_log))|\\.(log|gz)$">', $htaccess);
+        $this->assertStringContainsString('Require all denied', $htaccess);
+
+        $names = '#(^(cronlog|error_log))|\\.(log|gz)$#';
+        foreach (['cronlog.txt', 'cronlog-2026-11-24.txt', 'cronlog.txt.2026-11-23.gz', 'error_log', 'error_log.2026-11-23.gz', 'hmac-audit.log', 'hmac-audit-2026-11-24.log'] as $name) {
+            $this->assertSame(1, preg_match($names, $name), "{$name} doit être refusé");
+        }
+        foreach (['hmac-audit', 'index.php', 'timelapse.js', 'main.css', 'firmware.bin'] as $name) {
+            $this->assertSame(0, preg_match($names, $name), "{$name} n'est pas un journal");
+        }
     }
 }
