@@ -11,6 +11,19 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.65.2] - 2026-11-26
+
+### Correctif — Journaux toujours servis quand le DocumentRoot est `public/`
+- Les refus ajoutés en 6.64.0 sont dans le `.htaccess` de la racine du dépôt. En production le
+  DocumentRoot est `public/` : ce fichier n'est pas lu, et `GET /cronlog.txt` (ou `error_log`,
+  `hmac-audit.log`, archives `.gz`) redevient 200 dès que le SAPI web recrée le fichier
+  (cwd = `public/`, constaté le 24/11/2026). `public/.htaccess` refuse maintenant ces noms
+  (`FilesMatch`), sans toucher la route `/admin/hmac-audit`.
+- Le `.htaccess` racine n'interdit plus le préfixe nu `hmac-audit` (la règle `.log` / `.gz`
+  couvre `hmac-audit.log`) : avec un DocumentRoot à la racine, `GET /admin/hmac-audit` était un 403
+  avant même l'authentification.
+- Test : `RoutesConfigSecurityTest::testPublicHtaccessDeniesLogFilesByName`.
+
 ## [6.65.1] - 2026-11-24
 
 ### Correctif — Statut caméra du timelapse : dernier contact ignoré
