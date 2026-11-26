@@ -11,6 +11,16 @@ et ce projet adhere a [Semantic Versioning](https://semver.org/lang/fr/).
 - Les garde-fous automatiques sont assures par `tools/changelog-maintenance.ps1`.
 - Rotation recommandee : conserver les 40 dernieres entrees, taille cible <= 300KB.
 
+## [6.65.1] - 2026-11-24
+
+### Correctif — Statut caméra du timelapse : dernier contact ignoré
+- `GalleryCameraStatus` ne lisait que le format brut `Y-m-d H:i:s`, alors que
+  `GalleryControlRepository::getLastBoardRequest()` rend `d/m/Y H:i:s` en heure de Casablanca
+  (`BoardRepository::formatTimestamp`). Le contact était donc ignoré : la caméra msp1, qui
+  interroge le serveur toutes les quelques minutes sans envoyer de photo depuis le 20/11/2026,
+  apparaissait « HORS LIGNE » au lieu de « CONNECTÉE, SANS PHOTO ». Les deux formats sont lus.
+- Tests : `GalleryCameraStatusTest::testDisplayFormattedContactFromRepositoryIsRead`.
+
 ## [6.65.0] - 2026-11-24
 
 ### Fonctionnalité — Timelapse : nuits masquées, seuil de nuit unique, vrai statut caméra, heure de Casablanca
